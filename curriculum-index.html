@@ -259,20 +259,27 @@ footer a:hover { text-decoration: underline; }
 <script>
 function switchTrack(id, btn) {
   document.querySelectorAll('.track-panel').forEach(function(p) { p.classList.remove('active'); });
-  document.getElementById('track-' + id).classList.add('active');
+  var targetPanel = document.getElementById('track-' + id);
+  if (targetPanel) targetPanel.classList.add('active');
   document.querySelectorAll('.track-tab').forEach(function(t) { t.classList.remove('active'); });
-  btn.classList.add('active');
+  if (btn) {
+    btn.classList.add('active');
+  } else {
+    var tabBtn = document.querySelector('.track-tab[onclick*="' + id + '"]');
+    if (tabBtn) tabBtn.classList.add('active');
+  }
+  if (history.replaceState) { history.replaceState(null, '', '#' + id); }
 }
 function toggleDay(hdr) {
   var body = hdr.nextElementSibling;
-  if (body.style.display === 'none') {
-    body.style.display = 'block';
-    hdr.classList.add('open');
-  } else {
-    body.style.display = 'none';
-    hdr.classList.remove('open');
-  }
+  if (!body) return;
+  if (body.style.display === 'none') { body.style.display = 'block'; hdr.classList.add('open'); }
+  else { body.style.display = 'none'; hdr.classList.remove('open'); }
 }
+window.addEventListener('DOMContentLoaded', function() {
+  var hash = window.location.hash.replace('#', '');
+  if (hash && document.getElementById('track-' + hash)) { switchTrack(hash); }
+});
 </script>
 </body>
 </html>
