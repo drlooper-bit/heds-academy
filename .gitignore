@@ -1,0 +1,7 @@
+# Don't push these working/preview files
+parts-manager-awwwards.html
+parts-manager-dashboard.bak.html
+parts-manager-redesign-preview.html
+parts-manager-visual-spec.html
+*.bak
+*.bak.*

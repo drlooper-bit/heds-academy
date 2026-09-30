@@ -1,0 +1,2588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HEDS Academy — Rental Service Manager Training & Operating Platform</title>
+<style>
+  :root {
+    --bg: #0e1f38;
+    --fg: #f8fafc;
+    --card-bg: #152847;
+    --border-color: #203b60;
+    --accent-color: #e5ae25;
+    --accent-hover: #c89718;
+    --muted: #94a3b8;
+    --success: #22c55e;
+    --warning: #e5ae25;
+    --danger: #ef4444;
+    --radius: 8px;
+    --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background-color: var(--bg);
+    color: var(--fg);
+    font-family: var(--font-main);
+    line-height: 1.6;
+    padding: 16px;
+    max-width: 1240px;
+    margin: 0 auto;
+  }
+  header {
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 16px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  .header-logo {
+    max-height: 120px;
+    width: auto;
+    object-fit: contain;
+  }
+  .header-text { flex: 1; }
+  .brand {
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--accent-color);
+  }
+  h1 { font-size: 1.75rem; font-weight: 800; margin-top: 4px; }
+  p.subtitle { color: var(--muted); font-size: 0.95rem; margin-top: 4px; }
+  .main-nav {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 24px;
+    background: rgba(0,0,0,0.25);
+    padding: 6px;
+    border-radius: var(--radius);
+    border: 1px solid var(--border-color);
+  }
+  .main-nav-btn {
+    flex: 1;
+    padding: 12px 18px;
+    font-size: 1rem;
+    font-weight: 700;
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: center;
+  }
+  .main-nav-btn:hover { color: var(--fg); background: rgba(255,255,255,0.05); }
+  .main-nav-btn.active {
+    background: var(--accent-color);
+    color: #021226;
+    box-shadow: 0 2px 8px rgba(229, 174, 37, 0.4);
+  }
+  .section-container { display: none; }
+  .section-container.active { display: block; }
+  .nav-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    padding-bottom: 8px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--border-color);
+  }
+  .tab-btn {
+    background: var(--card-bg);
+    color: var(--muted);
+    border: 1px solid var(--border-color);
+    padding: 6px 12px;
+    border-radius: var(--radius);
+    font-weight: 700;
+    font-size: 0.8rem;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.2s ease;
+    flex: 1 1 auto;
+    text-align: center;
+  }
+  .tab-btn:hover { color: var(--fg); border-color: var(--accent-color); }
+  .tab-btn.active {
+    background: var(--accent-color);
+    color: #021226;
+    border-color: var(--accent-color);
+  }
+  .card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    padding: 24px;
+    margin-bottom: 24px;
+  }
+  .card-title {
+    font-size: 1.25rem;
+    font-weight: 800;
+    margin-bottom: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 10px;
+  }
+  .grid-2 { display: grid; grid-template-columns: 1fr; gap: 20px; }
+  @media(min-width: 768px) { .grid-2 { grid-template-columns: 1fr 1fr; } }
+  .curr-module-header {
+    background: rgba(229, 174, 37, 0.1);
+    border-left: 5px solid var(--accent-color);
+    padding: 16px;
+    border-radius: 0 var(--radius) var(--radius) 0;
+    margin-bottom: 20px;
+  }
+  .curr-day-tag {
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--accent-color);
+  }
+  .curr-module-title { font-size: 1.3rem; font-weight: 800; margin-top: 2px; }
+  .curr-section { margin-bottom: 20px; }
+  .curr-section-h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--accent-color);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 6px;
+  }
+  .formula-card {
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    padding: 16px;
+    margin: 12px 0;
+  }
+  .formula-title { font-size: 0.85rem; font-weight: 700; color: var(--muted); margin-bottom: 6px; }
+  .formula-expr { font-family: monospace; font-size: 1rem; font-weight: 700; color: #e5ae25; margin-bottom: 10px; }
+  .formula-steps { font-size: 0.85rem; color: var(--fg); padding-left: 20px; }
+  .formula-steps li { margin-bottom: 6px; }
+  .example-badge {
+    display: inline-block;
+    background: rgba(229, 174, 37, 0.15);
+    color: #e5ae25;
+    border: 1px solid #e5ae25;
+    font-size: 0.75rem;
+    font-weight: 800;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+  .floor-rule {
+    background: rgba(245, 158, 11, 0.1);
+    border: 1px solid var(--warning);
+    border-radius: var(--radius);
+    padding: 16px;
+    margin: 16px 0;
+    font-size: 0.9rem;
+  }
+  .floor-rule-title { font-weight: 800; color: var(--warning); text-transform: uppercase; font-size: 0.75rem; letter-spacing: 1px; }
+  .spec-box {
+    background: rgba(59, 130, 246, 0.08);
+    border-left: 4px solid var(--accent-color);
+    padding: 14px 16px;
+    border-radius: 0 var(--radius) var(--radius) 0;
+    margin: 12px 0;
+    font-size: 0.88rem;
+  }
+  .spec-title { font-weight: 700; color: var(--accent-color); margin-bottom: 4px; }
+  .checklist { list-style: none; margin-top: 8px; }
+  .checklist li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.88rem;
+    padding: 8px 0;
+    border-bottom: 1px dashed var(--border-color);
+  }
+  .checklist li:last-child { border-bottom: none; }
+  .checklist input[type="checkbox"] { width: 16px; height: 16px; accent-color: var(--accent-color); }
+  .form-group { margin-bottom: 14px; }
+  label { display: block; font-size: 0.85rem; font-weight: 600; color: var(--muted); margin-bottom: 4px; }
+  input[type="number"], input[type="text"], input[type="password"], input[type="email"] {
+    width: 100%;
+    padding: 10px 12px;
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    color: var(--fg);
+    font-size: 0.95rem;
+    font-weight: 600;
+  }
+  input:focus { outline: 2px solid var(--accent-color); border-color: transparent; }
+  .metric-box {
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    padding: 16px;
+    text-align: center;
+    margin-top: 16px;
+  }
+  .metric-val { font-size: 2rem; font-weight: 800; margin: 4px 0; }
+  .metric-status {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+  .status-pass { background: rgba(34, 197, 94, 0.2); color: var(--success); border: 1px solid var(--success); }
+  .status-warn { background: rgba(245, 158, 11, 0.2); color: var(--warning); border: 1px solid var(--warning); }
+  .status-fail { background: rgba(239, 68, 68, 0.2); color: var(--danger); border: 1px solid var(--danger); }
+  .btn {
+    background: var(--accent-color);
+    color: #0e1f38;
+    border: none;
+    padding: 10px 18px;
+    border-radius: var(--radius);
+    font-weight: 800;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background 0.2s ease;
+  }
+  .btn:hover { background: var(--accent-hover); }
+  .btn-outline {
+    background: transparent;
+    border: 1px solid var(--border-color);
+    color: var(--fg);
+  }
+  .btn-outline:hover { background: var(--card-bg); border-color: var(--accent-color); }
+  .tab-content { display: none; }
+  .tab-content.active { display: block; }
+  .module-dropdown {
+    position: relative;
+    margin-bottom: 20px;
+  }
+  .dropdown-toggle {
+    width: 100%;
+    padding: 14px 18px;
+    font-size: 1rem;
+    font-weight: 700;
+    background: var(--card-bg);
+    color: var(--accent-color);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.2s ease;
+  }
+  .dropdown-toggle:hover { border-color: var(--accent-color); }
+  .dropdown-toggle.active { border-color: var(--accent-color); box-shadow: 0 2px 8px rgba(229, 174, 37, 0.3); }
+  .dropdown-arrow { font-size: 0.8rem; transition: transform 0.2s ease; }
+  .dropdown-toggle.active .dropdown-arrow { transform: rotate(180deg); }
+  .dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    margin-top: 4px;
+    max-height: 480px;
+    overflow-y: auto;
+    z-index: 100;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+  }
+  .dropdown-menu.open { display: block; }
+  .dropdown-group-label {
+    padding: 8px 16px;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--accent-color);
+    font-weight: 700;
+    border-bottom: 1px solid var(--border-color);
+    background: rgba(229, 174, 37, 0.05);
+  }
+  .dropdown-item {
+    display: block;
+    width: 100%;
+    padding: 10px 16px;
+    font-size: 0.9rem;
+    background: transparent;
+    color: var(--fg);
+    border: none;
+    text-align: left;
+    cursor: pointer;
+    transition: all 0.15s ease;
+  }
+  .dropdown-item:hover { background: rgba(229, 174, 37, 0.1); color: var(--accent-color); }
+  .dropdown-item.active { background: var(--accent-color); color: #021226; font-weight: 600; }
+  .test-question {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    padding: 20px;
+    margin-bottom: 16px;
+  }
+  .test-question .q-num { font-size: 0.8rem; color: var(--accent-color); font-weight: 700; margin-bottom: 6px; }
+  .test-question .q-text { font-size: 1rem; margin-bottom: 12px; }
+  .test-options { list-style: none; padding: 0; }
+  .test-options li {
+    padding: 8px 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    margin-bottom: 6px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    font-size: 0.9rem;
+  }
+  .test-options li:hover { border-color: var(--accent-color); background: rgba(229, 174, 37, 0.05); }
+  .test-options li.selected { border-color: var(--accent-color); background: rgba(229, 174, 37, 0.15); }
+  .content-placeholder {
+    border: 2px dashed var(--border-color);
+    border-radius: var(--radius);
+    padding: 40px;
+    text-align: center;
+    color: var(--muted);
+    margin: 16px 0;
+  }
+  .content-placeholder .ph-label {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--accent-color);
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .completion-tracker {
+    margin-top: 20px;
+    padding: 16px;
+    background: rgba(34, 197, 94, 0.05);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .completion-tracker.completed {
+    background: rgba(34, 197, 94, 0.1);
+    border-color: var(--success);
+  }
+  .completion-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .completion-checkbox {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    accent-color: var(--success);
+    transform: scale(1.2);
+  }
+  .completion-label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--muted);
+  }
+  .completion-tracker.completed .completion-label {
+    color: var(--success);
+  }
+  .completion-date {
+    font-size: 0.85rem;
+    color: var(--muted);
+    font-weight: 600;
+  }
+  .completion-tracker.completed .completion-date {
+    color: var(--success);
+  }
+  .completion-btn {
+    padding: 6px 16px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    background: var(--success);
+    color: #021226;
+    transition: all 0.2s ease;
+  }
+  .completion-btn:hover { opacity: 0.85; }
+  .completion-btn.completed-btn {
+    background: transparent;
+    color: var(--danger);
+    border: 1px solid var(--danger);
+  }
+  .completion-btn.completed-btn:hover { background: rgba(239, 68, 68, 0.1); }
+  @media print {
+    body { background: #fff; color: #000; max-width: none; padding: 0; }
+    .main-nav, .nav-tabs, .module-dropdown, .button-row, .btn, .input-form { display: none !important; }
+    .section-container { display: block !important; }
+    .tab-content { display: none !important; }
+    .tab-content.active { display: block !important; }
+    .content-card { border: 1px solid #ccc; background: #fff; color: #000; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <img src="LOGO_HEDS.png" alt="HEDS Logo" class="header-logo" style="cursor:pointer;" onclick="switchMainSection('sec_curriculum', document.querySelectorAll('.main-nav-btn')[0])">
+  <div class="header-text">
+    <h1 style="font-size:1.8rem; font-weight:900; color:var(--accent-color); text-transform:uppercase; letter-spacing:1px; margin:0 0 2px 0; line-height:1.1;">Heavy Equipment Dealer Solutions LLC</h1>
+    <div class="brand" style="font-size:0.95rem; font-weight:800; color:var(--accent-color); text-transform:uppercase; letter-spacing:1.5px; margin-bottom:6px;">HEDS Operating Discipline Academy</div>
+    <h2 style="font-size:1.25rem; font-weight:700; color:var(--fg); margin:0 0 4px 0;">Rental Service Manager Training &amp; Operating Platform</h2>
+    <p class="subtitle">Section 1: Rental Service Manager Curriculum | Section 2: Interactive Fleet Operating Dashboard | Section 3: 30/60/90 Implementation Tracker | Section 4: Assessment Test</p>
+  </div>
+</header>
+
+<!-- Main Section Navigation -->
+<nav class="main-nav">
+  <button class="main-nav-btn active" onclick="switchMainSection('sec_curriculum', this)">&#128218; 1. Training Curriculum</button>
+  <button class="main-nav-btn" onclick="switchMainSection('sec_dashboard', this)">&#128202; 2. Interactive Operating Dashboard</button>
+  <button class="main-nav-btn" onclick="switchMainSection('sec_tracker', this)">&#128274; 3. 30/60/90 Implementation Tracker</button>
+  <button class="main-nav-btn" onclick="switchMainSection('sec_test', this)">&#9989; 4. Assessment Test</button>
+</nav>
+
+<!-- ================================================================= -->
+<!-- SECTION 1: TRAINING CURRICULUM -->
+<!-- ================================================================= -->
+<div id="sec_curriculum" class="section-container active">
+  <div class="module-dropdown">
+    <button class="dropdown-toggle active" onclick="toggleDropdown()">
+      <span id="dropdown-label">Module 1 — The Rental Service Mindset &amp; Yard Flow</span>
+      <span class="dropdown-arrow">&#9660;</span>
+    </button>
+    <div class="dropdown-menu" id="module_menu">
+      <div class="dropdown-group-label">Rental Service Manager Curriculum</div>
+      <button class="dropdown-item active" onclick="switchCurrTab('c_m1', this)">Module 1 — The Rental Service Mindset &amp; Yard Flow</button>
+      <button class="dropdown-item" onclick="switchCurrTab('c_m2', this)">Module 2 — Fleet Economics, Lifecycle Costs &amp; OEC</button>
+      <button class="dropdown-item" onclick="switchCurrTab('c_m3', this)">Module 3 — Shop Workflow, WIP Discipline &amp; Labor Efficiency</button>
+      <button class="dropdown-item" onclick="switchCurrTab('c_m4', this)">Module 4 — Regulatory Compliance, Safety &amp; Environmental Control</button>
+      <button class="dropdown-item" onclick="switchCurrTab('c_m5', this)">Module 5 — Lean Parts Management &amp; Dealer Supply Integration</button>
+      <button class="dropdown-item" onclick="switchCurrTab('c_m6', this)">Module 6 — Economic Downtime, Telematics &amp; Commercial Sync</button>
+      <button class="dropdown-item" onclick="switchCurrTab('c_m7', this)">Module 7 — Operating Cadence &amp; HEDS KPI Management</button>
+    </div>
+  </div>
+
+  <!-- MODULE 1: The Rental Service Mindset & Yard Flow -->
+  <div id="c_m1" class="tab-content active">
+    <div class="card">
+      <div class="curr-module-header">
+        <div class="curr-day-tag">Module 1 &mdash; Rental Service Mindset</div>
+        <div class="curr-module-title">Module 1: The Rental Service Mindset &amp; Yard Flow</div>
+      </div>
+
+      <div class="curr-section">
+        <div class="curr-section-h3">Goal</div>
+        <p>Master the core operational role of the Rental Service Manager as an internal fleet production leader: maximizing fleet readiness, eliminating turnaround friction, and enforcing strict stage-gate service level agreements (SLAs).</p>
+      </div>
+
+      <div class="floor-rule">
+        <div class="floor-rule-title">Floor Rule</div>
+        In rental operations, the rental counter is your primary internal customer. Your product is a certified rent-ready machine on the green line earning revenue. Every day a unit sits dead in your yard or shop is cash burned.
+      </div>
+
+      <div class="curr-section">
+        <div class="curr-section-h3">Diagnose</div>
+        <ul style="padding-left: 20px;">
+          <li>Audit your branch's current Fleet Status Report: calculate how many total machines are owned vs. how many are actively on-rent or sitting on the green line ready for dispatch.</li>
+          <li>Review trailing 30 days of off-rent returns: identify units that sat in the yard for &gt;24 hours before an initial check-in inspection or work order was created.</li>
+          <li>Ask the core operational diagnostic questions:
+            <ol style="padding-left: 20px; margin-top:6px;">
+              <li>"When a machine returns off-rent, what is the exact elapsed time before it is checked in, washed, serviced, and moved to the ready-line?"</li>
+              <li>"Who physically owns the machine at each stage between the return gate and the green line?"</li>
+              <li>"Does the rental counter ever turn away a customer reservation while a unit of that exact class sits dirty or uninspected in the back yard?"</li>
+            </ol>
+          </li>
+        </ul>
+      </div>
+
+      <div class="curr-section">
+        <div class="curr-section-h3">Part 1: Fleet Production Management &amp; Physical Availability</div>
+
+        <div class="grid-2" style="margin: 12px 0;">
+          <div class="spec-box" style="background:rgba(34, 197, 94, 0.08); border-left-color:var(--success); margin:0;">
+            <div class="spec-title" style="color:var(--success);">What It Measures</div>
+            <p style="font-size:0.88rem; line-height:1.6;">Measures how effectively shop capacity and yard workflow are directed toward converting off-rent, returned, or down equipment into certified rent-ready fleet inventory.</p>
+          </div>
+          <div class="spec-box" style="background:rgba(239, 68, 68, 0.08); border-left-color:var(--danger); margin:0;">
+            <div class="spec-title" style="color:var(--danger);">What It Does NOT Measure</div>
+            <p style="font-size:0.88rem; line-height:1.6;">Retail labor billing, technician billable hours, or customer-paid repairs.</p>
+          </div>
+        </div>
+
+        <div class="spec-box" style="background:rgba(59, 130, 246, 0.1); border-color:var(--accent-color);">
+          <div class="spec-title">Manager's Insight</div>
+          <p style="font-size:0.88rem; line-height:1.6;">The rental shop is an internal production factory. When an excavator sits in the shop for 5 extra days, the company loses $750/day in top-line rental revenue, while the fixed debt and depreciation on that $200,000 asset continue ticking. If the shop runs without daily throughput targets, it starves the rental counter of sellable inventory. Managing fleet production means tracking the flow of physical assets through each stage of readiness every single day.</p>
+        </div>
+      </div>
+
+      <div class="formula-card">
+        <div class="example-badge">Industry Standard Worked Example</div>
+        <div class="formula-title">FLEET PHYSICAL AVAILABILITY FORMULA</div>
+        <div class="formula-expr">Fleet Physical Availability % = [Rent-Ready Units + On-Rent Units] / Total Fleet Units &times; 100</div>
+        <ol class="formula-steps">
+          <li><strong>Step 1:</strong> Extract total active fleet units assigned to your branch from the ERP Fleet Master. <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></li>
+          <li><strong>Step 2:</strong> Count the number of units currently on-rent to customers (Status = On-Rent). <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></li>
+          <li><strong>Step 3:</strong> Count the number of units currently staged on the ready-line certified for delivery (Status = Rent-Ready). <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></li>
+          <li><strong>Step 4:</strong> Add on-rent units and rent-ready units together to find your Total Revenue-Producing Units.</li>
+          <li><strong>Step 5:</strong> Divide Total Revenue-Producing Units by Total Fleet Units.</li>
+          <li><strong>Step 6:</strong> Multiply by 100 to calculate your Fleet Physical Availability percentage.</li>
+        </ol>
+        <p style="margin-top:10px; font-size:0.88rem;"><strong>Worked Example:</strong> Total Active Branch Fleet: 150 units. Units On-Rent: 105. Units on Ready-Line (Green-Tagged): 35. Calculation: (105 + 35) / 150 &times; 100 = 140/150 &times; 100 = <strong style="color:var(--success);">93.3% (PASS &mdash; Above 92% Target)</strong></p>
+        <div style="margin-top:8px; font-size:0.85rem;">
+          <strong>HEDS Target Benchmark:</strong>
+          <ul style="padding-left:16px; margin-top:4px;">
+            <li><strong>Target Band:</strong> &ge; 92% Physical Availability</li>
+            <li><strong>Warning Band:</strong> 88.0% to 91.9%</li>
+            <li><strong>Critical Fail:</strong> &lt; 88.0% (Signals severe shop gridlock or yard backlog)</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="floor-rule">
+        <div class="floor-rule-title">Floor Rule</div>
+        If your fleet availability drops below 92%, your shop throughput is choking branch revenue. The rental counter cannot rent machines that are trapped in your yard.
+      </div>
+
+      <div class="curr-section">
+        <div class="curr-section-h3">Part 2: The Turnaround Stage-Gate Pipeline &amp; Internal SLAs</div>
+        <p style="font-size:0.9rem; margin-bottom:10px;">The elapsed time required to complete the four critical stages of the turnaround pipeline: Return &rarr; Check-In &rarr; Wash &rarr; Inspection/PM &rarr; Ready-Line Tagging.</p>
+        <div class="grid-2" style="margin: 12px 0;">
+          <div class="spec-box" style="background:rgba(34, 197, 94, 0.08); border-left-color:var(--success); margin:0;">
+            <div class="spec-title" style="color:var(--success);">What It Measures</div>
+            <p style="font-size:0.88rem;">The elapsed time required to complete the four critical stages of the turnaround pipeline: Return &rarr; Check-In &rarr; Wash &rarr; Inspection/PM &rarr; Ready-Line Tagging.</p>
+          </div>
+          <div class="spec-box" style="background:rgba(239, 68, 68, 0.08); border-left-color:var(--danger); margin:0;">
+            <div class="spec-title" style="color:var(--danger);">What It Does NOT Measure</div>
+            <p style="font-size:0.88rem;">Individual technician wrench speed or total fleet capital valuation.</p>
+          </div>
+        </div>
+        <div class="spec-box" style="background:rgba(59, 130, 246, 0.1); border-color:var(--accent-color);">
+          <div class="spec-title">Manager's Insight</div>
+          <p style="font-size:0.88rem;">Turnaround time is lost in the gaps between stages, not during actual wrench-time. A machine takes 45 minutes to wash and 1.5 hours to service, yet it takes 4 days to get back to the ready-line. Why? Because it sat in the return yard for 24 hours before check-in, sat in the wash queue for 36 hours, and sat in front of the bay for another 24 hours waiting on an oil filter. Setting strict stage-gate SLAs eliminates the dead dwell time.</p>
+        </div>
+        <div style="margin:12px 0; font-size:0.85rem; padding:14px; background:rgba(0,0,0,0.25); border-radius:8px; border:1px solid var(--border-color);">
+          <strong style="color:var(--accent-color);">Standard Operational SLAs:</strong>
+          <ol style="padding-left:20px; margin-top:8px;">
+            <li><strong>Gate 1 &mdash; Return Check-In &amp; Photo Audit:</strong> &le; 4 hours from physical return to yard.</li>
+            <li><strong>Gate 2 &mdash; Wash Rack &amp; Decontamination:</strong> &le; 8 hours from check-in completion.</li>
+            <li><strong>Gate 3 &mdash; Safety Inspection &amp; Standard PM:</strong> &le; 24 hours from wash rack exit.</li>
+            <li><strong>Gate 4 &mdash; Ready-Line Green Tagging &amp; ERP Release:</strong> &le; 12 hours from service completion.</li>
+            <li><strong>Total Standard Off-Rent Turnaround Cycle:</strong> &le; 24 to 48 hours maximum elapsed time.</li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="curr-section">
+        <div class="curr-section-h3">Part 3: Yard Dwell Time Taxonomy &amp; Root-Cause Elimination</div>
+        <p style="font-size:0.9rem; margin-bottom:8px;"><strong>The 5 Root Causes of Yard Dwell Time:</strong></p>
+        <ol style="padding-left:20px; font-size:0.88rem; line-height:1.8;">
+          <li><strong>The Ghost Return:</strong> Delivery driver drops machine in the back lot without handing the return paperwork to the yard specialist or rental counter. Unit sits uninspected for 24&ndash;48 hours.</li>
+          <li><strong>The Wash Rack Chokepoint:</strong> Wash rack is treated as a catch-all queue with no staging priority. Quick-turn machines sit behind heavily caked dozers that take 4 hours to clean.</li>
+          <li><strong>The Unassigned Work Order Gap:</strong> Unit is washed and staged in the yard, but no work order is opened in the ERP. Technicians walk past it because it is not on their dispatch board.</li>
+          <li><strong>Missing Parts Hold:</strong> Unit is pulled into a service bay, disassembled, and discovered to need an air filter or hydraulic seal not in stock. Machine is pushed back into the yard with parts off.</li>
+          <li><strong>Ready-Line Tagging Delay:</strong> Repair and PM are completed, but the technician did not sign off the 4-C sheet or update the ERP status to "Rent-Ready." The rental counter still sees the unit as "Down."</li>
+        </ol>
+      </div>
+
+      <div class="curr-section">
+        <div class="curr-section-h3">Part 4: Color-Coded Physical Stage Tagging System</div>
+        <p style="font-size:0.9rem; margin-bottom:8px;">To eliminate confusion between the shop floor, yard personnel, and rental counter, enforce a <strong>3-Tag Weatherproof Physical Hanging System</strong>:</p>
+        <div class="grid-2" style="margin: 8px 0;">
+          <div class="spec-box">
+            <div class="spec-title" style="color:#ef4444;">RED TAG (Mechanically Down / In-Process)</div>
+            <p style="font-size:0.85rem;">Unit is not rentable. Down for mechanical repair, open PM, or waiting on parts. Required Data: Unit ID, Work Order #, Assigned Technician, Down Reason, Date Tagged.</p>
+          </div>
+          <div class="spec-box">
+            <div class="spec-title" style="color:#e5ae25;">YELLOW TAG (Checked In / In Pipeline)</div>
+            <p style="font-size:0.85rem;">Unit is returned off-rent; check-in photos completed; awaiting wash rack or PM lane. Required Data: Unit ID, Return Date/Time, Fuel Level, Hour Meter, Receiving Yard Specialist.</p>
+          </div>
+        </div>
+        <div class="spec-box" style="margin-top:8px;">
+          <div class="spec-title" style="color:#22c55e;">GREEN TAG (Certified Rent-Ready)</div>
+          <p style="font-size:0.85rem;">Unit has passed 100% of safety inspection, PM completed, fluids topped, fueled, washed, attachments torqued, and ERP updated to "Ready." Required Data: Unit ID, Inspector Signature, Date/Time Certified, Hour Meter.</p>
+        </div>
+      </div>
+
+      <div class="curr-section">
+        <div class="curr-section-h3">Manager's Tips &amp; Floor Controls</div>
+        <ul style="padding-left: 20px; font-size:0.88rem; line-height:1.8;">
+          <li><strong>The 4-Hour Check-In Rule:</strong> If a delivery driver drops a machine at 2:00 PM, the return inspection, fluid check, and 4-point photos must be completed and logged into the ERP before 6:00 PM that same day.</li>
+          <li><strong>Wash Rack Prioritization:</strong> Wash quick-turn, high-demand machines first. Never wash a unit that is headed for a 40-hour engine overhaul before washing 3 excavators that only need a 250-hour PM and a wash to hit the ready-line.</li>
+          <li><strong>The Green Line Boundary:</strong> Green-tagged machines are parked strictly in designated "Ready-Line" bays facing forward with keys in the lockbox. A red-tagged or yellow-tagged unit is never permitted to cross into the ready-line staging area.</li>
+        </ul>
+      </div>
+
+      <div class="curr-section">
+        <div class="curr-section-h3">Rhythm &amp; Operating Cadence</div>
+        <ul style="padding-left: 20px; font-size:0.88rem; line-height:1.8;">
+          <li><strong>Daily 7:00 AM Yard Sweep:</strong> Shop Foreman and Lead Yard Specialist walk the return yard to verify all machines returned overnight have yellow tags and work orders opened.</li>
+          <li><strong>Daily 1:00 PM Turnaround Handoff:</strong> Service Manager and Rental Counter Supervisor review the ready-line queue for afternoon customer dispatch.</li>
+          <li><strong>Weekly Turnaround SLA Review:</strong> Every Tuesday at 8:00 AM, review average elapsed turnaround hours per asset class vs. the 24&ndash;48 hour SLA.</li>
+        </ul>
+      </div>
+
+      <div class="curr-section">
+        <div class="curr-section-h3">Live Fix / Hands-On Exercise</div>
+        <ol style="padding-left:20px; font-size:0.88rem; line-height:1.8;">
+          <li>Pull your branch's ERP Off-Rent Log for the trailing 14 days.</li>
+          <li>Select 5 recent off-rent machine returns (e.g., 2 excavators, 2 aerial lifts, 1 wheel loader).</li>
+          <li>Extract the exact timestamps: Physical Return Time, Work Order Open Time, Work Order Close Time, Ready-Line Release Time.</li>
+          <li>Calculate the total turnaround hours for each unit.</li>
+          <li>Identify the bottleneck stage responsible for &gt;50% of the elapsed downtime for each machine.</li>
+          <li>Re-engineer the staging flow to cut at least 24 hours of dwell time out of that stage.</li>
+        </ol>
+      </div>
+
+      <div class="curr-section">
+        <div class="curr-section-h3">Accountability Cascade</div>
+        <ul style="padding-left: 20px; font-size:0.88rem; line-height:1.8;">
+          <li><strong>Return Gate &amp; 4-Hour Check-In Owner:</strong> Lead Yard Specialist (Named individual).</li>
+          <li><strong>Wash Rack Flow Owner:</strong> Wash Rack Lead / Yard Foreman.</li>
+          <li><strong>Fast-Track PM &amp; Repair Throughput Owner:</strong> Shop Foreman.</li>
+          <li><strong>Final Ready-Line Sign-Off &amp; ERP Status Owner:</strong> Rental Service Manager.</li>
+          <li><strong>Escalation Trigger:</strong> Any machine sitting in yellow or red status for &gt;48 hours without an active technician assigned must be escalated directly to the Branch Manager.</li>
+        </ul>
+        <div class="spec-box" style="margin-top:12px;">
+          <div class="spec-title">Deliverable</div>
+          <p>Branch Turnaround SLA Process Map and Physical Staging Layout Diagram.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODULE 2: Fleet Economics, Lifecycle Costs & OEC -->
+  <div id="c_m2" class="tab-content">
+    <div class="card">
+      <div class="curr-module-header">
+        <div class="curr-day-tag">Module 2 &mdash; Fleet Economics</div>
+        <div class="curr-module-title">Module 2: Fleet Economics, Lifecycle Costs &amp; OEC Management</div>
+      </div>
+
+      <div class="curr-section">
+        <div class="curr-section-h3">Goal</div>
+        <p>Train managers to read equipment asset balance sheets, track repair spend against Original Equipment Cost (OEC), and evaluate when older units cross the economic tipping point into chronic profit drains.</p>
+      </div>
+
+      <div class="floor-rule">
+        <div class="floor-rule-title">Floor Rule</div>
+        Any machine whose trailing 12-month maintenance cost exceeds 6% of OEC requires mandatory GM and Fleet Manager review before another dollar of labor or parts is authorized.
+      </div>
+
+      <div class="curr-section">
+        <div class="curr-section-h3">Part 1: Tracking Maintenance Cost as a % of OEC</div>
+
+        <div class="grid-2" style="margin: 12px 0;">
+          <div class="spec-box" style="background:rgba(34, 197, 94, 0.08); border-left-color:var(--success); margin:0;">
+            <div class="spec-title" style="color:var(--success);">What It Measures</div>
+            <p style="font-size:0.88rem;">Evaluates total annual maintenance expense (internal labor, replacement parts, lubricants, outside sublet repairs, and towing) relative to the original capital acquisition cost of the machine.</p>
+          </div>
+          <div class="spec-box" style="background:rgba(239, 68, 68, 0.08); border-left-color:var(--danger); margin:0;">
+            <div class="spec-title" style="color:var(--danger);">What It Does NOT Measure</div>
+            <p style="font-size:0.88rem;">Short-term seasonal rental demand or current market trade-in value.</p>
+          </div>
+        </div>
+
+        <div class="spec-box" style="background:rgba(59, 130, 246, 0.1); border-color:var(--accent-color);">
+          <div class="spec-title">Manager's Insight</div>
+          <p style="font-size:0.88rem;">Tracking maintenance as a raw dollar figure is misleading. Spending $10,000 on a $400,000 production excavator is exceptional (2.5% of OEC). Spending $10,000 on a $60,000 skid steer is a financial disaster (16.7% of OEC). OEC provides the normalized financial baseline across all asset categories. It tells you whether an asset is a cash generator or a cash incinerator.</p>
+        </div>
+
+        <div class="formula-card">
+          <div class="example-badge">Industry Standard Worked Example</div>
+          <div class="formula-title">MAINTENANCE COST AS % OF OEC FORMULA</div>
+          <div class="formula-expr">Annual Maint % of OEC = Trailing 12-Mo Total Maint Spend / Original Equipment Cost &times; 100</div>
+          <ol class="formula-steps">
+            <li><strong>Step 1:</strong> Enter total internal labor loaded cost charged to the unit over the last 12 months. <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></li>
+            <li><strong>Step 2:</strong> Enter total parts and filter costs charged to the unit. <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></li>
+            <li><strong>Step 3:</strong> Enter all sublet repair, glass, tire, and outside vendor costs. <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></li>
+            <li><strong>Step 4:</strong> Sum parts, labor, and sublet to find Total 12-Month Maintenance Spend.</li>
+            <li><strong>Step 5:</strong> Divide by the machine's capitalized OEC. <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></li>
+            <li><strong>Step 6:</strong> Multiply by 100 to get the annual maintenance percentage.</li>
+          </ol>
+          <div style="margin-top:12px; font-size:0.85rem;">
+            <p><strong>Worked Examples (Industry Standard Benchmarks):</strong></p>
+            <p style="margin-top:6px;"><strong>Machine A (20-Ton Excavator):</strong> OEC: $240,000. 12-Mo Maint Spend: $10,800. Calculation: ($10,800 / $240,000) &times; 100 = <strong style="color:var(--success);">4.5% &rarr; PASS (Within 3.5%&ndash;5.5% Target Band)</strong></p>
+            <p><strong>Machine B (Compact Track Loader - 5 Years Old):</strong> OEC: $68,000. 12-Mo Maint Spend: $7,480. Calculation: ($7,480 / $68,000) &times; 100 = <strong style="color:var(--danger);">11.0% &rarr; CRITICAL FAIL (Disposition Alert)</strong></p>
+          </div>
+          <div style="margin-top:8px; font-size:0.85rem;">
+            <strong>HEDS Target Benchmark:</strong>
+            <ul style="padding-left:16px; margin-top:4px;">
+              <li><strong>Target Band:</strong> 3.5% to 5.5% of OEC / Year</li>
+              <li><strong>Warning Band:</strong> 5.6% to 6.5%</li>
+              <li><strong>Critical Fail / Disposition Flag:</strong> &gt; 6.5% of OEC</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="curr-section">
+        <div class="curr-section-h3">Part 2: Preventive Maintenance (PM) Compounding &amp; ROI</div>
+        <p style="font-size:0.9rem; margin-bottom:10px;">The long-term return on investment of completing scheduled preventive maintenance on-time versus the compounding cost of jobsite breakdowns, towing, emergency repairs, and catastrophic engine/hydraulic failures.</p>
+
+        <div style="padding:14px; background:rgba(0,0,0,0.25); border-radius:8px; border:1px solid var(--border-color); margin:10px 0;">
+          <p style="font-size:0.9rem;"><strong>The $450 vs. $12,000 Financial Contrast:</strong></p>
+          <ul style="padding-left:20px; font-size:0.88rem; margin-top:8px; line-height:1.8;">
+            <li>A routine 500-hour PM costs <strong>$450</strong> (filters, oil, 2 hours labor) and takes <strong>3 hours</strong> of planned shop time.</li>
+            <li>Skipping or deferring that PM causes contaminated hydraulic fluid or oil breakdown, resulting in a <strong>$12,000</strong> catastrophic component rebuild, <strong>$1,200</strong> in round-trip lowboy towing, <strong>$2,500</strong> in customer machine substitution costs, and <strong>20 days of lost rental revenue ($15,000)</strong>. Total unbudgeted failure cost = <strong>$30,700</strong>.</li>
+            <li><strong>PM ROI Ratio:</strong> Every $1.00 spent on disciplined, on-time PM prevents $6.00 to $10.00 in reactive failure and lost rental revenue.</li>
+          </ul>
+        </div>
+
+        <div class="formula-card">
+          <div class="formula-title">PM COMPLIANCE RATE FORMULA</div>
+          <div class="formula-expr">PM Compliance Rate % = PMs Completed Within &plusmn;10% or 50 Hours of Due Meter / Total Scheduled PMs Due &times; 100</div>
+          <p style="font-size:0.85rem; margin-top:6px;"><strong>HEDS Target Benchmark:</strong> &ge; 90% PM Compliance Rate (Top Quartile: &ge; 95%)</p>
+        </div>
+      </div>
+
+      <div class="curr-section">
+        <div class="curr-section-h3">Part 3: The Economic Obsolescence Curve &amp; 5% At-Risk Fleet Review</div>
+        <p style="font-size:0.9rem; margin-bottom:8px;">Identifies the bottom 5% of fleet assets that generate disproportionate maintenance drag, chronic telematics faults, and repeat downtime.</p>
+        <div style="padding:14px; background:rgba(0,0,0,0.25); border-radius:8px; border:1px solid var(--border-color); margin:10px 0; font-size:0.85rem;">
+          <p><strong>The Economic Obsolescence Curve:</strong></p>
+          <ul style="padding-left:20px; margin-top:6px; line-height:1.8;">
+            <li><strong>Years 1&ndash;2 (0&ndash;2,000 hrs):</strong> Maintenance cost is low (2.0%&ndash;3.5% of OEC), covered by OEM warranty. High utilization.</li>
+            <li><strong>Years 3&ndash;4 (2,000&ndash;5,000 hrs):</strong> Maintenance stabilizes in normal band (3.5%&ndash;5.0% of OEC). Predictable PM cycles.</li>
+            <li><strong>Years 5+ (5,000+ hrs):</strong> The Tipping Point. Cumulative wear on pins, bushings, hydraulic pumps, engines, and emissions systems drives maintenance above 6.5% of OEC while utilization and rental rates decline.</li>
+            <li><strong>Cumulative Lifetime Cap:</strong> When total cumulative lifetime maintenance spend reaches <strong>35% to 40% of OEC</strong>, the asset has reached the end of its economic rental life.</li>
+          </ul>
+        </div>
+        <div class="floor-rule">
+          <div class="floor-rule-title">Manager's Tips on Fleet Disposition</div>
+          <ul style="padding-left:20px; margin-top:6px; font-size:0.88rem; line-height:1.8;">
+            <li><strong>Package for Auction Before Major Failure:</strong> Do not spend $8,000 rebuilding a hydraulic pump on a 6,000-hour machine only to auction it 6 months later. Cut the asset loose before the major component overhaul.</li>
+            <li><strong>Seasonal Timing:</strong> Present disposition recommendations to your GM in Q3/Q4 so equipment can hit spring contractor auctions at peak valuation.</li>
+          </ul>
+        </div>
+        <div class="spec-box" style="margin-top:12px;">
+          <div class="spec-title">Deliverable: 5% At-Risk Fleet Review Sheet</div>
+          <p>Complete audit of branch assets exceeding 6.0% Maint/OEC with clear repair-vs-auction recommendations for executive leadership.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODULE 3: Shop Workflow, WIP Discipline & Labor Efficiency -->
+  <div id="c_m3" class="tab-content">
+    <div class="card">
+      <div class="curr-module-header">
+        <div class="curr-day-tag">Module 3 &mdash; Shop Workflow &amp; WIP</div>
+        <div class="curr-module-title">Module 3: Shop Workflow, WIP Discipline &amp; Labor Efficiency</div>
+      </div>
+
+      <div class="curr-section">
+        <div class="curr-section-h3">Goal</div>
+        <p>Establish operational rigor on the shop floor to drive down cycle times, eliminate bay stagnation, and recover revenue faster.</p>
+      </div>
+
+      <div class="floor-rule">
+        <div class="floor-rule-title">Floor Rule</div>
+        Fast-track jobs (PMs and turns &lt;3 hours) never wait behind a 40-hour engine overhaul. Stage separate lanes so easy revenue returns to the yard immediately.
+      </div>
+
+      <div class="curr-section">
+        <div class="curr-section-h3">Part 1: Fast-Track Lanes &amp; Triage Sequencing</div>
+
+        <div class="grid-2" style="margin: 12px 0;">
+          <div class="spec-box" style="background:rgba(34, 197, 94, 0.08); border-left-color:var(--success); margin:0;">
+            <div class="spec-title" style="color:var(--success);">What It Measures</div>
+            <p style="font-size:0.88rem;">The separation of high-velocity, low-hour maintenance tasks from long-dwell major repairs to prevent shop gridlock.</p>
+          </div>
+          <div class="spec-box" style="background:rgba(239, 68, 68, 0.08); border-left-color:var(--danger); margin:0;">
+            <div class="spec-title" style="color:var(--danger);">What It Does NOT Measure</div>
+            <p style="font-size:0.88rem;">Total fleet inventory value or branch overhead allocation.</p>
+          </div>
+        </div>
+
+        <div class="spec-box" style="background:rgba(59, 130, 246, 0.1); border-color:var(--accent-color);">
+          <div class="spec-title">Manager's Insight</div>
+          <p style="font-size:0.88rem;">If your shop only has one queue, small jobs get stuck behind big jobs. A 50-ton excavator waiting on a cylinder overhaul will tie up a bay for two weeks. If you pull a skid steer that needs a 30-minute hydraulic hose replacement into the back of that same bay, that skid steer sits down for two weeks. Fast-track lanes ensure quick revenue returns to the ready-line in hours, not weeks.</p>
+        </div>
+
+        <div style="padding:14px; background:rgba(0,0,0,0.25); border-radius:8px; border:1px solid var(--border-color); margin:10px 0; font-size:0.85rem;">
+          <p><strong>Standard Shop Lane Architecture:</strong></p>
+          <ol style="padding-left:20px; margin-top:6px; line-height:1.8;">
+            <li><strong>Lane 1: Fast-Track / Make-Ready:</strong> Dedicated bays for return safety inspections, fluid top-offs, minor wear items, and 250h PMs. Target completion: &lt; 4 hours.</li>
+            <li><strong>Lane 2: Scheduled Mid-Level PMs:</strong> Dedicated bays for 500h/1000h scheduled services, hydraulic hose replacement, and track/tire adjustments. Target completion: &lt; 24 hours.</li>
+            <li><strong>Lane 3: Major Repair &amp; Component Overhaul:</strong> Dedicated bays for major engine, transmission, cylinder packings, and structural welding. Managed with strict milestone gates and parts staging.</li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="formula-card">
+        <div class="example-badge">Industry Standard Worked Example</div>
+        <div class="formula-title">MEAN TIME TO REPAIR (MTTR)</div>
+        <div class="formula-expr">MTTR (Hours) = Total Hands-On Mechanical Repair Hours / Total Completed Repair Jobs</div>
+        <p style="font-size:0.85rem; margin-top:6px;"><span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span> for both numerator and denominator.</p>
+      </div>
+
+      <div class="curr-section">
+        <div class="curr-section-h3">Part 2: Technician Productivity &amp; Applied Wrench-Time</div>
+
+        <div class="grid-2" style="margin: 12px 0;">
+          <div class="spec-box" style="background:rgba(34, 197, 94, 0.08); border-left-color:var(--success); margin:0;">
+            <div class="spec-title" style="color:var(--success);">What It Measures</div>
+            <p style="font-size:0.88rem;">The percentage of paid technician payroll hours actively applied to open fleet maintenance and repair work orders.</p>
+          </div>
+          <div class="spec-box" style="background:rgba(239, 68, 68, 0.08); border-left-color:var(--danger); margin:0;">
+            <div class="spec-title" style="color:var(--danger);">What It Does NOT Measure</div>
+            <p style="font-size:0.88rem;">Invoice billing rates, customer revenue per hour, or departmental gross profit margin.</p>
+          </div>
+        </div>
+
+        <div class="formula-card">
+          <div class="formula-title">TECHNICIAN PRODUCTIVITY FORMULA</div>
+          <div class="formula-expr">Technician Productivity % = Total Hours Logged on Fleet Work Orders / Total Paid Clocked Payroll Hours &times; 100</div>
+          <p style="font-size:0.85rem; margin-top:6px;"><strong>Worked Example:</strong> Shop has 5 technicians working 40 hours = 200 Total Paid Payroll Hours. Total hours booked to open fleet work orders = 174 hours. Unapplied hours = 26 hours. Calculation: (174 / 200) &times; 100 = <strong style="color:var(--success);">87.0% (PASS &mdash; Above 85% Target)</strong></p>
+          <p style="font-size:0.85rem; margin-top:4px;"><strong>HEDS Target Benchmark:</strong> &ge; 85% Technician Productivity</p>
+        </div>
+
+        <div class="floor-rule">
+          <div class="floor-rule-title">Manager's Tips on Eliminating Lost Wrench-Time</div>
+          <ul style="padding-left:20px; margin-top:6px; font-size:0.88rem; line-height:1.8;">
+            <li><strong>Stop Using Techs as Yard Hostlers:</strong> Hire a lower-cost yard porter or wash-rack attendant to move machines in and out of bays. Paying a $38/hr master technician to jump-start and jockey machines across the yard is pure operational waste.</li>
+            <li><strong>Pre-Stage Parts at the Bay:</strong> The technician should never walk to the parts room to look up filters. The parts expediter stages the PM kit in a tote at the bay before the machine is pulled in.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="curr-section">
+        <div class="curr-section-h3">Part 3: Work-in-Process (WIP) Aging &amp; The 5-Day WIP Scrub</div>
+        <p style="font-size:0.9rem; margin-bottom:8px;">Total labor, parts, and capital trapped in open, unclosed fleet work orders.</p>
+        <div style="padding:14px; background:rgba(0,0,0,0.25); border-radius:8px; border:1px solid var(--border-color); margin:10px 0; font-size:0.85rem;">
+          <p><strong>Why Fleet WIP Stagnates (The 4 Root Causes):</strong></p>
+          <ol style="padding-left:20px; margin-top:6px; line-height:1.8;">
+            <li><strong>Category A (Dealer Parts Delay):</strong> Tech disassembled machine, found broken part, ordered from dealer; machine sits in bay.</li>
+            <li><strong>Category B (Sublet Vendor Lag):</strong> Waiting on outside glass, hydraulic cylinder re-chroming, or track pressing vendor.</li>
+            <li><strong>Category C (Technician Reassigned):</strong> Job was paused to put tech on an emergency breakdown; work half-done.</li>
+            <li><strong>Category D (Administrative Ghost WIP):</strong> Repair was physically finished 3 days ago and machine is in the yard, but work order was never closed in the ERP.</li>
+          </ol>
+        </div>
+        <div class="floor-rule">
+          <div class="floor-rule-title">HEDS Target Benchmark</div>
+          Maximum internal fleet WIP aging: <strong>&lt; 5 Business Days</strong> (excluding approved major overhauls).
+        </div>
+        <div class="spec-box" style="margin-top:12px;">
+          <div class="spec-title">Deliverable: Cleaned Fleet WIP Aging Board</div>
+          <p>Live audit of all open work orders in your ERP. Flag every job open &gt;5 days. Categorize each into A, B, C, or D. Clear all Category D ghost tickets immediately. For Category A and B, establish an expedited vendor contact plan.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODULE 4: Regulatory Compliance, Safety & Environmental Control -->
+  <div id="c_m4" class="tab-content">
+    <div class="card">
+      <div class="curr-module-header">
+        <div class="curr-day-tag">Module 4 &mdash; Regulatory &amp; Safety</div>
+        <div class="curr-module-title">Module 4: Regulatory Compliance, Safety &amp; Environmental Control</div>
+      </div>
+
+      <div class="curr-section">
+        <div class="curr-section-h3">Goal</div>
+        <p>Install bulletproof compliance across shop facilities, mobile service trucks, and environmental waste management to eliminate legal liability, avoid regulatory fines, and protect technician safety.</p>
+      </div>
+
+      <div class="floor-rule">
+        <div class="floor-rule-title">Floor Rule</div>
+        Compliance is an operational discipline, not an annual inspection. A service truck without current DOT medical/DVIR or a disabled bay without LOTO will shut down your shop faster than a broken machine.
+      </div>
+
+      <div class="curr-section">
+        <div class="curr-section-h3">Part 1: Facility &amp; Shop Floor Safety (OSHA &amp; ANSI)</div>
+
+        <div class="grid-2" style="margin: 12px 0;">
+          <div class="spec-box" style="background:rgba(34, 197, 94, 0.08); border-left-color:var(--success); margin:0;">
+            <div class="spec-title" style="color:var(--success);">What It Measures</div>
+            <p style="font-size:0.88rem;">Shop floor adherence to federal and industry life-safety standards, lifting equipment integrity, and energy isolation.</p>
+          </div>
+          <div class="spec-box" style="background:rgba(239, 68, 68, 0.08); border-left-color:var(--danger); margin:0;">
+            <div class="spec-title" style="color:var(--danger);">What It Does NOT Measure</div>
+            <p style="font-size:0.88rem;">Production throughput, technician efficiency, or financial performance metrics.</p>
+          </div>
+        </div>
+
+        <div style="padding:14px; background:rgba(0,0,0,0.25); border-radius:8px; border:1px solid var(--border-color); margin:10px 0; font-size:0.85rem;">
+          <p><strong>Core Facility Standards:</strong></p>
+          <ul style="padding-left:20px; margin-top:6px; line-height:1.8;">
+            <li><strong>Lockout / Tagout (LOTO) Discipline:</strong> Mandatory physical lockout tags and keyed padlocks on all disabled equipment undergoing electrical, hydraulic, or powertrain repair.</li>
+            <li><strong>Overhead Crane &amp; Rigging Certifications:</strong> Annual load testing and daily visual inspection of wire rope, synthetic slings, shackles, and hoist limit switches.</li>
+            <li><strong>Jack Stand &amp; Heavy Blocking Standards:</strong> Prohibit working under machines supported solely by hydraulics. Mandatory certified steel blocking and rated jack stands.</li>
+            <li><strong>Personal Protective Equipment (PPE) Compliance:</strong> 100% compliance on steel-toe boots, ANSI Z87.1 safety glasses, hearing protection in wash bays, and nitrile gloves for fluid handling.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="curr-section">
+        <div class="curr-section-h3">Part 2: Mobile Service Fleet Compliance (DOT &amp; Roadway)</div>
+
+        <div class="grid-2" style="margin: 12px 0;">
+          <div class="spec-box" style="background:rgba(34, 197, 94, 0.08); border-left-color:var(--success); margin:0;">
+            <div class="spec-title" style="color:var(--success);">What It Measures</div>
+            <p style="font-size:0.88rem;">Roadworthiness, regulatory compliance, and operator safety for all mobile field service trucks.</p>
+          </div>
+          <div class="spec-box" style="background:rgba(239, 68, 68, 0.08); border-left-color:var(--danger); margin:0;">
+            <div class="spec-title" style="color:var(--danger);">What It Does NOT Measure</div>
+            <p style="font-size:0.88rem;">Shop-based repair throughput or internal bay productivity.</p>
+          </div>
+        </div>
+
+        <div style="padding:14px; background:rgba(0,0,0,0.25); border-radius:8px; border:1px solid var(--border-color); margin:10px 0; font-size:0.85rem;">
+          <p><strong>Core Mobile Standards:</strong></p>
+          <ul style="padding-left:20px; margin-top:6px; line-height:1.8;">
+            <li><strong>Driver Vehicle Inspection Reports (DVIR):</strong> Mandatory daily pre-trip and post-trip digital DVIR submissions before service trucks roll.</li>
+            <li><strong>Gross Vehicle Weight Rating (GVWR) Management:</strong> Strict quarterly scale audits to ensure cranes, toolboxes, fluid tanks, and compressors do not exceed chassis GVWR.</li>
+            <li><strong>Hours of Service (HOS) &amp; Medical Cards:</strong> Compliance tracking for commercial driver licenses (CDL) and DOT medical certification for all field technicians.</li>
+            <li><strong>Mobile Boom &amp; Crane Certifications:</strong> Annual ANSI/OSHA certified dielectric and structural crane testing for all mobile service body cranes.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="curr-section">
+        <div class="curr-section-h3">Part 3: Environmental Fluid Handling &amp; Wash Bay Control (EPA)</div>
+
+        <div class="grid-2" style="margin: 12px 0;">
+          <div class="spec-box" style="background:rgba(34, 197, 94, 0.08); border-left-color:var(--success); margin:0;">
+            <div class="spec-title" style="color:var(--success);">What It Measures</div>
+            <p style="font-size:0.88rem;">Strict containment, storage, and disposal of hazardous waste fluids, hydrocarbons, and contaminated wash water.</p>
+          </div>
+          <div class="spec-box" style="background:rgba(239, 68, 68, 0.08); border-left-color:var(--danger); margin:0;">
+            <div class="spec-title" style="color:var(--danger);">What It Does NOT Measure</div>
+            <p style="font-size:0.88rem;">Production efficiency or cost per repair order. Strictly measures environmental regulatory adherence.</p>
+          </div>
+        </div>
+
+        <div style="padding:14px; background:rgba(0,0,0,0.25); border-radius:8px; border:1px solid var(--border-color); margin:10px 0; font-size:0.85rem;">
+          <p><strong>Core Environmental Standards:</strong></p>
+          <ul style="padding-left:20px; margin-top:6px; line-height:1.8;">
+            <li><strong>Oil/Water Separator Maintenance:</strong> Monthly visual sediment checks and quarterly sludge extraction logs to prevent municipal sewer discharges.</li>
+            <li><strong>Secondary Containment:</strong> 110% capacity secondary containment basins on all bulk new oil, waste oil, DEF, and antifreeze storage tanks.</li>
+            <li><strong>Spill Kit Staging:</strong> Hydrocarbon spill kits staged at every wash rack, fluid transfer station, and inside every field service truck.</li>
+            <li><strong>Used Filter Crushing &amp; Disposal:</strong> Hot-draining and mechanical crushing of all used oil filters prior to certified recycling pickup.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="floor-rule">
+        <div class="floor-rule-title">HEDS Floor Rule</div>
+        A technician removing 4 used oil filters during a 1,000-hour PM must hot-drain them for 12&ndash;24 hours, mechanically crush them to recover residual oil, and store them in a designated recycling drum. Throwing used filters into the municipal trash is an EPA violation.
+      </div>
+
+      <div class="formula-card">
+        <div class="example-badge">Industry Standard Worked Example</div>
+        <div class="formula-title">BRANCH COMPLIANCE AUDIT SCORE</div>
+        <div class="formula-expr">Compliance Score % = (Passed Audit Items / Total Audit Items) &times; 100</div>
+        <div class="formula-expr" style="margin-top:6px;">LOTO Violation Rate = (Observed LOTO Violations / Total Repair Orders Audited) &times; 100</div>
+        <ol class="formula-steps">
+          <li><strong>Step 1:</strong> Enter the total number of audit items on your 20-point safety checklist. <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></li>
+          <li><strong>Step 2:</strong> Enter the number of passed items from your most recent walk-through audit. <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></li>
+          <li><strong>Step 3:</strong> Divide passed by total and multiply by 100 to get your Branch Compliance Score %.</li>
+          <li><strong>Step 4:</strong> Pull the trailing 30-day repair order log. Count how many active repair orders had documented LOTO compliance. Divide by total repair orders to get LOTO Compliance Rate %.</li>
+        </ol>
+        <p style="margin-top:10px; font-size:0.85rem;"><strong>Worked Example:</strong> 20-point audit checklist, 17 items passed. Compliance Score: (17 / 20) &times; 100 = <strong style="color:var(--danger);">85.0% (WARN &mdash; Below 90% Target)</strong>. 3 open violations: missing LOTO on press brake bay, expired crane certification on Service Truck 2, no spill kit in wash bay.</p>
+        <div style="margin-top:8px; font-size:0.85rem;">
+          <strong>HEDS Target Benchmarks:</strong>
+          <ul style="padding-left:16px; margin-top:4px;">
+            <li><strong>Branch Compliance Audit Score:</strong> &ge; 95% on all 20-point facility &amp; mobile audits</li>
+            <li><strong>LOTO Compliance Rate:</strong> 100% on all repair orders involving electrical, hydraulic, or powertrain energy isolation</li>
+            <li><strong>DVIR Submission Rate:</strong> 100% pre-trip and post-trip on all mobile service truck deployments</li>
+            <li><strong>Open Violation Remediation:</strong> &le; 48 hours from identification to corrective action closure</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="spec-box">
+        <div class="spec-title">Deliverable: Branch Facility &amp; Mobile Safety Audit Checklist</div>
+        <p>Complete 20-point Safety &amp; Environmental audit of your shop floor, wash bay, and 1 mobile service truck. Document any open non-compliance items with assigned corrective actions and target remediation dates.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODULE 5: Lean Parts Management & Dealer Supply Integration -->
+  <div id="c_m5" class="tab-content">
+    <div class="card">
+      <div class="curr-module-header">
+        <div class="curr-day-tag">Module 5 &mdash; Lean Parts &amp; Supply</div>
+        <div class="curr-module-title">Module 5: Lean Parts Management &amp; Dealer Supply Integration</div>
+      </div>
+
+      <div class="curr-section">
+        <div class="curr-section-h3">Goal</div>
+        <p>Master a lean, run-rate-based inventory model that guarantees 95%+ PM off-the-shelf fill rate without tying up excess capital in heavy dealership-level slow-moving inventory.</p>
+      </div>
+
+      <div class="floor-rule">
+        <div class="floor-rule-title">Floor Rule</div>
+        Do not carry dealership-level inventory in a rental shop. Maintain a strict 90-day run-rate buffer of PM filters, fluids, teeth, and high-wear hoses. Everything else is procured on demand through structured dealer SLAs.
+      </div>
+
+      <div class="curr-section">
+        <div class="curr-section-h3">Part 1: The 90-Day (3-Month) Run-Rate Model</div>
+
+        <div class="grid-2" style="margin: 12px 0;">
+          <div class="spec-box" style="background:rgba(34, 197, 94, 0.08); border-left-color:var(--success); margin:0;">
+            <div class="spec-title" style="color:var(--success);">What It Measures</div>
+            <p style="font-size:0.88rem;">The alignment between on-hand maintenance stock and actual trailing consumption rates across the active fleet.</p>
+          </div>
+          <div class="spec-box" style="background:rgba(239, 68, 68, 0.08); border-left-color:var(--danger); margin:0;">
+            <div class="spec-title" style="color:var(--danger);">What It Does NOT Measure</div>
+            <p style="font-size:0.88rem;">OEM dealer floor plan inventory or wholesale parts distribution margins.</p>
+          </div>
+        </div>
+
+        <div class="spec-box" style="background:rgba(59, 130, 246, 0.1); border-color:var(--accent-color);">
+          <div class="spec-title">Manager's Insight</div>
+          <p style="font-size:0.88rem;">A dealership parts department carries $1.5M in inventory because they serve thousands of unknown retail customers who might walk in needing an obscure gear. A rental shop serves a <strong>fixed, known fleet of assets</strong>. You know exactly how many Tier 4 excavators and skid steers you own, and you know their exact service intervals. Carrying slow-moving hard parts on your shelves is dead working capital. Maintain a lean 90-day buffer of high-velocity wear and PM items, and lean on dealer supply chains for everything else.</p>
+        </div>
+
+        <div class="formula-card">
+          <div class="example-badge">Industry Standard Worked Example</div>
+          <div class="formula-title">90-DAY RUN-RATE MODEL FORMULAS</div>
+          <div class="formula-expr">Monthly Run Rate = Trailing 6-Mo Parts Consumption / 6</div>
+          <div class="formula-expr" style="margin-top:6px;">90-Day Target Inventory = Monthly Run Rate &times; 3</div>
+          <div class="formula-expr" style="margin-top:6px;">Days of Supply = Current Inventory $ / Average Daily Parts Usage $</div>
+          <ol class="formula-steps">
+            <li><strong>Step 1:</strong> Enter trailing 6-month parts consumption for the SKU. <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></li>
+            <li><strong>Step 2:</strong> Divide by 6 to get Monthly Run Rate.</li>
+            <li><strong>Step 3:</strong> Multiply by 3 to get the 90-Day Target Stock Level.</li>
+            <li><strong>Step 4:</strong> Set Reorder Point (Min) = 1 month of supply. Maximum Stock Level (Max) = 3 months of supply.</li>
+          </ol>
+          <p style="margin-top:10px; font-size:0.85rem;"><strong>Worked Example (Filter Inventory Run Rate):</strong> Part: Engine Oil Filter (P/N HF6510) used across 25 skid steers. Trailing 6-Month Consumption: 48 filters. Monthly Run Rate: 48 / 6 = 8 filters/month. Target 90-Day Stock Level: 8 &times; 3 = 24 filters. Reorder Point (Min): 8 filters (30-day buffer). Maximum Stock Level (Max): 24 filters (90-day buffer).</p>
+          <div style="margin-top:8px; font-size:0.85rem;">
+            <strong>HEDS Target Benchmarks:</strong>
+            <ul style="padding-left:16px; margin-top:4px;">
+              <li><strong>Run-Rate Stocking Window:</strong> Strict 90-Day (3-Month) Buffer on high-velocity PM and wear items.</li>
+              <li><strong>Maintenance Parts Fill Rate:</strong> &ge; 95% for all scheduled PM kits.</li>
+              <li><strong>Dead Stock / Obsolescence:</strong> &lt; 3% of total inventory value with zero movement in &gt;180 days (&lt; 5% over 365 days).</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="curr-section">
+        <div class="curr-section-h3">Part 2: Managing Dealership Dependencies &amp; Parts Constraint Exposure</div>
+
+        <div class="grid-2" style="margin: 12px 0;">
+          <div class="spec-box" style="background:rgba(34, 197, 94, 0.08); border-left-color:var(--success); margin:0;">
+            <div class="spec-title" style="color:var(--success);">What It Measures</div>
+            <p style="font-size:0.88rem;">The dollar amount of lost rental revenue caused by fleet machines sitting idle while waiting on delayed or backordered parts from external equipment dealers.</p>
+          </div>
+          <div class="spec-box" style="background:rgba(239, 68, 68, 0.08); border-left-color:var(--danger); margin:0;">
+            <div class="spec-title" style="color:var(--danger);">What It Does NOT Measure</div>
+            <p style="font-size:0.88rem;">Internal parts inventory valuation or parts department gross profit margin.</p>
+          </div>
+        </div>
+
+        <div class="formula-card">
+          <div class="formula-title">PARTS CONSTRAINT EXPOSURE FORMULA</div>
+          <div class="formula-expr">Parts Constraint Exposure ($) = &Sigma; (Days Down Waiting Dealer Parts &times; Daily Rental Book Rate)</div>
+          <p style="font-size:0.85rem; margin-top:6px;"><strong>Worked Example:</strong> Machine 1: 30-Ton Excavator ($750/day rate) waiting 6 days for hydraulic relief valve = $4,500 lost revenue. Machine 2: 50ft Boom Lift ($250/day rate) waiting 4 days for joystick controller = $1,000 lost revenue. <strong>Total Branch Parts Constraint Exposure: $5,500</strong> in unrecovered rental capacity.</p>
+        </div>
+
+        <div style="padding:14px; background:rgba(0,0,0,0.25); border-radius:8px; border:1px solid var(--border-color); margin:10px 0; font-size:0.82rem; overflow-x:auto;">
+          <p style="color:var(--accent-color); font-weight:700; margin-bottom:8px;">PARTS PROCUREMENT SLA PROTOCOL:</p>
+          <table style="width:100%; border-collapse:collapse; font-size:0.8rem; text-align:left;">
+            <thead>
+              <tr style="border-bottom:2px solid var(--accent-color); color:var(--accent-color);">
+                <th style="padding:8px;">Urgency Level</th>
+                <th style="padding:8px;">Operational Trigger</th>
+                <th style="padding:8px;">Vendor SLA Requirement</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600;">Level 1: EMERGENCY DOWN</td><td style="padding:8px;">Machine Down with Active Res.</td><td style="padding:8px;">Counter delivery / courier &le; 4h</td></tr>
+              <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600;">Level 2: SHOP PRODUCTION</td><td style="padding:8px;">Machine in shop queue</td><td style="padding:8px;">Overnight delivery by 7:30 AM</td></tr>
+              <tr><td style="padding:8px; font-weight:600;">Level 3: REPLENISHMENT</td><td style="padding:8px;">90-Day PM Reorder Min hit</td><td style="padding:8px;">Weekly stock order (freight paid)</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="floor-rule">
+          <div class="floor-rule-title">Manager's Tips on Dealer Backorders</div>
+          <p style="font-size:0.88rem; margin-top:6px;"><strong>Establish a Multi-Channel Sourcing Hierarchy:</strong> If the primary OEM dealer is on backorder &gt;48 hours, execute the protocol: (1) Check sister rental branch inventory, (2) Direct OEM regional depot emergency drop-ship, (3) Verified aftermarket supplier (Donaldson, Fleetguard, Parker), (4) Cross-dealership transfer. Never let a machine sit for 3 weeks waiting on a backordered factory hose when an approved local hydraulic shop can build it in 20 minutes.</p>
+        </div>
+      </div>
+
+      <div class="spec-box">
+        <div class="spec-title">Deliverable: 90-Day PM Reorder Schedule &amp; Dead Stock Purge List</div>
+        <p>Audit your parts room. Calculate total inventory valuation vs. daily usage to get Days of Supply. Flag all part numbers with zero movement in 180+ days. Calculate your branch's live Parts Constraint Exposure on all machines currently down for parts.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODULE 6: Economic Downtime, Telematics & Commercial Sync -->
+  <div id="c_m6" class="tab-content">
+    <div class="card">
+      <div class="curr-module-header">
+        <div class="curr-day-tag">Module 6 &mdash; Economic Downtime</div>
+        <div class="curr-module-title">Module 6: Economic Downtime, Telematics &amp; Commercial Sync</div>
+      </div>
+
+      <div class="curr-section">
+        <div class="curr-section-h3">Goal</div>
+        <p>Eliminate operational silos between the shop floor and the rental counter to eradicate turned-away business and maximize revenue recovery.</p>
+      </div>
+
+      <div class="floor-rule">
+        <div class="floor-rule-title">Floor Rule</div>
+        When 5 machines are down and 2 techs are available, you do not fix the machine that is easiest. You fix the machine that has the highest daily rental rate and an active customer reservation.
+      </div>
+
+      <div class="curr-section">
+        <div class="curr-section-h3">Part 1: Revenue-Driven Repair Prioritization</div>
+
+        <div class="grid-2" style="margin: 12px 0;">
+          <div class="spec-box" style="background:rgba(34, 197, 94, 0.08); border-left-color:var(--success); margin:0;">
+            <div class="spec-title" style="color:var(--success);">What It Measures</div>
+            <p style="font-size:0.88rem;">Aligning shop bay capacity with commercial booking demand and daily earning potential.</p>
+          </div>
+          <div class="spec-box" style="background:rgba(239, 68, 68, 0.08); border-left-color:var(--danger); margin:0;">
+            <div class="spec-title" style="color:var(--danger);">What It Does NOT Measure</div>
+            <p style="font-size:0.88rem;">Seniority of the technician or chronological order of when machines arrived in the yard.</p>
+          </div>
+        </div>
+
+        <div class="spec-box" style="background:rgba(59, 130, 246, 0.1); border-color:var(--accent-color);">
+          <div class="spec-title">Manager's Insight</div>
+          <p style="font-size:0.88rem;">Technicians naturally gravitate toward the easiest or cleanest repair first. If a technician spends the morning fixing a $60/day light tower because it only needs a fuel filter, while a $850/day production excavator sits outside waiting on a 2-hour hose replacement, the branch loses $790/day in net earning capacity. The shop queue must be mathematically prioritized by economic impact.</p>
+        </div>
+
+        <div class="formula-card">
+          <div class="example-badge">Industry Standard Worked Example</div>
+          <div class="formula-title">SHOP PRIORITY INDEX (SPI)</div>
+          <div class="formula-expr">SPI = Daily Book Rental Rate ($) / Estimated Mechanical Repair Hours</div>
+          <ol class="formula-steps">
+            <li><strong>Step 1:</strong> Enter the Daily Book Rental Rate for each down unit. <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></li>
+            <li><strong>Step 2:</strong> Enter the estimated repair hours for each unit. <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></li>
+            <li><strong>Step 3:</strong> Divide Daily Rate by Repair Hours to calculate SPI for each unit.</li>
+            <li><strong>Step 4:</strong> Rank units highest SPI to lowest. Assign your available technician to the highest SPI unit first.</li>
+          </ol>
+          <p style="margin-top:8px; font-size:0.85rem;"><strong>Worked Scenario Walkthrough:</strong> 3 down machines, 1 available technician (8-hour shift):</p>
+          <ul style="padding-left:20px; font-size:0.85rem; margin-top:6px; line-height:1.8;">
+            <li><strong>Unit A: 50-Ton Excavator</strong> | Daily Rate: $850 | Repair: 2.0h | SPI = $850/2.0 = <strong style="color:var(--success);">425.0</strong></li>
+            <li><strong>Unit B: 8,000-lb Telehandler</strong> | Daily Rate: $240 | Repair: 1.5h | SPI = $240/1.5 = <strong>160.0</strong></li>
+            <li><strong>Unit C: 19ft Scissor Lift</strong> | Daily Rate: $70 | Repair: 4.0h | SPI = $70/4.0 = <strong>17.5</strong></li>
+          </ul>
+          <p style="font-size:0.85rem; margin-top:8px;"><strong>Decision Sequence:</strong> Unit A first (complete by 9:30 AM, unlocks $850/day), then Unit B (complete by 11:00 AM, unlocks $240/day). Combined revenue unlocked in 3.5 hours = <strong>$1,090/day</strong>. Unit C scheduled for the afternoon.</p>
+        </div>
+      </div>
+
+      <div class="curr-section">
+        <div class="curr-section-h3">Part 2: Downtime Severity Value &amp; Customer Damage Recovery</div>
+
+        <div class="grid-2" style="margin: 12px 0;">
+          <div class="spec-box" style="background:rgba(34, 197, 94, 0.08); border-left-color:var(--success); margin:0;">
+            <div class="spec-title" style="color:var(--success);">What It Measures</div>
+            <p style="font-size:0.88rem;">The total economic cost of fleet downtime and the recovery rate of customer-caused equipment abuse.</p>
+          </div>
+          <div class="spec-box" style="background:rgba(239, 68, 68, 0.08); border-left-color:var(--danger); margin:0;">
+            <div class="spec-title" style="color:var(--danger);">What It Does NOT Measure</div>
+            <p style="font-size:0.88rem;">Maintenance quality or repair workmanship &mdash; strictly the economic impact of downtime duration.</p>
+          </div>
+        </div>
+
+        <div class="formula-card">
+          <div class="formula-title">DOWNTIME &amp; RECOVERY FORMULAS</div>
+          <div class="formula-expr">Downtime Severity Value ($) = Total Days Units Down in Shop &times; Average Daily Rental Rate</div>
+          <div class="formula-expr" style="margin-top:6px;">Maint Drag Ratio % = Total Maint Expense / Total Rental Revenue &times; 100</div>
+          <div class="formula-expr" style="margin-top:6px;">Damage Recovery % = Customer Abuse Invoiced &amp; Collected / Total Cost of Customer Damage Repairs &times; 100</div>
+          <ol class="formula-steps">
+            <li><strong>Step 1:</strong> Enter total days units were down in shop this month. <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></li>
+            <li><strong>Step 2:</strong> Enter your average daily rental rate. <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></li>
+            <li><strong>Step 3:</strong> Multiply days down by daily rate to calculate Downtime Severity Value ($).</li>
+            <li><strong>Step 4:</strong> Enter total maintenance expense and total rental revenue to calculate Maint Drag Ratio %.</li>
+            <li><strong>Step 5:</strong> Enter customer abuse invoiced &amp; collected vs. total damage repair cost to calculate Damage Recovery %.</li>
+          </ol>
+          <div style="margin-top:10px; font-size:0.85rem;">
+            <strong>HEDS Target Benchmarks:</strong>
+            <ul style="padding-left:16px; margin-top:4px;">
+              <li><strong>Fleet Downtime %:</strong> &lt; 8% of total fleet days (Critical alert: &gt;12%)</li>
+              <li><strong>Maintenance Drag Ratio:</strong> 8% to 13% of Rental Revenue</li>
+              <li><strong>Damage Recovery Rate:</strong> &ge; 85% of customer abuse recovered</li>
+              <li><strong>Lost Revenue from In-Service Stock-Outs:</strong> $0 / Month</li>
+            </ul>
+          </div>
+        </div>
+
+        <div style="padding:14px; background:rgba(0,0,0,0.25); border-radius:8px; border:1px solid var(--border-color); margin:10px 0; font-size:0.82rem; overflow-x:auto;">
+          <p style="color:var(--accent-color); font-weight:700; margin-bottom:8px;">DOWNTIME SEVERITY IMPACT MATRIX:</p>
+          <table style="width:100%; border-collapse:collapse; font-size:0.8rem; text-align:left;">
+            <thead>
+              <tr style="border-bottom:2px solid var(--accent-color); color:var(--accent-color);">
+                <th style="padding:8px;">Fleet Downtime %</th>
+                <th style="padding:8px;">Annual Loss on $10M</th>
+                <th style="padding:8px;">Operational State</th>
+                <th style="padding:8px;">Management Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px;">&lt; 6.0% (Optimal)</td><td style="padding:8px;">&lt; $300,000</td><td style="padding:8px;">World-Class</td><td style="padding:8px;">Maintain Fast-Track discipline</td></tr>
+              <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px;">6.0% &ndash; 8.0%</td><td style="padding:8px;">$300K &ndash; $500K</td><td style="padding:8px;">Healthy Standard</td><td style="padding:8px;">Monitor 90-day parts buffers</td></tr>
+              <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px;">8.1% &ndash; 12.0%</td><td style="padding:8px;">$500K &ndash; $900K</td><td style="padding:8px;">Drag Warning</td><td style="padding:8px;">Execute daily 5-day WIP scrub</td></tr>
+              <tr><td style="padding:8px;">&gt; 12.0% (Critical)</td><td style="padding:8px;">&gt; $900K+</td><td style="padding:8px;">Severe Cash Bleed</td><td style="padding:8px;">Mandatory GM bay intervention</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="floor-rule">
+          <div class="floor-rule-title">Manager's Tips on Counter Synchronization &amp; Telematics</div>
+          <ul style="padding-left:20px; margin-top:6px; font-size:0.88rem; line-height:1.8;">
+            <li><strong>The Morning Rush Sheet:</strong> At 7:00 AM, the rental counter supervisor hands the service foreman the "Today's Unfulfilled Demand List." If a contractor needs a 45ft articulating boom lift at 1:00 PM and none are on the ready-line, the foreman immediately triages the yellow-tagged boom lifts in the yard to get one prepped by 11:30 AM.</li>
+            <li><strong>Proactive Telematics Fault Triaging:</strong> Review red stop and derate alerts in the telematics portal daily to dispatch mobile technicians before a minor sensor fault shuts down a customer jobsite.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="spec-box">
+        <div class="spec-title">Deliverable: Commercial Priority Shop Schedule</div>
+        <p>Take your branch's current list of down units in the yard and shop. Pull today's reservation pipeline from the rental counter. Calculate the Shop Priority Index for each down unit. Reorder your shop board to match the highest revenue recovery sequence.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODULE 7: Operating Cadence & HEDS KPI Management -->
+  <div id="c_m7" class="tab-content">
+    <div class="card">
+      <div class="curr-module-header">
+        <div class="curr-day-tag">Module 7 &mdash; Operating Cadence</div>
+        <div class="curr-module-title">Module 7: Operating Cadence &amp; HEDS KPI Management</div>
+      </div>
+
+      <div class="curr-section">
+        <div class="curr-section-h3">Goal</div>
+        <p>Embed daily, weekly, and monthly management routines so the Service Manager runs the shop through data and visual controls rather than reactive firefighting.</p>
+      </div>
+
+      <div class="floor-rule">
+        <div class="floor-rule-title">Floor Rule</div>
+        The 15-minute morning standup is non-negotiable. If you don't set the battle plan at 7:00 AM, the shop will run you instead of you running the shop.
+      </div>
+
+      <div class="curr-section">
+        <div class="curr-section-h3">Part 1: The 15-Minute Daily Rental Shop Standup</div>
+
+        <div class="grid-2" style="margin: 12px 0;">
+          <div class="spec-box" style="background:rgba(34, 197, 94, 0.08); border-left-color:var(--success); margin:0;">
+            <div class="spec-title" style="color:var(--success);">What It Measures</div>
+            <p style="font-size:0.88rem;">The discipline and consistency of daily shop floor communication: ready-line demand alignment, telematics alert triage, bay assignment throughput, and parts blocker resolution.</p>
+          </div>
+          <div class="spec-box" style="background:rgba(239, 68, 68, 0.08); border-left-color:var(--danger); margin:0;">
+            <div class="spec-title" style="color:var(--danger);">What It Does NOT Measure</div>
+            <p style="font-size:0.88rem;">Individual technician performance reviews, warranty claim processing, or customer billing accuracy. The standup is an operational alignment tool, not a performance review.</p>
+          </div>
+        </div>
+
+        <div class="spec-box" style="background:rgba(59, 130, 246, 0.1); border-color:var(--accent-color);">
+          <div class="spec-title">Manager's Insight</div>
+          <p style="font-size:0.88rem;">The standup is the single most important management tool in the rental shop. In 15 minutes, you align the shop's daily output with the rental counter's demand pipeline, triage telematics alerts before they become breakdowns, clear parts blockers before they stall bays, and lock in technician assignments with target out-times. Skip the standup once and you'll spend the rest of the day reacting to problems that 15 minutes of prevention would have eliminated.</p>
+        </div>
+
+        <p style="font-size:0.9rem; margin-bottom:8px;"><strong>Standup Protocol:</strong> Standing Up, No Chairs, Strict 15-Minute Timebox.</p>
+        <ul style="padding-left:20px; font-size:0.88rem; line-height:1.8;">
+          <li><strong>Time:</strong> 7:00 AM &ndash; 7:15 AM Sharp.</li>
+          <li><strong>Attendees:</strong> Rental Service Manager, Shop Foreman, Lead Yard Specialist, Parts Expediter, Rental Counter Supervisor.</li>
+        </ul>
+
+        <div style="padding:14px; background:rgba(0,0,0,0.25); border-radius:8px; border:1px solid var(--border-color); margin:10px 0; font-size:0.82rem; overflow-x:auto;">
+          <p style="color:var(--accent-color); font-weight:700; margin-bottom:8px;">THE 15-MINUTE DAILY STANDUP BATTLE PLAN:</p>
+          <table style="width:100%; border-collapse:collapse; font-size:0.8rem; text-align:left;">
+            <thead>
+              <tr style="border-bottom:2px solid var(--accent-color); color:var(--accent-color);">
+                <th style="padding:8px;">Time</th>
+                <th style="padding:8px;">Standing Agenda Item</th>
+                <th style="padding:8px;">Focus &amp; Core Deliverable</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px;">0:00-3:00</td><td style="padding:8px;">1. Today's Ready-Line Demands</td><td style="padding:8px;">Review counter reservations &amp; rush units</td></tr>
+              <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px;">3:00-6:00</td><td style="padding:8px;">2. Critical Red Telematics Alerts</td><td style="padding:8px;">Triage active jobsite fault codes/derates</td></tr>
+              <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px;">6:00-10:00</td><td style="padding:8px;">3. Stuck Bays &amp; Parts Blocker Scrub</td><td style="padding:8px;">Expedite backorders, clear paused jobs</td></tr>
+              <tr><td style="padding:8px;">10:00-15:00</td><td style="padding:8px;">4. Bay Assignments &amp; Out-Times</td><td style="padding:8px;">Lock in tech assignments &amp; target finishes</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div style="padding:14px; background:rgba(0,0,0,0.25); border-radius:8px; border:1px solid var(--border-color); margin:10px 0; font-size:0.85rem;">
+          <p><strong>Visual Shop Board Layout Requirements:</strong> Every bay on the visual board must show:</p>
+          <ol style="padding-left:20px; margin-top:6px; line-height:1.8;">
+            <li><strong>Unit ID &amp; Asset Class</strong> (e.g., EX-204, 20T Excavator)</li>
+            <li><strong>Current Status</strong> (Triage, PM-2, Cylinder Rebuild, Awaiting Parts)</li>
+            <li><strong>Assigned Lead Technician</strong></li>
+            <li><strong>Target Out-Time</strong> (e.g., Today @ 2:30 PM)</li>
+            <li><strong>Commercial Priority Tag</strong> (Green = Reserved for Customer Today, Yellow = Standard Stock)</li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="curr-section">
+        <div class="curr-section-h3">Part 2: Weekly &amp; Monthly Executive Operating Rhythms</div>
+
+        <div class="formula-card">
+          <div class="example-badge">Industry Standard Worked Example</div>
+          <div class="formula-title">WEEKLY VARIANCE &amp; KPI CADENCE FORMULAS</div>
+          <div class="formula-expr">PM Compliance Variance % = (On-Time PMs / Total PMs Due) &times; 100</div>
+          <div class="formula-expr" style="margin-top:6px;">Standup Attendance Rate % = (Days Standup Held / Total Business Days) &times; 100</div>
+          <div class="formula-expr" style="margin-top:6px;">WIP Aging Violation Count = Count of Work Orders Open &gt; 5 Business Days</div>
+          <ol class="formula-steps">
+            <li><strong>Step 1:</strong> Enter total PMs due this week and how many were completed on time (within &plusmn;10% / 50 hrs). <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></li>
+            <li><strong>Step 2:</strong> Enter total business days and how many days the standup was actually held. <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></li>
+            <li><strong>Step 3:</strong> Pull the open WIP report. Count work orders open &gt; 5 business days. <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></li>
+            <li><strong>Step 4:</strong> Calculate PM Compliance Variance, Standup Attendance Rate, and WIP Aging Violation Count for your weekly variance review.</li>
+          </ol>
+          <p style="margin-top:10px; font-size:0.85rem;"><strong>Worked Example:</strong> 18 PMs due this week, 15 completed on time. PM Compliance: (15 / 18) &times; 100 = <strong style="color:var(--warning);">83.3% (WARN &mdash; Below 90% Target)</strong>. Standup held 4 of 5 business days = <strong style="color:var(--success);">80.0%</strong>. 3 work orders open &gt;5 days = <strong style="color:var(--danger);">3 WIP Aging Violations (FAIL)</strong>.</p>
+          <div style="margin-top:8px; font-size:0.85rem;">
+            <strong>HEDS Target Benchmarks:</strong>
+            <ul style="padding-left:16px; margin-top:4px;">
+              <li><strong>PM Compliance Rate:</strong> &ge; 90% (Top: 95%+)</li>
+              <li><strong>Standup Attendance Rate:</strong> 100% (5 of 5 business days)</li>
+              <li><strong>WIP Aging Violations:</strong> 0 work orders open &gt; 5 business days</li>
+              <li><strong>Weekly Variance Review Duration:</strong> &le; 30 minutes with 4-point standing agenda</li>
+            </ul>
+          </div>
+        </div>
+
+        <div style="padding:14px; background:rgba(0,0,0,0.25); border-radius:8px; border:1px solid var(--border-color); margin:10px 0; font-size:0.85rem;">
+          <p><strong>Weekly Variance Review (Tuesday, 30 Minutes)</strong></p>
+          <p style="margin-top:4px; font-size:0.82rem; color:var(--muted);">Participants: Rental Service Manager, Shop Foreman, Rental Operations Manager, Parts Expediter.</p>
+          <p style="margin-top:6px; font-weight:700; font-size:0.85rem;">Standing 4-Point Agenda:</p>
+          <ol style="padding-left:20px; margin-top:6px; line-height:1.8;">
+            <li><strong>PM Compliance Audit:</strong> Review trailing 7-day completed PMs vs. scheduled due dates. Flag any unit &gt;25 hours overdue.</li>
+            <li><strong>5-Day WIP Scrub:</strong> Review all work orders open &gt;5 days. Force closure or assign vendor escalation owners.</li>
+            <li><strong>Turnaround SLA Performance:</strong> Review average hours from off-rent to ready-line. Identify wash rack or staging bottlenecks.</li>
+            <li><strong>First-Time Fix Post-Mortem:</strong> Audit any repeat breakdown on a machine within 30 days of release. Review root cause with signing technician.</li>
+          </ol>
+        </div>
+
+        <div style="padding:14px; background:rgba(0,0,0,0.25); border-radius:8px; border:1px solid var(--border-color); margin:10px 0; font-size:0.85rem;">
+          <p><strong>Monthly Executive Readout (First Thursday, 45 Minutes)</strong></p>
+          <p style="margin-top:4px; font-size:0.82rem; color:var(--muted);">Participants: Rental Service Manager, Branch General Manager, Regional Fleet Director.</p>
+          <p style="margin-top:6px; font-weight:700; font-size:0.85rem;">Standing Executive Deliverables:</p>
+          <ol style="padding-left:20px; margin-top:6px; line-height:1.8;">
+            <li><strong>Maintenance Cost as % of OEC:</strong> Branch-wide total vs. 3.5%&ndash;5.5% benchmark, plus itemized review of the top 5 cost outlier units.</li>
+            <li><strong>Fleet Physical Availability % vs. Time Utilization %:</strong> Correlation analysis between maintenance throughput and commercial utilization.</li>
+            <li><strong>Maintenance Drag Ratio %:</strong> Total maintenance spend as % of gross rental revenue (target 8%&ndash;13%).</li>
+            <li><strong>5% At-Risk Fleet Disposition Package:</strong> Formal capital review of units exceeding lifecycle maintenance caps (35%&ndash;40% cumulative OEC).</li>
+            <li><strong>Customer Damage Recovery Audit:</strong> Invoiced damage dollars vs. actual damage repair expense (target &ge; 85% recovery).</li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="curr-section">
+        <div class="curr-section-h3">The 90-Day Rental Service Action Plan (Capstone)</div>
+        <p style="font-size:0.9rem; margin-bottom:10px;">To achieve HEDS Academy Certification, the Rental Service Manager must complete the 50-question timed assessment and submit a fully developed <strong>90-Day Rental Service Action Plan</strong> featuring:</p>
+        <ol style="padding-left:20px; font-size:0.88rem; line-height:1.8;">
+          <li><strong>Branch Baseline Scorecard:</strong> Trailing 90-day baseline vs. 90-day targets across all 10 Core KPIs.</li>
+          <li><strong>Top 3 Revenue Leak SOPs &amp; Visual Controls:</strong>
+            <ul style="padding-left:20px; margin-top:4px;">
+              <li>SOP #1: 4-Hour Off-Rent Return &amp; Check-In Standard (Photos &amp; Tagging).</li>
+              <li>SOP #2: Fast-Track Shop Triage &amp; Priority Bay Allocation (SPI Index).</li>
+              <li>SOP #3: 90-Day Lean PM Run-Rate Parts Reorder Discipline.</li>
+            </ul>
+          </li>
+          <li><strong>5% At-Risk Fleet Disposition Package:</strong> Complete audit of branch assets exceeding 6.0% Maint/OEC with clear repair-vs-auction recommendations.</li>
+          <li><strong>Signed Leadership Accountability Contract:</strong> Named weekly review rhythms, standing agendas, and milestone sign-offs between the Service Manager and Branch General Manager.</li>
+        </ol>
+      </div>
+
+      <div class="floor-rule">
+        <div class="floor-rule-title">HEDS Floor Rule</div>
+        The plan is not a suggestion. The Service Manager signs it, dates it, and commits to a 30-day review with their facilitator. No plan, no certificate.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ================================================================= -->
+<!-- SECTION 2: INTERACTIVE OPERATING DASHBOARD -->
+<!-- ================================================================= -->
+<div id="sec_dashboard" class="section-container">
+  <nav class="nav-tabs">
+    <button class="tab-btn active" onclick="switchDashTab('dash_m1', this)">M1: Fleet Availability</button>
+    <button class="tab-btn" onclick="switchDashTab('dash_m2', this)">M2: Maint % of OEC</button>
+    <button class="tab-btn" onclick="switchDashTab('dash_m3', this)">M3: Turnaround DTI</button>
+    <button class="tab-btn" onclick="switchDashTab('dash_m4', this)">M4: Fleet Downtime</button>
+    <button class="tab-btn" onclick="switchDashTab('dash_m5', this)">M5: Tech Productivity</button>
+    <button class="tab-btn" onclick="switchDashTab('dash_m6', this)">M6: 90-Day Parts</button>
+    <button class="tab-btn" onclick="switchDashTab('dash_m7', this)">M7: Damage Recovery</button>
+    <button class="tab-btn" onclick="switchDashTab('dash_m8', this)">M8: Telematics SLA</button>
+    <button class="tab-btn" onclick="switchDashTab('dash_m9', this)">M9: Rental Leak</button>
+    <button class="tab-btn" onclick="switchDashTab('dash_summary', this)">Exec Scorecard</button>
+  </nav>
+
+  <!-- DASH M1: Fleet Availability -->
+  <div id="dash_m1" class="tab-content active">
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-title">Enter Your Branch Numbers: Fleet Physical Availability</div>
+        <div class="form-group">
+          <label for="dm1_total_fleet">Your Total Fleet Units</label>
+          <input type="number" id="dm1_total_fleet" value="150" placeholder="Enter total fleet units" oninput="calcMod1()">
+        </div>
+        <div class="form-group">
+          <label for="dm1_on_rent">Your On-Rent Units</label>
+          <input type="number" id="dm1_on_rent" value="105" placeholder="Enter on-rent units" oninput="calcMod1()">
+        </div>
+        <div class="form-group">
+          <label for="dm1_ready_line">Your Ready-Line Units (Green-Tagged)</label>
+          <input type="number" id="dm1_ready_line" value="35" placeholder="Enter ready-line units" oninput="calcMod1()">
+        </div>
+      </div>
+      <div>
+        <div class="card">
+          <div class="card-title">Fleet Availability Diagnostic</div>
+          <div class="metric-box">
+            <div style="font-size:0.8rem; color:var(--muted); font-weight:700;">PHYSICAL AVAILABILITY %</div>
+            <div class="metric-val" id="dm1_res_avail">93.3%</div>
+            <div id="dm1_status" class="metric-status status-pass">PASS</div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-title">Required ERP Report Verification Checklist</div>
+          <ul class="checklist">
+            <li><input type="checkbox" id="dm1_chk1"> Verified Fleet Master Status Extract (all active units)</li>
+            <li><input type="checkbox" id="dm1_chk2"> Verified On-Rent count from rental contracts</li>
+            <li><input type="checkbox" id="dm1_chk3"> Verified Ready-Line green-tagged count from yard walk</li>
+            <li><input type="checkbox" id="dm1_chk4"> Verified Shop-Down / Yard-Hold count from ERP status</li>
+            <li><input type="checkbox" id="dm1_chk5"> Cross-checked ERP fleet count vs. physical yard inventory</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DASH M2: Maint % of OEC -->
+  <div id="dash_m2" class="tab-content">
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-title">Enter Your Branch Numbers: Maintenance Cost as % of OEC</div>
+        <div class="form-group">
+          <label for="dm2_maint_spend">Your Trailing 12-Month Maintenance Spend ($)</label>
+          <input type="number" id="dm2_maint_spend" value="10800" placeholder="Enter 12-mo maintenance $" oninput="calcMod2()">
+        </div>
+        <div class="form-group">
+          <label for="dm2_oec">Your Original Equipment Cost (OEC) ($)</label>
+          <input type="number" id="dm2_oec" value="240000" placeholder="Enter OEC $" oninput="calcMod2()">
+        </div>
+      </div>
+      <div>
+        <div class="card">
+          <div class="card-title">Maintenance Cost Diagnostic</div>
+          <div class="metric-box">
+            <div style="font-size:0.8rem; color:var(--muted); font-weight:700;">MAINT % OF OEC</div>
+            <div class="metric-val" id="dm2_res_pct">4.5%</div>
+            <div id="dm2_status" class="metric-status status-pass">PASS</div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-title">Required ERP Report Verification Checklist</div>
+          <ul class="checklist">
+            <li><input type="checkbox" id="dm2_chk1"> Verified Fixed Asset Register / Master Fleet Sheet</li>
+            <li><input type="checkbox" id="dm2_chk2"> Verified Work Order Detail Ledger (trailing 12-mo)</li>
+            <li><input type="checkbox" id="dm2_chk3"> Verified internal labor cost per unit</li>
+            <li><input type="checkbox" id="dm2_chk4"> Verified parts cost per unit</li>
+            <li><input type="checkbox" id="dm2_chk5"> Verified sublet / outside vendor costs per unit</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DASH M3: Turnaround DTI -->
+  <div id="dash_m3" class="tab-content">
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-title">Enter Your Branch Numbers: Turnaround DTI</div>
+        <div class="form-group">
+          <label for="dm3_total_returns">Your Total Units Returned Off-Rent (Trailing 30 Days)</label>
+          <input type="number" id="dm3_total_returns" value="45" placeholder="Enter total returns" oninput="calcMod3()">
+        </div>
+        <div class="form-group">
+          <label for="dm3_avg_hours">Your Average Turnaround Hours (Return to Ready-Line)</label>
+          <input type="number" id="dm3_avg_hours" value="36" placeholder="Enter avg turnaround hours" oninput="calcMod3()" step="0.1">
+        </div>
+      </div>
+      <div>
+        <div class="card">
+          <div class="card-title">Turnaround DTI Diagnostic</div>
+          <div class="metric-box">
+            <div style="font-size:0.8rem; color:var(--muted); font-weight:700;">AVG TURNAROUND HOURS</div>
+            <div class="metric-val" id="dm3_res_hrs">36.0 hrs</div>
+            <div id="dm3_status" class="metric-status status-warn">WARN</div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-title">Required ERP Report Verification Checklist</div>
+          <ul class="checklist">
+            <li><input type="checkbox" id="dm3_chk1"> Verified Off-Rent Return &amp; Check-In Log</li>
+            <li><input type="checkbox" id="dm3_chk2"> Verified Physical Return Date/Time timestamps</li>
+            <li><input type="checkbox" id="dm3_chk3"> Verified Ready-Line Release Date/Time timestamps</li>
+            <li><input type="checkbox" id="dm3_chk4"> Verified Work Order open/close times</li>
+            <li><input type="checkbox" id="dm3_chk5"> Identified bottleneck stage (&gt;50% of dwell time)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DASH M4: Fleet Downtime -->
+  <div id="dash_m4" class="tab-content">
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-title">Enter Your Branch Numbers: Fleet Downtime</div>
+        <div class="form-group">
+          <label for="dm4_total_days">Your Total Fleet Days (units &times; days in period)</label>
+          <input type="number" id="dm4_total_days" value="4500" placeholder="Enter total fleet days" oninput="calcMod4()">
+        </div>
+        <div class="form-group">
+          <label for="dm4_down_days">Your Days Down in Shop</label>
+          <input type="number" id="dm4_down_days" value="315" placeholder="Enter days down in shop" oninput="calcMod4()">
+        </div>
+        <div class="form-group">
+          <label for="dm4_daily_rate">Your Average Daily Rental Rate ($)</label>
+          <input type="number" id="dm4_daily_rate" value="750" placeholder="Enter avg daily rate $" oninput="calcMod4()">
+        </div>
+      </div>
+      <div>
+        <div class="card">
+          <div class="card-title">Downtime Severity Diagnostic</div>
+          <div class="metric-box">
+            <div style="font-size:0.8rem; color:var(--muted); font-weight:700;">FLEET DOWNTIME %</div>
+            <div class="metric-val" id="dm4_res_pct">7.0%</div>
+            <div id="dm4_status" class="metric-status status-pass">PASS</div>
+          </div>
+          <div class="metric-box">
+            <div style="font-size:0.8rem; color:var(--muted); font-weight:700;">DOWNTIME DOLLAR DRAG</div>
+            <div class="metric-val" id="dm4_res_drag" style="color:var(--danger);">$236,250</div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-title">Required ERP Report Verification Checklist</div>
+          <ul class="checklist">
+            <li><input type="checkbox" id="dm4_chk1"> Verified Fleet Master status by day</li>
+            <li><input type="checkbox" id="dm4_chk2"> Verified Shop-Down days per unit</li>
+            <li><input type="checkbox" id="dm4_chk3"> Verified daily rental book rate per unit class</li>
+            <li><input type="checkbox" id="dm4_chk4"> Cross-checked downtime days vs. WO aging</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DASH M5: Tech Productivity -->
+  <div id="dash_m5" class="tab-content">
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-title">Enter Your Branch Numbers: Technician Productivity</div>
+        <div class="form-group">
+          <label for="dm5_wo_hours">Your Total Hours Logged on Fleet Work Orders</label>
+          <input type="number" id="dm5_wo_hours" value="174" placeholder="Enter WO hours" oninput="calcMod5()">
+        </div>
+        <div class="form-group">
+          <label for="dm5_payroll_hours">Your Total Paid Payroll Hours</label>
+          <input type="number" id="dm5_payroll_hours" value="200" placeholder="Enter paid payroll hours" oninput="calcMod5()">
+        </div>
+      </div>
+      <div>
+        <div class="card">
+          <div class="card-title">Productivity Diagnostic</div>
+          <div class="metric-box">
+            <div style="font-size:0.8rem; color:var(--muted); font-weight:700;">TECHNICIAN PRODUCTIVITY %</div>
+            <div class="metric-val" id="dm5_res_prod">87.0%</div>
+            <div id="dm5_status" class="metric-status status-pass">PASS</div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-title">Required ERP Report Verification Checklist</div>
+          <ul class="checklist">
+            <li><input type="checkbox" id="dm5_chk1"> Verified total WO hours from labor tracking</li>
+            <li><input type="checkbox" id="dm2_chk2"> Verified payroll timecards for same period</li>
+            <li><input type="checkbox" id="dm5_chk3"> Identified unapplied time gap (payroll &minus; WO)</li>
+            <li><input type="checkbox" id="dm5_chk4"> Reviewed root cause of unapplied hours</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DASH M6: 90-Day Parts Buffer -->
+  <div id="dash_m6" class="tab-content">
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-title">Enter Your Branch Numbers: 90-Day Parts Buffer</div>
+        <div class="form-group">
+          <label for="dm6_consumption">Your Trailing 6-Month Parts Consumption (units)</label>
+          <input type="number" id="dm6_consumption" value="48" placeholder="Enter 6-mo consumption" oninput="calcMod6()">
+        </div>
+        <div class="form-group">
+          <label for="dm6_on_hand">Your Current On-Hand Inventory (units)</label>
+          <input type="number" id="dm6_on_hand" value="24" placeholder="Enter current on-hand" oninput="calcMod6()">
+        </div>
+      </div>
+      <div>
+        <div class="card">
+          <div class="card-title">Parts Buffer Diagnostic</div>
+          <div class="metric-box">
+            <div style="font-size:0.8rem; color:var(--muted); font-weight:700;">MONTHS OF SUPPLY</div>
+            <div class="metric-val" id="dm6_res_months">3.0 months</div>
+            <div id="dm6_status" class="metric-status status-pass">PASS (90-Day Target)</div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-title">Required ERP Report Verification Checklist</div>
+          <ul class="checklist">
+            <li><input type="checkbox" id="dm6_chk1"> Verified Inventory Valuation &amp; Movement Report</li>
+            <li><input type="checkbox" id="dm6_chk2"> Verified 6-Month Fleet Maintenance Parts Consumption</li>
+            <li><input type="checkbox" id="dm6_chk3"> Calculated Monthly Run Rate (consumption / 6)</li>
+            <li><input type="checkbox" id="dm6_chk4"> Flagged dead stock (&gt;180 days zero movement)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DASH M7: Damage Recovery -->
+  <div id="dash_m7" class="tab-content">
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-title">Enter Your Branch Numbers: Damage Recovery</div>
+        <div class="form-group">
+          <label for="dm7_invoiced">Your Customer Abuse Invoiced &amp; Collected ($)</label>
+          <input type="number" id="dm7_invoiced" value="15300" placeholder="Enter invoiced $" oninput="calcMod7()">
+        </div>
+        <div class="form-group">
+          <label for="dm7_total_damage">Your Total Damage Repair Cost ($)</label>
+          <input type="number" id="dm7_total_damage" value="18000" placeholder="Enter total damage cost $" oninput="calcMod7()">
+        </div>
+      </div>
+      <div>
+        <div class="card">
+          <div class="card-title">Damage Recovery Diagnostic</div>
+          <div class="metric-box">
+            <div style="font-size:0.8rem; color:var(--muted); font-weight:700;">DAMAGE RECOVERY %</div>
+            <div class="metric-val" id="dm7_res_pct">85.0%</div>
+            <div id="dm7_status" class="metric-status status-pass">PASS</div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-title">Required ERP Report Verification Checklist</div>
+          <ul class="checklist">
+            <li><input type="checkbox" id="dm7_chk1"> Verified 4-photo return check-in documentation</li>
+            <li><input type="checkbox" id="dm7_chk2"> Verified customer damage invoicing records</li>
+            <li><input type="checkbox" id="dm7_chk3"> Verified total damage repair cost from WO ledger</li>
+            <li><input type="checkbox" id="dm7_chk4"> Verified collection rate on invoiced damage</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DASH M8: Telematics SLA -->
+  <div id="dash_m8" class="tab-content">
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-title">Enter Your Branch Numbers: Telematics SLA</div>
+        <div class="form-group">
+          <label for="dm8_critical">Your Critical Alerts (trailing 30 days)</label>
+          <input type="number" id="dm8_critical" value="12" placeholder="Enter critical alert count" oninput="calcMod8()">
+        </div>
+        <div class="form-group">
+          <label for="dm8_triaged">Your Alerts Triaged &le; 2 Hours</label>
+          <input type="number" id="dm8_triaged" value="10" placeholder="Enter triaged count" oninput="calcMod8()">
+        </div>
+      </div>
+      <div>
+        <div class="card">
+          <div class="card-title">Telematics SLA Diagnostic</div>
+          <div class="metric-box">
+            <div style="font-size:0.8rem; color:var(--muted); font-weight:700;">TRIAGE SLA %</div>
+            <div class="metric-val" id="dm8_res_pct">83.3%</div>
+            <div id="dm8_status" class="metric-status status-warn">WARN</div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-title">Required ERP Report Verification Checklist</div>
+          <ul class="checklist">
+            <li><input type="checkbox" id="dm8_chk1"> Verified telematics portal alert log</li>
+            <li><input type="checkbox" id="dm8_chk2"> Verified triage response timestamps</li>
+            <li><input type="checkbox" id="dm8_chk3"> Verified dispatch records for field techs</li>
+            <li><input type="checkbox" id="dm8_chk4"> Reviewed untriaged alert root causes</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DASH M9: Rental Leak Diagnostic -->
+  <div id="dash_m9" class="tab-content">
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-title">Rental Leak Diagnostic Matrix</div>
+        <p style="color:var(--muted); font-size:0.9rem; margin-bottom:12px;">Enter estimated monthly dollar impact for each rental revenue leak type.</p>
+        <div class="form-group">
+          <label for="dm9_turnaround">Turnaround Drag ($/mo)</label>
+          <input type="number" id="dm9_turnaround" value="0" placeholder="Enter $/mo" oninput="calcLeak()">
+          <p style="font-size:0.8rem; color:var(--muted); margin-top:4px;">Lost revenue from units sitting &gt;48h in turnaround pipeline. (Excess turnaround hours &times; daily rental rate &times; affected units)</p>
+        </div>
+        <div class="form-group">
+          <label for="dm9_unrecovered">Unrecovered Damage ($/mo)</label>
+          <input type="number" id="dm9_unrecovered" value="0" placeholder="Enter $/mo" oninput="calcLeak()">
+          <p style="font-size:0.8rem; color:var(--muted); margin-top:4px;">Customer damage repair costs not invoiced/collected. (Total damage cost &minus; invoiced &amp; collected)</p>
+        </div>
+        <div class="form-group">
+          <label for="dm9_avoidable">Avoidable Re-Rent ($/mo)</label>
+          <input type="number" id="dm9_avoidable" value="0" placeholder="Enter $/mo" oninput="calcLeak()">
+          <p style="font-size:0.8rem; color:var(--muted); margin-top:4px;">Revenue lost when rental counter turns away customers while units sit in yard. (Turned-away reservations &times; daily rate &times; rental days)</p>
+        </div>
+        <div class="form-group">
+          <label for="dm9_repeat">Repeat Breakdown Towing/Labor ($/mo)</label>
+          <input type="number" id="dm9_repeat" value="0" placeholder="Enter $/mo" oninput="calcLeak()">
+          <p style="font-size:0.8rem; color:var(--muted); margin-top:4px;">Cost of repeat breakdowns within 30 days of release. (Towing + emergency labor + lost rental days for repeat failures)</p>
+        </div>
+      </div>
+      <div>
+        <div class="card">
+          <div class="card-title">Your Total Monthly Leakage</div>
+          <div class="metric-box">
+            <div style="font-size:0.8rem; color:var(--muted); font-weight:700;">TOTAL MONTHLY DOLLAR LEAKAGE</div>
+            <div class="metric-val" id="dm9_res_total">&mdash;</div>
+          </div>
+          <div class="metric-box">
+            <div style="font-size:0.8rem; color:var(--muted); font-weight:700;">ANNUALIZED LEAKAGE</div>
+            <div class="metric-val" id="dm9_res_annual">&mdash;</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- EXECUTIVE SCORECARD -->
+  <div id="dash_summary" class="tab-content">
+    <div class="card">
+      <div class="card-title">Executive Scorecard &amp; Operational Audit Path</div>
+      <div style="overflow-x:auto;">
+        <table style="width:100%; border-collapse:collapse; font-size:0.85rem; text-align:left;">
+          <thead>
+            <tr style="border-bottom:2px solid var(--border-color); color:var(--muted);">
+              <th style="padding:10px;">Operating Metric</th>
+              <th style="padding:10px;">Manager Input Value</th>
+              <th style="padding:10px;">HEDS Benchmark Target</th>
+              <th style="padding:10px;">Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom:1px solid var(--border-color);">
+              <td style="padding:10px; font-weight:600;">Fleet Physical Availability</td>
+              <td style="padding:10px;" id="s_val_avail">&mdash;</td>
+              <td style="padding:10px;">&ge; 92%</td>
+              <td style="padding:10px;" id="s_stat_avail">&mdash;</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border-color);">
+              <td style="padding:10px; font-weight:600;">Maintenance Cost as % of OEC</td>
+              <td style="padding:10px;" id="s_val_oec">&mdash;</td>
+              <td style="padding:10px;">3.5% &ndash; 5.5%</td>
+              <td style="padding:10px;" id="s_stat_oec">&mdash;</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border-color);">
+              <td style="padding:10px; font-weight:600;">Avg Turnaround Hours (DTI)</td>
+              <td style="padding:10px;" id="s_val_dti">&mdash;</td>
+              <td style="padding:10px;">&le; 24h Clean / &le; 48h PM</td>
+              <td style="padding:10px;" id="s_stat_dti">&mdash;</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border-color);">
+              <td style="padding:10px; font-weight:600;">Fleet Downtime %</td>
+              <td style="padding:10px;" id="s_val_down">&mdash;</td>
+              <td style="padding:10px;">&lt; 8%</td>
+              <td style="padding:10px;" id="s_stat_down">&mdash;</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border-color);">
+              <td style="padding:10px; font-weight:600;">Downtime Dollar Drag</td>
+              <td style="padding:10px;" id="s_val_drag">&mdash;</td>
+              <td style="padding:10px;">Minimize</td>
+              <td style="padding:10px;" id="s_stat_drag">&mdash;</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border-color);">
+              <td style="padding:10px; font-weight:600;">Technician Productivity</td>
+              <td style="padding:10px;" id="s_val_prod">&mdash;</td>
+              <td style="padding:10px;">&ge; 85%</td>
+              <td style="padding:10px;" id="s_stat_prod">&mdash;</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border-color);">
+              <td style="padding:10px; font-weight:600;">90-Day Parts Buffer (Months of Supply)</td>
+              <td style="padding:10px;" id="s_val_parts">&mdash;</td>
+              <td style="padding:10px;">3.0 months (90 days)</td>
+              <td style="padding:10px;" id="s_stat_parts">&mdash;</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border-color);">
+              <td style="padding:10px; font-weight:600;">Damage Recovery Rate</td>
+              <td style="padding:10px;" id="s_val_dmg">&mdash;</td>
+              <td style="padding:10px;">&ge; 85%</td>
+              <td style="padding:10px;" id="s_stat_dmg">&mdash;</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border-color);">
+              <td style="padding:10px; font-weight:600;">Telematics Triage SLA</td>
+              <td style="padding:10px;" id="s_val_tel">&mdash;</td>
+              <td style="padding:10px;">&ge; 90%</td>
+              <td style="padding:10px;" id="s_stat_tel">&mdash;</td>
+            </tr>
+            <tr>
+              <td style="padding:10px; font-weight:600;">Total Monthly Leak $</td>
+              <td style="padding:10px;" id="s_val_leak">&mdash;</td>
+              <td style="padding:10px;">$0</td>
+              <td style="padding:10px;" id="s_stat_leak">&mdash;</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div style="margin-top:20px; display:flex; gap:12px;">
+        <button class="btn" onclick="window.print()">Print Scorecard</button>
+        <button class="btn btn-outline" onclick="resetData()">Reset Inputs</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ================================================================= -->
+<!-- SECTION 3: 30/60/90 IMPLEMENTATION TRACKER -->
+<!-- ================================================================= -->
+<div id="sec_tracker" class="section-container">
+  <div class="card">
+    <div class="card-title">HEDS 30/60/90 Gated Implementation Tracker</div>
+    <p style="color:var(--muted); margin-bottom:20px; font-size:0.9rem;">This gated section provides milestone checklists to evaluate and lock in operational stabilization at 30, 60, and 90 days following training. Enter the access code for each phase to unlock its checklist. Progress is saved automatically.</p>
+
+    <!-- Phase 1: 30-Day -->
+    <div style="margin-bottom:28px;">
+      <div class="curr-module-header" style="margin-bottom:12px;">
+        <div class="curr-day-tag">Phase 1 &mdash; 30-Day Gate</div>
+        <div class="curr-module-title">30-Day Evaluation: Triage, Baseline &amp; Stabilization</div>
+      </div>
+      <div class="form-group">
+        <label for="gate1_code">Phase 1 Access Code</label>
+        <input type="password" id="gate1_code" placeholder="Enter 30-day access code" style="background:var(--bg); border:1px solid var(--border-color); border-radius:6px; padding:10px 12px; color:var(--fg); font-size:1rem; width:100%;" onkeyup="if(event.key==='Enter')checkGate1()">
+      </div>
+      <button class="btn" style="margin-bottom:16px;" onclick="checkGate1()">Unlock 30-Day Checklist</button>
+      <div id="gate1_error" style="color:var(--danger); margin-top:8px; display:none; font-size:0.9rem;">Incorrect access code.</div>
+      <div id="gate1_content" style="display:none;">
+        <div class="floor-rule">
+          <div class="floor-rule-title">Operational Focus</div>
+          Halting operational leaks, cleaning up historical reporting distortions, and stabilizing yard velocity.
+        </div>
+        <ul class="checklist">
+          <li><input type="checkbox" id="g1_chk1" onchange="saveGateCheckboxes()"> <strong>Work Order WIP Scrub:</strong> All work orders open &gt;14 days individually audited.</li>
+          <li><input type="checkbox" id="g1_chk2" onchange="saveGateCheckboxes()"> <strong>Stale Work Order Elimination:</strong> Stale WOs with no activity in 72 hours closed or re-categorized.</li>
+          <li><input type="checkbox" id="g1_chk3" onchange="saveGateCheckboxes()"> <strong>Labor Reconciliation:</strong> Unposted technician labor reconciled against payroll timecards.</li>
+          <li><input type="checkbox" id="g1_chk4" onchange="saveGateCheckboxes()"> <strong>Yard Intake SLAs:</strong> Check-in intake sheets capturing fuel levels and current operating hours within 4 hours of return.</li>
+          <li><input type="checkbox" id="g1_chk5" onchange="saveGateCheckboxes()"> <strong>Wash Rack Management:</strong> Active wash rack queue management and priority staging in place.</li>
+          <li><input type="checkbox" id="g1_chk6" onchange="saveGateCheckboxes()"> <strong>Physical Yard Tagging:</strong> Weatherproof Red / Yellow / Green tag system operational across 100% of yard assets.</li>
+          <li><input type="checkbox" id="g1_chk7" onchange="saveGateCheckboxes()"> <strong>Hour-Meter Verification:</strong> Hour meters physically audited and reconciled against ERP fleet list.</li>
+          <li><input type="checkbox" id="g1_chk8" onchange="saveGateCheckboxes()"> <strong>Initial PM Compliance Baseline:</strong> Trailing 30-day PM compliance baseline score calculated and recorded.</li>
+          <li><input type="checkbox" id="g1_chk9" onchange="saveGateCheckboxes()"> <strong>Parts Room Physical Audit:</strong> Physical inventory count of on-hand fast-moving PM maintenance items completed.</li>
+          <li><input type="checkbox" id="g1_chk10" onchange="saveGateCheckboxes()"> <strong>Dead Stock Identification:</strong> Initial purge list drafted for obsolete parts sitting idle for &gt;365 days.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Phase 2: 60-Day -->
+    <div style="margin-bottom:28px;">
+      <div class="curr-module-header" style="margin-bottom:12px;">
+        <div class="curr-day-tag">Phase 2 &mdash; 60-Day Gate</div>
+        <div class="curr-module-title">60-Day Evaluation: Financial Alignment &amp; Process Control</div>
+      </div>
+      <div class="form-group">
+        <label for="gate2_code">Phase 2 Access Code</label>
+        <input type="password" id="gate2_code" placeholder="Enter 60-day access code" style="background:var(--bg); border:1px solid var(--border-color); border-radius:6px; padding:10px 12px; color:var(--fg); font-size:1rem; width:100%;" onkeyup="if(event.key==='Enter')checkGate2()">
+      </div>
+      <button class="btn" style="margin-bottom:16px;" onclick="checkGate2()">Unlock 60-Day Checklist</button>
+      <div id="gate2_error" style="color:var(--danger); margin-top:8px; display:none; font-size:0.9rem;">Incorrect access code.</div>
+      <div id="gate2_content" style="display:none;">
+        <div class="floor-rule">
+          <div class="floor-rule-title">Operational Focus</div>
+          Connecting shop floor labor and parts handling to branch balance sheet performance.
+        </div>
+        <ul class="checklist">
+          <li><input type="checkbox" id="g2_chk1" onchange="saveGateCheckboxes()"> <strong>Revenue Recovery Speed:</strong> Branch actively reporting average days from work order open to close.</li>
+          <li><input type="checkbox" id="g2_chk2" onchange="saveGateCheckboxes()"> <strong>Fast-Track PM Bays:</strong> Dedicated Fast-Track PM bays operational and separate from heavy overhaul bays.</li>
+          <li><input type="checkbox" id="g2_chk3" onchange="saveGateCheckboxes()"> <strong>5-Day WIP Scrub Rhythm:</strong> Weekly WIP review active; units down &gt;5 days reviewed with Branch Manager.</li>
+          <li><input type="checkbox" id="g2_chk4" onchange="saveGateCheckboxes()"> <strong>Maintenance % of OEC Baseline:</strong> Cost report detailing Maintenance Cost as % of OEC generated across all asset categories.</li>
+          <li><input type="checkbox" id="g2_chk5" onchange="saveGateCheckboxes()"> <strong>Work Order Cost Categorization:</strong> Work orders cleanly distinguishing between routine PM, major repair, damage rebill, and transport prep.</li>
+          <li><input type="checkbox" id="g2_chk6" onchange="saveGateCheckboxes()"> <strong>Top 10 High-Maintenance Asset Review:</strong> Equipment audit completed on top 10 highest-maintenance units to determine disposition viability.</li>
+          <li><input type="checkbox" id="g2_chk7" onchange="saveGateCheckboxes()"> <strong>90-Day Run-Rate Parts Buffer:</strong> Parts stocking buffers set to strict 90-day supply of filters, fluids, teeth, and wear items based on trailing run rates.</li>
+          <li><input type="checkbox" id="g2_chk8" onchange="saveGateCheckboxes()"> <strong>PO Direct-Link Discipline:</strong> Purchase orders for non-stock items linked directly to active work orders rather than shop overhead.</li>
+          <li><input type="checkbox" id="g2_chk9" onchange="saveGateCheckboxes()"> <strong>Stockroom Fill Rate:</strong> Stockroom off-the-shelf fill rate for scheduled PM kits tracking at &ge; 90%.</li>
+          <li><input type="checkbox" id="g2_chk10" onchange="saveGateCheckboxes()"> <strong>Daily Standup Discipline:</strong> 15-minute morning huddle conducted consistently at 7:00 AM every business day.</li>
+          <li><input type="checkbox" id="g2_chk11" onchange="saveGateCheckboxes()"> <strong>Ready-Line Counter Visibility:</strong> Rental counter has live, verified visibility into the daily ready-line status board.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Phase 3: 90-Day -->
+    <div style="margin-bottom:28px;">
+      <div class="curr-module-header" style="margin-bottom:12px;">
+        <div class="curr-day-tag">Phase 3 &mdash; 90-Day Gate</div>
+        <div class="curr-module-title">90-Day Evaluation: Economic Impact &amp; Predictive Preparedness</div>
+      </div>
+      <div class="form-group">
+        <label for="gate3_code">Phase 3 Access Code</label>
+        <input type="password" id="gate3_code" placeholder="Enter 90-day access code" style="background:var(--bg); border:1px solid var(--border-color); border-radius:6px; padding:10px 12px; color:var(--fg); font-size:1rem; width:100%;" onkeyup="if(event.key==='Enter')checkGate3()">
+      </div>
+      <button class="btn" style="margin-bottom:16px;" onclick="checkGate3()">Unlock 90-Day Checklist</button>
+      <div id="gate3_error" style="color:var(--danger); margin-top:8px; display:none; font-size:0.9rem;">Incorrect access code.</div>
+      <div id="gate3_content" style="display:none;">
+        <div class="floor-rule">
+          <div class="floor-rule-title">Operational Focus</div>
+          Deploying advanced economic metrics to prioritize maintenance and protect branch EBITDA.
+        </div>
+        <ul class="checklist">
+          <li><input type="checkbox" id="g3_chk1" onchange="saveGateCheckboxes()"> <strong>Downtime Severity Prioritization:</strong> Shop queue prioritized by Downtime Severity Value (revenue exposure) and Shop Priority Index (SPI).</li>
+          <li><input type="checkbox" id="g3_chk2" onchange="saveGateCheckboxes()"> <strong>Commercial Demand Alignment:</strong> Service department cross-referencing down units against the counter's unfulfilled reservation pipeline daily.</li>
+          <li><input type="checkbox" id="g3_chk3" onchange="saveGateCheckboxes()"> <strong>Stock-Out Revenue Tracking:</strong> Missed rental revenue from grounded machines during active demand logged and quantified.</li>
+          <li><input type="checkbox" id="g3_chk4" onchange="saveGateCheckboxes()"> <strong>Parts Constraint Exposure Tracking:</strong> Dollar value of fleet down specifically waiting on dealer parts tracked and reported.</li>
+          <li><input type="checkbox" id="g3_chk5" onchange="saveGateCheckboxes()"> <strong>Dealer Sourcing Escalation:</strong> External dealer backorders &gt;48 hours escalated for emergency transfers or aftermarket sourcing.</li>
+          <li><input type="checkbox" id="g3_chk6" onchange="saveGateCheckboxes()"> <strong>Billable Damage Recovery Workflow:</strong> 4-photo return check-in and 48-hour estimate workflow capturing &ge; 85% of customer abuse.</li>
+          <li><input type="checkbox" id="g3_chk7" onchange="saveGateCheckboxes()"> <strong>Telematics Fault Triaging:</strong> Critical red telematics alerts triaged within &le; 2 hours to dispatch field service before roadside breakdowns.</li>
+          <li><input type="checkbox" id="g3_chk8" onchange="saveGateCheckboxes()"> <strong>Executive Scorecard Presentation:</strong> Service Manager compiles and presents full 90-day scorecard to Branch GM and Regional Fleet Leadership.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ================================================================= -->
+<!-- SECTION 4: ASSESSMENT TEST -->
+<!-- ================================================================= -->
+<div id="sec_test" class="section-container">
+
+  <!-- Sign-in Screen -->
+  <div id="test_signin" class="card">
+    <div class="card-title">Assessment Test &mdash; Rental Service Manager Certification</div>
+    <p style="color:var(--muted); margin-bottom:20px;">This assessment tests your knowledge of the Rental Service Manager curriculum. You have 90 minutes. Enter the access code provided by your facilitator to begin.</p>
+    <div class="form-group">
+      <label for="test_access_code">Access Code</label>
+      <input type="password" id="test_access_code" placeholder="Enter access code" style="background:var(--bg); border:1px solid var(--border-color); border-radius:6px; padding:10px 12px; color:var(--fg); font-size:1rem; width:100%;">
+    </div>
+    <div class="form-group" style="display:none;" id="test_info_fields">
+      <label for="test_name">Your Full Name</label>
+      <input type="text" id="test_name" style="background:var(--bg); border:1px solid var(--border-color); border-radius:6px; padding:10px 12px; color:var(--fg); font-size:1rem; width:100%;">
+    </div>
+    <div class="form-group" style="display:none;" id="test_dealership_field">
+      <label for="test_dealership">Dealership / Company Name</label>
+      <input type="text" id="test_dealership" style="background:var(--bg); border:1px solid var(--border-color); border-radius:6px; padding:10px 12px; color:var(--fg); font-size:1rem; width:100%;">
+    </div>
+    <div class="form-group" style="display:none;" id="test_email_field">
+      <label for="test_email">Email Address</label>
+      <input type="email" id="test_email" style="background:var(--bg); border:1px solid var(--border-color); border-radius:6px; padding:10px 12px; color:var(--fg); font-size:1rem; width:100%;">
+    </div>
+    <button class="btn" style="margin-top:16px;" onclick="checkAccessCode()">Begin Assessment</button>
+    <p id="test_signin_error" style="color:var(--danger); margin-top:10px; display:none;"></p>
+  </div>
+
+  <!-- Test Running Screen -->
+  <div id="test_running" style="display:none;">
+    <div class="card" style="position:sticky; top:16px; z-index:50; margin-bottom:20px;">
+      <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;">
+        <div>
+          <strong id="test_user_name"></strong>
+          <span style="color:var(--muted); margin-left:12px;" id="test_timer">Time Remaining: 90:00</span>
+        </div>
+        <div style="display:flex; align-items:center; gap:12px;">
+          <span style="color:var(--muted); font-size:0.9rem;" id="test_progress">Question 0 of 50 answered</span>
+          <button class="btn btn-outline" onclick="abandonTest()">Submit Test</button>
+        </div>
+      </div>
+      <div style="margin-top:8px; height:4px; background:var(--border-color); border-radius:2px; overflow:hidden;">
+        <div id="test_progress_bar" style="height:100%; background:var(--accent-color); width:0%; transition:width 0.3s ease;"></div>
+      </div>
+    </div>
+    <div id="test_questions_list"></div>
+    <button class="btn" style="margin-top:20px; margin-bottom:40px;" onclick="submitTest()">Submit Assessment</button>
+  </div>
+
+  <!-- Test Results Screen -->
+  <div id="test_results" style="display:none;">
+    <div class="card">
+      <div class="card-title">Assessment Results</div>
+      <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px; margin-bottom:24px;">
+        <div>
+          <div style="font-size:0.85rem; color:var(--muted); text-transform:uppercase; letter-spacing:1px;">Score</div>
+          <div style="font-size:2.5rem; font-weight:800; color:var(--accent-color);" id="result_score">&mdash; / 50</div>
+          <div style="font-size:1.5rem; font-weight:700;" id="result_pct">&mdash;%</div>
+        </div>
+        <div>
+          <div style="font-size:0.85rem; color:var(--muted); text-transform:uppercase; letter-spacing:1px;">Completed By</div>
+          <div style="font-size:1.1rem; font-weight:600;" id="result_name">&mdash;</div>
+          <div style="color:var(--muted);" id="result_dealership">&mdash;</div>
+          <div style="color:var(--muted);" id="result_date">&mdash;</div>
+        </div>
+      </div>
+
+      <div style="margin-bottom:24px;">
+        <h3 style="color:var(--accent-color); margin-bottom:12px; font-size:1.1rem;">Module Breakdown</h3>
+        <div id="result_module_breakdown"></div>
+      </div>
+
+      <div style="margin-bottom:24px;">
+        <h3 style="color:var(--accent-color); margin-bottom:12px; font-size:1.1rem;">Recommended Training Focus Areas</h3>
+        <div id="result_focus_areas"></div>
+      </div>
+
+      <div style="display:flex; gap:12px; flex-wrap:wrap;">
+        <button class="btn" onclick="printResults()">Print Results</button>
+        <button class="btn btn-outline" onclick="retakeTest()">Retake Assessment</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+<script>
+  function switchMainSection(secId, btnEl) {
+    document.querySelectorAll('.section-container').forEach(function(el) { el.classList.remove('active'); });
+    document.querySelectorAll('.main-nav-btn').forEach(function(el) { el.classList.remove('active'); });
+    var target = document.getElementById(secId);
+    if (target) target.classList.add('active');
+    if (btnEl) btnEl.classList.add('active');
+  }
+
+  function switchCurrTab(tabId, btnEl) {
+    document.querySelectorAll('#sec_curriculum .tab-content').forEach(function(el) { el.classList.remove('active'); });
+    document.querySelectorAll('.dropdown-item').forEach(function(el) { el.classList.remove('active'); });
+    var target = document.getElementById(tabId);
+    if (target) target.classList.add('active');
+    if (btnEl) {
+      btnEl.classList.add('active');
+      var label = document.getElementById('dropdown-label');
+      if (label) label.innerText = btnEl.innerText;
+    }
+    closeDropdown();
+  }
+
+  function toggleDropdown() {
+    var menu = document.getElementById('module_menu');
+    var toggle = document.querySelector('.dropdown-toggle');
+    if (menu) menu.classList.toggle('open');
+    if (toggle) toggle.classList.toggle('active');
+  }
+
+  function closeDropdown() {
+    var menu = document.getElementById('module_menu');
+    var toggle = document.querySelector('.dropdown-toggle');
+    if (menu) menu.classList.remove('open');
+    if (toggle) toggle.classList.remove('active');
+  }
+
+  function switchDashTab(tabId, btnEl) {
+    document.querySelectorAll('#sec_dashboard .tab-content').forEach(function(el) { el.classList.remove('active'); });
+    document.querySelectorAll('#sec_dashboard .tab-btn').forEach(function(el) { el.classList.remove('active'); });
+    var target = document.getElementById(tabId);
+    if (target) target.classList.add('active');
+    if (btnEl) btnEl.classList.add('active');
+  }
+
+  function setStatus(elId, statusText, statusClass) {
+    var el = document.getElementById(elId);
+    if (el) { el.innerText = statusText; el.className = 'metric-status ' + statusClass; }
+  }
+
+  function setScoreStatus(elId, passHtml, warnHtml, failHtml, condition) {
+    var el = document.getElementById(elId);
+    if (!el) return;
+    if (condition === 'pass') el.innerHTML = passHtml;
+    else if (condition === 'warn') el.innerHTML = warnHtml;
+    else el.innerHTML = failHtml;
+  }
+
+  // === DASHBOARD CALCULATORS ===
+
+  function calcMod1() {
+    var total = parseFloat(document.getElementById('dm1_total_fleet') ? document.getElementById('dm1_total_fleet').value : 0) || 0;
+    var onRent = parseFloat(document.getElementById('dm1_on_rent') ? document.getElementById('dm1_on_rent').value : 0) || 0;
+    var ready = parseFloat(document.getElementById('dm1_ready_line') ? document.getElementById('dm1_ready_line').value : 0) || 0;
+    if (total > 0) {
+      var avail = ((onRent + ready) / total) * 100;
+      document.getElementById('dm1_res_avail').innerText = avail.toFixed(1) + '%';
+      document.getElementById('s_val_avail').innerText = avail.toFixed(1) + '%';
+      if (avail >= 92) { setStatus('dm1_status', 'PASS', 'status-pass'); setScoreStatus('s_stat_avail', '<span class="metric-status status-pass">PASS</span>', '', '', 'pass'); }
+      else if (avail >= 88) { setStatus('dm1_status', 'WARN', 'status-warn'); setScoreStatus('s_stat_avail', '', '<span class="metric-status status-warn">WARN</span>', '', 'warn'); }
+      else { setStatus('dm1_status', 'FAIL', 'status-fail'); setScoreStatus('s_stat_avail', '', '', '<span class="metric-status status-fail">FAIL</span>', 'fail'); }
+    }
+    saveData();
+  }
+
+  function calcMod2() {
+    var spend = parseFloat(document.getElementById('dm2_maint_spend') ? document.getElementById('dm2_maint_spend').value : 0) || 0;
+    var oec = parseFloat(document.getElementById('dm2_oec') ? document.getElementById('dm2_oec').value : 0) || 0;
+    if (oec > 0) {
+      var pct = (spend / oec) * 100;
+      document.getElementById('dm2_res_pct').innerText = pct.toFixed(1) + '%';
+      document.getElementById('s_val_oec').innerText = pct.toFixed(1) + '%';
+      if (pct >= 3.5 && pct <= 5.5) { setStatus('dm2_status', 'PASS', 'status-pass'); setScoreStatus('s_stat_oec', '<span class="metric-status status-pass">PASS</span>', '', '', 'pass'); }
+      else if (pct >= 5.6 && pct <= 6.5) { setStatus('dm2_status', 'WARN', 'status-warn'); setScoreStatus('s_stat_oec', '', '<span class="metric-status status-warn">WARN</span>', '', 'warn'); }
+      else { setStatus('dm2_status', pct > 6.5 ? 'CRITICAL FAIL' : 'BELOW TARGET', 'status-fail'); setScoreStatus('s_stat_oec', '', '', '<span class="metric-status status-fail">FAIL</span>', 'fail'); }
+    }
+    saveData();
+  }
+
+  function calcMod3() {
+    var returns = parseFloat(document.getElementById('dm3_total_returns') ? document.getElementById('dm3_total_returns').value : 0) || 0;
+    var hrs = parseFloat(document.getElementById('dm3_avg_hours') ? document.getElementById('dm3_avg_hours').value : 0) || 0;
+    document.getElementById('dm3_res_hrs').innerText = hrs.toFixed(1) + ' hrs';
+    document.getElementById('s_val_dti').innerText = hrs.toFixed(1) + ' hrs';
+    if (hrs > 0 && hrs <= 24) { setStatus('dm3_status', 'PASS (Clean)', 'status-pass'); setScoreStatus('s_stat_dti', '<span class="metric-status status-pass">PASS</span>', '', '', 'pass'); }
+    else if (hrs > 24 && hrs <= 48) { setStatus('dm3_status', 'PASS (PM)', 'status-pass'); setScoreStatus('s_stat_dti', '<span class="metric-status status-pass">PASS</span>', '', '', 'pass'); }
+    else if (hrs > 48 && hrs <= 72) { setStatus('dm3_status', 'WARN', 'status-warn'); setScoreStatus('s_stat_dti', '', '<span class="metric-status status-warn">WARN</span>', '', 'warn'); }
+    else if (hrs > 72) { setStatus('dm3_status', 'FAIL', 'status-fail'); setScoreStatus('s_stat_dti', '', '', '<span class="metric-status status-fail">FAIL</span>', 'fail'); }
+    else { setStatus('dm3_status', '&mdash;', 'status-warn'); setScoreStatus('s_stat_dti', '', '<span class="metric-status status-warn">&mdash;</span>', '', 'warn'); }
+    saveData();
+  }
+
+  function calcMod4() {
+    var totalDays = parseFloat(document.getElementById('dm4_total_days') ? document.getElementById('dm4_total_days').value : 0) || 0;
+    var downDays = parseFloat(document.getElementById('dm4_down_days') ? document.getElementById('dm4_down_days').value : 0) || 0;
+    var rate = parseFloat(document.getElementById('dm4_daily_rate') ? document.getElementById('dm4_daily_rate').value : 0) || 0;
+    if (totalDays > 0) {
+      var pct = (downDays / totalDays) * 100;
+      document.getElementById('dm4_res_pct').innerText = pct.toFixed(1) + '%';
+      document.getElementById('s_val_down').innerText = pct.toFixed(1) + '%';
+      if (pct < 8) { setStatus('dm4_status', 'PASS', 'status-pass'); setScoreStatus('s_stat_down', '<span class="metric-status status-pass">PASS</span>', '', '', 'pass'); }
+      else if (pct >= 8 && pct <= 12) { setStatus('dm4_status', 'WARN', 'status-warn'); setScoreStatus('s_stat_down', '', '<span class="metric-status status-warn">WARN</span>', '', 'warn'); }
+      else { setStatus('dm4_status', 'FAIL', 'status-fail'); setScoreStatus('s_stat_down', '', '', '<span class="metric-status status-fail">FAIL</span>', 'fail'); }
+    }
+    var drag = downDays * rate;
+    document.getElementById('dm4_res_drag').innerText = '$' + drag.toLocaleString();
+    document.getElementById('s_val_drag').innerText = '$' + drag.toLocaleString();
+    saveData();
+  }
+
+  function calcMod5() {
+    var woHrs = parseFloat(document.getElementById('dm5_wo_hours') ? document.getElementById('dm5_wo_hours').value : 0) || 0;
+    var payHrs = parseFloat(document.getElementById('dm5_payroll_hours') ? document.getElementById('dm5_payroll_hours').value : 0) || 0;
+    if (payHrs > 0) {
+      var prod = (woHrs / payHrs) * 100;
+      document.getElementById('dm5_res_prod').innerText = prod.toFixed(1) + '%';
+      document.getElementById('s_val_prod').innerText = prod.toFixed(1) + '%';
+      if (prod >= 85) { setStatus('dm5_status', 'PASS', 'status-pass'); setScoreStatus('s_stat_prod', '<span class="metric-status status-pass">PASS</span>', '', '', 'pass'); }
+      else if (prod >= 75) { setStatus('dm5_status', 'WARN', 'status-warn'); setScoreStatus('s_stat_prod', '', '<span class="metric-status status-warn">WARN</span>', '', 'warn'); }
+      else { setStatus('dm5_status', 'FAIL', 'status-fail'); setScoreStatus('s_stat_prod', '', '', '<span class="metric-status status-fail">FAIL</span>', 'fail'); }
+    }
+    saveData();
+  }
+
+  function calcMod6() {
+    var consumption = parseFloat(document.getElementById('dm6_consumption') ? document.getElementById('dm6_consumption').value : 0) || 0;
+    var onHand = parseFloat(document.getElementById('dm6_on_hand') ? document.getElementById('dm6_on_hand').value : 0) || 0;
+    if (consumption > 0) {
+      var monthlyRate = consumption / 6;
+      if (monthlyRate > 0) {
+        var monthsSupply = onHand / monthlyRate;
+        document.getElementById('dm6_res_months').innerText = monthsSupply.toFixed(1) + ' months';
+        document.getElementById('s_val_parts').innerText = monthsSupply.toFixed(1) + ' months';
+        if (monthsSupply >= 2.5 && monthsSupply <= 3.5) { setStatus('dm6_status', 'PASS (90-Day Target)', 'status-pass'); setScoreStatus('s_stat_parts', '<span class="metric-status status-pass">PASS</span>', '', '', 'pass'); }
+        else if (monthsSupply >= 1.5 && monthsSupply <= 4.5) { setStatus('dm6_status', 'WARN', 'status-warn'); setScoreStatus('s_stat_parts', '', '<span class="metric-status status-warn">WARN</span>', '', 'warn'); }
+        else { setStatus('dm6_status', monthsSupply < 1.5 ? 'FAIL (STOCKOUT RISK)' : 'FAIL (EXCESS STOCK)', 'status-fail'); setScoreStatus('s_stat_parts', '', '', '<span class="metric-status status-fail">FAIL</span>', 'fail'); }
+      }
+    }
+    saveData();
+  }
+
+  function calcMod7() {
+    var invoiced = parseFloat(document.getElementById('dm7_invoiced') ? document.getElementById('dm7_invoiced').value : 0) || 0;
+    var totalDmg = parseFloat(document.getElementById('dm7_total_damage') ? document.getElementById('dm7_total_damage').value : 0) || 0;
+    if (totalDmg > 0) {
+      var pct = (invoiced / totalDmg) * 100;
+      document.getElementById('dm7_res_pct').innerText = pct.toFixed(1) + '%';
+      document.getElementById('s_val_dmg').innerText = pct.toFixed(1) + '%';
+      if (pct >= 85) { setStatus('dm7_status', 'PASS', 'status-pass'); setScoreStatus('s_stat_dmg', '<span class="metric-status status-pass">PASS</span>', '', '', 'pass'); }
+      else if (pct >= 70) { setStatus('dm7_status', 'WARN', 'status-warn'); setScoreStatus('s_stat_dmg', '', '<span class="metric-status status-warn">WARN</span>', '', 'warn'); }
+      else { setStatus('dm7_status', 'FAIL', 'status-fail'); setScoreStatus('s_stat_dmg', '', '', '<span class="metric-status status-fail">FAIL</span>', 'fail'); }
+    }
+    saveData();
+  }
+
+  function calcMod8() {
+    var critical = parseFloat(document.getElementById('dm8_critical') ? document.getElementById('dm8_critical').value : 0) || 0;
+    var triaged = parseFloat(document.getElementById('dm8_triaged') ? document.getElementById('dm8_triaged').value : 0) || 0;
+    if (critical > 0) {
+      var pct = (triaged / critical) * 100;
+      document.getElementById('dm8_res_pct').innerText = pct.toFixed(1) + '%';
+      document.getElementById('s_val_tel').innerText = pct.toFixed(1) + '%';
+      if (pct >= 90) { setStatus('dm8_status', 'PASS', 'status-pass'); setScoreStatus('s_stat_tel', '<span class="metric-status status-pass">PASS</span>', '', '', 'pass'); }
+      else if (pct >= 75) { setStatus('dm8_status', 'WARN', 'status-warn'); setScoreStatus('s_stat_tel', '', '<span class="metric-status status-warn">WARN</span>', '', 'warn'); }
+      else { setStatus('dm8_status', 'FAIL', 'status-fail'); setScoreStatus('s_stat_tel', '', '', '<span class="metric-status status-fail">FAIL</span>', 'fail'); }
+    }
+    saveData();
+  }
+
+  function calcLeak() {
+    var ids = ['dm9_turnaround', 'dm9_unrecovered', 'dm9_avoidable', 'dm9_repeat'];
+    var total = 0;
+    for (var i = 0; i < ids.length; i++) {
+      var el = document.getElementById(ids[i]);
+      if (el) total += parseFloat(el.value) || 0;
+    }
+    var elTotal = document.getElementById('dm9_res_total');
+    if (elTotal) elTotal.innerText = '$' + total.toLocaleString();
+    var elAnn = document.getElementById('dm9_res_annual');
+    if (elAnn) elAnn.innerText = '$' + (total * 12).toLocaleString();
+    var elS = document.getElementById('s_val_leak');
+    if (elS) elS.innerText = '$' + total.toLocaleString() + ' / mo';
+    var elStat = document.getElementById('s_stat_leak');
+    if (elStat) { if (total === 0) elStat.innerHTML = '<span class="metric-status status-pass">PASS</span>'; else elStat.innerHTML = '<span class="metric-status status-fail">FAIL</span>'; }
+    saveData();
+  }
+
+  function calcAll() {
+    calcMod1(); calcMod2(); calcMod3(); calcMod4(); calcMod5(); calcMod6(); calcMod7(); calcMod8();
+    calcLeak();
+    saveData();
+  }
+
+  function saveData() {
+    var data = {};
+    document.querySelectorAll('input[type="number"]').forEach(function(input) { if (input.value && input.id) data[input.id] = input.value; });
+    try { localStorage.setItem('heds_rental_dashboard_data', JSON.stringify(data)); } catch(e) {}
+  }
+
+  function loadData() {
+    var saved = null;
+    try { saved = localStorage.getItem('heds_rental_dashboard_data'); } catch(e) { return; }
+    if (saved) {
+      var data = JSON.parse(saved);
+      Object.keys(data).forEach(function(key) { var el = document.getElementById(key); if (el) el.value = data[key]; });
+    }
+  }
+
+  function resetData() {
+    if (confirm('Reset all manager inputs?')) {
+      document.querySelectorAll('input[type="number"]').forEach(function(input) { input.value = ''; });
+      document.querySelectorAll('input[type="checkbox"]').forEach(function(chk) { chk.checked = false; });
+      try { localStorage.removeItem('heds_rental_dashboard_data'); } catch(e) {}
+      calcAll();
+    }
+  }
+
+  // === COMPLETION TRACKERS ===
+
+  function initCompletionTrackers() {
+    var currModules = document.querySelectorAll('#sec_curriculum .tab-content');
+    currModules.forEach(function(mod) {
+      var id = mod.id;
+      var card = mod.querySelector('.card');
+      if (!card) return;
+      if (card.querySelector('.completion-tracker')) return;
+      var tracker = document.createElement('div');
+      tracker.className = 'completion-tracker';
+      tracker.id = 'tracker_' + id;
+      var isComplete = false, savedDate = '';
+      try { isComplete = localStorage.getItem('heds_rental_complete_' + id) === 'completed'; savedDate = localStorage.getItem('heds_rental_complete_date_' + id) || ''; } catch(e) {}
+      if (isComplete) tracker.classList.add('completed');
+      tracker.innerHTML = '<div class="completion-left">' +
+        '<input type="checkbox" class="completion-checkbox" id="chk_' + id + '" ' + (isComplete ? 'checked' : '') + ' onchange="toggleCompletion(\'' + id + '\')">' +
+        '<span class="completion-label">' + (isComplete ? 'COMPLETED' : 'Mark as Completed') + '</span>' +
+        '</div>' +
+        '<div class="completion-date" id="date_' + id + '">' + (savedDate ? 'Completed: ' + savedDate : '') + '</div>' +
+        '<button class="completion-btn ' + (isComplete ? 'completed-btn' : '') + '" id="btn_' + id + '" onclick="toggleCompletion(\'' + id + '\')">' + (isComplete ? 'Reset' : 'Mark Complete') + '</button>';
+      card.appendChild(tracker);
+    });
+    var dashModules = document.querySelectorAll('#sec_dashboard .tab-content');
+    dashModules.forEach(function(mod) {
+      var id = mod.id;
+      if (id === 'dash_summary') return;
+      var card = mod.querySelector('.card');
+      if (!card) return;
+      if (card.querySelector('.completion-tracker')) return;
+      var tracker = document.createElement('div');
+      tracker.className = 'completion-tracker';
+      tracker.id = 'tracker_' + id;
+      var isComplete = false, savedDate = '';
+      try { isComplete = localStorage.getItem('heds_rental_complete_' + id) === 'completed'; savedDate = localStorage.getItem('heds_rental_complete_date_' + id) || ''; } catch(e) {}
+      if (isComplete) tracker.classList.add('completed');
+      tracker.innerHTML = '<div class="completion-left">' +
+        '<input type="checkbox" class="completion-checkbox" id="chk_' + id + '" ' + (isComplete ? 'checked' : '') + ' onchange="toggleCompletion(\'' + id + '\')">' +
+        '<span class="completion-label">' + (isComplete ? 'COMPLETED' : 'Mark as Completed') + '</span>' +
+        '</div>' +
+        '<div class="completion-date" id="date_' + id + '">' + (savedDate ? 'Completed: ' + savedDate : '') + '</div>' +
+        '<button class="completion-btn ' + (isComplete ? 'completed-btn' : '') + '" id="btn_' + id + '" onclick="toggleCompletion(\'' + id + '\')">' + (isComplete ? 'Reset' : 'Mark Complete') + '</button>';
+      card.appendChild(tracker);
+    });
+  }
+
+  function toggleCompletion(modId) {
+    var tracker = document.getElementById('tracker_' + modId);
+    if (!tracker) return;
+    var chk = document.getElementById('chk_' + modId);
+    var btn = document.getElementById('btn_' + modId);
+    var label = tracker.querySelector('.completion-label');
+    var dateEl = document.getElementById('date_' + modId);
+    var isCurrentlyComplete = tracker.classList.contains('completed');
+    if (isCurrentlyComplete) {
+      tracker.classList.remove('completed');
+      if (chk) chk.checked = false;
+      if (label) label.innerText = 'Mark as Completed';
+      if (dateEl) dateEl.innerText = '';
+      if (btn) { btn.classList.remove('completed-btn'); btn.innerText = 'Mark Complete'; }
+      try { localStorage.removeItem('heds_rental_complete_' + modId); localStorage.removeItem('heds_rental_complete_date_' + modId); } catch(e) {}
+    } else {
+      tracker.classList.add('completed');
+      if (chk) chk.checked = true;
+      var now = new Date();
+      var dateStr = (now.getMonth()+1) + '/' + now.getDate() + '/' + now.getFullYear() + ' ' + now.getHours() + ':' + String(now.getMinutes()).padStart(2, '0');
+      if (label) label.innerText = 'COMPLETED';
+      if (dateEl) dateEl.innerText = 'Completed: ' + dateStr;
+      if (btn) { btn.classList.add('completed-btn'); btn.innerText = 'Reset'; }
+      try { localStorage.setItem('heds_rental_complete_' + modId, 'completed'); localStorage.setItem('heds_rental_complete_date_' + modId, dateStr); } catch(e) {}
+    }
+  }
+
+  function markComplete(moduleId) {
+    var chk = document.getElementById('chk_' + moduleId);
+    if (chk) { chk.checked = true; toggleCompletion(moduleId); }
+  }
+
+  // === 30/60/90 GATE FUNCTIONS ===
+
+  function checkGate1() {
+    var code = document.getElementById('gate1_code').value.trim();
+    if (code === '1Month') {
+      document.getElementById('gate1_content').style.display = 'block';
+      document.getElementById('gate1_error').style.display = 'none';
+      loadGateCheckboxes();
+    } else {
+      document.getElementById('gate1_error').style.display = 'block';
+      document.getElementById('gate1_content').style.display = 'none';
+    }
+  }
+
+  function checkGate2() {
+    var code = document.getElementById('gate2_code').value.trim();
+    if (code === 'Midway') {
+      document.getElementById('gate2_content').style.display = 'block';
+      document.getElementById('gate2_error').style.display = 'none';
+      loadGateCheckboxes();
+    } else {
+      document.getElementById('gate2_error').style.display = 'block';
+      document.getElementById('gate2_content').style.display = 'none';
+    }
+  }
+
+  function checkGate3() {
+    var code = document.getElementById('gate3_code').value.trim();
+    if (code === 'SurveySays') {
+      document.getElementById('gate3_content').style.display = 'block';
+      document.getElementById('gate3_error').style.display = 'none';
+      loadGateCheckboxes();
+    } else {
+      document.getElementById('gate3_error').style.display = 'block';
+      document.getElementById('gate3_content').style.display = 'none';
+    }
+  }
+
+  function saveGateCheckboxes() {
+    var data = {};
+    document.querySelectorAll('#sec_tracker input[type="checkbox"]').forEach(function(chk) { if (chk.id) data[chk.id] = chk.checked; });
+    try { localStorage.setItem('heds_rental_gate_data', JSON.stringify(data)); } catch(e) {}
+  }
+
+  function loadGateCheckboxes() {
+    var saved = null;
+    try { saved = localStorage.getItem('heds_rental_gate_data'); } catch(e) { return; }
+    if (saved) {
+      var data = JSON.parse(saved);
+      Object.keys(data).forEach(function(key) { var el = document.getElementById(key); if (el) el.checked = data[key]; });
+    }
+  }
+
+  // === ASSESSMENT TEST ENGINE ===
+
+  var testQuestions = JSON.parse('[{"id": "q01", "module": "Module 1: Mindset & Yard Flow", "module_id": "c_m1", "type": "mc", "question": "In an equipment rental operation, what is the primary role of the service department?", "options": ["To sell retail labor hours and parts markup to external customers", "To act as an internal production engine that maximizes fleet availability and rent-ready velocity", "To maximize billable hours per technician regardless of machine demand", "To absorb the fixed dealership overhead through retail work orders"], "correct": 1}, {"id": "q02", "module": "Module 1: Mindset & Yard Flow", "module_id": "c_m1", "type": "calc", "question": "A rental branch has 160 active fleet units. Currently, 112 units are on rent and 36 units are certified on the ready-line. What is the Fleet Physical Availability rate?", "options": ["70.0%", "90.0%", "92.5%", "96.0%"], "correct": 2}, {"id": "q03", "module": "Module 1: Mindset & Yard Flow", "module_id": "c_m1", "type": "mc", "question": "Under standard rental shop service level agreements (SLAs), what is the maximum target time allowed for initial check-in and photo inspection after a machine physically returns to the yard?", "options": ["Within 4 hours", "Within 24 hours", "Within 48 hours", "At the end of the business week"], "correct": 0}, {"id": "q04", "module": "Module 1: Mindset & Yard Flow", "module_id": "c_m1", "type": "scenario", "question": "A transport driver returns three excavators to the yard at 3:00 PM. Two are undamaged and due for standard wash/check-in, while one has a bent hydraulic cylinder rod. How should the yard and shop stage these units?", "options": ["Leave all three in the intake lane until the driver returns with tomorrow\'s paperwork", "Complete 4-hour check-in photos on all three, route the two undamaged units through wash to Fast-Track PM, and yellow-tag the damaged unit for immediate repair estimate", "Push all three directly into the heavy overhaul bay behind an ongoing engine overhaul", "Wash the damaged excavator first and park it on the ready line with a handwritten warning note"], "correct": 1}, {"id": "q05", "module": "Module 1: Mindset & Yard Flow", "module_id": "c_m1", "type": "mc", "question": "What does a GREEN tag on an equipment rental machine indicate on the physical yard line?", "options": ["The machine is checked in and waiting for a wash rack opening", "The machine is mechanically certified, safety inspected, fueled, fluid levels topped, and updated to Rent-Ready in the ERP", "The machine is sold and awaiting customer pickup", "The machine is scheduled for a 500-hour preventive maintenance service tomorrow"], "correct": 1}, {"id": "q06", "module": "Module 1: Mindset & Yard Flow", "module_id": "c_m1", "type": "scenario", "question": "The rental counter reports that contractors have reserved four 50-foot boom lifts for dispatch tomorrow morning, but only one green-tagged unit is on the ready line. Three units returned yesterday are sitting in the yard unwashed. What is the immediate operational action?", "options": ["Tell the rental counter to call customers and cancel the reservations", "Direct the wash rack and Fast-Track technicians to prioritize the three returned boom lifts ahead of low-demand machines", "Order two new boom lifts from the manufacturer", "Wait until tomorrow morning\'s shift to begin checking in the returned units"], "correct": 1}, {"id": "q07", "module": "Module 1: Mindset & Yard Flow", "module_id": "c_m1", "type": "mc", "question": "What is the industry target benchmark for total off-rent turnaround time (from yard return to certified ready-line) for routine cleaning and minor service?", "options": ["24 to 48 hours", "5 to 7 business days", "10 to 14 days", "30 days"], "correct": 0}, {"id": "q08", "module": "Module 2: Fleet Economics & OEC", "module_id": "c_m2", "type": "mc", "question": "What is Original Equipment Cost (OEC) in heavy equipment fleet management?", "options": ["The current auction value of a used machine", "The capitalized acquisition purchase price of the asset including initial freight and rigging", "The total accumulated maintenance dollars spent on a unit over its lifetime", "The annual rental revenue generated by the machine"], "correct": 1}, {"id": "q09", "module": "Module 2: Fleet Economics & OEC", "module_id": "c_m2", "type": "calc", "question": "A production excavator has an OEC of $250,000. Over the trailing 12 months, the branch spent $5,000 in parts, $4,500 in internal labor, and $1,750 in sublet glass/towing on this unit. What is its annual Maintenance Cost as a % of OEC?", "options": ["3.2%", "4.5%", "6.8%", "11.25%"], "correct": 1}, {"id": "q10", "module": "Module 2: Fleet Economics & OEC", "module_id": "c_m2", "type": "mc", "question": "What is the standard industry annual benchmark target range for Maintenance Cost as a % of OEC across a healthy rental fleet?", "options": ["0.5% to 1.5%", "3.5% to 5.5%", "12.0% to 18.0%", "25.0% to 35.0%"], "correct": 1}, {"id": "q11", "module": "Module 2: Fleet Economics & OEC", "module_id": "c_m2", "type": "scenario", "question": "A 6-year-old compact track loader with an OEC of $60,000 has accumulated $7,800 in maintenance spend over the last 12 months (13.0% of OEC) and now needs a $6,000 hydraulic drive motor replacement. What should the Rental Service Manager recommend?", "options": ["Immediately authorize the repair without consulting branch leadership", "Flag the unit for capital disposition/auction review, presenting repair costs vs. residual value to the Branch Manager and Fleet Director", "Charge the repair cost directly to the rental counter overhead", "Increase the daily rental rate on this specific unit to recover the repair cost"], "correct": 1}, {"id": "q12", "module": "Module 2: Fleet Economics & OEC", "module_id": "c_m2", "type": "calc", "question": "A rental branch had 50 scheduled preventive maintenance (PM) services due last month. Technicians completed 46 of these services within the designated hour/mile interval window. What was the PM Compliance Rate?", "options": ["84.0%", "88.5%", "92.0%", "96.0%"], "correct": 2}, {"id": "q13", "module": "Module 2: Fleet Economics & OEC", "module_id": "c_m2", "type": "mc", "question": "At what cumulative lifetime maintenance threshold relative to OEC does a heavy rental asset typically cross the \'economic tipping point\' where retirement/disposition is recommended?", "options": ["10% to 15% of OEC", "35% to 40% of OEC", "75% to 85% of OEC", "Over 100% of OEC"], "correct": 1}, {"id": "q14", "module": "Module 2: Fleet Economics & OEC", "module_id": "c_m2", "type": "scenario", "question": "During a fleet audit, a manager discovers that 5 out of 100 machines account for 38% of the branch\'s total annual maintenance spend. All 5 units have hour meters exceeding 6,000 hours. What is the best course of action?", "options": ["Double the PM frequency on all 100 fleet units", "Conduct a 5% at-risk fleet review, package the chronic money-losers, and schedule them for capital disposition before major component failure", "Assign your top apprentice to rebuild all 5 machines in-house during slow periods", "Move the 5 machines to long-term rent at discounted rates to avoid seeing them in the shop"], "correct": 1}, {"id": "q15", "module": "Module 2: Fleet Economics & OEC", "module_id": "c_m2", "type": "mc", "question": "What is the recommended ratio of Planned Maintenance (scheduled PMs and planned component overhauls) to Unplanned Reactive Maintenance in rental fleet operations?", "options": ["50% Planned / 50% Reactive", "80% Planned / 20% Reactive", "20% Planned / 80% Reactive", "100% Reactive Maintenance"], "correct": 1}, {"id": "q16", "module": "Module 3: Shop Workflow & WIP", "module_id": "c_m3", "type": "mc", "question": "What is the primary benefit of establishing \'Fast-Track\' make-ready lanes in a rental maintenance shop?", "options": ["Allowing apprentices to practice major engine rebuilds", "Preventing high-velocity, quick-turn PMs and safety checks from getting blocked behind long-dwell major overhauls", "Eliminating the need for work orders in the ERP system", "Reducing technician pay rates for minor repairs"], "correct": 1}, {"id": "q17", "module": "Module 3: Shop Workflow & WIP", "module_id": "c_m3", "type": "calc", "question": "A shop employs 4 technicians working 40 paid payroll hours each (160 total paid hours). During the week, technicians log a combined 136 hours directly on open fleet repair and PM work orders. What is the Technician Productivity rate?", "options": ["75.0%", "80.0%", "85.0%", "92.5%"], "correct": 2}, {"id": "q18", "module": "Module 3: Shop Workflow & WIP", "module_id": "c_m3", "type": "mc", "question": "What is the maximum standard operational target for internal fleet Work-in-Process (WIP) aging before a job must be escalated?", "options": ["Less than 5 business days", "15 to 30 days", "45 days", "90 days"], "correct": 0}, {"id": "q19", "module": "Module 3: Shop Workflow & WIP", "module_id": "c_m3", "type": "scenario", "question": "During a weekly WIP scrub, a manager finds a work order for a 20-ton excavator that has been open for 12 days with zero labor logged in the last 5 days. The technician states he disassembled the valve body but was reassigned to a field call. How should the manager resolve this?", "options": ["Leave the ticket open until the technician has free time next month", "Close the work order administratively and open a new one next week", "Verify parts status immediately, reassign a technician to complete assembly today, and update the target out-time on the shop board", "Push the disassembled excavator out into the yard to clear the bay"], "correct": 2}, {"id": "q20", "module": "Module 3: Shop Workflow & WIP", "module_id": "c_m3", "type": "mc", "question": "How is Mean Time to Repair (MTTR) calculated in rental fleet shop operations?", "options": ["Total machine acquisition cost divided by total repair hours", "Total hands-on mechanical repair hours divided by total completed repair jobs", "Total days on rent divided by total maintenance work orders", "Total parts expense divided by total labor hours"], "correct": 1}, {"id": "q21", "module": "Module 3: Shop Workflow & WIP", "module_id": "c_m3", "type": "scenario", "question": "Technicians in a rental shop spend an average of 45 minutes per day searching the yard for machines and moving units between bays. What operational change immediately recovers this lost wrench-time?", "options": ["Assigning a dedicated yard porter/hostler to stage machines and pre-stage parts totes at technician bays", "Requiring technicians to work an extra hour of uncompensated overtime", "Discontinuing the physical check-in inspection at the gate", "Allowing technicians to leave machines parked wherever they finish working"], "correct": 0}, {"id": "q22", "module": "Module 3: Shop Workflow & WIP", "module_id": "c_m3", "type": "mc", "question": "What is \'Administrative Ghost WIP\' in a rental equipment maintenance system?", "options": ["A work order created for a machine that was already sold", "A repair that was physically completed days ago with the machine back in the yard, but the work order was never closed in the ERP", "A work order charged to an external warranty claim", "A work order with unbilled customer damage"], "correct": 1}, {"id": "q23", "module": "Module 4: Regulatory & Safety", "module_id": "c_m4", "type": "mc", "question": "Under OSHA standards, when must Lockout/Tagout (LOTO) procedures be applied in a rental equipment service shop?", "options": ["Only when equipment is undergoing annual state inspection", "Whenever maintenance or repair is performed on equipment where unexpected energization, startup, or release of stored energy could cause injury", "Only on electric scissor lifts connected to 110V wall power", "Whenever a machine is parked in the wash bay"], "correct": 1}, {"id": "q24", "module": "Module 4: Regulatory & Safety", "module_id": "c_m4", "type": "scenario", "question": "A technician is preparing to replace a hydraulic cylinder hose underneath a raised excavator boom. The boom is held up solely by hydraulic pressure in the opposite cylinder. What is the required safety standard?", "options": ["Proceed with the repair quickly before hydraulic pressure drops", "Mandate that the boom be mechanically locked with certified steel blocking or lowered fully to the ground before loosening hydraulic fittings", "Have a second technician stand by the control levers inside the cab", "Place a yellow warning cone next to the track"], "correct": 1}, {"id": "q25", "module": "Module 4: Regulatory & Safety", "module_id": "c_m4", "type": "mc", "question": "What does DOT compliance require regarding Driver Vehicle Inspection Reports (DVIR) for commercial mobile service trucks?", "options": ["A verbal check-in with the shop foreman once a week", "A documented pre-trip and post-trip safety inspection completed and signed by the driver for every day the vehicle operates", "An inspection completed only when the vehicle has a mechanical breakdown", "An annual inspection sticker on the windshield with no daily records required"], "correct": 1}, {"id": "q26", "module": "Module 4: Regulatory & Safety", "module_id": "c_m4", "type": "scenario", "question": "During a quarterly scale audit, a mobile service truck is weighed at 20,500 lbs. The chassis data plate specifies a Gross Vehicle Weight Rating (GVWR) of 19,500 lbs. What immediate action must be taken?", "options": ["Increase tire pressure to compensate for the extra 1,000 lbs", "Remove excess tooling, spare parts inventory, or auxiliary fluid weight immediately to bring the vehicle within certified GVWR limits before dispatch", "Instruct the field technician to take secondary back roads to avoid DOT weigh stations", "Log the overload on the monthly P&L and continue operating"], "correct": 1}, {"id": "q27", "module": "Module 4: Regulatory & Safety", "module_id": "c_m4", "type": "mc", "question": "What is the EPA environmental compliance requirement for secondary containment around bulk petroleum and waste fluid tanks?", "options": ["Containment basins must hold at least 50% of the single largest tank", "Containment basins must hold at least 110% of the capacity of the largest enclosed tank to prevent spills from reaching soil or waterways", "No containment is required if tanks are located outdoors", "Containment is only required for gasoline, not diesel or hydraulic fluid"], "correct": 1}, {"id": "q28", "module": "Module 4: Regulatory & Safety", "module_id": "c_m4", "type": "mc", "question": "How often should shop oil/water separators undergo sediment inspection and sludge removal logging to ensure environmental compliance?", "options": ["Once every 5 years", "Monthly visual checks and scheduled quarterly maintenance/sludge extraction logging", "Only when the city water authority issues a warning citation", "Never, because separators are self-cleaning"], "correct": 1}, {"id": "q29", "module": "Module 4: Regulatory & Safety", "module_id": "c_m4", "type": "scenario", "question": "A technician removes 4 used oil filters during a 1,000-hour PM on a wheel loader. What is the compliant disposal protocol?", "options": ["Throw them immediately into the standard municipal trash dumpster", "Hot-drain the filters for at least 12–24 hours, mechanically crush them to recover residual oil, and store in a designated recycling drum", "Wash them with solvent and place them in the metal scrap pile", "Bury them in the gravel retention yard"], "correct": 1}, {"id": "q30", "module": "Module 5: Lean Parts & Supply", "module_id": "c_m5", "type": "mc", "question": "Why does a rental service parts room operate on a lean 90-day run-rate model rather than stocking broad dealership-level inventory?", "options": ["Rental companies do not have enough shelf space for filters", "Rental shops maintain a known, fixed fleet of assets with predictable PM intervals, making slow-moving parts an unnecessary drain on working capital", "Rental equipment never requires replacement parts outside of warranty", "Equipment dealers offer 100% free same-day courier service for all parts"], "correct": 1}, {"id": "q31", "module": "Module 5: Lean Parts & Supply", "module_id": "c_m5", "type": "calc", "question": "A branch fleet consumed 72 engine oil filters across its skid steer fleet over the trailing 6 months. Using the 90-day (3-month) run-rate model, what should the branch\'s maximum target stocking level be?", "options": ["12 filters", "24 filters", "36 filters", "72 filters"], "correct": 2}, {"id": "q32", "module": "Module 5: Lean Parts & Supply", "module_id": "c_m5", "type": "mc", "question": "What is the industry benchmark target for Maintenance Parts Fill Rate on scheduled PM kits from the local stockroom?", "options": ["60% to 70%", "75% to 80%", "$\\\\ge$ 95% off-the-shelf", "100% ordered on-demand after machine returns"], "correct": 2}, {"id": "q33", "module": "Module 5: Lean Parts & Supply", "module_id": "c_m5", "type": "calc", "question": "A rental shop has $45,000 in total on-hand maintenance inventory. The branch\'s average daily parts usage cost is $500. What is the current Days of Supply on hand?", "options": ["30 Days", "60 Days", "90 Days", "120 Days"], "correct": 2}, {"id": "q34", "module": "Module 5: Lean Parts & Supply", "module_id": "c_m5", "type": "scenario", "question": "A 35-ton excavator with a daily rental rate of $800 is down in the shop waiting on a hydraulic pressure sensor from the primary OEM dealer. The dealer notifies the shop that the part is backordered for 3 weeks. What should the manager do?", "options": ["Let the machine sit in the bay for 3 weeks until the factory part arrives", "Initiate the multi-channel sourcing protocol: check sister branch inventory, request regional depot emergency drop-ship, or source an approved aftermarket equivalent to resolve the machine hold within 24–48 hours", "Cancel the work order and sell the excavator", "Tell the customer to rent an excavator from a competitor"], "correct": 1}, {"id": "q35", "module": "Module 5: Lean Parts & Supply", "module_id": "c_m5", "type": "calc", "question": "Two machines are currently down waiting for backordered dealer parts: Unit 1 ($650/day rate) has been down 5 days, and Unit 2 ($250/day rate) has been down 8 days. What is the total branch Parts Constraint Exposure?", "options": ["$900", "$3,250", "$5,250", "$7,200"], "correct": 2}, {"id": "q36", "module": "Module 5: Lean Parts & Supply", "module_id": "c_m5", "type": "mc", "question": "What is the maximum acceptable threshold for dead/obsolete stock (parts showing zero movement in >180 to 365 days) in a well-managed rental parts room?", "options": ["Less than 3% to 5% of total inventory value", "15% to 20% of total inventory value", "30% to 40% of total inventory value", "Obsolete inventory does not affect cash flow"], "correct": 0}, {"id": "q37", "module": "Module 6: Economic Downtime", "module_id": "c_m6", "type": "mc", "question": "What does Downtime Severity Value measure in equipment rental operations?", "options": ["The total weight of down machinery in the yard", "The dollar value of rental revenue capacity lost while equipment undergoes maintenance, calculated as Downtime Days multiplied by Daily Rental Rate", "The hourly wage paid to technicians while on break", "The interest rate on fleet acquisition loans"], "correct": 1}, {"id": "q38", "module": "Module 6: Economic Downtime", "module_id": "c_m6", "type": "calc", "question": "A shop has 1 technician available and 3 down machines:\\n• Unit A: 40T Excavator ($800/day, 2.0h repair)\\n• Unit B: Telehandler ($240/day, 1.0h repair)\\n• Unit C: Scissor Lift ($80/day, 4.0h repair)\\nUsing the Shop Priority Index (SPI = Daily Rate / Repair Hours), what is the correct repair sequence?", "options": ["Unit C, then Unit B, then Unit A", "Unit A (SPI 400), then Unit B (SPI 240), then Unit C (SPI 20)", "Unit B, then Unit C, then Unit A", "Sequence chronologically by which unit arrived in the yard first"], "correct": 1}, {"id": "q39", "module": "Module 6: Economic Downtime", "module_id": "c_m6", "type": "mc", "question": "What is the benchmark target for Fleet Downtime % (days units spend in maintenance vs total fleet days) across a healthy equipment rental branch?", "options": ["Under 8.0% of total fleet days", "15.0% to 20.0%", "25.0% to 35.0%", "Over 40.0%"], "correct": 0}, {"id": "q40", "module": "Module 6: Economic Downtime", "module_id": "c_m6", "type": "calc", "question": "A rental branch generated $300,000 in gross rental revenue last month. Total maintenance spend across internal labor, fleet parts, and sublet repairs was $33,000. What was the branch Maintenance Drag Ratio?", "options": ["5.5%", "8.0%", "11.0%", "18.5%"], "correct": 2}, {"id": "q41", "module": "Module 6: Economic Downtime", "module_id": "c_m6", "type": "scenario", "question": "A telematics alert fires at 6:45 AM showing an active Tier 4 emissions DEF pump pressure failure code (SPN 3251) on a 30-ton excavator currently on-rent at a high-visibility highway project. How should the Service Manager respond?", "options": ["Wait until the customer calls to report the machine has shut down", "Contact the customer immediately, inform them of the sensor code, and dispatch a mobile field technician with a replacement DEF pump module before the engine enters derate shutdown", "Clear the code remotely in the software portal and ignore it", "Send an email to the OEM warranty department"], "correct": 1}, {"id": "q42", "module": "Module 6: Economic Downtime", "module_id": "c_m6", "type": "mc", "question": "Why is 4-point photographic documentation at return check-in critical for Customer Damage Recovery?", "options": ["To post pictures on social media", "To prove the damage occurred during the customer\'s contract period, enabling the branch to invoice and recover repair costs rather than absorbing abuse in internal maintenance expense", "To qualify for annual manufacturer sales rebates", "To determine if the machine needs a wash"], "correct": 1}, {"id": "q43", "module": "Module 6: Economic Downtime", "module_id": "c_m6", "type": "calc", "question": "Over a 90-day period, a branch incurred $18,000 in customer-caused equipment abuse repairs (bent sheet metal, missing teeth, contaminated fuel). The branch invoiced and collected $15,300 from those customers. What was the Damage Recovery Rate?", "options": ["72.5%", "80.0%", "85.0%", "95.0%"], "correct": 2}, {"id": "q44", "module": "Module 6: Economic Downtime", "module_id": "c_m6", "type": "scenario", "question": "The rental counter turns away a contractor wanting to rent a 10,000-lb telehandler for 1 month ($3,200 rental rate) because none are on the ready-line. A telehandler returned 3 days ago is sitting in the yard with a flat tire awaiting a work order. What operational failure does this represent?", "options": ["Normal market fluctuation", "Missed Rental In-Service Stock-Out loss caused by unmanaged yard turnaround delay", "An unavoidable parts backorder", "A fleet disposition trigger"], "correct": 1}, {"id": "q45", "module": "Module 7: Operating Cadence", "module_id": "c_m7", "type": "mc", "question": "What is the recommended format and duration for the daily rental shop morning standup meeting?", "options": ["A 60-minute seated conference room meeting reviewing monthly financial reports", "A strict 15-minute standing huddle at 7:00 AM at the visual board covering counter demands, red telematics alerts, stuck bays, and tech assignments", "An informal coffee chat in the break room", "A weekly email memo sent on Friday afternoons"], "correct": 1}, {"id": "q46", "module": "Module 7: Operating Cadence", "module_id": "c_m7", "type": "scenario", "question": "During the 7:00 AM morning standup, the parts expediter states that an alternator for a priority wheel loader did not arrive on the overnight freight. The technician assigned to that machine is standing by. What is the immediate decision?", "options": ["Send the technician home for the day", "Reassign the technician to the #2 priority ready-line unit immediately while the expediter executes emergency local dealer courier sourcing", "Tell the technician to wait by the bay until tomorrow\'s freight arrives", "Disassemble another customer machine to take its alternator"], "correct": 1}, {"id": "q47", "module": "Module 7: Operating Cadence", "module_id": "c_m7", "type": "mc", "question": "In the HEDS 30/60/90 Gated Implementation Framework, what is the primary operational focus of the 30-Day Gate (`1Month`)?", "options": ["Advanced predictive telematics modeling", "Ground-level triage, WIP scrub, yard flow stabilization, and establishing initial PM/hour-meter baselines", "Purchasing new service bodies for all trucks", "Renegotiating regional equipment vendor discounts"], "correct": 1}, {"id": "q48", "module": "Module 7: Operating Cadence", "module_id": "c_m7", "type": "mc", "question": "In the HEDS 30/60/90 Gated Implementation Framework, what milestone is evaluated at the 60-Day Gate (`Midway`)?", "options": ["Verifying 90-day lean parts stocking buffers, Maintenance % of OEC tracking, and Fast-Track PM bay operations", "Submitting the annual branch capital budget", "Replacing all shop technicians with contractors", "Discontinuing the 15-minute morning standup"], "correct": 0}, {"id": "q49", "module": "Module 7: Operating Cadence", "module_id": "c_m7", "type": "mc", "question": "What core deliverable is presented to branch and regional leadership at the 90-Day Gate (`SurveySays`)?", "options": ["A handwritten list of parts orders", "A full 90-Day Operational Executive Scorecard detailing Maintenance % of OEC, Downtime Severity, Parts Constraint losses, and net fleet readiness", "A request to double the parts room budget", "A dealership retail labor price matrix"], "correct": 1}, {"id": "q50", "module": "Module 7: Operating Cadence", "module_id": "c_m7", "type": "scenario", "question": "A Rental Service Manager completes the 5-day training program. What required capstone artifact must they submit with their Branch Manager to achieve certification?", "options": ["A copy of the dealership\'s annual tax return", "A personalized 90-Day Rental Service Action Plan featuring baseline KPIs, top 3 revenue leak SOPs, a 5% at-risk fleet review, and a signed leadership accountability contract", "A log of all completed customer warranty claims", "A receipt for a new pressure washer"], "correct": 1}]');
+  var testAnswers = {};
+  var testTimerInterval = null;
+  var testTimeRemaining = 90 * 60;
+
+  function checkAccessCode() {
+    var code = document.getElementById('test_access_code').value.trim();
+    if (code !== 'TEST') {
+      var errEl = document.getElementById('test_signin_error');
+      errEl.style.display = 'block';
+      errEl.innerText = 'Invalid access code.';
+      return;
+    }
+    document.getElementById('test_info_fields').style.display = 'block';
+    document.getElementById('test_dealership_field').style.display = 'block';
+    document.getElementById('test_email_field').style.display = 'block';
+    document.getElementById('test_signin_error').style.display = 'none';
+    var btn = document.querySelector('#test_signin .btn');
+    btn.innerText = 'Start Assessment';
+    btn.setAttribute('onclick', 'startTest()');
+  }
+
+  function startTest() {
+    var name = document.getElementById('test_name').value.trim();
+    var dealership = document.getElementById('test_dealership').value.trim();
+    var email = document.getElementById('test_email').value.trim();
+    if (!name || !dealership || !email) {
+      var errEl = document.getElementById('test_signin_error');
+      errEl.style.display = 'block';
+      errEl.innerText = 'Please fill in all fields before starting.';
+      return;
+    }
+    document.getElementById('test_signin_error').style.display = 'none';
+    document.getElementById('test_signin').style.display = 'none';
+    document.getElementById('test_running').style.display = 'block';
+    document.getElementById('test_user_name').innerText = name + ' \u2014 ' + dealership;
+    testAnswers = {};
+    testTimeRemaining = 90 * 60;
+    renderQuestions();
+    startTimer();
+  }
+
+  function renderQuestions() {
+    var container = document.getElementById('test_questions_list');
+    container.innerHTML = '';
+    testQuestions.forEach(function(q, i) {
+      var qDiv = document.createElement('div');
+      qDiv.className = 'card';
+      qDiv.style.marginBottom = '16px';
+      var typeLabel = q.type === 'calc' ? 'Calculation' : (q.type === 'scenario' ? 'Scenario' : 'Multiple Choice');
+      var moduleLabel = q.module;
+      qDiv.innerHTML = '<div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:10px;">' +
+        '<div><span style="font-size:0.75rem; color:var(--accent-color); font-weight:700; text-transform:uppercase; letter-spacing:1px;">Q' + (i+1) + ' \u2014 ' + typeLabel + '</span><br><span style="font-size:0.8rem; color:var(--muted);">' + moduleLabel + '</span></div>' +
+        '</div>' +
+        '<div style="font-size:1rem; margin-bottom:12px; font-weight:600;">' + q.question + '</div>' +
+        '<ul class="test-options" id="opts_' + q.id + '"></ul>';
+      container.appendChild(qDiv);
+      var optsList = qDiv.querySelector('.test-options');
+      q.options.forEach(function(opt, j) {
+        var li = document.createElement('li');
+        li.style.cursor = 'pointer';
+        li.setAttribute('data-qid', q.id);
+        li.setAttribute('data-oidx', j);
+        li.innerHTML = '<label style="display:flex; align-items:flex-start; gap:8px; cursor:pointer; padding:8px 12px; border:1px solid var(--border-color); border-radius:6px; margin-bottom:6px; transition:all 0.15s ease;" onmouseover="this.style.borderColor=\'var(--accent-color)\'" onmouseout="if(!this.classList.contains(\'selected\'))this.style.borderColor=\'var(--border-color)\'">' +
+          '<input type="radio" name="radio_' + q.id + '" value="' + j + '" style="margin-top:4px; accent-color:var(--accent-color);" onchange="selectAnswer(\'' + q.id + '\', ' + j + ', this.parentElement)">' +
+          '<span>' + opt + '</span>' +
+          '</label>';
+        optsList.appendChild(li);
+      });
+    });
+    updateProgress();
+  }
+
+  function selectAnswer(qid, oidx, labelEl) {
+    testAnswers[qid] = oidx;
+    var opts = document.querySelectorAll('#opts_' + qid + ' label');
+    opts.forEach(function(el) { el.classList.remove('selected'); el.style.borderColor = 'var(--border-color)'; el.style.background = ''; });
+    labelEl.classList.add('selected');
+    labelEl.style.borderColor = 'var(--accent-color)';
+    labelEl.style.background = 'rgba(229, 174, 37, 0.1)';
+    updateProgress();
+  }
+
+  function updateProgress() {
+    var answered = Object.keys(testAnswers).length;
+    var total = testQuestions.length;
+    var pct = (answered / total) * 100;
+    document.getElementById('test_progress').innerText = 'Question ' + answered + ' of ' + total + ' answered';
+    document.getElementById('test_progress_bar').style.width = pct + '%';
+  }
+
+  function startTimer() {
+    if (testTimerInterval) clearInterval(testTimerInterval);
+    testTimerInterval = setInterval(function() {
+      testTimeRemaining--;
+      var mins = Math.floor(testTimeRemaining / 60);
+      var secs = testTimeRemaining % 60;
+      var timerEl = document.getElementById('test_timer');
+      if (timerEl) {
+        timerEl.innerText = 'Time Remaining: ' + mins + ':' + (secs < 10 ? '0' : '') + secs;
+        if (testTimeRemaining <= 300) timerEl.style.color = 'var(--danger)';
+        if (testTimeRemaining <= 60) timerEl.style.fontWeight = 'bold';
+      }
+      if (testTimeRemaining <= 0) { clearInterval(testTimerInterval); submitTest(); }
+    }, 1000);
+  }
+
+  function submitTest() {
+    if (testTimerInterval) clearInterval(testTimerInterval);
+    var correct = 0;
+    var moduleScores = {};
+    testQuestions.forEach(function(q) {
+      if (!moduleScores[q.module]) moduleScores[q.module] = { correct: 0, total: 0 };
+      moduleScores[q.module].total++;
+      if (testAnswers[q.id] === q.correct) { correct++; moduleScores[q.module].correct++; }
+    });
+    var pct = Math.round((correct / testQuestions.length) * 100);
+    document.getElementById('test_running').style.display = 'none';
+    document.getElementById('test_results').style.display = 'block';
+    document.getElementById('result_score').innerText = correct + ' / ' + testQuestions.length;
+    document.getElementById('result_pct').innerText = pct + '%';
+    document.getElementById('result_name').innerText = document.getElementById('test_name').value;
+    document.getElementById('result_dealership').innerText = document.getElementById('test_dealership').value;
+    var now = new Date();
+    document.getElementById('result_date').innerText = (now.getMonth()+1) + '/' + now.getDate() + '/' + now.getFullYear() + ' ' + now.getHours() + ':' + String(now.getMinutes()).padStart(2, '0');
+    var breakdownEl = document.getElementById('result_module_breakdown');
+    breakdownEl.innerHTML = '';
+    var breakdownHtml = '<div style="overflow-x:auto;"><table style="width:100%; border-collapse:collapse; font-size:0.85rem; text-align:left;"><thead><tr style="border-bottom:2px solid var(--accent-color); color:var(--accent-color);"><th style="padding:8px;">Module</th><th style="padding:8px;">Score</th><th style="padding:8px;">Result</th></tr></thead><tbody>';
+    Object.keys(moduleScores).forEach(function(mod) {
+      var ms = moduleScores[mod];
+      var modPct = Math.round((ms.correct / ms.total) * 100);
+      var statusClass = modPct >= 80 ? 'status-pass' : (modPct >= 60 ? 'status-warn' : 'status-fail');
+      var statusText = modPct >= 80 ? 'PASS' : (modPct >= 60 ? 'REVIEW' : 'FOCUS');
+      breakdownHtml += '<tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px;">' + mod + '</td><td style="padding:8px;">' + ms.correct + '/' + ms.total + ' (' + modPct + '%)</td><td style="padding:8px;"><span class="metric-status ' + statusClass + '">' + statusText + '</span></td></tr>';
+    });
+    breakdownHtml += '</tbody></table></div>';
+    breakdownEl.innerHTML = breakdownHtml;
+    var focusEl = document.getElementById('result_focus_areas');
+    var focusModules = [];
+    Object.keys(moduleScores).forEach(function(mod) {
+      var ms = moduleScores[mod];
+      var modPct = Math.round((ms.correct / ms.total) * 100);
+      if (modPct < 80) focusModules.push({ module: mod, pct: modPct, correct: ms.correct, total: ms.total });
+    });
+    focusModules.sort(function(a, b) { return a.pct - b.pct; });
+    if (focusModules.length === 0) {
+      focusEl.innerHTML = '<div class="floor-rule" style="border-color:var(--success);"><div class="floor-rule-title" style="color:var(--success);">All Modules Passed</div>You scored 80% or higher on every module. No specific focus areas required. Continue daily operating discipline and review the scorecard weekly.</div>';
+    } else {
+      var focusHtml = '<p style="color:var(--muted); margin-bottom:12px;">The following modules scored below 80%. Focus your training and coaching on these areas:</p>';
+      focusModules.forEach(function(fm) {
+        focusHtml += '<div class="card" style="margin-bottom:10px; padding:14px;"><div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;"><strong>' + fm.module + '</strong><span class="metric-status status-fail">' + fm.pct + '% (' + fm.correct + '/' + fm.total + ')</span></div></div>';
+      });
+      focusEl.innerHTML = focusHtml;
+    }
+  }
+
+  function abandonTest() {
+    if (confirm('Submit your test now? You cannot change your answers after submitting.')) submitTest();
+  }
+
+  function retakeTest() {
+    document.getElementById('test_results').style.display = 'none';
+    document.getElementById('test_signin').style.display = 'block';
+    document.getElementById('test_running').style.display = 'none';
+    testAnswers = {};
+    if (testTimerInterval) clearInterval(testTimerInterval);
+    testTimeRemaining = 90 * 60;
+    var btn = document.querySelector('#test_signin .btn');
+    if (btn) { btn.innerText = 'Begin Assessment'; btn.setAttribute('onclick', 'checkAccessCode()'); }
+    document.getElementById('test_access_code').value = '';
+    document.getElementById('test_info_fields').style.display = 'none';
+    document.getElementById('test_dealership_field').style.display = 'none';
+    document.getElementById('test_email_field').style.display = 'none';
+  }
+
+  function printResults() { window.print(); }
+
+  window.onload = function() {
+    loadData();
+    calcAll();
+    initCompletionTrackers();
+    loadGateCheckboxes();
+  };
+</script>
+</body>
+</html>
