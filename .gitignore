@@ -6,3 +6,7 @@ parts-manager-visual-spec.html
 *.bak
 *.bak.*
 apps-script-relay.gs
+build_drafts_launcher.py
+create_gmail_drafts.py
+gmail-drafts-launcher.html
+__pycache__/
