@@ -3,6 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="HEDS Academy Rental Service Manager Training & Operating Platform. Curriculum, live fleet calculators, 30/60/90 implementation tracker, and 50-question assessment.">
+<link rel="icon" type="image/png" href="LOGO_HEDS_small.png">
+<meta property="og:title" content="HEDS Academy — Rental Service Manager Platform">
+<meta property="og:description" content="Training curriculum, operational calculators, and 30/60/90 implementation tracking for equipment rental leaders.">
+<meta property="og:type" content="website">
 <title>HEDS Academy — Rental Service Manager Training & Operating Platform</title>
 <style>
   :root {
@@ -15,7 +20,7 @@
     --muted: #94a3b8;
     --success: #22c55e;
     --warning: #e5ae25;
-    --danger: #ef4444;
+    --danger: #f87171;
     --radius: 8px;
     --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   }
@@ -267,9 +272,10 @@
     padding: 14px 18px;
     font-size: 1rem;
     font-weight: 700;
-    background: var(--card-bg);
-    color: var(--accent-color);
-    border: 1px solid var(--border-color);
+    background: linear-gradient(135deg, var(--accent-color), var(--accent-hover));
+    color: var(--bg);
+    border: 2px solid var(--accent-color);
+    box-shadow: 0 2px 12px rgba(229, 174, 37, 0.25);
     border-radius: var(--radius);
     cursor: pointer;
     display: flex;
@@ -420,20 +426,35 @@
     border: 1px solid var(--danger);
   }
   .completion-btn.completed-btn:hover { background: rgba(239, 68, 68, 0.1); }
+  @media (max-width: 768px) {
+    header { flex-direction: column; text-align: center; gap: 12px; }
+    .header-logo { max-height: 80px; margin: 0 auto; }
+    .main-nav { flex-direction: column; gap: 8px; }
+    .main-nav-btn { width: 100%; text-align: left; padding: 10px 14px; font-size: 0.9rem; }
+    .nav-tabs { overflow-x: auto; flex-wrap: nowrap; -webkit-overflow-scrolling: touch; padding-bottom: 8px; }
+    .nav-tabs .tab-btn { flex: 0 0 auto; }
+    .grid-2 { grid-template-columns: 1fr !important; }
+    body { padding: 8px; }
+  }
   @media print {
-    body { background: #fff; color: #000; max-width: none; padding: 0; }
-    .main-nav, .nav-tabs, .module-dropdown, .button-row, .btn, .input-form { display: none !important; }
-    .section-container { display: block !important; }
+    body { background: #fff !important; color: #000 !important; max-width: none; padding: 0; }
+    .main-nav, .nav-tabs, .module-dropdown, .button-row, .btn, .input-form, .completion-tracker { display: none !important; }
+    .section-container { display: none !important; }
+    .section-container.active { display: block !important; }
     .tab-content { display: none !important; }
     .tab-content.active { display: block !important; }
-    .content-card { border: 1px solid #ccc; background: #fff; color: #000; }
+    .card { border: 1px solid #ccc !important; background: #fff !important; color: #000 !important; box-shadow: none !important; margin-bottom: 12px; }
+    .card-title, h1, h2, h3, .spec-title, .brand { color: #000 !important; }
+    .formula-card, .spec-box, .floor-rule { background: #f9f9f9 !important; border-color: #ccc !important; color: #000 !important; }
   }
 </style>
 </head>
 <body>
 
 <header>
-  <img src="LOGO_HEDS.png" alt="HEDS Logo" class="header-logo" style="cursor:pointer;" onclick="switchMainSection('sec_curriculum', document.querySelectorAll('.main-nav-btn')[0])">
+  <a href="javascript:void(0)" onclick="switchMainSection('sec_curriculum', document.querySelectorAll('.main-nav-btn')[0])" aria-label="Go to Training Curriculum">
+    <img src="LOGO_HEDS.png" alt="HEDS Logo" class="header-logo" width="120" height="120" onerror="this.style.display='none'">
+  </a>
   <div class="header-text">
     <h1 style="font-size:1.8rem; font-weight:900; color:var(--accent-color); text-transform:uppercase; letter-spacing:1px; margin:0 0 2px 0; line-height:1.1;">Heavy Equipment Dealer Solutions LLC</h1>
     <div class="brand" style="font-size:0.95rem; font-weight:800; color:var(--accent-color); text-transform:uppercase; letter-spacing:1.5px; margin-bottom:6px;">HEDS Operating Discipline Academy</div>
@@ -456,7 +477,7 @@
 <div id="sec_curriculum" class="section-container active">
   <div class="module-dropdown">
     <button class="dropdown-toggle active" onclick="toggleDropdown()">
-      <span id="dropdown-label">Module 1 — The Rental Service Mindset &amp; Yard Flow</span>
+      <span id="dropdown-label">▼ MENU — Module 1 — The Rental Service Mindset &amp; Yard Flow</span>
       <span class="dropdown-arrow">&#9660;</span>
     </button>
     <div class="dropdown-menu" id="module_menu">
@@ -1604,7 +1625,7 @@
           <div class="card-title">Required ERP Report Verification Checklist</div>
           <ul class="checklist">
             <li><input type="checkbox" id="dm5_chk1"> Verified total WO hours from labor tracking</li>
-            <li><input type="checkbox" id="dm2_chk2"> Verified payroll timecards for same period</li>
+            <li><label style="display:flex;align-items:center;gap:8px;cursor:pointer;"><input type="checkbox" id="dm5_chk2" onchange="saveData()"> Verified payroll timecards for same period</label></li>
             <li><input type="checkbox" id="dm5_chk3"> Identified unapplied time gap (payroll &minus; WO)</li>
             <li><input type="checkbox" id="dm5_chk4"> Reviewed root cause of unapplied hours</li>
           </ul>
@@ -2077,6 +2098,14 @@
     if (toggle) toggle.classList.remove('active');
   }
 
+  document.addEventListener('click', function(e) {
+    var dropdown = document.querySelector('.module-dropdown');
+    if (dropdown && !dropdown.contains(e.target)) closeDropdown();
+  });
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeDropdown();
+  });
+
   function switchDashTab(tabId, btnEl) {
     document.querySelectorAll('#sec_dashboard .tab-content').forEach(function(el) { el.classList.remove('active'); });
     document.querySelectorAll('#sec_dashboard .tab-btn').forEach(function(el) { el.classList.remove('active'); });
@@ -2111,6 +2140,10 @@
       if (avail >= 92) { setStatus('dm1_status', 'PASS', 'status-pass'); setScoreStatus('s_stat_avail', '<span class="metric-status status-pass">PASS</span>', '', '', 'pass'); }
       else if (avail >= 88) { setStatus('dm1_status', 'WARN', 'status-warn'); setScoreStatus('s_stat_avail', '', '<span class="metric-status status-warn">WARN</span>', '', 'warn'); }
       else { setStatus('dm1_status', 'FAIL', 'status-fail'); setScoreStatus('s_stat_avail', '', '', '<span class="metric-status status-fail">FAIL</span>', 'fail'); }
+    } else {
+      document.getElementById('dm1_res_avail').innerText = '—';
+      document.getElementById('s_val_avail').innerText = '—';
+      setStatus('dm1_status', '—', 'status-warn');
     }
     saveData();
   }
@@ -2125,6 +2158,10 @@
       if (pct >= 3.5 && pct <= 5.5) { setStatus('dm2_status', 'PASS', 'status-pass'); setScoreStatus('s_stat_oec', '<span class="metric-status status-pass">PASS</span>', '', '', 'pass'); }
       else if (pct >= 5.6 && pct <= 6.5) { setStatus('dm2_status', 'WARN', 'status-warn'); setScoreStatus('s_stat_oec', '', '<span class="metric-status status-warn">WARN</span>', '', 'warn'); }
       else { setStatus('dm2_status', pct > 6.5 ? 'CRITICAL FAIL' : 'BELOW TARGET', 'status-fail'); setScoreStatus('s_stat_oec', '', '', '<span class="metric-status status-fail">FAIL</span>', 'fail'); }
+    } else {
+      document.getElementById('dm2_res_pct').innerText = '—';
+      document.getElementById('s_val_oec').innerText = '—';
+      setStatus('dm2_status', '—', 'status-warn');
     }
     saveData();
   }
@@ -2153,6 +2190,10 @@
       if (pct < 8) { setStatus('dm4_status', 'PASS', 'status-pass'); setScoreStatus('s_stat_down', '<span class="metric-status status-pass">PASS</span>', '', '', 'pass'); }
       else if (pct >= 8 && pct <= 12) { setStatus('dm4_status', 'WARN', 'status-warn'); setScoreStatus('s_stat_down', '', '<span class="metric-status status-warn">WARN</span>', '', 'warn'); }
       else { setStatus('dm4_status', 'FAIL', 'status-fail'); setScoreStatus('s_stat_down', '', '', '<span class="metric-status status-fail">FAIL</span>', 'fail'); }
+    } else {
+      document.getElementById('dm4_res_pct').innerText = '—';
+      document.getElementById('s_val_down').innerText = '—';
+      setStatus('dm4_status', '—', 'status-warn');
     }
     var drag = downDays * rate;
     document.getElementById('dm4_res_drag').innerText = '$' + drag.toLocaleString();
@@ -2170,6 +2211,10 @@
       if (prod >= 85) { setStatus('dm5_status', 'PASS', 'status-pass'); setScoreStatus('s_stat_prod', '<span class="metric-status status-pass">PASS</span>', '', '', 'pass'); }
       else if (prod >= 75) { setStatus('dm5_status', 'WARN', 'status-warn'); setScoreStatus('s_stat_prod', '', '<span class="metric-status status-warn">WARN</span>', '', 'warn'); }
       else { setStatus('dm5_status', 'FAIL', 'status-fail'); setScoreStatus('s_stat_prod', '', '', '<span class="metric-status status-fail">FAIL</span>', 'fail'); }
+    } else {
+      document.getElementById('dm5_res_prod').innerText = '—';
+      document.getElementById('s_val_prod').innerText = '—';
+      setStatus('dm5_status', '—', 'status-warn');
     }
     saveData();
   }
@@ -2187,6 +2232,10 @@
         else if (monthsSupply >= 1.5 && monthsSupply <= 4.5) { setStatus('dm6_status', 'WARN', 'status-warn'); setScoreStatus('s_stat_parts', '', '<span class="metric-status status-warn">WARN</span>', '', 'warn'); }
         else { setStatus('dm6_status', monthsSupply < 1.5 ? 'FAIL (STOCKOUT RISK)' : 'FAIL (EXCESS STOCK)', 'status-fail'); setScoreStatus('s_stat_parts', '', '', '<span class="metric-status status-fail">FAIL</span>', 'fail'); }
       }
+    } else {
+      document.getElementById('dm6_res_months').innerText = '—';
+      document.getElementById('s_val_parts').innerText = '—';
+      setStatus('dm6_status', '—', 'status-warn');
     }
     saveData();
   }
@@ -2201,6 +2250,10 @@
       if (pct >= 85) { setStatus('dm7_status', 'PASS', 'status-pass'); setScoreStatus('s_stat_dmg', '<span class="metric-status status-pass">PASS</span>', '', '', 'pass'); }
       else if (pct >= 70) { setStatus('dm7_status', 'WARN', 'status-warn'); setScoreStatus('s_stat_dmg', '', '<span class="metric-status status-warn">WARN</span>', '', 'warn'); }
       else { setStatus('dm7_status', 'FAIL', 'status-fail'); setScoreStatus('s_stat_dmg', '', '', '<span class="metric-status status-fail">FAIL</span>', 'fail'); }
+    } else {
+      document.getElementById('dm7_res_pct').innerText = '—';
+      document.getElementById('s_val_dmg').innerText = '—';
+      setStatus('dm7_status', '—', 'status-warn');
     }
     saveData();
   }
@@ -2215,6 +2268,10 @@
       if (pct >= 90) { setStatus('dm8_status', 'PASS', 'status-pass'); setScoreStatus('s_stat_tel', '<span class="metric-status status-pass">PASS</span>', '', '', 'pass'); }
       else if (pct >= 75) { setStatus('dm8_status', 'WARN', 'status-warn'); setScoreStatus('s_stat_tel', '', '<span class="metric-status status-warn">WARN</span>', '', 'warn'); }
       else { setStatus('dm8_status', 'FAIL', 'status-fail'); setScoreStatus('s_stat_tel', '', '', '<span class="metric-status status-fail">FAIL</span>', 'fail'); }
+    } else {
+      document.getElementById('dm8_res_pct').innerText = '—';
+      document.getElementById('s_val_tel').innerText = '—';
+      setStatus('dm8_status', '—', 'status-warn');
     }
     saveData();
   }
@@ -2246,6 +2303,7 @@
   function saveData() {
     var data = {};
     document.querySelectorAll('input[type="number"]').forEach(function(input) { if (input.value && input.id) data[input.id] = input.value; });
+    document.querySelectorAll('#sec_dashboard input[type="checkbox"]').forEach(function(chk) { if (chk.id) data[chk.id] = chk.checked; });
     try { localStorage.setItem('heds_rental_dashboard_data', JSON.stringify(data)); } catch(e) {}
   }
 
@@ -2254,7 +2312,13 @@
     try { saved = localStorage.getItem('heds_rental_dashboard_data'); } catch(e) { return; }
     if (saved) {
       var data = JSON.parse(saved);
-      Object.keys(data).forEach(function(key) { var el = document.getElementById(key); if (el) el.value = data[key]; });
+      Object.keys(data).forEach(function(key) {
+        var el = document.getElementById(key);
+        if (el) {
+          if (el.type === 'checkbox') el.checked = !!data[key];
+          else el.value = data[key];
+        }
+      });
     }
   }
 
@@ -2352,6 +2416,7 @@
     if (code === '1Month') {
       document.getElementById('gate1_content').style.display = 'block';
       document.getElementById('gate1_error').style.display = 'none';
+      try { localStorage.setItem('heds_rental_gate1_unlocked', 'true'); } catch(e) {}
       loadGateCheckboxes();
     } else {
       document.getElementById('gate1_error').style.display = 'block';
@@ -2364,6 +2429,7 @@
     if (code === 'Midway') {
       document.getElementById('gate2_content').style.display = 'block';
       document.getElementById('gate2_error').style.display = 'none';
+      try { localStorage.setItem('heds_rental_gate2_unlocked', 'true'); } catch(e) {}
       loadGateCheckboxes();
     } else {
       document.getElementById('gate2_error').style.display = 'block';
@@ -2376,6 +2442,7 @@
     if (code === 'SurveySays') {
       document.getElementById('gate3_content').style.display = 'block';
       document.getElementById('gate3_error').style.display = 'none';
+      try { localStorage.setItem('heds_rental_gate3_unlocked', 'true'); } catch(e) {}
       loadGateCheckboxes();
     } else {
       document.getElementById('gate3_error').style.display = 'block';
@@ -2390,6 +2457,20 @@
   }
 
   function loadGateCheckboxes() {
+    try {
+      if (localStorage.getItem('heds_rental_gate1_unlocked') === 'true') {
+        var g1 = document.getElementById('gate1_content');
+        if (g1) g1.style.display = 'block';
+      }
+      if (localStorage.getItem('heds_rental_gate2_unlocked') === 'true') {
+        var g2 = document.getElementById('gate2_content');
+        if (g2) g2.style.display = 'block';
+      }
+      if (localStorage.getItem('heds_rental_gate3_unlocked') === 'true') {
+        var g3 = document.getElementById('gate3_content');
+        if (g3) g3.style.display = 'block';
+      }
+    } catch(e) {}
     var saved = null;
     try { saved = localStorage.getItem('heds_rental_gate_data'); } catch(e) { return; }
     if (saved) {
@@ -2525,6 +2606,17 @@
     document.getElementById('result_dealership').innerText = document.getElementById('test_dealership').value;
     var now = new Date();
     document.getElementById('result_date').innerText = (now.getMonth()+1) + '/' + now.getDate() + '/' + now.getFullYear() + ' ' + now.getHours() + ':' + String(now.getMinutes()).padStart(2, '0');
+    try {
+      var resultPayload = {
+        scorePct: pct,
+        correct: correct,
+        total: testQuestions.length,
+        candidateName: document.getElementById('test_name').value,
+        dealership: document.getElementById('test_dealership').value,
+        timestamp: now.toLocaleDateString()
+      };
+      localStorage.setItem('heds_rental_test_result', JSON.stringify(resultPayload));
+    } catch(e) {}
     var breakdownEl = document.getElementById('result_module_breakdown');
     breakdownEl.innerHTML = '';
     var breakdownHtml = '<div style="overflow-x:auto;"><table style="width:100%; border-collapse:collapse; font-size:0.85rem; text-align:left;"><thead><tr style="border-bottom:2px solid var(--accent-color); color:var(--accent-color);"><th style="padding:8px;">Module</th><th style="padding:8px;">Score</th><th style="padding:8px;">Result</th></tr></thead><tbody>';
@@ -2561,6 +2653,7 @@
   }
 
   function retakeTest() {
+    try { localStorage.removeItem('heds_rental_test_result'); } catch(e) {}
     document.getElementById('test_results').style.display = 'none';
     document.getElementById('test_signin').style.display = 'block';
     document.getElementById('test_running').style.display = 'none';
@@ -2577,11 +2670,32 @@
 
   function printResults() { window.print(); }
 
+  window.addEventListener('beforeunload', function(e) {
+    var running = document.getElementById('test_running');
+    if (running && running.style.display === 'block') {
+      e.preventDefault();
+      e.returnValue = 'You have an assessment in progress. Your answers will be lost.';
+    }
+  });
+
   window.onload = function() {
     loadData();
     calcAll();
     initCompletionTrackers();
     loadGateCheckboxes();
+    try {
+      var cached = localStorage.getItem('heds_rental_test_result');
+      if (cached) {
+        var r = JSON.parse(cached);
+        document.getElementById('test_signin').style.display = 'none';
+        document.getElementById('test_results').style.display = 'block';
+        document.getElementById('result_score').innerText = r.correct + ' / ' + r.total;
+        document.getElementById('result_pct').innerText = r.scorePct + '%';
+        document.getElementById('result_name').innerText = r.candidateName;
+        document.getElementById('result_dealership').innerText = r.dealership;
+        document.getElementById('result_date').innerText = r.timestamp;
+      }
+    } catch(e) {}
   };
 </script>
 </body>

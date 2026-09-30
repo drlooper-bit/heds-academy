@@ -299,9 +299,10 @@
     padding: 14px 18px;
     font-size: 1rem;
     font-weight: 700;
-    background: var(--card-bg);
-    color: var(--accent-color);
-    border: 1px solid var(--border-color);
+    background: linear-gradient(135deg, var(--accent-color), var(--accent-hover));
+    color: var(--bg);
+    border: 2px solid var(--accent-color);
+    box-shadow: 0 2px 12px rgba(229, 174, 37, 0.25);
     border-radius: var(--radius);
     cursor: pointer;
     display: flex;
@@ -502,7 +503,7 @@
 <div id="sec_curriculum" class="section-container active">
   <div class="module-dropdown">
     <button class="dropdown-toggle active" onclick="toggleDropdown()">
-      <span id="dropdown-label">Day 1 Slot 1: Module 1 — ERP Report Mapping</span>
+      <span id="dropdown-label">▼ MENU — Day 1 Slot 1: Module 1 — ERP Report Mapping</span>
       <span class="dropdown-arrow">▼</span>
     </button>
     <div class="dropdown-menu" id="module_menu">
