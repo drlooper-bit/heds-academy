@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HEDS Academy — Course Curriculum Index</title>
+<meta name="description" content="HEDS Operating Discipline Academy — course curriculum index showing training tracks, days, and module outlines.">
+<link rel="icon" href="LOGO_HEDS_small.png">
+<style>
+:root {
+  --bg: #0e1f38;
+  --fg: #f8fafc;
+  --card-bg: #152847;
+  --border-color: #203b60;
+  --accent-color: #e5ae25;
+  --accent-hover: #c89718;
+  --muted: #94a3b8;
+  --radius: 8px;
+  --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: var(--bg); color: var(--fg); font-family: var(--font-main); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+img { max-width: 100%; height: auto; }
+
+/* Hero header (compact) */
+.hero { text-align: center; padding: 48px 24px 36px; border-bottom: 2px solid var(--accent-color); background: linear-gradient(180deg, var(--bg) 0%, #112744 100%); }
+.hero .logo-wrap { margin: 0 auto 16px; display: flex; justify-content: center; }
+.hero .logo { width: 90px; height: 90px; border-radius: 50%; border: 3px solid var(--accent-color); box-shadow: 0 0 30px rgba(229,174,37,0.15); }
+.hero h1 { font-size: 1.8rem; font-weight: 800; color: var(--accent-color); letter-spacing: -0.5px; }
+.hero .subtitle { font-size: 0.9rem; color: var(--muted); margin-top: 6px; }
+.hero .back-link { display: inline-block; margin-top: 16px; color: var(--accent-color); text-decoration: none; font-size: 0.85rem; font-weight: 600; }
+.hero .back-link:hover { text-decoration: underline; }
+
+/* Content wrapper */
+.content-wrap { max-width: 820px; margin: 0 auto; padding: 0 20px; }
+
+/* Track selector tabs */
+.track-tabs { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; margin: 28px 0 20px; }
+.track-tab { background: transparent; color: var(--muted); border: 1px solid var(--border-color); border-radius: var(--radius); padding: 8px 18px; font-size: 0.85rem; font-weight: 600; cursor: pointer; transition: all 0.2s; font-family: var(--font-main); }
+.track-tab:hover { border-color: var(--accent-color); color: var(--fg); }
+.track-tab.active { background: var(--accent-color); color: var(--bg); border-color: var(--accent-color); }
+
+/* Track panel */
+.track-panel { display: none; }
+.track-panel.active { display: block; }
+
+/* Track header card */
+.track-header-card { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: var(--radius); padding: 22px; margin-bottom: 18px; }
+.track-header-card .th-icon { font-size: 1.8rem; }
+.track-header-card .th-title { font-size: 1.3rem; font-weight: 800; color: var(--fg); margin: 6px 0 4px; }
+.track-header-card .th-audience { font-size: 0.8rem; color: var(--muted); margin-bottom: 8px; }
+.track-header-card .th-desc { font-size: 0.85rem; color: var(--fg); line-height: 1.6; margin-bottom: 12px; }
+.track-header-card .th-stats { display: flex; gap: 14px; flex-wrap: wrap; font-size: 0.75rem; color: var(--muted); }
+.track-header-card .th-stats span { white-space: nowrap; }
+
+/* Day sections */
+.day-section { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: var(--radius); margin-bottom: 12px; overflow: hidden; }
+.day-header { background: linear-gradient(135deg, var(--accent-color), var(--accent-hover)); color: var(--bg); padding: 10px 16px; font-size: 0.8rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+.day-header .day-arrow { transition: transform 0.2s; }
+.day-header.open .day-arrow { transform: rotate(180deg); }
+.day-body { padding: 6px 16px 12px; }
+.module-item { padding: 8px 0 8px 14px; border-left: 2px solid var(--border-color); font-size: 0.85rem; color: var(--fg); margin-bottom: 2px; transition: border-color 0.15s; }
+.module-item:hover { border-color: var(--accent-color); }
+
+/* Note */
+.index-note { text-align: center; font-size: 0.8rem; color: var(--muted); font-style: italic; margin: 16px 0 28px; padding: 12px; background: rgba(229,174,37,0.06); border: 1px solid var(--border-color); border-radius: var(--radius); }
+
+/* CTA */
+.cta-row { text-align: center; padding: 24px 0 36px; }
+.cta-row a { display: inline-block; background: var(--accent-color); color: var(--bg); font-weight: 700; padding: 12px 28px; border-radius: var(--radius); text-decoration: none; font-size: 0.9rem; transition: background 0.2s; }
+.cta-row a:hover { background: var(--accent-hover); }
+.cta-row a.secondary { background: transparent; color: var(--accent-color); border: 2px solid var(--accent-color); margin-left: 8px; }
+.cta-row a.secondary:hover { background: var(--accent-color); color: var(--bg); }
+
+/* Footer */
+footer { text-align: center; padding: 24px 20px; color: var(--muted); font-size: 0.8rem; border-top: 1px solid var(--border-color); }
+footer a { color: var(--accent-color); text-decoration: none; }
+footer a:hover { text-decoration: underline; }
+
+/* Responsive */
+@media (max-width: 600px) {
+  .hero { padding: 36px 16px 28px; }
+  .hero h1 { font-size: 1.4rem; }
+  .content-wrap { padding: 0 12px; }
+  .track-header-card { padding: 16px; }
+  .day-header { font-size: 0.72rem; }
+}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="logo-wrap">
+    <img src="LOGO_HEDS.png" alt="HEDS Logo" class="logo" width="90" height="90">
+  </div>
+  <h1>Course Curriculum Index</h1>
+  <div class="subtitle">HEDS Operating Discipline Academy — Module outlines by track</div>
+  <a href="index.html" class="back-link">← Back to Academy Home</a>
+</div>
+
+<div class="content-wrap">
+
+  <!-- Track selector tabs -->
+  <div class="track-tabs">
+    <button class="track-tab active" onclick="switchTrack('sm', this)">🔧 Service Manager</button>
+    <button class="track-tab" onclick="switchTrack('rsm', this)">🚜 Rental Service Manager</button>
+    <button class="track-tab" onclick="switchTrack('rm', this)">💰 Rental Manager</button>
+    <button class="track-tab" onclick="switchTrack('pm', this)">📦 Parts Manager</button>
+  </div>
+
+  <!-- ========== SERVICE MANAGER ========== -->
+  <div id="track-sm" class="track-panel active">
+    <div class="track-header-card">
+      <div class="th-icon">🔧</div>
+      <div class="th-title">Service Manager Training</div>
+      <div class="th-audience">Service Managers, Service Advisors, Shop Foremen, Service Administrators, Field Service Coordinators, Dispatch</div>
+      <div class="th-desc">Stop managing by month-end reports and start driving the shop floor daily. This track installs the operating discipline that turns absorption rate, labor recovery, WIP control, and technician productivity from monthly surprises into daily habits. Participants leave with their own scorecard, a 90-day action plan built on their real data, and the daily rhythms that keep service contribution where it belongs — above 60% of fixed costs.</div>
+      <div class="th-stats"><span>5-day onsite</span><span>20 modules</span><span>Interactive dashboard</span><span>50-question assessment</span><span>90-day action plan</span></div>
+    </div>
+
+    <div class="day-section">
+      <div class="day-header open" onclick="toggleDay(this)">Day 1 — Foundation &amp; Reporting <span class="day-arrow">▼</span></div>
+      <div class="day-body">
+        <div class="module-item">Module 1 — ERP Report Mapping</div>
+        <div class="module-item">Module 2 — Absorption &amp; Margin</div>
+        <div class="module-item">Module 3 — Labor Reconciliation</div>
+        <div class="module-item">Module 4 — WIP &amp; Quote Control</div>
+      </div>
+    </div>
+    <div class="day-section">
+      <div class="day-header" onclick="toggleDay(this)">Day 2 — Execution &amp; Pricing <span class="day-arrow">▼</span></div>
+      <div class="day-body" style="display:none;">
+        <div class="module-item">Module 5 — Efficiency &amp; Capacity</div>
+        <div class="module-item">Module 6 — ELR &amp; Discounting</div>
+        <div class="module-item">Module 7 — Triage &amp; Dispatch</div>
+        <div class="module-item">Module 8 — Warranty Recovery</div>
+      </div>
+    </div>
+    <div class="day-section">
+      <div class="day-header" onclick="toggleDay(this)">Day 3 — Management Systems <span class="day-arrow">▼</span></div>
+      <div class="day-body" style="display:none;">
+        <div class="module-item">Module 9 — Leak Diagnostic Matrix</div>
+        <div class="module-item">Module 10 — Scorecards</div>
+        <div class="module-item">Module 11 — Morning Standup</div>
+        <div class="module-item">Module 12 — Weekly WIP Review</div>
+      </div>
+    </div>
+    <div class="day-section">
+      <div class="day-header" onclick="toggleDay(this)">Day 4 — Lifecycle &amp; Recovery <span class="day-arrow">▼</span></div>
+      <div class="day-body" style="display:none;">
+        <div class="module-item">Module 13 — Work Order Lifecycle</div>
+        <div class="module-item">Module 14 — Expense &amp; Margin Recovery</div>
+        <div class="module-item">Module 15 — Accountability &amp; Leadership</div>
+        <div class="module-item">Module 16 — Forecasting &amp; Leading Indicators</div>
+      </div>
+    </div>
+    <div class="day-section">
+      <div class="day-header" onclick="toggleDay(this)">Day 5 — Integration &amp; Capstone <span class="day-arrow">▼</span></div>
+      <div class="day-body" style="display:none;">
+        <div class="module-item">Module 17 — Telematics &amp; Machine Triage</div>
+        <div class="module-item">Module 18 — Customer Defection Warning</div>
+        <div class="module-item">Module 19 — Rental Fleet Health</div>
+        <div class="module-item">Module 20 — 90-Day Action Plan (Capstone)</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== RENTAL SERVICE MANAGER ========== -->
+  <div id="track-rsm" class="track-panel">
+    <div class="track-header-card">
+      <div class="th-icon">🚜</div>
+      <div class="th-title">Rental Service Manager Training</div>
+      <div class="th-audience">Rental Service Managers, Shop Foremen, Field Service Coordinators, PM Coordinators</div>
+      <div class="th-desc">Internal production only — no retail labor sales, just fleet uptime. This track builds the discipline that keeps rental equipment rent-ready and the shop priority-driven: PM compliance, fleet reliability, turnaround standards, and wrench-time efficiency. Participants build scorecards from their own fleet data and leave with a 90-day plan to move MTTR, PM compliance, and rent-ready turnaround in the right direction.</div>
+      <div class="th-stats"><span>3-day onsite</span><span>7 modules</span><span>Interactive dashboard</span><span>50-question assessment</span><span>90-day action plan</span></div>
+    </div>
+
+    <div class="day-section">
+      <div class="day-header open" onclick="toggleDay(this)">3-Day Intensive — Modules 1–7 <span class="day-arrow">▼</span></div>
+      <div class="day-body">
+        <div class="module-item">Module 1 — The Rental Service Mindset &amp; Yard Flow</div>
+        <div class="module-item">Module 2 — Fleet Economics, Lifecycle Costs &amp; OEC</div>
+        <div class="module-item">Module 3 — Shop Workflow, WIP Discipline &amp; Labor Efficiency</div>
+        <div class="module-item">Module 4 — Regulatory Compliance, Safety &amp; Environmental Control</div>
+        <div class="module-item">Module 5 — Lean Parts Management &amp; Dealer Supply Integration</div>
+        <div class="module-item">Module 6 — Economic Downtime, Telematics &amp; Commercial Sync</div>
+        <div class="module-item">Module 7 — Operating Cadence &amp; HEDS KPI Management</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== RENTAL MANAGER ========== -->
+  <div id="track-rm" class="track-panel">
+    <div class="track-header-card">
+      <div class="th-icon">💰</div>
+      <div class="th-title">Rental Manager Training</div>
+      <div class="th-audience">Rental Managers, Rental Coordinators, Fleet Coordinators, Dispatch Leads</div>
+      <div class="th-desc">Own the rental department P&amp;L from fleet utilization to damage recovery. This track installs the commercial discipline that separates profitable rental operations from equipment parking lots: rate realization, time and dollar utilization, fleet capital allocation, contract and damage recovery, and logistics dispatch. Participants leave with their own department scorecard and a 90-day plan built on their actual fleet data.</div>
+      <div class="th-stats"><span>3-day onsite</span><span>8 modules</span><span>Interactive dashboard</span><span>50-question assessment</span><span>90-day action plan</span></div>
+    </div>
+
+    <div class="day-section">
+      <div class="day-header open" onclick="toggleDay(this)">3-Day Intensive — Modules 1–8 <span class="day-arrow">▼</span></div>
+      <div class="day-body">
+        <div class="module-item">Module 1 — The Rental Manager's Commercial Mindset</div>
+        <div class="module-item">Module 2 — Fleet Utilization: Time, Dollar &amp; Productive</div>
+        <div class="module-item">Module 3 — Rental Rate Strategy &amp; Pricing Discipline</div>
+        <div class="module-item">Module 4 — Fleet Capital &amp; Lifecycle Management</div>
+        <div class="module-item">Module 5 — Contract, Risk &amp; Damage Recovery</div>
+        <div class="module-item">Module 6 — Logistics, Dispatch &amp; Customer Operations</div>
+        <div class="module-item">Module 7 — Telematics: Fleet Visibility &amp; Usage Intelligence</div>
+        <div class="module-item">Module 8 — Operating Cadence &amp; Rental P&amp;L Management</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== PARTS MANAGER ========== -->
+  <div id="track-pm" class="track-panel">
+    <div class="track-header-card">
+      <div class="th-icon">📦</div>
+      <div class="th-title">Parts Manager Training</div>
+      <div class="th-audience">Parts Managers, Assistant Parts Managers, Parts Counter Supervisors, Warehouse/Inventory Leads</div>
+      <div class="th-desc">Run the parts department as the profit center it should be — not the cost center everyone tolerates. This track installs the discipline that turns inventory, margin, and fill rate into managed outcomes: stock order efficiency, obsolescence control, parts-to-labor ratio, and salary as a percentage of gross profit. Participants leave with a profit-leak diagnostic built on their own data and a 90-day plan to move every KPI in the right direction.</div>
+      <div class="th-stats"><span>3-day onsite</span><span>6 modules</span><span>Interactive dashboard</span><span>50-question assessment</span><span>90-day action plan</span></div>
+    </div>
+
+    <div class="day-section">
+      <div class="day-header open" onclick="toggleDay(this)">3-Day Intensive — Modules 1–6 <span class="day-arrow">▼</span></div>
+      <div class="day-body">
+        <div class="module-item">Module 1 — Understanding Your Department's Financials</div>
+        <div class="module-item">Module 2 — The Baseline Audit — Where You Stand Right Now</div>
+        <div class="module-item">Module 3 — Finding the Leaks — What Is Broken and Why</div>
+        <div class="module-item">Module 4 — The Playbook — Daily &amp; Weekly Scorecards</div>
+        <div class="module-item">Module 5 — Floor Execution — Inventory Discipline</div>
+        <div class="module-item">Module 6 — Seeing the Future — Forecasting with Leading Indicators</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Note -->
+  <div class="index-note">Module titles shown above are the course syllabus outline. Full training content, exercises, interactive calculators, and assessment are included with enrollment. Contact HEDS to schedule a program.</div>
+
+  <!-- CTA -->
+  <div class="cta-row">
+    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=daniel@hedsconsulting.net&su=HEDS Academy — Training Signup Request" target="_blank">Sign Up</a>
+    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=daniel@hedsconsulting.net&su=HEDS Academy — Curriculum Overview and Pricing Request" target="_blank" class="secondary">Request Curriculum Overview and Pricing</a>
+  </div>
+
+</div>
+
+<footer>
+  <p><strong>Heavy Equipment Dealer Solutions LLC</strong> — HEDS Operating Discipline Academy</p>
+  <p style="margin-top: 6px;"><a href="https://mail.google.com/mail/?view=cm&fs=1&to=daniel@hedsconsulting.net" target="_blank">daniel@hedsconsulting.net</a> &nbsp;|&nbsp; <a href="tel:813-599-7893">813-599-7893</a> &nbsp;|&nbsp; Leesburg, FL</p>
+  <p style="margin-top: 10px; font-size: 0.75rem;">© 2026 Heavy Equipment Dealer Solutions LLC. All training materials, scorecards, and curricula are HEDS-controlled assets licensed for internal use only.</p>
+</footer>
+
+<script>
+function switchTrack(id, btn) {
+  document.querySelectorAll('.track-panel').forEach(function(p) { p.classList.remove('active'); });
+  document.getElementById('track-' + id).classList.add('active');
+  document.querySelectorAll('.track-tab').forEach(function(t) { t.classList.remove('active'); });
+  btn.classList.add('active');
+}
+function toggleDay(hdr) {
+  var body = hdr.nextElementSibling;
+  if (body.style.display === 'none') {
+    body.style.display = 'block';
+    hdr.classList.add('open');
+  } else {
+    body.style.display = 'none';
+    hdr.classList.remove('open');
+  }
+}
+</script>
+</body>
+</html>
