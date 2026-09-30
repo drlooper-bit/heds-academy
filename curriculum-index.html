@@ -23,12 +23,12 @@ body { background: var(--bg); color: var(--fg); font-family: var(--font-main); l
 img { max-width: 100%; height: auto; }
 
 /* Hero header (compact) */
-.hero { text-align: center; padding: 48px 24px 36px; border-bottom: 2px solid var(--accent-color); background: linear-gradient(180deg, var(--bg) 0%, #112744 100%); }
-.hero .logo-wrap { margin: 0 auto 16px; display: flex; justify-content: center; }
-.hero .logo { width: 90px; height: 90px; border-radius: 50%; border: 3px solid var(--accent-color); box-shadow: 0 0 30px rgba(229,174,37,0.15); }
-.hero h1 { font-size: 1.8rem; font-weight: 800; color: var(--accent-color); letter-spacing: -0.5px; }
-.hero .subtitle { font-size: 0.9rem; color: var(--muted); margin-top: 6px; }
-.hero .back-link { display: inline-block; margin-top: 16px; color: var(--accent-color); text-decoration: none; font-size: 0.85rem; font-weight: 600; }
+.hero { text-align: center; padding: 80px 24px 56px; border-bottom: 2px solid var(--accent-color); background: linear-gradient(180deg, var(--bg) 0%, #112744 100%); }
+.hero .logo-wrap { margin: 0 auto 28px; display: flex; justify-content: center; }
+.hero .logo { width: 140px; height: 140px; border-radius: 50%; border: 3px solid var(--accent-color); box-shadow: 0 0 40px rgba(229,174,37,0.15); }
+.hero h1 { font-size: 2.4rem; font-weight: 800; color: var(--accent-color); letter-spacing: -1px; line-height: 1.15; margin-bottom: 12px; }
+.hero .subtitle { font-size: 1.05rem; color: var(--muted); margin-top: 6px; max-width: 580px; margin-left: auto; margin-right: auto; }
+.hero .back-link { display: inline-block; margin-top: 20px; color: var(--accent-color); text-decoration: none; font-size: 0.95rem; font-weight: 600; }
 .hero .back-link:hover { text-decoration: underline; }
 
 /* Content wrapper */
@@ -79,8 +79,10 @@ footer a:hover { text-decoration: underline; }
 
 /* Responsive */
 @media (max-width: 600px) {
-  .hero { padding: 36px 16px 28px; }
-  .hero h1 { font-size: 1.4rem; }
+  .hero { padding: 56px 16px 40px; }
+  .hero .logo { width: 100px; height: 100px; }
+  .hero h1 { font-size: 1.6rem; }
+  .hero .subtitle { font-size: 0.9rem; }
   .content-wrap { padding: 0 12px; }
   .track-header-card { padding: 16px; }
   .day-header { font-size: 0.72rem; }
