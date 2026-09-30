@@ -5,7 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>HEDS Academy — Parts Manager Training &amp; Operating Platform</title>
   <meta name="description" content="Heavy Equipment Dealer Solutions LLC — Parts Manager Training Program with interactive KPI dashboard, curriculum, and certification assessment.">
-  <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
+  <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js">  var ASSESSMENT_RELAY_URL = 'https://script.google.com/macros/s/REPLACE_WITH_DEPLOYED_ID/exec';
+  var TRACK_NAME = 'Parts Manager Training';
+</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
@@ -1117,7 +1119,7 @@
         <div class="space-y-4 font-mono text-xs">
           <div>
             <label class="text-white/70 block mb-1">ACCESS CODE</label>
-            <input type="password" id="test_access_code" placeholder="Enter access code (TEST)" class="w-full p-3 bg-black/60 border border-white/10 text-white font-bold focus:border-amber-500 focus:outline-none">
+            <input type="password" id="test_access_code" placeholder="Enter access code provided by HEDS" class="w-full p-3 bg-black/60 border border-white/10 text-white font-bold focus:border-amber-500 focus:outline-none">
           </div>
 
           <div id="test_info_fields" style="display: none;" class="space-y-4 pt-2">
@@ -1549,8 +1551,7 @@
       "The pure profit percentage on parts sales after deducting the cost of goods sold",
       "The percentage of dealership overhead covered by the parts department",
       "The total cash collected from customers for parts purchases"
-    ],
-    "correct": 1
+    ]
   },
   {
     "id": "q02",
@@ -1562,8 +1563,7 @@
       "30.0%",
       "42.9%",
       "15.0%"
-    ],
-    "correct": 1
+    ]
   },
   {
     "id": "q03",
@@ -1575,8 +1575,7 @@
       "30-35%",
       "45-50%",
       "60-65%"
-    ],
-    "correct": 1
+    ]
   },
   {
     "id": "q04",
@@ -1588,8 +1587,7 @@
       "For every dollar of parts revenue, 28 cents is gross profit after the cost of the parts themselves. This is below the 30% target.",
       "28% of all parts in inventory have been sold this month.",
       "The parts department covers 28% of total dealership overhead."
-    ],
-    "correct": 1
+    ]
   },
   {
     "id": "q05",
@@ -1601,8 +1599,7 @@
       "The percentage of total parts department fixed and variable expenses covered by parts gross profit",
       "The percentage of parts requests filled from stock on the first request",
       "The ratio of parts sales to labor sales in the service department"
-    ],
-    "correct": 1
+    ]
   },
   {
     "id": "q06",
@@ -1614,8 +1611,7 @@
       "60%",
       "62.5%",
       "40%"
-    ],
-    "correct": 1
+    ]
   },
   {
     "id": "q07",
@@ -1627,8 +1623,7 @@
       "50%",
       "60%",
       "75%"
-    ],
-    "correct": 2
+    ]
   },
   {
     "id": "q08",
@@ -1640,8 +1635,7 @@
       "The parts department covers 55% of its own operating expenses through gross profit; the remaining 45% must be subsidized by other departments.",
       "55% of all parts in inventory are obsolete and should be purged.",
       "The parts department fills 55% of all customer orders on the first request."
-    ],
-    "correct": 1
+    ]
   },
   {
     "id": "q09",
@@ -1653,8 +1647,7 @@
       "(Parts Gross Profit / Total Dealership Revenue) × 100",
       "(Parts Inventory / Total Dealership Assets) × 100",
       "(Parts Cost / Parts Revenue) × 100"
-    ],
-    "correct": 0
+    ]
   },
   {
     "id": "q10",
@@ -1666,8 +1659,7 @@
       "25.0%",
       "30.0%",
       "40.0%"
-    ],
-    "correct": 1
+    ]
   },
   {
     "id": "q11",
@@ -1679,8 +1671,7 @@
       "Your parts are 30% of total sales — within the 25-30% target range. The department is performing well.",
       "Your parts are 20% of total sales — below the 25-30% target. You need to grow parts revenue.",
       "Your parts are 50% of total sales — above target. The department is overperforming."
-    ],
-    "correct": 1
+    ]
   },
   {
     "id": "q12",
@@ -1692,8 +1683,7 @@
       "26.7%",
       "37.5%",
       "42.0%"
-    ],
-    "correct": 1
+    ]
   },
   {
     "id": "q13",
@@ -1705,8 +1695,7 @@
       "27.5%",
       "35.0%",
       "45.0%"
-    ],
-    "correct": 1
+    ]
   },
   {
     "id": "q14",
@@ -1718,8 +1707,7 @@
       "The department is overstaffed relative to the gross profit it generates. For every dollar of GP, 34 cents goes to payroll — above the 27.5% sustainability threshold.",
       "The department is underpricing its parts and needs to increase retail margins.",
       "The department has too much obsolete inventory tying up capital."
-    ],
-    "correct": 1
+    ]
   },
   {
     "id": "q15",
@@ -1731,8 +1719,7 @@
       "To establish a starting line for all 10 KPIs so every improvement can be measured against it",
       "To compare the department against other dealerships in the region",
       "To determine which employees should receive raises"
-    ],
-    "correct": 1
+    ]
   },
   {
     "id": "q16",
@@ -1744,8 +1731,7 @@
       "6",
       "8",
       "10"
-    ],
-    "correct": 3
+    ]
   },
   {
     "id": "q17",
@@ -1757,8 +1743,7 @@
       "Try to fix all 7 KPIs in the first 30 days.",
       "Prioritize the 3 highest-dollar-impact leaks with the simplest behavior changes and fix those first. The rest follow in the 90-day plan.",
       "Hide the results from the dealer principal and hope they improve."
-    ],
-    "correct": 2
+    ]
   },
   {
     "id": "q18",
@@ -1770,8 +1755,7 @@
       "Red/Yellow/Green — with red meaning the manager should be replaced",
       "Excellent/Good/Fair/Poor — with four categories for more nuance",
       "A/B/C/D grading — like a school report card"
-    ],
-    "correct": 0
+    ]
   },
   {
     "id": "q19",
@@ -1783,8 +1767,7 @@
       "You cannot fix a percentage — you can only fix a behavior. Every leak has a root cause on the floor.",
       "All leaks are caused by poor vendor relationships and can be fixed with better negotiation.",
       "Leaks are inevitable and should be accepted as part of doing business."
-    ],
-    "correct": 1
+    ]
   },
   {
     "id": "q20",
@@ -1796,8 +1779,7 @@
       "'Counter staff is discounting 15% of all retail tickets without manager approval, costing $3,200/month' — that is the problem you can fix.",
       "'We need to raise all prices by 2%' — that is the solution.",
       "'The market is too competitive' — that is the problem."
-    ],
-    "correct": 1
+    ]
   },
   {
     "id": "q21",
@@ -1809,8 +1791,7 @@
       "Time since the leak started and who is responsible",
       "Vendor relationship and contract terms",
       "Season and weather conditions"
-    ],
-    "correct": 0
+    ]
   },
   {
     "id": "q22",
@@ -1822,8 +1803,7 @@
       "14 days",
       "30 days",
       "90 days"
-    ],
-    "correct": 0
+    ]
   },
   {
     "id": "q23",
@@ -1835,8 +1815,7 @@
       "A scorecard drives a decision. If the number on the scorecard does not make someone do something different today, it should not be on the board.",
       "A report is for management; a scorecard is for the front-line staff.",
       "There is no difference — they are interchangeable terms."
-    ],
-    "correct": 1
+    ]
   },
   {
     "id": "q24",
@@ -1848,8 +1827,7 @@
       "Investigate why emergency orders are outpacing stock orders. Audit the purchasing process and tighten stock order participation.",
       "Fire the counter staff for poor purchasing decisions.",
       "Increase the emergency order budget for next month."
-    ],
-    "correct": 1
+    ]
   },
   {
     "id": "q25",
@@ -1861,8 +1839,7 @@
       "The counter staff — the people closest to the transactions",
       "An outside consultant",
       "No one — it should be automated"
-    ],
-    "correct": 1
+    ]
   },
   {
     "id": "q26",
@@ -1874,8 +1851,7 @@
       "Monday morning, comparing this week's numbers to baseline",
       "Monthly at the dealer principal meeting",
       "Only when there is a problem"
-    ],
-    "correct": 1
+    ]
   },
   {
     "id": "q27",
@@ -1887,8 +1863,7 @@
       "(Annual Parts Cost of Sales / Average Monthly Inventory at Cost)",
       "(Monthly Parts Sales / Total Inventory at Retail)",
       "(Total Inventory / Annual Parts Cost of Sales)"
-    ],
-    "correct": 1
+    ]
   },
   {
     "id": "q28",
@@ -1900,8 +1875,7 @@
       "3.6x",
       "4.5x",
       "6.0x"
-    ],
-    "correct": 1
+    ]
   },
   {
     "id": "q29",
@@ -1913,8 +1887,7 @@
       "3-4x",
       "6-8x",
       "10-12x"
-    ],
-    "correct": 1
+    ]
   },
   {
     "id": "q30",
@@ -1926,8 +1899,7 @@
       "Stock order efficiency is 150% — you ordered more stock than emergencies, which is good.",
       "Stock order efficiency is 40% — most of your parts are coming from emergencies, which is acceptable.",
       "Stock order efficiency is 60% — this is above the 75% target and performing well."
-    ],
-    "correct": 0
+    ]
   },
   {
     "id": "q31",
@@ -1939,8 +1911,7 @@
       "70.0%",
       "75.0%",
       "80.0%"
-    ],
-    "correct": 2
+    ]
   },
   {
     "id": "q32",
@@ -1952,8 +1923,7 @@
       "The purchasing process is reactive — too many emergency and special orders instead of planned stock orders.",
       "The department has too much inventory and should reduce ordering.",
       "The vendor is offering too many discounts."
-    ],
-    "correct": 1
+    ]
   },
   {
     "id": "q33",
@@ -1965,8 +1935,7 @@
       "Obsolescence is 20% — this is acceptable for heavy equipment because parts have longer lifecycles.",
       "Obsolescence is 10% — at the target. No action needed.",
       "Obsolescence is 5% — well below target. The department is managing inventory well."
-    ],
-    "correct": 0
+    ]
   },
   {
     "id": "q34",
@@ -1978,8 +1947,7 @@
       "10.0%",
       "15.0%",
       "20.0%"
-    ],
-    "correct": 1
+    ]
   },
   {
     "id": "q35",
@@ -1991,8 +1959,7 @@
       "<10%",
       "<20%",
       "<30%"
-    ],
-    "correct": 1
+    ]
   },
   {
     "id": "q36",
@@ -2004,8 +1971,7 @@
       "The ratio is $1.67:$1 — above the $2:$1 target. Parts is overperforming.",
       "The ratio is $0.60:$1 — this is within the $1-$2:$1 target range.",
       "The ratio is $1.67:$1 — within target range. No action needed."
-    ],
-    "correct": 0
+    ]
   },
   {
     "id": "q37",
@@ -2017,8 +1983,7 @@
       "$0.80 : $1",
       "$1.00 : $1",
       "$1.50 : $1"
-    ],
-    "correct": 1
+    ]
   },
   {
     "id": "q38",
@@ -2030,8 +1995,7 @@
       "$1-$2 : $1",
       "$3-$4 : $1",
       "$5-$6 : $1"
-    ],
-    "correct": 1
+    ]
   },
   {
     "id": "q39",
@@ -2043,8 +2007,7 @@
       "This is an obsolescence issue — you should reduce the stocking level to avoid future dead stock.",
       "This is a stock order efficiency issue — you should order more stock from the vendor.",
       "This is a gross margin issue — you should increase the price to compensate for the lost sale."
-    ],
-    "correct": 0
+    ]
   },
   {
     "id": "q40",
@@ -2056,8 +2019,7 @@
       "90.0%",
       "94.7%",
       "98.5%"
-    ],
-    "correct": 1
+    ]
   },
   {
     "id": "q41",
@@ -2069,8 +2031,7 @@
       "80%",
       "90%",
       "98%"
-    ],
-    "correct": 2
+    ]
   },
   {
     "id": "q42",
@@ -2082,8 +2043,7 @@
       "You are understocked on fast-moving parts. Adjust min/max levels upward on A-level parts to increase depth and bring fill rate above 90%.",
       "Fire the counter staff for poor inventory management.",
       "Reduce the total number of parts requests by turning away small orders."
-    ],
-    "correct": 1
+    ]
   },
   {
     "id": "q43",
@@ -2095,8 +2055,7 @@
       "Lagging indicators tell you what happened. Leading indicators tell you what is about to happen.",
       "Leading indicators are updated daily; lagging indicators are updated monthly.",
       "Leading indicators are for parts; lagging indicators are for service."
-    ],
-    "correct": 1
+    ]
   },
   {
     "id": "q44",
@@ -2108,8 +2067,7 @@
       "Equipment sales pipeline and scheduled machine deliveries",
       "Last quarter's obsolescence balance",
       "Previous year's salary as a percentage of GP"
-    ],
-    "correct": 1
+    ]
   },
   {
     "id": "q45",
@@ -2121,8 +2079,7 @@
       "Pre-stage preventative maintenance kits and increase stock on filters, fluids, and common wear parts for the new model.",
       "Reduce inventory because new deliveries mean fewer repairs.",
       "Order parts only when a customer calls with a problem."
-    ],
-    "correct": 1
+    ]
   },
   {
     "id": "q46",
@@ -2134,8 +2091,7 @@
       "A specific KPI target, a named owner, a target date, and a status tracking method",
       "A dollar amount and a percentage",
       "A comparison to last year's numbers"
-    ],
-    "correct": 1
+    ]
   },
   {
     "id": "q47",
@@ -2147,8 +2103,7 @@
       "Assess progress, reinforce the pricing matrix discipline, and continue. You are 50% of the way to target in 33% of the time.",
       "Reset the target to 29.5% since that is what you achieved.",
       "Fire the counter staff for not improving fast enough."
-    ],
-    "correct": 1
+    ]
   },
   {
     "id": "q48",
@@ -2160,8 +2115,7 @@
       "30/90/180 days",
       "60/120/365 days",
       "5/15/45 days"
-    ],
-    "correct": 1
+    ]
   },
   {
     "id": "q49",
@@ -2173,8 +2127,7 @@
       "Initiate a quarterly purge — return what you can to vendors, discount what you cannot, and scrap what is worthless. Set a target to bring obsolescence below 10% within 90 days.",
       "Increase the total inventory to dilute the obsolescence percentage.",
       "Stop ordering new parts until the obsolete stock is sold."
-    ],
-    "correct": 1
+    ]
   },
   {
     "id": "q50",
@@ -2186,8 +2139,7 @@
       "To convert forecasting into specific, owned, dated commitments that drive measurable KPI improvement",
       "To replace the daily and weekly scorecards",
       "To determine which employees to terminate"
-    ],
-    "correct": 1
+    ]
   }
 ];
     var testAnswers = {};
@@ -2196,7 +2148,7 @@
 
     function checkAccessCode() {
       var code = document.getElementById('test_access_code').value.trim();
-      if (code !== 'TEST') {
+      if (code === '') {
         var errEl = document.getElementById('test_signin_error');
         errEl.style.display = 'block';
         errEl.innerText = 'Invalid access code. Use TEST.';
@@ -2299,6 +2251,41 @@
     }
 
     function submitTest() {
+    if (testTimerInterval) clearInterval(testTimerInterval);
+    
+    var studentName = document.getElementById('test_name') ? document.getElementById('test_name').value : '';
+    var dealership = document.getElementById('test_dealership') ? document.getElementById('test_dealership').value : '';
+    var email = document.getElementById('test_email') ? document.getElementById('test_email').value : '';
+    
+    var answers = {};
+    for (var key in testAnswers) {
+        if (testAnswers.hasOwnProperty(key)) { answers[key] = testAnswers[key]; }
+    }
+    
+    var answeredCount = Object.keys(answers).length;
+    
+    document.getElementById('test_running').style.display = 'none';
+    document.getElementById('test_results').style.display = 'block';
+    document.getElementById('result_score').innerText = '\u2014 / 50';
+    document.getElementById('result_pct').innerText = 'Pending';
+    document.getElementById('result_name').innerText = studentName;
+    document.getElementById('result_dealership').innerText = dealership;
+    var now = new Date();
+    document.getElementById('result_date').innerText = (now.getMonth()+1) + '/' + now.getDate() + '/' + now.getFullYear();
+    document.getElementById('result_module_breakdown').innerHTML = '<div style="text-align:center; padding:40px 20px;"><div style="font-size:1.1rem; color:var(--accent-color); font-weight:700; margin-bottom:12px;">Assessment Submitted</div><div style="color:var(--muted); font-size:0.9rem;">' + answeredCount + ' of 50 questions answered. Your score and detailed results will be emailed to ' + (email || 'your registered email') + ' shortly.</div></div>';
+    document.getElementById('result_focus_areas').innerHTML = '<div style="text-align:center; padding:20px; color:var(--muted);">Results are being graded and will be sent to your email. No further action required.</div>';
+    
+    var payload = { track: TRACK_NAME, name: studentName, dealership: dealership, email: email, answers: answers, totalQuestions: testQuestions.length, answeredCount: answeredCount };
+    
+    if (typeof fetch !== 'undefined') {
+        fetch(ASSESSMENT_RELAY_URL, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) }).catch(function() {});
+    } else {
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', ASSESSMENT_RELAY_URL, true);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.send(JSON.stringify(payload));
+    }
+  }nction submitTest() {
       if (testTimerInterval) clearInterval(testTimerInterval);
       var correct = 0;
       var moduleScores = {};
