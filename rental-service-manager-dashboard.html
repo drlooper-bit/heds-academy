@@ -3290,64 +3290,6 @@ function printCertificateRSM() {
         xhr.setRequestHeader('Content-Type', 'application/json');
         xhr.send(JSON.stringify(payload));
     }
-  }nction submitTest() {
-    if (testTimerInterval) clearInterval(testTimerInterval);
-    var correct = 0;
-    var moduleScores = {};
-    testQuestions.forEach(function(q) {
-      if (!moduleScores[q.module]) moduleScores[q.module] = { correct: 0, total: 0 };
-      moduleScores[q.module].total++;
-      if (testAnswers[q.id] === q.correct) { correct++; moduleScores[q.module].correct++; }
-    });
-    var pct = Math.round((correct / testQuestions.length) * 100);
-    document.getElementById('test_running').style.display = 'none';
-    document.getElementById('test_results').style.display = 'block';
-    document.getElementById('result_score').innerText = correct + ' / ' + testQuestions.length;
-    document.getElementById('result_pct').innerText = pct + '%';
-    document.getElementById('result_name').innerText = document.getElementById('test_name').value;
-    document.getElementById('result_dealership').innerText = document.getElementById('test_dealership').value;
-    var now = new Date();
-    document.getElementById('result_date').innerText = (now.getMonth()+1) + '/' + now.getDate() + '/' + now.getFullYear() + ' ' + now.getHours() + ':' + String(now.getMinutes()).padStart(2, '0');
-    try {
-      var resultPayload = {
-        scorePct: pct,
-        correct: correct,
-        total: testQuestions.length,
-        candidateName: document.getElementById('test_name').value,
-        dealership: document.getElementById('test_dealership').value,
-        timestamp: now.toLocaleDateString()
-      };
-      localStorage.setItem('heds_rental_test_result', JSON.stringify(resultPayload));
-    } catch(e) {}
-    var breakdownEl = document.getElementById('result_module_breakdown');
-    breakdownEl.innerHTML = '';
-    var breakdownHtml = '<div style="overflow-x:auto;"><table style="width:100%; border-collapse:collapse; font-size:0.85rem; text-align:left;"><thead><tr style="border-bottom:2px solid var(--accent-color); color:var(--accent-color);"><th style="padding:8px;">Module</th><th style="padding:8px;">Score</th><th style="padding:8px;">Result</th></tr></thead><tbody>';
-    Object.keys(moduleScores).forEach(function(mod) {
-      var ms = moduleScores[mod];
-      var modPct = Math.round((ms.correct / ms.total) * 100);
-      var statusClass = modPct >= 80 ? 'status-pass' : (modPct >= 60 ? 'status-warn' : 'status-fail');
-      var statusText = modPct >= 80 ? 'PASS' : (modPct >= 60 ? 'REVIEW' : 'FOCUS');
-      breakdownHtml += '<tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px;">' + mod + '</td><td style="padding:8px;">' + ms.correct + '/' + ms.total + ' (' + modPct + '%)</td><td style="padding:8px;"><span class="metric-status ' + statusClass + '">' + statusText + '</span></td></tr>';
-    });
-    breakdownHtml += '</tbody></table></div>';
-    breakdownEl.innerHTML = breakdownHtml;
-    var focusEl = document.getElementById('result_focus_areas');
-    var focusModules = [];
-    Object.keys(moduleScores).forEach(function(mod) {
-      var ms = moduleScores[mod];
-      var modPct = Math.round((ms.correct / ms.total) * 100);
-      if (modPct < 80) focusModules.push({ module: mod, pct: modPct, correct: ms.correct, total: ms.total });
-    });
-    focusModules.sort(function(a, b) { return a.pct - b.pct; });
-    if (focusModules.length === 0) {
-      focusEl.innerHTML = '<div class="floor-rule" style="border-color:var(--success);"><div class="floor-rule-title" style="color:var(--success);">All Modules Passed</div>You scored 80% or higher on every module. No specific focus areas required. Continue daily operating discipline and review the scorecard weekly.</div>';
-    } else {
-      var focusHtml = '<p style="color:var(--muted); margin-bottom:12px;">The following modules scored below 80%. Focus your training and coaching on these areas:</p>';
-      focusModules.forEach(function(fm) {
-        focusHtml += '<div class="card" style="margin-bottom:10px; padding:14px;"><div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;"><strong>' + fm.module + '</strong><span class="metric-status status-fail">' + fm.pct + '% (' + fm.correct + '/' + fm.total + ')</span></div></div>';
-      });
-      focusEl.innerHTML = focusHtml;
-    }
   }
 
   function abandonTest() {

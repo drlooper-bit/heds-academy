@@ -2151,7 +2151,7 @@
       if (code === '') {
         var errEl = document.getElementById('test_signin_error');
         errEl.style.display = 'block';
-        errEl.innerText = 'Invalid access code. Use TEST.';
+        errEl.innerText = 'Invalid access code. Contact HEDS for access.';
         return;
       }
       document.getElementById('test_info_fields').style.display = 'block';
@@ -2285,80 +2285,7 @@
         xhr.setRequestHeader('Content-Type', 'application/json');
         xhr.send(JSON.stringify(payload));
     }
-  }nction submitTest() {
-      if (testTimerInterval) clearInterval(testTimerInterval);
-      var correct = 0;
-      var moduleScores = {};
-      testQuestions.forEach(function(q) {
-        if (!moduleScores[q.module]) moduleScores[q.module] = { correct: 0, total: 0 };
-        moduleScores[q.module].total++;
-        if (testAnswers[q.id] === q.correct) {
-          correct++;
-          moduleScores[q.module].correct++;
-        }
-      });
-      var pct = Math.round((correct / testQuestions.length) * 100);
-      document.getElementById('test_running').style.display = 'none';
-      document.getElementById('test_results').style.display = 'block';
-      document.getElementById('result_score').innerText = correct + ' / ' + testQuestions.length;
-      document.getElementById('result_pct').innerText = pct + '%';
-      
-      var nameVal = document.getElementById('test_name').value;
-      var dealerVal = document.getElementById('test_dealership').value;
-      document.getElementById('result_name').innerText = nameVal;
-      document.getElementById('result_dealership').innerText = dealerVal;
-      
-      var now = new Date();
-      var dateStr = (now.getMonth() + 1) + '/' + now.getDate() + '/' + now.getFullYear();
-      document.getElementById('result_date').innerText = dateStr;
-
-      // Module breakdown
-      var breakdownEl = document.getElementById('result_module_breakdown');
-      var bHtml = '<table class="w-full text-left font-mono text-xs border-collapse"><tbody class="divide-y divide-white/[0.06]">';
-      Object.keys(moduleScores).forEach(function(mod) {
-        var ms = moduleScores[mod];
-        var modPct = Math.round((ms.correct / ms.total) * 100);
-        var statusClass = modPct >= 80 ? 'text-emerald-400 bg-emerald-500/10 border-emerald-500/30' : (modPct >= 60 ? 'text-amber-400 bg-amber-500/10 border-amber-500/30' : 'text-rose-400 bg-rose-500/10 border-rose-500/30');
-        var statusLabel = modPct >= 80 ? 'PASS' : (modPct >= 60 ? 'REVIEW' : 'FOCUS');
-        bHtml += '<tr><td class="py-2 px-3 font-bold text-white">' + mod + '</td><td class="py-2 px-3 text-white/70">' + ms.correct + '/' + ms.total + ' (' + modPct + '%)</td><td class="py-2 px-3 text-right"><span class="px-2 py-0.5 border text-[10px] font-bold ' + statusClass + '">' + statusLabel + '</span></td></tr>';
-      });
-      bHtml += '</tbody></table>';
-      breakdownEl.innerHTML = bHtml;
-
-      // Focus areas
-      var focusEl = document.getElementById('result_focus_areas');
-      var focusModules = [];
-      Object.keys(moduleScores).forEach(function(mod) {
-        var ms = moduleScores[mod];
-        var modPct = Math.round((ms.correct / ms.total) * 100);
-        if (modPct < 80) focusModules.push({ module: mod, pct: modPct, correct: ms.correct, total: ms.total });
-      });
-      if (focusModules.length === 0) {
-        focusEl.innerHTML = '<div class="p-4 bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 font-bold">Outstanding: 80%+ achieved across all 6 modules. Qualified for official accreditation.</div>';
-      } else {
-        var fHtml = '<div class="space-y-2">';
-        focusModules.forEach(function(fm) {
-          fHtml += '<div class="p-3 bg-rose-500/10 border border-rose-500/20 text-rose-300 flex justify-between"><span>' + fm.module + '</span><strong>' + fm.pct + '% (' + fm.correct + '/' + fm.total + ')</strong></div>';
-        });
-        fHtml += '</div>';
-        focusEl.innerHTML = fHtml;
-      }
-
-      // Check if passed to reveal Certificate button
-      if (pct >= 80) {
-        var certBtn = document.getElementById('btn_claim_cert');
-        if (certBtn) certBtn.style.display = 'inline-block';
-        // Auto-fill Diploma
-        document.getElementById('cert_name').innerText = nameVal.toUpperCase();
-        document.getElementById('cert_date').innerText = dateStr;
-        document.getElementById('cert_score').innerText = pct + '% • PASS';
-      }
-    }
-
-    function viewCertificateFromResults() {
-      switchMainSection('sec_curriculum', document.querySelectorAll('.nav-main-btn')[0]);
-      switchCurrTab('c_certificate', document.querySelectorAll('.curr-tab-btn')[6]);
-    }
+  }
 
     function abandonTest() {
       if (confirm('Submit assessment now with current answers?')) {
