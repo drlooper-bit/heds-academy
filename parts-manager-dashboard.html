@@ -5,8 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>HEDS Academy — Parts Manager Training &amp; Operating Platform</title>
   <meta name="description" content="Heavy Equipment Dealer Solutions LLC — Parts Manager Training Program with interactive KPI dashboard, curriculum, and certification assessment.">
-  <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js">  var ASSESSMENT_RELAY_URL = 'https://script.google.com/macros/s/AKfycbymws_e31nyHrB6ge_U9NnVIdRFy-zNXKfGsVbWpm6OYz9_6lkpGL2RpFJebhxowwXn/exec';
+  <script>
+  var ASSESSMENT_RELAY_URL = 'https://script.google.com/macros/s/AKfycbymws_e31nyHrB6ge_U9NnVIdRFy-zNXKfGsVbWpm6OYz9_6lkpGL2RpFJebhxowwXn/exec';
   var TRACK_NAME = 'Parts Manager Training';
+</script>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = { theme: { extend: { colors: { amber: { 400: "#c89718", 500: "#e5ae25", 600: "#c89718" } } } } }
+</script>
+<script>
+tailwind.config = { theme: { extend: { colors: { amber: { 400: "#c89718", 500: "#e5ae25", 600: "#c89718" } } } } }
 </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,14 +22,14 @@
 
   <style>
     :root {
-      --void: #070709;
-      --card: #0d0d12;
-      --card-elevated: #131319;
+      --void: #0e1f38;
+      --card: #152847;
+      --card-elevated: #1a2f4f;
       --border: rgba(255, 255, 255, 0.08);
       --border-strong: rgba(255, 255, 255, 0.18);
-      --gold: #f59e0b;
-      --gold-bright: #fbbf24;
-      --gold-dim: rgba(245, 158, 11, 0.12);
+      --gold: #e5ae25;
+      --gold-bright: #e5ae25;
+      --gold-dim: rgba(229, 174, 37, 0.12);
       --red: #f87171;
       --green: #22c55e;
     }
@@ -1119,7 +1127,7 @@
         <div class="space-y-4 font-mono text-xs">
           <div>
             <label class="text-white/70 block mb-1">ACCESS CODE</label>
-            <input type="password" id="test_access_code" placeholder="Enter access code provided by HEDS" class="w-full p-3 bg-black/60 border border-white/10 text-white font-bold focus:border-amber-500 focus:outline-none">
+            <input type="password" id="test_access_code" placeholder="Enter access code" class="w-full p-3 bg-black/60 border border-white/10 text-white font-bold focus:border-amber-500 focus:outline-none">
           </div>
 
           <div id="test_info_fields" style="display: none;" class="space-y-4 pt-2">
@@ -2148,10 +2156,10 @@
 
     function checkAccessCode() {
       var code = document.getElementById('test_access_code').value.trim();
-      if (code === '') {
+      if (code !== 'HEDSTRAINS') {
         var errEl = document.getElementById('test_signin_error');
         errEl.style.display = 'block';
-        errEl.innerText = 'Invalid access code. Contact HEDS for access.';
+        errEl.innerText = 'Invalid access code.';
         return;
       }
       document.getElementById('test_info_fields').style.display = 'block';

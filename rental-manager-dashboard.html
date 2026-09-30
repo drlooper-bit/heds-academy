@@ -2738,6 +2738,7 @@
 
       <div style="display:flex; gap:12px; flex-wrap:wrap;">
         <button class="btn" onclick="printResults()">Print Results</button>
+        <button class="btn btn-outline" onclick="printCertificateRM()">Print Certificate</button>
         <button class="btn btn-outline" onclick="retakeTest()">Retake Assessment</button>
       </div>
     </div>
@@ -2748,6 +2749,19 @@
 <script>
     var ASSESSMENT_RELAY_URL = 'https://script.google.com/macros/s/AKfycbymws_e31nyHrB6ge_U9NnVIdRFy-zNXKfGsVbWpm6OYz9_6lkpGL2RpFJebhxowwXn/exec';
   var TRACK_NAME = 'Rental Manager Training';
+function printCertificateRM() {
+  var cert = document.getElementById('cert_overlay');
+  if (cert) { cert.style.display = 'flex'; return; }
+  var name = document.getElementById('result_name') ? document.getElementById('result_name').innerText : '';
+  var score = document.getElementById('result_score') ? document.getElementById('result_score').innerText : '';
+  var pct = document.getElementById('result_pct') ? document.getElementById('result_pct').innerText : '';
+  cert = document.createElement('div');
+  cert.id = 'cert_overlay';
+  cert.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.8);z-index:9999;display:flex;align-items:center;justify-content:center;';
+  cert.innerHTML = '<div style="background:#0e1f38;border:2px solid #e5ae25;border-radius:12px;padding:48px 40px;max-width:680px;width:90%;text-align:center;font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,sans-serif;color:#f8fafc;position:relative;"><div style="font-size:0.7rem;color:#94a3b8;text-transform:uppercase;letter-spacing:2px;margin-bottom:6px;">Heavy Equipment Dealer Solutions LLC</div><div style="font-size:1.8rem;font-weight:800;color:#e5ae25;margin-bottom:4px;">Certificate of Completion</div><div style="font-size:0.85rem;color:#94a3b8;margin-bottom:32px;">HEDS Operating Discipline Academy</div><div style="font-size:0.75rem;color:#94a3b8;margin-bottom:4px;">This certifies that</div><div style="font-size:1.6rem;font-weight:700;color:#f8fafc;margin-bottom:24px;border-bottom:1px solid #203b60;padding-bottom:12px;">' + (name || 'Participant') + '</div><div style="font-size:0.85rem;color:#94a3b8;margin-bottom:6px;">has completed the</div><div style="font-size:1.1rem;font-weight:600;color:#e5ae25;margin-bottom:24px;">Rental Manager Training Program</div><div style="font-size:0.8rem;color:#94a3b8;margin-bottom:20px;">8 Modules &middot; 50-Question Assessment &middot; 90-Day Action Plan</div>' + (score ? '<div style="font-size:0.8rem;color:#94a3b8;margin-bottom:24px;">Assessment Score: <strong style="color:#e5ae25;">' + score + ' (' + pct + ')</strong></div>' : '') + '<div style="display:flex;justify-content:space-between;align-items:center;margin-top:32px;border-top:1px solid #203b60;padding-top:20px;"><div style="text-align:left;"><div style="font-size:0.7rem;color:#94a3b8;">Date</div><div style="font-size:0.9rem;color:#f8fafc;">' + new Date().toLocaleDateString() + '</div></div><div style="text-align:right;"><div style="font-size:0.7rem;color:#94a3b8;">HEDS Academy</div><div style="font-size:0.9rem;color:#e5ae25;font-weight:600;">Daniel Looper</div></div></div><div style="margin-top:28px;display:flex;gap:12px;justify-content:center;"><button onclick="window.print()" style="background:#e5ae25;color:#0e1f38;border:none;padding:10px 24px;border-radius:6px;font-weight:700;cursor:pointer;font-size:0.85rem;">Print Certificate</button><button onclick="document.getElementById(\'cert_overlay\').style.display=\'none\'" style="background:transparent;color:#94a3b8;border:1px solid #203b60;padding:10px 24px;border-radius:6px;cursor:pointer;font-size:0.85rem;">Close</button></div></div>';
+  document.body.appendChild(cert);
+}
+
 function switchMainSection(secId, btnEl) {
     document.querySelectorAll('.section-container').forEach(function(el) { el.classList.remove('active'); });
     document.querySelectorAll('.main-nav-btn').forEach(function(el) { el.classList.remove('active'); });
@@ -3996,7 +4010,7 @@ function switchMainSection(secId, btnEl) {
 
   function checkAccessCode() {
     var code = document.getElementById('test_access_code').value.trim();
-    if (code === '') {
+    if (code !== 'HEDSTRAINS') {
       var errEl = document.getElementById('test_signin_error');
       errEl.style.display = 'block';
       errEl.innerText = 'Invalid access code.';

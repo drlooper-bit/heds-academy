@@ -3155,7 +3155,7 @@ function printCertificateRSM() {
 
   function checkAccessCode() {
     var code = document.getElementById('test_access_code').value.trim();
-    if (code === '') {
+    if (code !== 'HEDSTRAINS') {
       var errEl = document.getElementById('test_signin_error');
       errEl.style.display = 'block';
       errEl.innerText = 'Invalid access code.';
