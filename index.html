@@ -1114,6 +1114,75 @@ window.addEventListener('DOMContentLoaded', function() {
   }
 });
 
+// ===== VISIT COUNTER (admin view) =====
+(function() {
+  var KEY = 'heds_visit_tracker';
+  var now = new Date();
+  var today = now.toISOString().split('T')[0];
+  
+  var data;
+  try {
+    data = JSON.parse(localStorage.getItem(KEY)) || {};
+  } catch(e) {
+    data = {};
+  }
+  
+  // Initialize if first ever visit
+  if (!data.totalVisits) {
+    data.totalVisits = 0;
+    data.newVisits = 0;
+    data.returnVisits = 0;
+    data.firstVisit = today;
+    data.lastVisit = '';
+    data.visitDates = [];
+  }
+  
+  // Check if this is a new day visit (not counting same-session reloads)
+  var isNewDay = (data.lastVisit !== today);
+  
+  if (isNewDay) {
+    data.totalVisits++;
+    
+    // If lastVisit exists and is before today, this is a return visit
+    if (data.lastVisit && data.lastVisit !== today) {
+      data.returnVisits++;
+    } else {
+      data.newVisits++;
+    }
+    
+    data.lastVisit = today;
+    
+    // Track unique visit days (keep last 30)
+    if (data.visitDates.indexOf(today) === -1) {
+      data.visitDates.push(today);
+      if (data.visitDates.length > 30) {
+        data.visitDates = data.visitDates.slice(-30);
+      }
+    }
+    
+    try {
+      localStorage.setItem(KEY, JSON.stringify(data));
+    } catch(e) {}
+  }
+  
+  // Create the counter display (small, bottom-left, semi-transparent)
+  var counter = document.createElement('div');
+  counter.id = 'heds-counter';
+  counter.style.cssText = 'position:fixed;bottom:0;left:0;font-size:10px;color:#94a3b8;' +
+    'background:rgba(6,21,41,0.7);padding:4px 10px;border-radius:0 6px 0 0;z-index:9999;' +
+    'font-family:monospace;letter-spacing:0.5px;pointer-events:none;opacity:0.5;';
+  
+  var totalDays = data.visitDates.length;
+  var firstVisitShort = data.firstVisit ? data.firstVisit.substring(5) : '—';
+  var lastVisitShort = data.lastVisit ? data.lastVisit.substring(5) : '—';
+  
+  counter.textContent = '👁 ' + data.totalVisits + ' visits (' + data.newVisits + ' new / ' + 
+    data.returnVisits + ' return) | ' + totalDays + ' unique days | since ' + firstVisitShort + 
+    ' | last ' + lastVisitShort;
+  
+  document.body.appendChild(counter);
+})();
+
 // Support browser back/forward buttons
 window.addEventListener('popstate', function() {
   var hash = window.location.hash.replace('#', '') || 'overview';
