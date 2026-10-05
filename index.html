@@ -578,6 +578,7 @@ body {
   <button class="tab-btn active" role="tab" aria-selected="true" onclick="showSection('overview', this)">Overview</button>
   <button class="tab-btn" role="tab" aria-selected="false" onclick="showSection('diligence', this)">Due Diligence &amp; Inspections</button>
   <button class="tab-btn" role="tab" aria-selected="false" onclick="showSection('training', this)">Training &amp; Academy</button>
+  <button class="tab-btn" role="tab" aria-selected="false" onclick="showSection('blog', this)">Blog</button>
   <button class="tab-btn" role="tab" aria-selected="false" onclick="showSection('contact', this)">Contact</button>
 </nav>
 </div>
@@ -983,6 +984,27 @@ body {
   </div>
 </div>
 
+<!-- ===== BLOG SECTION ===== -->
+<div class="section" id="sec-blog" role="tabpanel">
+  <div class="hero">
+    <h2>HEDS Academy Blog</h2>
+    <p>Operating discipline insights for heavy equipment dealers and rental companies. Weekly articles on KPIs, floor-level execution, and the math behind service contribution.</p>
+  </div>
+
+  <div class="card" style="text-align:center;">
+    <h2>Articles coming soon</h2>
+    <p style="color:var(--muted);">Weekly posts start October 2026. Topics include:</p>
+    <div class="stats" style="margin-top:24px;">
+      <div class="stat-box"><span class="stat-num">WIP</span><span class="stat-label">Aging & Write-Offs</span></div>
+      <div class="stat-box"><span class="stat-num">ELR</span><span class="stat-label">Effective Labor Rate</span></div>
+      <div class="stat-box"><span class="stat-num">PM</span><span class="stat-label">Compliance Discipline</span></div>
+      <div class="stat-box"><span class="stat-num">ROI</span><span class="stat-label">Rental Fleet Utilization</span></div>
+    </div>
+    <p style="margin-top:24px;color:var(--muted);">Subscribe via the discovery call — we'll send the first article package directly to your inbox.</p>
+    <a class="cta-btn" href="#sec-contact" onclick="showSection('contact'); return false;">Get in Touch</a>
+  </div>
+</div>
+
 <!-- ===== CONTACT SECTION ===== -->
 <div class="section" id="sec-contact" role="tabpanel">
   <div class="hero">
@@ -1042,9 +1064,8 @@ body {
   <p><strong style="color:var(--accent);">HEDS</strong> — Heavy Equipment Dealer Solutions LLC</p>
   <p>Leesburg, Florida &nbsp;|&nbsp; <a href="mailto:daniel@hedsconsulting.net" style="color:var(--muted);text-decoration:none;">daniel@hedsconsulting.net</a> &nbsp;|&nbsp; <a href="tel:8135997893" style="color:var(--muted);text-decoration:none;">813-599-7893</a></p>
   <p style="margin-top:8px;">
-    <a href="https://www.linkedin.com/in/daniel-looper-heds" target="_blank" rel="noopener noreferrer" style="color:var(--muted);text-decoration:none;margin-right:16px;">LinkedIn</a>
     <a href="https://www.facebook.com/hedsconsulting" target="_blank" rel="noopener noreferrer" style="color:var(--muted);text-decoration:none;margin-right:16px;">Facebook</a>
-    <a href="blog/" style="color:var(--muted);text-decoration:none;">Blog</a>
+    <a href="#" onclick="showSection('blog'); return false;" style="color:var(--muted);text-decoration:none;">Blog</a>
   </p>
   <p style="margin-top:8px;opacity:0.5;">© 2026 HEDS. All rights reserved.</p>
 </footer>
