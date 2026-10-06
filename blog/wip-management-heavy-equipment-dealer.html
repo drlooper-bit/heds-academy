@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Heavy Equipment Dealer WIP Management — HEDS Academy</title>
+<meta name="description" content="How to manage WIP aging in a heavy equipment service department. WIP buckets, the 48-hour close standard, and the daily standup that prevents $50K+ in write-offs.">
+<link rel="canonical" href="https://drlooper-bit.github.io/heds-academy/blog/wip-management-heavy-equipment-dealer.html">
+<link rel="icon" type="image/png" href="../LOGO_HEDS_small.png">
+<meta property="og:title" content="How to Manage WIP in a Heavy Equipment Service Department — HEDS Academy">
+<meta property="og:description" content="WIP aging buckets, the 48-hour close standard, and the daily standup that prevents $50K+ in write-offs.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://drlooper-bit.github.io/heds-academy/blog/wip-management-heavy-equipment-dealer.html">
+<meta property="og:image" content="https://drlooper-bit.github.io/heds-academy/LOGO_HEDS_small.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="How to Manage WIP in a Heavy Equipment Service Department">
+<meta name="twitter:description" content="WIP aging buckets, the 48-hour close standard, and the daily standup that prevents write-offs.">
+<meta name="twitter:image" content="https://drlooper-bit.github.io/heds-academy/LOGO_HEDS_small.png">
+
+<!-- Article Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "How to Manage WIP in a Heavy Equipment Service Department",
+  "description": "WIP aging buckets, the 48-hour close standard, and the daily standup that prevents $50K+ in write-offs.",
+  "author": {
+    "@type": "Person",
+    "name": "Daniel Looper",
+    "affiliation": {
+      "@type": "Organization",
+      "name": "Heavy Equipment Dealer Solutions LLC"
+    }
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Heavy Equipment Dealer Solutions LLC",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://drlooper-bit.github.io/heds-academy/LOGO_HEDS_small.png"
+    }
+  },
+  "datePublished": "2026-10-06",
+  "dateModified": "2026-10-06",
+  "url": "https://drlooper-bit.github.io/heds-academy/blog/wip-management-heavy-equipment-dealer.html"
+}
+</script>
+
+<!-- FAQ Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is WIP aging in a heavy equipment service department?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "WIP aging measures how long work orders sit open without being billed. The bucket system tracks WOs by age: 0-14 days is normal, 15-30 days needs review, 31-60 days requires action, 60-89 days needs escalation, and 90+ days is a write-off candidate."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the 48-hour close standard for WIP?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "After final labor is rendered on a work order, the WO must close within 48 hours. If it cannot close, it gets a named owner, a specific hold reason, and a target close date. The 48-hour clock starts when labor is complete, not when parts arrive."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the HEDS target for WIP as a percentage of monthly service sales?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Total WIP should not exceed 10-15 days of average monthly service sales. WIP over 30 days should be under 5% of total WIP. Days to Invoice (DTI) should be under 3-5 business days."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long should a service department daily standup take?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The daily standup should take 10 minutes, not 30. It covers the oldest work orders first, names an owner for each stalled WO, and commits a close date. If the standup takes 30 minutes, it is a meeting, not a standup."
+      }
+    }
+  ]
+</script>
+
+<style>
+:root {
+  --bg-dark: #0d1b2f;
+  --bg: #0a1628;
+  --card-bg: #152847;
+  --border: #203b60;
+  --fg: #f8fafc;
+  --muted: #94a3b8;
+  --accent: #f2a900;
+  --accent-hover: #ffc72c;
+  --gold: #f2a900;
+  --navy: #00205B;
+  --radius: 8px;
+  --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: var(--font);
+  background: var(--bg-dark);
+  color: var(--fg);
+  line-height: 1.7;
+  font-size: 17px;
+}
+article {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 40px 20px 80px;
+}
+.back-link {
+  display: inline-block;
+  margin-bottom: 32px;
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+.back-link:hover { color: var(--accent-hover); }
+.article-header { margin-bottom: 32px; border-bottom: 1px solid var(--border); padding-bottom: 24px; }
+.article-meta { color: var(--muted); font-size: 0.85rem; margin-bottom: 12px; }
+h1 { color: var(--accent); font-size: 1.9rem; line-height: 1.3; margin-bottom: 8px; }
+h2 { color: var(--accent); font-size: 1.35rem; margin-top: 36px; margin-bottom: 12px; }
+h3 { color: var(--fg); font-size: 1.15rem; margin-top: 24px; margin-bottom: 8px; }
+p { margin-bottom: 16px; color: #d1d5db; }
+strong { color: var(--fg); }
+ul, ol { margin-bottom: 16px; padding-left: 24px; }
+li { margin-bottom: 8px; color: #d1d5db; }
+table { width: 100%; border-collapse: collapse; margin-bottom: 24px; }
+th { background: var(--card-bg); color: var(--accent); padding: 12px 8px; text-align: left; font-size: 0.9rem; border-bottom: 2px solid var(--border); }
+td { padding: 10px 8px; border-bottom: 1px solid var(--border); font-size: 0.9rem; color: #d1d5db; }
+.callout {
+  background: var(--card-bg);
+  border-left: 4px solid var(--accent);
+  border-radius: var(--radius);
+  padding: 20px 24px;
+  margin: 24px 0;
+}
+.callout p { color: var(--fg); margin-bottom: 0; }
+.cta-box {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 32px;
+  text-align: center;
+  margin-top: 40px;
+}
+.cta-btn {
+  display: inline-block;
+  background: var(--accent);
+  color: var(--navy);
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 14px 32px;
+  border-radius: var(--radius);
+  text-decoration: none;
+  margin-top: 16px;
+  transition: background 0.2s;
+}
+.cta-btn:hover { background: var(--accent-hover); }
+.faq-section { margin-top: 48px; border-top: 1px solid var(--border); padding-top: 24px; }
+.faq-item { margin-bottom: 20px; }
+.faq-item h3 { color: var(--accent); font-size: 1.05rem; margin-bottom: 6px; }
+.faq-item p { color: var(--muted); font-size: 0.95rem; margin-bottom: 0; }
+@media (max-width: 600px) {
+  body { font-size: 16px; }
+  h1 { font-size: 1.5rem; }
+  h2 { font-size: 1.2rem; }
+  article { padding: 24px 16px 60px; }
+  table { font-size: 0.8rem; }
+  th, td { padding: 8px 6px; }
+}
+</style>
+</head>
+<body>
+<article>
+<a class="back-link" href="../">&larr; Back to HEDS Academy</a>
+
+<div class="article-header">
+<div class="article-meta">By Daniel Looper, HEDS &middot; October 6, 2026 &middot; 8 min read</div>
+<h1>How to Manage WIP in a Heavy Equipment Service Department</h1>
+</div>
+
+<p>How much money is sitting in your shop right now in work orders that are 60, 90, or 120 days old? Pull your open WO report. Sort by oldest open date. Count the dollars in each aging bucket. If you have WOs older than 90 days with no named owner and no close date, you are carrying write-offs that have not been written off yet.</p>
+
+<p>WIP (Work-in-Process) is the total dollars sitting in open work orders: parts, labor, and sublet costs that have not been billed. Every dollar in WIP is a dollar of operating cash tied up in unfinished work. The longer it sits, the less likely it ever gets billed at full value.</p>
+
+<h2>The WIP Aging Bucket System</h2>
+
+<p>Every work order falls into an aging bucket based on how long it has been open. The buckets tell you exactly where the problem is and what to do about it.</p>
+
+<table>
+<tr><th>Bucket</th><th>Status</th><th>Action</th></tr>
+<tr><td>0 to 14 days</td><td>Normal</td><td>No action needed. Standard repair cycle.</td></tr>
+<tr><td>15 to 30 days</td><td>Aging</td><td>Review in the weekly WIP meeting. Identify the bottleneck.</td></tr>
+<tr><td>31 to 60 days</td><td>Action required</td><td>Named owner assigned. Hold reason documented. Target close date set.</td></tr>
+<tr><td>60 to 89 days</td><td>Escalate</td><td>Service manager review. Decision: close this week or kill the WO.</td></tr>
+<tr><td>90+ days</td><td>Write-off candidate</td><td>GM review. Most of these will never be billed at full value.</td></tr>
+</table>
+
+<p>HEDS target: total WIP should not exceed 10 to 15 days of average monthly service sales. WIP over 30 days should be under 5% of total WIP. Days to Invoice (DTI) should be 3 to 5 business days from completion to invoice.</p>
+
+<h2>The 48-Hour Close Standard</h2>
+
+<p>After final labor is rendered on a work order, the WO closes within 48 hours. The 48-hour clock starts when labor is complete, not when parts arrive.</p>
+
+<p>If the WO cannot close within 48 hours, it gets three things:</p>
+<ol>
+<li><strong>A named owner.</strong> One person responsible for closing it. Not "the service department." A name.</li>
+<li><strong>A specific hold reason.</strong> Parts on backorder with no alternate sourced. Quote sent to customer with no follow-up. Advisor moved to the next job and forgot this one. The reason matters because the fix is different for each.</li>
+<li><strong>A target close date.</strong> When will this WO close? If there is no date, there is no plan.</li>
+</ol>
+
+<p>Every WO over 30 days needs all three, or it needs to be killed. A work order open for more than 30 days with no owner, no reason, and no close date is a write-off you have not recognized yet.</p>
+
+<h2>The Daily 10-Minute Standup</h2>
+
+<p>The standup is where WIP discipline gets installed. It takes 10 minutes. If it takes 30, it is a meeting, not a standup.</p>
+
+<p>The agenda is fixed:</p>
+<ol>
+<li><strong>Oldest WO first.</strong> Start with the oldest open work order on the board. Who owns it? What is the hold reason? When does it close?</li>
+<li><strong>Capacity stress flag.</strong> Scheduled hours divided by available hours. If scheduled exceeds available by more than 15%, you have a bottleneck arriving in 2 weeks. Deal with it now.</li>
+<li><strong>Top 3 priorities.</strong> The three WOs that must close today. Name them. Commit to them.</li>
+</ol>
+
+<p>One decision minimum. If no decision is needed, the standup is not needed. The purpose is rhythm, not duration.</p>
+
+<div class="callout">
+<p><strong>Floor Rule:</strong> Oldest-to-newest close priority. 48-hour close standard. Daily 10-minute standup. No exceptions. If your standup takes 30 minutes, cut it to 10. If there is nothing to discuss, the standup is 3 minutes and everyone goes to work.</p>
+</div>
+
+<h2>Worked Example: $174K in WIP</h2>
+
+<p>A mid-size construction equipment dealer pulls their WIP report. Here is what they find:</p>
+
+<table>
+<tr><th>Bucket</th><th>WOs</th><th>Dollar Value</th></tr>
+<tr><td>0 to 14 days</td><td>42</td><td>$86,000</td></tr>
+<tr><td>15 to 30 days</td><td>18</td><td>$39,000</td></tr>
+<tr><td>31 to 60 days</td><td>11</td><td>$28,000</td></tr>
+<tr><td>60 to 89 days</td><td>6</td><td>$15,000</td></tr>
+<tr><td>90+ days</td><td>4</td><td>$6,000</td></tr>
+<tr><td><strong>Total</strong></td><td><strong>81</strong></td><td><strong>$174,000</strong></td></tr>
+</table>
+
+<p>Total WIP is $174,000. Their average monthly service sales are $340,000. That is 15.3 days of sales, right at the upper limit of the 10 to 15 day target. But $49,000 sits in the 31+ day buckets. That is 28% of total WIP, well above the 5% target.</p>
+
+<p>The 90+ bucket has $6,000 in 4 WOs. The oldest is 127 days. The hold reason: "waiting on customer approval." Nobody has called the customer in 60 days. That WO is a write-off candidate.</p>
+
+<p>The service manager installs the daily standup. Two weeks later, the 31 to 60 bucket drops from $28,000 to $14,000. The 90+ bucket does not move much because those 4 WOs get killed or closed at partial value. But the 0 to 14 bucket tightens because the 48-hour close standard stops new WOs from aging into the problem buckets.</p>
+
+<h2>The Three Causes of WO Aging</h2>
+
+<p>Every WO over 30 days has one of three root causes. The fix is different for each.</p>
+
+<h3>1. Parts on backorder with no alternate</h3>
+<p>The parts manager sources an alternate or updates the customer with a new ETA. The technician moves to the next job. The WO is paused with a named restart date. No technician sits idle waiting for one part.</p>
+
+<h3>2. Quote sent to customer with no follow-up</h3>
+<p>The service advisor calls the customer within 48 hours. No email-only quotes. If the customer does not respond in 48 hours, the advisor calls. If no response in 7 days, the service manager calls. The quote does not sit in the system aging.</p>
+
+<h3>3. The advisor moved to the next job</h3>
+<p>The advisor forgot this WO exists. The daily standup catches it because the oldest WO is always reviewed first. The advisor gets the WO back, calls the customer, and commits a close date.</p>
+
+<h2>What HEDS Installs</h2>
+
+<p>HEDS comes to your floor, pulls your real WIP report, and builds the discipline into your daily rhythm:</p>
+<ul>
+<li>WIP aging breakdown and DTI baseline from your actual data</li>
+<li>48-hour close standard with advisor-to-billing handoff protocol</li>
+<li>Daily 10-minute standup agenda, printed and posted in the shop</li>
+<li>Weekly WIP review with every WO over 14 days assigned to a named owner with a target close date</li>
+<li>WIP aging tracker auto-categorized by hold reason: Parts, Labor, Approval, Billing</li>
+</ul>
+
+<p>This is not a seminar. Not a video module. We use your real work orders, your real time sheets, and your real DMS reports. On your floor. With your people.</p>
+
+<div class="cta-box">
+<h2 style="margin-top:0;">Ready to stop the bleed?</h2>
+<p>Book a 30-minute discovery call. We will review your current WIP, identify the top 3 operational leaks, and recommend the right track for your team.</p>
+<a class="cta-btn" href="../#sec-contact">Book a Discovery Call</a>
+</div>
+
+<div class="faq-section">
+<h2>FAQ</h2>
+
+<div class="faq-item">
+<h3>What is WIP aging in a heavy equipment service department?</h3>
+<p>WIP aging measures how long work orders sit open without being billed. The bucket system tracks WOs by age: 0-14 days is normal, 15-30 days needs review, 31-60 days requires action, 60-89 days needs escalation, and 90+ days is a write-off candidate.</p>
+</div>
+
+<div class="faq-item">
+<h3>What is the 48-hour close standard?</h3>
+<p>After final labor is rendered on a work order, the WO must close within 48 hours. If it cannot close, it gets a named owner, a specific hold reason, and a target close date. The 48-hour clock starts when labor is complete, not when parts arrive.</p>
+</div>
+
+<div class="faq-item">
+<h3>What is the HEDS target for WIP as a percentage of monthly service sales?</h3>
+<p>Total WIP should not exceed 10 to 15 days of average monthly service sales. WIP over 30 days should be under 5% of total WIP. Days to Invoice should be 3 to 5 business days.</p>
+</div>
+
+<div class="faq-item">
+<h3>How long should a service department daily standup take?</h3>
+<p>The daily standup should take 10 minutes. It covers the oldest work orders first, names an owner for each stalled WO, and commits a close date. If it takes 30 minutes, it is a meeting, not a standup.</p>
+</div>
+</div>
+
+</article>
+</body>
+</html>
