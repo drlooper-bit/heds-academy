@@ -22,6 +22,27 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
+  "@type": "EducationalOccupationalProgram",
+  "name": "HEDS Operating Discipline Assessment",
+  "description": "A 50-question proctored assessment measuring operating discipline for heavy equipment dealer and rental company managers. Covers WIP management, labor recovery, parts operations, fleet utilization, and leading indicators. 90 minutes, in person or monitored remote.",
+  "provider": {
+    "@type": "Organization",
+    "name": "Heavy Equipment Dealer Solutions LLC",
+    "url": "https://academy.hedsconsulting.net/"
+  },
+  "timeToComplete": "PT90M",
+  "occupationalCategory": "Heavy Equipment Dealer Management",
+  "offers": {
+    "@type": "Offer",
+    "price": "300",
+    "priceCurrency": "USD",
+    "description": "Per manager. Volume: 5+ at $250, 10+ at $200."
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
   "@type": "LocalBusiness",
   "name": "Heavy Equipment Dealer Solutions LLC",
   "alternateName": "HEDS",
@@ -94,6 +115,22 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "Service Managers, Service Advisors, Shop Foremen, Service Administrators, Field Service Coordinators, Dispatch Coordinators, Parts Managers, Rental Managers, Fleet Managers, Branch Managers, District Managers, and Regional Managers at heavy equipment dealerships and rental companies."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the HEDS Operating Discipline Assessment?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A 50-question proctored assessment that measures operating discipline for heavy equipment dealer and rental company managers. 90 minutes, administered in person or via monitored remote session. No open books, no AI assistants. The score reflects what your manager actually knows. $300 per manager, with volume pricing at 5+ and 10+ managers."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is the HEDS assessment proctored?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "An unproctored online assessment measures how well someone uses search engines and AI tools. A proctored assessment measures what they actually know when the DMS is down and the customer is on hold. Proctored means the score is real, so the gaps it reveals are real."
       }
     }
   ]
@@ -579,6 +616,7 @@ body {
   <button class="tab-btn active" role="tab" aria-selected="true" onclick="showSection('overview', this)">Overview</button>
   <button class="tab-btn" role="tab" aria-selected="false" onclick="showSection('diligence', this)">Due Diligence &amp; Inspections</button>
   <button class="tab-btn" role="tab" aria-selected="false" onclick="showSection('training', this)">Training &amp; Academy</button>
+  <button class="tab-btn" role="tab" aria-selected="false" onclick="showSection('assessment', this)">Assessment</button>
   <button class="tab-btn" role="tab" aria-selected="false" onclick="showSection('contact', this)">Contact</button>
 </nav>
 </div>
@@ -984,6 +1022,79 @@ body {
   </div>
 </div>
 
+<!-- ===== ASSESSMENT SECTION ===== -->
+<div class="section" id="sec-assessment" role="tabpanel">
+  <div class="hero">
+    <h2>The HEDS Operating Discipline Assessment</h2>
+    <p>50 questions. 90 minutes. Proctored. Your score report is the evidence.</p>
+  </div>
+
+  <div class="card">
+    <h2>What It Is</h2>
+    <p>A 50-question assessment that measures operating discipline across the areas that matter most to a heavy equipment dealer or rental company: WIP management, labor recovery, parts operations, fleet utilization, and branch-level leading indicators.</p>
+    <p>Each question maps to a specific KPI from the HEDS curriculum. Your score report breaks down performance by category and identifies the three highest-leverage focus areas for your team.</p>
+  </div>
+
+  <div class="card">
+    <h2>How It Works</h2>
+    <ul>
+      <li><strong>50 questions</strong> — KPI formulas, operational scenarios, metric interpretation, and corrective action selection</li>
+      <li><strong>90 minutes</strong> — timed, single session, no breaks</li>
+      <li><strong>Proctored</strong> — administered in person or via monitored remote session. No open books. No AI assistants. No looking it up. The score reflects what your manager actually knows, not what they can look up.</li>
+      <li><strong>Score report</strong> — category breakdown, percentile comparison, and three prioritized focus areas</li>
+      <li><strong>No obligation</strong> — the assessment is standalone. If it reveals gaps, the training tracks are there. If not, you keep the report.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>Why Proctored</h2>
+    <p>An unproctored online assessment measures how well someone uses Google and ChatGPT. A proctored assessment measures what they actually know when the DMS is down, the customer is on hold, and the WIP report is aging.</p>
+    <p>The whole point is to find the gaps before they cost you money. If the assessment is gamed, the gaps stay hidden. Proctored means the score is real.</p>
+  </div>
+
+  <div class="card">
+    <h2>What You Get</h2>
+    <ul>
+      <li><strong>Category scores</strong> — WIP, Labor Recovery, Parts, Fleet Utilization, Leading Indicators</li>
+      <li><strong>Overall score</strong> — 0-100 with percentile ranking against industry benchmarks</li>
+      <li><strong>Three focus areas</strong> — the highest-leverage gaps to close first, with recommended track modules</li>
+      <li><strong>Manager comparison</strong> — assess multiple managers and compare scores side by side</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>Who Should Take It</h2>
+    <p>Service Managers, Rental Managers, Parts Managers, Branch Managers, Fixed Operations Directors, and anyone responsible for the operating numbers on the floor. If you are not sure which track fits, the assessment maps the answer.</p>
+  </div>
+
+  <div class="card" style="text-align:center;">
+    <h2>$300 per manager</h2>
+    <p>Volume pricing: 5+ managers at $250 each. 10+ at $200 each.</p>
+    <p style="margin-top:16px;">To schedule an assessment for your team, request details below. We will follow up within one business day with available dates, proctoring options (in person or monitored remote), and the assessment brief.</p>
+    <a class="cta-btn" href="mailto:daniel@hedsconsulting.net?subject=HEDS Assessment — Request Details" target="_blank" rel="noopener noreferrer" style="margin-top:16px;">Request Assessment Details</a>
+  </div>
+
+  <div class="card">
+    <h2>Prefer email?</h2>
+    <form id="assessment-form" onsubmit="return hedsAssessmentSubmit(event);" style="display:flex;flex-direction:column;gap:12px;max-width:480px;margin:0 auto;">
+      <label for="assess-name" style="font-size:0.9rem;color:var(--muted);">Your name</label>
+      <input type="text" id="assess-name" name="name" required placeholder="John Smith" style="padding:12px;border-radius:var(--radius);border:1px solid var(--border);background:var(--bg);color:var(--fg);font-size:1rem;">
+      <label for="assess-email" style="font-size:0.9rem;color:var(--muted);">Email</label>
+      <input type="email" id="assess-email" name="email" required placeholder="you@dealership.com" style="padding:12px;border-radius:var(--radius);border:1px solid var(--border);background:var(--bg);color:var(--fg);font-size:1rem;">
+      <label for="assess-company" style="font-size:0.9rem;color:var(--muted);">Company</label>
+      <input type="text" id="assess-company" name="company" placeholder="Dealership or rental company name" style="padding:12px;border-radius:var(--radius);border:1px solid var(--border);background:var(--bg);color:var(--fg);font-size:1rem;">
+      <label for="assess-managers" style="font-size:0.9rem;color:var(--muted);">How many managers?</label>
+      <select id="assess-managers" name="managers" style="padding:12px;border-radius:var(--radius);border:1px solid var(--border);background:var(--bg);color:var(--fg);font-size:1rem;">
+        <option value="1">1 manager</option>
+        <option value="2-4">2-4 managers</option>
+        <option value="5+">5+ managers</option>
+      </select>
+      <button type="submit" class="cta-btn" style="margin-top:8px;border:none;">Get Assessment Details</button>
+      <p id="assess-confirm" style="display:none;color:var(--success);font-size:0.9rem;text-align:center;margin-top:8px;">Thanks. We will follow up within one business day.</p>
+    </form>
+  </div>
+</div>
+
 <!-- ===== CONTACT SECTION ===== -->
 <div class="section" id="sec-contact" role="tabpanel">
   <div class="hero">
@@ -1091,6 +1202,27 @@ window.addEventListener('DOMContentLoaded', function() {
     showSection(hash);
   }
 });
+
+// ===== ASSESSMENT FORM HANDLER =====
+function hedsAssessmentSubmit(e) {
+  e.preventDefault();
+  var name = document.getElementById('assess-name').value;
+  var email = document.getElementById('assess-email').value;
+  var company = document.getElementById('assess-company').value || 'Not provided';
+  var managers = document.getElementById('assess-managers').value;
+  var subject = encodeURIComponent('HEDS Assessment Request — ' + (company || name));
+  var body = encodeURIComponent(
+    'Name: ' + name + '\n' +
+    'Email: ' + email + '\n' +
+    'Company: ' + company + '\n' +
+    'Managers: ' + managers + '\n\n' +
+    'Please send available assessment dates, proctoring options, and the assessment brief.'
+  );
+  window.location.href = 'mailto:daniel@hedsconsulting.net?subject=' + subject + '&body=' + body;
+  document.getElementById('assess-confirm').style.display = 'block';
+  document.getElementById('assessment-form').reset();
+  return false;
+}
 
 // ===== VISIT COUNTER (admin view) =====
 (function() {
