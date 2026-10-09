@@ -595,6 +595,51 @@ body {
 .problem-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px; }
 .problem-card h3 { color: var(--danger); margin-bottom: 8px; font-size: 0.95rem; }
 .problem-card.solution h3 { color: var(--success); }
+
+/* ===== BLOG ===== */
+.blog-intro { margin-bottom: 24px; }
+.blog-intro h2 { font-size: 1.8rem; color: var(--fg); margin-bottom: 8px; font-weight: 800; }
+.blog-intro p { color: var(--muted); font-size: 0.95rem; }
+.post-list { display: grid; gap: 20px; }
+.post-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 28px 24px;
+  transition: border-color 0.2s, transform 0.15s;
+  text-decoration: none;
+  display: block;
+  cursor: pointer;
+}
+.post-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+.post-card:hover .post-title { color: var(--accent); }
+.post-eyebrow {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--accent);
+  margin-bottom: 10px;
+  padding: 4px 12px;
+  background: rgba(242,169,0,0.08);
+  border-radius: 20px;
+}
+.post-title {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--fg);
+  line-height: 1.3;
+  margin-bottom: 10px;
+  transition: color 0.2s;
+}
+.post-excerpt { font-size: 0.9rem; color: var(--muted); margin-bottom: 16px; line-height: 1.6; }
+.post-meta {
+  display: flex; flex-wrap: wrap; gap: 8px 16px;
+  font-size: 0.8rem; color: var(--muted); align-items: center;
+}
+.post-meta .dot { width: 3px; height: 3px; background: var(--border); border-radius: 50%; display: inline-block; }
+.post-meta .read-time { color: var(--accent); font-weight: 600; }
 </style>
 </head>
 <body>
@@ -618,6 +663,7 @@ body {
   <button class="tab-btn" role="tab" aria-selected="false" onclick="showSection('training', this)">Training &amp; Academy</button>
   <button class="tab-btn" role="tab" aria-selected="false" onclick="showSection('assessment', this)">Assessment</button>
   <button class="tab-btn" role="tab" aria-selected="false" onclick="showSection('contact', this)">Contact</button>
+  <button class="tab-btn" role="tab" aria-selected="false" onclick="showSection('blog', this)">Blog</button>
 </nav>
 </div>
 
@@ -1145,6 +1191,29 @@ body {
     <h2>Prefer email?</h2>
     <p>Send a message and we'll respond within 24 hours.</p>
     <a class="cta-btn" href="mailto:daniel@hedsconsulting.net?subject=HEDS%20Inquiry">Email Daniel</a>
+  </div>
+</div>
+
+<!-- ===== BLOG SECTION ===== -->
+<div class="section" id="sec-blog" role="tabpanel">
+  <div class="blog-intro">
+    <h2>Blog</h2>
+    <p>Practical management insights for heavy equipment dealers and rental companies — KPIs, operating discipline, and margin protection.</p>
+  </div>
+
+  <div class="post-list">
+    <a class="post-card" href="blog/leading-vs-lagging-kpis.html">
+      <span class="post-eyebrow">KPI Management</span>
+      <div class="post-title">Leading vs. Lagging KPIs: The Next Competitive Advantage for Heavy Equipment Dealers</div>
+      <div class="post-excerpt">Having data is not the same as having insight. The next competitive advantage will come from knowing which numbers matter, what they are telling you, and what to do about them while there is still time to change the outcome.</div>
+      <div class="post-meta">
+        <span>Daniel Looper</span>
+        <span class="dot"></span>
+        <span>October 2026</span>
+        <span class="dot"></span>
+        <span class="read-time">9-min read</span>
+      </div>
+    </a>
   </div>
 </div>
 
