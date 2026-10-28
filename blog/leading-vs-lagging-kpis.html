@@ -55,7 +55,7 @@
   "@type": "BreadcrumbList",
   "itemListElement": [
     {"@type": "ListItem", "position": 1, "name": "HEDS", "item": "https://hedsconsulting.net/"},
-    {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://hedsconsulting.net/blog/"},
+    {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://hedsconsulting.net/#blog"},
     {"@type": "ListItem", "position": 3, "name": "Leading vs. Lagging KPIs", "item": "https://hedsconsulting.net/blog/leading-vs-lagging-kpis.html"}
   ]
 }
@@ -469,6 +469,114 @@ body {
   margin-bottom: 8px;
   opacity: 0.7;
 }
+
+/* ===== MOBILE & TABLET RESPONSIVE ENHANCEMENTS ===== */
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+.breadcrumb a, .cta-back, .cta-btn, .contact-item a, .footer a {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+}
+.breadcrumb a {
+  padding: 4px 8px;
+  min-width: 44px;
+  justify-content: center;
+}
+.cta-back {
+  padding: 10px 14px;
+  border: 1px solid rgba(32, 59, 96, 0.8);
+  border-radius: 6px;
+  background: rgba(14, 31, 56, 0.6);
+  margin: 4px;
+}
+.article-body a {
+  padding: 2px 0;
+}
+.source-callout a {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 6px;
+}
+.scorecard-table-wrap {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.capacity-callout .calc-formula {
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+@media (max-width: 767px) {
+  .site-header-group {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .header {
+    padding: 10px 14px !important;
+  }
+  .header-inner {
+    gap: 12px;
+  }
+  .header-logo {
+    width: 48px !important;
+    height: 48px !important;
+  }
+  .header-text h1 {
+    font-size: clamp(1.05rem, 4.2vw, 1.3rem) !important;
+    line-height: 1.2;
+  }
+  .header-text p {
+    font-size: 0.7rem !important;
+    line-height: 1.25;
+  }
+  .breadcrumb {
+    padding: 4px 14px !important;
+  }
+  .main {
+    padding: 20px 14px !important;
+  }
+  .article-header h1 {
+    font-size: clamp(1.35rem, 5.2vw, 1.75rem) !important;
+    line-height: 1.25;
+  }
+  .article-header .subtitle {
+    font-size: 0.96rem !important;
+  }
+  .article-body h2 {
+    font-size: clamp(1.15rem, 4.5vw, 1.35rem) !important;
+  }
+  .capacity-callout {
+    padding: 18px 14px !important;
+  }
+  .capacity-stats {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 10px !important;
+  }
+  .author-bio {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 18px 16px !important;
+  }
+  .article-cta {
+    padding: 22px 16px !important;
+  }
+  .cta-btn {
+    width: 100%;
+    justify-content: center;
+  }
+  .contact-row {
+    flex-direction: column !important;
+    gap: 6px !important;
+    align-items: center;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -518,7 +626,7 @@ body {
 
     <p>Having data is not the same as having insight. Having a dashboard is not the same as managing performance. Dealerships can track dozens of KPIs, distribute monthly reports, and review financial results at every management meeting without identifying the operational problems that are quietly eroding profitability. The missing link is a practical system that connects the numbers to specific actions, assigns responsibility, and measures whether those actions produced results. The next competitive advantage will not come from collecting more data. It will come from knowing which numbers matter, what they are telling you, and what to do about them while there is still time to change the outcome.</p>
 
-    <h2>The Industry Is Changing. Management Practices Need to Change With It.</h2>
+    <h2 id="sec-1">The Industry Is Changing. Management Practices Need to Change With It.</h2>
 
     <p>Equipment demand can shift quickly. Technician availability remains a constraint for many service operations. Parts delays can hold up completed work, while aging inventory and underutilized rental assets tie up capital. At the same time, ownership groups expect stronger returns, better visibility, and more consistent execution across multiple locations.</p>
 
@@ -532,14 +640,14 @@ body {
 
     <p>The opportunity is to connect the data dealerships already collect to the decisions managers make every day. That requires moving beyond reporting performance and toward identifying the conditions that will influence future results.</p>
 
-    <h2>Two Types of KPIs. Two Different Management Questions.</h2>
+    <h2 id="sec-2">Two Types of KPIs. Two Different Management Questions.</h2>
 
     <p>Lagging and leading indicators serve different purposes. Neither replaces the other.</p>
 
     <h3>Lagging indicators: What happened?</h3>
     <p>These measures establish actual performance and financial results.</p>
     <ul>
-      <li><strong>Absorption rate:</strong> How much of the dealership's fixed operating expense is covered by service gross profit, based on its defined methodology.</li>
+      <li><strong>Absorption rate:</strong> How much of total dealership operating expenses is covered by combined Service and Parts gross profit ((Service GP + Parts GP) ÷ Total Dealership Operating Expenses; under 95% is a red flag, 95-99.9% standard, 100%+ gold standard, 105-110% optimal).</li>
       <li><strong>Effective labor rate (ELR):</strong> Labor revenue realized per billed labor hour.</li>
       <li><strong>WIP aging:</strong> How long work orders remain open and how much value is tied up in unfinished or uninvoiced work.</li>
       <li><strong>Service gross margin:</strong> How effectively the department converts revenue into gross profit.</li>
@@ -560,7 +668,7 @@ body {
 
     <p>A KPI becomes more useful when management understands not just its definition, but also what action to take when the number moves outside its expected range. That connection gives the dealership a better chance to intervene before the same conditions affect another reporting period.</p>
 
-    <h2>Start With the Two-Week Capacity Forecast</h2>
+    <h2 id="sec-3">Start With the Two-Week Capacity Forecast</h2>
 
     <p>One of the most practical improvements a service department can make is to forecast its workload against available technician capacity.</p>
 
@@ -601,7 +709,7 @@ body {
 
     <p>The number identifies the condition. Management must determine the cause and select the appropriate response. That is the difference between reporting a number and managing an operation.</p>
 
-    <h2>Build a Daily Operating Scorecard, Not Another Report</h2>
+    <h2 id="sec-4">Build a Daily Operating Scorecard, Not Another Report</h2>
 
     <p>A forecast creates value only when someone uses it to make a decision. That is where a daily Branch Control Score can help.</p>
 
@@ -629,7 +737,7 @@ body {
             <td>Which repairs are likely to be delayed by missing parts?</td>
           </tr>
           <tr>
-            <td>WIP over 30 days</td>
+            <td>Work orders not closed within 48 hours of last labor (count and $)</td>
             <td>Which open work orders need intervention now?</td>
           </tr>
           <tr>
@@ -652,7 +760,7 @@ body {
 
     <p>Every measure needs a defined calculation, a responsible owner, and a review cadence. A warning without an assigned response is just another number on a screen.</p>
 
-    <h2>Turn the Scorecard Into a Management Routine</h2>
+    <h2 id="sec-5">Turn the Scorecard Into a Management Routine</h2>
 
     <p>The daily review should take approximately 10 minutes. Its purpose is not to explain every number or repeat yesterday's activities. It is to identify exceptions and decide what happens next.</p>
 
@@ -664,7 +772,7 @@ body {
 
     <p>The branch manager does not need to solve every problem personally. The manager needs to make sure the right problem reaches the right person, resources are available to address it, and the result is verified.</p>
 
-    <h2>Connect Operational KPIs to Financial Performance</h2>
+    <h2 id="sec-6">Connect Operational KPIs to Financial Performance</h2>
 
     <p>The longer-term opportunity extends beyond service. A dealership can apply the same management principles across parts, equipment sales, rental, fleet management, and finance. Each department has its own operating signals, but those signals often affect the same financial outcomes.</p>
 
@@ -676,11 +784,11 @@ body {
 
     <p>That is where better KPI management becomes more than a reporting improvement. It becomes a way to identify risk earlier, direct resources more effectively, and protect realized profitability.</p>
 
-    <h2>From Data Collection to Operational Control</h2>
+    <h2 id="sec-7">From Data Collection to Operational Control</h2>
 
     <p>At Heavy Equipment Dealer Solutions (HEDS), the focus is on closing the gap between the data dealerships collect and the decisions they make. The starting point is not another software purchase or a longer list of KPIs. It is understanding what information already exists, whether that information is reliable, and how effectively management uses it.</p>
 
-    <p>HEDS works with dealership leadership to <a href="../index.html#sec-diligence">identify performance gaps through onsite operational audits</a>, <a href="../index.html#sec-training">establish consistent KPI definitions through position-specific training</a>, connect operating measures to financial outcomes, and develop practical management routines. The objective is to give each level of leadership a clearer understanding of what is happening, what may happen next, and what action is required.</p>
+    <p>HEDS works with dealership leadership to <a href="../index.html#diligence">identify performance gaps through onsite operational audits</a>, <a href="../index.html#training">establish consistent KPI definitions through position-specific training</a>, connect operating measures to financial outcomes, and develop practical management routines. The objective is to give each level of leadership a clearer understanding of what is happening, what may happen next, and what action is required.</p>
 
     <p>That means identifying which measures deserve attention, establishing realistic performance thresholds, assigning ownership, and ensuring that corrective actions are followed through. It also means distinguishing between a data problem and a management problem. An inaccurate KPI needs better reporting. An accurate KPI that repeatedly generates no action needs a different management response.</p>
 
@@ -698,7 +806,7 @@ body {
   <div class="cta-card">
     <h2>Is your KPI process primarily retrospective?</h2>
     <p>HEDS can help assess where leading indicators and stronger operating controls could improve visibility and execution. A review of your existing dashboards, reporting cadence, and management routines can identify where earlier intervention may have the greatest impact.</p>
-    <a class="cta-btn" href="../index.html#sec-contact">Book a Discovery Call</a>
+    <a class="cta-btn" href="../index.html#contact">Book a Discovery Call</a>
   </div>
 
   <!-- ===== AUTHOR BIO ===== -->
@@ -719,7 +827,7 @@ body {
 <!-- ===== FOOTER ===== -->
 <footer class="footer">
   <img src="../LOGO_HEDS_small.png" alt="HEDS" width="72" height="72" loading="lazy" onerror="this.style.display='none'">
-  <p><strong style="color:var(--accent);">HEDS</strong> — Heavy Equipment Dealer Solutions LLC</p>
+  <p><strong style="color:var(--accent);">HEDS</strong> - Heavy Equipment Dealer Solutions LLC</p>
   <p>Leesburg, Florida &nbsp;|&nbsp; <a href="mailto:daniel@hedsconsulting.net" style="color:var(--muted);text-decoration:none;">daniel@hedsconsulting.net</a> &nbsp;|&nbsp; <a href="tel:8135997893" style="color:var(--muted);text-decoration:none;">813-599-7893</a></p>
   <p style="margin-top:8px;opacity:0.5;">© 2026 HEDS. All rights reserved.</p>
 </footer>

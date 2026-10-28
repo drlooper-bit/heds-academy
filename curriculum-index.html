@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>HEDS Academy — Course Curriculum Index</title>
-<meta name="description" content="HEDS Operating Discipline Academy — course curriculum index showing training tracks, days, and module outlines.">
+<title>HEDS Academy: Course Curriculum Index</title>
+<meta name="description" content="HEDS Operating Discipline Academy: course curriculum index showing training tracks, days, and module outlines.">
 <link rel="icon" href="LOGO_HEDS_small.png">
 <style>
 :root {
@@ -87,6 +87,88 @@ footer a:hover { text-decoration: underline; }
   .track-header-card { padding: 16px; }
   .day-header { font-size: 0.72rem; }
 }
+
+/* ===== MOBILE & TABLET RESPONSIVE ENHANCEMENTS ===== */
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+.back-link {
+  min-height: 44px;
+  display: inline-flex !important;
+  align-items: center;
+  padding: 8px 12px;
+}
+.track-tab {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 16px;
+}
+.day-header {
+  min-height: 48px;
+}
+.cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  align-items: center;
+}
+.cta-row a {
+  min-height: 44px;
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  margin-left: 0 !important;
+}
+.footer a, .footer-brand a {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 8px;
+}
+
+@media (max-width: 767px) {
+  .container {
+    padding: 20px 14px !important;
+  }
+  h1 {
+    font-size: clamp(1.3rem, 5vw, 1.65rem) !important;
+  }
+  .track-tabs {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+  .track-tab {
+    width: 100%;
+    font-size: 0.82rem;
+    padding: 10px 8px;
+    text-align: center;
+  }
+  .track-header {
+    padding: 16px !important;
+  }
+  .day-header {
+    padding: 12px 14px !important;
+    font-size: 0.9rem;
+  }
+  .module-item {
+    padding: 10px 14px 10px 20px !important;
+    font-size: 0.85rem;
+  }
+  .cta-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .cta-row a {
+    width: 100%;
+    text-align: center;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -96,7 +178,7 @@ footer a:hover { text-decoration: underline; }
     <img src="LOGO_HEDS.png" alt="HEDS Logo" class="logo" width="90" height="90">
   </div>
   <h1>Course Curriculum Index</h1>
-  <div class="subtitle">HEDS Operating Discipline Academy — Module outlines by track</div>
+  <div class="subtitle">HEDS Operating Discipline Academy: Module outlines by track</div>
   <a href="index.html#training" class="back-link">← Back to Training &amp; Academy</a>
 </div>
 
@@ -116,53 +198,53 @@ footer a:hover { text-decoration: underline; }
       <div class="th-icon">🔧</div>
       <div class="th-title">Service Manager Training</div>
       <div class="th-audience">Service Managers, Service Advisors, Shop Foremen, Service Administrators, Field Service Coordinators, Dispatch</div>
-      <div class="th-desc">Stop managing by month-end reports and start driving the shop floor daily. This track installs the operating discipline that turns absorption rate, labor recovery, WIP control, and technician productivity from monthly surprises into daily habits. Participants leave with their own scorecard, a 90-day action plan built on their real data, and the daily rhythms that keep service contribution where it belongs — above 60% of fixed costs.</div>
+      <div class="th-desc">Stop managing by month-end reports and start driving the shop floor daily. This track installs the operating discipline that turns absorption rate, labor recovery, labor utilization, and WIP control from monthly surprises into daily habits. Participants leave with their own scorecard, a 90-day action plan built on their real data, and the daily rhythms that keep service contribution where it belongs, above 60% of fixed costs.</div>
       <div class="th-stats"><span>5-day onsite</span><span>20 modules</span><span>Interactive dashboard</span><span>50-question assessment</span><span>90-day action plan</span></div>
     </div>
 
     <div class="day-section">
-      <div class="day-header open" onclick="toggleDay(this)">Day 1 — Foundation &amp; Reporting <span class="day-arrow">▼</span></div>
+      <div class="day-header open" onclick="toggleDay(this)">Day 1: Foundation &amp; Reporting <span class="day-arrow">▼</span></div>
       <div class="day-body">
-        <div class="module-item">Module 1 — ERP Report Mapping</div>
-        <div class="module-item">Module 2 — Absorption &amp; Margin</div>
-        <div class="module-item">Module 3 — Labor Reconciliation</div>
-        <div class="module-item">Module 4 — WIP &amp; Quote Control</div>
+        <div class="module-item">Module 1: ERP Report Mapping</div>
+        <div class="module-item">Module 2: Absorption &amp; Margin</div>
+        <div class="module-item">Module 3: Labor Reconciliation</div>
+        <div class="module-item">Module 4: WIP &amp; Quote Control</div>
       </div>
     </div>
     <div class="day-section">
-      <div class="day-header" onclick="toggleDay(this)">Day 2 — Execution &amp; Pricing <span class="day-arrow">▼</span></div>
+      <div class="day-header" onclick="toggleDay(this)">Day 2: Execution &amp; Pricing <span class="day-arrow">▼</span></div>
       <div class="day-body" style="display:none;">
-        <div class="module-item">Module 5 — Efficiency &amp; Capacity</div>
-        <div class="module-item">Module 6 — ELR &amp; Discounting</div>
-        <div class="module-item">Module 7 — Triage &amp; Dispatch</div>
-        <div class="module-item">Module 8 — Warranty Recovery</div>
+        <div class="module-item">Module 5: Efficiency &amp; Capacity</div>
+        <div class="module-item">Module 6: ELR &amp; Discounting</div>
+        <div class="module-item">Module 7: Triage &amp; Dispatch</div>
+        <div class="module-item">Module 8: Warranty Recovery</div>
       </div>
     </div>
     <div class="day-section">
-      <div class="day-header" onclick="toggleDay(this)">Day 3 — Management Systems <span class="day-arrow">▼</span></div>
+      <div class="day-header" onclick="toggleDay(this)">Day 3: Management Systems <span class="day-arrow">▼</span></div>
       <div class="day-body" style="display:none;">
-        <div class="module-item">Module 9 — Leak Diagnostic Matrix</div>
-        <div class="module-item">Module 10 — Scorecards</div>
-        <div class="module-item">Module 11 — Morning Standup</div>
-        <div class="module-item">Module 12 — Weekly WIP Review</div>
+        <div class="module-item">Module 9: Leak Diagnostic Matrix</div>
+        <div class="module-item">Module 10: Scorecards</div>
+        <div class="module-item">Module 11: Morning Standup</div>
+        <div class="module-item">Module 12: Weekly WIP Review</div>
       </div>
     </div>
     <div class="day-section">
-      <div class="day-header" onclick="toggleDay(this)">Day 4 — Lifecycle &amp; Recovery <span class="day-arrow">▼</span></div>
+      <div class="day-header" onclick="toggleDay(this)">Day 4: Lifecycle &amp; Recovery <span class="day-arrow">▼</span></div>
       <div class="day-body" style="display:none;">
-        <div class="module-item">Module 13 — Work Order Lifecycle</div>
-        <div class="module-item">Module 14 — Expense &amp; Margin Recovery</div>
-        <div class="module-item">Module 15 — Accountability &amp; Leadership</div>
-        <div class="module-item">Module 16 — Forecasting &amp; Leading Indicators</div>
+        <div class="module-item">Module 13: Work Order Lifecycle</div>
+        <div class="module-item">Module 14: Expense &amp; Margin Recovery</div>
+        <div class="module-item">Module 15: Accountability &amp; Leadership</div>
+        <div class="module-item">Module 16: Forecasting &amp; Leading Indicators</div>
       </div>
     </div>
     <div class="day-section">
-      <div class="day-header" onclick="toggleDay(this)">Day 5 — Integration &amp; Capstone <span class="day-arrow">▼</span></div>
+      <div class="day-header" onclick="toggleDay(this)">Day 5: Integration &amp; Capstone <span class="day-arrow">▼</span></div>
       <div class="day-body" style="display:none;">
-        <div class="module-item">Module 17 — Telematics &amp; Machine Triage</div>
-        <div class="module-item">Module 18 — Customer Defection Warning</div>
-        <div class="module-item">Module 19 — Rental Fleet Health</div>
-        <div class="module-item">Module 20 — 90-Day Action Plan (Capstone)</div>
+        <div class="module-item">Module 17: Telematics &amp; Machine Triage</div>
+        <div class="module-item">Module 18: Customer Defection Warning</div>
+        <div class="module-item">Module 19: Rental Fleet Health</div>
+        <div class="module-item">Module 20: 90-Day Action Plan (Capstone)</div>
       </div>
     </div>
   </div>
@@ -173,20 +255,20 @@ footer a:hover { text-decoration: underline; }
       <div class="th-icon">🚜</div>
       <div class="th-title">Rental Service Manager Training</div>
       <div class="th-audience">Rental Service Managers, Shop Foremen, Field Service Coordinators, PM Coordinators</div>
-      <div class="th-desc">Internal production only — no retail labor sales, just fleet uptime. This track builds the discipline that keeps rental equipment rent-ready and the shop priority-driven: PM compliance, fleet reliability, turnaround standards, and wrench-time efficiency. Participants build scorecards from their own fleet data and leave with a 90-day plan to move MTTR, PM compliance, and rent-ready turnaround in the right direction.</div>
+      <div class="th-desc">Internal production only, no retail labor sales, just fleet uptime. This track builds the discipline that keeps rental equipment rent-ready and the shop priority-driven: PM compliance, fleet reliability, turnaround standards, and wrench-time efficiency. Participants build scorecards from their own fleet data and leave with a 90-day plan to move MTTR, PM compliance, and rent-ready turnaround in the right direction.</div>
       <div class="th-stats"><span>3-day onsite</span><span>7 modules</span><span>Interactive dashboard</span><span>50-question assessment</span><span>90-day action plan</span></div>
     </div>
 
     <div class="day-section">
-      <div class="day-header open" onclick="toggleDay(this)">3-Day Intensive — Modules 1–7 <span class="day-arrow">▼</span></div>
+      <div class="day-header open" onclick="toggleDay(this)">3-Day Intensive: Modules 1–7 <span class="day-arrow">▼</span></div>
       <div class="day-body">
-        <div class="module-item">Module 1 — The Rental Service Mindset &amp; Yard Flow</div>
-        <div class="module-item">Module 2 — Fleet Economics, Lifecycle Costs &amp; OEC</div>
-        <div class="module-item">Module 3 — Shop Workflow, WIP Discipline &amp; Labor Efficiency</div>
-        <div class="module-item">Module 4 — Regulatory Compliance, Safety &amp; Environmental Control</div>
-        <div class="module-item">Module 5 — Lean Parts Management &amp; Dealer Supply Integration</div>
-        <div class="module-item">Module 6 — Economic Downtime, Telematics &amp; Commercial Sync</div>
-        <div class="module-item">Module 7 — Operating Cadence &amp; HEDS KPI Management</div>
+        <div class="module-item">Module 1: The Rental Service Mindset &amp; Yard Flow</div>
+        <div class="module-item">Module 2: Fleet Economics, Lifecycle Costs &amp; OEC</div>
+        <div class="module-item">Module 3: Shop Workflow, WIP Discipline &amp; Labor Efficiency</div>
+        <div class="module-item">Module 4: Regulatory Compliance, Safety &amp; Environmental Control</div>
+        <div class="module-item">Module 5: Lean Parts Management &amp; Dealer Supply Integration</div>
+        <div class="module-item">Module 6: Economic Downtime, Telematics &amp; Commercial Sync</div>
+        <div class="module-item">Module 7: Operating Cadence &amp; HEDS KPI Management</div>
       </div>
     </div>
   </div>
@@ -202,16 +284,16 @@ footer a:hover { text-decoration: underline; }
     </div>
 
     <div class="day-section">
-      <div class="day-header open" onclick="toggleDay(this)">3-Day Intensive — Modules 1–8 <span class="day-arrow">▼</span></div>
+      <div class="day-header open" onclick="toggleDay(this)">3-Day Intensive: Modules 1–8 <span class="day-arrow">▼</span></div>
       <div class="day-body">
-        <div class="module-item">Module 1 — The Rental Manager's Commercial Mindset</div>
-        <div class="module-item">Module 2 — Fleet Utilization: Time, Dollar &amp; Productive</div>
-        <div class="module-item">Module 3 — Rental Rate Strategy &amp; Pricing Discipline</div>
-        <div class="module-item">Module 4 — Fleet Capital &amp; Lifecycle Management</div>
-        <div class="module-item">Module 5 — Contract, Risk &amp; Damage Recovery</div>
-        <div class="module-item">Module 6 — Logistics, Dispatch &amp; Customer Operations</div>
-        <div class="module-item">Module 7 — Telematics: Fleet Visibility &amp; Usage Intelligence</div>
-        <div class="module-item">Module 8 — Operating Cadence &amp; Rental P&amp;L Management</div>
+        <div class="module-item">Module 1: The Rental Manager's Commercial Mindset</div>
+        <div class="module-item">Module 2: Fleet Utilization: Time, Dollar &amp; Productive</div>
+        <div class="module-item">Module 3: Rental Rate Strategy &amp; Pricing Discipline</div>
+        <div class="module-item">Module 4: Fleet Capital &amp; Lifecycle Management</div>
+        <div class="module-item">Module 5: Contract, Risk &amp; Damage Recovery</div>
+        <div class="module-item">Module 6: Logistics, Dispatch &amp; Customer Operations</div>
+        <div class="module-item">Module 7: Telematics: Fleet Visibility &amp; Usage Intelligence</div>
+        <div class="module-item">Module 8: Operating Cadence &amp; Rental P&amp;L Management</div>
       </div>
     </div>
   </div>
@@ -222,19 +304,19 @@ footer a:hover { text-decoration: underline; }
       <div class="th-icon">📦</div>
       <div class="th-title">Parts Manager Training</div>
       <div class="th-audience">Parts Managers, Assistant Parts Managers, Parts Counter Supervisors, Warehouse/Inventory Leads</div>
-      <div class="th-desc">Run the parts department as the profit center it should be — not the cost center everyone tolerates. This track installs the discipline that turns inventory, margin, and fill rate into managed outcomes: stock order efficiency, obsolescence control, parts-to-labor ratio, and salary as a percentage of gross profit. Participants leave with a profit-leak diagnostic built on their own data and a 90-day plan to move every KPI in the right direction.</div>
+      <div class="th-desc">Run the parts department as the profit center it should be, not the cost center everyone tolerates. This track installs the discipline that turns inventory, margin, and fill rate into managed outcomes: stock order efficiency, obsolescence control, parts-to-labor ratio, and salary as a percentage of gross profit. Participants leave with a profit-leak diagnostic built on their own data and a 90-day plan to move every KPI in the right direction.</div>
       <div class="th-stats"><span>3-day onsite</span><span>6 modules</span><span>Interactive dashboard</span><span>50-question assessment</span><span>90-day action plan</span></div>
     </div>
 
     <div class="day-section">
-      <div class="day-header open" onclick="toggleDay(this)">3-Day Intensive — Modules 1–6 <span class="day-arrow">▼</span></div>
+      <div class="day-header open" onclick="toggleDay(this)">3-Day Intensive: Modules 1–6 <span class="day-arrow">▼</span></div>
       <div class="day-body">
-        <div class="module-item">Module 1 — Understanding Your Department's Financials</div>
-        <div class="module-item">Module 2 — The Baseline Audit — Where You Stand Right Now</div>
-        <div class="module-item">Module 3 — Finding the Leaks — What Is Broken and Why</div>
-        <div class="module-item">Module 4 — The Playbook — Daily &amp; Weekly Scorecards</div>
-        <div class="module-item">Module 5 — Floor Execution — Inventory Discipline</div>
-        <div class="module-item">Module 6 — Seeing the Future — Forecasting with Leading Indicators</div>
+        <div class="module-item">Module 1: Understanding Your Department's Financials</div>
+        <div class="module-item">Module 2: The Baseline Audit: Where You Stand Right Now</div>
+        <div class="module-item">Module 3: Finding the Leaks: What Is Broken and Why</div>
+        <div class="module-item">Module 4: The Playbook: Daily &amp; Weekly Scorecards</div>
+        <div class="module-item">Module 5: Floor Execution: Inventory Discipline</div>
+        <div class="module-item">Module 6: Seeing the Future: Forecasting with Leading Indicators</div>
       </div>
     </div>
   </div>
@@ -244,15 +326,15 @@ footer a:hover { text-decoration: underline; }
 
   <!-- CTA -->
   <div class="cta-row">
-    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=daniel@hedsconsulting.net&su=HEDS Academy — Training Signup Request" target="_blank">Sign Up</a>
-    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=daniel@hedsconsulting.net&su=HEDS Academy — Curriculum Overview and Pricing Request" target="_blank" class="secondary">Request Curriculum Overview and Pricing</a>
+    <a href="mailto:daniel@hedsconsulting.net?subject=HEDS%20Academy%20-%20Training%20Signup%20Request">Sign Up</a>
+    <a href="mailto:daniel@hedsconsulting.net?subject=HEDS%20Academy%20-%20Curriculum%20Overview%20and%20Pricing%20Request" class="secondary">Request Curriculum Overview and Pricing</a>
   </div>
 
 </div>
 
 <footer>
-  <p><strong>Heavy Equipment Dealer Solutions LLC</strong> — HEDS Operating Discipline Academy</p>
-  <p style="margin-top: 6px;"><a href="https://mail.google.com/mail/?view=cm&fs=1&to=daniel@hedsconsulting.net" target="_blank">daniel@hedsconsulting.net</a> &nbsp;|&nbsp; <a href="tel:813-599-7893">813-599-7893</a> &nbsp;|&nbsp; Leesburg, FL</p>
+  <p><strong>Heavy Equipment Dealer Solutions LLC</strong> - HEDS Operating Discipline Academy</p>
+  <p style="margin-top: 6px;"><a href="mailto:daniel@hedsconsulting.net">daniel@hedsconsulting.net</a> &nbsp;|&nbsp; <a href="tel:813-599-7893">813-599-7893</a> &nbsp;|&nbsp; Leesburg, FL</p>
   <p style="margin-top: 10px; font-size: 0.75rem;">© 2026 Heavy Equipment Dealer Solutions LLC. All training materials, scorecards, and curricula are HEDS-controlled assets licensed for internal use only.</p>
 </footer>
 

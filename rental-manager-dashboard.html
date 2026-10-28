@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>HEDS Academy — Rental Manager Training & Operating Platform</title>
+<title>HEDS Academy: Rental Manager Training & Operating Platform</title>
 <style>
   :root {
     --bg: #0e1f38;
@@ -436,6 +436,184 @@
     .tab-content.active { display: block !important; }
     .content-card { border: 1px solid #ccc; background: #fff; color: #000; }
   }
+
+/* ===== MOBILE & TABLET RESPONSIVE ENHANCEMENTS ===== */
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+.main-nav-btn, .tab-btn, .btn, .dropdown-toggle, .dropdown-item, .completion-btn {
+  min-height: 44px;
+}
+.completion-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 14px !important;
+  font-size: 0.82rem !important;
+}
+.completion-checkbox {
+  width: 28px !important;
+  height: 28px !important;
+  min-width: 28px;
+  min-height: 28px;
+}
+.completion-bar {
+  min-height: 52px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+input:not([type="checkbox"]):not([type="radio"]):not([type="range"]),
+select,
+textarea {
+  font-size: 16px !important;
+  min-height: 44px;
+}
+input[type="range"] {
+  min-height: 44px;
+}
+.test-options li,
+#test_questions_list label {
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+.table-scroll-wrap {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+table {
+  max-width: 100%;
+}
+
+/* Tablet (640px - 1024px) */
+@media (min-width: 640px) and (max-width: 1024px) {
+  .container {
+    padding: 16px !important;
+  }
+  .main-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 10px 16px !important;
+    justify-content: center;
+  }
+  .main-nav-btn {
+    flex: 1 1 calc(50% - 8px);
+    text-align: center;
+    justify-content: center;
+    padding: 10px 14px !important;
+    font-size: 0.9rem !important;
+  }
+  .nav-tabs {
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 10px !important;
+    gap: 8px;
+  }
+  .tab-btn {
+    flex: 0 0 auto;
+    white-space: nowrap;
+    padding: 10px 16px !important;
+  }
+  .grid, .grid-2, .grid-3, .grid-4, .curr-grid-2, .curr-grid-3, .kpi-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+/* Mobile (<640px) */
+@media (max-width: 639px) {
+  header {
+    padding: 14px 12px !important;
+  }
+  header img {
+    height: 48px !important;
+  }
+  h1 {
+    font-size: clamp(1.15rem, 4.8vw, 1.4rem) !important;
+    line-height: 1.25;
+  }
+  .subtitle {
+    font-size: 0.8rem !important;
+  }
+  .main-nav {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 8px !important;
+    padding: 10px 12px !important;
+  }
+  .main-nav-btn {
+    width: 100% !important;
+    text-align: center !important;
+    padding: 12px 14px !important;
+    font-size: 0.9rem !important;
+    white-space: normal !important;
+  }
+  .container {
+    padding: 12px 10px !important;
+  }
+  /* Scrollable horizontal pill bar for module/dashboard tabs on mobile */
+  .nav-tabs {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
+    gap: 8px !important;
+    padding: 4px 2px 10px 2px !important;
+    margin-bottom: 16px !important;
+    scrollbar-width: thin;
+  }
+  .tab-btn {
+    flex: 0 0 auto !important;
+    white-space: nowrap !important;
+    padding: 10px 14px !important;
+    font-size: 0.82rem !important;
+    min-height: 44px !important;
+  }
+  .grid, .grid-2, .grid-3, .grid-4, .curr-grid-2, .curr-grid-3, .kpi-grid, .leak-row {
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+  }
+  .card, .curr-card {
+    padding: 16px 14px !important;
+    margin-bottom: 14px !important;
+  }
+  .curr-module-title {
+    font-size: clamp(1.15rem, 4.6vw, 1.35rem) !important;
+  }
+  .metric-val {
+    font-size: 1.45rem !important;
+  }
+  .dropdown-toggle {
+    padding: 12px 14px !important;
+    font-size: 0.85rem !important;
+    line-height: 1.3;
+  }
+  .dropdown-item {
+    padding: 12px 14px !important;
+    font-size: 0.84rem !important;
+  }
+  .class-table {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .class-table input[type="text"] { min-width: 110px !important; }
+  .class-table input[type="number"] { min-width: 72px !important; }
+  #cert_overlay > div, #cert_doc {
+    padding: 24px 16px !important;
+    width: 95% !important;
+    max-height: 92vh;
+    overflow-y: auto;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -464,19 +642,19 @@
 <div id="sec_curriculum" class="section-container active">
   <div class="module-dropdown">
     <button class="dropdown-toggle active" onclick="toggleDropdown()">
-      <span id="dropdown-label">▼ MENU — Module 1 &mdash; The Rental Manager's Commercial Mindset</span>
+      <span id="dropdown-label">▼ MENU - Module 1: The Rental Manager's Commercial Mindset</span>
       <span class="dropdown-arrow">&#9660;</span>
     </button>
     <div class="dropdown-menu" id="module_menu">
       <div class="dropdown-group-label">Rental Manager Curriculum</div>
-      <button class="dropdown-item active" onclick="switchCurrTab('c_m1', this)">Module 1 &mdash; The Rental Manager's Commercial Mindset</button>
-      <button class="dropdown-item" onclick="switchCurrTab('c_m2', this)">Module 2 &mdash; Fleet Utilization: Time, Dollar &amp; Productive</button>
-      <button class="dropdown-item" onclick="switchCurrTab('c_m3', this)">Module 3 &mdash; Rental Rate Strategy &amp; Pricing Discipline</button>
-      <button class="dropdown-item" onclick="switchCurrTab('c_m4', this)">Module 4 &mdash; Fleet Capital &amp; Lifecycle Management</button>
-      <button class="dropdown-item" onclick="switchCurrTab('c_m5', this)">Module 5 &mdash; Contract, Risk &amp; Damage Recovery</button>
-      <button class="dropdown-item" onclick="switchCurrTab('c_m6', this)">Module 6 &mdash; Logistics, Dispatch &amp; Customer Operations</button>
-      <button class="dropdown-item" onclick="switchCurrTab('c_m7', this)">Module 7 &mdash; Telematics: Fleet Visibility &amp; Usage Intelligence</button>
-      <button class="dropdown-item" onclick="switchCurrTab('c_m8', this)">Module 8 &mdash; Operating Cadence &amp; Rental P&amp;L Management</button>
+      <button class="dropdown-item active" onclick="switchCurrTab('c_m1', this)">Module 1: The Rental Manager's Commercial Mindset</button>
+      <button class="dropdown-item" onclick="switchCurrTab('c_m2', this)">Module 2: Fleet Utilization: Time, Dollar &amp; Productive</button>
+      <button class="dropdown-item" onclick="switchCurrTab('c_m3', this)">Module 3: Rental Rate Strategy &amp; Pricing Discipline</button>
+      <button class="dropdown-item" onclick="switchCurrTab('c_m4', this)">Module 4: Fleet Capital &amp; Lifecycle Management</button>
+      <button class="dropdown-item" onclick="switchCurrTab('c_m5', this)">Module 5: Contract, Risk &amp; Damage Recovery</button>
+      <button class="dropdown-item" onclick="switchCurrTab('c_m6', this)">Module 6: Logistics, Dispatch &amp; Customer Operations</button>
+      <button class="dropdown-item" onclick="switchCurrTab('c_m7', this)">Module 7: Telematics: Fleet Visibility &amp; Usage Intelligence</button>
+      <button class="dropdown-item" onclick="switchCurrTab('c_m8', this)">Module 8: Operating Cadence &amp; Rental P&amp;L Management</button>
     </div>
   </div>
 
@@ -484,18 +662,18 @@
   <div id="c_m1" class="tab-content active">
     <div class="card">
       <div class="curr-module-header">
-        <div class="curr-day-tag">Module 1 &mdash; Commercial Mindset</div>
+        <div class="curr-day-tag">Module 1: Commercial Mindset</div>
         <div class="curr-module-title">Module 1: The Rental Manager's Commercial Mindset</div>
       </div>
 
       <div class="curr-section">
         <div class="curr-section-h3">Goal</div>
-        <p>Master the core role of the Rental Manager as a commercial business leader who owns the rental department P&amp;L &mdash; not a dispatcher who sends machines out and hopes they come back.</p>
+        <p>Master the core role of the Rental Manager as a commercial business leader who owns the rental department P&amp;L, not a dispatcher who sends machines out and hopes they come back.</p>
       </div>
 
       <div class="floor-rule">
         <div class="floor-rule-title">Floor Rule</div>
-        If a customer calls for a machine you own and you can't rent it because it's in the shop, in the yard, or uninspected, that's not a service problem &mdash; that's a revenue problem you own. Every turned-away rental is a logged revenue event with your name on it.
+        If a customer calls for a machine you own and you can't rent it because it's in the shop, in the yard, or uninspected, that's not a service problem, that's a revenue problem you own. Every turned-away rental is a logged revenue event with your name on it.
       </div>
 
       <div class="curr-section">
@@ -503,7 +681,7 @@
         <div class="grid-2" style="margin: 12px 0;">
           <div class="spec-box" style="background:rgba(34, 197, 94, 0.08); border-left-color:var(--success); margin:0;">
             <div class="spec-title" style="color:var(--success);">What It Measures</div>
-            <p style="font-size:0.88rem;">Whether the rental department is being run as a measured business with revenue targets, cost controls, and P&amp;L accountability &mdash; or as an equipment yard that happens to rent machines.</p>
+            <p style="font-size:0.88rem;">Whether the rental department is being run as a measured business with revenue targets, cost controls, and P&amp;L accountability, or as an equipment yard that happens to rent machines.</p>
           </div>
           <div class="spec-box" style="background:rgba(239, 68, 68, 0.08); border-left-color:var(--danger); margin:0;">
             <div class="spec-title" style="color:var(--danger);">What It Does NOT Measure</div>
@@ -512,7 +690,7 @@
         </div>
         <div class="spec-box" style="background:rgba(59, 130, 246, 0.1); border-color:var(--accent-color);">
           <div class="spec-title">Manager's Insight</div>
-          <p style="font-size:0.88rem;">Most rental departments started as a side service of a dealership or a yard with spare machines. The manager was a dispatcher who knew the equipment. Over time, the fleet grew, the revenue grew, and nobody noticed that the person running it was still operating like a dispatcher &mdash; not like a business manager. The Rental Manager's job is to run the rental department the way a GM runs a dealership: with a P&amp;L, a scorecard, and daily targets.</p>
+          <p style="font-size:0.88rem;">Most rental departments started as a side service of a dealership or a yard with spare machines. The manager was a dispatcher who knew the equipment. Over time, the fleet grew, the revenue grew, and nobody noticed that the person running it was still operating like a dispatcher, not like a business manager. The Rental Manager's job is to run the rental department the way a GM runs a dealership: with a P&amp;L, a scorecard, and daily targets.</p>
         </div>
         <p style="font-size:0.9rem; margin:10px 0;"><strong>The Commercial Lens Shift:</strong></p>
         <ul style="padding-left:20px; font-size:0.88rem; line-height:1.8;">
@@ -550,7 +728,7 @@
           <ul style="padding-left:16px; margin-top:4px;">
             <li><strong>Target:</strong> $0/mo in turned-away revenue (every request filled)</li>
             <li><strong>Warning:</strong> $5,000&ndash;$15,000/mo (under-supplied on key classes)</li>
-            <li><strong>Critical Fail:</strong> > $15,000/mo (severe stock-out problem &mdash; acquire more fleet)</li>
+            <li><strong>Critical Fail:</strong> > $15,000/mo (severe stock-out problem, acquire more fleet)</li>
           </ul>
         </div>
       </div>
@@ -565,7 +743,7 @@
         <div class="grid-2" style="margin: 12px 0;">
           <div class="spec-box" style="background:rgba(34, 197, 94, 0.08); border-left-color:var(--success); margin:0;">
             <div class="spec-title" style="color:var(--success);">What It Measures</div>
-            <p style="font-size:0.88rem;">How much revenue each dollar of fleet investment generates annually &mdash; the single most important financial metric in equipment rental.</p>
+            <p style="font-size:0.88rem;">How much revenue each dollar of fleet investment generates annually, the single most important financial metric in equipment rental.</p>
           </div>
           <div class="spec-box" style="background:rgba(239, 68, 68, 0.08); border-left-color:var(--danger); margin:0;">
             <div class="spec-title" style="color:var(--danger);">What It Does NOT Measure</div>
@@ -574,13 +752,14 @@
         </div>
         <div class="spec-box" style="background:rgba(59, 130, 246, 0.1); border-color:var(--accent-color);">
           <div class="spec-title">Manager's Insight</div>
-          <p style="font-size:0.88rem;">Time utilization tells you whether the machine was on rent. Dollar utilization tells you whether the machine was worth owning. A $50,000 skid steer on rent 280 days at $180/day generates $50,400/year &mdash; a 101% dollar utilization. A $240,000 excavator on rent 280 days at $850/day generates $238,000/year &mdash; a 99% dollar utilization. Both have the same time utilization (77%) but very different capital efficiency profiles. Dollar utilization is the metric your CFO and your bank care about.</p>
+          <p style="font-size:0.88rem;">Time utilization tells you whether the machine was on rent. Dollar utilization tells you whether the machine was worth owning. A $50,000 skid steer on rent 280 days at $110/day generates $30,800/year: a 61.6% dollar utilization (PASS). A $240,000 excavator on rent 280 days at $450/day generates $126,000/year: a 52.5% dollar utilization (WARN). Both have the same time utilization (77%) but very different capital efficiency profiles. Dollar utilization is the metric your CFO and your bank care about.</p>
         </div>
       </div>
 
       <div class="formula-card">
         <div class="example-badge">Industry Standard Worked Example</div>
         <div class="formula-title">DOLLAR UTILIZATION FORMULA</div>
+        <p style="font-size:0.85rem; margin-bottom:6px;">Definition (American Rental Association method): dollar (financial) utilization is the capital efficiency of an asset, its annual rental revenue against its purchase cost (OEC).</p>
         <div class="formula-expr">Dollar Utilization % = (Annual Rental Revenue [$ YOUR NUMBER] / Total Original Equipment Cost (OEC) [$ YOUR NUMBER]) &times; 100</div>
         <ol class="formula-steps">
           <li><strong>Step 1:</strong> Sum the annual rental revenue for all units in a class (or the entire fleet). <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></li>
@@ -588,21 +767,21 @@
           <li><strong>Step 3:</strong> Divide total annual rental revenue by total OEC.</li>
           <li><strong>Step 4:</strong> Multiply by 100 to get the dollar utilization percentage.</li>
         </ol>
-        <p style="margin-top:10px; font-size:0.88rem;"><strong>Worked Example (Fleet-wide):</strong> Total Annual Rental Revenue: $1,850,000. Total Fleet OEC: $4,200,000. Dollar Utilization = ($1,850,000 / $4,200,000) &times; 100 = <strong style="color:var(--success);">44.0% (PASS &mdash; Within 30%&ndash;50% Target Band)</strong></p>
+        <p style="margin-top:10px; font-size:0.88rem;"><strong>Worked Example (Fleet-wide):</strong> Total Annual Rental Revenue: $2,520,000. Total Fleet OEC: $4,200,000. Dollar Utilization = ($2,520,000 / $4,200,000) &times; 100 = <strong style="color:var(--success);">60.0% (PASS: within the 55%&ndash;65% heavy equipment target)</strong></p>
         <div style="margin-top:8px; font-size:0.85rem;">
           <strong>HEDS Target Benchmark:</strong>
           <ul style="padding-left:16px; margin-top:4px;">
-            <li><strong>Target Band:</strong> 30% to 50%+ dollar utilization (general rental fleet)</li>
-            <li><strong>Top Quartile:</strong> 55%+ by class (high-demand categories)</li>
-            <li><strong>Warning Band:</strong> 20% to 29% (underperforming &mdash; review fleet mix)</li>
-            <li><strong>Critical Fail:</strong> &lt; 20% (disposition candidate &mdash; capital is trapped)</li>
+            <li><strong>Target Band:</strong> 55% to 65% for heavy construction equipment (national rental chains and regional equipment yards). Above 65% still passes: check for a fleet shortage or under-pricing.</li>
+            <li><strong>Warning Band:</strong> 50% to 54.9%. Independent and specialty dealers often accept 50% to 58%, depending on machine life and secondary-market salvage value.</li>
+            <li><strong>Fail:</strong> &lt; 50% (review fleet mix, rate or disposition: capital is trapped)</li>
+            <li><strong>Contrast:</strong> light general tools and event rentals run 100% to 150%, because heavy machinery carries a higher upfront cost that amortizes over a 5 to 7+ year life.</li>
           </ul>
         </div>
       </div>
 
       <div class="floor-rule">
         <div class="floor-rule-title">Floor Rule</div>
-        Dollar utilization below 20% on a class means your capital is sleeping. Either restructure the rate, reduce the fleet count in that class, or sell the underperformers and reinvest the capital in a class that earns.
+        Dollar utilization below 50% on a class means your capital is sleeping. Either restructure the rate, reduce the fleet count in that class, or sell the underperformers and reinvest the capital in a class that earns.
       </div>
 
       <div class="curr-section">
@@ -614,12 +793,12 @@
           </div>
           <div class="spec-box" style="background:rgba(239, 68, 68, 0.08); border-left-color:var(--danger); margin:0;">
             <div class="spec-title" style="color:var(--danger);">What It Does NOT Measure</div>
-            <p style="font-size:0.88rem;">Individual shop bay throughput or technician productivity &mdash; those are the Service Manager's KPIs.</p>
+            <p style="font-size:0.88rem;">Individual shop bay throughput or technician recovery and utilization: those are the Service Manager's KPIs.</p>
           </div>
         </div>
         <div class="spec-box" style="background:rgba(59, 130, 246, 0.1); border-color:var(--accent-color);">
           <div class="spec-title">Manager's Insight</div>
-          <p style="font-size:0.88rem;">The Rental Manager owns the question "Is this machine earning money?" The Rental Service Manager owns the question "Is this machine rent-ready?" These are different questions with different answers. A machine can be 100% rent-ready and still not be earning &mdash; because the rate is too low, the class is over-supplied, or the customer segment doesn't value it. The Rental Manager drives the commercial outcome. The Rental Service Manager drives the operational readiness. Both are essential. Neither substitutes for the other.</p>
+          <p style="font-size:0.88rem;">The Rental Manager owns the question "Is this machine earning money?" The Rental Service Manager owns the question "Is this machine rent-ready?" These are different questions with different answers. A machine can be 100% rent-ready and still not be earning, because the rate is too low, the class is over-supplied, or the customer segment doesn't value it. The Rental Manager drives the commercial outcome. The Rental Service Manager drives the operational readiness. Both are essential. Neither substitutes for the other.</p>
         </div>
         <div style="margin:12px 0; font-size:0.85rem; overflow-x:auto;">
           <table style="width:100%; border-collapse:collapse; font-size:0.8rem; text-align:left;">
@@ -655,18 +834,18 @@
           <li><strong>Dollar Utilization Owner:</strong> Rental Manager (by class and fleet-wide).</li>
           <li><strong>Turned-Away Revenue Tracker:</strong> Rental Dispatcher / Counter Lead.</li>
           <li><strong>Rate Integrity Owner:</strong> Rental Manager.</li>
-          <li><strong>Escalation Trigger:</strong> Any class dropping below 20% dollar utilization for two consecutive months triggers a formal fleet mix review with the Branch GM.</li>
+          <li><strong>Escalation Trigger:</strong> Any class dropping below 50% dollar utilization for two consecutive months triggers a formal fleet mix review with the Branch GM.</li>
         </ul>
       </div>
     </div>
   </div>
 
-  <!-- MODULE 2: Fleet Utilization — Time, Dollar & Productive -->
+  <!-- MODULE 2: Fleet Utilization: Time, Dollar & Productive -->
   <div id="c_m2" class="tab-content">
     <div class="card">
       <div class="curr-module-header">
-        <div class="curr-day-tag">Module 2 &mdash; Fleet Utilization</div>
-        <div class="curr-module-title">Module 2: Fleet Utilization &mdash; Time, Dollar &amp; Productive</div>
+        <div class="curr-day-tag">Module 2: Fleet Utilization</div>
+        <div class="curr-module-title">Module 2: Fleet Utilization: Time, Dollar &amp; Productive</div>
       </div>
 
       <div class="curr-section">
@@ -680,11 +859,11 @@
       </div>
 
       <div class="curr-section">
-        <div class="curr-section-h3">Part 1: Time Utilization &mdash; The Baseline Demand Metric</div>
+        <div class="curr-section-h3">Part 1: Time Utilization: The Baseline Demand Metric</div>
         <div class="grid-2" style="margin: 12px 0;">
           <div class="spec-box" style="background:rgba(34, 197, 94, 0.08); border-left-color:var(--success); margin:0;">
             <div class="spec-title" style="color:var(--success);">What It Measures</div>
-            <p style="font-size:0.88rem;">The percentage of available days that equipment is actually out on rent to a customer &mdash; the most fundamental demand indicator in the rental business.</p>
+            <p style="font-size:0.88rem;">The percentage of available days that equipment is actually out on rent to a customer, the most fundamental demand indicator in the rental business.</p>
           </div>
           <div class="spec-box" style="background:rgba(239, 68, 68, 0.08); border-left-color:var(--danger); margin:0;">
             <div class="spec-title" style="color:var(--danger);">What It Does NOT Measure</div>
@@ -693,12 +872,12 @@
         </div>
         <div class="spec-box" style="background:rgba(59, 130, 246, 0.1); border-color:var(--accent-color);">
           <div class="spec-title">Manager's Insight</div>
-          <p style="font-size:0.88rem;">Time utilization is the entry metric. It tells you whether your fleet is too big, too small, or right-sized for your market. 65% to 75% is the sweet spot &mdash; high enough to generate revenue, low enough to leave room for maintenance, inspection turnaround, and unexpected demand. Below 55% means you have too much inventory for your market. Above 85% means you're turning away business and need to acquire more units.</p>
+          <p style="font-size:0.88rem;">Time utilization is the entry metric. It tells you whether your fleet is too big, too small, or right-sized for your market. 65% to 75% is the sweet spot, high enough to generate revenue, low enough to leave room for maintenance, inspection turnaround, and unexpected demand. Below 55% means you have too much inventory for your market. Above 85% means you're turning away business and need to acquire more units.</p>
         </div>
         <div class="spec-box">
           <div class="spec-title">Required ERP Reports</div>
-          <p style="font-size:0.85rem;"><strong>Report 1: Rental Contract Detail Extract</strong> &mdash; Trailing 12 months of all rental contracts. Required Fields: <code>Contract_ID</code>, <code>Unit_ID</code>, <code>Class_Code</code>, <code>Out_Date</code>, <code>Return_Date</code>, <code>Rental_Days</code>, <code>Daily_Rate</code>, <code>Contracted_Hours</code>.</p>
-          <p style="font-size:0.85rem; margin-top:6px;"><strong>Report 2: Fleet Availability Calendar</strong> &mdash; Trailing 365 days of unit status by day. Required Fields: <code>Unit_ID</code>, <code>Class_Code</code>, <code>Date</code>, <code>Status</code> (On-Rent, Rent-Ready, Shop-Down, Yard-Hold, Transit).</p>
+          <p style="font-size:0.85rem;"><strong>Report 1: Rental Contract Detail Extract</strong> - Trailing 12 months of all rental contracts. Required Fields: <code>Contract_ID</code>, <code>Unit_ID</code>, <code>Class_Code</code>, <code>Out_Date</code>, <code>Return_Date</code>, <code>Rental_Days</code>, <code>Daily_Rate</code>, <code>Contracted_Hours</code>.</p>
+          <p style="font-size:0.85rem; margin-top:6px;"><strong>Report 2: Fleet Availability Calendar</strong> - Trailing 365 days of unit status by day. Required Fields: <code>Unit_ID</code>, <code>Class_Code</code>, <code>Date</code>, <code>Status</code> (On-Rent, Rent-Ready, Shop-Down, Yard-Hold, Transit).</p>
         </div>
       </div>
 
@@ -714,37 +893,37 @@
           <li><strong>Step 5:</strong> Divide rental days by net available days and multiply by 100.</li>
           <li><strong>Step 6:</strong> Compare against the 65%&ndash;75% target band.</li>
         </ol>
-        <p style="margin-top:10px; font-size:0.88rem;"><strong>Worked Example (Excavator Class, 12 units):</strong> Total Available Days: 12 &times; 365 = 4,380. Major Overhaul Days: 120. Net Available Days: 4,260. Total Days On Rent: 2,980. Time Utilization = (2,980 / 4,260) &times; 100 = <strong style="color:var(--success);">70.0% (PASS &mdash; Within 65%&ndash;75% Target)</strong></p>
+        <p style="margin-top:10px; font-size:0.88rem;"><strong>Worked Example (Excavator Class, 12 units):</strong> Total Available Days: 12 &times; 365 = 4,380. Major Overhaul Days: 120. Net Available Days: 4,260. Total Days On Rent: 2,980. Time Utilization = (2,980 / 4,260) &times; 100 = <strong style="color:var(--success);">70.0% (PASS: Within 65%&ndash;75% Target)</strong></p>
         <div style="margin-top:8px; font-size:0.85rem;">
           <strong>HEDS Target Benchmark:</strong>
           <ul style="padding-left:16px; margin-top:4px;">
             <li><strong>Target Band:</strong> 65% to 75% time utilization</li>
-            <li><strong>Warning Band:</strong> 55% to 64% (monitor &mdash; may need fleet reduction)</li>
-            <li><strong>Critical Fail:</strong> &lt; 55% (over-supplied &mdash; sell underperformers) or &gt; 85% (under-supplied &mdash; acquire more)</li>
+            <li><strong>Warning Band:</strong> 55% to 64% (monitor, may need fleet reduction)</li>
+            <li><strong>Critical Fail:</strong> &lt; 55% (over-supplied, sell underperformers) or &gt; 85% (under-supplied, acquire more)</li>
           </ul>
         </div>
       </div>
 
       <div class="floor-rule">
         <div class="floor-rule-title">Floor Rule</div>
-        Below 55% time utilization on a class means you own too many of that machine for your market. Above 85% means you're turning away business. Both problems are fixable &mdash; but only if you measure by class, not fleet-wide.
+        Below 55% time utilization on a class means you own too many of that machine for your market. Above 85% means you're turning away business. Both problems are fixable, but only if you measure by class, not fleet-wide.
       </div>
 
       <div class="curr-section">
-        <div class="curr-section-h3">Part 2: Idle Fleet Percentage &mdash; The Inverse View</div>
+        <div class="curr-section-h3">Part 2: Idle Fleet Percentage: The Inverse View</div>
         <div class="grid-2" style="margin: 12px 0;">
           <div class="spec-box" style="background:rgba(34, 197, 94, 0.08); border-left-color:var(--success); margin:0;">
             <div class="spec-title" style="color:var(--success);">What It Measures</div>
-            <p style="font-size:0.88rem;">The percentage of your total fleet sitting dead in the yard &mdash; not on rent, not in the shop, just sitting. This is the inverse view of time utilization: what percentage of your iron is earning nothing.</p>
+            <p style="font-size:0.88rem;">The percentage of your total fleet sitting dead in the yard, not on rent, not in the shop, just sitting. This is the inverse view of time utilization: what percentage of your iron is earning nothing.</p>
           </div>
           <div class="spec-box" style="background:rgba(239, 68, 68, 0.08); border-left-color:var(--danger); margin:0;">
             <div class="spec-title" style="color:var(--danger);">What It Does NOT Measure</div>
-            <p style="font-size:0.88rem;">Whether the idle units are in inspection, transit, or maintenance. Idle fleet is specifically units in the yard with no active rental contract and no active work order &mdash; pure dead capital.</p>
+            <p style="font-size:0.88rem;">Whether the idle units are in inspection, transit, or maintenance. Idle fleet is specifically units in the yard with no active rental contract and no active work order, pure dead capital.</p>
           </div>
         </div>
         <div class="spec-box" style="background:rgba(59, 130, 246, 0.1); border-color:var(--accent-color);">
           <div class="spec-title">Manager's Insight</div>
-          <p style="font-size:0.88rem;">Idle fleet percentage is the starkest view of your capital efficiency. If 40% of your iron is sitting in the yard, 40% of your fleet OEC is generating zero return while debt, depreciation, and insurance continue ticking. Every idle unit has a daily carrying cost. A $240,000 excavator sitting idle costs $65/day in depreciation + insurance alone, before maintenance and yard space. Across 20 idle units, that's $1,300/day &mdash; $474,500/year in dead carrying cost.</p>
+          <p style="font-size:0.88rem;">Idle fleet percentage is the starkest view of your capital efficiency. If 40% of your iron is sitting in the yard, 40% of your fleet OEC is generating zero return while debt, depreciation, and insurance continue ticking. Every idle unit has a daily carrying cost. A $240,000 excavator sitting idle costs $65/day in depreciation + insurance alone, before maintenance and yard space. Across 20 idle units, that's $1,300/day: $474,500/year in dead carrying cost.</p>
         </div>
       </div>
 
@@ -757,32 +936,32 @@
           <li><strong>Step 2:</strong> Count units currently in the yard that are NOT on rent and NOT in the shop for active repair (Status = Yard-Hold or Rent-Ready but no active contract). <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></li>
           <li><strong>Step 3:</strong> Divide idle units by total fleet units and multiply by 100.</li>
         </ol>
-        <p style="margin-top:10px; font-size:0.88rem;"><strong>Worked Example:</strong> Total Fleet: 150 units. Units On Rent: 105. Units in Shop: 10. Units in Yard (idle): 35. Idle Fleet % = (35 / 150) &times; 100 = <strong style="color:var(--warning);">23.3% (PASS &mdash; Below 25% Target)</strong></p>
+        <p style="margin-top:10px; font-size:0.88rem;"><strong>Worked Example:</strong> Total Fleet: 150 units. Units On Rent: 105. Units in Shop: 10. Units in Yard (idle): 35. Idle Fleet % = (35 / 150) &times; 100 = <strong style="color:var(--warning);">23.3% (PASS: Below 25% Target)</strong></p>
         <div style="margin-top:8px; font-size:0.85rem;">
           <strong>HEDS Target Benchmark:</strong>
           <ul style="padding-left:16px; margin-top:4px;">
             <li><strong>Target:</strong> &lt; 25% idle fleet (75%+ are on rent or in active shop work)</li>
             <li><strong>Warning Band:</strong> 25% to 35% (too much iron sitting dead)</li>
-            <li><strong>Critical Fail:</strong> &gt; 35% (severe over-supply &mdash; disposition review required)</li>
+            <li><strong>Critical Fail:</strong> &gt; 35% (severe over-supply, disposition review required)</li>
           </ul>
         </div>
       </div>
 
       <div class="curr-section">
-        <div class="curr-section-h3">Part 3: Revenue &amp; Cost Per Unit by Class &mdash; The Net Contribution Model</div>
+        <div class="curr-section-h3">Part 3: Revenue &amp; Cost Per Unit by Class: The Net Contribution Model</div>
         <div class="grid-2" style="margin: 12px 0;">
           <div class="spec-box" style="background:rgba(34, 197, 94, 0.08); border-left-color:var(--success); margin:0;">
             <div class="spec-title" style="color:var(--success);">What It Measures</div>
-            <p style="font-size:0.88rem;">The actual profit contribution of each equipment class after accounting for the full cost of ownership &mdash; maintenance, depreciation, insurance, and carrying cost. This is the metric that tells you whether a class of machines is worth keeping in your fleet.</p>
+            <p style="font-size:0.88rem;">The actual profit contribution of each equipment class after accounting for the full cost of ownership, maintenance, depreciation, insurance, and carrying cost. This is the metric that tells you whether a class of machines is worth keeping in your fleet.</p>
           </div>
           <div class="spec-box" style="background:rgba(239, 68, 68, 0.08); border-left-color:var(--danger); margin:0;">
             <div class="spec-title" style="color:var(--danger);">What It Does NOT Measure</div>
-            <p style="font-size:0.88rem;">Indirect overhead allocation, facility costs, or personnel expenses. This is direct fleet contribution per class &mdash; the number that drives buy/keep/sell decisions.</p>
+            <p style="font-size:0.88rem;">Indirect overhead allocation, facility costs, or personnel expenses. This is direct fleet contribution per class, the number that drives buy/keep/sell decisions.</p>
           </div>
         </div>
         <div class="spec-box" style="background:rgba(59, 130, 246, 0.1); border-color:var(--accent-color);">
           <div class="spec-title">Manager's Insight</div>
-          <p style="font-size:0.88rem;">Revenue per unit tells you the machine is renting. Cost per unit tells you what it costs to keep it. Net contribution per unit tells you whether it's making money. A skid steer generating $19,800/year in revenue but costing $22,000/year in maintenance, depreciation, and insurance has <strong>negative net contribution</strong> &mdash; it's losing money every month it sits in your yard. An excavator generating $170,000/year against $48,000/year in cost has $122,000 net contribution &mdash; a cash machine. Revenue without cost is half the picture. Cost without revenue is the other half. Net contribution is the full picture.</p>
+          <p style="font-size:0.88rem;">Revenue per unit tells you the machine is renting. Cost per unit tells you what it costs to keep it. Net contribution per unit tells you whether it's making money. A skid steer generating $19,800/year in revenue but costing $22,000/year in maintenance, depreciation, and insurance has <strong>negative net contribution</strong>: it's losing money every month it sits in your yard. An excavator generating $170,000/year against $48,000/year in cost has $122,000 net contribution, a cash machine. Revenue without cost is half the picture. Cost without revenue is the other half. Net contribution is the full picture.</p>
         </div>
       </div>
 
@@ -819,8 +998,8 @@
           <strong>HEDS Target Benchmark:</strong>
           <ul style="padding-left:16px; margin-top:4px;">
             <li><strong>PASS:</strong> Positive net contribution per unit (class is profitable)</li>
-            <li><strong>WARN:</strong> $0 to $5,000 net contribution (marginal &mdash; review rate or cost)</li>
-            <li><strong>FAIL:</strong> Negative net contribution (class is losing money &mdash; disposition candidate)</li>
+            <li><strong>WARN:</strong> $0 to $5,000 net contribution (marginal, review rate or cost)</li>
+            <li><strong>FAIL:</strong> Negative net contribution (class is losing money, disposition candidate)</li>
           </ul>
         </div>
       </div>
@@ -831,11 +1010,11 @@
       </div>
 
       <div class="curr-section">
-        <div class="curr-section-h3">Part 4: Productive Utilization &mdash; Telematics-Driven True Utilization</div>
+        <div class="curr-section-h3">Part 4: Productive Utilization: Telematics-Driven True Utilization</div>
         <div class="grid-2" style="margin: 12px 0;">
           <div class="spec-box" style="background:rgba(34, 197, 94, 0.08); border-left-color:var(--success); margin:0;">
             <div class="spec-title" style="color:var(--success);">What It Measures</div>
-            <p style="font-size:0.88rem;">The percentage of contracted rental hours that a machine actually ran based on telematics engine hour data &mdash; the difference between "on paper" utilization and "real" utilization.</p>
+            <p style="font-size:0.88rem;">The percentage of contracted rental hours that a machine actually ran based on telematics engine hour data, the difference between "on paper" utilization and "real" utilization.</p>
           </div>
           <div class="spec-box" style="background:rgba(239, 68, 68, 0.08); border-left-color:var(--danger); margin:0;">
             <div class="spec-title" style="color:var(--danger);">What It Does NOT Measure</div>
@@ -844,7 +1023,7 @@
         </div>
         <div class="spec-box" style="background:rgba(59, 130, 246, 0.1); border-color:var(--accent-color);">
           <div class="spec-title">Manager's Insight</div>
-          <p style="font-size:0.88rem;">A machine can be "on rent" for 30 days and sit idle on a jobsite for 28 of them. Time utilization says 100%. Productive utilization says 10%. If your customer rents a machine for a month but only uses it for 3 days, either the rate is wrong (too high for the actual usage), the machine is the wrong type for the job, or the customer doesn't need a monthly rental &mdash; they need a daily rental. Productive utilization exposes the gap between what you billed for and what the customer actually used.</p>
+          <p style="font-size:0.88rem;">A machine can be "on rent" for 30 days and sit idle on a jobsite for 28 of them. Time utilization says 100%. Productive utilization says 10%. If your customer rents a machine for a month but only uses it for 3 days, either the rate is wrong (too high for the actual usage), the machine is the wrong type for the job, or the customer doesn't need a monthly rental, they need a daily rental. Productive utilization exposes the gap between what you billed for and what the customer actually used.</p>
         </div>
       </div>
 
@@ -859,20 +1038,20 @@
           <li><strong>Step 4:</strong> Aggregate by class to find which classes are under-utilized on-site.</li>
           <li><strong>Step 5:</strong> Flag units with &lt;25% productive utilization for rate or contract structure review.</li>
         </ol>
-        <p style="margin-top:10px; font-size:0.88rem;"><strong>Worked Example (Excavator EX-101, Monthly Rental, 160 contracted hours):</strong> Telematics engine hours this month: 142 hours. Productive Utilization = (142 / 160) &times; 100 = <strong style="color:var(--success);">88.8% (PASS &mdash; Actively working)</strong></p>
+        <p style="margin-top:10px; font-size:0.88rem;"><strong>Worked Example (Excavator EX-101, Monthly Rental, 160 contracted hours):</strong> Telematics engine hours this month: 142 hours. Productive Utilization = (142 / 160) &times; 100 = <strong style="color:var(--success);">88.8% (PASS: Actively working)</strong></p>
         <div style="margin-top:8px; font-size:0.85rem;">
           <strong>HEDS Target Benchmark:</strong>
           <ul style="padding-left:16px; margin-top:4px;">
             <li><strong>Target Band:</strong> &ge; 60% productive utilization (machine is actively running on-site)</li>
-            <li><strong>Warning Band:</strong> 30% to 59% (under-utilized &mdash; review rate structure or contract type)</li>
-            <li><strong>Critical Fail:</strong> &lt; 30% (machine is sitting idle &mdash; wrong rental type, wrong rate, or wrong customer)</li>
+            <li><strong>Warning Band:</strong> 30% to 59% (under-utilized, review rate structure or contract type)</li>
+            <li><strong>Critical Fail:</strong> &lt; 30% (machine is sitting idle, wrong rental type, wrong rate, or wrong customer)</li>
           </ul>
         </div>
       </div>
 
       <div class="floor-rule">
         <div class="floor-rule-title">Floor Rule</div>
-        If your ERP says a machine is "on rent" but your telematics says it hasn't run in 6 days, your utilization data is fiction. Reconcile telematics engine hours against ERP contracted hours every single day. A machine sitting idle on a jobsite at 13% productive utilization is not "on rent" &mdash; it's "on hold." Charge the right rate for the right usage.
+        If your ERP says a machine is "on rent" but your telematics says it hasn't run in 6 days, your utilization data is fiction. Reconcile telematics engine hours against ERP contracted hours every single day. A machine sitting idle on a jobsite at 13% productive utilization is not "on rent", it's "on hold." Charge the right rate for the right usage.
       </div>
 
       <div class="curr-section">
@@ -892,18 +1071,18 @@
   <div id="c_m3" class="tab-content">
     <div class="card">
       <div class="curr-module-header">
-        <div class="curr-day-tag">Module 3 &mdash; Rate Strategy</div>
+        <div class="curr-day-tag">Module 3: Rate Strategy</div>
         <div class="curr-module-title">Module 3: Rental Rate Strategy &amp; Pricing Discipline</div>
       </div>
 
       <div class="curr-section">
         <div class="curr-section-h3">Goal</div>
-        <p>Master the discipline of setting, monitoring, and defending rental rates &mdash; ensuring that every dollar of revenue is captured at the right price for the right duration, with no silent rate erosion from unmanaged discounts.</p>
+        <p>Master the discipline of setting, monitoring, and defending rental rates, ensuring that every dollar of revenue is captured at the right price for the right duration, with no silent rate erosion from unmanaged discounts.</p>
       </div>
 
       <div class="floor-rule">
         <div class="floor-rule-title">Floor Rule</div>
-        If you don't know your rack rate, your realized rate, and the gap between them, you're not managing rates &mdash; you're guessing. Every dollar of rate erosion across a 150-unit fleet is $75,000 to $150,000 per year in lost revenue.
+        If you don't know your rack rate, your realized rate, and the gap between them, you're not managing rates, you're guessing. Every dollar of rate erosion across a 150-unit fleet is $75,000 to $150,000 per year in lost revenue.
       </div>
 
       <div class="curr-section">
@@ -911,7 +1090,7 @@
         <div class="grid-2" style="margin: 12px 0;">
           <div class="spec-box" style="background:rgba(34, 197, 94, 0.08); border-left-color:var(--success); margin:0;">
             <div class="spec-title" style="color:var(--success);">What It Measures</div>
-            <p style="font-size:0.88rem;">The published "rack rate" (full price) for each equipment class by rental duration (daily, weekly, monthly) &mdash; and whether the rates are set to cover ownership cost, maintenance, and target margin.</p>
+            <p style="font-size:0.88rem;">The published "rack rate" (full price) for each equipment class by rental duration (daily, weekly, monthly), and whether the rates are set to cover ownership cost, maintenance, and target margin.</p>
           </div>
           <div class="spec-box" style="background:rgba(239, 68, 68, 0.08); border-left-color:var(--danger); margin:0;">
             <div class="spec-title" style="color:var(--danger);">What It Does NOT Measure</div>
@@ -920,7 +1099,7 @@
         </div>
         <div class="spec-box" style="background:rgba(59, 130, 246, 0.1); border-color:var(--accent-color);">
           <div class="spec-title">Manager's Insight</div>
-          <p style="font-size:0.88rem;">The rack rate is the anchor. Every discount, every sweetheart deal, every "we always rent to them cheaper" is a deduction from that anchor. If the rack rate itself is too low, no amount of discount discipline will fix the margin problem. If the rack rate is right but the realized rate is 60% of rack, the problem is discount management &mdash; not rate setting. The first step is establishing a defensible rack rate for every class by every duration tier.</p>
+          <p style="font-size:0.88rem;">The rack rate is the anchor. Every discount, every sweetheart deal, every "we always rent to them cheaper" is a deduction from that anchor. If the rack rate itself is too low, no amount of discount discipline will fix the margin problem. If the rack rate is right but the realized rate is 60% of rack, the problem is discount management, not rate setting. The first step is establishing a defensible rack rate for every class by every duration tier.</p>
         </div>
       </div>
 
@@ -937,13 +1116,13 @@
           <li><strong>Step 5:</strong> Pull actual invoiced rates for the trailing 90 days. Divide actual invoiced rate by rack rate to get rate realization percentage.</li>
         </ol>
         <p style="margin-top:10px; font-size:0.88rem;"><strong>Worked Example (20T Excavator):</strong> Annual Ownership Cost: $48,000/unit. Target Gross Margin: 40% &rarr; Multiplier: 1.67. Target Rental Days: 250 days. Daily Rack Rate = ($48,000 &times; 1.67) / 250 = $80,160 / 250 = <strong>$321/day</strong>. Set weekly at $1,120 (3.5&times;) and monthly at $3,210 (10&times;).</p>
-        <p style="margin-top:8px; font-size:0.88rem;"><strong>Rate Realization Audit (trailing 90 days):</strong> Rack Rate: $321/day. Actual Average Invoiced Rate: $248/day. Rate Realization = ($248 / $321) &times; 100 = <strong style="color:var(--danger);">77.3% (FAIL &mdash; Below 90% target)</strong>. Rate erosion: $73/day &times; 250 days &times; 8 units = $146,000/year in lost revenue.</p>
+        <p style="margin-top:8px; font-size:0.88rem;"><strong>Rate Realization Audit (trailing 90 days):</strong> Rack Rate: $321/day. Actual Average Invoiced Rate: $248/day. Rate Realization = ($248 / $321) &times; 100 = <strong style="color:var(--danger);">77.3% (FAIL: Below 90% target)</strong>. Rate erosion: $73/day &times; 250 days &times; 8 units = $146,000/year in lost revenue.</p>
         <div style="margin-top:8px; font-size:0.85rem;">
           <strong>HEDS Target Benchmark:</strong>
           <ul style="padding-left:16px; margin-top:4px;">
             <li><strong>Rate Realization Target:</strong> &ge; 90% of rack rate</li>
             <li><strong>Warning Band:</strong> 80% to 89% (moderate discount discipline needed)</li>
-            <li><strong>Critical Fail:</strong> &lt; 80% (severe rate erosion &mdash; review discount policy and sales practices)</li>
+            <li><strong>Critical Fail:</strong> &lt; 80% (severe rate erosion, review discount policy and sales practices)</li>
           </ul>
         </div>
       </div>
@@ -958,7 +1137,7 @@
         <div class="grid-2" style="margin: 12px 0;">
           <div class="spec-box" style="background:rgba(34, 197, 94, 0.08); border-left-color:var(--success); margin:0;">
             <div class="spec-title" style="color:var(--success);">What It Measures</div>
-            <p style="font-size:0.88rem;">The typical length of a rental contract &mdash; how many days a customer keeps a machine before returning it &mdash; and whether the rate structure (daily/weekly/monthly) is optimized for that duration.</p>
+            <p style="font-size:0.88rem;">The typical length of a rental contract, how many days a customer keeps a machine before returning it, and whether the rate structure (daily/weekly/monthly) is optimized for that duration.</p>
           </div>
           <div class="spec-box" style="background:rgba(239, 68, 68, 0.08); border-left-color:var(--danger); margin:0;">
             <div class="spec-title" style="color:var(--danger);">What It Does NOT Measure</div>
@@ -967,7 +1146,7 @@
         </div>
         <div class="spec-box" style="background:rgba(59, 130, 246, 0.1); border-color:var(--accent-color);">
           <div class="spec-title">Manager's Insight</div>
-          <p style="font-size:0.88rem;">Construction equipment typically rents for 14 to 28 days. If your average rental duration on excavators is 32 days and your monthly rate is 10&times; the daily rate, customers are paying $3,210 for 32 days instead of $321 &times; 32 = $10,272. That's a 69% discount &mdash; and you didn't even know you gave it. The rate structure should create a natural incentive for the customer to choose the right duration tier.</p>
+          <p style="font-size:0.88rem;">Construction equipment typically rents for 14 to 28 days. If your average rental duration on excavators is 32 days and your monthly rate is 10&times; the daily rate, customers are paying $3,210 for 32 days instead of $321 &times; 32 = $10,272. That's a 69% discount, and you didn't even know you gave it. The rate structure should create a natural incentive for the customer to choose the right duration tier.</p>
         </div>
       </div>
 
@@ -1009,7 +1188,7 @@
         </div>
         <div class="spec-box" style="background:rgba(59, 130, 246, 0.1); border-color:var(--accent-color);">
           <div class="spec-title">Manager's Insight</div>
-          <p style="font-size:0.88rem;">Rate erosion is the silent killer of rental EBITDA. It happens one discount at a time &mdash; a salesperson giving a loyal customer 15% off, a dispatcher not charging freight, a manager waiving the environmental fee. Each one looks small. Across 150 units, 250 rental days, and an average $50/day erosion, that's $1,875,000 per year. The fix isn't stopping all discounts &mdash; it's making every discount visible, tracked, and approved by the Rental Manager. If the discount doesn't have a code and a reason, it doesn't happen.</p>
+          <p style="font-size:0.88rem;">Rate erosion is the silent killer of rental EBITDA. It happens one discount at a time, a salesperson giving a loyal customer 15% off, a dispatcher not charging freight, a manager waiving the environmental fee. Each one looks small. Across 150 units, 250 rental days, and an average $50/day erosion, that's $1,875,000 per year. The fix isn't stopping all discounts, it's making every discount visible, tracked, and approved by the Rental Manager. If the discount doesn't have a code and a reason, it doesn't happen.</p>
         </div>
       </div>
 
@@ -1048,13 +1227,13 @@
   <div id="c_m4" class="tab-content">
     <div class="card">
       <div class="curr-module-header">
-        <div class="curr-day-tag">Module 4 &mdash; Fleet Capital</div>
+        <div class="curr-day-tag">Module 4: Fleet Capital</div>
         <div class="curr-module-title">Module 4: Fleet Capital &amp; Lifecycle Management</div>
       </div>
 
       <div class="curr-section">
         <div class="curr-section-h3">Goal</div>
-        <p>Master the financial discipline of fleet capital allocation &mdash; deciding which equipment classes to invest in, which to maintain, and which to dispose of before they become capital traps.</p>
+        <p>Master the financial discipline of fleet capital allocation, deciding which equipment classes to invest in, which to maintain, and which to dispose of before they become capital traps.</p>
       </div>
 
       <div class="floor-rule">
@@ -1063,11 +1242,11 @@
       </div>
 
       <div class="curr-section">
-        <div class="curr-section-h3">Part 1: OEC ROI by Class &mdash; The Capital Allocation Metric</div>
+        <div class="curr-section-h3">Part 1: OEC ROI by Class: The Capital Allocation Metric</div>
         <div class="grid-2" style="margin: 12px 0;">
           <div class="spec-box" style="background:rgba(34, 197, 94, 0.08); border-left-color:var(--success); margin:0;">
             <div class="spec-title" style="color:var(--success);">What It Measures</div>
-            <p style="font-size:0.88rem;">The annual return on invested capital for each equipment class &mdash; how much rental revenue each dollar of OEC generates.</p>
+            <p style="font-size:0.88rem;">The annual return on invested capital for each equipment class, how much rental revenue each dollar of OEC generates.</p>
           </div>
           <div class="spec-box" style="background:rgba(239, 68, 68, 0.08); border-left-color:var(--danger); margin:0;">
             <div class="spec-title" style="color:var(--danger);">What It Does NOT Measure</div>
@@ -1076,7 +1255,7 @@
         </div>
         <div class="spec-box" style="background:rgba(59, 130, 246, 0.1); border-color:var(--accent-color);">
           <div class="spec-title">Manager's Insight</div>
-          <p style="font-size:0.88rem;">OEC ROI by class is the acquisition compass. When the GM asks "Should we buy three more excavators?", the answer isn't based on gut feel or customer requests &mdash; it's based on OEC ROI. If excavators are returning 70% annually and skid steers are returning 44%, you buy excavators. The fleet mix should be continuously rebalanced toward the highest-return classes. Capital is finite. Every dollar invested in a 30%-return class is a dollar not invested in a 70%-return class.</p>
+          <p style="font-size:0.88rem;">OEC ROI by class is the acquisition compass. When the GM asks "Should we buy three more excavators?", the answer isn't based on gut feel or customer requests, it's based on OEC ROI. If excavators are returning 70% annually and skid steers are returning 44%, you buy excavators. The fleet mix should be continuously rebalanced toward the highest-return classes. Capital is finite. Every dollar invested in a 30%-return class is a dollar not invested in a 70%-return class.</p>
         </div>
       </div>
 
@@ -1099,11 +1278,11 @@
               </tr>
             </thead>
             <tbody>
-              <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px;">20T Excavator</td><td style="padding:8px;">8</td><td style="padding:8px;">$1,920,000</td><td style="padding:8px;">$1,360,000</td><td style="padding:8px; color:var(--success);">70.8%</td><td style="padding:8px;">INVEST &mdash; Add 2 units</td></tr>
-              <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px;">Compactor (5T)</td><td style="padding:8px;">4</td><td style="padding:8px;">$180,000</td><td style="padding:8px;">$130,000</td><td style="padding:8px; color:var(--success);">72.2%</td><td style="padding:8px;">INVEST &mdash; Add 1 unit</td></tr>
+              <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px;">20T Excavator</td><td style="padding:8px;">8</td><td style="padding:8px;">$1,920,000</td><td style="padding:8px;">$1,360,000</td><td style="padding:8px; color:var(--success);">70.8%</td><td style="padding:8px;">INVEST: Add 2 units</td></tr>
+              <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px;">Compactor (5T)</td><td style="padding:8px;">4</td><td style="padding:8px;">$180,000</td><td style="padding:8px;">$130,000</td><td style="padding:8px; color:var(--success);">72.2%</td><td style="padding:8px;">INVEST: Add 1 unit</td></tr>
               <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px;">Skid Steer</td><td style="padding:8px;">15</td><td style="padding:8px;">$675,000</td><td style="padding:8px;">$297,000</td><td style="padding:8px;">44.0%</td><td style="padding:8px;">MAINTAIN</td></tr>
-              <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px;">Telehandler</td><td style="padding:8px;">6</td><td style="padding:8px;">$720,000</td><td style="padding:8px;">$216,000</td><td style="padding:8px;">30.0%</td><td style="padding:8px;">MONITOR &mdash; Reduce 1</td></tr>
-              <tr><td style="padding:8px;">Boom Lift (60ft)</td><td style="padding:8px;">5</td><td style="padding:8px;">$475,000</td><td style="padding:8px;">$94,000</td><td style="padding:8px; color:var(--danger);">19.8%</td><td style="padding:8px;">DISPOSE &mdash; Sell 2</td></tr>
+              <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px;">Telehandler</td><td style="padding:8px;">6</td><td style="padding:8px;">$720,000</td><td style="padding:8px;">$216,000</td><td style="padding:8px;">30.0%</td><td style="padding:8px;">MONITOR: Reduce 1</td></tr>
+              <tr><td style="padding:8px;">Boom Lift (60ft)</td><td style="padding:8px;">5</td><td style="padding:8px;">$475,000</td><td style="padding:8px;">$94,000</td><td style="padding:8px; color:var(--danger);">19.8%</td><td style="padding:8px;">DISPOSE: Sell 2</td></tr>
             </tbody>
           </table>
         </div>
@@ -1114,7 +1293,7 @@
         <div class="grid-2" style="margin: 12px 0;">
           <div class="spec-box" style="background:rgba(34, 197, 94, 0.08); border-left-color:var(--success); margin:0;">
             <div class="spec-title" style="color:var(--success);">What It Measures</div>
-            <p style="font-size:0.88rem;">The proportion of fleet capital financed by debt vs. equity &mdash; the leverage profile of the rental fleet.</p>
+            <p style="font-size:0.88rem;">The proportion of fleet capital financed by debt vs. equity, the leverage profile of the rental fleet.</p>
           </div>
           <div class="spec-box" style="background:rgba(239, 68, 68, 0.08); border-left-color:var(--danger); margin:0;">
             <div class="spec-title" style="color:var(--danger);">What It Does NOT Measure</div>
@@ -1123,7 +1302,7 @@
         </div>
         <div class="spec-box" style="background:rgba(59, 130, 246, 0.1); border-color:var(--accent-color);">
           <div class="spec-title">Manager's Insight</div>
-          <p style="font-size:0.88rem;">Most rental fleets are acquired with debt &mdash; OEM floorplan financing, bank lines, or lease structures. A debt-to-asset ratio of 60% means 60% of your fleet is bank-owned. When the market turns down, highly leveraged fleets face cash crunches where debt service exceeds rental revenue. The target is &lt; 30% &mdash; meaning the majority of your fleet is equity-owned, giving you flexibility to weather downturns without being forced to sell machines at a loss to service debt.</p>
+          <p style="font-size:0.88rem;">Most rental fleets are acquired with debt: OEM floorplan financing, bank lines, or lease structures. A debt-to-asset ratio of 60% means 60% of your fleet is bank-owned. When the market turns down, highly leveraged fleets face cash crunches where debt service exceeds rental revenue. The target is &lt; 30%: meaning the majority of your fleet is equity-owned, giving you flexibility to weather downturns without being forced to sell machines at a loss to service debt.</p>
         </div>
       </div>
 
@@ -1136,13 +1315,13 @@
           <li><strong>Step 3:</strong> Divide total debt by total OEC and multiply by 100.</li>
           <li><strong>Step 4:</strong> Compare against the &lt; 30% target.</li>
         </ol>
-        <p style="margin-top:10px; font-size:0.88rem;"><strong>Worked Example:</strong> Total Long-Term Fleet Debt: $1,260,000. Total Fleet OEC: $4,200,000. Debt-to-Asset = ($1,260,000 / $4,200,000) &times; 100 = <strong style="color:var(--warning);">30.0% (PASS &mdash; At target ceiling)</strong></p>
+        <p style="margin-top:10px; font-size:0.88rem;"><strong>Worked Example:</strong> Total Long-Term Fleet Debt: $1,260,000. Total Fleet OEC: $4,200,000. Debt-to-Asset = ($1,260,000 / $4,200,000) &times; 100 = <strong style="color:var(--warning);">30.0% (PASS: At target ceiling)</strong></p>
         <div style="margin-top:8px; font-size:0.85rem;">
           <strong>HEDS Target Benchmark:</strong>
           <ul style="padding-left:16px; margin-top:4px;">
-            <li><strong>Target:</strong> &lt; 30% (healthy leverage &mdash; majority equity)</li>
-            <li><strong>Warning Band:</strong> 30% to 45% (moderate leverage &mdash; monitor debt service coverage)</li>
-            <li><strong>Critical Fail:</strong> &gt; 45% (highly leveraged &mdash; vulnerable to market downturn)</li>
+            <li><strong>Target:</strong> &lt; 30% (healthy leverage, majority equity)</li>
+            <li><strong>Warning Band:</strong> 30% to 45% (moderate leverage, monitor debt service coverage)</li>
+            <li><strong>Critical Fail:</strong> &gt; 45% (highly leveraged, vulnerable to market downturn)</li>
           </ul>
         </div>
       </div>
@@ -1157,11 +1336,11 @@
         <div class="grid-2" style="margin: 12px 0;">
           <div class="spec-box" style="background:rgba(34, 197, 94, 0.08); border-left-color:var(--success); margin:0;">
             <div class="spec-title" style="color:var(--success);">What It Measures</div>
-            <p style="font-size:0.88rem;">The bottom 5% of fleet assets by net contribution &mdash; the chronic underperformers that consume disproportionate capital, maintenance, and yard space.</p>
+            <p style="font-size:0.88rem;">The bottom 5% of fleet assets by net contribution, the chronic underperformers that consume disproportionate capital, maintenance, and yard space.</p>
           </div>
           <div class="spec-box" style="background:rgba(239, 68, 68, 0.08); border-left-color:var(--danger); margin:0;">
             <div class="spec-title" style="color:var(--danger);">What It Does NOT Measure</div>
-            <p style="font-size:0.88rem;">Strategic equipment kept for competitive positioning or customer retention. This is a pure financial review &mdash; strategic exceptions require GM sign-off.</p>
+            <p style="font-size:0.88rem;">Strategic equipment kept for competitive positioning or customer retention. This is a pure financial review, strategic exceptions require GM sign-off.</p>
           </div>
         </div>
         <div class="spec-box" style="background:rgba(59, 130, 246, 0.1); border-color:var(--accent-color);">
@@ -1182,7 +1361,7 @@
           <li><strong>Step 5:</strong> If lifetime ROI &lt; 100% and annual net contribution is positive: keep and monitor.</li>
           <li><strong>Step 6:</strong> If lifetime ROI &lt; 100% and annual net contribution is negative: review for major overhaul vs. disposition.</li>
         </ol>
-        <p style="margin-top:10px; font-size:0.88rem;"><strong>Worked Example (Boom Lift BL-301, 15 years old):</strong> OEC: $95,000. Lifetime Rental Revenue: $112,000 (118% lifetime ROI). Annual Net Contribution: &minus;$4,200. Next required major repair: $18,000. <strong style="color:var(--danger);">Decision: DISPOSE &mdash; do not invest $18k in a machine that's already earned its OEC back and is losing money annually.</strong></p>
+        <p style="margin-top:10px; font-size:0.88rem;"><strong>Worked Example (Boom Lift BL-301, 15 years old):</strong> OEC: $95,000. Lifetime Rental Revenue: $112,000 (118% lifetime ROI). Annual Net Contribution: &minus;$4,200. Next required major repair: $18,000. <strong style="color:var(--danger);">Decision: DISPOSE, do not invest $18k in a machine that's already earned its OEC back and is losing money annually.</strong></p>
       </div>
 
       <div class="spec-box">
@@ -1206,13 +1385,13 @@
   <div id="c_m5" class="tab-content">
     <div class="card">
       <div class="curr-module-header">
-        <div class="curr-day-tag">Module 5 &mdash; Contract &amp; Damage Recovery</div>
+        <div class="curr-day-tag">Module 5: Contract &amp; Damage Recovery</div>
         <div class="curr-module-title">Module 5: Contract, Risk &amp; Damage Recovery</div>
       </div>
 
       <div class="curr-section">
         <div class="curr-section-h3">Goal</div>
-        <p>Master the contractual and risk management systems that protect rental revenue and recover the cost of customer-caused equipment damage &mdash; ensuring that every rental agreement is enforceable, every risk is covered, and every damage event is documented and billed.</p>
+        <p>Master the contractual and risk management systems that protect rental revenue and recover the cost of customer-caused equipment damage, ensuring that every rental agreement is enforceable, every risk is covered, and every damage event is documented and billed.</p>
       </div>
 
       <div class="floor-rule">
@@ -1225,7 +1404,7 @@
         <div class="grid-2" style="margin: 12px 0;">
           <div class="spec-box" style="background:rgba(34, 197, 94, 0.08); border-left-color:var(--success); margin:0;">
             <div class="spec-title" style="color:var(--success);">What It Measures</div>
-            <p style="font-size:0.88rem;">The completeness and enforceability of rental contracts &mdash; whether every on-rent unit has a signed agreement, defined terms, insurance verification, and damage liability language.</p>
+            <p style="font-size:0.88rem;">The completeness and enforceability of rental contracts, whether every on-rent unit has a signed agreement, defined terms, insurance verification, and damage liability language.</p>
           </div>
           <div class="spec-box" style="background:rgba(239, 68, 68, 0.08); border-left-color:var(--danger); margin:0;">
             <div class="spec-title" style="color:var(--danger);">What It Does NOT Measure</div>
@@ -1238,18 +1417,18 @@
         </div>
         <div class="spec-box">
           <div class="spec-title">Required ERP Reports</div>
-          <p style="font-size:0.85rem;"><strong>Report 1: Active Rental Contract Audit</strong> &mdash; All currently active rental contracts. Required Fields: <code>Contract_ID</code>, <code>Unit_ID</code>, <code>Customer_ID</code>, <code>Start_Date</code>, <code>Return_Date</code>, <code>Rate</code>, <code>Insurance_Cert_On_File</code> (Y/N), <code>Signed_Agreement_On_File</code> (Y/N).</p>
-          <p style="font-size:0.85rem; margin-top:6px;"><strong>Report 2: Contract Compliance Exception Report</strong> &mdash; All active contracts missing insurance certificates, signed agreements, or damage waivers.</p>
+          <p style="font-size:0.85rem;"><strong>Report 1: Active Rental Contract Audit</strong> - All currently active rental contracts. Required Fields: <code>Contract_ID</code>, <code>Unit_ID</code>, <code>Customer_ID</code>, <code>Start_Date</code>, <code>Return_Date</code>, <code>Rate</code>, <code>Insurance_Cert_On_File</code> (Y/N), <code>Signed_Agreement_On_File</code> (Y/N).</p>
+          <p style="font-size:0.85rem; margin-top:6px;"><strong>Report 2: Contract Compliance Exception Report</strong> - All active contracts missing insurance certificates, signed agreements, or damage waivers.</p>
         </div>
         <div style="padding:14px; background:rgba(0,0,0,0.25); border-radius:8px; border:1px solid var(--border-color); margin:10px 0; font-size:0.85rem;">
           <p><strong>Contract Compliance Standards:</strong></p>
           <ol style="padding-left:20px; margin-top:6px; line-height:1.8;">
-            <li><strong>Signed Agreement:</strong> 100% of on-rent units must have a signed rental agreement on file &mdash; no exceptions.</li>
+            <li><strong>Signed Agreement:</strong> 100% of on-rent units must have a signed rental agreement on file, no exceptions.</li>
             <li><strong>Insurance Certificate:</strong> Certificate of insurance (COI) on file before machine leaves the yard. Must list your company as certificate holder and additional insured.</li>
             <li><strong>Damage Waiver or Deposit:</strong> Either a damage waiver fee (7&ndash;12% of rental rate) or a security deposit on file for every rental.</li>
             <li><strong>Return Condition Section:</strong> Contract must specify return condition (clean, fueled, undamaged) and cleaning/fuel charges for non-compliance.</li>
             <li><strong>Hour-Meter Overage Clause:</strong> Contract must specify the contracted hours and the overage rate for exceeding them (verified via telematics in Module 7).</li>
-            <li><strong>Pre-Rental Joint Inspection Sign-Off:</strong> Both the dealer's dispatch representative and the customer must jointly inspect and sign the pre-rental condition sheet at dispatch &mdash; not just at return. Both parties confirm the machine's condition, fuel level, hour meter reading, and any pre-existing damage before the machine leaves the yard. This eliminates "it was already damaged" disputes at check-in.</li>
+            <li><strong>Pre-Rental Joint Inspection Sign-Off:</strong> Both the dealer's dispatch representative and the customer must jointly inspect and sign the pre-rental condition sheet at dispatch, not just at return. Both parties confirm the machine's condition, fuel level, hour meter reading, and any pre-existing damage before the machine leaves the yard. This eliminates "it was already damaged" disputes at check-in.</li>
           </ol>
         </div>
         <div class="floor-rule">
@@ -1265,7 +1444,7 @@
           <p><strong>The Pre-Rental Joint Inspection Standard:</strong></p>
           <ol style="padding-left:20px; margin-top:6px; line-height:1.8;">
             <li><strong>Joint Walk-Around at Dispatch:</strong> The dealer's dispatcher and the customer (or their site representative) walk the machine together before it leaves the yard. Both parties photograph and document: (a) fuel level, (b) hour meter reading, (c) any pre-existing damage (scratches, dents, glass, track/tire wear), (d) attachment condition.</li>
-            <li><strong>4-Photo Set at Dispatch:</strong> Front view, rear view, left side, right side &mdash; with timestamps and hour meter visible in at least one photo. Both parties sign the condition sheet acknowledging the pre-rental state.</li>
+            <li><strong>4-Photo Set at Dispatch:</strong> Front view, rear view, left side, right side, with timestamps and hour meter visible in at least one photo. Both parties sign the condition sheet acknowledging the pre-rental state.</li>
             <li><strong>4-Photo Set at Return:</strong> Same 4 angles at check-in. Any new damage is immediately visible by comparing dispatch and return photo sets side by side.</li>
             <li><strong>Condition Sheet Sign-Off:</strong> A single condition sheet with dispatch photos/signature on the front and return photos/signature on the back. The customer signs at both dispatch and return. No signature = no claim = no charge.</li>
           </ol>
@@ -1281,7 +1460,7 @@
         <div class="grid-2" style="margin: 12px 0;">
           <div class="spec-box" style="background:rgba(34, 197, 94, 0.08); border-left-color:var(--success); margin:0;">
             <div class="spec-title" style="color:var(--success);">What It Measures</div>
-            <p style="font-size:0.88rem;">The percentage of customer-caused equipment damage cost that is successfully invoiced and collected &mdash; the recovery rate for damage events.</p>
+            <p style="font-size:0.88rem;">The percentage of customer-caused equipment damage cost that is successfully invoiced and collected, the recovery rate for damage events.</p>
           </div>
           <div class="spec-box" style="background:rgba(239, 68, 68, 0.08); border-left-color:var(--danger); margin:0;">
             <div class="spec-title" style="color:var(--danger);">What It Does NOT Measure</div>
@@ -1290,7 +1469,7 @@
         </div>
         <div class="spec-box" style="background:rgba(59, 130, 246, 0.1); border-color:var(--accent-color);">
           <div class="spec-title">Manager's Insight</div>
-          <p style="font-size:0.88rem;">Equipment rental damage is inevitable. Customers run machines hard, in rough conditions, with varying skill levels. The question isn't whether damage happens &mdash; it's whether you capture the cost. The damage recovery rate measures how much of the damage cost you actually bill back and collect. A 50% recovery rate means you're eating half the damage cost. At 85%+, you're capturing most of it. The difference between 50% and 85% on a branch with $30,000/month in damage events is $10,500/month &mdash; $126,000/year in recovered revenue.</p>
+          <p style="font-size:0.88rem;">Equipment rental damage is inevitable. Customers run machines hard, in rough conditions, with varying skill levels. The question isn't whether damage happens, it's whether you capture the cost. The damage recovery rate measures how much of the damage cost you actually bill back and collect. A 50% recovery rate means you're eating half the damage cost. At 85%+, you're capturing most of it. The difference between 50% and 85% on a branch with $30,000/month in damage events is $10,500/month: $126,000/year in recovered revenue.</p>
         </div>
       </div>
 
@@ -1305,13 +1484,13 @@
           <li><strong>Step 4:</strong> Sum the total amount actually collected on those invoices. <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></li>
           <li><strong>Step 5:</strong> Divide collected amount by total repair cost and multiply by 100.</li>
         </ol>
-        <p style="margin-top:10px; font-size:0.88rem;"><strong>Worked Example:</strong> Total Customer Damage Repair Cost (12 mo): $186,000. Total Damage Invoiced to Customers: $158,000. Total Damage Collected: $143,000. Damage Recovery Rate = ($143,000 / $186,000) &times; 100 = <strong style="color:var(--warning);">76.9% (WARN &mdash; Below 85% target)</strong>. Gap: $43,000 in uncollected damage. Target improvement: 4-photo documentation + 48-hour estimate workflow + joint dispatch inspection.</p>
+        <p style="margin-top:10px; font-size:0.88rem;"><strong>Worked Example:</strong> Total Customer Damage Repair Cost (12 mo): $186,000. Total Damage Invoiced to Customers: $158,000. Total Damage Collected: $143,000. Damage Recovery Rate = ($143,000 / $186,000) &times; 100 = <strong style="color:var(--warning);">76.9% (WARN: Below 85% target)</strong>. Gap: $43,000 in uncollected damage. Target improvement: 4-photo documentation + 48-hour estimate workflow + joint dispatch inspection.</p>
         <div style="margin-top:8px; font-size:0.85rem;">
           <strong>HEDS Target Benchmark:</strong>
           <ul style="padding-left:16px; margin-top:4px;">
             <li><strong>Target:</strong> &ge; 85% damage recovery rate</li>
             <li><strong>Warning Band:</strong> 70% to 84% (documentation or collection process gaps)</li>
-            <li><strong>Critical Fail:</strong> &lt; 70% (severe &mdash; damage cost is eroding rental margin)</li>
+            <li><strong>Critical Fail:</strong> &lt; 70% (severe, damage cost is eroding rental margin)</li>
           </ul>
         </div>
       </div>
@@ -1325,12 +1504,12 @@
           </div>
           <div class="spec-box" style="background:rgba(239, 68, 68, 0.08); border-left-color:var(--danger); margin:0;">
             <div class="spec-title" style="color:var(--danger);">What It Does NOT Measure</div>
-            <p style="font-size:0.88rem;">Whether the rate was correct or the contract was valid &mdash; those are upstream. Collections measures whether you actually get paid for what you billed.</p>
+            <p style="font-size:0.88rem;">Whether the rate was correct or the contract was valid, those are upstream. Collections measures whether you actually get paid for what you billed.</p>
           </div>
         </div>
         <div class="spec-box" style="background:rgba(59, 130, 246, 0.1); border-color:var(--accent-color);">
           <div class="spec-title">Manager's Insight</div>
-          <p style="font-size:0.88rem;">Rental revenue that isn't collected isn't revenue &mdash; it's a loan to your customer. The older a rental invoice gets, the less likely it is to be collected. A 90-day-old rental invoice has a 50% collection rate. The escalation protocol must be automatic: at 30 days, a statement is sent; at 45 days, a call is made; at 60 days, rentals are paused for that customer; at 90 days, it goes to collections or small claims. No exceptions for "good customers" &mdash; good customers pay their bills.</p>
+          <p style="font-size:0.88rem;">Rental revenue that isn't collected isn't revenue: it's a loan to your customer. The older a rental invoice gets, the less likely it is to be collected (see the recovery-by-age table below). The escalation protocol must be automatic: at 30 days, a statement is sent; at 45 days, a call is made; at 60 days, rentals are paused for that customer; at 90 days, it goes to collections or small claims. No exceptions for "good customers": good customers pay their bills.</p>
         </div>
       </div>
 
@@ -1345,6 +1524,23 @@
             <li><strong>Past-Due &gt; 90 Days:</strong> &lt; 2% of total outstanding</li>
           </ul>
         </div>
+      </div>
+
+      <div style="padding:14px; background:rgba(0,0,0,0.25); border-radius:8px; border:1px solid var(--border-color); margin:10px 0; font-size:0.82rem; overflow-x:auto;">
+        <p style="color:var(--accent-color); font-weight:700; margin-bottom:8px;">RECOVERY BY INVOICE AGE:</p>
+        <table style="width:100%; border-collapse:collapse; font-size:0.8rem; text-align:left;">
+          <thead><tr style="border-bottom:2px solid var(--accent-color); color:var(--accent-color);"><th style="padding:8px;">Invoice Age</th><th style="padding:8px;">Typical Recovery</th></tr></thead>
+          <tbody>
+            <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px;">Current (within terms)</td><td style="padding:8px;">98&ndash;99%</td></tr>
+            <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px;">1&ndash;30 days past due</td><td style="padding:8px;">93&ndash;95%</td></tr>
+            <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px;">31&ndash;60 days past due</td><td style="padding:8px;">85&ndash;90%</td></tr>
+            <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px;">61&ndash;90 days past due</td><td style="padding:8px;">70&ndash;80%</td></tr>
+            <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px;">91&ndash;120 days past due</td><td style="padding:8px;">60&ndash;70%</td></tr>
+            <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px;">6 months past due</td><td style="padding:8px;">45&ndash;55%</td></tr>
+            <tr><td style="padding:8px;">12 months past due</td><td style="padding:8px;">20&ndash;30%</td></tr>
+          </tbody>
+        </table>
+        <p style="font-size:0.8rem; color:var(--muted); margin-top:8px;"><strong>Directional, based on commercial collection data (NACM, CCAA).</strong> Rates vary by industry, customer credit, invoice size, and how hard the account is worked. Equipment and construction receivables often drop off faster after 90 days (disputes, project closeouts, customer cash-flow stress).</p>
       </div>
 
       <div style="padding:14px; background:rgba(0,0,0,0.25); border-radius:8px; border:1px solid var(--border-color); margin:10px 0; font-size:0.82rem; overflow-x:auto;">
@@ -1368,7 +1564,7 @@
           <li><strong>Pre-Rental Joint Inspection Owner:</strong> Dispatch Lead / Counter Lead (joint sign-off at dispatch).</li>
           <li><strong>Damage Documentation Owner:</strong> Check-In Specialist / Yard Lead (4-photo standard at dispatch and return).</li>
           <li><strong>Damage Recovery Owner:</strong> Rental Manager (monitored weekly, invoiced within 48 hours).</li>
-          <li><strong>Collections Owner:</strong> Rental Manager (escalation protocol enforced &mdash; no exceptions for "good customers").</li>
+          <li><strong>Collections Owner:</strong> Rental Manager (escalation protocol enforced, no exceptions for "good customers").</li>
         </ul>
       </div>
     </div>
@@ -1378,7 +1574,7 @@
   <div id="c_m6" class="tab-content">
     <div class="card">
       <div class="curr-module-header">
-        <div class="curr-day-tag">Module 6 &mdash; Logistics &amp; Dispatch</div>
+        <div class="curr-day-tag">Module 6: Logistics &amp; Dispatch</div>
         <div class="curr-module-title">Module 6: Logistics, Dispatch &amp; Customer Operations</div>
       </div>
 
@@ -1393,11 +1589,11 @@
       </div>
 
       <div class="curr-section">
-        <div class="curr-section-h3">Part 1: The Equipment-to-Orders Ratio &mdash; Supply vs. Demand Balance</div>
+        <div class="curr-section-h3">Part 1: The Equipment-to-Orders Ratio: Supply vs. Demand Balance</div>
         <div class="grid-2" style="margin: 12px 0;">
           <div class="spec-box" style="background:rgba(34, 197, 94, 0.08); border-left-color:var(--success); margin:0;">
             <div class="spec-title" style="color:var(--success);">What It Measures</div>
-            <p style="font-size:0.88rem;">The balance between available fleet inventory and active rental demand &mdash; whether you have the right number of machines for the market you serve.</p>
+            <p style="font-size:0.88rem;">The balance between available fleet inventory and active rental demand, whether you have the right number of machines for the market you serve.</p>
           </div>
           <div class="spec-box" style="background:rgba(239, 68, 68, 0.08); border-left-color:var(--danger); margin:0;">
             <div class="spec-title" style="color:var(--danger);">What It Does NOT Measure</div>
@@ -1406,7 +1602,7 @@
         </div>
         <div class="spec-box" style="background:rgba(59, 130, 246, 0.1); border-color:var(--accent-color);">
           <div class="spec-title">Manager's Insight</div>
-          <p style="font-size:0.88rem;">The equipment-to-orders ratio is the fleet sizing compass. A ratio of 1.0 means every available unit is rented &mdash; perfect balance. Above 1.2 means you have excess inventory sitting idle (too much fleet for the market). Below 0.9 means you're turning away business (not enough fleet for the market). The ratio should be tracked by class, not just fleet-wide &mdash; you may have too many telehandlers and not enough excavators.</p>
+          <p style="font-size:0.88rem;">The equipment-to-orders ratio is the fleet sizing compass. A ratio of 1.0 means every available unit is rented, perfect balance. Above 1.2 means you have excess inventory sitting idle (too much fleet for the market). Below 0.9 means you're turning away business (not enough fleet for the market). The ratio should be tracked by class, not just fleet-wide, you may have too many telehandlers and not enough excavators.</p>
         </div>
       </div>
 
@@ -1420,7 +1616,7 @@
           <li><strong>Step 3:</strong> Divide available units by active requests.</li>
           <li><strong>Step 4:</strong> Ratio = 1.0: balanced. &gt; 1.2: over-supplied. &lt; 0.9: under-supplied (turning away business).</li>
         </ol>
-        <p style="margin-top:10px; font-size:0.88rem;"><strong>Worked Example:</strong> Excavator Class: 10 available units, 14 active requests &rarr; ratio = 0.71 (<strong style="color:var(--danger);">UNDER-SUPPLIED</strong> &mdash; turning away 4 requests/month). Light Tower Class: 8 available units, 4 active requests &rarr; ratio = 2.0 (<strong style="color:var(--danger);">OVER-SUPPLIED</strong> &mdash; 4 units idle).</p>
+        <p style="margin-top:10px; font-size:0.88rem;"><strong>Worked Example:</strong> Excavator Class: 10 available units, 14 active requests &rarr; ratio = 0.71 (<strong style="color:var(--danger);">UNDER-SUPPLIED</strong>: turning away 4 requests/month). Light Tower Class: 8 available units, 4 active requests &rarr; ratio = 2.0 (<strong style="color:var(--danger);">OVER-SUPPLIED</strong>: 4 units idle).</p>
         <div style="margin-top:8px; font-size:0.85rem;">
           <strong>HEDS Target Benchmark:</strong>
           <ul style="padding-left:16px; margin-top:4px;">
@@ -1437,11 +1633,11 @@
       </div>
 
       <div class="curr-section">
-        <div class="curr-section-h3">Part 2: Quote-to-Conversion Rate &mdash; The Rate Competitiveness Leading Indicator</div>
+        <div class="curr-section-h3">Part 2: Quote-to-Conversion Rate: The Rate Competitiveness Leading Indicator</div>
         <div class="grid-2" style="margin: 12px 0;">
           <div class="spec-box" style="background:rgba(34, 197, 94, 0.08); border-left-color:var(--success); margin:0;">
             <div class="spec-title" style="color:var(--success);">What It Measures</div>
-            <p style="font-size:0.88rem;">The percentage of rental quotes sent that convert to won rentals &mdash; a leading indicator of whether your rates are competitive and your inventory is right for the market.</p>
+            <p style="font-size:0.88rem;">The percentage of rental quotes sent that convert to won rentals, a leading indicator of whether your rates are competitive and your inventory is right for the market.</p>
           </div>
           <div class="spec-box" style="background:rgba(239, 68, 68, 0.08); border-left-color:var(--danger); margin:0;">
             <div class="spec-title" style="color:var(--danger);">What It Does NOT Measure</div>
@@ -1450,7 +1646,7 @@
         </div>
         <div class="spec-box" style="background:rgba(59, 130, 246, 0.1); border-color:var(--accent-color);">
           <div class="spec-title">Manager's Insight</div>
-          <p style="font-size:0.88rem;">Quote-to-conversion is the canary in the coal mine for rate competitiveness. If your conversion rate drops from 65% to 40% in a month, two things are happening: either your rates are too high relative to the market, or you're quoting on equipment you don't have (stock-outs). Either way, a dropping conversion rate precedes a revenue decline. If you track it weekly by class, you catch the signal before it hits the P&amp;L. A 40% conversion rate on excavators means 6 out of 10 quotes are going to a competitor &mdash; investigate whether it's rate or availability before the quarter closes.</p>
+          <p style="font-size:0.88rem;">Quote-to-conversion is the canary in the coal mine for rate competitiveness. If your conversion rate drops from 65% to 40% in a month, two things are happening: either your rates are too high relative to the market, or you're quoting on equipment you don't have (stock-outs). Either way, a dropping conversion rate precedes a revenue decline. If you track it weekly by class, you catch the signal before it hits the P&amp;L. A 40% conversion rate on excavators means 6 out of 10 quotes are going to a competitor, investigate whether it's rate or availability before the quarter closes.</p>
         </div>
       </div>
 
@@ -1465,20 +1661,20 @@
           <li><strong>Step 4:</strong> Divide quotes won by total quotes sent and multiply by 100.</li>
           <li><strong>Step 5:</strong> Break down by class and by loss reason (rate too high, no inventory, lost to competitor, customer cancelled).</li>
         </ol>
-        <p style="margin-top:10px; font-size:0.88rem;"><strong>Worked Example:</strong> Trailing 30 days: 85 quotes sent, 52 won. Quote-to-Conversion = (52 / 85) &times; 100 = <strong style="color:var(--success);">61.2% (PASS &mdash; Above 60% Target)</strong>. Breakdown by class: Excavator 68% (PASS), Skid Steer 55% (WARN &mdash; check rate competitiveness), Boom Lift 42% (FAIL &mdash; rate too high or fleet too old for market).</p>
+        <p style="margin-top:10px; font-size:0.88rem;"><strong>Worked Example:</strong> Trailing 30 days: 85 quotes sent, 52 won. Quote-to-Conversion = (52 / 85) &times; 100 = <strong style="color:var(--success);">61.2% (PASS: Above 60% Target)</strong>. Breakdown by class: Excavator 68% (PASS), Skid Steer 55% (WARN, check rate competitiveness), Boom Lift 42% (FAIL, rate too high or fleet too old for market).</p>
         <div style="margin-top:8px; font-size:0.85rem;">
           <strong>HEDS Target Benchmark:</strong>
           <ul style="padding-left:16px; margin-top:4px;">
             <li><strong>Target:</strong> &ge; 60% quote-to-conversion rate</li>
-            <li><strong>Warning Band:</strong> 45% to 59% (rates may be uncompetitive &mdash; audit rack rate vs. market)</li>
-            <li><strong>Critical Fail:</strong> &lt; 45% (severe rate or availability problem &mdash; review pricing and inventory)</li>
+            <li><strong>Warning Band:</strong> 45% to 59% (rates may be uncompetitive, audit rack rate vs. market)</li>
+            <li><strong>Critical Fail:</strong> &lt; 45% (severe rate or availability problem, review pricing and inventory)</li>
           </ul>
         </div>
       </div>
 
       <div class="floor-rule">
         <div class="floor-rule-title">Floor Rule</div>
-        If your quote-to-conversion drops below 60% for two consecutive weeks, audit your rack rate against the local market and your equipment-to-orders ratio by class. A dropping conversion rate is the earliest signal that something in your pricing or inventory is wrong &mdash; before it shows up in revenue.
+        If your quote-to-conversion drops below 60% for two consecutive weeks, audit your rack rate against the local market and your equipment-to-orders ratio by class. A dropping conversion rate is the earliest signal that something in your pricing or inventory is wrong, before it shows up in revenue.
       </div>
 
       <div class="curr-section">
@@ -1486,7 +1682,7 @@
         <div class="grid-2" style="margin: 12px 0;">
           <div class="spec-box" style="background:rgba(34, 197, 94, 0.08); border-left-color:var(--success); margin:0;">
             <div class="spec-title" style="color:var(--success);">What It Measures</div>
-            <p style="font-size:0.88rem;">The average cost of transporting equipment to and from customer jobsites &mdash; and the percentage of that transport cost recovered through freight charges billed to the customer.</p>
+            <p style="font-size:0.88rem;">The average cost of transporting equipment to and from customer jobsites, and the percentage of that transport cost recovered through freight charges billed to the customer.</p>
           </div>
           <div class="spec-box" style="background:rgba(239, 68, 68, 0.08); border-left-color:var(--danger); margin:0;">
             <div class="spec-title" style="color:var(--danger);">What It Does NOT Measure</div>
@@ -1495,7 +1691,7 @@
         </div>
         <div class="spec-box" style="background:rgba(59, 130, 246, 0.1); border-color:var(--accent-color);">
           <div class="spec-title">Manager's Insight</div>
-          <p style="font-size:0.88rem;">Freight is the silent margin killer. If you're absorbing $250 in delivery on a $180/day skid steer rental, the first 1.4 rental days are paying for freight &mdash; not earning margin. Most rental managers don't track freight recovery because it's buried in the delivery line item. But across 600 moves per year at $300/move with only 60% recovery, that's $72,000/year in absorbed transport cost. Track the average cost per move, the freight charged to the customer, and the recovery percentage. If recovery drops below 80%, either raise the freight charge or build it into the rental rate.</p>
+          <p style="font-size:0.88rem;">Freight is the silent margin killer. If you're absorbing $250 in delivery on a $180/day skid steer rental, the first 1.4 rental days are paying for freight, not earning margin. Most rental managers don't track freight recovery because it's buried in the delivery line item. But across 600 moves per year at $300/move with only 60% recovery, that's $72,000/year in absorbed transport cost. Track the average cost per move, the freight charged to the customer, and the recovery percentage. If recovery drops below 80%, either raise the freight charge or build it into the rental rate.</p>
         </div>
       </div>
 
@@ -1511,13 +1707,13 @@
           <li><strong>Step 4:</strong> Sum the freight charges billed to customers on rental contracts.</li>
           <li><strong>Step 5:</strong> Divide freight charged by total freight cost and multiply by 100 to get recovery %.</li>
         </ol>
-        <p style="margin-top:10px; font-size:0.88rem;"><strong>Worked Example:</strong> Trailing 90 days: 150 moves, $48,000 total freight cost. Transport Cost/Move = $48,000 / 150 = <strong>$320/move</strong>. Freight charged to customers: $39,600. Freight Recovery = ($39,600 / $48,000) &times; 100 = <strong style="color:var(--warning);">82.5% (PASS &mdash; Above 80% Target)</strong>. Unrecovered freight: $8,400/quarter = $33,600/year absorbed.</p>
+        <p style="margin-top:10px; font-size:0.88rem;"><strong>Worked Example:</strong> Trailing 90 days: 150 moves, $48,000 total freight cost. Transport Cost/Move = $48,000 / 150 = <strong>$320/move</strong>. Freight charged to customers: $39,600. Freight Recovery = ($39,600 / $48,000) &times; 100 = <strong style="color:var(--warning);">82.5% (PASS: Above 80% Target)</strong>. Unrecovered freight: $8,400/quarter = $33,600/year absorbed.</p>
         <div style="margin-top:8px; font-size:0.85rem;">
           <strong>HEDS Target Benchmark:</strong>
           <ul style="padding-left:16px; margin-top:4px;">
             <li><strong>Freight Recovery Target:</strong> &ge; 80% of total freight cost recovered</li>
-            <li><strong>Warning Band:</strong> 60% to 79% (freight absorbing margin &mdash; raise delivery charge)</li>
-            <li><strong>Critical Fail:</strong> &lt; 60% (severe freight leakage &mdash; build freight into rental rate or charge separately)</li>
+            <li><strong>Warning Band:</strong> 60% to 79% (freight absorbing margin, raise delivery charge)</li>
+            <li><strong>Critical Fail:</strong> &lt; 60% (severe freight leakage, build freight into rental rate or charge separately)</li>
           </ul>
         </div>
       </div>
@@ -1527,7 +1723,7 @@
         <div class="grid-2" style="margin: 12px 0;">
           <div class="spec-box" style="background:rgba(34, 197, 94, 0.08); border-left-color:var(--success); margin:0;">
             <div class="spec-title" style="color:var(--success);">What It Measures</div>
-            <p style="font-size:0.88rem;">The dollar value of rental revenue lost because no units were available to fill customer requests &mdash; the direct cost of being under-supplied.</p>
+            <p style="font-size:0.88rem;">The dollar value of rental revenue lost because no units were available to fill customer requests, the direct cost of being under-supplied.</p>
           </div>
           <div class="spec-box" style="background:rgba(239, 68, 68, 0.08); border-left-color:var(--danger); margin:0;">
             <div class="spec-title" style="color:var(--danger);">What It Does NOT Measure</div>
@@ -1536,7 +1732,7 @@
         </div>
         <div class="spec-box" style="background:rgba(59, 130, 246, 0.1); border-color:var(--accent-color);">
           <div class="spec-title">Manager's Insight</div>
-          <p style="font-size:0.88rem;">Stock-out revenue is the most under-tracked metric in equipment rental. Most rental counters don't log turned-away requests &mdash; the dispatcher just says "sorry, we don't have one" and hangs up. That request disappears. But every turned-away request is quantifiable: the class, the duration, the rate, the lost revenue. If you're turning away 6 excavator requests per month at $850/day &times; 7 days, that's $35,700/month &mdash; $428,400/year in lost capacity. That number is the justification for buying 2 more excavators. Without it, the GM won't approve the purchase.</p>
+          <p style="font-size:0.88rem;">Stock-out revenue is the most under-tracked metric in equipment rental. Most rental counters don't log turned-away requests, the dispatcher just says "sorry, we don't have one" and hangs up. That request disappears. But every turned-away request is quantifiable: the class, the duration, the rate, the lost revenue. If you're turning away 6 excavator requests per month at $850/day &times; 7 days, that's $35,700/month: $428,400/year in lost capacity. That number is the justification for buying 2 more excavators. Without it, the GM won't approve the purchase.</p>
         </div>
       </div>
 
@@ -1563,7 +1759,7 @@
         <div class="grid-2" style="margin: 12px 0;">
           <div class="spec-box" style="background:rgba(34, 197, 94, 0.08); border-left-color:var(--success); margin:0;">
             <div class="spec-title" style="color:var(--success);">What It Measures</div>
-            <p style="font-size:0.88rem;">The percentage of rental revenue that comes from repeat customers vs. new customers &mdash; and the quarterly churn rate (customers lost / total active customers). Stickiness of your rental relationships and early warning of account loss.</p>
+            <p style="font-size:0.88rem;">The percentage of rental revenue that comes from repeat customers vs. new customers, and the quarterly churn rate (customers lost / total active customers). Stickiness of your rental relationships and early warning of account loss.</p>
           </div>
           <div class="spec-box" style="background:rgba(239, 68, 68, 0.08); border-left-color:var(--danger); margin:0;">
             <div class="spec-title" style="color:var(--danger);">What It Does NOT Measure</div>
@@ -1572,7 +1768,7 @@
         </div>
         <div class="spec-box" style="background:rgba(59, 130, 246, 0.1); border-color:var(--accent-color);">
           <div class="spec-title">Manager's Insight</div>
-          <p style="font-size:0.88rem;">Equipment rental is a relationship business. 70&ndash;80% of rental revenue typically comes from 20&ndash;30% of customers &mdash; the contractors who rent from you every week. Losing one major account to a competitor can drop a class's utilization by 15 points overnight. The churn score is the quarterly pulse check: how many active customers did you lose? A customer is "lost" when they rented in the prior quarter but haven't rented in the current quarter. A 10% quarterly churn means you're losing 1 in 10 customers every 3 months &mdash; that's a revenue leak that compounds. Track it on the Exec Scorecard alongside EBITDA and personnel expense.</p>
+          <p style="font-size:0.88rem;">Equipment rental is a relationship business. 70&ndash;80% of rental revenue typically comes from 20&ndash;30% of customers, the contractors who rent from you every week. Losing one major account to a competitor can drop a class's utilization by 15 points overnight. The churn score is the quarterly pulse check: how many active customers did you lose? A customer is "lost" when they rented in the prior quarter but haven't rented in the current quarter. A 10% quarterly churn means you're losing 1 in 10 customers every 3 months, that's a revenue leak that compounds. Track it on the Exec Scorecard alongside EBITDA and personnel expense.</p>
         </div>
       </div>
 
@@ -1585,13 +1781,13 @@
           <li><strong>Step 3:</strong> Divide lost customers by prior quarter total and multiply by 100.</li>
           <li><strong>Step 4:</strong> For each lost customer: determine reason (competitor, project ended, bought own equipment, price dispute, service issue).</li>
         </ol>
-        <p style="margin-top:10px; font-size:0.88rem;"><strong>Worked Example:</strong> Prior quarter: 45 active customers. Current quarter: 4 of those 45 did not rent. Churn = (4 / 45) &times; 100 = <strong style="color:var(--success);">8.9% (PASS &mdash; Below 10% Target)</strong>. Lost customers: 2 went to competitor (rate), 1 project ended, 1 bought own equipment. <strong>Revenue impact:</strong> $42,000/quarter in lost recurring revenue.</p>
+        <p style="margin-top:10px; font-size:0.88rem;"><strong>Worked Example:</strong> Prior quarter: 45 active customers. Current quarter: 4 of those 45 did not rent. Churn = (4 / 45) &times; 100 = <strong style="color:var(--success);">8.9% (PASS: Below 10% Target)</strong>. Lost customers: 2 went to competitor (rate), 1 project ended, 1 bought own equipment. <strong>Revenue impact:</strong> $42,000/quarter in lost recurring revenue.</p>
         <div style="margin-top:8px; font-size:0.85rem;">
           <strong>HEDS Target Benchmark:</strong>
           <ul style="padding-left:16px; margin-top:4px;">
             <li><strong>Target:</strong> &lt; 10% quarterly churn</li>
-            <li><strong>Warning Band:</strong> 10% to 15% (monitor &mdash; investigate loss reasons)</li>
-            <li><strong>Critical Fail:</strong> &gt; 15% (severe retention problem &mdash; review rate, service, competitive positioning)</li>
+            <li><strong>Warning Band:</strong> 10% to 15% (monitor, investigate loss reasons)</li>
+            <li><strong>Critical Fail:</strong> &gt; 15% (severe retention problem, review rate, service, competitive positioning)</li>
           </ul>
         </div>
       </div>
@@ -1609,22 +1805,22 @@
     </div>
   </div>
 
-  <!-- MODULE 7: Telematics — Fleet Visibility & Usage Intelligence -->
+  <!-- MODULE 7: Telematics: Fleet Visibility & Usage Intelligence -->
   <div id="c_m7" class="tab-content">
     <div class="card">
       <div class="curr-module-header">
-        <div class="curr-day-tag">Module 7 &mdash; Telematics</div>
-        <div class="curr-module-title">Module 7: Telematics &mdash; Fleet Visibility &amp; Usage Intelligence</div>
+        <div class="curr-day-tag">Module 7: Telematics</div>
+        <div class="curr-module-title">Module 7: Telematics: Fleet Visibility &amp; Usage Intelligence</div>
       </div>
 
       <div class="curr-section">
         <div class="curr-section-h3">Goal</div>
-        <p>Master the telematics systems that turn fleet data into billing accuracy, productive utilization measurement, geolocation visibility, and proactive fault awareness &mdash; making telematics the data backbone that feeds every other KPI in this program.</p>
+        <p>Master the telematics systems that turn fleet data into billing accuracy, productive utilization measurement, geolocation visibility, and proactive fault awareness, making telematics the data backbone that feeds every other KPI in this program.</p>
       </div>
 
       <div class="floor-rule">
         <div class="floor-rule-title">Floor Rule</div>
-        If your ERP says a machine is "on rent" but your telematics says it hasn't run in 6 days, your utilization data is fiction. Reconcile telematics engine hours against ERP contracted hours every single day. The telematics platform is the Rental Manager's most important data source &mdash; not the ERP.
+        If your ERP says a machine is "on rent" but your telematics says it hasn't run in 6 days, your utilization data is fiction. Reconcile telematics engine hours against ERP contracted hours every single day. The telematics platform is the Rental Manager's most important data source, not the ERP.
       </div>
 
       <div class="curr-section">
@@ -1632,7 +1828,7 @@
         <div class="grid-2" style="margin: 12px 0;">
           <div class="spec-box" style="background:rgba(34, 197, 94, 0.08); border-left-color:var(--success); margin:0;">
             <div class="spec-title" style="color:var(--success);">What It Measures</div>
-            <p style="font-size:0.88rem;">The gap between contracted rental hours (what the customer is paying for) and actual engine hours run (what the customer actually used) &mdash; and the revenue recovered from hour-meter overages.</p>
+            <p style="font-size:0.88rem;">The gap between contracted rental hours (what the customer is paying for) and actual engine hours run (what the customer actually used), and the revenue recovered from hour-meter overages.</p>
           </div>
           <div class="spec-box" style="background:rgba(239, 68, 68, 0.08); border-left-color:var(--danger); margin:0;">
             <div class="spec-title" style="color:var(--danger);">What It Does NOT Measure</div>
@@ -1641,12 +1837,12 @@
         </div>
         <div class="spec-box" style="background:rgba(59, 130, 246, 0.1); border-color:var(--accent-color);">
           <div class="spec-title">Manager's Insight</div>
-          <p style="font-size:0.88rem;">Most rental contracts include an hourly allowance &mdash; 8 hours/day, 40 hours/week, or 160 hours/month. The customer pays for those hours regardless of whether they use them. But when they exceed them, every additional hour is billable overage revenue &mdash; and most rental companies never collect it because they don't reconcile telematics against contracts. A customer running 200 hours on a 160-hour monthly contract owes 40 hours of overage at the contracted overage rate. Across a 150-unit fleet, uncollected overage is $50,000 to $150,000 per year in left-on-table revenue.</p>
+          <p style="font-size:0.88rem;">Most rental contracts include an hourly allowance: 8 hours/day, 40 hours/week, or 160 hours/month. The customer pays for those hours regardless of whether they use them. But when they exceed them, every additional hour is billable overage revenue, and most rental companies never collect it because they don't reconcile telematics against contracts. A customer running 200 hours on a 160-hour monthly contract owes 40 hours of overage at the contracted overage rate. Across a 150-unit fleet, uncollected overage is $50,000 to $150,000 per year in left-on-table revenue.</p>
         </div>
         <div class="spec-box">
           <div class="spec-title">Required ERP Reports</div>
-          <p style="font-size:0.85rem;"><strong>Report 1: Telematics Engine Hour Extract</strong> &mdash; Trailing 30 days of engine hours by unit. Required Fields: <code>Unit_ID</code>, <code>Class_Code</code>, <code>Telematics_Hours_Run</code>, <code>Telematics_Date_Range</code>, <code>Geolocation_Last_Ping</code>.</p>
-          <p style="font-size:0.85rem; margin-top:6px;"><strong>Report 2: Contracted Hours vs. Actual Hours Reconciliation</strong> &mdash; All active rental contracts with contracted hours and actual telematics hours.</p>
+          <p style="font-size:0.85rem;"><strong>Report 1: Telematics Engine Hour Extract</strong> - Trailing 30 days of engine hours by unit. Required Fields: <code>Unit_ID</code>, <code>Class_Code</code>, <code>Telematics_Hours_Run</code>, <code>Telematics_Date_Range</code>, <code>Geolocation_Last_Ping</code>.</p>
+          <p style="font-size:0.85rem; margin-top:6px;"><strong>Report 2: Contracted Hours vs. Actual Hours Reconciliation</strong> - All active rental contracts with contracted hours and actual telematics hours.</p>
         </div>
       </div>
 
@@ -1664,12 +1860,12 @@
           <li><strong>Step 5:</strong> If negative (under-utilization): flag for productive utilization review (Module 2).</li>
           <li><strong>Step 6:</strong> Track the percentage of active contracts that were reconciled this month (billing reconciliation rate).</li>
         </ol>
-        <p style="margin-top:10px; font-size:0.88rem;"><strong>Worked Example (Excavator EX-101, Monthly Contract, 160 contracted hours):</strong> Telematics engine hours this month: 194 hours. Overage: 194 &minus; 160 = 34 hours. Overage rate: $45/hour. <strong>Overage Revenue: 34 &times; $45 = $1,530</strong> (recovered &mdash; was being left on the table before telematics reconciliation). Fleet-wide monthly overage recovery (150 units): ~$50,400/month in newly captured revenue.</p>
+        <p style="margin-top:10px; font-size:0.88rem;"><strong>Worked Example (Excavator EX-101, Monthly Contract, 160 contracted hours):</strong> Telematics engine hours this month: 194 hours. Overage: 194 &minus; 160 = 34 hours. Overage rate: $45/hour. <strong>Overage Revenue: 34 &times; $45 = $1,530</strong> (recovered, was being left on the table before telematics reconciliation). Fleet-wide monthly overage recovery (150 units): ~$50,400/month in newly captured revenue.</p>
         <div style="margin-top:8px; font-size:0.85rem;">
           <strong>HEDS Target Benchmark:</strong>
           <ul style="padding-left:16px; margin-top:4px;">
             <li><strong>Billing Reconciliation Rate:</strong> &ge; 90% of active contracts reconciled monthly</li>
-            <li><strong>Overage Recovery Target:</strong> $0 in unrecovered overage &mdash; every hour over contract is invoiced</li>
+            <li><strong>Overage Recovery Target:</strong> $0 in unrecovered overage, every hour over contract is invoiced</li>
             <li><strong>Reconciliation Frequency:</strong> Daily for high-value units (&ge;$100K OEC), weekly for standard units</li>
           </ul>
         </div>
@@ -1685,7 +1881,7 @@
         <div class="grid-2" style="margin: 12px 0;">
           <div class="spec-box" style="background:rgba(34, 197, 94, 0.08); border-left-color:var(--success); margin:0;">
             <div class="spec-title" style="color:var(--success);">What It Measures</div>
-            <p style="font-size:0.88rem;">The real-time physical location of every fleet asset &mdash; on-site, in-transit, in-yard, or off-rent &mdash; and the ability to recover equipment that is overdue, stolen, or at an unauthorized location.</p>
+            <p style="font-size:0.88rem;">The real-time physical location of every fleet asset, on-site, in-transit, in-yard, or off-rent, and the ability to recover equipment that is overdue, stolen, or at an unauthorized location.</p>
           </div>
           <div class="spec-box" style="background:rgba(239, 68, 68, 0.08); border-left-color:var(--danger); margin:0;">
             <div class="spec-title" style="color:var(--danger);">What It Does NOT Measure</div>
@@ -1694,7 +1890,7 @@
         </div>
         <div class="spec-box" style="background:rgba(59, 130, 246, 0.1); border-color:var(--accent-color);">
           <div class="spec-title">Manager's Insight</div>
-          <p style="font-size:0.88rem;">A rental fleet without geolocation visibility is a fleet managed on faith. You believe the machine is at the customer's jobsite because the contract says it is. But if the customer finished their project 5 days ago and the machine is sitting in a yard 40 miles away &mdash; or worse, on another customer's site &mdash; you don't know. Geolocation enables: immediate theft recovery (machine moves outside a geofence &rarr; alert), overdue equipment recovery, and pickup/delivery logistics coordination.</p>
+          <p style="font-size:0.88rem;">A rental fleet without geolocation visibility is a fleet managed on faith. You believe the machine is at the customer's jobsite because the contract says it is. But if the customer finished their project 5 days ago and the machine is sitting in a yard 40 miles away, or worse, on another customer's site, you don't know. Geolocation enables: immediate theft recovery (machine moves outside a geofence &rarr; alert), overdue equipment recovery, and pickup/delivery logistics coordination.</p>
         </div>
         <div style="padding:14px; background:rgba(0,0,0,0.25); border-radius:8px; border:1px solid var(--border-color); margin:10px 0; font-size:0.85rem;">
           <p><strong>Key Geolocation Capabilities:</strong></p>
@@ -1716,7 +1912,7 @@
         <div class="grid-2" style="margin: 12px 0;">
           <div class="spec-box" style="background:rgba(34, 197, 94, 0.08); border-left-color:var(--success); margin:0;">
             <div class="spec-title" style="color:var(--success);">What It Measures</div>
-            <p style="font-size:0.88rem;">How individual customers use rented equipment &mdash; heavy users (high engine hours), light users (low engine hours), and the rate implications of each usage pattern.</p>
+            <p style="font-size:0.88rem;">How individual customers use rented equipment, heavy users (high engine hours), light users (low engine hours), and the rate implications of each usage pattern.</p>
           </div>
           <div class="spec-box" style="background:rgba(239, 68, 68, 0.08); border-left-color:var(--danger); margin:0;">
             <div class="spec-title" style="color:var(--danger);">What It Does NOT Measure</div>
@@ -1725,7 +1921,7 @@
         </div>
         <div class="spec-box" style="background:rgba(59, 130, 246, 0.1); border-color:var(--accent-color);">
           <div class="spec-title">Manager's Insight</div>
-          <p style="font-size:0.88rem;">Not all customers use equipment the same way. A heavy user who runs 200 hours/month on a 160-hour contract is generating overage revenue &mdash; but also wearing the machine faster. A light user who runs 30 hours/month on a 160-hour contract is paying for 130 unused hours &mdash; but may not renew if they realize the monthly rate is wrong for their usage. The Rental Manager should profile each account: heavy, medium, light, and seasonal.</p>
+          <p style="font-size:0.88rem;">Not all customers use equipment the same way. A heavy user who runs 200 hours/month on a 160-hour contract is generating overage revenue, but also wearing the machine faster. A light user who runs 30 hours/month on a 160-hour contract is paying for 130 unused hours, but may not renew if they realize the monthly rate is wrong for their usage. The Rental Manager should profile each account: heavy, medium, light, and seasonal.</p>
         </div>
         <div style="margin:12px 0; font-size:0.85rem; overflow-x:auto;">
           <table style="width:100%; border-collapse:collapse; font-size:0.8rem; text-align:left;">
@@ -1778,7 +1974,7 @@
 
       <div class="floor-rule">
         <div class="floor-rule-title">Floor Rule</div>
-        A machine that breaks down on the next customer's jobsite because you saw the telematics warning and didn't coordinate with the Service Manager is your failure &mdash; not the Service Manager's. The Rental Manager owns the commercial decision to hold or re-rent. The Service Manager owns the repair. Coordinate daily.
+        A machine that breaks down on the next customer's jobsite because you saw the telematics warning and didn't coordinate with the Service Manager is your failure, not the Service Manager's. The Rental Manager owns the commercial decision to hold or re-rent. The Service Manager owns the repair. Coordinate daily.
       </div>
 
       <div class="curr-section">
@@ -1798,7 +1994,7 @@
   <div id="c_m8" class="tab-content">
     <div class="card">
       <div class="curr-module-header">
-        <div class="curr-day-tag">Module 8 &mdash; Operating Cadence &amp; P&amp;L</div>
+        <div class="curr-day-tag">Module 8: Operating Cadence &amp; P&amp;L</div>
         <div class="curr-module-title">Module 8: Operating Cadence &amp; Rental P&amp;L Management</div>
       </div>
 
@@ -1809,7 +2005,7 @@
 
       <div class="floor-rule">
         <div class="floor-rule-title">Floor Rule</div>
-        The rental department is a business. If you can't produce a one-page P&amp;L with utilization, rate realization, EBITDA margin, and net contribution by class, you're not managing &mdash; you're reporting. The scorecard IS the job.
+        The rental department is a business. If you can't produce a one-page P&amp;L with utilization, rate realization, EBITDA margin, and net contribution by class, you're not managing, you're reporting. The scorecard IS the job.
       </div>
 
       <div class="curr-section">
@@ -1846,7 +2042,7 @@
         <p style="font-size:0.9rem; margin-top:8px; font-weight:700;">Standing Agenda:</p>
         <ol style="padding-left:20px; font-size:0.88rem; line-height:1.8;">
           <li><strong>Time Utilization by Class:</strong> Trailing 7-day utilization vs. 65&ndash;75% target.</li>
-          <li><strong>Dollar Utilization by Class:</strong> Trailing 30-day revenue &divide; OEC by class.</li>
+          <li><strong>Dollar Utilization by Class:</strong> Trailing 12-month rental revenue &divide; OEC by class.</li>
           <li><strong>Rate Realization:</strong> Actual invoiced rate vs. rack rate for the week. Flag any class below 90%.</li>
           <li><strong>Stock-Out &amp; Turned-Away Revenue:</strong> Count and dollar value of unfulfilled requests.</li>
           <li><strong>Damage Recovery Status:</strong> New damage events, invoiced, collected, aging.</li>
@@ -1870,12 +2066,12 @@
             <tbody>
               <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600;">Rental Revenue</td><td style="padding:8px;">Total rental revenue (trailing 30 days)</td><td style="padding:8px;">Growing &ge; 10% YoY</td><td style="padding:8px;">PASS/WARN/FAIL</td></tr>
               <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600;">Time Utilization</td><td style="padding:8px;">Days on rent &divide; available days</td><td style="padding:8px;">65%&ndash;75%</td><td style="padding:8px;">PASS/WARN/FAIL</td></tr>
-              <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600;">Dollar Utilization</td><td style="padding:8px;">Annual revenue &divide; total OEC</td><td style="padding:8px;">30%&ndash;50%+</td><td style="padding:8px;">PASS/WARN/FAIL</td></tr>
+              <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600;">Dollar Utilization</td><td style="padding:8px;">Annual rental revenue &divide; total OEC</td><td style="padding:8px;">55%&ndash;65% (heavy equipment)</td><td style="padding:8px;">PASS/WARN/FAIL</td></tr>
               <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600;">Revenue Per Unit (by class)</td><td style="padding:8px;">Class revenue &divide; unit count</td><td style="padding:8px;">Positive net contribution</td><td style="padding:8px;">PASS/WARN/FAIL</td></tr>
               <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600;">Rate Realization</td><td style="padding:8px;">Actual rate &divide; rack rate</td><td style="padding:8px;">&ge; 90%</td><td style="padding:8px;">PASS/WARN/FAIL</td></tr>
               <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600;">Damage Recovery Rate</td><td style="padding:8px;">Collected &divide; repair cost</td><td style="padding:8px;">&ge; 85%</td><td style="padding:8px;">PASS/WARN/FAIL</td></tr>
               <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600;">Equipment Downtime %</td><td style="padding:8px;">Down days &divide; available days</td><td style="padding:8px;">&lt; 8%</td><td style="padding:8px;">PASS/WARN/FAIL</td></tr>
-              <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600;">Maintenance Drag Ratio</td><td style="padding:8px;">Maint cost &divide; rental revenue</td><td style="padding:8px;">15%&ndash;25%</td><td style="padding:8px;">PASS/WARN/FAIL</td></tr>
+              <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600;">Maintenance Cost % of OEC</td><td style="padding:8px;">Maint cost (tech labor excluded) &divide; fleet OEC</td><td style="padding:8px;">&le; 8%</td><td style="padding:8px;">PASS/WARN/FAIL</td></tr>
               <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600;">EBITDA Margin</td><td style="padding:8px;">EBITDA &divide; rental revenue</td><td style="padding:8px;">&gt; 30%</td><td style="padding:8px;">PASS/WARN/FAIL</td></tr>
               <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600;">Personnel Expense %</td><td style="padding:8px;">Wages+benefits &divide; revenue</td><td style="padding:8px;">&lt; 35%</td><td style="padding:8px;">PASS/WARN/FAIL</td></tr>
               <tr><td style="padding:8px; font-weight:600;">Debt-to-Asset Ratio</td><td style="padding:8px;">Long-term debt &divide; total OEC</td><td style="padding:8px;">&lt; 30%</td><td style="padding:8px;">PASS/WARN/FAIL</td></tr>
@@ -1893,12 +2089,12 @@
           </div>
           <div class="spec-box" style="background:rgba(239, 68, 68, 0.08); border-left-color:var(--danger); margin:0;">
             <div class="spec-title" style="color:var(--danger);">What It Does NOT Measure</div>
-            <p style="font-size:0.88rem;">Individual KPI drivers like utilization or rate &mdash; those are upstream metrics. EBITDA, personnel, and growth are the outcomes that the upstream KPIs produce.</p>
+            <p style="font-size:0.88rem;">Individual KPI drivers like utilization or rate, those are upstream metrics. EBITDA, personnel, and growth are the outcomes that the upstream KPIs produce.</p>
           </div>
         </div>
         <div class="spec-box" style="background:rgba(59, 130, 246, 0.1); border-color:var(--accent-color);">
           <div class="spec-title">Manager's Insight</div>
-          <p style="font-size:0.88rem;">EBITDA is the number your business is valued at. A rental business with $2M in revenue and 35% EBITDA margin is worth $3.5M to $7M (5&ndash;10&times; EBITDA). A rental business with the same revenue and 15% EBITDA margin is worth $1.5M to $3M. The difference is $2M in enterprise value &mdash; driven entirely by margin discipline. EBITDA is improved by driving the upstream KPIs: higher utilization, higher rate realization, lower maintenance drag, lower downtime, better damage recovery. The Rental Manager doesn't manage EBITDA directly &mdash; they manage the inputs that produce it.</p>
+          <p style="font-size:0.88rem;">EBITDA is the number your business is valued at. A rental business with $2M in revenue and 35% EBITDA margin is worth $3.5M to $7M (5&ndash;10&times; EBITDA). A rental business with the same revenue and 15% EBITDA margin is worth $1.5M to $3M. The difference is $2M in enterprise value, driven entirely by margin discipline. EBITDA is improved by driving the upstream KPIs: higher utilization, higher rate realization, lower maintenance cost, lower downtime, better damage recovery. The Rental Manager doesn't manage EBITDA directly, they manage the inputs that produce it.</p>
         </div>
       </div>
 
@@ -1914,7 +2110,7 @@
           <li><strong>Step 3:</strong> Pull total wages + benefits + payroll taxes for the rental department. Divide by total rental revenue. <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></li>
           <li><strong>Step 4:</strong> Compare current period revenue to prior period revenue. Divide the difference by prior period revenue. <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></li>
         </ol>
-        <p style="margin-top:10px; font-size:0.88rem;"><strong>Worked Example:</strong> Annual Rental Revenue: $2,400,000. EBITDA: $720,000. EBITDA Margin = ($720,000 / $2,400,000) &times; 100 = <strong style="color:var(--warning);">30.0% (PASS &mdash; At target)</strong>. Personnel Wages + Benefits: $624,000. Personnel Expense = ($624,000 / $2,400,000) &times; 100 = <strong style="color:var(--success);">26.0% (PASS &mdash; Below 35% target)</strong>. Prior Year Revenue: $2,180,000. Revenue Growth = (($2,400,000 &minus; $2,180,000) / $2,180,000) &times; 100 = <strong style="color:var(--success);">10.1% (PASS &mdash; Above 10% target)</strong></p>
+        <p style="margin-top:10px; font-size:0.88rem;"><strong>Worked Example:</strong> Annual Rental Revenue: $2,400,000. EBITDA: $720,000. EBITDA Margin = ($720,000 / $2,400,000) &times; 100 = <strong style="color:var(--warning);">30.0% (PASS: At target)</strong>. Personnel Wages + Benefits: $624,000. Personnel Expense = ($624,000 / $2,400,000) &times; 100 = <strong style="color:var(--success);">26.0% (PASS: Below 35% target)</strong>. Prior Year Revenue: $2,180,000. Revenue Growth = (($2,400,000 &minus; $2,180,000) / $2,180,000) &times; 100 = <strong style="color:var(--success);">10.1% (PASS: Above 10% target)</strong></p>
         <div style="margin-top:8px; font-size:0.85rem;">
           <strong>HEDS Target Benchmarks:</strong>
           <ul style="padding-left:16px; margin-top:4px;">
@@ -1959,7 +2155,7 @@
     <button class="tab-btn" onclick="switchDashTab('dash_m7', this)">M7: Damage Recovery</button>
     <button class="tab-btn" onclick="switchDashTab('dash_m8', this)">M8: Equip-to-Orders</button>
     <button class="tab-btn" onclick="switchDashTab('dash_m9', this)">M9: Rental Leak</button>
-    <button class="tab-btn" onclick="switchDashTab('dash_m10', this)">M10: Maint Drag</button>
+    <button class="tab-btn" onclick="switchDashTab('dash_m10', this)">M10: Maint % of OEC</button>
     <button class="tab-btn" onclick="switchDashTab('dash_summary', this)">Exec Scorecard</button>
   </nav>
 
@@ -2020,7 +2216,7 @@
         <div class="card-title">Enter Your Branch Numbers: Dollar Utilization</div>
         <div class="form-group">
           <label for="dm2_revenue">Annual Rental Revenue ($)</label>
-          <input type="number" id="dm2_revenue" value="1850000" placeholder="Enter annual rental revenue $" oninput="calcMod2()">
+          <input type="number" id="dm2_revenue" value="2520000" placeholder="Enter annual rental revenue $" oninput="calcMod2()">
         </div>
         <div class="form-group">
           <label for="dm2_oec">Total Fleet OEC ($)</label>
@@ -2032,7 +2228,7 @@
           <div class="card-title">Dollar Utilization Diagnostic</div>
           <div class="metric-box">
             <div style="font-size:0.8rem; color:var(--muted); font-weight:700;">DOLLAR UTILIZATION %</div>
-            <div class="metric-val" id="dm2_res">44.0%</div>
+            <div class="metric-val" id="dm2_res">60.0%</div>
             <div id="dm2_status" class="metric-status status-pass">PASS</div>
           </div>
         </div>
@@ -2052,7 +2248,7 @@
   <!-- DASH M3: Revenue & Cost Per Class -->
   <div id="dash_m3" class="tab-content">
     <div class="card">
-      <div class="card-title">Revenue &amp; Cost Per Class &mdash; Net Contribution Model</div>
+      <div class="card-title">Revenue &amp; Cost Per Class: Net Contribution Model</div>
       <p style="color:var(--muted); font-size:0.9rem; margin-bottom:16px;">Enter each equipment class with its unit count, annual rental revenue, and annual ownership cost (maintenance + depreciation + insurance + interest). The table calculates Revenue/Unit, Cost/Unit, and Net Contribution/Unit per class.</p>
       <div style="overflow-x:auto;">
         <table class="class-table" id="class_table">
@@ -2080,11 +2276,11 @@
       <div class="card-title">Class Performance Summary</div>
       <div class="metric-box">
         <div style="font-size:0.8rem; color:var(--muted); font-weight:700;">FLEET AVG NET CONTRIBUTION / UNIT</div>
-        <div class="metric-val" id="dm3_avg" style="color:var(--accent-color);">$&mdash;</div>
+        <div class="metric-val" id="dm3_avg" style="color:var(--accent-color);">$--</div>
       </div>
       <div class="metric-box">
         <div style="font-size:0.8rem; color:var(--muted); font-weight:700;">CLASSES WITH NEGATIVE NET CONTRIBUTION</div>
-        <div class="metric-val" id="dm3_neg" style="font-size:1.5rem;">&mdash;</div>
+        <div class="metric-val" id="dm3_neg" style="font-size:1.5rem;">--</div>
       </div>
       <ul class="checklist" style="margin-top:16px;">
         <li><input type="checkbox" id="dm3_chk1"> Verified Rental Revenue by Class by Unit (trailing 12 months)</li>
@@ -2395,37 +2591,39 @@
     </div>
   </div>
 
-  <!-- DASH M10: Maintenance Drag -->
+  <!-- DASH M10: Maintenance Cost % of OEC -->
   <div id="dash_m10" class="tab-content">
     <div class="grid-2">
       <div class="card">
-        <div class="card-title">Enter Your Branch Numbers: Maintenance Drag Ratio</div>
+        <div class="card-title">Enter Your Branch Numbers: Maintenance Cost % of OEC</div>
         <div class="form-group">
-          <label for="dm10_maint_cost">Total Maintenance Cost ($)</label>
-          <input type="number" id="dm10_maint_cost" value="480000" placeholder="Enter total maintenance cost $" oninput="calcMod10()">
+          <label for="dm10_maint_cost">Total Annual Maintenance Cost, excluding tech labor ($)</label>
+          <input type="number" id="dm10_maint_cost" value="480000" placeholder="Enter maintenance cost $ (no tech labor)" oninput="calcMod10()">
         </div>
         <div class="form-group">
-          <label for="dm10_rental_revenue">Total Rental Revenue ($)</label>
-          <input type="number" id="dm10_rental_revenue" value="2400000" placeholder="Enter total rental revenue $" oninput="calcMod10()">
+          <label for="dm10_rental_revenue">Total Fleet OEC ($)</label>
+          <input type="number" id="dm10_rental_revenue" value="6400000" placeholder="Enter total fleet OEC $" oninput="calcMod10()">
         </div>
       </div>
       <div>
         <div class="card">
-          <div class="card-title">Maintenance Drag Diagnostic</div>
+          <div class="card-title">Maintenance Cost Diagnostic</div>
           <div class="metric-box">
-            <div style="font-size:0.8rem; color:var(--muted); font-weight:700;">MAINTENANCE DRAG RATIO %</div>
-            <div class="metric-val" id="dm10_res">20.0%</div>
+            <div style="font-size:0.8rem; color:var(--muted); font-weight:700;">MAINTENANCE COST % OF OEC</div>
+            <div class="metric-val" id="dm10_res">7.5%</div>
             <div id="dm10_status" class="metric-status status-pass">PASS</div>
           </div>
         </div>
         <div class="card">
           <div class="card-title">Required ERP Report Verification Checklist</div>
           <ul class="checklist">
-            <li><input type="checkbox" id="dm10_chk1"> Verified total maintenance cost (labor + parts + sublet)</li>
-            <li><input type="checkbox" id="dm10_chk2"> Verified total rental revenue (rental only, not parts/service)</li>
+            <li><input type="checkbox" id="dm10_chk1"> Verified total maintenance cost (parts + sublet, tech labor excluded)</li>
+            <li><input type="checkbox" id="dm10_chk2"> Verified total fleet OEC (original equipment cost of the rental fleet)</li>
             <li><input type="checkbox" id="dm10_chk3"> Confirmed maintenance cost excludes damage repairs (those are recovery)</li>
-            <li><input type="checkbox" id="dm10_chk4"> Benchmarked against 15%&ndash;25% target band</li>
+            <li><input type="checkbox" id="dm10_chk4"> Benchmarked against the 8% of OEC target</li>
           </ul>
+          <p style="font-size:0.85rem; margin-top:8px;">Accounting note: rental books technician labor as an operating expense, while dealers book labor as a revenue line, which is why United Rentals excludes tech labor from R&amp;M.</p>
+          <p style="font-size:0.85rem; margin-top:6px;">HEDS target: 8% of OEC (fleet cost) or less per year, tech labor excluded. It varies by type of fleet: a small fleet runs a lower percentage, a large fleet runs a higher percentage, and a mixed fleet lands somewhere in that range.</p>
         </div>
       </div>
     </div>
@@ -2448,75 +2646,75 @@
           <tbody>
             <tr style="border-bottom:1px solid var(--border-color);">
               <td style="padding:10px; font-weight:600;">Time Utilization</td>
-              <td style="padding:10px;" id="s_val_time">&mdash;</td>
+              <td style="padding:10px;" id="s_val_time">--</td>
               <td style="padding:10px;">65% &ndash; 75%</td>
-              <td style="padding:10px;" id="s_stat_time">&mdash;</td>
+              <td style="padding:10px;" id="s_stat_time">--</td>
             </tr>
             <tr style="border-bottom:1px solid var(--border-color);">
               <td style="padding:10px; font-weight:600;">Dollar Utilization</td>
-              <td style="padding:10px;" id="s_val_dollar">&mdash;</td>
-              <td style="padding:10px;">30% &ndash; 50%+</td>
-              <td style="padding:10px;" id="s_stat_dollar">&mdash;</td>
+              <td style="padding:10px;" id="s_val_dollar">--</td>
+              <td style="padding:10px;">55% &ndash; 65% (WARN 50&ndash;54.9%)</td>
+              <td style="padding:10px;" id="s_stat_dollar">--</td>
             </tr>
             <tr style="border-bottom:1px solid var(--border-color);">
               <td style="padding:10px; font-weight:600;">Revenue Per Unit (by class avg)</td>
-              <td style="padding:10px;" id="s_val_rpu">&mdash;</td>
+              <td style="padding:10px;" id="s_val_rpu">--</td>
               <td style="padding:10px;">Positive net contribution</td>
-              <td style="padding:10px;" id="s_stat_rpu">&mdash;</td>
+              <td style="padding:10px;" id="s_stat_rpu">--</td>
             </tr>
             <tr style="border-bottom:1px solid var(--border-color);">
               <td style="padding:10px; font-weight:600;">Productive Utilization</td>
-              <td style="padding:10px;" id="s_val_prod">&mdash;</td>
+              <td style="padding:10px;" id="s_val_prod">--</td>
               <td style="padding:10px;">&ge; 60%</td>
-              <td style="padding:10px;" id="s_stat_prod">&mdash;</td>
+              <td style="padding:10px;" id="s_stat_prod">--</td>
             </tr>
             <tr style="border-bottom:1px solid var(--border-color);">
               <td style="padding:10px; font-weight:600;">Equipment Downtime %</td>
-              <td style="padding:10px;" id="s_val_down">&mdash;</td>
+              <td style="padding:10px;" id="s_val_down">--</td>
               <td style="padding:10px;">&lt; 8%</td>
-              <td style="padding:10px;" id="s_stat_down">&mdash;</td>
+              <td style="padding:10px;" id="s_stat_down">--</td>
             </tr>
             <tr style="border-bottom:1px solid var(--border-color);">
               <td style="padding:10px; font-weight:600;">Rate Realization</td>
-              <td style="padding:10px;" id="s_val_rate">&mdash;</td>
+              <td style="padding:10px;" id="s_val_rate">--</td>
               <td style="padding:10px;">&ge; 90%</td>
-              <td style="padding:10px;" id="s_stat_rate">&mdash;</td>
+              <td style="padding:10px;" id="s_stat_rate">--</td>
             </tr>
             <tr style="border-bottom:1px solid var(--border-color);">
               <td style="padding:10px; font-weight:600;">Damage Recovery Rate</td>
-              <td style="padding:10px;" id="s_val_dmg">&mdash;</td>
+              <td style="padding:10px;" id="s_val_dmg">--</td>
               <td style="padding:10px;">&ge; 85%</td>
-              <td style="padding:10px;" id="s_stat_dmg">&mdash;</td>
+              <td style="padding:10px;" id="s_stat_dmg">--</td>
             </tr>
             <tr style="border-bottom:1px solid var(--border-color);">
               <td style="padding:10px; font-weight:600;">Equipment-to-Orders Ratio</td>
-              <td style="padding:10px;" id="s_val_eo">&mdash;</td>
+              <td style="padding:10px;" id="s_val_eo">--</td>
               <td style="padding:10px;">0.9 &ndash; 1.2</td>
-              <td style="padding:10px;" id="s_stat_eo">&mdash;</td>
+              <td style="padding:10px;" id="s_stat_eo">--</td>
             </tr>
             <tr style="border-bottom:1px solid var(--border-color);">
               <td style="padding:10px; font-weight:600;">Rental Leak Diagnostic</td>
-              <td style="padding:10px;" id="s_val_leak">&mdash;</td>
+              <td style="padding:10px;" id="s_val_leak">--</td>
               <td style="padding:10px;">$0 / mo</td>
-              <td style="padding:10px;" id="s_stat_leak">&mdash;</td>
+              <td style="padding:10px;" id="s_stat_leak">--</td>
             </tr>
             <tr style="border-bottom:1px solid var(--border-color);">
-              <td style="padding:10px; font-weight:600;">Maintenance Drag Ratio</td>
-              <td style="padding:10px;" id="s_val_maint">&mdash;</td>
-              <td style="padding:10px;">15% &ndash; 25%</td>
-              <td style="padding:10px;" id="s_stat_maint">&mdash;</td>
+              <td style="padding:10px; font-weight:600;">Maintenance Cost % of OEC</td>
+              <td style="padding:10px;" id="s_val_maint">--</td>
+              <td style="padding:10px;">&le; 8% (WARN 8.1&ndash;10%)</td>
+              <td style="padding:10px;" id="s_stat_maint">--</td>
             </tr>
             <tr style="border-bottom:1px solid var(--border-color);">
               <td style="padding:10px; font-weight:600;">EBITDA Margin</td>
-              <td style="padding:10px;" id="s_val_ebitda">&mdash;</td>
+              <td style="padding:10px;" id="s_val_ebitda">--</td>
               <td style="padding:10px;">&gt; 30%</td>
-              <td style="padding:10px;" id="s_stat_ebitda">&mdash;</td>
+              <td style="padding:10px;" id="s_stat_ebitda">--</td>
             </tr>
             <tr>
               <td style="padding:10px; font-weight:600;">Customer Churn Score (quarterly)</td>
-              <td style="padding:10px;" id="s_val_churn">&mdash;</td>
+              <td style="padding:10px;" id="s_val_churn">--</td>
               <td style="padding:10px;">&lt; 10%</td>
-              <td style="padding:10px;" id="s_stat_churn">&mdash;</td>
+              <td style="padding:10px;" id="s_stat_churn">--</td>
             </tr>
           </tbody>
         </table>
@@ -2563,7 +2761,7 @@
     <!-- Phase 1: 30-Day -->
     <div style="margin-bottom:28px;">
       <div class="curr-module-header" style="margin-bottom:12px;">
-        <div class="curr-day-tag">Phase 1 &mdash; 30-Day Gate</div>
+        <div class="curr-day-tag">Phase 1: 30-Day Gate</div>
         <div class="curr-module-title">30-Day Evaluation: Baseline, Rate Audit &amp; Turned-Away Tracking</div>
       </div>
       <div class="form-group">
@@ -2595,7 +2793,7 @@
     <!-- Phase 2: 60-Day -->
     <div style="margin-bottom:28px;">
       <div class="curr-module-header" style="margin-bottom:12px;">
-        <div class="curr-day-tag">Phase 2 &mdash; 60-Day Gate</div>
+        <div class="curr-day-tag">Phase 2: 60-Day Gate</div>
         <div class="curr-module-title">60-Day Evaluation: Financial Alignment &amp; Recovery Discipline</div>
       </div>
       <div class="form-group">
@@ -2627,7 +2825,7 @@
     <!-- Phase 3: 90-Day -->
     <div style="margin-bottom:28px;">
       <div class="curr-module-header" style="margin-bottom:12px;">
-        <div class="curr-day-tag">Phase 3 &mdash; 90-Day Gate</div>
+        <div class="curr-day-tag">Phase 3: 90-Day Gate</div>
         <div class="curr-module-title">90-Day Evaluation: P&amp;L, Disposition &amp; Executive Scorecard</div>
       </div>
       <div class="form-group">
@@ -2648,7 +2846,7 @@
           <li><input type="checkbox" id="g3_chk4" onchange="saveGateCheckboxes()"> <strong>Debt-to-Asset Ratio Reviewed:</strong> Long-term fleet debt &divide; total OEC benchmarked against &lt; 30% target.</li>
           <li><input type="checkbox" id="g3_chk5" onchange="saveGateCheckboxes()"> <strong>5% At-Risk Fleet Disposition Package:</strong> Bottom 5% of units by net contribution audited. Repair-vs-sell recommendations prepared for GM.</li>
           <li><input type="checkbox" id="g3_chk6" onchange="saveGateCheckboxes()"> <strong>Fleet Mix Recommendations Finalized:</strong> Acquisition and disposition plan by class presented to GM and Regional Director.</li>
-          <li><input type="checkbox" id="g3_chk7" onchange="saveGateCheckboxes()"> <strong>Maintenance Drag Ratio Audited:</strong> Total maintenance cost &divide; rental revenue benchmarked against 15%&ndash;25% target band.</li>
+          <li><input type="checkbox" id="g3_chk7" onchange="saveGateCheckboxes()"> <strong>Maintenance Cost % of OEC Audited:</strong> Total maintenance cost (tech labor excluded) &divide; fleet OEC benchmarked against the 8% of OEC target.</li>
           <li><input type="checkbox" id="g3_chk8" onchange="saveGateCheckboxes()"> <strong>Collection Rate Audited:</strong> Trailing 90-day collection rate benchmarked against &ge; 95% target. Past-due &gt; 90 days &lt; 2%.</li>
           <li><input type="checkbox" id="g3_chk9" onchange="saveGateCheckboxes()"> <strong>Executive Scorecard Presentation:</strong> Rental Manager presents full 90-day scorecard (all 11 metrics with PASS/WARN/FAIL) to Branch GM and Regional Fleet Director.</li>
           <li><input type="checkbox" id="g3_chk10" onchange="saveGateCheckboxes()"> <strong>90-Day Rental Manager Action Plan Submitted:</strong> Baseline scorecard, top 3 revenue leaks, fleet disposition package, and accountability contract delivered.</li>
@@ -2665,7 +2863,7 @@
 
   <!-- Sign-in Screen -->
   <div id="test_signin" class="card">
-    <div class="card-title">Assessment Test &mdash; Rental Manager Certification</div>
+    <div class="card-title">Assessment Test: Rental Manager Certification</div>
     <p style="color:var(--muted); margin-bottom:20px;">This assessment tests your knowledge of the Rental Manager curriculum. You have 90 minutes. Enter the access code provided by your facilitator to begin.</p>
     <div class="form-group">
       <label for="test_access_code">Access Code</label>
@@ -2712,17 +2910,19 @@
   <div id="test_results" style="display:none;">
     <div class="card">
       <div class="card-title">Assessment Results</div>
+      <div id="result_pass_status" style="font-weight:700; margin-bottom:8px;"></div>
+      <div id="result_relay_status" style="font-size:0.9rem; color:var(--muted); margin-bottom:20px;"></div>
       <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px; margin-bottom:24px;">
         <div>
           <div style="font-size:0.85rem; color:var(--muted); text-transform:uppercase; letter-spacing:1px;">Score</div>
-          <div style="font-size:2.5rem; font-weight:800; color:var(--accent-color);" id="result_score">&mdash; / 50</div>
-          <div style="font-size:1.5rem; font-weight:700;" id="result_pct">&mdash;%</div>
+          <div style="font-size:2.5rem; font-weight:800; color:var(--accent-color);" id="result_score">-- / 50</div>
+          <div style="font-size:1.5rem; font-weight:700;" id="result_pct">--%</div>
         </div>
         <div>
           <div style="font-size:0.85rem; color:var(--muted); text-transform:uppercase; letter-spacing:1px;">Completed By</div>
-          <div style="font-size:1.1rem; font-weight:600;" id="result_name">&mdash;</div>
-          <div style="color:var(--muted);" id="result_dealership">&mdash;</div>
-          <div style="color:var(--muted);" id="result_date">&mdash;</div>
+          <div style="font-size:1.1rem; font-weight:600;" id="result_name">--</div>
+          <div style="color:var(--muted);" id="result_dealership">--</div>
+          <div style="color:var(--muted);" id="result_date">--</div>
         </div>
       </div>
 
@@ -2738,7 +2938,7 @@
 
       <div style="display:flex; gap:12px; flex-wrap:wrap;">
         <button class="btn" onclick="printResults()">Print Results</button>
-        <button class="btn btn-outline" onclick="printCertificateRM()">Print Certificate</button>
+        <button class="btn btn-outline" id="btn_cert" style="display:none;" onclick="printCertificateRM()">Print Certificate</button>
         <button class="btn btn-outline" onclick="retakeTest()">Retake Assessment</button>
       </div>
     </div>
@@ -2750,15 +2950,18 @@
     var ASSESSMENT_RELAY_URL = 'https://script.google.com/macros/s/AKfycbymws_e31nyHrB6ge_U9NnVIdRFy-zNXKfGsVbWpm6OYz9_6lkpGL2RpFJebhxowwXn/exec';
   var TRACK_NAME = 'Rental Manager Training';
 function printCertificateRM() {
+  var r = hedsCertificateRecord();
+  if (!r) return;
   var cert = document.getElementById('cert_overlay');
-  if (cert) { cert.style.display = 'flex'; return; }
-  var name = document.getElementById('result_name') ? document.getElementById('result_name').innerText : '';
-  var score = document.getElementById('result_score') ? document.getElementById('result_score').innerText : '';
-  var pct = document.getElementById('result_pct') ? document.getElementById('result_pct').innerText : '';
+  if (cert) cert.parentNode.removeChild(cert);
+  var name = hedsEscape(r.candidateName);
+  var score = hedsEscape(r.correct + ' / ' + r.total);
+  var pct = hedsEscape(r.scorePct + '%');
+  var certDate = hedsEscape(r.timestamp);
   cert = document.createElement('div');
   cert.id = 'cert_overlay';
   cert.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.8);z-index:9999;display:flex;align-items:center;justify-content:center;';
-  cert.innerHTML = '<div style="background:#0e1f38;border:2px solid #e5ae25;border-radius:12px;padding:48px 40px;max-width:680px;width:90%;text-align:center;font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,sans-serif;color:#f8fafc;position:relative;"><div style="font-size:0.7rem;color:#94a3b8;text-transform:uppercase;letter-spacing:2px;margin-bottom:6px;">Heavy Equipment Dealer Solutions LLC</div><div style="font-size:1.8rem;font-weight:800;color:#e5ae25;margin-bottom:4px;">Certificate of Completion</div><div style="font-size:0.85rem;color:#94a3b8;margin-bottom:32px;">HEDS Operating Discipline Academy</div><div style="font-size:0.75rem;color:#94a3b8;margin-bottom:4px;">This certifies that</div><div style="font-size:1.6rem;font-weight:700;color:#f8fafc;margin-bottom:24px;border-bottom:1px solid #203b60;padding-bottom:12px;">' + (name || 'Participant') + '</div><div style="font-size:0.85rem;color:#94a3b8;margin-bottom:6px;">has completed the</div><div style="font-size:1.1rem;font-weight:600;color:#e5ae25;margin-bottom:24px;">Rental Manager Training Program</div><div style="font-size:0.8rem;color:#94a3b8;margin-bottom:20px;">8 Modules &middot; 50-Question Assessment &middot; 90-Day Action Plan</div>' + (score ? '<div style="font-size:0.8rem;color:#94a3b8;margin-bottom:24px;">Assessment Score: <strong style="color:#e5ae25;">' + score + ' (' + pct + ')</strong></div>' : '') + '<div style="display:flex;justify-content:space-between;align-items:center;margin-top:32px;border-top:1px solid #203b60;padding-top:20px;"><div style="text-align:left;"><div style="font-size:0.7rem;color:#94a3b8;">Date</div><div style="font-size:0.9rem;color:#f8fafc;">' + new Date().toLocaleDateString() + '</div></div><div style="text-align:right;"><div style="font-size:0.7rem;color:#94a3b8;">HEDS Academy</div><div style="font-size:0.9rem;color:#e5ae25;font-weight:600;">Daniel Looper</div></div></div><div style="margin-top:28px;display:flex;gap:12px;justify-content:center;"><button onclick="window.print()" style="background:#e5ae25;color:#0e1f38;border:none;padding:10px 24px;border-radius:6px;font-weight:700;cursor:pointer;font-size:0.85rem;">Print Certificate</button><button onclick="document.getElementById(\'cert_overlay\').style.display=\'none\'" style="background:transparent;color:#94a3b8;border:1px solid #203b60;padding:10px 24px;border-radius:6px;cursor:pointer;font-size:0.85rem;">Close</button></div></div>';
+  cert.innerHTML = '<div style="background:#0e1f38;border:2px solid #e5ae25;border-radius:12px;padding:48px 40px;max-width:680px;width:90%;text-align:center;font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,sans-serif;color:#f8fafc;position:relative;"><div style="font-size:0.7rem;color:#94a3b8;text-transform:uppercase;letter-spacing:2px;margin-bottom:6px;">Heavy Equipment Dealer Solutions LLC</div><div style="font-size:1.8rem;font-weight:800;color:#e5ae25;margin-bottom:4px;">Certificate of Completion</div><div style="font-size:0.85rem;color:#94a3b8;margin-bottom:32px;">HEDS Operating Discipline Academy</div><div style="font-size:0.75rem;color:#94a3b8;margin-bottom:4px;">This certifies that</div><div style="font-size:1.6rem;font-weight:700;color:#f8fafc;margin-bottom:24px;border-bottom:1px solid #203b60;padding-bottom:12px;">' + (name || 'Participant') + '</div><div style="font-size:0.85rem;color:#94a3b8;margin-bottom:6px;">has completed the</div><div style="font-size:1.1rem;font-weight:600;color:#e5ae25;margin-bottom:24px;">Rental Manager Training Program</div><div style="font-size:0.8rem;color:#94a3b8;margin-bottom:20px;">8 Modules &middot; 50-Question Assessment &middot; 90-Day Action Plan</div>' + (score ? '<div style="font-size:0.8rem;color:#94a3b8;margin-bottom:24px;">Assessment Score: <strong style="color:#e5ae25;">' + score + ' (' + pct + ')</strong></div>' : '') + '<div style="display:flex;justify-content:space-between;align-items:center;margin-top:32px;border-top:1px solid #203b60;padding-top:20px;"><div style="text-align:left;"><div style="font-size:0.7rem;color:#94a3b8;">Date</div><div style="font-size:0.9rem;color:#f8fafc;">' + certDate + '</div></div><div style="text-align:right;"><div style="font-size:0.7rem;color:#94a3b8;">HEDS Academy</div><div style="font-size:0.9rem;color:#e5ae25;font-weight:600;">Daniel Looper</div></div></div><div style="margin-top:28px;display:flex;gap:12px;justify-content:center;"><button onclick="window.print()" style="background:#e5ae25;color:#0e1f38;border:none;padding:10px 24px;border-radius:6px;font-weight:700;cursor:pointer;font-size:0.85rem;">Print Certificate</button><button onclick="document.getElementById(\'cert_overlay\').style.display=\'none\'" style="background:transparent;color:#94a3b8;border:1px solid #203b60;padding:10px 24px;border-radius:6px;cursor:pointer;font-size:0.85rem;">Close</button></div></div>';
   document.body.appendChild(cert);
 }
 
@@ -2851,17 +3054,18 @@ function switchMainSection(secId, btnEl) {
     var revenue = parseFloat(document.getElementById('dm2_revenue') ? document.getElementById('dm2_revenue').value : 0) || 0;
     var oec = parseFloat(document.getElementById('dm2_oec') ? document.getElementById('dm2_oec').value : 0) || 0;
     if (oec > 0) {
-      var pct = (revenue / oec) * 100;
+      var pct = parseFloat(((revenue / oec) * 100).toFixed(1)); // grade on the displayed (1-decimal) value
       document.getElementById('dm2_res').innerText = pct.toFixed(1) + '%';
       document.getElementById('s_val_dollar').innerText = pct.toFixed(1) + '%';
-      if (pct >= 30) { setStatus('dm2_status', 'PASS', 'status-pass'); setScoreStatus('s_stat_dollar', '<span class="metric-status status-pass">PASS</span>', '', '', 'pass'); }
-      else if (pct >= 20) { setStatus('dm2_status', 'WARN', 'status-warn'); setScoreStatus('s_stat_dollar', '', '<span class="metric-status status-warn">WARN</span>', '', 'warn'); }
-      else { setStatus('dm2_status', 'FAIL', 'status-fail'); setScoreStatus('s_stat_dollar', '', '', '<span class="metric-status status-fail">FAIL</span>', 'fail'); }
+      if (pct > 65) { setStatus('dm2_status', 'PASS: OVER 65%, CHECK FLEET SHORTAGE / PRICING', 'status-pass'); setScoreStatus('s_stat_dollar', '<span class="metric-status status-pass">PASS</span>', '', '', 'pass'); }
+      else if (pct >= 55) { setStatus('dm2_status', 'PASS', 'status-pass'); setScoreStatus('s_stat_dollar', '<span class="metric-status status-pass">PASS</span>', '', '', 'pass'); }
+      else if (pct >= 50) { setStatus('dm2_status', 'WARN: BELOW 55%', 'status-warn'); setScoreStatus('s_stat_dollar', '', '<span class="metric-status status-warn">WARN</span>', '', 'warn'); }
+      else { setStatus('dm2_status', 'FAIL: BELOW 50%', 'status-fail'); setScoreStatus('s_stat_dollar', '', '', '<span class="metric-status status-fail">FAIL</span>', 'fail'); }
     }
     saveData();
   }
 
-  // M3: Revenue & Cost Per Class — dynamic table
+  // M3: Revenue & Cost Per Class, dynamic table
   var classRows = [
     {name: '20T Excavator', units: 8, revenue: 1360000, cost: 384000},
     {name: 'Skid Steer', units: 15, revenue: 297000, cost: 330000},
@@ -3133,12 +3337,12 @@ function switchMainSection(secId, btnEl) {
     var maintCost = parseFloat(document.getElementById('dm10_maint_cost') ? document.getElementById('dm10_maint_cost').value : 0) || 0;
     var rentalRev = parseFloat(document.getElementById('dm10_rental_revenue') ? document.getElementById('dm10_rental_revenue').value : 0) || 0;
     if (rentalRev > 0) {
-      var pct = (maintCost / rentalRev) * 100;
+      var pct = parseFloat(((maintCost / rentalRev) * 100).toFixed(1)); // dm10_rental_revenue now holds fleet OEC; grade the shown value
       document.getElementById('dm10_res').innerText = pct.toFixed(1) + '%';
       document.getElementById('s_val_maint').innerText = pct.toFixed(1) + '%';
-      if (pct >= 15 && pct <= 25) { setStatus('dm10_status', 'PASS', 'status-pass'); setScoreStatus('s_stat_maint', '<span class="metric-status status-pass">PASS</span>', '', '', 'pass'); }
-      else if ((pct > 25 && pct <= 35) || (pct >= 8 && pct < 15)) { setStatus('dm10_status', 'WARN', 'status-warn'); setScoreStatus('s_stat_maint', '', '<span class="metric-status status-warn">WARN</span>', '', 'warn'); }
-      else { setStatus('dm10_status', 'FAIL', 'status-fail'); setScoreStatus('s_stat_maint', '', '', '<span class="metric-status status-fail">FAIL</span>', 'fail'); }
+      if (pct <= 8) { setStatus('dm10_status', 'PASS', 'status-pass'); setScoreStatus('s_stat_maint', '<span class="metric-status status-pass">PASS</span>', '', '', 'pass'); }
+      else if (pct <= 10) { setStatus('dm10_status', 'WARN: OVER 8%', 'status-warn'); setScoreStatus('s_stat_maint', '', '<span class="metric-status status-warn">WARN</span>', '', 'warn'); }
+      else { setStatus('dm10_status', 'FAIL: OVER 10%', 'status-fail'); setScoreStatus('s_stat_maint', '', '', '<span class="metric-status status-fail">FAIL</span>', 'fail'); }
     }
     saveData();
   }
@@ -3361,12 +3565,12 @@ function switchMainSection(secId, btnEl) {
     "question": "In an equipment rental operation, what is the primary role of the Rental Manager?",
     "options": [
       "To dispatch machines out and track their return",
-      "To own the rental department P&L — revenue, utilization, rate, cost, and contribution",
       "To manage the shop floor and technician assignments",
-      "To order parts and manage the parts room inventory"
+      "To order parts and manage the parts room inventory",
+      "To own the rental department P&L, revenue, utilization, rate, cost, and contribution"
     ]
   ,
-    "correct": 1
+    "correct": 3
 },
   {
     "id": "q02",
@@ -3375,13 +3579,13 @@ function switchMainSection(secId, btnEl) {
     "type": "calc",
     "question": "A rental branch turned away 18 requests in the trailing 90 days (6 per month average). The average daily rate for the requested class is $475/day, and customers requested an average of 7 days each. What is the monthly turned-away revenue?",
     "options": [
-      "$19,950/mo",
       "$8,550/mo",
       "$59,850/mo",
+      "$19,950/mo",
       "$6,650/mo"
     ]
   ,
-    "correct": 1
+    "correct": 2
 },
   {
     "id": "q03",
@@ -3390,9 +3594,9 @@ function switchMainSection(secId, btnEl) {
     "type": "mc",
     "question": "Dollar utilization (the ratio of annual rental revenue to total original equipment cost) measures which of the following?",
     "options": [
+      "Whether the machine was worth owning, the financial return on fleet capital",
       "Whether the machine was physically running on a jobsite",
       "How many hours the machine accumulated this month",
-      "Whether the machine was worth owning — the financial return on fleet capital",
       "Whether the technician completed the PM on time"
     ]
   ,
@@ -3403,15 +3607,15 @@ function switchMainSection(secId, btnEl) {
     "module": "Module 1: Commercial Mindset",
     "module_id": "c_m1",
     "type": "scenario",
-    "question": "Your branch has $1,850,000 in annual rental revenue against $4,200,000 in total fleet OEC. Your top class (excavators) is at 70% dollar utilization, and your bottom class (boom lifts) is at 19.8%. What is the standard practice action for the boom lift class?",
+    "question": "Your branch has $2,520,000 in annual rental revenue against $4,200,000 in total fleet OEC (60.0% dollar utilization). Your top class (excavators) is at 70% dollar utilization, and your bottom class (boom lifts) is at 19.8%. What is the standard practice action for the boom lift class?",
     "options": [
-      "Buy more boom lifts — the market will recover",
-      "Maintain the current boom lift count and hope for better demand",
       "Sell the underperforming boom lifts and reinvest the capital in the excavator class",
+      "Buy more boom lifts, the market will recover",
+      "Maintain the current boom lift count and hope for better demand",
       "Lower the boom lift rate to increase time utilization"
     ]
   ,
-    "correct": 2
+    "correct": 0
 },
   {
     "id": "q05",
@@ -3421,12 +3625,12 @@ function switchMainSection(secId, btnEl) {
     "question": "Which of the following best describes the boundary between the Rental Manager and the Rental Service Manager?",
     "options": [
       "The Rental Manager owns shop bay throughput; the Service Manager owns revenue",
+      "The Rental Manager owns technician utilization; the Service Manager owns rate realization",
       "The Rental Manager owns the commercial P&L; the Service Manager owns operational readiness",
-      "The Rental Manager owns technician productivity; the Service Manager owns rate realization",
       "Both managers own the same metrics"
     ]
   ,
-    "correct": 1
+    "correct": 2
 },
   {
     "id": "q06",
@@ -3435,10 +3639,10 @@ function switchMainSection(secId, btnEl) {
     "type": "scenario",
     "question": "A customer calls for a machine you own, but it's sitting in the yard uninspected. You turn the customer away. Under standard practice, how should this event be handled?",
     "options": [
-      "It's a service problem — the shop should have had it ready",
-      "It's a revenue problem you own — log it as a turned-away event with estimated lost revenue",
-      "It's a parts problem — the parts room didn't have the filters",
-      "It's unavoidable — no action needed"
+      "It's a service problem, the shop should have had it ready",
+      "It's a revenue problem you own, log it as a turned-away event with estimated lost revenue",
+      "It's a parts problem, the parts room didn't have the filters",
+      "It's unavoidable, no action needed"
     ]
   ,
     "correct": 1
@@ -3451,12 +3655,12 @@ function switchMainSection(secId, btnEl) {
     "question": "A class of 12 excavators has 4,260 net available days (12 × 365 − 120 overhaul days). The units were on rent for 2,980 days. What is the time utilization percentage?",
     "options": [
       "65.0%",
-      "70.0%",
       "75.0%",
-      "80.0%"
+      "80.0%",
+      "70.0%"
     ]
   ,
-    "correct": 0
+    "correct": 3
 },
   {
     "id": "q08",
@@ -3471,7 +3675,7 @@ function switchMainSection(secId, btnEl) {
       "85% to 95%"
     ]
   ,
-    "correct": 0
+    "correct": 2
 },
   {
     "id": "q09",
@@ -3480,8 +3684,8 @@ function switchMainSection(secId, btnEl) {
     "type": "mc",
     "question": "What does productive utilization (telematics engine hours divided by contracted hours) measure that time utilization does not?",
     "options": [
-      "Whether the machine was on rent",
       "Whether the customer was actually running the machine on the jobsite",
+      "Whether the machine was on rent",
       "Whether the rate was profitable",
       "Whether the maintenance was up to date"
     ]
@@ -3510,9 +3714,9 @@ function switchMainSection(secId, btnEl) {
     "type": "scenario",
     "question": "Your light tower class has 8 units and only 1,200 days on rent out of 2,920 available days (41.1% time utilization). Under standard practice, what is the correct action?",
     "options": [
-      "Buy more light towers — the class is under-supplied",
-      "Maintain the current count — 41% is acceptable",
-      "Sell underperforming light towers — the class is over-supplied for your market",
+      "Buy more light towers, the class is under-supplied",
+      "Sell underperforming light towers, the class is over-supplied for your market",
+      "Maintain the current count: 41% is acceptable",
       "Lower the rental rate to boost utilization"
     ]
   ,
@@ -3525,10 +3729,10 @@ function switchMainSection(secId, btnEl) {
     "type": "scenario",
     "question": "A skid steer generates $19,800/year in revenue but costs $22,000/year in maintenance, depreciation, and insurance. What is the net contribution per unit, and what does it mean?",
     "options": [
-      "+$2,200 — profitable, keep the class",
-      "−$2,200 — the class is losing money and is a disposition candidate",
-      "$0 — breakeven, monitor",
-      "+$19,800 — highly profitable"
+      "+$2,200: profitable, keep the class",
+      "−$2,200: the class is losing money and is a disposition candidate",
+      "$0: breakeven, monitor",
+      "+$19,800: highly profitable"
     ]
   ,
     "correct": 1
@@ -3540,8 +3744,8 @@ function switchMainSection(secId, btnEl) {
     "type": "calc",
     "question": "Your fleet has 150 total units. 105 are on rent, 10 are in the shop, and 35 are sitting idle in the yard. What is the idle fleet percentage?",
     "options": [
-      "23.3%",
       "15.0%",
+      "23.3%",
       "30.0%",
       "35.0%"
     ]
@@ -3555,13 +3759,13 @@ function switchMainSection(secId, btnEl) {
     "type": "mc",
     "question": "What is the target idle fleet percentage under standard practice?",
     "options": [
-      "< 10%",
       "< 25%",
+      "< 10%",
       "< 35%",
       "< 50%"
     ]
   ,
-    "correct": 1
+    "correct": 0
 },
   {
     "id": "q15",
@@ -3576,7 +3780,7 @@ function switchMainSection(secId, btnEl) {
       "129.4%"
     ]
   ,
-    "correct": 1
+    "correct": 0
 },
   {
     "id": "q16",
@@ -3585,13 +3789,13 @@ function switchMainSection(secId, btnEl) {
     "type": "mc",
     "question": "What is the target rate realization percentage under standard practice?",
     "options": [
+      ">= 90%",
       ">= 70%",
       ">= 80%",
-      ">= 90%",
       ">= 95%"
     ]
   ,
-    "correct": 1
+    "correct": 0
 },
   {
     "id": "q17",
@@ -3602,11 +3806,11 @@ function switchMainSection(secId, btnEl) {
     "options": [
       "$58,400",
       "$73,000",
-      "$146,000",
-      "$19,400"
+      "$19,400",
+      "$146,000"
     ]
   ,
-    "correct": 1
+    "correct": 3
 },
   {
     "id": "q18",
@@ -3616,12 +3820,12 @@ function switchMainSection(secId, btnEl) {
     "question": "What is the standard practice for rental rate structure tiers (daily, weekly, monthly)?",
     "options": [
       "Weekly = 2× daily, Monthly = 5× daily",
-      "Weekly = 3.5× daily, Monthly = 10× daily",
       "Weekly = 5× daily, Monthly = 20× daily",
-      "All rates are the same regardless of duration"
+      "All rates are the same regardless of duration",
+      "Weekly = 3.5× daily, Monthly = 10× daily"
     ]
   ,
-    "correct": 0
+    "correct": 3
 },
   {
     "id": "q19",
@@ -3630,13 +3834,13 @@ function switchMainSection(secId, btnEl) {
     "type": "scenario",
     "question": "Your rate realization on telehandlers has dropped to 82% for two consecutive months. Under standard practice, what is the correct escalation action?",
     "options": [
-      "Nothing — 82% is acceptable",
-      "Mandatory rate audit and discount freeze on the telehandler class",
+      "Nothing: 82% is acceptable",
       "Buy more telehandlers to increase market share",
+      "Mandatory rate audit and discount freeze on the telehandler class",
       "Lower the rack rate to match the actual rate"
     ]
   ,
-    "correct": 0
+    "correct": 2
 },
   {
     "id": "q20",
@@ -3645,9 +3849,9 @@ function switchMainSection(secId, btnEl) {
     "type": "scenario",
     "question": "A salesperson gives a loyal customer 15% off the rack rate without approval. Under standard practice, what should happen?",
     "options": [
-      "Nothing — loyal customers deserve discounts",
+      "Nothing, loyal customers deserve discounts",
+      "The discount must be visible, tracked, and approved by the Rental Manager, discounts > 5% require manager sign-off",
       "The discount is fine as long as the customer is happy",
-      "The discount must be visible, tracked, and approved by the Rental Manager — discounts > 5% require manager sign-off",
       "The salesperson should be fired"
     ]
   ,
@@ -3666,7 +3870,7 @@ function switchMainSection(secId, btnEl) {
       "90+ days"
     ]
   ,
-    "correct": 0
+    "correct": 1
 },
   {
     "id": "q22",
@@ -3675,13 +3879,13 @@ function switchMainSection(secId, btnEl) {
     "type": "calc",
     "question": "An excavator class has $1,360,000 in annual rental revenue against $1,920,000 in total OEC. What is the OEC ROI for this class?",
     "options": [
-      "42.0%",
       "70.8%",
+      "42.0%",
       "55.0%",
       "141.2%"
     ]
   ,
-    "correct": 1
+    "correct": 0
 },
   {
     "id": "q23",
@@ -3691,12 +3895,12 @@ function switchMainSection(secId, btnEl) {
     "question": "What is the target debt-to-asset ratio for a rental fleet under standard practice?",
     "options": [
       "< 20%",
-      "< 30%",
       "< 45%",
-      "< 60%"
+      "< 60%",
+      "< 30%"
     ]
   ,
-    "correct": 0
+    "correct": 3
 },
   {
     "id": "q24",
@@ -3711,7 +3915,7 @@ function switchMainSection(secId, btnEl) {
       "45.0%"
     ]
   ,
-    "correct": 1
+    "correct": 2
 },
   {
     "id": "q25",
@@ -3720,13 +3924,13 @@ function switchMainSection(secId, btnEl) {
     "type": "scenario",
     "question": "A boom lift has $95,000 OEC, $112,000 in lifetime rental revenue (118% lifetime ROI), and negative annual net contribution of −$4,200. The next major repair costs $18,000. Under standard practice, what is the disposition decision?",
     "options": [
-      "Invest $18,000 in the repair — the machine still has life",
-      "Dispose — the machine has earned its OEC back and is losing money annually; do not invest $18k",
-      "Keep and monitor — the lifetime ROI is good",
-      "Buy a new boom lift to replace it"
+      "Invest $18,000 in the repair, the machine still has life",
+      "Keep and monitor, the lifetime ROI is good",
+      "Buy a new boom lift to replace it",
+      "Dispose, the machine has earned its OEC back and is losing money annually; do not invest $18k"
     ]
   ,
-    "correct": 1
+    "correct": 3
 },
   {
     "id": "q26",
@@ -3736,12 +3940,12 @@ function switchMainSection(secId, btnEl) {
     "question": "When should a fleet class with negative net contribution be put on a disposition review?",
     "options": [
       "After one month of negative contribution",
-      "After two consecutive quarters of negative contribution",
       "After one year of negative contribution",
-      "Never — all classes should be maintained"
+      "Never, all classes should be maintained",
+      "After two consecutive quarters of negative contribution"
     ]
   ,
-    "correct": 0
+    "correct": 3
 },
   {
     "id": "q27",
@@ -3751,12 +3955,12 @@ function switchMainSection(secId, btnEl) {
     "question": "OEC ROI for excavators is 70.8%, and for skid steers it's 44.0%. Your GM asks if you should buy 3 more excavators. Under standard practice, what is the correct basis for the decision?",
     "options": [
       "Buy based on gut feel and customer requests",
-      "Buy based on OEC ROI — excavators are returning 70.8% vs. 44% for skid steers, so allocate capital to the higher-return class",
-      "Don't buy — all capital should go to skid steers",
+      "Don't buy, all capital should go to skid steers",
+      "Buy based on OEC ROI, excavators are returning 70.8% vs. 44% for skid steers, so allocate capital to the higher-return class",
       "Buy based on which machine the dispatcher prefers"
     ]
   ,
-    "correct": 0
+    "correct": 2
 },
   {
     "id": "q28",
@@ -3765,8 +3969,8 @@ function switchMainSection(secId, btnEl) {
     "type": "calc",
     "question": "Total customer damage repair cost is $186,000. Damage invoiced and collected is $143,000. What is the damage recovery rate?",
     "options": [
-      "76.9%",
       "85.0%",
+      "76.9%",
       "90.0%",
       "130.1%"
     ]
@@ -3786,7 +3990,7 @@ function switchMainSection(secId, btnEl) {
       ">= 95%"
     ]
   ,
-    "correct": 0
+    "correct": 2
 },
   {
     "id": "q30",
@@ -3797,11 +4001,11 @@ function switchMainSection(secId, btnEl) {
     "options": [
       "Only the dealer's dispatcher",
       "Only the customer",
-      "Both the dealer's representative and the customer (or their site representative) jointly inspect and sign",
-      "No one — photos are sufficient"
+      "No one, photos are sufficient",
+      "Both the dealer's representative and the customer (or their site representative) jointly inspect and sign"
     ]
   ,
-    "correct": 2
+    "correct": 3
 },
   {
     "id": "q31",
@@ -3810,13 +4014,13 @@ function switchMainSection(secId, btnEl) {
     "type": "scenario",
     "question": "A machine goes out without a signed rental agreement or insurance certificate. The customer totals the $180,000 excavator on a jobsite. Under standard practice, what is the financial exposure?",
     "options": [
-      "$0 — the customer is responsible",
-      "$180,000 — the machine went out without insurance, creating an uninsured loss",
-      "$10,000 — the deductible only",
-      "$50,000 — the standard damage waiver covers it"
+      "$180,000: the machine went out without insurance, creating an uninsured loss",
+      "$0: the customer is responsible",
+      "$10,000: the deductible only",
+      "$50,000: the standard damage waiver covers it"
     ]
   ,
-    "correct": 2
+    "correct": 0
 },
   {
     "id": "q32",
@@ -3831,7 +4035,7 @@ function switchMainSection(secId, btnEl) {
       "105.3%"
     ]
   ,
-    "correct": 0
+    "correct": 1
 },
   {
     "id": "q33",
@@ -3840,13 +4044,13 @@ function switchMainSection(secId, btnEl) {
     "type": "mc",
     "question": "Under standard practice, what is the escalation action for a past-due rental invoice at 60 days?",
     "options": [
+      "Written notice + rental pause for that customer",
       "Send another statement",
       "Phone call from the Rental Manager",
-      "Written notice + rental pause for that customer",
       "Collections agency"
     ]
   ,
-    "correct": 1
+    "correct": 0
 },
   {
     "id": "q34",
@@ -3856,12 +4060,12 @@ function switchMainSection(secId, btnEl) {
     "question": "A damage estimate takes 2 weeks to complete after machine return. The customer has already closed their project and disputes the charge. Under standard practice, what is the correct timing for damage estimates?",
     "options": [
       "Damage estimates can take up to 30 days",
-      "Damage estimates must be completed within 48 hours of machine return",
       "Damage estimates are only needed if the customer disputes",
-      "No timeline — the customer will pay whenever"
+      "Damage estimates must be completed within 48 hours of machine return",
+      "No timeline, the customer will pay whenever"
     ]
   ,
-    "correct": 1
+    "correct": 2
 },
   {
     "id": "q35",
@@ -3870,13 +4074,13 @@ function switchMainSection(secId, btnEl) {
     "type": "calc",
     "question": "You have 10 available excavator units and 14 active rental requests. What is the equipment-to-orders ratio?",
     "options": [
-      "0.71",
       "1.40",
+      "0.71",
       "0.90",
       "1.00"
     ]
   ,
-    "correct": 0
+    "correct": 1
 },
   {
     "id": "q36",
@@ -3885,13 +4089,13 @@ function switchMainSection(secId, btnEl) {
     "type": "mc",
     "question": "What is the target equipment-to-orders ratio band under standard practice?",
     "options": [
-      "0.5 to 1.5",
       "0.9 to 1.2",
+      "0.5 to 1.5",
       "1.0 to 2.0",
       "0.7 to 1.0"
     ]
   ,
-    "correct": 1
+    "correct": 0
 },
   {
     "id": "q37",
@@ -3902,11 +4106,11 @@ function switchMainSection(secId, btnEl) {
     "options": [
       "$35,700",
       "$3,600",
-      "$39,300",
-      "$42,900"
+      "$42,900",
+      "$39,300"
     ]
   ,
-    "correct": 1
+    "correct": 3
 },
   {
     "id": "q38",
@@ -3915,13 +4119,13 @@ function switchMainSection(secId, btnEl) {
     "type": "scenario",
     "question": "Your quote-to-conversion rate on boom lifts dropped from 65% to 42% in one month. Under standard practice, what does this signal and what should you do?",
     "options": [
-      "Nothing — conversion rates fluctuate naturally",
+      "Nothing, conversion rates fluctuate naturally",
       "It signals rates may be too high or inventory is wrong; audit rack rate vs. market and check equipment-to-orders ratio by class",
       "Buy more boom lifts immediately",
       "Stop quoting boom lifts"
     ]
   ,
-    "correct": 0
+    "correct": 1
 },
   {
     "id": "q39",
@@ -3931,8 +4135,8 @@ function switchMainSection(secId, btnEl) {
     "question": "What is the target quote-to-conversion rate under standard practice?",
     "options": [
       ">= 40%",
-      ">= 50%",
       ">= 60%",
+      ">= 50%",
       ">= 80%"
     ]
   ,
@@ -3945,13 +4149,13 @@ function switchMainSection(secId, btnEl) {
     "type": "calc",
     "question": "Total freight cost is $48,000 over 150 moves. Freight charged to customers is $39,600. What is the freight recovery percentage?",
     "options": [
+      "82.5%",
       "55.0%",
       "72.5%",
-      "82.5%",
       "121.2%"
     ]
   ,
-    "correct": 1
+    "correct": 0
 },
   {
     "id": "q41",
@@ -3960,13 +4164,13 @@ function switchMainSection(secId, btnEl) {
     "type": "scenario",
     "question": "Your quarterly churn score shows 4 of 45 active customers did not rent this quarter. What is the churn rate, and is it within target?",
     "options": [
-      "4.4% — PASS (below 10% target)",
-      "8.9% — PASS (below 10% target)",
-      "8.9% — WARN (close to 10% target)",
-      "4.4% — FAIL (above target)"
+      "4.4%: PASS (below 10% target)",
+      "8.9%: WARN (close to 10% target)",
+      "4.4%: FAIL (above target)",
+      "8.9%: PASS (below 10% target)"
     ]
   ,
-    "correct": 0
+    "correct": 3
 },
   {
     "id": "q42",
@@ -3975,13 +4179,13 @@ function switchMainSection(secId, btnEl) {
     "type": "calc",
     "question": "A customer runs 194 telematics hours on a 160-hour monthly contract. The overage rate is $45/hour. What is the overage revenue?",
     "options": [
-      "$1,530",
       "$7,200",
       "$8,730",
+      "$1,530",
       "$1,170"
     ]
   ,
-    "correct": 1
+    "correct": 2
 },
   {
     "id": "q43",
@@ -3996,7 +4200,7 @@ function switchMainSection(secId, btnEl) {
       ">= 100%"
     ]
   ,
-    "correct": 0
+    "correct": 2
 },
   {
     "id": "q44",
@@ -4008,7 +4212,7 @@ function switchMainSection(secId, btnEl) {
       "Wait another 48 hours before investigating",
       "Investigate within 24 hours of the 48-hour threshold",
       "Send a technician to the customer site immediately",
-      "Ignore it — the machine is probably in a dead zone"
+      "Ignore it, the machine is probably in a dead zone"
     ]
   ,
     "correct": 1
@@ -4020,10 +4224,10 @@ function switchMainSection(secId, btnEl) {
     "type": "calc",
     "question": "A customer runs 28 hours/month on a 160-hour monthly contract. What is their productive utilization, and what rate structure should they be on?",
     "options": [
-      "17.5% — convert to daily rate",
-      "17.5% — keep on monthly rate",
-      "57.5% — convert to weekly rate",
-      "87.5% — keep on monthly rate"
+      "17.5%: convert to daily rate",
+      "17.5%: keep on monthly rate",
+      "57.5%: convert to weekly rate",
+      "87.5%: keep on monthly rate"
     ]
   ,
     "correct": 0
@@ -4035,13 +4239,13 @@ function switchMainSection(secId, btnEl) {
     "type": "mc",
     "question": "A telematics critical (red) fault appears on a machine due for re-rent. Under standard practice, what is the Rental Manager's action?",
     "options": [
-      "Re-rent it — the customer won't notice",
-      "Pull at contract end; do NOT re-rent; hold for service",
+      "Re-rent it, the customer won't notice",
       "Wait and see if the fault clears on its own",
+      "Pull at contract end; do NOT re-rent; hold for service",
       "Send it out and schedule service after the rental"
     ]
   ,
-    "correct": 1
+    "correct": 2
 },
   {
     "id": "q47",
@@ -4050,13 +4254,13 @@ function switchMainSection(secId, btnEl) {
     "type": "scenario",
     "question": "Your ERP says a machine is 'on rent' but your telematics says it hasn't run in 6 days. Under standard practice, what is the correct interpretation?",
     "options": [
-      "The ERP is correct — the machine is on rent",
-      "The telematics is broken — ignore it",
-      "Your utilization data is fiction — the machine is 'on hold,' not 'on rent.' Reconcile telematics against ERP daily",
-      "Both are correct — the machine is on rent but idle"
+      "The ERP is correct, the machine is on rent",
+      "The telematics is broken, ignore it",
+      "Your utilization data is fiction, the machine is 'on hold,' not 'on rent.' Reconcile telematics against ERP daily",
+      "Both are correct, the machine is on rent but idle"
     ]
   ,
-    "correct": 1
+    "correct": 2
 },
   {
     "id": "q48",
@@ -4067,11 +4271,11 @@ function switchMainSection(secId, btnEl) {
     "options": [
       "20.0%",
       "25.0%",
-      "30.0%",
-      "35.0%"
+      "35.0%",
+      "30.0%"
     ]
   ,
-    "correct": 0
+    "correct": 3
 },
   {
     "id": "q49",
@@ -4080,9 +4284,9 @@ function switchMainSection(secId, btnEl) {
     "type": "mc",
     "question": "What is the target EBITDA margin for a rental department under standard practice?",
     "options": [
+      "> 30%",
       "> 15%",
       "> 20%",
-      "> 30%",
       "> 50%"
     ]
   ,
@@ -4096,12 +4300,12 @@ function switchMainSection(secId, btnEl) {
     "question": "What is the target personnel expense percentage (wages + benefits + payroll taxes divided by total rental revenue) under standard practice?",
     "options": [
       "< 20%",
-      "< 35%",
       "< 45%",
-      "< 60%"
+      "< 60%",
+      "< 35%"
     ]
   ,
-    "correct": 1
+    "correct": 3
 }
 ];
   var testAnswers = {};
@@ -4138,7 +4342,7 @@ function switchMainSection(secId, btnEl) {
     document.getElementById('test_signin_error').style.display = 'none';
     document.getElementById('test_signin').style.display = 'none';
     document.getElementById('test_running').style.display = 'block';
-    document.getElementById('test_user_name').innerText = name + ' \u2014 ' + dealership;
+    document.getElementById('test_user_name').innerText = name + ' - ' + dealership;
     testAnswers = {};
     testTimeRemaining = 90 * 60;
     renderQuestions();
@@ -4155,7 +4359,7 @@ function switchMainSection(secId, btnEl) {
       var typeLabel = q.type === 'calc' ? 'Calculation' : (q.type === 'scenario' ? 'Scenario' : 'Multiple Choice');
       var moduleLabel = q.module;
       qDiv.innerHTML = '<div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:10px;">' +
-        '<div><span style="font-size:0.75rem; color:var(--accent-color); font-weight:700; text-transform:uppercase; letter-spacing:1px;">Q' + (i+1) + ' \u2014 ' + typeLabel + '</span><br><span style="font-size:0.8rem; color:var(--muted);">' + moduleLabel + '</span></div>' +
+        '<div><span style="font-size:0.75rem; color:var(--accent-color); font-weight:700; text-transform:uppercase; letter-spacing:1px;">Q' + (i+1) + ' - ' + typeLabel + '</span><br><span style="font-size:0.8rem; color:var(--muted);">' + moduleLabel + '</span></div>' +
         '</div>' +
         '<div style="font-size:1rem; margin-bottom:12px; font-weight:600;">' + q.question + '</div>' +
         '<ul class="test-options" id="opts_' + q.id + '"></ul>';
@@ -4251,6 +4455,8 @@ function switchMainSection(secId, btnEl) {
     document.getElementById('result_dealership').innerText = dealership;
     var now = new Date();
     document.getElementById('result_date').innerText = (now.getMonth()+1) + '/' + now.getDate() + '/' + now.getFullYear();
+    hedsSaveLocalResult({ track: TRACK_NAME, correct: correctCount, total: testQuestions.length, scorePct: pct, passed: hedsIsPassed(pct), candidateName: studentName, dealership: dealership, email: email, timestamp: (now.getMonth()+1) + '/' + now.getDate() + '/' + now.getFullYear(), answers: answers, relayStatus: 'pending' });
+    hedsShowPassStatus(pct);
     
     // Build module breakdown
     if (Object.keys(incorrectByModule).length > 0) {
@@ -4266,7 +4472,7 @@ function switchMainSection(secId, btnEl) {
         var sortedAreas = Object.keys(incorrectByModule).sort(function(a,b) { return incorrectByModule[b] - incorrectByModule[a]; });
         focusAreasHtml = '<div style="padding:16px; background:var(--bg); border-radius:8px; border:1px solid var(--border-color);"><div style="font-weight:700; color:var(--accent-color); margin-bottom:8px;">Recommended Focus Areas</div><div style="color:var(--muted); font-size:0.9rem;">' + sortedAreas.slice(0,3).map(function(m) { return m + ' (' + incorrectByModule[m] + ' missed)'; }).join(', ') + '</div></div>';
     } else {
-        moduleBreakdownHtml = '<div style="text-align:center; padding:20px; color:var(--accent-color); font-weight:700;">All questions correct — no focus areas needed.</div>';
+        moduleBreakdownHtml = '<div style="text-align:center; padding:20px; color:var(--accent-color); font-weight:700;">All questions correct, no focus areas needed.</div>';
         focusAreasHtml = '';
     }
     
@@ -4275,14 +4481,7 @@ function switchMainSection(secId, btnEl) {
     
     var payload = { track: TRACK_NAME, name: studentName, dealership: dealership, email: email, answers: answers, correctCount: correctCount, totalQuestions: testQuestions.length, scorePercentage: pct, answeredCount: answeredCount };
     
-    if (typeof fetch !== 'undefined') {
-        fetch(ASSESSMENT_RELAY_URL, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) }).catch(function() {});
-    } else {
-        var xhr = new XMLHttpRequest();
-        xhr.open('POST', ASSESSMENT_RELAY_URL, true);
-        xhr.setRequestHeader('Content-Type', 'application/json');
-        xhr.send(JSON.stringify(payload));
-    }
+    hedsRelayResults(payload);
   }
 
   function abandonTest() {
@@ -4313,6 +4512,72 @@ function switchMainSection(secId, btnEl) {
     initCompletionTrackers();
     loadGateCheckboxes();
   };
+</script>
+
+<script>
+  /* ===== HEDS assessment fixes (Oct 2026): pass mark, certificate gating, results relay, local results copy ===== */
+  var HEDS_PASS_MARK = 90; // percent required to pass and receive a certificate (Daniel, Oct 23 2026: 90% on all four dashboards)
+  var HEDS_RESULT_KEY = 'heds_rental_mgr_test_result'; // localStorage key for this device's copy of the latest result
+  function hedsEscape(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function(c) { return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+  function hedsIsPassed(pct) { return Number(pct) >= HEDS_PASS_MARK; }
+  function hedsSaveLocalResult(rec) { try { localStorage.setItem(HEDS_RESULT_KEY, JSON.stringify(rec)); } catch (e) {} }
+  function hedsLoadLocalResult() { try { var r = localStorage.getItem(HEDS_RESULT_KEY); return r ? JSON.parse(r) : null; } catch (e) { return null; } }
+  var HEDS_RELAY_MSG = {
+    pending: 'Sending your results to HEDS Academy\u2026',
+    ok: 'Results sent to HEDS Academy.',
+    fail: 'We could not confirm that your results reached HEDS Academy. Your results are saved in this browser. Please click "Print Results" (or take a screenshot) and send it to your facilitator.'
+  };
+  function hedsRenderRelayStatus(state) {
+    var el = document.getElementById('result_relay_status');
+    if (!el) return;
+    el.textContent = HEDS_RELAY_MSG[state] || HEDS_RELAY_MSG.fail;
+    el.style.color = state === 'ok' ? '#10b981' : (state === 'pending' ? '#94a3b8' : '#ef4444');
+  }
+  function hedsSetRelayStatus(state) {
+    hedsRenderRelayStatus(state);
+    var r = hedsLoadLocalResult();
+    if (r) { r.relayStatus = state; hedsSaveLocalResult(r); }
+  }
+  function hedsShowPassStatus(pct) {
+    var passed = hedsIsPassed(pct);
+    var el = document.getElementById('result_pass_status');
+    if (el) {
+      el.textContent = passed
+        ? 'PASSED: ' + pct + '% (pass mark ' + HEDS_PASS_MARK + '%). Your certificate is available below.'
+        : 'NOT YET PASSED: ' + pct + '% (pass mark ' + HEDS_PASS_MARK + '%). Review the focus areas below and retake the assessment to earn your certificate.';
+      el.style.color = passed ? '#10b981' : '#ef4444';
+    }
+    var btn = document.getElementById('btn_cert');
+    if (btn) btn.style.display = passed ? '' : 'none';
+    return passed;
+  }
+  function hedsCertificateRecord() {
+    var r = hedsLoadLocalResult();
+    if (!r || !hedsIsPassed(r.scorePct)) {
+      alert('A certificate is issued only after passing the assessment with a score of ' + HEDS_PASS_MARK + '% or higher.');
+      return null;
+    }
+    return r;
+  }
+  // Sends results as a CORS "simple request": text/plain body, no custom headers, so no preflight is needed.
+  // The Apps Script doPost reads the JSON from e.postData.contents.
+  function hedsRelayResults(payload) {
+    hedsSetRelayStatus('pending');
+    var body = JSON.stringify(payload);
+    try {
+      if (typeof fetch !== 'undefined') {
+        fetch(ASSESSMENT_RELAY_URL, { method: 'POST', body: body, redirect: 'follow' })
+          .then(function(res) { if (!res.ok) throw new Error('HTTP ' + res.status); hedsSetRelayStatus('ok'); })
+          .catch(function() { hedsSetRelayStatus('fail'); });
+      } else {
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', ASSESSMENT_RELAY_URL, true);
+        xhr.onload = function() { hedsSetRelayStatus(xhr.status >= 200 && xhr.status < 300 ? 'ok' : 'fail'); };
+        xhr.onerror = function() { hedsSetRelayStatus('fail'); };
+        xhr.send(body);
+      }
+    } catch (e) { hedsSetRelayStatus('fail'); }
+  }
 </script>
 </body>
 </html>

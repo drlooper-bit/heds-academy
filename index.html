@@ -3,18 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>HEDS Operating Discipline Academy — Heavy Equipment Dealer Solutions LLC</title>
+<title>HEDS Operating Discipline Academy: Heavy Equipment Dealer Solutions LLC</title>
 <meta name="description" content="Position-specific onsite training for heavy equipment dealers and rental companies. Uses your real data, installs daily operating discipline, and produces a 90-day action plan.">
 <meta name="google-site-verification" content="juXi8AiDSJ-9oK6rN8mlBASv7m_epb6sMyjfsM-3wls">
 <link rel="icon" type="image/png" href="LOGO_HEDS_small.png">
 <link rel="canonical" href="https://hedsconsulting.net/">
-<meta property="og:title" content="HEDS Operating Discipline Academy — Heavy Equipment Dealer Solutions LLC">
+<meta property="og:title" content="HEDS Operating Discipline Academy: Heavy Equipment Dealer Solutions LLC">
 <meta property="og:description" content="Position-specific onsite training that installs daily operating discipline at heavy equipment dealerships and rental companies.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://hedsconsulting.net/">
 <meta property="og:image" content="https://hedsconsulting.net/LOGO_HEDS_small.png">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="HEDS Operating Discipline Academy — Heavy Equipment Dealer Solutions LLC">
+<meta name="twitter:title" content="HEDS Operating Discipline Academy: Heavy Equipment Dealer Solutions LLC">
 <meta name="twitter:description" content="Position-specific onsite training that installs daily operating discipline at heavy equipment dealerships and rental companies.">
 <meta name="twitter:image" content="https://hedsconsulting.net/LOGO_HEDS_small.png">
 
@@ -137,7 +137,7 @@
 }
 </script>
 
-<!-- ===== GOOGLE ANALYTICS 4 — Measurement ID: G-6BHY2N14ZY ===== -->
+<!-- ===== GOOGLE ANALYTICS 4: Measurement ID: G-6BHY2N14ZY ===== -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-6BHY2N14ZY"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -640,6 +640,187 @@ body {
 }
 .post-meta .dot { width: 3px; height: 3px; background: var(--border); border-radius: 50%; display: inline-block; }
 .post-meta .read-time { color: var(--accent); font-weight: 600; }
+
+/* ===== MOBILE & TABLET RESPONSIVE ENHANCEMENTS ===== */
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+.tab-btn {
+  min-height: 44px;
+  min-width: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.cta-btn, .cta-secondary, .btn-preview, .btn-signup {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.cta-secondary {
+  padding: 10px 14px;
+  border: 1px solid rgba(229, 174, 37, 0.35);
+  border-radius: 6px;
+  background: rgba(229, 174, 37, 0.08);
+  margin-top: 8px;
+}
+.contact-item a, .footer a {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 4px;
+}
+input, select, textarea {
+  font-size: 16px !important;
+  min-height: 44px;
+}
+.table-wrap {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Tablet (768px - 1024px) */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .header-inner { padding: 14px 20px; }
+  .header-logo { width: 72px; height: 72px; }
+  .header-text h1 { font-size: 1.5rem; }
+  .tab-nav-inner {
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 4px 12px;
+    gap: 4px;
+  }
+  .tab-btn {
+    padding: 10px 14px;
+    font-size: 0.84rem;
+  }
+  .service-grid, .problem-grid, .grid-2, .grid-3, .Deliverables-grid, .deliverables-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  .stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobile (<768px) */
+@media (max-width: 767px) {
+  .site-header-group {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .header {
+    padding: 10px 14px !important;
+  }
+  .header-inner {
+    gap: 12px;
+  }
+  .header-logo {
+    width: 48px !important;
+    height: 48px !important;
+  }
+  .header-text h1 {
+    font-size: clamp(1.05rem, 4.2vw, 1.3rem) !important;
+    line-height: 1.2;
+  }
+  .header-text p {
+    font-size: 0.7rem !important;
+    line-height: 1.25;
+  }
+  /* Clean 2x3 touch-friendly navigation grid on mobile so all 6 tabs are visible without horizontal clipping */
+  .tab-nav-inner {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4px;
+    padding: 6px 8px !important;
+    overflow-x: visible !important;
+  }
+  .tab-btn {
+    width: 100%;
+    padding: 8px 6px !important;
+    font-size: 0.74rem !important;
+    min-height: 44px;
+    text-align: center;
+    white-space: normal !important;
+    line-height: 1.15;
+    border-radius: 6px;
+    border: 1px solid rgba(32, 59, 96, 0.7);
+    border-bottom: 2px solid transparent;
+    background: rgba(14, 31, 56, 0.75);
+  }
+  .tab-btn.active {
+    background: rgba(229, 174, 37, 0.14);
+    border-color: var(--accent);
+  }
+  .main {
+    padding: 18px 14px !important;
+  }
+  .hero {
+    padding: 20px 16px !important;
+    margin-bottom: 20px;
+  }
+  .hero h2 {
+    font-size: clamp(1.25rem, 5vw, 1.55rem) !important;
+    line-height: 1.3;
+  }
+  .hero p {
+    font-size: 0.92rem !important;
+  }
+  .card {
+    padding: 18px 16px !important;
+    margin-bottom: 16px;
+  }
+  .card h2 {
+    font-size: clamp(1.15rem, 4.5vw, 1.35rem) !important;
+  }
+  .service-grid, .problem-grid, .grid-2, .grid-3, .deliverables-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .stats {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 10px !important;
+  }
+  .stat {
+    padding: 12px 10px !important;
+  }
+  .stat-num {
+    font-size: 1.35rem !important;
+  }
+  .process {
+    flex-direction: column !important;
+    gap: 10px !important;
+  }
+  .step::after {
+    display: none !important;
+  }
+  .track-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .btn-preview, .btn-signup, .cta-btn {
+    width: 100%;
+    text-align: center;
+  }
+  .comp-table {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .comp-table th, .comp-table td {
+    padding: 8px 10px !important;
+    font-size: 0.82rem !important;
+  }
+  .contact-row {
+    flex-direction: column !important;
+    gap: 8px !important;
+    align-items: center;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -669,10 +850,10 @@ body {
 
 <!-- ===== OVERVIEW SECTION ===== -->
 <div class="section active" id="sec-overview" role="tabpanel">
-  <img src="heds-hero-banner.jpg" alt="Heavy equipment lineup — excavators and wheel loaders" class="hero-banner" width="1328" height="332" onerror="this.style.display='none'">
+  <img src="heds-hero-banner.jpg" alt="Heavy equipment lineup, excavators and wheel loaders" class="hero-banner" width="1328" height="332" onerror="this.style.display='none'">
   <div class="hero">
-    <h2>We find the money your operation is losing or overlooking — and install the discipline to keep the bottlenecks from coming back.</h2>
-    <p>HEDS is a heavy equipment dealership services firm serving dealers, rental companies, and equipment groups across the United States. We combine onsite operational audits with hands-on management training to stop margin leakage where it starts — on the shop floor.</p>
+    <h2>We find the money your operation is losing or overlooking, and install the discipline to keep the bottlenecks from coming back.</h2>
+    <p>HEDS is a heavy equipment dealership services firm serving dealers, rental companies, and equipment groups across the United States. We combine onsite operational audits with hands-on management training to stop margin leakage where it starts, on the shop floor.</p>
   </div>
 
   <div class="service-grid">
@@ -685,7 +866,7 @@ body {
     <div class="service-card">
       <div class="service-icon">🎓</div>
       <h3>Training &amp; Academy</h3>
-      <p>Onsite training that installs the daily operating discipline to stop the leaks from coming back. 5 days at your dealership or rental company with your real data, your people, and your shop floor.</p>
+      <p>Onsite training that installs the daily operating discipline to stop the leaks from coming back. 3 to 5 days at your dealership or rental company with your real data, your people, and your shop floor.</p>
       <a class="cta-secondary" href="#sec-training" onclick="showSection('training'); return false;">Learn More →</a>
     </div>
   </div>
@@ -697,7 +878,7 @@ body {
       <li><strong>Your real data, not sample data.</strong> Every audit and every training module uses your actual WIP, your labor numbers, your parts fill rate, your rental fleet status.</li>
       <li><strong>Daily discipline, not monthly reports.</strong> By the time an accounting report shows a problem, the cash is already gone. We install daily and weekly rhythms that catch leaks before they hit the P&L.</li>
       <li><strong>Industry-specific.</strong> Built from multi-location product support leadership across heavy equipment dealerships and rental operations. Not generic management consulting.</li>
-      <li><strong>Clear scoping.</strong> Individual manager packages and location packages — 1 week per manager, one-on-one with Daniel. No hidden fees, no bundled services you don't need. Book a discovery call for a custom quote.</li>
+      <li><strong>Clear scoping.</strong> Individual manager packages and location packages: 1 week per manager, one-on-one with a HEDS Qualified Instructor. No hidden fees, no bundled services you don't need. Book a discovery call for a custom quote.</li>
     </ul>
   </div>
 
@@ -714,7 +895,7 @@ body {
     <p>Heavy equipment dealerships, rental companies, and equipment groups with:</p>
     <ul>
       <li>Aged WIP draining cash flow</li>
-      <li>Labor recovery gaps — technicians paid for hours not billed</li>
+      <li>Labor recovery gaps, technicians paid for hours not billed</li>
       <li>Parts fill rate problems and dead stock accumulation</li>
       <li>Rental fleet downtime eating utilization targets</li>
       <li>Inconsistent branch practices across multiple locations</li>
@@ -734,7 +915,7 @@ body {
 <div class="section" id="sec-diligence" role="tabpanel">
   <div class="hero">
     <h2>Due Diligence &amp; Operational Inspections</h2>
-    <p>We walk your floor, pull your ERP reports, and show you exactly where the cash is leaving. Not a desktop review — a full onsite operational audit of your service, parts, and rental departments.</p>
+    <p>We walk your floor, pull your ERP reports, and show you exactly where the cash is leaving. Not a desktop review, a full onsite operational audit of your service, parts, and rental departments.</p>
   </div>
 
   <div class="card">
@@ -779,7 +960,7 @@ body {
       <div class="service-card" style="text-align:left;">
         <h3 style="color:var(--accent);">Branch Operations</h3>
         <ul style="font-size:0.9rem;">
-          <li>Absorption rate (Service + Parts + Rental GP ÷ Fixed Overhead)</li>
+          <li>Absorption rate ((Service GP + Parts GP) ÷ Total Dealership Operating Expenses; <95% red flag, 95-99.9% standard, 100%+ gold, 105-110% optimal)</li>
           <li>Cross-functional accountability</li>
           <li>Daily operating rhythms</li>
           <li>Scorecard discipline and review cadence</li>
@@ -830,12 +1011,12 @@ body {
     <h2>EBITDA Quality &amp; Acquisition Due Diligence</h2>
     <p>For PE-backed equipment groups, dealers, or rental companies evaluating an acquisition or preparing for sale:</p>
     <ul>
-      <li>Normalized EBITDA quality assessment — are the earnings real or are they inflated by deferred maintenance and WIP leakage?</li>
-      <li>Working capital analysis — how much cash is trapped in aged WIP and dead inventory?</li>
+      <li>Normalized EBITDA quality assessment, are the earnings real or are they inflated by deferred maintenance and WIP leakage?</li>
+      <li>Working capital analysis, how much cash is trapped in aged WIP and dead inventory?</li>
       <li>Operational risk scoring across service, parts, and rental departments</li>
-      <li>Post-acquisition integration plan — what to fix first and in what order</li>
-      <li>Branch-level consistency audit — are all locations operating to the same standard?</li>
-      <li>Management capability assessment — can the current team execute the plan?</li>
+      <li>Post-acquisition integration plan, what to fix first and in what order</li>
+      <li>Branch-level consistency audit, are all locations operating to the same standard?</li>
+      <li>Management capability assessment, can the current team execute the plan?</li>
     </ul>
   </div>
 
@@ -848,8 +1029,8 @@ body {
       <tr><td>Full Branch Audit (Service + Parts + Rental)</td><td>2 days (16h)</td><td>Full department audit</td></tr>
       <tr><td>Multi-Branch Audit (3+ locations)</td><td>1-2 days/site</td><td>Multi-location consistency audit</td></tr>
       <tr><td>Acquisition Due Diligence (EBITDA quality)</td><td>3-5 days</td><td>Full operational risk assessment</td></tr>
-      <tr><td>Findings Report (always included)</td><td>—</td><td>Included</td></tr>
-      <tr><td>Travel and lodging</td><td>—</td><td>Billed at actuals</td></tr>
+      <tr><td>Findings Report (always included)</td><td>-</td><td>Included</td></tr>
+      <tr><td>Travel time and mileage (TT&amp;M), lodging and meals</td><td>-</td><td>Billed at actual cost</td></tr>
     </table></div>
     <p style="font-size:0.85rem;color:var(--muted);margin-top:12px;">Custom scopes available. Book a 30-minute discovery call to scope your audit. Deep historical audits (6+ months of trend data) available.</p>
   </div>
@@ -865,13 +1046,13 @@ body {
 <div class="section" id="sec-training" role="tabpanel">
   <div class="hero">
     <h2>HEDS Operating Discipline Academy</h2>
-    <p>Position-specific onsite training that installs daily operating discipline — using your real data, on your floor, with your numbers. Not a webinar. Not a book. Not a generic management seminar.</p>
+    <p>Position-specific onsite training that installs daily operating discipline, using your real data, on your floor, with your numbers. Not a webinar. Not a book. Not a generic management seminar.</p>
   </div>
 
   <!-- ===== WHAT THE ACADEMY DOES ===== -->
   <div class="card">
     <h2>What the Academy Does</h2>
-    <p>Heavy-equipment dealers, rental platforms, and equipment groups track KPIs but fail on the daily behaviors that drive them. The Academy closes that gap — onsite, with your real data, using exact operating standards developed across multi-location product support leadership on the dealer floor.</p>
+    <p>Heavy-equipment dealers, rental platforms, and equipment groups track KPIs but fail on the daily behaviors that drive them. The Academy closes that gap, onsite, with your real data, using exact operating standards developed across multi-location product support leadership on the dealer floor.</p>
 
     <h3 style="color:var(--accent);margin-top:16px;">Why most dealer training fails</h3>
     <div class="problem-grid">
@@ -879,17 +1060,17 @@ body {
         <h3>The Problem</h3>
         <ul>
           <li>Generic leadership programs miss heavy-equipment operational reality</li>
-          <li>Classroom learning dies on the floor — no connection to WIP boards, parts counters, or rent-ready lists</li>
+          <li>Classroom learning dies on the floor, no connection to WIP boards, parts counters, or rent-ready lists</li>
           <li>Managers hear "labor recovery" or "fill rate" but leave without a single checklist or scorecard they can use Monday morning</li>
         </ul>
       </div>
       <div class="problem-card solution">
         <h3>What HEDS Academy Does Differently</h3>
         <ul>
-          <li>Every module uses your actual operational data — aged WIP, parts snapshots, fleet status, branch scorecards</li>
+          <li>Every module uses your actual operational data, aged WIP, parts snapshots, fleet status, branch scorecards</li>
           <li>Participants build or refine their own scorecards and action plans during the onsite</li>
           <li>Human management behaviors are primary; technology is secondary</li>
-          <li>Follow-up coaching available on a performance-triggered basis — not bundled into a package you may not need</li>
+          <li>Follow-up coaching available on a performance-triggered basis, not bundled into a package you may not need</li>
         </ul>
       </div>
     </div>
@@ -904,13 +1085,13 @@ body {
   </div>
 
   <div class="card" style="text-align:center;">
-    <p style="color:var(--accent);font-weight:600;font-size:1.1rem;margin:0;">You leave with standards installed — not just slides reviewed.</p>
+    <p style="color:var(--accent);font-weight:600;font-size:1.1rem;margin:0;">You leave with standards installed, not just slides reviewed.</p>
   </div>
 
   <!-- ===== TRAINING TRACKS ===== -->
   <div class="card">
     <h2>Training Tracks</h2>
-    <p style="margin-bottom:16px;">Each track is a standalone program with its own interactive dashboard and 50-question certification assessment. All tracks share a Day 1 financial foundation so every role speaks the same language before breaking into position-specific work. Click any track to preview the curriculum syllabus and sign up.</p>
+    <p style="margin-bottom:16px;">Each track is a standalone program with its own interactive dashboard and 50-question assessment. All tracks share a Day 1 financial foundation so every role speaks the same language before breaking into position-specific work. Click any track to preview the curriculum syllabus and sign up.</p>
 
     <div style="display:grid;gap:14px;">
 
@@ -918,11 +1099,11 @@ body {
       <div class="card" style="margin-bottom:0;border-color:var(--border);">
         <h3 style="color:var(--accent);">🔧 Service Manager Training</h3>
         <div class="track-audience">Service Managers, Service Advisors, Shop Foremen, Service Administrators, Field Service Coordinators, Dispatch</div>
-        <p style="font-size:0.9rem;margin-bottom:12px;">Stop managing by month-end reports and start driving the shop floor daily. This track installs the operating discipline that turns absorption rate, labor recovery, WIP control, and technician productivity from monthly surprises into daily habits. Participants leave with their own scorecard, a 90-day action plan built on their real data, and the daily rhythms that keep service contribution where it belongs — above 60% of fixed costs.</p>
+        <p style="font-size:0.9rem;margin-bottom:12px;">Stop managing by month-end reports and start driving the shop floor daily. This track installs the operating discipline that turns absorption rate, labor recovery, labor utilization, and WIP control from monthly surprises into daily habits. Participants leave with their own scorecard, a 90-day action plan built on their real data, and the daily rhythms that keep service contribution where it belongs, above 60% of fixed costs.</p>
         <div class="track-stats"><span>5-day onsite</span><span>Interactive dashboard</span><span>50-question assessment</span><span>90-day action plan</span></div>
         <div class="track-buttons">
           <a href="curriculum-index.html#sm" class="btn-preview">Preview Curriculum</a>
-          <a href="mailto:daniel@hedsconsulting.net?subject=HEDS Academy — Service Manager Training Signup" target="_blank" rel="noopener noreferrer" class="btn-signup">Sign Up</a>
+          <a href="mailto:daniel@hedsconsulting.net?subject=HEDS Academy: Service Manager Training Signup" target="_blank" rel="noopener noreferrer" class="btn-signup">Sign Up</a>
         </div>
       </div>
 
@@ -930,11 +1111,11 @@ body {
       <div class="card" style="margin-bottom:0;border-color:var(--border);">
         <h3 style="color:var(--accent);">🚜 Rental Service Manager Training</h3>
         <div class="track-audience">Rental Service Managers, Shop Foremen, Field Service Coordinators, PM Coordinators</div>
-        <p style="font-size:0.9rem;margin-bottom:12px;">Internal production only — no retail labor sales, just fleet uptime. This track builds the discipline that keeps rental equipment rent-ready and the shop priority-driven: PM compliance, fleet reliability, turnaround standards, and wrench-time efficiency. Participants build scorecards from their own fleet data and leave with a 90-day plan to move MTTR, PM compliance, and rent-ready turnaround in the right direction.</p>
+        <p style="font-size:0.9rem;margin-bottom:12px;">Internal production only, no retail labor sales, just fleet uptime. This track builds the discipline that keeps rental equipment rent-ready and the shop priority-driven: PM compliance, fleet reliability, turnaround standards, and wrench-time efficiency. Participants build scorecards from their own fleet data and leave with a 90-day plan to move MTTR, PM compliance, and rent-ready turnaround in the right direction.</p>
         <div class="track-stats"><span>3-day onsite</span><span>Interactive dashboard</span><span>50-question assessment</span><span>90-day action plan</span></div>
         <div class="track-buttons">
           <a href="curriculum-index.html#rsm" class="btn-preview">Preview Curriculum</a>
-          <a href="mailto:daniel@hedsconsulting.net?subject=HEDS Academy — Rental Service Manager Training Signup" target="_blank" rel="noopener noreferrer" class="btn-signup">Sign Up</a>
+          <a href="mailto:daniel@hedsconsulting.net?subject=HEDS Academy: Rental Service Manager Training Signup" target="_blank" rel="noopener noreferrer" class="btn-signup">Sign Up</a>
         </div>
       </div>
 
@@ -946,7 +1127,7 @@ body {
         <div class="track-stats"><span>3-day onsite</span><span>Interactive dashboard</span><span>50-question assessment</span><span>90-day action plan</span></div>
         <div class="track-buttons">
           <a href="curriculum-index.html#rm" class="btn-preview">Preview Curriculum</a>
-          <a href="mailto:daniel@hedsconsulting.net?subject=HEDS Academy — Rental Manager Training Signup" target="_blank" rel="noopener noreferrer" class="btn-signup">Sign Up</a>
+          <a href="mailto:daniel@hedsconsulting.net?subject=HEDS Academy: Rental Manager Training Signup" target="_blank" rel="noopener noreferrer" class="btn-signup">Sign Up</a>
         </div>
       </div>
 
@@ -954,11 +1135,11 @@ body {
       <div class="card" style="margin-bottom:0;border-color:var(--border);">
         <h3 style="color:var(--accent);">📦 Parts Manager Training</h3>
         <div class="track-audience">Parts Managers, Assistant Parts Managers, Parts Counter Supervisors, Warehouse/Inventory Leads</div>
-        <p style="font-size:0.9rem;margin-bottom:12px;">Run the parts department as the profit center it should be — not the cost center everyone tolerates. This track installs the discipline that turns inventory, margin, and fill rate into managed outcomes: stock order efficiency, obsolescence control, parts-to-labor ratio, and salary as a percentage of gross profit. Participants leave with a profit-leak diagnostic built on their own data and a 90-day plan to move every KPI in the right direction.</p>
+        <p style="font-size:0.9rem;margin-bottom:12px;">Run the parts department as the profit center it should be, not the cost center everyone tolerates. This track installs the discipline that turns inventory, margin, and fill rate into managed outcomes: stock order efficiency, obsolescence control, parts-to-labor ratio, and salary as a percentage of gross profit. Participants leave with a profit-leak diagnostic built on their own data and a 90-day plan to move every KPI in the right direction.</p>
         <div class="track-stats"><span>3-day onsite</span><span>Interactive dashboard</span><span>50-question assessment</span><span>90-day action plan</span></div>
         <div class="track-buttons">
           <a href="curriculum-index.html#pm" class="btn-preview">Preview Curriculum</a>
-          <a href="mailto:daniel@hedsconsulting.net?subject=HEDS Academy — Parts Manager Training Signup" target="_blank" rel="noopener noreferrer" class="btn-signup">Sign Up</a>
+          <a href="mailto:daniel@hedsconsulting.net?subject=HEDS Academy: Parts Manager Training Signup" target="_blank" rel="noopener noreferrer" class="btn-signup">Sign Up</a>
         </div>
       </div>
 
@@ -990,7 +1171,7 @@ body {
       <div class="process-step">
         <div class="step-num">1</div>
         <h4>Pre-Work (Remote, 3–5 Days Before)</h4>
-        <p>Lightweight data package — four out-of-the-box reports, no raw ERP dumps required. HEDS returns a one-page Current State Scorecard before onsite start.</p>
+        <p>Lightweight data package, four out-of-the-box reports, no raw ERP dumps required. HEDS returns a one-page Current State Scorecard before onsite start.</p>
       </div>
       <div class="process-step">
         <div class="step-num">2</div>
@@ -1000,7 +1181,7 @@ body {
       <div class="process-step">
         <div class="step-num">3</div>
         <h4>Follow-Up Coaching (Optional)</h4>
-        <p>Virtual sessions focused on the specific areas where execution is not progressing as planned. Purchased separately — not automatic, not bundled.</p>
+        <p>Virtual sessions focused on the specific areas where execution is not progressing as planned. Purchased separately, not automatic, not bundled.</p>
       </div>
     </div>
   </div>
@@ -1057,14 +1238,14 @@ body {
       <span class="badge badge-gold">Branch Managers</span>
       <span class="badge badge-gold">Regional Managers</span>
     </div>
-    <p style="font-size:0.9rem;">Individual manager training or location packages — 1 week per manager, one-on-one with Daniel. Location packages include cross-functional integration so your whole team works together.</p>
+    <p style="font-size:0.9rem;">Individual manager training or location packages: 1 week per manager, one-on-one with a HEDS Qualified Instructor. Location packages include cross-functional integration so your whole team works together.</p>
   </div>
 
   <!-- ===== CTA ===== -->
   <div class="card" style="text-align:center;">
     <h2>Ready to close the gap?</h2>
     <p>Book a 30-minute discovery call. We'll review your current state, identify the top 3 operational leaks, and recommend the right track for your team.</p>
-    <a class="cta-btn" href="mailto:daniel@hedsconsulting.net?subject=HEDS Academy — Discovery Call Request" target="_blank" rel="noopener noreferrer">Book a Discovery Call</a>
+    <a class="cta-btn" href="mailto:daniel@hedsconsulting.net?subject=HEDS Academy: Discovery Call Request" target="_blank" rel="noopener noreferrer">Book a Discovery Call</a>
   </div>
 </div>
 
@@ -1084,11 +1265,11 @@ body {
   <div class="card">
     <h2>How It Works</h2>
     <ul>
-      <li><strong>50 questions</strong> — KPI formulas, operational scenarios, metric interpretation, and corrective action selection</li>
-      <li><strong>90 minutes</strong> — timed, single session, no breaks</li>
-      <li><strong>Proctored</strong> — administered in person or via monitored remote session. No open books. No AI assistants. No looking it up. The score reflects what your manager actually knows, not what they can look up.</li>
-      <li><strong>Score report</strong> — category breakdown, percentile comparison, and three prioritized focus areas</li>
-      <li><strong>No obligation</strong> — the assessment is standalone. If it reveals gaps, the training tracks are there. If not, you keep the report.</li>
+      <li><strong>50 questions</strong> - KPI formulas, operational scenarios, metric interpretation, and corrective action selection</li>
+      <li><strong>90 minutes</strong>: timed, single session, no breaks</li>
+      <li><strong>Proctored</strong>: administered in person or via monitored remote session. No open books. No AI assistants. No looking it up. The score reflects what your manager actually knows, not what they can look up.</li>
+      <li><strong>Score report</strong>: category breakdown, percentile comparison, and three prioritized focus areas</li>
+      <li><strong>No obligation</strong>: the assessment is standalone. If it reveals gaps, the training tracks are there. If not, you keep the report.</li>
     </ul>
   </div>
 
@@ -1101,10 +1282,10 @@ body {
   <div class="card">
     <h2>What You Get</h2>
     <ul>
-      <li><strong>Category scores</strong> — WIP, Labor Recovery, Parts, Fleet Utilization, Leading Indicators</li>
-      <li><strong>Overall score</strong> — 0-100 with percentile ranking against industry benchmarks</li>
-      <li><strong>Three focus areas</strong> — the highest-leverage gaps to close first, with recommended track modules</li>
-      <li><strong>Manager comparison</strong> — assess multiple managers and compare scores side by side</li>
+      <li><strong>Category scores</strong> - WIP, Labor Recovery, Parts, Fleet Utilization, Leading Indicators</li>
+      <li><strong>Overall score</strong>: 0-100 with percentile ranking against industry benchmarks</li>
+      <li><strong>Three focus areas</strong>: the highest-leverage gaps to close first, with recommended track modules</li>
+      <li><strong>Manager comparison</strong>: assess multiple managers and compare scores side by side</li>
     </ul>
   </div>
 
@@ -1117,7 +1298,7 @@ body {
     <h2>$300 per manager</h2>
     <p>Volume pricing: 5+ managers at $250 each. 10+ at $200 each.</p>
     <p style="margin-top:16px;">To schedule an assessment for your team, request details below. We will follow up within one business day with available dates, proctoring options (in person or monitored remote), and the assessment brief.</p>
-    <a class="cta-btn" href="mailto:daniel@hedsconsulting.net?subject=HEDS Assessment — Request Details" target="_blank" rel="noopener noreferrer" style="margin-top:16px;">Request Assessment Details</a>
+    <a class="cta-btn" href="mailto:daniel@hedsconsulting.net?subject=HEDS Assessment: Request Details" target="_blank" rel="noopener noreferrer" style="margin-top:16px;">Request Assessment Details</a>
   </div>
 
   <div class="card">
@@ -1145,7 +1326,7 @@ body {
 <div class="section" id="sec-contact" role="tabpanel">
   <div class="hero">
     <h2>Let's Talk</h2>
-    <p>Book a 30-minute discovery call. We'll review what's happening in your operation and recommend where to start — whether that's an inspection, training, or both.</p>
+    <p>Book a 30-minute discovery call. We'll review what's happening in your operation and recommend where to start, whether that's an inspection, training, or both.</p>
   </div>
 
   <div class="card contact-block">
@@ -1166,7 +1347,7 @@ body {
   <div class="card">
     <h2>What Happens on the Discovery Call</h2>
     <ul>
-      <li>We discuss your operation — service, parts, rental, branch structure</li>
+      <li>We discuss your operation, service, parts, rental, branch structure</li>
       <li>We identify the top 2-3 areas where margin may be leaking</li>
       <li>We recommend the right service: inspection, training, or both</li>
       <li>If training is the right fit, we send the 4-report pre-work data request</li>
@@ -1180,7 +1361,7 @@ body {
     <div class="table-container"><table class="table">
       <tr><th>Service</th><th>What It Does</th><th>Next Step</th></tr>
       <tr><td><strong>Due Diligence &amp; Inspections</strong></td><td>Onsite audit that finds the dollar leaks</td><td>Book a discovery call</td></tr>
-      <tr><td><strong>Training &amp; Academy</strong></td><td>5-day onsite program that installs the discipline</td><td>Book a discovery call</td></tr>
+      <tr><td><strong>Training &amp; Academy</strong></td><td>3 to 5 day onsite program that installs the discipline</td><td>Book a discovery call</td></tr>
       <tr><td><strong>Follow-Up Coaching</strong></td><td>Virtual sessions targeting specific stalled metrics</td><td>Book a discovery call</td></tr>
       <tr><td><strong>Acquisition Due Diligence</strong></td><td>EBITDA quality and operational risk assessment</td><td>Book a discovery call</td></tr>
     </table></div>
@@ -1198,10 +1379,22 @@ body {
 <div class="section" id="sec-blog" role="tabpanel">
   <div class="blog-intro">
     <h2>Blog</h2>
-    <p>Practical management insights for heavy equipment dealers and rental companies — KPIs, operating discipline, and margin protection.</p>
+    <p>Practical management insights for heavy equipment dealers and rental companies: KPIs, operating discipline, and margin protection.</p>
   </div>
 
   <div class="post-list">
+    <a class="post-card" href="blog/work-order-48-hour-close-standard.html">
+      <span class="post-eyebrow">Service Operations</span>
+      <div class="post-title">The 48-Hour Work Order Close Standard</div>
+      <div class="post-excerpt">Walk into almost any heavy equipment shop on a Monday morning and ask to see the open work order report sorted by age. Here is how the 48-hour close standard and a 15-minute daily WIP stand-up keep Labor Utilization at 95% to 100%.</div>
+      <div class="post-meta">
+        <span>Daniel Looper</span>
+        <span class="dot"></span>
+        <span>October 26, 2026</span>
+        <span class="dot"></span>
+        <span class="read-time">3-min read</span>
+      </div>
+    </a>
     <a class="post-card" href="blog/leading-vs-lagging-kpis.html">
       <span class="post-eyebrow">KPI Management</span>
       <div class="post-title">Leading vs. Lagging KPIs: The Next Competitive Advantage for Heavy Equipment Dealers</div>
@@ -1220,7 +1413,7 @@ body {
 <!-- ===== FOOTER ===== -->
 <footer class="footer">
   <img src="LOGO_HEDS_small.png" alt="HEDS" width="72" height="72" loading="lazy" onerror="this.style.display='none'">
-  <p><strong style="color:var(--accent);">HEDS</strong> — Heavy Equipment Dealer Solutions LLC</p>
+  <p><strong style="color:var(--accent);">HEDS</strong> - Heavy Equipment Dealer Solutions LLC</p>
   <p>Leesburg, Florida &nbsp;|&nbsp; <a href="mailto:daniel@hedsconsulting.net" style="color:var(--muted);text-decoration:none;">daniel@hedsconsulting.net</a> &nbsp;|&nbsp; <a href="tel:8135997893" style="color:var(--muted);text-decoration:none;">813-599-7893</a></p>
   <p style="margin-top:8px;">
     <a href="https://www.linkedin.com/company/heavy-equipment-dealer-solutions-llc" target="_blank" rel="noopener noreferrer" style="color:var(--muted);text-decoration:none;margin-right:16px;">LinkedIn</a>
@@ -1266,7 +1459,7 @@ function showSection(secId, btn) {
 
 // Support direct link to tabs on page load
 window.addEventListener('DOMContentLoaded', function() {
-  var hash = window.location.hash.replace('#', '');
+  var hash = window.location.hash.replace('#', '').replace(/^sec-/, '');
   if (hash && document.getElementById('sec-' + hash)) {
     showSection(hash);
   }
@@ -1279,7 +1472,7 @@ function hedsAssessmentSubmit(e) {
   var email = document.getElementById('assess-email').value;
   var company = document.getElementById('assess-company').value || 'Not provided';
   var managers = document.getElementById('assess-managers').value;
-  var subject = encodeURIComponent('HEDS Assessment Request — ' + (company || name));
+  var subject = encodeURIComponent('HEDS Assessment Request: ' + (company || name));
   var body = encodeURIComponent(
     'Name: ' + name + '\n' +
     'Email: ' + email + '\n' +
@@ -1293,78 +1486,10 @@ function hedsAssessmentSubmit(e) {
   return false;
 }
 
-// ===== VISIT COUNTER (admin view) =====
-(function() {
-  var KEY = 'heds_visit_tracker';
-  var now = new Date();
-  var today = now.toISOString().split('T')[0];
-  
-  var data;
-  try {
-    data = JSON.parse(localStorage.getItem(KEY)) || {};
-  } catch(e) {
-    data = {};
-  }
-  
-  // Initialize if first ever visit
-  if (!data.totalVisits) {
-    data.totalVisits = 0;
-    data.newVisits = 0;
-    data.returnVisits = 0;
-    data.firstVisit = today;
-    data.lastVisit = '';
-    data.visitDates = [];
-  }
-  
-  // Check if this is a new day visit (not counting same-session reloads)
-  var isNewDay = (data.lastVisit !== today);
-  
-  if (isNewDay) {
-    data.totalVisits++;
-    
-    // If lastVisit exists and is before today, this is a return visit
-    if (data.lastVisit && data.lastVisit !== today) {
-      data.returnVisits++;
-    } else {
-      data.newVisits++;
-    }
-    
-    data.lastVisit = today;
-    
-    // Track unique visit days (keep last 30)
-    if (data.visitDates.indexOf(today) === -1) {
-      data.visitDates.push(today);
-      if (data.visitDates.length > 30) {
-        data.visitDates = data.visitDates.slice(-30);
-      }
-    }
-    
-    try {
-      localStorage.setItem(KEY, JSON.stringify(data));
-    } catch(e) {}
-  }
-  
-  // Create the counter display (small, bottom-left, semi-transparent)
-  var counter = document.createElement('div');
-  counter.id = 'heds-counter';
-  counter.style.cssText = 'position:fixed;bottom:0;left:0;font-size:10px;color:#94a3b8;' +
-    'background:rgba(6,21,41,0.7);padding:4px 10px;border-radius:0 6px 0 0;z-index:9999;' +
-    'font-family:monospace;letter-spacing:0.5px;pointer-events:none;opacity:0.5;';
-  
-  var totalDays = data.visitDates.length;
-  var firstVisitShort = data.firstVisit ? data.firstVisit.substring(5) : '—';
-  var lastVisitShort = data.lastVisit ? data.lastVisit.substring(5) : '—';
-  
-  counter.textContent = '👁 ' + data.totalVisits + ' visits (' + data.newVisits + ' new / ' + 
-    data.returnVisits + ' return) | ' + totalDays + ' unique days | since ' + firstVisitShort + 
-    ' | last ' + lastVisitShort;
-  
-  document.body.appendChild(counter);
-})();
 
 // Support browser back/forward buttons
 window.addEventListener('popstate', function() {
-  var hash = window.location.hash.replace('#', '') || 'overview';
+  var hash = window.location.hash.replace('#', '').replace(/^sec-/, '') || 'overview';
   if (document.getElementById('sec-' + hash)) {
     showSection(hash);
   }

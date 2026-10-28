@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>HEDS Academy — Parts Manager Training &amp; Operating Platform</title>
-  <meta name="description" content="Heavy Equipment Dealer Solutions LLC — Parts Manager Training Program with interactive KPI dashboard, curriculum, and certification assessment.">
+  <title>HEDS Academy: Parts Manager Training &amp; Operating Platform</title>
+  <meta name="description" content="Heavy Equipment Dealer Solutions LLC: Parts Manager Training Program with interactive KPI dashboard, curriculum, and certification assessment.">
   <script>
   var ASSESSMENT_RELAY_URL = 'https://script.google.com/macros/s/AKfycbymws_e31nyHrB6ge_U9NnVIdRFy-zNXKfGsVbWpm6OYz9_6lkpGL2RpFJebhxowwXn/exec';
   var TRACK_NAME = 'Parts Manager Training';
@@ -122,7 +122,90 @@ tailwind.config = { theme: { extend: { colors: { amber: { 400: "#c89718", 500: "
       .text-amber-400, .text-amber-500 { color: #854d0e !important; }
       .text-white\/40, .text-white\/50, .text-white\/60 { color: #555 !important; }
     }
-  </style>
+  
+/* ===== MOBILE & TABLET RESPONSIVE ENHANCEMENTS ===== */
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+.nav-main-btn, .curr-tab-btn, .dash-tab-btn, .erp-btn, button {
+  min-height: 44px;
+}
+.erp-btn {
+  min-width: 44px;
+  padding: 8px 10px !important;
+  font-size: 0.72rem !important;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+input:not([type="checkbox"]):not([type="radio"]):not([type="range"]),
+select,
+textarea {
+  font-size: 16px !important;
+  min-height: 44px;
+}
+input[type="checkbox"] {
+  width: 22px !important;
+  height: 22px !important;
+}
+#test_questions_list label {
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+/* Tablet (640px - 1024px) */
+@media (min-width: 640px) and (max-width: 1024px) {
+  .curr-tab-btn, .dash-tab-btn {
+    white-space: nowrap;
+  }
+}
+
+/* Mobile (<640px) */
+@media (max-width: 639px) {
+  header .max-w-7xl {
+    padding: 10px 12px !important;
+  }
+  .nav-main-btn {
+    flex: 1 1 100% !important;
+    width: 100% !important;
+    text-align: center !important;
+    padding: 10px 12px !important;
+    font-size: 0.8rem !important;
+  }
+  /* Scrollable horizontal pill bars for curriculum & dashboard sub-tabs */
+  #sec_curriculum > div:first-child,
+  #sec_dashboard .flex.flex-wrap.gap-2 {
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 8px !important;
+  }
+  .curr-tab-btn, .dash-tab-btn {
+    flex: 0 0 auto !important;
+    white-space: nowrap !important;
+    min-height: 44px !important;
+    padding: 10px 14px !important;
+    font-size: 0.76rem !important;
+  }
+  .brutalist-card {
+    padding: 16px 14px !important;
+  }
+  .diploma-frame {
+    padding: 20px 14px !important;
+  }
+  table {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+</style>
 </head>
 <body class="arch-grid min-h-screen relative pb-28">
 
@@ -229,7 +312,7 @@ tailwind.config = { theme: { extend: { colors: { amber: { 400: "#c89718", 500: "
         <div class="brutalist-card p-6 md:p-8 space-y-6">
           <div class="flex items-center justify-between border-b border-white/[0.08] pb-4">
             <div>
-              <span class="text-[10px] font-mono uppercase tracking-[0.25em] text-amber-500 font-bold">DAY 1 — FOUNDATION &amp; FINANCIALS</span>
+              <span class="text-[10px] font-mono uppercase tracking-[0.25em] text-amber-500 font-bold">DAY 1: FOUNDATION &amp; FINANCIALS</span>
               <h2 class="text-2xl md:text-3xl font-syne font-bold uppercase text-white mt-1">Module 1: Understanding Your Department's Financials</h2>
             </div>
             <div class="font-mono text-xs text-white/40">
@@ -240,14 +323,14 @@ tailwind.config = { theme: { extend: { colors: { amber: { 400: "#c89718", 500: "
           <div class="space-y-3">
             <div class="text-xs font-mono uppercase text-amber-500 font-bold">// THE DIAGNOSIS</div>
             <p class="text-white/70 text-sm md:text-base leading-relaxed font-light">
-              Parts departments consistently operate without understanding the four foundational financial KPIs that determine whether the department is generating profit or draining it. When gross margin falls below 30%, absorption drops below 60%, or salary exceeds 27.5% of gross profit, the department becomes a cost center rather than a profit center. You cannot fix what you do not measure.
+              Parts departments consistently operate without understanding the four foundational financial KPIs that determine whether the department is generating profit or draining it. When gross margin falls below 33%, absorption drops below 60%, or salary exceeds 27.5% of gross profit, the department becomes a cost center rather than a profit center. You cannot fix what you do not measure.
             </p>
           </div>
 
           <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 font-mono text-xs">
             <div class="p-3.5 bg-white/[0.02] border border-white/[0.06]">
               <span class="text-amber-500 font-bold block mb-1">KPI 1 // GROSS MARGIN</span>
-              <div class="text-white font-bold">Target 30–35%</div>
+              <div class="text-white font-bold">Target 33-37%</div>
               <div class="text-[11px] text-white/40 mt-1">Pure profit % on sales after parts cost</div>
             </div>
             <div class="p-3.5 bg-white/[0.02] border border-white/[0.06]">
@@ -271,16 +354,16 @@ tailwind.config = { theme: { extend: { colors: { amber: { 400: "#c89718", 500: "
           <div class="p-6 bg-[#0e0e14] border border-white/[0.08] space-y-4">
             <div class="flex justify-between items-center text-xs font-mono">
               <span class="text-amber-500 font-bold uppercase tracking-wider">// WORKED EXAMPLE: KPI 1 (PARTS GROSS MARGIN)</span>
-              <span class="text-emerald-400 font-bold">BENCHMARK: 30–35%</span>
+              <span class="text-emerald-400 font-bold">BENCHMARK: 33-37%</span>
             </div>
             <div class="text-xl md:text-2xl font-mono font-bold text-white">
               Gross Margin % = [ (Parts Revenue − Parts Cost of Goods Sold) / Parts Revenue ] &times; 100
             </div>
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4 pt-3 border-t border-white/[0.06] text-xs font-mono">
-              <div><span class="text-white/40 block text-[10px]">1. PARTS REVENUE</span><strong class="text-white text-sm">$500,000</strong></div>
-              <div><span class="text-white/40 block text-[10px]">2. PARTS COGS</span><strong class="text-white text-sm">$350,000</strong></div>
+              <div><span class="text-white/40 block text-[10px]">1. PARTS REVENUE</span><strong class="text-white text-sm">$420,000</strong></div>
+              <div><span class="text-white/40 block text-[10px]">2. PARTS COGS</span><strong class="text-white text-sm">$270,000</strong></div>
               <div><span class="text-white/40 block text-[10px]">3. GROSS PROFIT</span><strong class="text-emerald-400 text-sm">$150,000</strong></div>
-              <div><span class="text-white/40 block text-[10px]">4. MARGIN RESULT</span><strong class="text-amber-400 text-sm">30.0% (PASS)</strong></div>
+              <div><span class="text-white/40 block text-[10px]">4. MARGIN RESULT</span><strong class="text-amber-400 text-sm">35.7% (PASS)</strong></div>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-3 text-xs">
               <div class="p-3 bg-emerald-500/5 border border-emerald-500/20 text-white/80">
@@ -328,7 +411,7 @@ tailwind.config = { theme: { extend: { colors: { amber: { 400: "#c89718", 500: "
           <div class="p-6 border-l-4 border-amber-500 bg-[#0e0e14] space-y-2">
             <div class="text-[10px] font-mono uppercase tracking-[0.25em] text-amber-500 font-bold">HEDS FLOOR RULE // P&amp;L REALITY</div>
             <p class="font-editorial text-xl md:text-2xl italic text-white/95 leading-snug">
-              &ldquo;You cannot manage a parts department from a P&amp;L statement alone. The four foundational KPIs tell you whether the department is profitable, self-sustaining, properly weighted, and efficiently staffed. If any one of the four is outside the target range, the department is leaking profit — and the leak will not fix itself.&rdquo;
+              &ldquo;You cannot manage a parts department from a P&amp;L statement alone. The four foundational KPIs tell you whether the department is profitable, self-sustaining, properly weighted, and efficiently staffed. If any one of the four is outside the target range, the department is leaking profit, and the leak will not fix itself.&rdquo;
             </p>
           </div>
 
@@ -354,14 +437,14 @@ tailwind.config = { theme: { extend: { colors: { amber: { 400: "#c89718", 500: "
         <div class="brutalist-card p-6 md:p-8 space-y-6">
           <div class="flex items-center justify-between border-b border-white/[0.08] pb-4">
             <div>
-              <span class="text-[10px] font-mono uppercase tracking-[0.25em] text-amber-500 font-bold">DAY 1 — FOUNDATION &amp; FINANCIALS</span>
-              <h2 class="text-2xl md:text-3xl font-syne font-bold uppercase text-white mt-1">Module 2: The Baseline Audit — Where You Stand Right Now</h2>
+              <span class="text-[10px] font-mono uppercase tracking-[0.25em] text-amber-500 font-bold">DAY 1: FOUNDATION &amp; FINANCIALS</span>
+              <h2 class="text-2xl md:text-3xl font-syne font-bold uppercase text-white mt-1">Module 2: The Baseline Audit: Where You Stand Right Now</h2>
             </div>
             <span class="text-xs font-mono text-white/40">ASSESSMENT SCOREBOARD</span>
           </div>
 
           <p class="text-white/70 text-sm md:text-base leading-relaxed font-light">
-            Before you can fix the parts department, you must know exactly where it stands today. The Baseline Audit is a structured, point-in-time assessment of all 10 KPIs — not to judge, but to establish the starting line. Every improvement is measured against this baseline.
+            Before you can fix the parts department, you must know exactly where it stands today. The Baseline Audit is a structured, point-in-time assessment of all 10 KPIs, not to judge, but to establish the starting line. Every improvement is measured against this baseline.
           </p>
 
           <!-- 10 KPI HEALTH AUDIT TABLE -->
@@ -376,16 +459,16 @@ tailwind.config = { theme: { extend: { colors: { amber: { 400: "#c89718", 500: "
                 </tr>
               </thead>
               <tbody class="divide-y divide-white/[0.06]">
-                <tr><td class="py-3 px-4 font-bold text-white">KPI 1: Gross Margin</td><td class="py-3 px-4">30%–35%</td><td class="py-3 px-4 text-emerald-400">30.0%</td><td class="py-3 px-4"><span class="px-2 py-0.5 bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 font-bold">PASS</span></td></tr>
+                <tr><td class="py-3 px-4 font-bold text-white">KPI 1: Gross Margin</td><td class="py-3 px-4">33%-37%</td><td class="py-3 px-4 text-emerald-400">35.7%</td><td class="py-3 px-4"><span class="px-2 py-0.5 bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 font-bold">PASS</span></td></tr>
                 <tr><td class="py-3 px-4 font-bold text-white">KPI 2: Absorption Rate</td><td class="py-3 px-4">&ge; 60%</td><td class="py-3 px-4 text-emerald-400">60.0%</td><td class="py-3 px-4"><span class="px-2 py-0.5 bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 font-bold">PASS</span></td></tr>
                 <tr><td class="py-3 px-4 font-bold text-white">KPI 3: Sales % of Dealership</td><td class="py-3 px-4">25%–30%</td><td class="py-3 px-4 text-emerald-400">25.0%</td><td class="py-3 px-4"><span class="px-2 py-0.5 bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 font-bold">PASS</span></td></tr>
                 <tr><td class="py-3 px-4 font-bold text-white">KPI 4: Salary % of GP</td><td class="py-3 px-4">&le; 27.5%</td><td class="py-3 px-4 text-emerald-400">26.7%</td><td class="py-3 px-4"><span class="px-2 py-0.5 bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 font-bold">PASS</span></td></tr>
                 <tr><td class="py-3 px-4 font-bold text-white">KPI 5: Gross Turns</td><td class="py-3 px-4">3–4x</td><td class="py-3 px-4 text-emerald-400">3.6x</td><td class="py-3 px-4"><span class="px-2 py-0.5 bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 font-bold">PASS</span></td></tr>
                 <tr><td class="py-3 px-4 font-bold text-white">KPI 6: Stock Order Efficiency</td><td class="py-3 px-4">&gt; 75%</td><td class="py-3 px-4 text-emerald-400">75.0%</td><td class="py-3 px-4"><span class="px-2 py-0.5 bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 font-bold">PASS</span></td></tr>
-                <tr><td class="py-3 px-4 font-bold text-white">KPI 7: Obsolescence &amp; Excess</td><td class="py-3 px-4">&lt; 10%</td><td class="py-3 px-4 text-amber-400">9.0%</td><td class="py-3 px-4"><span class="px-2 py-0.5 bg-amber-500/10 text-amber-400 border border-amber-500/30 font-bold">WARN</span></td></tr>
-                <tr><td class="py-3 px-4 font-bold text-white">KPI 8: Parts-to-Labor Ratio</td><td class="py-3 px-4">$1–$2 : $1</td><td class="py-3 px-4 text-emerald-400">$1.20 : $1</td><td class="py-3 px-4"><span class="px-2 py-0.5 bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 font-bold">PASS</span></td></tr>
-                <tr><td class="py-3 px-4 font-bold text-white">KPI 9: First-Time Fill Rate</td><td class="py-3 px-4">&ge; 90%</td><td class="py-3 px-4 text-emerald-400">94.7%</td><td class="py-3 px-4"><span class="px-2 py-0.5 bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 font-bold">PASS</span></td></tr>
-                <tr><td class="py-3 px-4 font-bold text-white">KPI 10: Days of Supply</td><td class="py-3 px-4">30/90/180d</td><td class="py-3 px-4 text-emerald-400">101 days</td><td class="py-3 px-4"><span class="px-2 py-0.5 bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 font-bold">PASS</span></td></tr>
+                <tr><td class="py-3 px-4 font-bold text-white">KPI 7: Obsolescence &amp; Excess</td><td class="py-3 px-4">&lt; 5%</td><td class="py-3 px-4 text-amber-400">9.0%</td><td class="py-3 px-4"><span class="px-2 py-0.5 bg-amber-500/10 text-amber-400 border border-amber-500/30 font-bold">WARN</span></td></tr>
+                <tr><td class="py-3 px-4 font-bold text-white">KPI 8: Parts-to-Labor Ratio</td><td class="py-3 px-4">$1 : $1</td><td class="py-3 px-4 text-emerald-400">$1.20 : $1</td><td class="py-3 px-4"><span class="px-2 py-0.5 bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 font-bold">PASS</span></td></tr>
+                <tr><td class="py-3 px-4 font-bold text-white">KPI 9: First-Time Fill Rate</td><td class="py-3 px-4">Counter &ge; 85% / Service &ge; 90%</td><td class="py-3 px-4 text-emerald-400">90.0% / 94.7%</td><td class="py-3 px-4"><span class="px-2 py-0.5 bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 font-bold">PASS</span></td></tr>
+                <tr><td class="py-3 px-4 font-bold text-white">KPI 10: Days of Supply</td><td class="py-3 px-4">&le; 90d</td><td class="py-3 px-4 text-rose-400">101 days</td><td class="py-3 px-4"><span class="px-2 py-0.5 bg-rose-500/10 text-rose-400 border border-rose-500/30 font-bold">FAIL</span></td></tr>
               </tbody>
             </table>
           </div>
@@ -394,7 +477,7 @@ tailwind.config = { theme: { extend: { colors: { amber: { 400: "#c89718", 500: "
           <div class="p-6 border-l-4 border-amber-500 bg-[#0e0e14] space-y-2">
             <div class="text-[10px] font-mono uppercase tracking-[0.25em] text-amber-500 font-bold">HEDS FLOOR RULE // HONEST BASELINE</div>
             <p class="font-editorial text-xl md:text-2xl italic text-white/95 leading-snug">
-              &ldquo;The baseline audit is not a report card — it is a starting line. Do not hide the numbers. Do not round in your favor. The more honest the baseline, the more meaningful every improvement will be. A department that cannot measure itself cannot improve itself.&rdquo;
+              &ldquo;The baseline audit is not a report card, it is a starting line. Do not hide the numbers. Do not round in your favor. The more honest the baseline, the more meaningful every improvement will be. A department that cannot measure itself cannot improve itself.&rdquo;
             </p>
           </div>
 
@@ -410,14 +493,14 @@ tailwind.config = { theme: { extend: { colors: { amber: { 400: "#c89718", 500: "
         <div class="brutalist-card p-6 md:p-8 space-y-6">
           <div class="flex items-center justify-between border-b border-white/[0.08] pb-4">
             <div>
-              <span class="text-[10px] font-mono uppercase tracking-[0.25em] text-amber-500 font-bold">DAY 2 — INVENTORY DISCIPLINE &amp; LEAKS</span>
-              <h2 class="text-2xl md:text-3xl font-syne font-bold uppercase text-white mt-1">Module 3: Finding the Leaks — What Is Broken and Why</h2>
+              <span class="text-[10px] font-mono uppercase tracking-[0.25em] text-amber-500 font-bold">DAY 2: INVENTORY DISCIPLINE &amp; LEAKS</span>
+              <h2 class="text-2xl md:text-3xl font-syne font-bold uppercase text-white mt-1">Module 3: Finding the Leaks: What Is Broken and Why</h2>
             </div>
             <span class="text-xs font-mono text-rose-400 font-bold">DIAGNOSTIC MATRIX</span>
           </div>
 
           <p class="text-white/70 text-sm md:text-base leading-relaxed font-light">
-            Parts departments lose profit through specific, identifiable leaks — not through general "bad management." Every leak has a root cause on the floor, and every root cause has a dollar amount attached to it. You cannot fix a percentage. You can only fix a behavior.
+            Parts departments lose profit through specific, identifiable leaks, not through general "bad management." Every leak has a root cause on the floor, and every root cause has a dollar amount attached to it. You cannot fix a percentage. You can only fix a behavior.
           </p>
 
           <!-- PRIORITIZATION RULES -->
@@ -450,14 +533,14 @@ tailwind.config = { theme: { extend: { colors: { amber: { 400: "#c89718", 500: "
         <div class="brutalist-card p-6 md:p-8 space-y-6">
           <div class="flex items-center justify-between border-b border-white/[0.08] pb-4">
             <div>
-              <span class="text-[10px] font-mono uppercase tracking-[0.25em] text-amber-500 font-bold">DAY 2 — INVENTORY DISCIPLINE &amp; LEAKS</span>
-              <h2 class="text-2xl md:text-3xl font-syne font-bold uppercase text-white mt-1">Module 4: The Playbook — Daily &amp; Weekly Scorecards</h2>
+              <span class="text-[10px] font-mono uppercase tracking-[0.25em] text-amber-500 font-bold">DAY 2: INVENTORY DISCIPLINE &amp; LEAKS</span>
+              <h2 class="text-2xl md:text-3xl font-syne font-bold uppercase text-white mt-1">Module 4: The Playbook: Daily &amp; Weekly Scorecards</h2>
             </div>
             <span class="text-xs font-mono text-white/40">OPERATING CADENCE</span>
           </div>
 
           <p class="text-white/70 text-sm md:text-base leading-relaxed font-light">
-            Complicated software dashboards sit unused because they do not drive a decision. A scorecard is not a report — it is a management tool. If the number on the scorecard does not make someone do something different today, it should not be on the board.
+            Complicated software dashboards sit unused because they do not drive a decision. A scorecard is not a report, it is a management tool. If the number on the scorecard does not make someone do something different today, it should not be on the board.
           </p>
 
           <!-- DAILY & WEEKLY CADENCE SPECS -->
@@ -467,7 +550,8 @@ tailwind.config = { theme: { extend: { colors: { amber: { 400: "#c89718", 500: "
               <ul class="space-y-2 text-white/80">
                 <li class="flex justify-between border-b border-white/[0.06] pb-1"><span>Emergency Orders Placed Yesterday</span><span class="text-amber-400">Trigger if &gt; 5</span></li>
                 <li class="flex justify-between border-b border-white/[0.06] pb-1"><span>Stock Orders Placed Yesterday ($)</span><span class="text-white/60">Logged Daily</span></li>
-                <li class="flex justify-between border-b border-white/[0.06] pb-1"><span>First-Time Fill Rate %</span><span class="text-amber-400">Trigger if &lt; 85%</span></li>
+                <li class="flex justify-between border-b border-white/[0.06] pb-1"><span>Counter First-Time Fill Rate %</span><span class="text-amber-400">Trigger if &lt; 85% (WARN 80–84.9%, FAIL &lt; 80%)</span></li>
+                <li class="flex justify-between border-b border-white/[0.06] pb-1"><span>Service First-Time Fill Rate %</span><span class="text-amber-400">Trigger if &lt; 90% (WARN 85–89.9%, FAIL &lt; 85%)</span></li>
                 <li class="flex justify-between border-b border-white/[0.06] pb-1"><span>Returns / Exchanges Processed</span><span class="text-white/60">Counter Lead</span></li>
                 <li class="flex justify-between"><span>Open RO Waiting List (Service Dept)</span><span class="text-rose-400">Action Standup</span></li>
               </ul>
@@ -476,11 +560,12 @@ tailwind.config = { theme: { extend: { colors: { amber: { 400: "#c89718", 500: "
             <div class="p-6 bg-[#0e0e14] border border-white/[0.08] space-y-3">
               <span class="text-amber-500 font-bold uppercase tracking-wider block">WEEKLY SCORECARD (MONDAY MORNING)</span>
               <ul class="space-y-2 text-white/80">
-                <li class="flex justify-between border-b border-white/[0.06] pb-1"><span>Gross Margin % for Week</span><span class="text-emerald-400">Target 30–35%</span></li>
-                <li class="flex justify-between border-b border-white/[0.06] pb-1"><span>5-Day Rolling Fill Rate %</span><span class="text-emerald-400">Target &ge; 90%</span></li>
+                <li class="flex justify-between border-b border-white/[0.06] pb-1"><span>Gross Margin % for Week</span><span class="text-emerald-400">Target 33-37%</span></li>
+                <li class="flex justify-between border-b border-white/[0.06] pb-1"><span>5-Day Rolling Counter Fill Rate %</span><span class="text-emerald-400">Target &ge; 85%</span></li>
+                <li class="flex justify-between border-b border-white/[0.06] pb-1"><span>5-Day Rolling Service Fill Rate %</span><span class="text-emerald-400">Target &ge; 90%</span></li>
                 <li class="flex justify-between border-b border-white/[0.06] pb-1"><span>Stock Order Efficiency %</span><span class="text-emerald-400">Target &gt; 75%</span></li>
-                <li class="flex justify-between border-b border-white/[0.06] pb-1"><span>Obsolescence Balance ($)</span><span class="text-amber-400">Target &lt; 10%</span></li>
-                <li class="flex justify-between"><span>Parts-to-Labor Ratio</span><span class="text-emerald-400">Target $1–$2:1</span></li>
+                <li class="flex justify-between border-b border-white/[0.06] pb-1"><span>Obsolescence Balance ($)</span><span class="text-amber-400">Target &lt; 5%</span></li>
+                <li class="flex justify-between"><span>Parts-to-Labor Ratio</span><span class="text-emerald-400">Target $1:$1</span></li>
               </ul>
             </div>
           </div>
@@ -504,14 +589,14 @@ tailwind.config = { theme: { extend: { colors: { amber: { 400: "#c89718", 500: "
         <div class="brutalist-card p-6 md:p-8 space-y-6">
           <div class="flex items-center justify-between border-b border-white/[0.08] pb-4">
             <div>
-              <span class="text-[10px] font-mono uppercase tracking-[0.25em] text-amber-500 font-bold">DAY 3 — FLOOR EXECUTION &amp; FORECASTING</span>
-              <h2 class="text-2xl md:text-3xl font-syne font-bold uppercase text-white mt-1">Module 5: Floor Execution — Inventory Discipline (KPIs 5–10)</h2>
+              <span class="text-[10px] font-mono uppercase tracking-[0.25em] text-amber-500 font-bold">DAY 3: FLOOR EXECUTION &amp; FORECASTING</span>
+              <h2 class="text-2xl md:text-3xl font-syne font-bold uppercase text-white mt-1">Module 5: Floor Execution: Inventory Discipline (KPIs 5–10)</h2>
             </div>
             <span class="text-xs font-mono text-white/40">INVENTORY LIFECYCLE</span>
           </div>
 
           <p class="text-white/70 text-sm md:text-base leading-relaxed font-light">
-            The second half of the KPI set measures inventory discipline — how efficiently you buy, stock, and deploy parts. These six KPIs separate a well-run parts department from a warehouse full of dust and tied-up capital.
+            The second half of the KPI set measures inventory discipline, how efficiently you buy, stock, and deploy parts. These six KPIs separate a well-run parts department from a warehouse full of dust and tied-up capital.
           </p>
 
           <!-- 6 EXECUTION KPIS CAROUSEL / GRID -->
@@ -520,7 +605,7 @@ tailwind.config = { theme: { extend: { colors: { amber: { 400: "#c89718", 500: "
               <span class="text-amber-500 font-bold uppercase block text-[10px]">KPI 5 // GROSS TURNS</span>
               <div class="text-white font-bold text-sm">Annual COS / Avg Monthly Inv</div>
               <div class="text-emerald-400 font-bold">$1.8M / $500K = 3.6x (Target: 3–4x)</div>
-              <p class="text-[11px] text-white/50 pt-1">Below 3x: capital sleeping on shelves. Above 5x: understocked with fill rate risk.</p>
+              <p class="text-[11px] text-white/50 pt-1">3&ndash;4x is the sweet spot. Below 3x: too much stock (capital sleeping on shelves). Above 4x: generally too little stock (fill rate risk). Either side is a warning.</p>
             </div>
 
             <div class="p-4 bg-[#0e0e14] border border-white/[0.08] space-y-2">
@@ -533,36 +618,37 @@ tailwind.config = { theme: { extend: { colors: { amber: { 400: "#c89718", 500: "
             <div class="p-4 bg-[#0e0e14] border border-white/[0.08] space-y-2">
               <span class="text-amber-500 font-bold uppercase block text-[10px]">KPI 7 // OBSOLESCENCE &amp; EXCESS</span>
               <div class="text-white font-bold text-sm">[ Dead Stock Value / Total Inv ] &times; 100</div>
-              <div class="text-amber-400 font-bold">$50K / $500K = 10.0% (Target: &lt;10%)</div>
+              <div class="text-amber-400 font-bold">$50K / $500K = 10.0% (Target: &lt;5%)</div>
               <p class="text-[11px] text-white/50 pt-1">Dead capital. Execute quarterly purge: RTV to vendor, markdown, or scrap.</p>
             </div>
 
             <div class="p-4 bg-[#0e0e14] border border-white/[0.08] space-y-2">
               <span class="text-amber-500 font-bold uppercase block text-[10px]">KPI 8 // PARTS-TO-LABOR RATIO</span>
-              <div class="text-white font-bold text-sm">Shop Parts $ / Customer Labor $</div>
-              <div class="text-emerald-400 font-bold">$120K / $100K = $1.20:1 (Target: $1–$2:1)</div>
-              <p class="text-[11px] text-white/50 pt-1">Service shop partnership. Below $1:1 indicates missed parts quotes or external buying.</p>
+              <div class="text-white font-bold text-sm">Shop Parts $ / Total Work Order Labor $ (customer, warranty and internal)</div>
+              <div class="text-[11px] text-white/50">Work orders only (no counter sales). One dealer-wide ratio, not split by cat class.</div>
+              <div class="text-emerald-400 font-bold">$120K / $100K = $1.20:1 (Target: $1:$1, PASS $1.00 to $1.50)</div>
+              <p class="text-[11px] text-white/50 pt-1">Service shop partnership. The classic rule of thumb is $1 of parts sales for every $1 of labor sales on work orders, which supports profit in both departments. Below $1:1 indicates missed parts quotes or external buying. Well above $1:1, check that all labor is being billed.</p>
             </div>
 
             <div class="p-4 bg-[#0e0e14] border border-white/[0.08] space-y-2">
               <span class="text-amber-500 font-bold uppercase block text-[10px]">KPI 9 // FIRST-TIME FILL RATE</span>
-              <div class="text-white font-bold text-sm">[ Fills on First Request / Total Requests ] &times; 100</div>
-              <div class="text-emerald-400 font-bold">855 / 950 = 90.0% (Target: &ge;90%)</div>
-              <p class="text-[11px] text-white/50 pt-1">Customer &amp; technician availability metric. Below 90% causes shop downtime.</p>
+              <div class="text-white font-bold text-sm">[ Line Items Filled on First Request / Total Line Items Requested ] &times; 100</div>
+              <div class="text-emerald-400 font-bold">Counter: 855 / 950 = 90.0% (Target: &ge; 85%). Service: 900 / 950 = 94.7% (Target: &ge; 90%, no upper limit)</div>
+              <p class="text-[11px] text-white/50 pt-1">Customer &amp; technician availability metric, tracked separately for the counter and for service. Service fill below 90% causes shop downtime. Counted by line item, then averaged.</p>
             </div>
 
             <div class="p-4 bg-[#0e0e14] border border-white/[0.08] space-y-2">
               <span class="text-amber-500 font-bold uppercase block text-[10px]">KPI 10 // DAYS OF SUPPLY</span>
               <div class="text-white font-bold text-sm">Inventory Value / Daily Usage</div>
-              <div class="text-emerald-400 font-bold">Coverage: 30 / 90 / 180 Days</div>
-              <p class="text-[11px] text-white/50 pt-1">Velocity tiering: 30 days on fast-movers (A), 90 days medium (B), 180 days slow (C).</p>
+              <div class="text-emerald-400 font-bold">Maximum: 90 Days (over 90 = FAIL)</div>
+              <p class="text-[11px] text-white/50 pt-1">Velocity tiering is a general rule of thumb, not a standard: about 30 days on fast-movers (A), 90 days medium (B), 180 days slow (C). The parts manager still has to research days of supply part by part, because not everything fits a bucket. A part you know you will need that the manufacturer cannot supply stays on hand whatever its tier. The 90-day dealer-wide maximum still stands.</p>
             </div>
           </div>
 
           <div class="p-6 border-l-4 border-amber-500 bg-[#0e0e14] space-y-2">
             <div class="text-[10px] font-mono uppercase tracking-[0.25em] text-amber-500 font-bold">HEDS FLOOR RULE // RIGHT INVENTORY</div>
             <p class="font-editorial text-xl md:text-2xl italic text-white/95 leading-snug">
-              &ldquo;Inventory discipline is not about having less inventory — it is about having the right inventory. The six execution KPIs tell you whether your buying is efficient, your stock is healthy, your depth is correct, and your coverage matches actual demand.&rdquo;
+              &ldquo;Inventory discipline is not about having less inventory, it is about having the right inventory. The six execution KPIs tell you whether your buying is efficient, your stock is healthy, your depth is correct, and your coverage matches actual demand.&rdquo;
             </p>
           </div>
 
@@ -578,8 +664,8 @@ tailwind.config = { theme: { extend: { colors: { amber: { 400: "#c89718", 500: "
         <div class="brutalist-card p-6 md:p-8 space-y-6">
           <div class="flex items-center justify-between border-b border-white/[0.08] pb-4">
             <div>
-              <span class="text-[10px] font-mono uppercase tracking-[0.25em] text-amber-500 font-bold">DAY 3 — FLOOR EXECUTION &amp; FORECASTING</span>
-              <h2 class="text-2xl md:text-3xl font-syne font-bold uppercase text-white mt-1">Module 6: Seeing the Future — Forecasting with Leading Indicators</h2>
+              <span class="text-[10px] font-mono uppercase tracking-[0.25em] text-amber-500 font-bold">DAY 3: FLOOR EXECUTION &amp; FORECASTING</span>
+              <h2 class="text-2xl md:text-3xl font-syne font-bold uppercase text-white mt-1">Module 6: Seeing the Future: Forecasting with Leading Indicators</h2>
             </div>
             <span class="text-xs font-mono text-white/40">90-DAY DEPLOYMENT</span>
           </div>
@@ -602,12 +688,13 @@ tailwind.config = { theme: { extend: { colors: { amber: { 400: "#c89718", 500: "
                 </tr>
               </thead>
               <tbody class="divide-y divide-white/[0.06]">
-                <tr><td class="py-3 px-4 text-amber-400 font-bold">01</td><td class="py-3 px-4 font-bold text-white">Gross Margin &rarr; 32%</td><td class="py-3 px-4">Enforce tiered pricing matrix; manager sign-off on overrides</td><td class="py-3 px-4 text-white/70">Parts Manager</td><td class="py-3 px-4">Day 30</td><td class="py-3 px-4 text-emerald-400 font-bold">WEEKLY</td></tr>
-                <tr><td class="py-3 px-4 text-amber-400 font-bold">02</td><td class="py-3 px-4 font-bold text-white">Fill Rate &rarr; 92%</td><td class="py-3 px-4">Recalculate min/max on top 50 high-velocity parts</td><td class="py-3 px-4 text-white/70">Inventory Lead</td><td class="py-3 px-4">Day 45</td><td class="py-3 px-4 text-emerald-400 font-bold">DAILY</td></tr>
-                <tr><td class="py-3 px-4 text-amber-400 font-bold">03</td><td class="py-3 px-4 font-bold text-white">Obsolescence &rarr; &lt;8%</td><td class="py-3 px-4">Quarterly purge — return, discount, or scrap</td><td class="py-3 px-4 text-white/70">Parts Manager</td><td class="py-3 px-4">Day 60</td><td class="py-3 px-4 text-emerald-400 font-bold">MONTHLY</td></tr>
-                <tr><td class="py-3 px-4 text-amber-400 font-bold">04</td><td class="py-3 px-4 font-bold text-white">Stock Order &rarr; 80%</td><td class="py-3 px-4">Adhere to DMS stock order runs; suppress emergency POs</td><td class="py-3 px-4 text-white/70">Purchasing Lead</td><td class="py-3 px-4">Day 60</td><td class="py-3 px-4 text-emerald-400 font-bold">WEEKLY</td></tr>
-                <tr><td class="py-3 px-4 text-amber-400 font-bold">05</td><td class="py-3 px-4 font-bold text-white">Turns &rarr; 4.0x</td><td class="py-3 px-4">Tighten safety stock on slow movers; purge dead inventory</td><td class="py-3 px-4 text-white/70">Warehouse Lead</td><td class="py-3 px-4">Day 75</td><td class="py-3 px-4 text-emerald-400 font-bold">MONTHLY</td></tr>
-                <tr><td class="py-3 px-4 text-amber-400 font-bold">06</td><td class="py-3 px-4 font-bold text-white">Parts/Labor &rarr; $1.20:1</td><td class="py-3 px-4">Enforce internal sourcing protocol with service department</td><td class="py-3 px-4 text-white/70">Parts &amp; Service Mgrs</td><td class="py-3 px-4">Day 90</td><td class="py-3 px-4 text-emerald-400 font-bold">WEEKLY</td></tr>
+                <tr><td class="py-3 px-4 text-amber-400 font-bold">01</td><td class="py-3 px-4 font-bold text-white">Gross Margin &rarr; 33-37%</td><td class="py-3 px-4">Enforce tiered pricing matrix; manager sign-off on overrides</td><td class="py-3 px-4 text-white/70">Parts Manager</td><td class="py-3 px-4">Day 30</td><td class="py-3 px-4 text-emerald-400 font-bold">WEEKLY</td></tr>
+                <tr><td class="py-3 px-4 text-amber-400 font-bold">02</td><td class="py-3 px-4 font-bold text-white">Counter Fill Rate &rarr; 85%</td><td class="py-3 px-4">Recalculate min/max on top 50 high-velocity parts</td><td class="py-3 px-4 text-white/70">Inventory Lead</td><td class="py-3 px-4">Day 45</td><td class="py-3 px-4 text-emerald-400 font-bold">DAILY</td></tr>
+                <tr><td class="py-3 px-4 text-amber-400 font-bold">03</td><td class="py-3 px-4 font-bold text-white">Service Fill Rate &rarr; &ge; 90%</td><td class="py-3 px-4">Recalculate min/max on top 50 high-velocity parts</td><td class="py-3 px-4 text-white/70">Inventory Lead</td><td class="py-3 px-4">Day 45</td><td class="py-3 px-4 text-emerald-400 font-bold">DAILY</td></tr>
+                <tr><td class="py-3 px-4 text-amber-400 font-bold">04</td><td class="py-3 px-4 font-bold text-white">Obsolescence &rarr; &lt;5%</td><td class="py-3 px-4">Quarterly purge: return, discount, or scrap</td><td class="py-3 px-4 text-white/70">Parts Manager</td><td class="py-3 px-4">Day 60</td><td class="py-3 px-4 text-emerald-400 font-bold">MONTHLY</td></tr>
+                <tr><td class="py-3 px-4 text-amber-400 font-bold">05</td><td class="py-3 px-4 font-bold text-white">Stock Order &rarr; 80%</td><td class="py-3 px-4">Adhere to DMS stock order runs; suppress emergency POs</td><td class="py-3 px-4 text-white/70">Purchasing Lead</td><td class="py-3 px-4">Day 60</td><td class="py-3 px-4 text-emerald-400 font-bold">WEEKLY</td></tr>
+                <tr><td class="py-3 px-4 text-amber-400 font-bold">06</td><td class="py-3 px-4 font-bold text-white">Turns &rarr; 3&ndash;4x</td><td class="py-3 px-4">Tighten safety stock on slow movers; purge dead inventory</td><td class="py-3 px-4 text-white/70">Warehouse Lead</td><td class="py-3 px-4">Day 75</td><td class="py-3 px-4 text-emerald-400 font-bold">MONTHLY</td></tr>
+                <tr><td class="py-3 px-4 text-amber-400 font-bold">07</td><td class="py-3 px-4 font-bold text-white">Parts/Labor &rarr; $1:$1</td><td class="py-3 px-4">Enforce internal sourcing protocol with service department</td><td class="py-3 px-4 text-white/70">Parts &amp; Service Mgrs</td><td class="py-3 px-4">Day 90</td><td class="py-3 px-4 text-emerald-400 font-bold">WEEKLY</td></tr>
               </tbody>
             </table>
           </div>
@@ -615,7 +702,7 @@ tailwind.config = { theme: { extend: { colors: { amber: { 400: "#c89718", 500: "
           <div class="p-6 border-l-4 border-amber-500 bg-[#0e0e14] space-y-2">
             <div class="text-[10px] font-mono uppercase tracking-[0.25em] text-amber-500 font-bold">HEDS FLOOR RULE // COMMITMENT DOCUMENT</div>
             <p class="font-editorial text-xl md:text-2xl italic text-white/95 leading-snug">
-              &ldquo;A forecast that does not drive a decision is a guess. The 90-day plan is not a wish list — it is a commitment document. Every action has an owner, a date, and a measurable KPI target. Review at day 30, day 60, and day 90. Adjust or accelerate based on results.&rdquo;
+              &ldquo;A forecast that does not drive a decision is a guess. The 90-day plan is not a wish list, it is a commitment document. Every action has an owner, a date, and a measurable KPI target. Review at day 30, day 60, and day 90. Adjust or accelerate based on results.&rdquo;
             </p>
           </div>
 
@@ -631,7 +718,7 @@ tailwind.config = { theme: { extend: { colors: { amber: { 400: "#c89718", 500: "
         <div class="brutalist-card p-6 md:p-12 space-y-8">
           <div class="flex justify-between items-center border-b border-white/[0.08] pb-4">
             <span class="text-xs font-mono uppercase tracking-[0.25em] text-amber-500 font-bold">PROGRAM CAPSTONE // CREDENTIAL SPEC</span>
-            <button onclick="window.print()" class="px-4 py-1.5 border border-amber-500 bg-amber-500 text-black font-mono font-bold text-xs uppercase hover:bg-amber-400 transition">
+            <button onclick="hedsPrintPartsDiploma()" class="px-4 py-1.5 border border-amber-500 bg-amber-500 text-black font-mono font-bold text-xs uppercase hover:bg-amber-400 transition">
               Print High-Res Certificate
             </button>
           </div>
@@ -722,8 +809,8 @@ tailwind.config = { theme: { extend: { colors: { amber: { 400: "#c89718", 500: "
             <span class="text-amber-500 uppercase font-bold">01 // GROSS MARGIN</span>
             <span id="m1_status" class="px-1.5 py-0.5 bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 font-bold">PASS</span>
           </div>
-          <div class="text-3xl font-syne font-bold text-white tracking-tight" id="m1_res">30.0%</div>
-          <div class="text-[10px] font-mono text-white/40">Target: 30%–35%</div>
+          <div class="text-3xl font-syne font-bold text-white tracking-tight" id="m1_res">35.7%</div>
+          <div class="text-[10px] font-mono text-white/40">Target: 33%-37%</div>
         </div>
 
         <div class="bg-[#09090d] p-4 space-y-2">
@@ -760,6 +847,7 @@ tailwind.config = { theme: { extend: { colors: { amber: { 400: "#c89718", 500: "
           </div>
           <div class="text-3xl font-syne font-bold text-white tracking-tight" id="m5_res">3.6x</div>
           <div class="text-[10px] font-mono text-white/40">Target: 3.0x–4.0x</div>
+          <div class="text-[10px] font-mono text-amber-400" id="m5_note"></div>
         </div>
 
         <div class="bg-[#09090d] p-4 space-y-2">
@@ -774,10 +862,10 @@ tailwind.config = { theme: { extend: { colors: { amber: { 400: "#c89718", 500: "
         <div class="bg-[#09090d] p-4 space-y-2">
           <div class="flex justify-between items-center text-[10px] font-mono">
             <span class="text-amber-500 uppercase font-bold">07 // OBSOLESCENCE</span>
-            <span id="m7_status" class="px-1.5 py-0.5 bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 font-bold">PASS</span>
+            <span id="m7_status" class="px-1.5 py-0.5 bg-amber-500/10 text-amber-400 border border-amber-500/30 font-bold">WARN</span>
           </div>
           <div class="text-3xl font-syne font-bold text-white tracking-tight" id="m7_res">9.0%</div>
-          <div class="text-[10px] font-mono text-white/40">Target: &lt; 10%</div>
+          <div class="text-[10px] font-mono text-white/40">Target: &lt; 5% (WARN 5&ndash;10%, FAIL over 10%)</div>
         </div>
 
         <div class="bg-[#09090d] p-4 space-y-2">
@@ -786,7 +874,7 @@ tailwind.config = { theme: { extend: { colors: { amber: { 400: "#c89718", 500: "
             <span id="m8_status" class="px-1.5 py-0.5 bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 font-bold">PASS</span>
           </div>
           <div class="text-3xl font-syne font-bold text-white tracking-tight" id="m8_res">$1.20 : $1</div>
-          <div class="text-[10px] font-mono text-white/40">Target: $1–$2:1</div>
+          <div class="text-[10px] font-mono text-white/40">Target: $1:$1 (PASS $1.00&ndash;$1.50)</div>
         </div>
 
         <div class="bg-[#09090d] p-4 space-y-2">
@@ -794,17 +882,17 @@ tailwind.config = { theme: { extend: { colors: { amber: { 400: "#c89718", 500: "
             <span class="text-amber-500 uppercase font-bold">09 // FILL RATE</span>
             <span id="m9_status" class="px-1.5 py-0.5 bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 font-bold">PASS</span>
           </div>
-          <div class="text-3xl font-syne font-bold text-white tracking-tight" id="m9_res">94.7%</div>
-          <div class="text-[10px] font-mono text-white/40">Target: &ge; 90%</div>
+          <div class="text-3xl font-syne font-bold text-white tracking-tight" id="m9_res">90.0% / 94.7%</div>
+          <div class="text-[10px] font-mono text-white/40">Counter / Service. Targets: counter &ge; 85%, service &ge; 90% (by line item, then averaged)</div>
         </div>
 
         <div class="bg-[#09090d] p-4 space-y-2">
           <div class="flex justify-between items-center text-[10px] font-mono">
             <span class="text-amber-500 uppercase font-bold">10 // SUPPLY DAYS</span>
-            <span id="s_stat_m10" class="px-1.5 py-0.5 bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 font-bold">PASS</span>
+            <span id="s_stat_m10" class="px-1.5 py-0.5 bg-rose-500/10 text-rose-400 border border-rose-500/30 font-bold">FAIL</span>
           </div>
           <div class="text-3xl font-syne font-bold text-white tracking-tight" id="s_val_m10">101 days</div>
-          <div class="text-[10px] font-mono text-white/40">Target: 30/90/180d</div>
+          <div class="text-[10px] font-mono text-white/40">Target: &le; 90 days</div>
         </div>
 
       </div>
@@ -830,17 +918,17 @@ tailwind.config = { theme: { extend: { colors: { amber: { 400: "#c89718", 500: "
             <h3 class="text-lg font-syne font-bold uppercase text-white">Enter Your Numbers: Parts Gross Margin</h3>
             <div class="space-y-1 font-mono text-xs">
               <label class="text-white/60 block">Total Parts Revenue ($)</label>
-              <input type="number" id="m1_parts_rev" value="500000" oninput="calcMod1()" class="w-full p-3 bg-black/60 border border-white/10 text-white font-mono font-bold focus:border-amber-500 focus:outline-none">
+              <input type="number" id="m1_parts_rev" value="420000" oninput="calcMod1()" class="w-full p-3 bg-black/60 border border-white/10 text-white font-mono font-bold focus:border-amber-500 focus:outline-none">
             </div>
             <div class="space-y-1 font-mono text-xs">
               <label class="text-white/60 block">Total Parts Cost of Goods Sold ($)</label>
-              <input type="number" id="m1_parts_cost" value="350000" oninput="calcMod1()" class="w-full p-3 bg-black/60 border border-white/10 text-white font-mono font-bold focus:border-amber-500 focus:outline-none">
+              <input type="number" id="m1_parts_cost" value="270000" oninput="calcMod1()" class="w-full p-3 bg-black/60 border border-white/10 text-white font-mono font-bold focus:border-amber-500 focus:outline-none">
             </div>
           </div>
           <div class="p-6 bg-[#09090d] border border-white/[0.08] flex flex-col justify-center text-center space-y-2">
             <span class="text-xs font-mono uppercase text-white/40">YOUR RESULTING GROSS MARGIN</span>
-            <div class="text-5xl font-syne font-black text-amber-400" id="dash_m1_hero">30.0%</div>
-            <div class="text-xs font-mono text-white/60">Benchmark Target: 30% to 35%</div>
+            <div class="text-5xl font-syne font-black text-amber-400" id="dash_m1_hero">35.7%</div>
+            <div class="text-xs font-mono text-white/60">Benchmark Target: 33% to 37%</div>
           </div>
         </div>
       </div>
@@ -966,7 +1054,7 @@ tailwind.config = { theme: { extend: { colors: { amber: { 400: "#c89718", 500: "
           <div class="p-6 bg-[#09090d] border border-white/[0.08] flex flex-col justify-center text-center space-y-2">
             <span class="text-xs font-mono uppercase text-white/40">OBSOLESCENCE %</span>
             <div class="text-5xl font-syne font-black text-amber-400">9.0%</div>
-            <div class="text-xs font-mono text-white/60">Benchmark Target: &lt; 10.0%</div>
+            <div class="text-xs font-mono text-white/60">Benchmark Target: &lt; 5.0% (WARN 5&ndash;10%, FAIL over 10%)</div>
           </div>
         </div>
       </div>
@@ -980,7 +1068,7 @@ tailwind.config = { theme: { extend: { colors: { amber: { 400: "#c89718", 500: "
               <input type="number" id="m8_shop_parts" value="120000" oninput="calcMod8()" class="w-full p-3 bg-black/60 border border-white/10 text-white font-mono font-bold focus:border-amber-500 focus:outline-none">
             </div>
             <div class="space-y-1 font-mono text-xs">
-              <label class="text-white/60 block">Customer Labor Sales ($)</label>
+              <label class="text-white/60 block">Total Work Order Labor Sales ($): customer, warranty and internal</label>
               <input type="number" id="m8_labor_sales" value="100000" oninput="calcMod8()" class="w-full p-3 bg-black/60 border border-white/10 text-white font-mono font-bold focus:border-amber-500 focus:outline-none">
             </div>
           </div>
@@ -988,6 +1076,7 @@ tailwind.config = { theme: { extend: { colors: { amber: { 400: "#c89718", 500: "
             <span class="text-xs font-mono uppercase text-white/40">PARTS-TO-LABOR RATIO</span>
             <div class="text-5xl font-syne font-black text-amber-400">$1.20 : $1</div>
             <div class="text-xs font-mono text-white/60">Benchmark Target: $1.00–$2.00 : $1</div>
+            <div class="text-[10px] font-mono text-white/40">Work orders only (no counter sales). One dealer-wide ratio.</div>
           </div>
         </div>
       </div>
@@ -997,18 +1086,30 @@ tailwind.config = { theme: { extend: { colors: { amber: { 400: "#c89718", 500: "
           <div class="space-y-4">
             <h3 class="text-lg font-syne font-bold uppercase text-white">Enter Your Numbers: First-Time Fill Rate</h3>
             <div class="space-y-1 font-mono text-xs">
-              <label class="text-white/60 block">Orders Filled Immediately From Stock</label>
+              <label class="text-white/60 block">Counter: Line Items Filled Immediately From Stock</label>
+              <input type="number" id="m9_counter_filled" value="855" oninput="calcMod9()" class="w-full p-3 bg-black/60 border border-white/10 text-white font-mono font-bold focus:border-amber-500 focus:outline-none">
+            </div>
+            <div class="space-y-1 font-mono text-xs">
+              <label class="text-white/60 block">Counter: Total Line Items Requested</label>
+              <input type="number" id="m9_counter_total" value="950" oninput="calcMod9()" class="w-full p-3 bg-black/60 border border-white/10 text-white font-mono font-bold focus:border-amber-500 focus:outline-none">
+            </div>
+            <div class="space-y-1 font-mono text-xs">
+              <label class="text-white/60 block">Service: Line Items Filled Immediately From Stock</label>
               <input type="number" id="m9_filled" value="900" oninput="calcMod9()" class="w-full p-3 bg-black/60 border border-white/10 text-white font-mono font-bold focus:border-amber-500 focus:outline-none">
             </div>
             <div class="space-y-1 font-mono text-xs">
-              <label class="text-white/60 block">Total Parts Requests</label>
+              <label class="text-white/60 block">Service: Total Line Items Requested</label>
               <input type="number" id="m9_total_orders" value="950" oninput="calcMod9()" class="w-full p-3 bg-black/60 border border-white/10 text-white font-mono font-bold focus:border-amber-500 focus:outline-none">
             </div>
           </div>
           <div class="p-6 bg-[#09090d] border border-white/[0.08] flex flex-col justify-center text-center space-y-2">
-            <span class="text-xs font-mono uppercase text-white/40">FIRST-TIME FILL RATE</span>
-            <div class="text-5xl font-syne font-black text-amber-400">94.7%</div>
-            <div class="text-xs font-mono text-white/60">Benchmark Target: &ge; 90.0%</div>
+            <span class="text-xs font-mono uppercase text-white/40">COUNTER FILL RATE</span>
+            <div class="text-4xl font-syne font-black text-amber-400" id="m9_counter_res">90.0%</div>
+            <div class="text-xs font-mono text-white/60">Target: &ge; 85%. WARN 80&ndash;84.9%. FAIL under 80%. <span id="m9_counter_status" class="px-1.5 py-0.5 bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 font-bold">PASS</span></div>
+            <span class="text-xs font-mono uppercase text-white/40">SERVICE FILL RATE</span>
+            <div class="text-4xl font-syne font-black text-amber-400" id="m9_service_res">94.7%</div>
+            <div class="text-xs font-mono text-white/60">Target: &ge; 90% (no upper flag). WARN 85&ndash;89.9%. FAIL under 85%. <span id="m9_service_status" class="px-1.5 py-0.5 bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 font-bold">PASS</span></div>
+            <div class="text-[10px] font-mono text-white/40">Counted by line item, then averaged.</div>
           </div>
         </div>
       </div>
@@ -1037,16 +1138,17 @@ tailwind.config = { theme: { extend: { colors: { amber: { 400: "#c89718", 500: "
                 </tr>
               </thead>
               <tbody class="divide-y divide-white/[0.06]">
-                <tr><td class="py-2.5 px-3 font-bold text-white">KPI 1: Parts Gross Margin</td><td class="py-2.5 px-3 text-white" id="s_val_m1">30.0%</td><td class="py-2.5 px-3 text-white/60">30%–35%</td><td class="py-2.5 px-3" id="s_stat_m1"><span class="px-2 py-0.5 bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">PASS</span></td></tr>
+                <tr><td class="py-2.5 px-3 font-bold text-white">KPI 1: Parts Gross Margin</td><td class="py-2.5 px-3 text-white" id="s_val_m1">35.7%</td><td class="py-2.5 px-3 text-white/60">33%-37%</td><td class="py-2.5 px-3" id="s_stat_m1"><span class="px-2 py-0.5 bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">PASS</span></td></tr>
                 <tr><td class="py-2.5 px-3 font-bold text-white">KPI 2: Parts Absorption Rate</td><td class="py-2.5 px-3 text-white" id="s_val_m2">60.0%</td><td class="py-2.5 px-3 text-white/60">&ge; 60%</td><td class="py-2.5 px-3" id="s_stat_m2"><span class="px-2 py-0.5 bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">PASS</span></td></tr>
                 <tr><td class="py-2.5 px-3 font-bold text-white">KPI 3: Parts Sales % of Dealership</td><td class="py-2.5 px-3 text-white" id="s_val_m3">25.0%</td><td class="py-2.5 px-3 text-white/60">25%–30%</td><td class="py-2.5 px-3" id="s_stat_m3"><span class="px-2 py-0.5 bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">PASS</span></td></tr>
                 <tr><td class="py-2.5 px-3 font-bold text-white">KPI 4: Parts Salary % of GP</td><td class="py-2.5 px-3 text-white" id="s_val_m4">26.7%</td><td class="py-2.5 px-3 text-white/60">&le; 27.5%</td><td class="py-2.5 px-3" id="s_stat_m4"><span class="px-2 py-0.5 bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">PASS</span></td></tr>
                 <tr><td class="py-2.5 px-3 font-bold text-white">KPI 5: Gross Parts Turns</td><td class="py-2.5 px-3 text-white" id="s_val_m5">3.6x</td><td class="py-2.5 px-3 text-white/60">3–4x</td><td class="py-2.5 px-3" id="s_stat_m5"><span class="px-2 py-0.5 bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">PASS</span></td></tr>
                 <tr><td class="py-2.5 px-3 font-bold text-white">KPI 6: Stock Order Efficiency</td><td class="py-2.5 px-3 text-white" id="s_val_m6">75.0%</td><td class="py-2.5 px-3 text-white/60">&gt; 75%</td><td class="py-2.5 px-3" id="s_stat_m6"><span class="px-2 py-0.5 bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">PASS</span></td></tr>
-                <tr><td class="py-2.5 px-3 font-bold text-white">KPI 7: Obsolescence &amp; Excess</td><td class="py-2.5 px-3 text-white" id="s_val_m7">9.0%</td><td class="py-2.5 px-3 text-white/60">&lt; 10%</td><td class="py-2.5 px-3" id="s_stat_m7"><span class="px-2 py-0.5 bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">PASS</span></td></tr>
-                <tr><td class="py-2.5 px-3 font-bold text-white">KPI 8: Parts-to-Labor Ratio</td><td class="py-2.5 px-3 text-white" id="s_val_m8">$1.20 : $1</td><td class="py-2.5 px-3 text-white/60">$1–$2 : $1</td><td class="py-2.5 px-3" id="s_stat_m8"><span class="px-2 py-0.5 bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">PASS</span></td></tr>
-                <tr><td class="py-2.5 px-3 font-bold text-white">KPI 9: First-Time Fill Rate</td><td class="py-2.5 px-3 text-white" id="s_val_m9">94.7%</td><td class="py-2.5 px-3 text-white/60">&ge; 90%</td><td class="py-2.5 px-3" id="s_stat_m9"><span class="px-2 py-0.5 bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">PASS</span></td></tr>
-                <tr><td class="py-2.5 px-3 font-bold text-white">KPI 10: Days of Supply</td><td class="py-2.5 px-3 text-white" id="s_val_m10_sub">101 days</td><td class="py-2.5 px-3 text-white/60">30/90/180d</td><td class="py-2.5 px-3" id="s_stat_m10_sub"><span class="px-2 py-0.5 bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">PASS</span></td></tr>
+                <tr><td class="py-2.5 px-3 font-bold text-white">KPI 7: Obsolescence &amp; Excess</td><td class="py-2.5 px-3 text-white" id="s_val_m7">9.0%</td><td class="py-2.5 px-3 text-white/60">&lt; 5%</td><td class="py-2.5 px-3" id="s_stat_m7"><span class="px-2 py-0.5 bg-amber-500/10 text-amber-400 border border-amber-500/30">WARN</span></td></tr>
+                <tr><td class="py-2.5 px-3 font-bold text-white">KPI 8: Parts-to-Labor Ratio</td><td class="py-2.5 px-3 text-white" id="s_val_m8">$1.20 : $1</td><td class="py-2.5 px-3 text-white/60">$1 : $1</td><td class="py-2.5 px-3" id="s_stat_m8"><span class="px-2 py-0.5 bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">PASS</span></td></tr>
+                <tr><td class="py-2.5 px-3 font-bold text-white">KPI 9a: Counter Fill Rate</td><td class="py-2.5 px-3 text-white" id="s_val_m9c">90.0%</td><td class="py-2.5 px-3 text-white/60">&ge; 85%</td><td class="py-2.5 px-3" id="s_stat_m9c"><span class="px-2 py-0.5 bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">PASS</span></td></tr>
+                <tr><td class="py-2.5 px-3 font-bold text-white">KPI 9b: Service Fill Rate</td><td class="py-2.5 px-3 text-white" id="s_val_m9">94.7%</td><td class="py-2.5 px-3 text-white/60">&ge; 90%</td><td class="py-2.5 px-3" id="s_stat_m9"><span class="px-2 py-0.5 bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">PASS</span></td></tr>
+                <tr><td class="py-2.5 px-3 font-bold text-white">KPI 10: Days of Supply</td><td class="py-2.5 px-3 text-white" id="s_val_m10_sub">101 days</td><td class="py-2.5 px-3 text-white/60">&le; 90 days</td><td class="py-2.5 px-3" id="s_stat_m10_sub"><span class="px-2 py-0.5 bg-rose-500/10 text-rose-400 border border-rose-500/30">FAIL</span></td></tr>
               </tbody>
             </table>
           </div>
@@ -1121,7 +1223,7 @@ tailwind.config = { theme: { extend: { colors: { amber: { 400: "#c89718", 500: "
         <div class="border-b border-white/[0.08] pb-4">
           <span class="text-[10px] font-mono uppercase tracking-[0.25em] text-amber-500 font-bold">HEDS OPERATING DISCIPLINE ACADEMY</span>
           <h2 class="text-2xl font-syne font-bold uppercase text-white mt-1">Certification Assessment</h2>
-          <p class="text-xs font-mono text-white/50 mt-1">50 Questions • 90-Minute Timer • Passing Threshold: 80%</p>
+          <p class="text-xs font-mono text-white/50 mt-1">50 Questions • 90-Minute Timer • Passing Threshold: 90%</p>
         </div>
 
         <div class="space-y-4 font-mono text-xs">
@@ -1137,7 +1239,7 @@ tailwind.config = { theme: { extend: { colors: { amber: { 400: "#c89718", 500: "
             </div>
             <div id="test_dealership_field">
               <label class="text-white/70 block mb-1">DEALERSHIP / BRANCH</label>
-              <input type="text" id="test_dealership" placeholder="Apex Equipment — Store #12" class="w-full p-3 bg-black/60 border border-white/10 text-white font-bold focus:border-amber-500 focus:outline-none">
+              <input type="text" id="test_dealership" placeholder="Apex Equipment - Store #12" class="w-full p-3 bg-black/60 border border-white/10 text-white font-bold focus:border-amber-500 focus:outline-none">
             </div>
             <div id="test_email_field">
               <label class="text-white/70 block mb-1">CORPORATE EMAIL ADDRESS</label>
@@ -1195,8 +1297,8 @@ tailwind.config = { theme: { extend: { colors: { amber: { 400: "#c89718", 500: "
           </div>
           <div class="flex items-center gap-3 font-mono text-xs">
             <div class="text-right">
-              <span class="text-3xl font-syne font-bold text-amber-400" id="result_score">— / 50</span>
-              <span class="text-lg font-bold text-white block" id="result_pct">—%</span>
+              <span class="text-3xl font-syne font-bold text-amber-400" id="result_score">-- / 50</span>
+              <span class="text-lg font-bold text-white block" id="result_pct">--%</span>
             </div>
           </div>
         </div>
@@ -1204,13 +1306,14 @@ tailwind.config = { theme: { extend: { colors: { amber: { 400: "#c89718", 500: "
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 font-mono text-xs">
           <div class="p-4 bg-white/[0.02] border border-white/[0.06]">
             <span class="text-white/40 block text-[10px] uppercase">CANDIDATE</span>
-            <strong class="text-white text-sm" id="result_name">—</strong>
-            <div class="text-white/50" id="result_dealership">—</div>
+            <strong class="text-white text-sm" id="result_name">--</strong>
+            <div class="text-white/50" id="result_dealership">--</div>
           </div>
           <div class="p-4 bg-white/[0.02] border border-white/[0.06]">
             <span class="text-white/40 block text-[10px] uppercase">DATE OF COMPLETION</span>
-            <strong class="text-white text-sm" id="result_date">—</strong>
-            <div class="text-emerald-400 font-bold">STATUS: RECORDED IN SYSTEM</div>
+            <strong class="text-white text-sm" id="result_date">--</strong>
+            <div class="font-bold" id="result_relay_status">STATUS: --</div>
+            <div class="font-bold mt-1" id="result_pass_status"></div>
           </div>
         </div>
 
@@ -1222,7 +1325,7 @@ tailwind.config = { theme: { extend: { colors: { amber: { 400: "#c89718", 500: "
 
         <!-- FOCUS AREAS -->
         <div class="space-y-3 font-mono text-xs">
-          <span class="text-white/40 uppercase tracking-wider block text-[10px]">COACHING FOCUS RECOMMENDATIONS (&lt;80%)</span>
+          <span class="text-white/40 uppercase tracking-wider block text-[10px]">COACHING FOCUS RECOMMENDATIONS (&lt;90%)</span>
           <div id="result_focus_areas"></div>
         </div>
 
@@ -1334,8 +1437,8 @@ tailwind.config = { theme: { extend: { colors: { amber: { 400: "#c89718", 500: "
         document.getElementById('s_val_m1').innerText = gm.toFixed(1) + '%';
         var hero = document.getElementById('dash_m1_hero');
         if (hero) hero.innerText = gm.toFixed(1) + '%';
-        if (gm >= 30) { setStatus('m1_status', 'PASS'); document.getElementById('s_stat_m1').innerHTML = '<span class="px-2 py-0.5 bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">PASS</span>'; }
-        else if (gm >= 25) { setStatus('m1_status', 'WARN'); document.getElementById('s_stat_m1').innerHTML = '<span class="px-2 py-0.5 bg-amber-500/10 text-amber-400 border border-amber-500/30">WARN</span>'; }
+        var gmShown = parseFloat(gm.toFixed(1));
+        if (gmShown >= 33) { setStatus('m1_status', 'PASS'); document.getElementById('s_stat_m1').innerHTML = '<span class="px-2 py-0.5 bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">PASS</span>'; }
         else { setStatus('m1_status', 'FAIL'); document.getElementById('s_stat_m1').innerHTML = '<span class="px-2 py-0.5 bg-rose-500/10 text-rose-400 border border-rose-500/30">FAIL</span>'; }
       }
     }
@@ -1386,9 +1489,12 @@ tailwind.config = { theme: { extend: { colors: { amber: { 400: "#c89718", 500: "
         var turns = cos / inv;
         document.getElementById('m5_res').innerText = turns.toFixed(1) + 'x';
         document.getElementById('s_val_m5').innerText = turns.toFixed(1) + 'x';
-        if (turns >= 3 && turns <= 4) { setStatus('m5_status', 'PASS'); document.getElementById('s_stat_m5').innerHTML = '<span class="px-2 py-0.5 bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">PASS</span>'; }
-        else if (turns >= 2 && turns < 5) { setStatus('m5_status', 'WARN'); document.getElementById('s_stat_m5').innerHTML = '<span class="px-2 py-0.5 bg-amber-500/10 text-amber-400 border border-amber-500/30">WARN</span>'; }
-        else { setStatus('m5_status', 'FAIL'); document.getElementById('s_stat_m5').innerHTML = '<span class="px-2 py-0.5 bg-rose-500/10 text-rose-400 border border-rose-500/30">FAIL</span>'; }
+        var turnsR = Math.round(turns * 10) / 10; // grade the value that is displayed
+        // B2 (Daniel, Oct 23 2026): 3-4x PASS; below 3x WARN (too much stock); above 4x WARN (generally too little stock). No FAIL for being high.
+        var m5note = document.getElementById('m5_note');
+        if (m5note) m5note.innerText = turnsR < 3 ? 'Below 3x: too much stock' : (turnsR > 4 ? 'Above 4x: generally too little stock' : '');
+        if (turnsR >= 3 && turnsR <= 4) { setStatus('m5_status', 'PASS'); document.getElementById('s_stat_m5').innerHTML = '<span class="px-2 py-0.5 bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">PASS</span>'; }
+        else { setStatus('m5_status', 'WARN'); document.getElementById('s_stat_m5').innerHTML = '<span class="px-2 py-0.5 bg-amber-500/10 text-amber-400 border border-amber-500/30">WARN</span>'; }
       }
       calcMod10();
     }
@@ -1413,8 +1519,10 @@ tailwind.config = { theme: { extend: { colors: { amber: { 400: "#c89718", 500: "
         var pct = (obs / total) * 100;
         document.getElementById('m7_res').innerText = pct.toFixed(1) + '%';
         document.getElementById('s_val_m7').innerText = pct.toFixed(1) + '%';
-        if (pct < 10) { setStatus('m7_status', 'PASS'); document.getElementById('s_stat_m7').innerHTML = '<span class="px-2 py-0.5 bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">PASS</span>'; }
-        else if (pct <= 15) { setStatus('m7_status', 'WARN'); document.getElementById('s_stat_m7').innerHTML = '<span class="px-2 py-0.5 bg-amber-500/10 text-amber-400 border border-amber-500/30">WARN</span>'; }
+        var pctR = Math.round(pct * 10) / 10; // grade the value that is displayed
+        // B1 (Daniel, Oct 23 2026): PASS under 5%, WARN 5-10%, FAIL over 10%
+        if (pctR < 5) { setStatus('m7_status', 'PASS'); document.getElementById('s_stat_m7').innerHTML = '<span class="px-2 py-0.5 bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">PASS</span>'; }
+        else if (pctR <= 10) { setStatus('m7_status', 'WARN'); document.getElementById('s_stat_m7').innerHTML = '<span class="px-2 py-0.5 bg-amber-500/10 text-amber-400 border border-amber-500/30">WARN</span>'; }
         else { setStatus('m7_status', 'FAIL'); document.getElementById('s_stat_m7').innerHTML = '<span class="px-2 py-0.5 bg-rose-500/10 text-rose-400 border border-rose-500/30">FAIL</span>'; }
       }
     }
@@ -1427,23 +1535,45 @@ tailwind.config = { theme: { extend: { colors: { amber: { 400: "#c89718", 500: "
         var ratioStr = '$' + ratio.toFixed(2) + ' : $1';
         document.getElementById('m8_res').innerText = ratioStr;
         document.getElementById('s_val_m8').innerText = ratioStr;
-        if (ratio >= 1.0 && ratio <= 2.0) { setStatus('m8_status', 'PASS'); document.getElementById('s_stat_m8').innerHTML = '<span class="px-2 py-0.5 bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">PASS</span>'; }
-        else if (ratio >= 0.80 && ratio < 1.0) { setStatus('m8_status', 'WARN'); document.getElementById('s_stat_m8').innerHTML = '<span class="px-2 py-0.5 bg-amber-500/10 text-amber-400 border border-amber-500/30">WARN</span>'; }
-        else if (ratio > 2.0 && ratio <= 2.5) { setStatus('m8_status', 'WARN'); document.getElementById('s_stat_m8').innerHTML = '<span class="px-2 py-0.5 bg-amber-500/10 text-amber-400 border border-amber-500/30">WARN</span>'; }
+        // Daniel, Oct 23 2026: target 1:1 on all work order labor. Bands are a HEDS choice: PASS 1.00-1.50, WARN 0.90-0.99 or 1.51-2.00, FAIL under 0.90 or over 2.00. Grades the displayed value.
+        ratio = Math.round(ratio * 100) / 100;
+        if (ratio >= 1.0 && ratio <= 1.5) { setStatus('m8_status', 'PASS'); document.getElementById('s_stat_m8').innerHTML = '<span class="px-2 py-0.5 bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">PASS</span>'; }
+        else if (ratio >= 0.90 && ratio < 1.0) { setStatus('m8_status', 'WARN'); document.getElementById('s_stat_m8').innerHTML = '<span class="px-2 py-0.5 bg-amber-500/10 text-amber-400 border border-amber-500/30">WARN</span>'; }
+        else if (ratio > 1.5 && ratio <= 2.0) { setStatus('m8_status', 'WARN'); document.getElementById('s_stat_m8').innerHTML = '<span class="px-2 py-0.5 bg-amber-500/10 text-amber-400 border border-amber-500/30">WARN</span>'; }
         else { setStatus('m8_status', 'FAIL'); document.getElementById('s_stat_m8').innerHTML = '<span class="px-2 py-0.5 bg-rose-500/10 text-rose-400 border border-rose-500/30">FAIL</span>'; }
       }
     }
 
     function calcMod9() {
-      var filled = parseFloat(document.getElementById('m9_filled').value) || 0;
-      var total = parseFloat(document.getElementById('m9_total_orders').value) || 0;
-      if (total > 0) {
-        var pct = (filled / total) * 100;
-        document.getElementById('m9_res').innerText = pct.toFixed(1) + '%';
-        document.getElementById('s_val_m9').innerText = pct.toFixed(1) + '%';
-        if (pct >= 90) { setStatus('m9_status', 'PASS'); document.getElementById('s_stat_m9').innerHTML = '<span class="px-2 py-0.5 bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">PASS</span>'; }
-        else if (pct >= 80) { setStatus('m9_status', 'WARN'); document.getElementById('s_stat_m9').innerHTML = '<span class="px-2 py-0.5 bg-amber-500/10 text-amber-400 border border-amber-500/30">WARN</span>'; }
-        else { setStatus('m9_status', 'FAIL'); document.getElementById('s_stat_m9').innerHTML = '<span class="px-2 py-0.5 bg-rose-500/10 text-rose-400 border border-rose-500/30">FAIL</span>'; }
+      // Fill rate split (Daniel, Oct 23 2026): counter target 85%, service target 90% or higher (no upper flag), counted by line item then averaged.
+      // WARN bands are a HEDS working choice: counter 80-84.9%, service 85-89.9%. Grades use the displayed (rounded) value.
+      var SPAN = {PASS: '<span class="px-2 py-0.5 bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">PASS</span>',
+                  WARN: '<span class="px-2 py-0.5 bg-amber-500/10 text-amber-400 border border-amber-500/30">WARN</span>',
+                  FAIL: '<span class="px-2 py-0.5 bg-rose-500/10 text-rose-400 border border-rose-500/30">FAIL</span>'};
+      function grade(pct, target, warn) { return pct >= target ? 'PASS' : (pct >= warn ? 'WARN' : 'FAIL'); }
+      var cf = parseFloat(document.getElementById('m9_counter_filled').value) || 0;
+      var ct = parseFloat(document.getElementById('m9_counter_total').value) || 0;
+      var sf = parseFloat(document.getElementById('m9_filled').value) || 0;
+      var st = parseFloat(document.getElementById('m9_total_orders').value) || 0;
+      var cg = null, sg = null, cTxt = '--', sTxt = '--';
+      if (ct > 0) {
+        var cp = Math.round((cf / ct) * 1000) / 10; cTxt = cp.toFixed(1) + '%'; cg = grade(cp, 85, 80);
+        document.getElementById('m9_counter_res').innerText = cTxt;
+        document.getElementById('s_val_m9c').innerText = cTxt;
+        setStatus('m9_counter_status', cg);
+        document.getElementById('s_stat_m9c').innerHTML = SPAN[cg];
+      }
+      if (st > 0) {
+        var sp = Math.round((sf / st) * 1000) / 10; sTxt = sp.toFixed(1) + '%'; sg = grade(sp, 90, 85);
+        document.getElementById('m9_service_res').innerText = sTxt;
+        document.getElementById('s_val_m9').innerText = sTxt;
+        setStatus('m9_service_status', sg);
+        document.getElementById('s_stat_m9').innerHTML = SPAN[sg];
+      }
+      if (cg || sg) {
+        document.getElementById('m9_res').innerText = cTxt + ' / ' + sTxt;
+        var worst = (cg === 'FAIL' || sg === 'FAIL') ? 'FAIL' : ((cg === 'WARN' || sg === 'WARN') ? 'WARN' : 'PASS');
+        setStatus('m9_status', worst);
       }
     }
 
@@ -1458,9 +1588,9 @@ tailwind.config = { theme: { extend: { colors: { amber: { 400: "#c89718", 500: "
         var el2 = document.getElementById('s_val_m10_sub');
         if (el1) el1.innerText = dayStr;
         if (el2) el2.innerText = dayStr;
-        var statHtml = days <= 120 ? '<span class="px-2 py-0.5 bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">PASS</span>' :
-                       (days <= 180 ? '<span class="px-2 py-0.5 bg-amber-500/10 text-amber-400 border border-amber-500/30">WARN</span>' :
-                       '<span class="px-2 py-0.5 bg-rose-500/10 text-rose-400 border border-rose-500/30">FAIL</span>');
+        // B3 (Daniel, Oct 23 2026): 90 days maximum. PASS at or under 90 days (as displayed); anything over 90 is FAIL.
+        var statHtml = Math.round(days) <= 90 ? '<span class="px-2 py-0.5 bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">PASS</span>' :
+                       '<span class="px-2 py-0.5 bg-rose-500/10 text-rose-400 border border-rose-500/30">FAIL</span>';
         var s1 = document.getElementById('s_stat_m10');
         var s2 = document.getElementById('s_stat_m10_sub');
         if (s1) s1.innerHTML = statHtml;
@@ -1491,7 +1621,7 @@ tailwind.config = { theme: { extend: { colors: { amber: { 400: "#c89718", 500: "
     function resetData() {
       if (confirm('Reset all manager inputs to default values?')) {
         var defaults = {
-          'm1_parts_rev': '500000', 'm1_parts_cost': '350000',
+          'm1_parts_rev': '420000', 'm1_parts_cost': '270000',
           'm2_parts_gp': '150000', 'm2_total_exp': '250000',
           'm3_parts_sales': '200000', 'm3_total_sales': '800000',
           'm4_salary': '40000', 'm4_gp': '150000',
@@ -1499,6 +1629,7 @@ tailwind.config = { theme: { extend: { colors: { amber: { 400: "#c89718", 500: "
           'm6_stock_receipts': '75000', 'm6_total_receipts': '100000',
           'm7_obsolete': '45000', 'm7_total_inv': '500000',
           'm8_shop_parts': '120000', 'm8_labor_sales': '100000',
+          'm9_counter_filled': '855', 'm9_counter_total': '950',
           'm9_filled': '900', 'm9_total_orders': '950'
         };
         Object.keys(defaults).forEach(function(key) {
@@ -1556,26 +1687,26 @@ tailwind.config = { theme: { extend: { colors: { amber: { 400: "#c89718", 500: "
     "question": "In a heavy equipment dealership parts department, what does Parts Gross Margin measure?",
     "options": [
       "The total revenue generated by parts sales before any deductions",
-      "The pure profit percentage on parts sales after deducting the cost of goods sold",
       "The percentage of dealership overhead covered by the parts department",
+      "The pure profit percentage on parts sales after deducting the cost of goods sold",
       "The total cash collected from customers for parts purchases"
     ]
   ,
-    "correct": 1
+    "correct": 2
 },
   {
     "id": "q02",
     "module": "Module 1: Financials",
     "type": "calc",
-    "question": "Your parts revenue is $500,000 and your parts cost of goods sold is $350,000. What is your Parts Gross Margin %?",
+    "question": "Your parts revenue is $420,000 and your parts cost of goods sold is $270,000. What is your Parts Gross Margin %?",
     "options": [
-      "70.0%",
-      "30.0%",
-      "42.9%",
-      "15.0%"
+      "64.3%",
+      "55.6%",
+      "15.0%",
+      "35.7%"
     ]
   ,
-    "correct": 1
+    "correct": 3
 },
   {
     "id": "q03",
@@ -1583,13 +1714,13 @@ tailwind.config = { theme: { extend: { colors: { amber: { 400: "#c89718", 500: "
     "type": "mc",
     "question": "What is the industry-standard target range for Parts Gross Margin in a heavy equipment dealership?",
     "options": [
+      "33-37%",
       "15-20%",
-      "30-35%",
       "45-50%",
       "60-65%"
     ]
   ,
-    "correct": 1
+    "correct": 0
 },
   {
     "id": "q04",
@@ -1597,13 +1728,13 @@ tailwind.config = { theme: { extend: { colors: { amber: { 400: "#c89718", 500: "
     "type": "scenario",
     "question": "Your parts gross margin is 28%. The dealer principal asks what this means. What do you tell them?",
     "options": [
+      "For every dollar of parts revenue, 28 cents is gross profit after the cost of the parts themselves. This is below the 33-37% target.",
       "The department is operating at a 28% net profit margin after all expenses.",
-      "For every dollar of parts revenue, 28 cents is gross profit after the cost of the parts themselves. This is below the 30% target.",
       "28% of all parts in inventory have been sold this month.",
       "The parts department covers 28% of total dealership overhead."
     ]
   ,
-    "correct": 1
+    "correct": 0
 },
   {
     "id": "q05",
@@ -1611,27 +1742,27 @@ tailwind.config = { theme: { extend: { colors: { amber: { 400: "#c89718", 500: "
     "type": "mc",
     "question": "Parts Absorption Rate measures which of the following?",
     "options": [
+      "The percentage of total store fixed and variable operating expenses covered by parts gross profit",
       "How quickly parts inventory turns over during the year",
-      "The percentage of total parts department fixed and variable expenses covered by parts gross profit",
       "The percentage of parts requests filled from stock on the first request",
       "The ratio of parts sales to labor sales in the service department"
     ]
   ,
-    "correct": 1
+    "correct": 0
 },
   {
     "id": "q06",
     "module": "Module 1: Financials",
     "type": "calc",
-    "question": "Your parts gross profit is $150,000 and your total fixed plus variable expenses are $250,000. What is your Parts Absorption Rate?",
+    "question": "Your parts gross profit is $150,000 and your total store fixed plus variable operating expenses are $250,000. What is your Parts Absorption Rate?",
     "options": [
       "150%",
-      "60%",
       "62.5%",
+      "60%",
       "40%"
     ]
   ,
-    "correct": 1
+    "correct": 2
 },
   {
     "id": "q07",
@@ -1640,12 +1771,12 @@ tailwind.config = { theme: { extend: { colors: { amber: { 400: "#c89718", 500: "
     "question": "What is the minimum Parts Absorption Rate target for a healthy heavy equipment parts department?",
     "options": [
       "40%",
-      "50%",
       "60%",
+      "50%",
       "75%"
     ]
   ,
-    "correct": 2
+    "correct": 1
 },
   {
     "id": "q08",
@@ -1654,12 +1785,12 @@ tailwind.config = { theme: { extend: { colors: { amber: { 400: "#c89718", 500: "
     "question": "Your parts absorption rate is 55%. What does this mean for the dealership?",
     "options": [
       "The parts department generates a 55% profit margin on all sales.",
-      "The parts department covers 55% of its own operating expenses through gross profit; the remaining 45% must be subsidized by other departments.",
       "55% of all parts in inventory are obsolete and should be purged.",
-      "The parts department fills 55% of all customer orders on the first request."
+      "The parts department fills 55% of all customer orders on the first request.",
+      "Parts gross profit covers 55% of total store fixed and variable operating expenses; the remaining 45% must be covered by other departments."
     ]
   ,
-    "correct": 1
+    "correct": 3
 },
   {
     "id": "q09",
@@ -1667,13 +1798,13 @@ tailwind.config = { theme: { extend: { colors: { amber: { 400: "#c89718", 500: "
     "type": "mc",
     "question": "Parts Sales as a percentage of total dealership sales is calculated as which of the following?",
     "options": [
-      "(Parts Sales / Total Dealership Sales) × 100",
       "(Parts Gross Profit / Total Dealership Revenue) × 100",
+      "(Parts Sales / Total Dealership Sales) × 100",
       "(Parts Inventory / Total Dealership Assets) × 100",
       "(Parts Cost / Parts Revenue) × 100"
     ]
   ,
-    "correct": 0
+    "correct": 1
 },
   {
     "id": "q10",
@@ -1695,13 +1826,13 @@ tailwind.config = { theme: { extend: { colors: { amber: { 400: "#c89718", 500: "
     "type": "scenario",
     "question": "Your parts department generates $180,000 in monthly parts sales. Your dealership total sales are $600,000. The dealer principal says parts should be contributing more. What is your current ratio and what does the industry standard say it should be?",
     "options": [
-      "Your parts are 30% of total sales — above the 25-30% target range. No action needed.",
-      "Your parts are 30% of total sales — within the 25-30% target range. The department is performing well.",
-      "Your parts are 20% of total sales — below the 25-30% target. You need to grow parts revenue.",
-      "Your parts are 50% of total sales — above target. The department is overperforming."
+      "Your parts are 30% of total sales, above the 25-30% target range. No action needed.",
+      "Your parts are 20% of total sales, below the 25-30% target. You need to grow parts revenue.",
+      "Your parts are 30% of total sales, within the 25-30% target range. The department is performing well.",
+      "Your parts are 50% of total sales, above target. The department is overperforming."
     ]
   ,
-    "correct": 1
+    "correct": 2
 },
   {
     "id": "q12",
@@ -1738,12 +1869,12 @@ tailwind.config = { theme: { extend: { colors: { amber: { 400: "#c89718", 500: "
     "question": "Your parts salary as a percentage of GP is 34%. What does this indicate?",
     "options": [
       "The department is operating efficiently and within target range.",
-      "The department is overstaffed relative to the gross profit it generates. For every dollar of GP, 34 cents goes to payroll — above the 27.5% sustainability threshold.",
       "The department is underpricing its parts and needs to increase retail margins.",
-      "The department has too much obsolete inventory tying up capital."
+      "The department has too much obsolete inventory tying up capital.",
+      "The department is overstaffed relative to the gross profit it generates. For every dollar of GP, 34 cents goes to payroll, above the 27.5% sustainability threshold."
     ]
   ,
-    "correct": 1
+    "correct": 3
 },
   {
     "id": "q15",
@@ -1751,13 +1882,13 @@ tailwind.config = { theme: { extend: { colors: { amber: { 400: "#c89718", 500: "
     "type": "mc",
     "question": "What is the primary purpose of establishing a parts department performance baseline (documenting current KPI values before making any changes)?",
     "options": [
+      "To create a documented starting point so every improvement can be measured against it, you cannot track progress without knowing where you started",
       "To judge the parts manager's performance and determine termination",
-      "To create a documented starting point so every improvement can be measured against it — you cannot track progress without knowing where you started",
       "To compare the department against other dealerships in the region",
       "To determine which employees should receive raises"
     ]
   ,
-    "correct": 1
+    "correct": 0
 },
   {
     "id": "q16",
@@ -1779,13 +1910,13 @@ tailwind.config = { theme: { extend: { colors: { amber: { 400: "#c89718", 500: "
     "type": "scenario",
     "question": "You document your department's current performance and find that 7 of 10 core KPIs are outside their target range. What should you do?",
     "options": [
-      "Resign immediately — the department is in crisis.",
-      "Try to fix all 7 KPIs in the first 30 days.",
+      "Resign immediately, the department is in crisis.",
       "Prioritize the issues with the highest dollar impact and the most straightforward operational fixes first. Address the rest in a phased plan.",
+      "Try to fix all 7 KPIs in the first 30 days.",
       "Hide the results from the dealer principal and hope they improve."
     ]
   ,
-    "correct": 2
+    "correct": 1
 },
   {
     "id": "q18",
@@ -1793,13 +1924,13 @@ tailwind.config = { theme: { extend: { colors: { amber: { 400: "#c89718", 500: "
     "type": "scenario",
     "question": "You present your department's KPI summary to the dealer principal. They ask how you categorize each metric's status. What is the standard industry approach?",
     "options": [
-      "On-target, near-target, and below-target — each KPI gets one of these three statuses",
-      "Red/Yellow/Green — with red meaning the manager should be replaced",
-      "Excellent/Good/Fair/Poor — with four categories for more nuance",
-      "A/B/C/D grading — like a school report card"
+      "Red/Yellow/Green, with red meaning the manager should be replaced",
+      "Excellent/Good/Fair/Poor, with four categories for more nuance",
+      "On-target, near-target, and below-target, each KPI gets one of these three statuses",
+      "A/B/C/D grading, like a school report card"
     ]
   ,
-    "correct": 0
+    "correct": 2
 },
   {
     "id": "q19",
@@ -1807,27 +1938,27 @@ tailwind.config = { theme: { extend: { colors: { amber: { 400: "#c89718", 500: "
     "type": "mc",
     "question": "When a parts department's gross margin drops below target, what is the correct approach to identifying and correcting the cause?",
     "options": [
-      "Adjust the pricing formula until the percentage moves.",
       "Identify the specific operational behavior causing the margin erosion (e.g., unauthorized discounting, mis-keyed parts, stock order inefficiency) and correct that behavior directly.",
+      "Adjust the pricing formula until the percentage moves.",
       "Replace the parts manager and start over.",
       "Accept that margin erosion is inevitable as the department grows."
     ]
   ,
-    "correct": 1
+    "correct": 0
 },
   {
     "id": "q20",
     "module": "Module 3: Leaks",
     "type": "scenario",
-    "question": "Your gross margin is 28% (target 30%). What is the correct way to describe this problem?",
+    "question": "Your gross margin is 28% (target 33-37%). What is the correct way to describe this problem?",
     "options": [
-      "'Gross margin is 28%' — that is the problem.",
-      "'Counter staff is discounting 15% of all retail tickets without manager approval, costing $3,200/month' — that is the problem you can fix.",
-      "'We need to raise all prices by 2%' — that is the solution.",
-      "'The market is too competitive' — that is the problem."
+      "'Gross margin is 28%', that is the problem.",
+      "'We need to raise all prices by 2%', that is the solution.",
+      "'Counter staff is discounting 15% of all retail tickets without manager approval, costing $3,200/month', that is the problem you can fix.",
+      "'The market is too competitive', that is the problem."
     ]
   ,
-    "correct": 1
+    "correct": 2
 },
   {
     "id": "q21",
@@ -1835,13 +1966,13 @@ tailwind.config = { theme: { extend: { colors: { amber: { 400: "#c89718", 500: "
     "type": "mc",
     "question": "When deciding which operational issue to address first, what two factors should guide your prioritization?",
     "options": [
-      "Financial impact and feasibility of the operational change",
       "Time since the issue started and who is responsible",
       "Vendor relationship and contract terms",
+      "Financial impact and feasibility of the operational change",
       "Season and weather conditions"
     ]
   ,
-    "correct": 0
+    "correct": 2
 },
   {
     "id": "q22",
@@ -1863,13 +1994,13 @@ tailwind.config = { theme: { extend: { colors: { amber: { 400: "#c89718", 500: "
     "type": "mc",
     "question": "What is the difference between a scorecard and a report?",
     "options": [
-      "A scorecard is more detailed; a report is a summary.",
       "A scorecard drives a decision. If the number on the scorecard does not make someone do something different today, it should not be on the board.",
+      "A scorecard is more detailed; a report is a summary.",
       "A report is for management; a scorecard is for the front-line staff.",
-      "There is no difference — they are interchangeable terms."
+      "There is no difference, they are interchangeable terms."
     ]
   ,
-    "correct": 1
+    "correct": 0
 },
   {
     "id": "q24",
@@ -1877,13 +2008,13 @@ tailwind.config = { theme: { extend: { colors: { amber: { 400: "#c89718", 500: "
     "type": "scenario",
     "question": "Your daily parts scorecard shows 25 emergency orders today versus 3 stock orders. What should you do?",
     "options": [
-      "Nothing — emergency orders are normal and expected.",
-      "Investigate why emergency orders are outpacing stock orders. Audit the purchasing process and tighten stock order participation.",
+      "Nothing, emergency orders are normal and expected.",
       "Fire the counter staff for poor purchasing decisions.",
-      "Increase the emergency order budget for next month."
+      "Increase the emergency order budget for next month.",
+      "Investigate why emergency orders are outpacing stock orders. Audit the purchasing process and tighten stock order participation."
     ]
   ,
-    "correct": 1
+    "correct": 3
 },
   {
     "id": "q25",
@@ -1892,12 +2023,12 @@ tailwind.config = { theme: { extend: { colors: { amber: { 400: "#c89718", 500: "
     "question": "Who should enter the data on the daily parts operational scorecard?",
     "options": [
       "The dealer principal",
-      "The counter staff — the people closest to the transactions",
       "An outside consultant",
-      "No one — it should be automated"
+      "No one, it should be automated",
+      "The counter staff, the people closest to the transactions"
     ]
   ,
-    "correct": 1
+    "correct": 3
 },
   {
     "id": "q26",
@@ -1920,12 +2051,12 @@ tailwind.config = { theme: { extend: { colors: { amber: { 400: "#c89718", 500: "
     "question": "Gross Parts Turns is calculated as which of the following?",
     "options": [
       "(Annual Parts Revenue / Average Monthly Inventory at Retail)",
-      "(Annual Parts Cost of Sales / Average Monthly Inventory at Cost)",
       "(Monthly Parts Sales / Total Inventory at Retail)",
+      "(Annual Parts Cost of Sales / Average Monthly Inventory at Cost)",
       "(Total Inventory / Annual Parts Cost of Sales)"
     ]
   ,
-    "correct": 1
+    "correct": 2
 },
   {
     "id": "q28",
@@ -1947,13 +2078,13 @@ tailwind.config = { theme: { extend: { colors: { amber: { 400: "#c89718", 500: "
     "type": "mc",
     "question": "What is the target range for Gross Parts Turns in a heavy equipment dealership?",
     "options": [
-      "1-2x",
       "3-4x",
+      "1-2x",
       "6-8x",
       "10-12x"
     ]
   ,
-    "correct": 1
+    "correct": 0
 },
   {
     "id": "q30",
@@ -1961,13 +2092,13 @@ tailwind.config = { theme: { extend: { colors: { amber: { 400: "#c89718", 500: "
     "type": "scenario",
     "question": "Your purchasing report shows $60,000 in stock order receipts and $40,000 in emergency and special order receipts this month. Your dealer principal asks what this means. What do you tell them?",
     "options": [
-      "Stock order efficiency is 60% — below the 75% target. Your stocking plan is not matching actual demand, and you are over-relying on emergency orders.",
-      "Stock order efficiency is 150% — you ordered more stock than emergencies, which is good.",
-      "Stock order efficiency is 40% — most of your parts are coming from emergencies, which is acceptable.",
-      "Stock order efficiency is 60% — this is above the 75% target and performing well."
+      "Stock order efficiency is 150%: you ordered more stock than emergencies, which is good.",
+      "Stock order efficiency is 40%: most of your parts are coming from emergencies, which is acceptable.",
+      "Stock order efficiency is 60%: below the 75% target. Your stocking plan is not matching actual demand, and you are over-relying on emergency orders.",
+      "Stock order efficiency is 60%: this is above the 75% target and performing well."
     ]
   ,
-    "correct": 0
+    "correct": 2
 },
   {
     "id": "q31",
@@ -1989,13 +2120,13 @@ tailwind.config = { theme: { extend: { colors: { amber: { 400: "#c89718", 500: "
     "type": "mc",
     "question": "What does a Stock Order Efficiency below 65% indicate?",
     "options": [
+      "The purchasing process is reactive, too many emergency and special orders instead of planned stock orders.",
       "The department is efficiently managing its supply chain.",
-      "The purchasing process is reactive — too many emergency and special orders instead of planned stock orders.",
       "The department has too much inventory and should reduce ordering.",
       "The vendor is offering too many discounts."
     ]
   ,
-    "correct": 1
+    "correct": 0
 },
   {
     "id": "q33",
@@ -2003,13 +2134,13 @@ tailwind.config = { theme: { extend: { colors: { amber: { 400: "#c89718", 500: "
     "type": "scenario",
     "question": "You pull your inventory aging report and find $50,000 in obsolete parts (over 365 days) and $25,000 in excessive stock (on-hand exceeding max by 50%+). Your total inventory is $500,000. The controller asks what the obsolescence percentage is and whether it is acceptable.",
     "options": [
-      "Obsolescence is 20% — above the 10% target. You need to initiate a purge: RTV, markdown, or scrap.",
-      "Obsolescence is 20% — this is acceptable for heavy equipment because parts have longer lifecycles.",
-      "Obsolescence is 10% — at the target. No action needed.",
-      "Obsolescence is 5% — well below target. The department is managing inventory well."
+      "Obsolescence is 20%: this is acceptable for heavy equipment because parts have longer lifecycles.",
+      "Obsolescence is 15%: over 10%, so it fails the under-5% target. You need to initiate a purge: RTV, markdown, or scrap.",
+      "Obsolescence is 10%: within tolerance. No action needed.",
+      "Obsolescence is 5%: the department is managing inventory well."
     ]
   ,
-    "correct": 0
+    "correct": 1
 },
   {
     "id": "q34",
@@ -2031,8 +2162,8 @@ tailwind.config = { theme: { extend: { colors: { amber: { 400: "#c89718", 500: "
     "type": "mc",
     "question": "What is the target for Obsolescence and Excessive Stock as a percentage of total inventory?",
     "options": [
-      "<5%",
       "<10%",
+      "<5%",
       "<20%",
       "<30%"
     ]
@@ -2043,85 +2174,85 @@ tailwind.config = { theme: { extend: { colors: { amber: { 400: "#c89718", 500: "
     "id": "q36",
     "module": "Module 5: Inventory Discipline",
     "type": "scenario",
-    "question": "Your service department bills $120,000 in customer labor this month. Your parts department sold $72,000 in shop parts (parts sold on service repair orders). The service manager says parts is not supporting the shop. What is your ratio and is it on target?",
+    "question": "Your service department bills $120,000 in work order labor this month (customer, warranty and internal). Your parts department sold $72,000 in shop parts (parts sold on service repair orders). The service manager says parts is not supporting the shop. What is your ratio and is it on target?",
     "options": [
-      "The ratio is $0.60:$1 — below the $1:$1 target. For every labor dollar, parts is only contributing 60 cents. The department is underperforming on shop parts.",
-      "The ratio is $1.67:$1 — above the $2:$1 target. Parts is overperforming.",
-      "The ratio is $0.60:$1 — this is within the $1-$2:$1 target range.",
-      "The ratio is $1.67:$1 — within target range. No action needed."
+      "The ratio is $1.67:$1: above the $1:$1 target. Parts is overperforming.",
+      "The ratio is $0.60:$1: below the $1:$1 target. For every labor dollar, parts is only contributing 60 cents. The department is underperforming on shop parts.",
+      "The ratio is $0.60:$1: close enough to the $1:$1 target. No action needed.",
+      "The ratio is $1.67:$1: right on target. No action needed."
     ]
   ,
-    "correct": 0
+    "correct": 1
 },
   {
     "id": "q37",
     "module": "Module 5: Inventory Discipline",
     "type": "calc",
-    "question": "Your shop parts sales are $80,000 and your customer labor sales are $100,000. What is your Parts-to-Labor Ratio?",
+    "question": "Your shop parts sales are $80,000 and your total work order labor sales (customer, warranty and internal) are $100,000. What is your Parts-to-Labor Ratio?",
     "options": [
       "$1.25 : $1",
-      "$0.80 : $1",
       "$1.00 : $1",
-      "$1.50 : $1"
+      "$1.50 : $1",
+      "$0.80 : $1"
     ]
   ,
-    "correct": 1
+    "correct": 3
 },
   {
     "id": "q38",
     "module": "Module 5: Inventory Discipline",
     "type": "mc",
-    "question": "What is the target range for the Parts-to-Labor Ratio?",
+    "question": "What is the HEDS dealer-wide target for the Parts-to-Labor Ratio on work orders?",
     "options": [
-      "$0.50-$0.75 : $1",
-      "$1-$2 : $1",
-      "$3-$4 : $1",
-      "$5-$6 : $1"
+      "$0.50 : $1",
+      "$3 : $1",
+      "$1 : $1",
+      "$5 : $1"
     ]
   ,
-    "correct": 1
+    "correct": 2
 },
   {
     "id": "q39",
     "module": "Module 5: Inventory Discipline",
     "type": "scenario",
-    "question": "A customer calls asking for a hydraulic filter. Your counter person checks the system and says it is not in stock — they will need to special order it, which will take 5 days. The customer says they will buy it from a competitor instead. What metric does this situation impact and what should you do?",
+    "question": "A customer calls asking for a hydraulic filter. Your counter person checks the system and says it is not in stock, they will need to special order it, which will take 5 days. The customer says they will buy it from a competitor instead. What metric does this situation impact and what should you do?",
     "options": [
-      "This is a fill rate miss — the percentage of parts requests filled from stock on the first request fell to zero for this SKU. You should adjust the min/max upward to stock this filter going forward.",
-      "This is an obsolescence issue — you should reduce the stocking level to avoid future dead stock.",
-      "This is a stock order efficiency issue — you should order more stock from the vendor.",
-      "This is a gross margin issue — you should increase the price to compensate for the lost sale."
+      "This is an obsolescence issue, you should reduce the stocking level to avoid future dead stock.",
+      "This is a stock order efficiency issue, you should order more stock from the vendor.",
+      "This is a gross margin issue, you should increase the price to compensate for the lost sale.",
+      "This is a fill rate miss, the percentage of parts requests filled from stock on the first request fell to zero for this SKU. You should adjust the min/max upward to stock this filter going forward."
     ]
   ,
-    "correct": 0
+    "correct": 3
 },
   {
     "id": "q40",
     "module": "Module 5: Inventory Discipline",
     "type": "calc",
-    "question": "855 parts requests were filled immediately and total parts requests were 950. What is your First-Time Fill Rate %?",
+    "question": "Counting by line item, 855 line items were filled immediately and 950 line items were requested. What is your First-Time Fill Rate %?",
     "options": [
       "85.0%",
-      "90.0%",
       "94.7%",
-      "98.5%"
+      "98.5%",
+      "90.0%"
     ]
   ,
-    "correct": 1
+    "correct": 3
 },
   {
     "id": "q41",
     "module": "Module 5: Inventory Discipline",
     "type": "mc",
-    "question": "What is the minimum target for First-Time Fill Rate?",
+    "question": "Counted by line item, what are the First-Time Fill Rate targets for the parts counter and for service?",
     "options": [
-      "75%",
-      "80%",
-      "90%",
-      "98%"
+      "Counter 85%, service 90% or higher",
+      "Counter 75%, service 75%",
+      "Counter 90%, service 80%",
+      "Counter 98%, service 98%"
     ]
   ,
-    "correct": 2
+    "correct": 0
 },
   {
     "id": "q42",
@@ -2129,13 +2260,13 @@ tailwind.config = { theme: { extend: { colors: { amber: { 400: "#c89718", 500: "
     "type": "scenario",
     "question": "Your fill rate is 82%. Service technicians complain they are constantly waiting for parts. What is the root cause and how do you fix it?",
     "options": [
-      "The technicians are too slow — train them to work faster while waiting.",
       "You are understocked on fast-moving parts. Adjust min/max levels upward on A-level parts to increase depth and bring fill rate above 90%.",
+      "The technicians are too slow, train them to work faster while waiting.",
       "Fire the counter staff for poor inventory management.",
       "Reduce the total number of parts requests by turning away small orders."
     ]
   ,
-    "correct": 1
+    "correct": 0
 },
   {
     "id": "q43",
@@ -2158,12 +2289,12 @@ tailwind.config = { theme: { extend: { colors: { amber: { 400: "#c89718", 500: "
     "question": "Which of the following is a leading indicator for parts demand?",
     "options": [
       "Last month's gross margin percentage",
-      "Equipment sales pipeline and scheduled machine deliveries",
       "Last quarter's obsolescence balance",
+      "Equipment sales pipeline and scheduled machine deliveries",
       "Previous year's salary as a percentage of GP"
     ]
   ,
-    "correct": 1
+    "correct": 2
 },
   {
     "id": "q45",
@@ -2171,13 +2302,13 @@ tailwind.config = { theme: { extend: { colors: { amber: { 400: "#c89718", 500: "
     "type": "scenario",
     "question": "Your dealership has 15 new excavators scheduled for delivery next month. What should the parts department do?",
     "options": [
-      "Nothing — wait until the customers start requesting parts.",
       "Pre-stage preventative maintenance kits and increase stock on filters, fluids, and common wear parts for the new model.",
+      "Nothing, wait until the customers start requesting parts.",
       "Reduce inventory because new deliveries mean fewer repairs.",
       "Order parts only when a customer calls with a problem."
     ]
   ,
-    "correct": 1
+    "correct": 0
 },
   {
     "id": "q46",
@@ -2186,40 +2317,40 @@ tailwind.config = { theme: { extend: { colors: { amber: { 400: "#c89718", 500: "
     "question": "A departmental improvement plan should include which of the following for each goal?",
     "options": [
       "A vague commitment to improve",
-      "A specific KPI target, a named owner, a target date, and a status tracking method",
       "A dollar amount and a percentage",
-      "A comparison to last year's numbers"
+      "A comparison to last year's numbers",
+      "A specific KPI target, a named owner, a target date, and a status tracking method"
     ]
   ,
-    "correct": 1
+    "correct": 3
 },
   {
     "id": "q47",
     "module": "Module 6: Forecasting",
     "type": "scenario",
-    "question": "Your departmental improvement plan targets moving gross margin from 28% to 32%. At day 30, you are at 29.5%. What do you do?",
+    "question": "Your departmental improvement plan targets moving gross margin from 28% to 33%. At day 30, you are at 30.5%. What do you do?",
     "options": [
       "Declare the plan a failure and abandon it.",
+      "Reset the target to 30.5% since that is what you achieved.",
       "Assess progress, reinforce the pricing discipline process, and continue. You are 50% of the way to target in 33% of the time.",
-      "Reset the target to 29.5% since that is what you achieved.",
       "Fire the counter staff for not improving fast enough."
     ]
   ,
-    "correct": 1
+    "correct": 2
 },
   {
     "id": "q48",
     "module": "Module 6: Forecasting",
     "type": "mc",
-    "question": "Days of Supply should be managed by velocity category. What are the standard day-of-supply targets for A, B, and C category parts?",
+    "question": "As a general rule of thumb (not a standard, and always checked part by part), what days of supply are often used as a starting point for A, B, and C category parts?",
     "options": [
-      "10/20/30 days",
       "30/90/180 days",
+      "10/20/30 days",
       "60/120/365 days",
       "5/15/45 days"
     ]
   ,
-    "correct": 1
+    "correct": 0
 },
   {
     "id": "q49",
@@ -2228,12 +2359,12 @@ tailwind.config = { theme: { extend: { colors: { amber: { 400: "#c89718", 500: "
     "question": "You notice obsolescence has grown from 8% to 14% over the last 6 months. What should you do?",
     "options": [
       "Accept it as normal inventory aging.",
-      "Initiate a quarterly purge — return what you can to vendors, discount what you cannot, and scrap what is worthless. Set a target to bring obsolescence below 10% within 90 days.",
       "Increase the total inventory to dilute the obsolescence percentage.",
-      "Stop ordering new parts until the obsolete stock is sold."
+      "Stop ordering new parts until the obsolete stock is sold.",
+      "Initiate a quarterly purge: return what you can to vendors, discount what you cannot, and scrap what is worthless. Set a target to bring obsolescence below 5% within 90 days."
     ]
   ,
-    "correct": 1
+    "correct": 3
 },
   {
     "id": "q50",
@@ -2242,12 +2373,12 @@ tailwind.config = { theme: { extend: { colors: { amber: { 400: "#c89718", 500: "
     "question": "What is the primary purpose of a structured departmental improvement plan?",
     "options": [
       "To create a document for the dealer principal to review annually",
-      "To convert forecasting into specific, owned, dated commitments that drive measurable KPI improvement",
       "To replace the daily and weekly scorecards",
-      "To determine which employees to terminate"
+      "To determine which employees to terminate",
+      "To convert forecasting into specific, owned, dated commitments that drive measurable KPI improvement"
     ]
   ,
-    "correct": 1
+    "correct": 3
 }
 ];
     var testAnswers = {};
@@ -2282,7 +2413,7 @@ tailwind.config = { theme: { extend: { colors: { amber: { 400: "#c89718", 500: "
       document.getElementById('test_signin_error').style.display = 'none';
       document.getElementById('test_signin').style.display = 'none';
       document.getElementById('test_running').style.display = 'block';
-      document.getElementById('test_user_name').innerText = name + ' — ' + dealership;
+      document.getElementById('test_user_name').innerText = name + ' - ' + dealership;
       testAnswers = {};
       testTimeRemaining = 90 * 60;
       renderQuestions();
@@ -2399,6 +2530,8 @@ tailwind.config = { theme: { extend: { colors: { amber: { 400: "#c89718", 500: "
     document.getElementById('result_dealership').innerText = dealership;
     var now = new Date();
     document.getElementById('result_date').innerText = (now.getMonth()+1) + '/' + now.getDate() + '/' + now.getFullYear();
+    hedsSaveLocalResult({ track: TRACK_NAME, correct: correctCount, total: testQuestions.length, scorePct: pct, passed: hedsIsPassed(pct), candidateName: studentName, dealership: dealership, email: email, timestamp: (now.getMonth()+1) + '/' + now.getDate() + '/' + now.getFullYear(), answers: answers, relayStatus: 'pending' });
+    hedsShowPassStatus(pct);
     
     // Build module breakdown
     if (Object.keys(incorrectByModule).length > 0) {
@@ -2414,7 +2547,7 @@ tailwind.config = { theme: { extend: { colors: { amber: { 400: "#c89718", 500: "
         var sortedAreas = Object.keys(incorrectByModule).sort(function(a,b) { return incorrectByModule[b] - incorrectByModule[a]; });
         focusAreasHtml = '<div style="padding:16px; background:var(--bg); border-radius:8px; border:1px solid var(--border-color);"><div style="font-weight:700; color:var(--accent-color); margin-bottom:8px;">Recommended Focus Areas</div><div style="color:var(--muted); font-size:0.9rem;">' + sortedAreas.slice(0,3).map(function(m) { return m + ' (' + incorrectByModule[m] + ' missed)'; }).join(', ') + '</div></div>';
     } else {
-        moduleBreakdownHtml = '<div style="text-align:center; padding:20px; color:var(--accent-color); font-weight:700;">All questions correct — no focus areas needed.</div>';
+        moduleBreakdownHtml = '<div style="text-align:center; padding:20px; color:var(--accent-color); font-weight:700;">All questions correct, no focus areas needed.</div>';
         focusAreasHtml = '';
     }
     
@@ -2423,14 +2556,7 @@ tailwind.config = { theme: { extend: { colors: { amber: { 400: "#c89718", 500: "
     
     var payload = { track: TRACK_NAME, name: studentName, dealership: dealership, email: email, answers: answers, correctCount: correctCount, totalQuestions: testQuestions.length, scorePercentage: pct, answeredCount: answeredCount };
     
-    if (typeof fetch !== 'undefined') {
-        fetch(ASSESSMENT_RELAY_URL, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) }).catch(function() {});
-    } else {
-        var xhr = new XMLHttpRequest();
-        xhr.open('POST', ASSESSMENT_RELAY_URL, true);
-        xhr.setRequestHeader('Content-Type', 'application/json');
-        xhr.send(JSON.stringify(payload));
-    }
+    hedsRelayResults(payload);
   }
 
     function abandonTest() {
@@ -2457,5 +2583,94 @@ tailwind.config = { theme: { extend: { colors: { amber: { 400: "#c89718", 500: "
       calcAll();
     };
   </script>
+
+<script>
+  /* ===== HEDS assessment fixes (Oct 2026): pass mark, certificate gating, results relay, local results copy ===== */
+  var HEDS_PASS_MARK = 90; // percent required to pass and receive a certificate (Daniel, Oct 23 2026: 90% on all four dashboards)
+  var HEDS_RESULT_KEY = 'heds_parts_test_result'; // localStorage key for this device's copy of the latest result
+  function hedsEscape(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function(c) { return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+  function hedsIsPassed(pct) { return Number(pct) >= HEDS_PASS_MARK; }
+  function hedsSaveLocalResult(rec) { try { localStorage.setItem(HEDS_RESULT_KEY, JSON.stringify(rec)); } catch (e) {} }
+  function hedsLoadLocalResult() { try { var r = localStorage.getItem(HEDS_RESULT_KEY); return r ? JSON.parse(r) : null; } catch (e) { return null; } }
+  var HEDS_RELAY_MSG = {
+    pending: 'Sending your results to HEDS Academy\u2026',
+    ok: 'Results sent to HEDS Academy.',
+    fail: 'We could not confirm that your results reached HEDS Academy. Your results are saved in this browser. Please click "Print Results" (or take a screenshot) and send it to your facilitator.'
+  };
+  function hedsRenderRelayStatus(state) {
+    var el = document.getElementById('result_relay_status');
+    if (!el) return;
+    el.textContent = 'STATUS: ' + HEDS_RELAY_MSG[state] || HEDS_RELAY_MSG.fail;
+    el.style.color = state === 'ok' ? '#10b981' : (state === 'pending' ? '#94a3b8' : '#ef4444');
+  }
+  function hedsSetRelayStatus(state) {
+    hedsRenderRelayStatus(state);
+    var r = hedsLoadLocalResult();
+    if (r) { r.relayStatus = state; hedsSaveLocalResult(r); }
+  }
+  function hedsShowPassStatus(pct) {
+    var passed = hedsIsPassed(pct);
+    var el = document.getElementById('result_pass_status');
+    if (el) {
+      el.textContent = passed
+        ? 'PASSED: ' + pct + '% (pass mark ' + HEDS_PASS_MARK + '%). Your certificate is available below.'
+        : 'NOT YET PASSED: ' + pct + '% (pass mark ' + HEDS_PASS_MARK + '%). Review the focus areas below and retake the assessment to earn your certificate.';
+      el.style.color = passed ? '#10b981' : '#ef4444';
+    }
+    var btn = document.getElementById('btn_claim_cert');
+    if (btn) btn.style.display = passed ? '' : 'none';
+    return passed;
+  }
+  function hedsCertificateRecord() {
+    var r = hedsLoadLocalResult();
+    if (!r || !hedsIsPassed(r.scorePct)) {
+      alert('A certificate is issued only after passing the assessment with a score of ' + HEDS_PASS_MARK + '% or higher.');
+      return null;
+    }
+    return r;
+  }
+  // Sends results as a CORS "simple request": text/plain body, no custom headers, so no preflight is needed.
+  // The Apps Script doPost reads the JSON from e.postData.contents.
+  function hedsRelayResults(payload) {
+    hedsSetRelayStatus('pending');
+    var body = JSON.stringify(payload);
+    try {
+      if (typeof fetch !== 'undefined') {
+        fetch(ASSESSMENT_RELAY_URL, { method: 'POST', body: body, redirect: 'follow' })
+          .then(function(res) { if (!res.ok) throw new Error('HTTP ' + res.status); hedsSetRelayStatus('ok'); })
+          .catch(function() { hedsSetRelayStatus('fail'); });
+      } else {
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', ASSESSMENT_RELAY_URL, true);
+        xhr.onload = function() { hedsSetRelayStatus(xhr.status >= 200 && xhr.status < 300 ? 'ok' : 'fail'); };
+        xhr.onerror = function() { hedsSetRelayStatus('fail'); };
+        xhr.send(body);
+      }
+    } catch (e) { hedsSetRelayStatus('fail'); }
+  }
+  function hedsFillPartsDiploma(r) {
+    var n = document.getElementById('cert_name'); if (n) n.textContent = r.candidateName || '[Participant Name]';
+    var d = document.getElementById('cert_date'); if (d) d.textContent = r.timestamp;
+    var s = document.getElementById('cert_score'); if (s) s.textContent = 'CERTIFIED: ' + r.scorePct + '%';
+  }
+  function viewCertificateFromResults() {
+    var r = hedsCertificateRecord();
+    if (!r) return;
+    hedsFillPartsDiploma(r);
+    switchMainSection('sec_curriculum', document.querySelectorAll('.nav-main-btn')[0]);
+    switchCurrTab('c_certificate', document.querySelectorAll('.curr-tab-btn')[6]);
+    window.scrollTo(0, 0);
+  }
+  function hedsPrintPartsDiploma() {
+    var r = hedsCertificateRecord();
+    if (!r) return;
+    hedsFillPartsDiploma(r);
+    window.print();
+  }
+  window.addEventListener('load', function() {
+    var r = hedsLoadLocalResult();
+    if (r && hedsIsPassed(r.scorePct)) hedsFillPartsDiploma(r);
+  });
+</script>
 </body>
 </html>

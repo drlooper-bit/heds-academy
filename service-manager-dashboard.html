@@ -476,6 +476,182 @@
   }
   .completion-btn.completed-btn:hover { background: rgba(239, 68, 68, 0.1); }
 
+
+/* ===== MOBILE & TABLET RESPONSIVE ENHANCEMENTS ===== */
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+.main-nav-btn, .tab-btn, .btn, .dropdown-toggle, .dropdown-item, .completion-btn {
+  min-height: 44px;
+}
+.completion-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 14px !important;
+  font-size: 0.82rem !important;
+}
+.completion-checkbox {
+  width: 28px !important;
+  height: 28px !important;
+  min-width: 28px;
+  min-height: 28px;
+}
+.completion-bar {
+  min-height: 52px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+input:not([type="checkbox"]):not([type="radio"]):not([type="range"]),
+select,
+textarea {
+  font-size: 16px !important;
+  min-height: 44px;
+}
+input[type="range"] {
+  min-height: 44px;
+}
+.test-options li,
+#test_questions_list label {
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+.table-scroll-wrap {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+table {
+  max-width: 100%;
+}
+
+/* Tablet (640px - 1024px) */
+@media (min-width: 640px) and (max-width: 1024px) {
+  .container {
+    padding: 16px !important;
+  }
+  .main-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 10px 16px !important;
+    justify-content: center;
+  }
+  .main-nav-btn {
+    flex: 1 1 calc(50% - 8px);
+    text-align: center;
+    justify-content: center;
+    padding: 10px 14px !important;
+    font-size: 0.9rem !important;
+  }
+  .nav-tabs {
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 10px !important;
+    gap: 8px;
+  }
+  .tab-btn {
+    flex: 0 0 auto;
+    white-space: nowrap;
+    padding: 10px 16px !important;
+  }
+  .grid, .grid-2, .grid-3, .grid-4, .curr-grid-2, .curr-grid-3, .kpi-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+/* Mobile (<640px) */
+@media (max-width: 639px) {
+  header {
+    padding: 14px 12px !important;
+  }
+  header img {
+    height: 48px !important;
+  }
+  h1 {
+    font-size: clamp(1.15rem, 4.8vw, 1.4rem) !important;
+    line-height: 1.25;
+  }
+  .subtitle {
+    font-size: 0.8rem !important;
+  }
+  .main-nav {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 8px !important;
+    padding: 10px 12px !important;
+  }
+  .main-nav-btn {
+    width: 100% !important;
+    text-align: center !important;
+    padding: 12px 14px !important;
+    font-size: 0.9rem !important;
+    white-space: normal !important;
+  }
+  .container {
+    padding: 12px 10px !important;
+  }
+  /* Scrollable horizontal pill bar for module/dashboard tabs on mobile */
+  .nav-tabs {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
+    gap: 8px !important;
+    padding: 4px 2px 10px 2px !important;
+    margin-bottom: 16px !important;
+    scrollbar-width: thin;
+  }
+  .tab-btn {
+    flex: 0 0 auto !important;
+    white-space: nowrap !important;
+    padding: 10px 14px !important;
+    font-size: 0.82rem !important;
+    min-height: 44px !important;
+  }
+  .grid, .grid-2, .grid-3, .grid-4, .curr-grid-2, .curr-grid-3, .kpi-grid, .leak-row {
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+  }
+  .card, .curr-card {
+    padding: 16px 14px !important;
+    margin-bottom: 14px !important;
+  }
+  .curr-module-title {
+    font-size: clamp(1.15rem, 4.6vw, 1.35rem) !important;
+  }
+  .metric-val {
+    font-size: 1.45rem !important;
+  }
+  .dropdown-toggle {
+    padding: 12px 14px !important;
+    font-size: 0.85rem !important;
+    line-height: 1.3;
+  }
+  .dropdown-item {
+    padding: 12px 14px !important;
+    font-size: 0.84rem !important;
+  }
+  .class-table {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  #cert_overlay > div, #cert_doc {
+    padding: 24px 16px !important;
+    width: 95% !important;
+    max-height: 92vh;
+    overflow-y: auto;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -503,42 +679,42 @@
 <div id="sec_curriculum" class="section-container active">
   <div class="module-dropdown">
     <button class="dropdown-toggle active" onclick="toggleDropdown()">
-      <span id="dropdown-label">▼ MENU — Day 1 Slot 1: Module 1 — ERP Report Mapping</span>
+      <span id="dropdown-label">▼ MENU - Day 1 Slot 1: Module 1: ERP Report Mapping</span>
       <span class="dropdown-arrow">▼</span>
     </button>
     <div class="dropdown-menu" id="module_menu">
-      <div class="dropdown-group-label">Day 1 — Foundation &amp; Reporting</div>
-      <button class="dropdown-item active" onclick="switchCurrTab('c_erp_map', this)">Day 1 Slot 1: Module 1 — ERP Report Mapping</button>
-      <button class="dropdown-item" onclick="switchCurrTab('c_m1', this)">Day 1 Slot 2: Module 2 — Absorption &amp; Margin</button>
-      <button class="dropdown-item" onclick="switchCurrTab('c_ex', this)">Day 1 Slot 3: Module 3 — Labor Reconciliation</button>
-      <button class="dropdown-item" onclick="switchCurrTab('c_m2', this)">Day 1 Slot 4: Module 4 — WIP &amp; Quote Control</button>
-      <div class="dropdown-group-label">Day 2 — Execution &amp; Pricing</div>
-      <button class="dropdown-item" onclick="switchCurrTab('c_m3', this)">Day 2 Slot 5: Module 5 — Efficiency &amp; Capacity</button>
-      <button class="dropdown-item" onclick="switchCurrTab('c_m4', this)">Day 2 Slot 6: Module 6 — ELR &amp; Discounting</button>
-      <button class="dropdown-item" onclick="switchCurrTab('c_m5', this)">Day 2 Slot 7: Module 7 — Triage &amp; Dispatch</button>
-      <button class="dropdown-item" onclick="switchCurrTab('c_m6', this)">Day 2 Slot 8: Module 8 — Warranty Recovery</button>
-      <div class="dropdown-group-label">Day 3 — Management Systems</div>
-      <button class="dropdown-item" onclick="switchCurrTab('c_leak', this)">Day 3 Slot 9: Module 9 — Leak Diagnostic Matrix</button>
-      <button class="dropdown-item" onclick="switchCurrTab('c_scorecards', this)">Day 3 Slot 10: Module 10 — Scorecards</button>
-      <button class="dropdown-item" onclick="switchCurrTab('c_standup', this)">Day 3 Slot 11: Module 11 — Morning Standup</button>
-      <button class="dropdown-item" onclick="switchCurrTab('c_wip_review', this)">Day 3 Slot 12: Module 12 — Weekly WIP Review</button>
-      <div class="dropdown-group-label">Day 4 — Process &amp; People</div>
-      <button class="dropdown-item" onclick="switchCurrTab('c_lifecycle', this)">Day 4 Slot 13: Module 13 — Work Order Lifecycle</button>
-      <button class="dropdown-item" onclick="switchCurrTab('c_expense', this)">Day 4 Slot 14: Module 14 — Expense &amp; Margin Recovery</button>
-      <button class="dropdown-item" onclick="switchCurrTab('c_accountability', this)">Day 4 Slot 15: Module 15 — Accountability &amp; Leadership</button>
-      <button class="dropdown-item" onclick="switchCurrTab('c_forecasting', this)">Day 4 Slot 16: Module 16 — Forecasting &amp; Leading Indicators</button>
-      <div class="dropdown-group-label">Day 5 — Retention &amp; Capstone</div>
-      <button class="dropdown-item" onclick="switchCurrTab('c_telematics', this)">Day 5 Slot 17: Module 17 — Telematics &amp; Machine Triage</button>
-      <button class="dropdown-item" onclick="switchCurrTab('c_defection', this)">Day 5 Slot 18: Module 18 — Customer Defection Warning</button>
-      <button class="dropdown-item" onclick="switchCurrTab('c_rental', this)">Day 5 Slot 19: Module 19 — Rental Fleet Health</button>
-      <button class="dropdown-item" onclick="switchCurrTab('c_capstone', this)">Day 5 Slot 20: Module 20 — 90-Day Action Plan (Capstone)</button>
+      <div class="dropdown-group-label">Day 1: Foundation &amp; Reporting</div>
+      <button class="dropdown-item active" onclick="switchCurrTab('c_erp_map', this)">Day 1 Slot 1: Module 1: ERP Report Mapping</button>
+      <button class="dropdown-item" onclick="switchCurrTab('c_m1', this)">Day 1 Slot 2: Module 2: Absorption &amp; Margin</button>
+      <button class="dropdown-item" onclick="switchCurrTab('c_ex', this)">Day 1 Slot 3: Module 3: Labor Reconciliation</button>
+      <button class="dropdown-item" onclick="switchCurrTab('c_m2', this)">Day 1 Slot 4: Module 4: WIP &amp; Quote Control</button>
+      <div class="dropdown-group-label">Day 2: Execution &amp; Pricing</div>
+      <button class="dropdown-item" onclick="switchCurrTab('c_m3', this)">Day 2 Slot 5: Module 5: Efficiency &amp; Capacity</button>
+      <button class="dropdown-item" onclick="switchCurrTab('c_m4', this)">Day 2 Slot 6: Module 6: ELR &amp; Discounting</button>
+      <button class="dropdown-item" onclick="switchCurrTab('c_m5', this)">Day 2 Slot 7: Module 7: Triage &amp; Dispatch</button>
+      <button class="dropdown-item" onclick="switchCurrTab('c_m6', this)">Day 2 Slot 8: Module 8: Warranty Recovery</button>
+      <div class="dropdown-group-label">Day 3: Management Systems</div>
+      <button class="dropdown-item" onclick="switchCurrTab('c_leak', this)">Day 3 Slot 9: Module 9: Leak Diagnostic Matrix</button>
+      <button class="dropdown-item" onclick="switchCurrTab('c_scorecards', this)">Day 3 Slot 10: Module 10: Scorecards</button>
+      <button class="dropdown-item" onclick="switchCurrTab('c_standup', this)">Day 3 Slot 11: Module 11: Morning Standup</button>
+      <button class="dropdown-item" onclick="switchCurrTab('c_wip_review', this)">Day 3 Slot 12: Module 12: Weekly WIP Review</button>
+      <div class="dropdown-group-label">Day 4: Process &amp; People</div>
+      <button class="dropdown-item" onclick="switchCurrTab('c_lifecycle', this)">Day 4 Slot 13: Module 13: Work Order Lifecycle</button>
+      <button class="dropdown-item" onclick="switchCurrTab('c_expense', this)">Day 4 Slot 14: Module 14: Expense &amp; Margin Recovery</button>
+      <button class="dropdown-item" onclick="switchCurrTab('c_accountability', this)">Day 4 Slot 15: Module 15: Accountability &amp; Leadership</button>
+      <button class="dropdown-item" onclick="switchCurrTab('c_forecasting', this)">Day 4 Slot 16: Module 16: Forecasting &amp; Leading Indicators</button>
+      <div class="dropdown-group-label">Day 5: Retention &amp; Capstone</div>
+      <button class="dropdown-item" onclick="switchCurrTab('c_telematics', this)">Day 5 Slot 17: Module 17: Telematics &amp; Machine Triage</button>
+      <button class="dropdown-item" onclick="switchCurrTab('c_defection', this)">Day 5 Slot 18: Module 18: Customer Defection Warning</button>
+      <button class="dropdown-item" onclick="switchCurrTab('c_rental', this)">Day 5 Slot 19: Module 19: Rental Fleet Health</button>
+      <button class="dropdown-item" onclick="switchCurrTab('c_capstone', this)">Day 5 Slot 20: Module 20: 90-Day Action Plan (Capstone)</button>
     </div></div>
 
   <!-- NEW MODULE: c_erp_map -->
   <div id="c_erp_map" class="tab-content active">
     <div class="card">
       <div class="curr-module-header">
-        <div class="curr-day-tag">Day 1 Slot 1 — Foundation &amp; Reporting</div>
+        <div class="curr-day-tag">Day 1 Slot 1: Foundation &amp; Reporting</div>
         <div class="curr-module-title">Module 1: ERP Report Mapping Reference</div>
       </div>
 
@@ -567,14 +743,14 @@
             <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600;">Closed Work Order History</td><td style="padding:8px;">Service History (Work Order archive)</td><td style="padding:8px;">Maintenance Work Order Report</td><td style="padding:8px;">Work Order (closed)</td></tr>
             <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600;">Shop Labor Tracking Report</td><td style="padding:8px;">Labor Productivity / Efficiency (Business Intelligence)</td><td style="padding:8px;">Labor Tracking (varies)</td><td style="padding:8px;">Labor Log (varies)</td></tr>
             <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600;">Open Quote / Estimate Report</td><td style="padding:8px;">Estimates (Service Management)</td><td style="padding:8px;">Quoting (varies)</td><td style="padding:8px;">Estimates (Work Order module)</td></tr>
-            <tr><td style="padding:8px; font-weight:600;">Parts Fill Rate Report</td><td style="padding:8px;">Fill Rates (Business Intelligence — Parts)</td><td style="padding:8px;">Fill Rate (varies)</td><td style="padding:8px;">Inventory Analysis (varies)</td></tr>
+            <tr><td style="padding:8px; font-weight:600;">Parts Fill Rate Report</td><td style="padding:8px;">Fill Rates (Business Intelligence: Parts)</td><td style="padding:8px;">Fill Rate (varies)</td><td style="padding:8px;">Inventory Analysis (varies)</td></tr>
           </tbody>
         </table>
       </div>
 
       <div class="floor-rule">
         <div class="floor-rule-title">HEDS Floor Rule</div>
-        If you cannot find the report in your system, ask your parts manager, your controller, or your DMS support contact. Do not skip the exercise because the report name is different. The data exists in every system — it just has a different label. Items marked "varies" may require a custom report or a standard report with filters applied.
+        If you cannot find the report in your system, ask your parts manager, your controller, or your DMS support contact. Do not skip the exercise because the report name is different. The data exists in every system, it just has a different label. Items marked "varies" may require a custom report or a standard report with filters applied.
       </div>
     </div>
   </div>
@@ -583,31 +759,31 @@
   <div id="c_m1" class="tab-content">
     <div class="card">
       <div class="curr-module-header">
-        <div class="curr-day-tag">Day 1 Slot 2 — Foundation &amp; Reporting</div>
+        <div class="curr-day-tag">Day 1 Slot 2: Foundation &amp; Reporting</div>
         <div class="curr-module-title">Module 2: Service Financial Mechanics &amp; Absorption Rate</div>
       </div>
 
       <div class="curr-section">
         <div class="curr-section-h3">Diagnose</div>
-        <p>Service departments frequently operate as standalone cost centers rather than branch absorption engines. When service absorption falls below 85%, branch overhead drains whole-goods margins during market downcycles.</p>
+        <p>Service departments frequently operate as standalone cost centers rather than branch absorption engines. When absorption (service + parts gross profit against total operating expenses) falls below 95%, that is a red flag: branch expenses drain whole-goods margins during market downcycles.</p>
       </div>
 
       <div class="curr-section">
         <div class="curr-section-h3">Standard</div>
         <ul style="padding-left: 20px;">
-          <li><strong>Branch Service Absorption Target:</strong> Top-quartile target is <strong>100%</strong> of total branch fixed overhead covered combined by Service + Parts gross profit. (Base target: 85%).</li>
-          <li><strong>Service Labor Gross Margin Target:</strong> <strong>68%</strong> minimum gross margin on total billable labor sales.</li>
+          <li><strong>Branch Absorption Target (Service + Parts):</strong> Standard is <strong>95% to 100%</strong> of total operating expenses covered by Service + Parts gross profit. Below 95% is a red flag. 100% is the gold standard and 105% to 110% is optimal.</li>
+          <li><strong>Service Labor Gross Margin Target:</strong> <strong>75% to 80%</strong> gross margin on total billable labor sales.</li>
         </ul>
       </div>
 
       <div class="formula-card">
         <div class="example-badge">Industry Standard Worked Example</div>
         <div class="formula-title">FORMULA &amp; WORKED ABSORPTION CALCULATION</div>
-        <div class="formula-expr">Branch Absorption % = [ (Service GP + Parts GP) / Total Branch Fixed Overhead ] × 100</div>
+        <div class="formula-expr">Branch Absorption % = [ (Service GP + Parts GP) / Total Operating Expenses ] × 100</div>
         
         <ol class="formula-steps">
           <li style="margin-bottom:16px;">
-            <strong>Service Gross Profit:</strong> Total Service Revenue ($250,000) minus Direct Tech COGS ($80,000) = <strong>$170,000 GP</strong> (68.0% Gross Margin).
+            <strong>Service Gross Profit:</strong> Total Service Revenue ($220,000) minus Direct Tech COGS ($50,000) = <strong>$170,000 GP</strong> (77.3% Gross Margin).
             
             <div style="margin-top:12px; margin-bottom:12px; padding:16px; background:rgba(0,0,0,0.25); border-radius:var(--radius); border:1px solid var(--border-color);">
               <h4 style="color:var(--accent-color); font-size:1rem; font-weight:800; margin-bottom:8px;">Service Gross Profit (GP) Explanation</h4>
@@ -615,10 +791,10 @@
               
               <p style="margin-bottom:6px; font-weight:700; font-size:0.85rem;">Using the baseline formula:</p>
               <ul style="list-style:none; padding-left:12px; margin-bottom:12px; font-size:0.85rem; line-height:1.8;">
-                <li>Total Service Revenue: <strong>$250,000</strong></li>
-                <li>Less Direct Tech COGS: <strong>$80,000</strong> <em>(e.g., technician hourly wages, direct job materials)</em></li>
+                <li>Total Service Revenue: <strong>$220,000</strong></li>
+                <li>Less Direct Tech COGS: <strong>$50,000</strong> <em>(e.g., technician hourly wages, direct job materials)</em></li>
                 <li>Service Gross Profit: <strong style="color:var(--success);">$170,000</strong></li>
-                <li>Gross Margin: <strong style="color:var(--success);">68.0%</strong> ($170,000 ÷ $250,000)</li>
+                <li>Gross Margin: <strong style="color:var(--success);">77.3%</strong> ($170,000 ÷ $220,000)</li>
               </ul>
               
               <p style="margin-bottom:12px; font-size:0.85rem; color:var(--muted);">As a Service Manager, understanding the strict boundaries of this metric is critical for making accurate operational and pricing decisions.</p>
@@ -627,7 +803,7 @@
                 <div class="spec-box" style="background:rgba(34, 197, 94, 0.08); border-left-color:var(--success); margin:0;">
                   <div class="spec-title" style="color:var(--success);">What Service Gross Profit Measures</div>
                   <ul style="padding-left:16px; font-size:0.85rem; line-height:1.6;">
-                    <li><strong>Direct Labor Profitability:</strong> It reveals the direct return on investment for your technical workforce. A 68% margin indicates that for every dollar billed, 32 cents pays for the technician and direct materials, leaving 68 cents to fund the rest of the business.</li>
+                    <li><strong>Direct Labor Profitability:</strong> It reveals the direct return on investment for your technical workforce. A 77% margin indicates that for every dollar billed, about 23 cents pays for the technician and direct materials, leaving about 77 cents to fund the rest of the business.</li>
                     <li><strong>Pricing Strategy Effectiveness:</strong> It validates whether your hourly rates, flat-rate pricing, or service contracts are set high enough to comfortably outpace the direct costs of fulfilling them.</li>
                     <li><strong>Technician Efficiency and Utilization:</strong> Healthy margins typically indicate that technicians are highly billable and executing jobs efficiently. Shrinking margins often signal operational leaks like excessive unapplied time, unpaid callbacks (re-work), or unbilled overtime.</li>
                     <li><strong>Job-Level Viability:</strong> It allows you to look at specific service lines (e.g., repairs vs. maintenance contracts) to see which types of jobs actually generate sustainable value for the company.</li>
@@ -637,9 +813,9 @@
                 <div class="spec-box" style="background:rgba(239, 68, 68, 0.08); border-left-color:var(--danger); margin:0;">
                   <div class="spec-title" style="color:var(--danger);">What Service Gross Profit Does NOT Measure</div>
                   <ul style="padding-left:16px; font-size:0.85rem; line-height:1.6;">
-                    <li><strong>Departmental Net Profit (The Bottom Line):</strong> A strong 68% gross margin can still result in a net loss if the business is overspending elsewhere. Gross profit is merely the starting point before operating expenses are deducted.</li>
+                    <li><strong>Departmental Net Profit (The Bottom Line):</strong> A strong 77% gross margin can still result in a net loss if the business is overspending elsewhere. Gross profit is merely the starting point before operating expenses are deducted.</li>
                     <li><strong>Overhead and Administrative Costs:</strong> It strictly excludes indirect costs. Your salary as a manager, dispatcher wages, CRM/software subscriptions, rent, vehicle depreciation, and office utilities are not factored into this number.</li>
-                    <li><strong>Marketing and Customer Acquisition Costs:</strong> It shows the profitability of the work itself, but ignores how much the company had to spend on advertising, lead generation, or sales commissions to acquire that $250,000 in revenue.</li>
+                    <li><strong>Marketing and Customer Acquisition Costs:</strong> It shows the profitability of the work itself, but ignores how much the company had to spend on advertising, lead generation, or sales commissions to acquire that $220,000 in revenue.</li>
                     <li><strong>Cash Flow:</strong> Earning $170,000 in gross profit does not mean you have $170,000 in the bank. It does not account for unpaid invoices, aging accounts receivable, or debt servicing.</li>
                   </ul>
                 </div>
@@ -660,10 +836,10 @@
               
               <p style="margin-bottom:6px; font-weight:700; font-size:0.85rem;">Because you only have the final GP figure, here is an illustrative formula to show how a department might arrive at that number:</p>
               <ul style="list-style:none; padding-left:12px; margin-bottom:12px; font-size:0.85rem; line-height:1.8;">
-                <li>Total Parts Revenue: <strong>$450,000</strong> <em>(Illustrative)</em></li>
-                <li>Less Parts COGS: <strong>$270,000</strong> <em>(The actual cost paid to the manufacturer/supplier for those parts)</em></li>
+                <li>Total Parts Revenue: <strong>$500,000</strong> <em>(Illustrative)</em></li>
+                <li>Less Parts COGS: <strong>$320,000</strong> <em>(The actual cost paid to the manufacturer/supplier for those parts)</em></li>
                 <li>Parts Gross Profit: <strong style="color:var(--success);">$180,000</strong></li>
-                <li>Gross Margin: <strong style="color:var(--success);">40.0%</strong> ($180,000 ÷ $450,000)</li>
+                <li>Gross Margin: <strong style="color:var(--success);">36.0%</strong> ($180,000 ÷ $500,000)</li>
               </ul>
               
               <p style="margin-bottom:12px; font-size:0.85rem; color:var(--muted);">As a Parts Manager, understanding what drives this number is essential for managing both pricing strategies and inventory acquisition.</p>
@@ -692,7 +868,7 @@
 
               <div class="floor-rule" style="background:rgba(59, 130, 246, 0.1); border-color:var(--accent-color); margin:12px 0 0 0;">
                 <div class="floor-rule-title" style="color:var(--accent-color);">Manager's Insight</div>
-                Think of Parts Gross Profit as the spread between your buying power and your selling discipline. It tells you exactly how efficiently you are trading cash for inventory and back to cash—but it ignores the heavy overhead required to store, track, and deliver those parts.
+                Think of Parts Gross Profit as the spread between your buying power and your selling discipline. It tells you exactly how efficiently you are trading cash for inventory and back to cash, but it ignores the heavy overhead required to store, track, and deliver those parts.
               </div>
             </div>
           </li>
@@ -716,7 +892,7 @@
                 <div class="spec-box" style="background:rgba(34, 197, 94, 0.08); border-left-color:var(--success); margin:0;">
                   <div class="spec-title" style="color:var(--success);">What Total Aftermarket Gross Profit Measures</div>
                   <ul style="padding-left:16px; font-size:0.85rem; line-height:1.6;">
-                    <li><strong>Fixed Absorption Capacity:</strong> This is the most critical use of this metric. Total Aftermarket GP is used to calculate the "Absorption Ratio"—measuring how much of the entire company's total fixed overhead (rent, utilities, admin salaries, etc.) can be paid strictly by the parts and service departments.</li>
+                    <li><strong>Fixed Absorption Capacity:</strong> This is the most critical use of this metric. Total Aftermarket GP is used to calculate the "Absorption Ratio": how much of the branch's total operating expenses (rent, utilities, admin salaries and all other operating costs) can be paid strictly by the parts and service departments.</li>
                     <li><strong>Departmental Synergy:</strong> It reflects how well Parts and Service are collaborating. Since the Service department is often the Parts department's largest customer, a healthy combined GP indicates that technicians are efficiently installing parts, and the parts department is sourcing them effectively to keep turnaround times low.</li>
                     <li><strong>Customer Retention and Uptime:</strong> Consistently strong aftermarket GP is a direct indicator that customers are returning to you to maintain their assets. It shows you are successfully keeping their equipment running and minimizing their downtime.</li>
                     <li><strong>True Service Capability:</strong> It provides a holistic view of post-sale operations. Evaluating Parts or Service in a vacuum can be misleading; combining them shows the total value generated by your technical and logistical expertise.</li>
@@ -741,11 +917,11 @@
             </div>
           </li>
           <li style="margin-bottom:16px;">
-            <strong>Total Branch Fixed Overhead:</strong> Rent, Admin, Sales Allocation, IT, Utilities = <strong>$330,000 Overhead</strong>.
+            <strong>Total Operating Expenses:</strong> Rent, Admin, Sales Allocation, IT, Utilities and all other operating expenses = <strong>$330,000</strong>.
             
             <div style="margin-top:12px; margin-bottom:12px; padding:16px; background:rgba(0,0,0,0.25); border-radius:var(--radius); border:1px solid var(--border-color);">
-              <h4 style="color:var(--accent-color); font-size:1rem; font-weight:800; margin-bottom:8px;">Total Branch Fixed Overhead Explanation</h4>
-              <p style="margin-bottom:12px; font-size:0.9rem;">Total Branch Fixed Overhead represents the mandatory, recurring operational expenses required to keep the branch's doors open, regardless of how much equipment is sold, how many parts are moved, or how many hours are billed. These are the indirect costs that must be paid just to exist.</p>
+              <h4 style="color:var(--accent-color); font-size:1rem; font-weight:800; margin-bottom:8px;">Total Operating Expenses Explanation</h4>
+              <p style="margin-bottom:12px; font-size:0.9rem;">Total Operating Expenses are all of the branch's operating costs for the period: the recurring costs to keep the doors open plus the costs that move with volume. HEDS measures absorption against total operating expenses, not fixed overhead only.</p>
               
               <p style="margin-bottom:6px; font-weight:700; font-size:0.85rem;">Based on your provided figures:</p>
               <ul style="list-style:none; padding-left:12px; margin-bottom:12px; font-size:0.85rem; line-height:1.8;">
@@ -754,27 +930,27 @@
                 <li>Sales Allocation <em>(Portion of shared corporate/facility expenses assigned to branch)</em></li>
                 <li>IT &amp; Technology <em>(Network infrastructure, dealer management systems, CRM subscriptions)</em></li>
                 <li>Utilities <em>(Electricity, water, internet)</em></li>
-                <li>Total Branch Fixed Overhead: <strong style="color:var(--warning);">$330,000</strong></li>
+                <li>Other operating expenses <em>(everything else on the operating expense lines)</em></li>
+                <li>Total Operating Expenses: <strong style="color:var(--warning);">$330,000</strong></li>
               </ul>
               
-              <p style="margin-bottom:12px; font-size:0.85rem; color:var(--muted);">As a manager in a dealership environment, understanding fixed overhead is critical because this is the financial "burden" your parts and service gross profit is tasked with carrying.</p>
+              <p style="margin-bottom:12px; font-size:0.85rem; color:var(--muted);">As a manager in a dealership environment, understanding total operating expenses is critical because this is the financial "burden" your parts and service gross profit is tasked with carrying.</p>
 
               <div class="grid-2" style="margin:16px 0;">
                 <div class="spec-box" style="background:rgba(34, 197, 94, 0.08); border-left-color:var(--success); margin:0;">
-                  <div class="spec-title" style="color:var(--success);">What Total Branch Fixed Overhead Measures</div>
+                  <div class="spec-title" style="color:var(--success);">What Total Operating Expenses Measure</div>
                   <ul style="padding-left:16px; font-size:0.85rem; line-height:1.6;">
                     <li><strong>The "Keep the Lights On" Threshold:</strong> Establishes the absolute minimum gross profit the branch must generate each month before producing a single dollar of net profit.</li>
-                    <li><strong>The Target for Fixed Absorption:</strong> This $330,000 figure is the denominator in the critical Absorption Ratio. Because your Total Aftermarket GP is $350,000, your branch has an exceptional 106% Absorption Rate ($350,000 ÷ $330,000)—meaning Parts and Service pay 100% of the branch's bills plus generate a surplus.</li>
+                    <li><strong>The Denominator for Absorption:</strong> This $330,000 figure is the denominator in the Absorption Ratio. Because your Total Aftermarket GP is $350,000, your branch has a 106.1% Absorption Rate ($350,000 ÷ $330,000), in the 105% to 110% optimal range: Parts and Service pay 100% of the branch's bills plus generate a surplus.</li>
                     <li><strong>Administrative &amp; Facility Bloat:</strong> Tracking month-over-month highlights if indirect costs are spiraling (software costs, excessive admin hiring, utility inefficiency).</li>
-                    <li><strong>Shared Resource Costs:</strong> Shows the true cost of infrastructure supporting all departments—from the showroom floor to the service bays.</li>
+                    <li><strong>Shared Resource Costs:</strong> Shows the true cost of infrastructure supporting all departments, from the showroom floor to the service bays.</li>
                   </ul>
                 </div>
 
                 <div class="spec-box" style="background:rgba(239, 68, 68, 0.08); border-left-color:var(--danger); margin:0;">
-                  <div class="spec-title" style="color:var(--danger);">What Total Branch Fixed Overhead Does NOT Measure</div>
+                  <div class="spec-title" style="color:var(--danger);">What Total Operating Expenses Do NOT Measure</div>
                   <ul style="padding-left:16px; font-size:0.85rem; line-height:1.6;">
                     <li><strong>Cost of Goods Sold (COGS):</strong> Strictly excludes direct fulfillment costs. Technician hourly wages, direct parts purchases, and freight are deducted earlier to find Gross Profit.</li>
-                    <li><strong>Variable Expenses:</strong> Does not account for costs that fluctuate directly with sales volume (sales commissions, credit card fees, variable marketing).</li>
                     <li><strong>Departmental Inefficiencies:</strong> High overhead is a facility/corporate issue. It does not mean technicians are slow or parts counter is mispricing; it means the building or management structure is too expensive.</li>
                     <li><strong>Capital Expenditures:</strong> Does not measure purchasing a new service truck or building. Those are capitalized assets (though depreciation may be included in overhead).</li>
                   </ul>
@@ -783,7 +959,7 @@
 
               <div class="floor-rule" style="background:rgba(59, 130, 246, 0.1); border-color:var(--accent-color); margin:12px 0 0 0;">
                 <div class="floor-rule-title" style="color:var(--accent-color);">Manager's Insight</div>
-                When you compare your Total Aftermarket GP ($350,000) against this Fixed Overhead ($330,000), you cross the ultimate finish line of dealership management: Over-Absorption. Because your fixed operations cover all $330,000 of the branch overhead, every single piece of whole goods or equipment the sales department sells this month drops straight to the bottom line as pure net profit.
+                When you compare your Total Aftermarket GP ($350,000) against Total Operating Expenses ($330,000), you cross the ultimate finish line of dealership management: Over-Absorption. Because your fixed operations cover all $330,000 of the branch's operating expenses, every single piece of whole goods or equipment the sales department sells this month drops straight to the bottom line as pure net profit.
               </div>
             </div>
           </li>
@@ -792,12 +968,12 @@
             
             <div style="margin-top:12px; margin-bottom:12px; padding:16px; background:rgba(0,0,0,0.25); border-radius:var(--radius); border:1px solid var(--border-color);">
               <h4 style="color:var(--accent-color); font-size:1rem; font-weight:800; margin-bottom:8px;">Absorption Rate Explanation</h4>
-              <p style="margin-bottom:12px; font-size:0.9rem;">Absorption Rate is widely considered the ultimate metric of financial health and stability for a dealership or equipment branch. It measures the percentage of the entire facility's fixed operating expenses that are completely covered by the gross profit generated solely from the parts and service departments (the aftermarket).</p>
+              <p style="margin-bottom:12px; font-size:0.9rem;">Absorption Rate is widely considered the ultimate metric of financial health and stability for a dealership or equipment branch. It measures the percentage of the branch's total operating expenses that are completely covered by the gross profit generated solely from the parts and service departments (the aftermarket).</p>
               
               <p style="margin-bottom:6px; font-weight:700; font-size:0.85rem;">Using the cumulative figures from the previous modules:</p>
               <ul style="list-style:none; padding-left:12px; margin-bottom:12px; font-size:0.85rem; line-height:1.8;">
                 <li>Total Aftermarket GP <em>(The Engine)</em>: <strong>$350,000</strong></li>
-                <li>Total Branch Fixed Overhead <em>(The Burden)</em>: <strong>$330,000</strong></li>
+                <li>Total Operating Expenses <em>(The Burden)</em>: <strong>$330,000</strong></li>
                 <li>Absorption Rate: <strong style="color:var(--success);">106.1%</strong> ($350,000 ÷ $330,000 × 100)</li>
               </ul>
               
@@ -808,8 +984,8 @@
                   <div class="spec-title" style="color:var(--success);">What the Absorption Rate Measures</div>
                   <ul style="padding-left:16px; font-size:0.85rem; line-height:1.6;">
                     <li><strong>Financial Resilience (Bulletproofing):</strong> An absorption rate over 100% means the dealership is financially self-sufficient without having to sell a single piece of new or used equipment. If the economy crashes and sales drop to zero, the branch can still pay rent, keep the lights on, and make payroll purely on aftermarket operations.</li>
-                    <li><strong>Sales Profit Velocity:</strong> Because fixed operations cover 106.1% of overhead, financial pressure on Sales is eliminated. Every dollar of gross profit generated from selling whole goods drops directly to the bottom line as pure net profit (minus variable sales commissions).</li>
-                    <li><strong>True Fixed Operations Performance:</strong> Proves the combined strength of Parts and Service. Hitting 100%+ is the benchmark of a world-class aftermarket team.</li>
+                    <li><strong>Sales Profit Velocity:</strong> Because fixed operations cover 106.1% of operating expenses, financial pressure on Sales is eliminated. Every dollar of gross profit generated from selling whole goods drops directly to the bottom line as pure net profit (minus variable sales commissions).</li>
+                    <li><strong>True Fixed Operations Performance:</strong> Proves the combined strength of Parts and Service. 100% is the gold standard and 105% to 110% is optimal. Below 95% is a red flag.</li>
                     <li><strong>Business Valuation:</strong> Dealerships with an absorption rate consistently over 100% are highly valued in the industry because they represent low-risk, cash-flowing businesses capable of surviving market downturns.</li>
                   </ul>
                 </div>
@@ -819,8 +995,8 @@
                   <ul style="padding-left:16px; font-size:0.85rem; line-height:1.6;">
                     <li><strong>Front-End Sales Performance:</strong> Tells you absolutely nothing about how many machines the dealership is selling, market share, or whole goods sales margins.</li>
                     <li><strong>Internal Departmental Equity:</strong> A combined 106.1% rate is fantastic, but does not reveal who is doing the heavy lifting. Service could be at peak efficiency while Parts is struggling, or vice versa. Individual departmental GPs must still be managed.</li>
-                    <li><strong>Variable Expenses:</strong> Strictly measures against fixed overhead. Does not account for variable costs like sales commissions, bonuses, or marketing budgets tied to specific promotions.</li>
-                    <li><strong>Total Branch Net Profit:</strong> While &gt;100% absorption guarantees aftermarket profitability after overhead, final branch net profit depends on whether Sales generates positive margins or loses money on bad trades/heavy discounting.</li>
+                    <li><strong>Cost of Goods Sold:</strong> Parts cost and direct tech labor are already taken out in the gross profit numerator; they are not part of the operating expense denominator.</li>
+                    <li><strong>Total Branch Net Profit:</strong> While &gt;100% absorption guarantees aftermarket profitability after operating expenses, final branch net profit depends on whether Sales generates positive margins or loses money on bad trades/heavy discounting.</li>
                   </ul>
                 </div>
               </div>
@@ -831,7 +1007,7 @@
               </div>
             </div>
           </li>
-          <li><strong>Result:</strong> <span class="metric-status status-pass">TOP QUARTILE PASS</span> — Branch covers 100%+ of fixed overhead from aftermarket operations.</li>
+          <li><strong>Result:</strong> <span class="metric-status status-pass">PASS: OPTIMAL</span>: Branch covers 106.1% of total operating expenses from aftermarket operations (105% to 110% optimal).</li>
         </ol>
       </div>
 
@@ -861,7 +1037,7 @@
   <div id="c_ex" class="tab-content">
     <div class="card">
       <div class="curr-module-header">
-        <div class="curr-day-tag">Day 1 Slot 3 — Foundation &amp; Reporting</div>
+        <div class="curr-day-tag">Day 1 Slot 3: Foundation &amp; Reporting</div>
         <div class="curr-module-title">Module 3: Labor &amp; Payroll Reconciliation (The Unbilled Labor Gap)</div>
       </div>
 
@@ -884,7 +1060,7 @@
                 </div>
                 <div class="spec-box" style="background:rgba(239, 68, 68, 0.08); border-left-color:var(--danger); margin:0;">
                   <div class="spec-title" style="color:var(--danger);">What it Does NOT Measure</div>
-                  <p style="font-size:0.85rem; line-height:1.5;">It tells you absolutely nothing about productivity, efficiency, or how much revenue was generated. It is strictly a measure of time purchased by the dealership.</p>
+                  <p style="font-size:0.85rem; line-height:1.5;">It tells you absolutely nothing about recovery, utilization, efficiency, or how much revenue was generated. It is strictly a measure of time purchased by the dealership.</p>
                 </div>
               </div>
               <div class="floor-rule" style="background:rgba(59, 130, 246, 0.1); border-color:var(--accent-color); margin:0;">
@@ -960,7 +1136,7 @@
               <div class="grid-2" style="margin-bottom:10px;">
                 <div class="spec-box" style="background:rgba(34, 197, 94, 0.08); border-left-color:var(--success); margin:0;">
                   <div class="spec-title" style="color:var(--success);">What it Measures</div>
-                  <p style="font-size:0.85rem; line-height:1.5;">This assigns a tangible financial cost to your shop's inefficiency. It calculates the opportunity cost—the exact amount of top-line revenue the dealership missed out on because those 40 hours were wasted instead of being billed at the shop's standard retail labor rate.</p>
+                  <p style="font-size:0.85rem; line-height:1.5;">This assigns a tangible financial cost to your shop's inefficiency. It calculates the opportunity cost, the exact amount of top-line revenue the dealership missed out on because those 40 hours were wasted instead of being billed at the shop's standard retail labor rate.</p>
                 </div>
                 <div class="spec-box" style="background:rgba(239, 68, 68, 0.08); border-left-color:var(--danger); margin:0;">
                   <div class="spec-title" style="color:var(--danger);">What it Does NOT Measure</div>
@@ -984,7 +1160,7 @@
                 </div>
                 <div class="spec-box" style="background:rgba(239, 68, 68, 0.08); border-left-color:var(--danger); margin:0;">
                   <div class="spec-title" style="color:var(--danger);">What it Does NOT Measure</div>
-                  <p style="font-size:0.85rem; line-height:1.5;">It does not mean you can easily recover all $384,800. A shop will never realistically hit 0% unapplied time—technicians must attend mandatory safety meetings, perform bay maintenance, and complete factory training.</p>
+                  <p style="font-size:0.85rem; line-height:1.5;">It does not mean you can easily recover all $384,800. A shop will never realistically hit 0% unapplied time, technicians must attend mandatory safety meetings, perform bay maintenance, and complete factory training.</p>
                 </div>
               </div>
               <div class="floor-rule" style="background:rgba(59, 130, 246, 0.1); border-color:var(--accent-color); margin:0;">
@@ -1007,23 +1183,22 @@
   <div id="c_m2" class="tab-content">
     <div class="card">
       <div class="curr-module-header">
-        <div class="curr-day-tag">Day 1 Slot 4 — Foundation &amp; Reporting</div>
+        <div class="curr-day-tag">Day 1 Slot 4: Foundation &amp; Reporting</div>
         <div class="curr-module-title">Module 4: Work-in-Progress (WIP) Aging &amp; Cash Flow Control</div>
       </div>
 
       <div class="curr-section">
         <div class="curr-section-h3">Diagnose &amp; Standard</div>
-        <p>Open Work-in-Progress (WIP) represents unbilled labor and installed parts paid for by the dealership. Aging WIP drains operating cash flow and hides job overruns.</p>
+        <p>Open Work-in-Progress (WIP) represents unbilled labor and installed parts paid for by the dealership. Every completed work order left open after the last labor drains operating cash flow and hides job overruns.</p>
         <ul style="padding-left: 20px; margin-top:8px;">
-          <li><strong>Total Open WIP Limit:</strong> Maximum <strong>10 days</strong> of average daily service revenue.</li>
-          <li><strong>Aged WIP (&gt;30 Days):</strong> <strong>$0</strong> tolerance without written Branch Manager authorization.</li>
+          <li><strong>48-Hour Close Rule:</strong> Every work order is closed and invoiced within <strong>48 hours of the last labor</strong> posted. Target: <strong>0</strong> work orders and <strong>$0</strong> past 48 hours. There are no tiers past 48 hours: a work order is either on time or late.</li>
         </ul>
       </div>
 
       <div class="formula-card">
         <div class="example-badge">Industry Standard Worked Example</div>
         <div class="formula-title">FORMULA &amp; WORKED CALCULATION</div>
-        <div class="formula-expr">Days of Open WIP = Total Unbilled WIP Dollars / Average Daily Service Revenue</div>
+        <div class="formula-expr">48-Hour Close Report = Count and $ of Work Orders Not Closed and Invoiced Within 48 Hours of Last Labor</div>
         
         <ol class="formula-steps">
           <li style="margin-bottom:16px;">
@@ -1047,61 +1222,44 @@
           </li>
 
           <li style="margin-bottom:16px;">
-            <strong>Average Daily Service Revenue:</strong> $250,000 monthly revenue / 21 working days = <strong>$11,905 / Day</strong>.
+            <strong>48-Hour Close Audit:</strong> Open ledger shows <strong>6 work orders ($14,500)</strong> not closed and invoiced within 48 hours of last labor (<span class="metric-status status-fail">FAIL (48-HOUR RULE)</span>).
             <div style="margin-top:10px; margin-bottom:10px; padding:14px; background:rgba(0,0,0,0.25); border-radius:var(--radius); border:1px solid var(--border-color);">
               <div class="grid-2" style="margin-bottom:10px;">
                 <div class="spec-box" style="background:rgba(34, 197, 94, 0.08); border-left-color:var(--success); margin:0;">
                   <div class="spec-title" style="color:var(--success);">What it Measures</div>
-                  <p style="font-size:0.85rem; line-height:1.5;">The baseline daily financial burn rate and revenue generation speed of your service department ($250,000 monthly labor revenue ÷ 21 working days).</p>
+                  <p style="font-size:0.85rem; line-height:1.5;">The count and the dollar value of completed work orders where the last labor was posted more than 48 hours ago and the work order is still not closed and invoiced. The clock starts at the last labor posting, not the date the work order was opened.</p>
                 </div>
                 <div class="spec-box" style="background:rgba(239, 68, 68, 0.08); border-left-color:var(--danger); margin:0;">
                   <div class="spec-title" style="color:var(--danger);">What it Does NOT Measure</div>
-                  <p style="font-size:0.85rem; line-height:1.5;">Daily cash collections or daily gross profit dollars; it is strictly a revenue-per-operating-day benchmark.</p>
+                  <p style="font-size:0.85rem; line-height:1.5;">The technical complexity or quality of the repair work, or jobs still in progress (waiting on parts, approval, or the customer). Those are reviewed weekly as a Service Manager and Service Administrator performance measure. A completed job not invoiced within 48 hours is almost always an administrative or communication failure, not a technical one.</p>
                 </div>
               </div>
               <div class="floor-rule" style="background:rgba(59, 130, 246, 0.1); border-color:var(--accent-color); margin:0;">
                 <div class="floor-rule-title" style="color:var(--accent-color);">Manager's Insight</div>
-                This daily number is your operational yardstick. You must generate at least $11,905 in closed invoices every single working day just to maintain your baseline monthly financial plan.
+                Every completed job not invoiced within 48 hours of last labor is late, and there are no tiers past 48 hours: 3 days late and 30 days late are both failures. Every day a job sits unbilled also pushes back the day the invoice starts aging, and older receivables collect less (see the table below). Require a weekly Monday morning "WIP Scrub" with your advisors to force every late ticket to closure, warranty submission, or write-off review.
               </div>
-            </div>
-          </li>
-
-          <li style="margin-bottom:16px;">
-            <strong>Days of Open WIP Calculation:</strong> $105,000 / $11,905 = <strong style="color:var(--success);">8.8 Days of WIP</strong> (<span class="metric-status status-pass">PASS ≤ 10 DAYS</span>).
-            <div style="margin-top:10px; margin-bottom:10px; padding:14px; background:rgba(0,0,0,0.25); border-radius:var(--radius); border:1px solid var(--border-color);">
-              <div class="grid-2" style="margin-bottom:10px;">
-                <div class="spec-box" style="background:rgba(34, 197, 94, 0.08); border-left-color:var(--success); margin:0;">
-                  <div class="spec-title" style="color:var(--success);">What it Measures</div>
-                  <p style="font-size:0.85rem; line-height:1.5;">The total length of time (in operating days) it takes for your service department to convert active work order inventory into closed, billable invoices ($105,000 WIP ÷ $11,905/day = 8.8 Days).</p>
+              <div style="margin-top:10px; padding:14px; background:rgba(0,0,0,0.25); border-radius:var(--radius); border:1px solid var(--border-color);">
+                <div class="spec-title" style="color:var(--accent-color);">Receivables Recovery by Age (invoices already sent)</div>
+                <div style="overflow-x:auto; margin:8px 0;">
+                  <table style="width:100%; border-collapse:collapse; font-size:0.8rem; text-align:left;">
+                    <thead>
+                      <tr style="border-bottom:2px solid var(--accent-color); color:var(--accent-color);">
+                        <th style="padding:8px;">Invoice Age</th>
+                        <th style="padding:8px;">Typical Recovery</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px;">Current (within terms)</td><td style="padding:8px;">98-99%</td></tr>
+                      <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px;">1-30 days past due</td><td style="padding:8px;">93-95%</td></tr>
+                      <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px;">31-60 days past due</td><td style="padding:8px;">85-90%</td></tr>
+                      <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px;">61-90 days past due</td><td style="padding:8px;">70-80%</td></tr>
+                      <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px;">91-120 days past due</td><td style="padding:8px;">60-70%</td></tr>
+                      <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px;">6 months past due</td><td style="padding:8px;">45-55%</td></tr>
+                      <tr><td style="padding:8px;">12 months past due</td><td style="padding:8px;">20-30%</td></tr>
+                    </tbody>
+                  </table>
                 </div>
-                <div class="spec-box" style="background:rgba(239, 68, 68, 0.08); border-left-color:var(--danger); margin:0;">
-                  <div class="spec-title" style="color:var(--danger);">What it Does NOT Measure</div>
-                  <p style="font-size:0.85rem; line-height:1.5;">It does not distinguish between active major rebuilds (which naturally take several days) and small 2-hour PM jobs that should be closed within 24 hours.</p>
-                </div>
-              </div>
-              <div class="floor-rule" style="background:rgba(59, 130, 246, 0.1); border-color:var(--accent-color); margin:0;">
-                <div class="floor-rule-title" style="color:var(--accent-color);">Manager's Insight</div>
-                Top-quartile heavy equipment dealerships operate under 10 Days of WIP. Anything over 10 days signals severe administrative bottlenecks in job closing, customer authorization delays, or parts backorders.
-              </div>
-            </div>
-          </li>
-
-          <li style="margin-bottom:16px;">
-            <strong>Aged WIP &gt;30 Days Audit:</strong> Open ledger shows <strong>$14,500 sitting &gt;30 days</strong> (<span class="metric-status status-fail">FAIL (AGED RISK)</span>).
-            <div style="margin-top:10px; margin-bottom:10px; padding:14px; background:rgba(0,0,0,0.25); border-radius:var(--radius); border:1px solid var(--border-color);">
-              <div class="grid-2" style="margin-bottom:10px;">
-                <div class="spec-box" style="background:rgba(34, 197, 94, 0.08); border-left-color:var(--success); margin:0;">
-                  <div class="spec-title" style="color:var(--success);">What it Measures</div>
-                  <p style="font-size:0.85rem; line-height:1.5;">The dollar amount of unbilled work order balance that has been sitting open in your ERP system for more than 30 calendar days without being invoiced.</p>
-                </div>
-                <div class="spec-box" style="background:rgba(239, 68, 68, 0.08); border-left-color:var(--danger); margin:0;">
-                  <div class="spec-title" style="color:var(--danger);">What it Does NOT Measure</div>
-                  <p style="font-size:0.85rem; line-height:1.5;">The technical complexity or quality of the repair work performed. A job sitting over 30 days is almost always an administrative or communication failure, not a technical one.</p>
-                </div>
-              </div>
-              <div class="floor-rule" style="background:rgba(59, 130, 246, 0.1); border-color:var(--accent-color); margin:0;">
-                <div class="floor-rule-title" style="color:var(--accent-color);">Manager's Insight</div>
-                Aged WIP &gt;30 days is a financial emergency. The likelihood of collecting 100% of an unbilled job drops by 50% once it crosses 30 days. Require a weekly Monday morning "WIP Scrub" with your advisors to force every aged ticket to closure, warranty submission, or write-off review.
+                <p style="font-size:0.8rem; color:var(--muted); line-height:1.5; margin:0;"><strong>Directional, based on commercial collection data (NACM, CCAA).</strong> Rates vary by industry, customer credit, invoice size, and how hard the account is worked. Equipment and construction receivables often drop off faster after 90 days (disputes, project closeouts, customer cash-flow stress). The loss shows up as write-offs, partial payments, and the allowance carried on older balances. This table is about invoices already sent; it is not a work order tier. Every work order is still closed and invoiced within 48 hours of last labor.</p>
               </div>
             </div>
           </li>
@@ -1110,7 +1268,7 @@
 
       <div class="floor-rule">
         <div class="floor-rule-title">HEDS Floor Rule</div>
-        Work orders must be closed and invoiced within 24 hours of technician job completion. Touch it, finish it, bill it.
+        Every work order with labor must be closed and invoiced within 48 hours of the last labor posted. Touch it, finish it, bill it.
       </div>
     </div>
   </div>
@@ -1119,8 +1277,8 @@
   <div id="c_m3" class="tab-content">
     <div class="card">
       <div class="curr-module-header">
-        <div class="curr-day-tag">Day 2 Slot 5 — Execution &amp; Pricing</div>
-        <div class="curr-module-title">Module 5: Technician Efficiency, Productivity, &amp; Utilization</div>
+        <div class="curr-day-tag">Day 2 Slot 5: Execution &amp; Pricing</div>
+        <div class="curr-module-title">Module 5: Technician Efficiency, Recovery, &amp; Utilization</div>
       </div>
 
       <div class="formula-card">
@@ -1129,12 +1287,12 @@
         
         <ol class="formula-steps">
           <li style="margin-bottom:16px;">
-            <strong>Shop Technicians:</strong> Billed 340 hrs / Clocked 380 hrs = <strong style="color:var(--success);">89.5% Shop Efficiency</strong> (<span class="metric-status status-pass">PASS ≥ 85%</span>).
+            <strong>Shop Technicians:</strong> Job Flat Rate 340 hrs / Actual Job Time 380 hrs = <strong style="color:var(--danger);">89.5% Shop Efficiency</strong> (<span class="metric-status status-fail">FAIL: BELOW 100% (GOAL ≥ 110%)</span>).
             <div style="margin-top:10px; margin-bottom:10px; padding:14px; background:rgba(0,0,0,0.25); border-radius:var(--radius); border:1px solid var(--border-color);">
               <div class="grid-2" style="margin-bottom:10px;">
                 <div class="spec-box" style="background:rgba(34, 197, 94, 0.08); border-left-color:var(--success); margin:0;">
                   <div class="spec-title" style="color:var(--success);">What it Measures</div>
-                  <p style="font-size:0.85rem; line-height:1.5;">The conversion rate of internal shop technician clocked hours into flat-rate billed hours (340 Billed Hrs ÷ 380 Clocked Hrs = 89.5%).</p>
+                  <p style="font-size:0.85rem; line-height:1.5;">Job flat rate (or job estimate) hours against actual job time for internal shop technicians (340 Flat Rate Hrs ÷ 380 Actual Hrs = 89.5%). HEDS goal: 110%. PASS at 110% or more, WARN 100&ndash;109.9%, FAIL below 100%.</p>
                 </div>
                 <div class="spec-box" style="background:rgba(239, 68, 68, 0.08); border-left-color:var(--danger); margin:0;">
                   <div class="spec-title" style="color:var(--danger);">What it Does NOT Measure</div>
@@ -1143,18 +1301,18 @@
               </div>
               <div class="floor-rule" style="background:rgba(59, 130, 246, 0.1); border-color:var(--accent-color); margin:0;">
                 <div class="floor-rule-title" style="color:var(--accent-color);">Manager's Insight</div>
-                Top-quartile shop efficiency is 85%+. When shop efficiency drops below 85%, the culprit is rarely slow technicians—it is usually waiting for parts, waiting for crane or wash bay availability, or poor diagnostic direction from supervisors.
+                The HEDS shop efficiency goal is 110%. When shop efficiency drops below 110%, the culprit is rarely slow technicians: it is usually waiting for parts, waiting for crane or wash bay availability, or poor diagnostic direction from supervisors.
               </div>
             </div>
           </li>
 
           <li style="margin-bottom:16px;">
-            <strong>Field Technicians:</strong> Billed 150 hrs / Clocked 195 hrs (incl. drive time) = <strong style="color:var(--success);">76.9% Field Efficiency</strong> (<span class="metric-status status-pass">PASS ≥ 75%</span>).
+            <strong>Field Technicians:</strong> Billed 150 hrs (incl. billed travel time) / Clocked 195 hrs (incl. drive time) = <strong style="color:var(--danger);">76.9% Field Efficiency</strong> (<span class="metric-status status-fail">BELOW 80%</span>; target is 80–110%).
             <div style="margin-top:10px; margin-bottom:10px; padding:14px; background:rgba(0,0,0,0.25); border-radius:var(--radius); border:1px solid var(--border-color);">
               <div class="grid-2" style="margin-bottom:10px;">
                 <div class="spec-box" style="background:rgba(34, 197, 94, 0.08); border-left-color:var(--success); margin:0;">
                   <div class="spec-title" style="color:var(--success);">What it Measures</div>
-                  <p style="font-size:0.85rem; line-height:1.5;">Field service technician billable yield relative to total paid on-job hours, including job site travel, setup, and remote diagnostic time (150 Billed Hrs ÷ 195 Clocked Hrs = 76.9%).</p>
+                  <p style="font-size:0.85rem; line-height:1.5;">Field service technician billable yield relative to total paid on-job hours, including job site travel, setup, and remote diagnostic time (150 Billed Hrs ÷ 195 Clocked Hrs = 76.9%). Travel time and mileage are billed on every field service trip, so travel time counts as billed hours as well as clocked hours.</p>
                 </div>
                 <div class="spec-box" style="background:rgba(239, 68, 68, 0.08); border-left-color:var(--danger); margin:0;">
                   <div class="spec-title" style="color:var(--danger);">What it Does NOT Measure</div>
@@ -1163,11 +1321,21 @@
               </div>
               <div class="floor-rule" style="background:rgba(59, 130, 246, 0.1); border-color:var(--accent-color); margin:0;">
                 <div class="floor-rule-title" style="color:var(--accent-color);">Manager's Insight</div>
-                Field efficiency benchmark is 75%+ because travel time inherently dilutes billable hours. To protect field efficiency, ensure field trucks are pre-stocked with fast-moving PM parts and dispatch routes are optimized to avoid double-backing.
+                The baseline field efficiency target for an experienced heavy equipment road tech is 80–110%. Top-tier master technicians regularly exceed 120–130%, so 110–130% is graded PASS (top performer). Above 130%, check the time coding before you celebrate. Because travel is billed on every trip, a low number means on-job time that was not billed. To protect field efficiency, ensure field trucks are pre-stocked with fast-moving PM parts and dispatch routes are optimized to avoid double-backing.
               </div>
             </div>
           </li>
         </ol>
+      </div>
+
+      <div class="floor-rule">
+        <div class="floor-rule-title">HEDS Labor Measures (Same for Dealer and Rental)</div>
+        <ul style="padding-left:20px; margin-top:6px; line-height:1.8;">
+          <li><strong>Labor Recovery %</strong> = Hours on Work Orders / Hours of Payroll (Paid Hours) &times; 100. Target 95&ndash;100%.</li>
+          <li><strong>Labor Utilization %</strong> = Hours Invoiced on the Work Order / Hours on Work Orders &times; 100. Target 95&ndash;100%.</li>
+          <li><strong>Both:</strong> red flag at 85% or below (at that point the shop is not making money, it is losing money). Above 100%: WARN, check the time coding.</li>
+        </ul>
+        HEDS uses only these two labor measures. There is no separate "productivity" measure. Shop Efficiency and road tech Field Efficiency (above) are job-time measures and stay as they are.
       </div>
 
       <div class="floor-rule">
@@ -1181,13 +1349,13 @@
   <div id="c_m4" class="tab-content">
     <div class="card">
       <div class="curr-module-header">
-        <div class="curr-day-tag">Day 2 Slot 6 — Execution &amp; Pricing</div>
+        <div class="curr-day-tag">Day 2 Slot 6: Execution &amp; Pricing</div>
         <div class="curr-module-title">Module 6: Effective Labor Rate (ELR) &amp; Discounting Control</div>
       </div>
 
       <div class="formula-card">
         <div class="example-badge">Industry Standard Worked Example</div>
-        <div class="formula-title">ELR RECOVERY CALCULATION</div>
+        <div class="formula-title">EFFECTIVE LABOR RATE % CALCULATION</div>
         
         <ol class="formula-steps">
           <li style="margin-bottom:16px;">
@@ -1225,7 +1393,7 @@
               </div>
               <div class="floor-rule" style="background:rgba(59, 130, 246, 0.1); border-color:var(--accent-color); margin:0;">
                 <div class="floor-rule-title" style="color:var(--accent-color);">Manager's Insight</div>
-                Billed hours are the primary engine of dealer gross profit. Tracking billed hours daily—rather than waiting for end-of-month financial statements—allows you to correct weekly pacing before it's too late.
+                Billed hours are the primary engine of dealer gross profit. Tracking billed hours daily, rather than waiting for end-of-month financial statements, allows you to correct weekly pacing before it's too late.
               </div>
             </div>
           </li>
@@ -1251,7 +1419,7 @@
           </li>
 
           <li style="margin-bottom:16px;">
-            <strong>ELR Matrix Recovery %:</strong> ($170.00 / $185.00) × 100 = <strong style="color:var(--warning);">91.9% Recovery</strong> (<span class="metric-status status-warn">WARN (&lt; 92% TARGET)</span>).
+            <strong>Effective Labor Rate %:</strong> ($170.00 / $185.00) × 100 = <strong style="color:var(--warning);">91.9% Effective Labor Rate</strong> (<span class="metric-status status-warn">WARN (&lt; 92% TARGET)</span>).
             <div style="margin-top:10px; margin-bottom:10px; padding:14px; background:rgba(0,0,0,0.25); border-radius:var(--radius); border:1px solid var(--border-color);">
               <div class="grid-2" style="margin-bottom:10px;">
                 <div class="spec-box" style="background:rgba(34, 197, 94, 0.08); border-left-color:var(--success); margin:0;">
@@ -1260,12 +1428,12 @@
                 </div>
                 <div class="spec-box" style="background:rgba(239, 68, 68, 0.08); border-left-color:var(--danger); margin:0;">
                   <div class="spec-title" style="color:var(--danger);">What it Does NOT Measure</div>
-                  <p style="font-size:0.85rem; line-height:1.5;">Total shop billable volume; you can have 100% recovery on very low volume, which still results in a net branch loss.</p>
+                  <p style="font-size:0.85rem; line-height:1.5;">Total shop billable volume; you can have a 100% Effective Labor Rate % on very low volume, which still results in a net branch loss.</p>
                 </div>
               </div>
               <div class="floor-rule" style="background:rgba(59, 130, 246, 0.1); border-color:var(--accent-color); margin:0;">
                 <div class="floor-rule-title" style="color:var(--accent-color);">Manager's Insight</div>
-                HEDS target is ≥ 92% ELR recovery. A drop below 92% indicates advisors are overriding matrix rates, giving away diagnostic time, or failing to bill national account matrix pricing properly.
+                HEDS target is ≥ 92% Effective Labor Rate % (ELR as a percentage of posted rate). A drop below 92% indicates advisors are overriding matrix rates, giving away diagnostic time, or failing to bill national account matrix pricing properly.
               </div>
             </div>
           </li>
@@ -1283,7 +1451,7 @@
   <div id="c_m5" class="tab-content">
     <div class="card">
       <div class="curr-module-header">
-        <div class="curr-day-tag">Day 2 Slot 7 — Execution &amp; Pricing</div>
+        <div class="curr-day-tag">Day 2 Slot 7: Execution &amp; Pricing</div>
         <div class="curr-module-title">Module 7: Triage, Dispatch, &amp; Segmented Scheduling</div>
       </div>
 
@@ -1385,7 +1553,7 @@
   <div id="c_m6" class="tab-content">
     <div class="card">
       <div class="curr-module-header">
-        <div class="curr-day-tag">Day 2 Slot 8 — Execution &amp; Pricing</div>
+        <div class="curr-day-tag">Day 2 Slot 8: Execution &amp; Pricing</div>
         <div class="curr-module-title">Module 8: Warranty Management &amp; Claim Recovery Velocity</div>
       </div>
 
@@ -1449,7 +1617,7 @@
               </div>
               <div class="floor-rule" style="background:rgba(59, 130, 246, 0.1); border-color:var(--accent-color); margin:0;">
                 <div class="floor-rule-title" style="color:var(--accent-color);">Manager's Insight</div>
-                HEDS benchmark requires warranty write-offs to remain below 1.5%. A write-off rate above 1.5% signals weak technician 4-C story documentation (Complaint, Cause, Correction, Coverage) — The 4-C standard applies to both OEM warranty claims and retail customer intake. or poor failed-parts retention protocols.
+                HEDS benchmark requires warranty write-offs to remain below 1.5%. A write-off rate above 1.5% signals weak technician 4-C story documentation (Complaint, Cause, Correction, Coverage): The 4-C standard applies to both OEM warranty claims and retail customer intake. or poor failed-parts retention protocols.
               </div>
             </div>
           </li>
@@ -1487,7 +1655,7 @@
   <div id="c_leak" class="tab-content">
     <div class="card">
       <div class="curr-module-header">
-        <div class="curr-day-tag">Day 3 Slot 9 — Management Systems</div>
+        <div class="curr-day-tag">Day 3 Slot 9: Management Systems</div>
         <div class="curr-module-title">Module 9: Shop Profit Leak Diagnostic Matrix</div>
       </div>
 
@@ -1498,7 +1666,7 @@
 
       <div class="curr-section">
         <div class="curr-section-h3">Standard</div>
-        <p>You cannot fix a percentage. You can only fix a behavior. "Productivity is 72%" is not a problem. "Technician Dave is waiting 4 hours per day for parts to be staged" is a problem you can fix.</p>
+        <p>You cannot fix a percentage. You can only fix a behavior. "Recovery is 72%" is not a problem. "Technician Dave is waiting 4 hours per day for parts to be staged" is a problem you can fix.</p>
       </div>
 
       <div class="formula-card">
@@ -1517,15 +1685,15 @@
               </tr>
             </thead>
             <tbody>
-              <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600;">Gross Margin &lt; 65%</td><td style="padding:8px;">Invoice write-downs, unbilled diagnostic time</td><td style="padding:8px;">Enforce flat-rate estimating, bill all diagnostics, manager sign-off on write-downs</td><td style="padding:8px; color:var(--danger);">$[Your number]</td></tr>
-              <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600;">Absorption &lt; 70%</td><td style="padding:8px;">Low service + parts + rental GP combined</td><td style="padding:8px;">Fix margin leaks in all three departments</td><td style="padding:8px; color:var(--danger);">$[Your number]</td></tr>
-              <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600;">Productivity &lt; 85%</td><td style="padding:8px;">Technicians idle, no dispatch, waiting on parts</td><td style="padding:8px;">Multi-job queue rule, parts staging before teardown, dispatch matching</td><td style="padding:8px; color:var(--danger);">$[Your number]</td></tr>
-              <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600;">Efficiency &lt; 100%</td><td style="padding:8px;">Wrong technician on complex job, bad flat-rate quote</td><td style="padding:8px;">Skill-to-job matching, quote review before dispatch</td><td style="padding:8px; color:var(--danger);">$[Your number]</td></tr>
-              <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600;">ELR &gt; 8% below posted (below 92% recovery)</td><td style="padding:8px;">Unauthorized discounts, rework not billed</td><td style="padding:8px;">Stop unauthorized discounting, bill all rework, bill diagnostic time</td><td style="padding:8px; color:var(--danger);">$[Your number]</td></tr>
-              <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600;">WIP &gt; 15 days of sales</td><td style="padding:8px;">WOs sitting with no owner, no close date</td><td style="padding:8px;">Daily WIP standup, weekly WIP review, close-or-kill for 30+ day WOs</td><td style="padding:8px; color:var(--danger);">$[Your number]</td></tr>
-              <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600;">DTI (Days to Invoice) &gt; 5 days</td><td style="padding:8px;">Invoice not submitted within 48 hours of completion</td><td style="padding:8px;">48-hour close standard, advisor-to-billing handoff protocol</td><td style="padding:8px; color:var(--danger);">$[Your number]</td></tr>
+              <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600;">Gross Margin &lt; 75%</td><td style="padding:8px;">Invoice write-downs, unbilled diagnostic time</td><td style="padding:8px;">Enforce flat-rate estimating, bill all diagnostics, manager sign-off on write-downs</td><td style="padding:8px; color:var(--danger);">$[Your number]</td></tr>
+              <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600;">Absorption &lt; 95%</td><td style="padding:8px;">Low service + parts + rental GP combined</td><td style="padding:8px;">Fix margin leaks in all three departments</td><td style="padding:8px; color:var(--danger);">$[Your number]</td></tr>
+              <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600;">Recovery &le; 85% (red flag)</td><td style="padding:8px;">Technicians idle, no dispatch, waiting on parts</td><td style="padding:8px;">Multi-job queue rule, parts staging before teardown, dispatch matching</td><td style="padding:8px; color:var(--danger);">$[Your number]</td></tr>
+              <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600;">Efficiency &lt; 110%</td><td style="padding:8px;">Wrong technician on complex job, bad flat-rate quote</td><td style="padding:8px;">Skill-to-job matching, quote review before dispatch</td><td style="padding:8px; color:var(--danger);">$[Your number]</td></tr>
+              <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600;">ELR &gt; 8% below posted (Effective Labor Rate % below 92%)</td><td style="padding:8px;">Unauthorized discounts, rework not billed</td><td style="padding:8px;">Stop unauthorized discounting, bill all rework, bill diagnostic time</td><td style="padding:8px; color:var(--danger);">$[Your number]</td></tr>
+              <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600;">WOs not invoiced within 48 hrs of last labor</td><td style="padding:8px;">Completed WOs sitting with no owner, no invoice</td><td style="padding:8px;">Daily WIP standup, weekly WIP review, close and invoice every WO within 48 hours of last labor</td><td style="padding:8px; color:var(--danger);">$[Your number]</td></tr>
+              <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600;">WO not closed and invoiced within 48 hours of last labor</td><td style="padding:8px;">Invoice not submitted within 48 hours of the last labor posted</td><td style="padding:8px;">48-hour close standard, advisor-to-billing handoff protocol</td><td style="padding:8px; color:var(--danger);">$[Your number]</td></tr>
               <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600;">Unbilled Labor &gt; $0</td><td style="padding:8px;">Time not entered, or entered late</td><td style="padding:8px;">Real-time time entry, end-of-shift reconciliation</td><td style="padding:8px; color:var(--danger);">$[Your number]</td></tr>
-              <tr><td style="padding:8px; font-weight:600;">Quote Risk &gt; $0</td><td style="padding:8px;">Quotes sent but not followed up</td><td style="padding:8px;">48-hour quote follow-up call, no email-only quotes</td><td style="padding:8px; color:var(--danger);">$[Your number]</td></tr>
+              <tr><td style="padding:8px; color:var(--muted);" colspan="4">Old AI KPIs archived Oct 23 2026; new set in development.</td></tr>
             </tbody>
           </table>
         </div>
@@ -1544,7 +1712,7 @@
 
       <div class="floor-rule">
         <div class="floor-rule-title">HEDS Floor Rule</div>
-        You cannot fix a percentage. You can only fix a behavior. "Productivity is 72%" is not a problem. "Technician Dave is waiting 4 hours per day for parts to be staged" is a problem you can fix. Name the behavior, name the owner, name the date.
+        You cannot fix a percentage. You can only fix a behavior. "Recovery is 72%" is not a problem. "Technician Dave is waiting 4 hours per day for parts to be staged" is a problem you can fix. Name the behavior, name the owner, name the date.
       </div>
 
       <div class="spec-box">
@@ -1558,13 +1726,13 @@
   <div id="c_scorecards" class="tab-content">
     <div class="card">
       <div class="curr-module-header">
-        <div class="curr-day-tag">Day 3 Slot 10 — Management Systems</div>
+        <div class="curr-day-tag">Day 3 Slot 10: Management Systems</div>
         <div class="curr-module-title">Module 10: Daily &amp; Weekly Management Scorecards</div>
       </div>
 
       <div class="curr-section">
         <div class="curr-section-h3">Diagnose</div>
-        <p>Complicated software dashboards sit unused because they do not drive a decision. A scorecard is not a report — it is a management tool. If the number on the scorecard does not make someone do something different today, it should not be on the board.</p>
+        <p>Complicated software dashboards sit unused because they do not drive a decision. A scorecard is not a report, it is a management tool. If the number on the scorecard does not make someone do something different today, it should not be on the board.</p>
       </div>
 
       <div class="curr-section">
@@ -1572,7 +1740,7 @@
         <ul style="padding-left:20px;">
           <li><strong>Shift focus</strong> from unchangeable monthly results to controllable daily actions.</li>
           <li><strong>Rules of the Board:</strong> The advisor or foreman enters the data, not the manager. The manager reads it and acts on it. The board is updated at the same time every day. No exceptions.</li>
-          <li><strong>Trigger points:</strong> If any number hits a trigger point (e.g., quote over 48 hours, WO over 30 days), the manager acts that day — not tomorrow.</li>
+          <li><strong>Trigger points:</strong> If any number hits a trigger point (e.g., quote over 48 hours, WO not invoiced within 48 hours of last labor), the manager acts that day, not tomorrow.</li>
         </ul>
       </div>
 
@@ -1618,9 +1786,9 @@
               </tr>
             </thead>
             <tbody>
-              <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px;">Total open WIP balance and aging (0-14, 15-30, 30+)</td><td style="padding:8px;">DMS WIP aging report</td><td style="padding:8px;">Manager</td><td style="padding:8px;">Monday morning</td></tr>
+              <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px;">Work orders not closed and invoiced within 48 hours of last labor (count and $)</td><td style="padding:8px;">DMS open work order report (last labor date)</td><td style="padding:8px;">Manager</td><td style="padding:8px;">Monday morning</td></tr>
               <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px;">Billed hours per technician vs. 40-hour baseline</td><td style="padding:8px;">Payroll + WO report</td><td style="padding:8px;">Manager</td><td style="padding:8px;">Monday morning</td></tr>
-              <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px;">Parts counter first-pick fill rate on active WOs</td><td style="padding:8px;">Parts fill rate report</td><td style="padding:8px;">Parts manager</td><td style="padding:8px;">Monday morning</td></tr>
+              <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px;">Parts counter first-pick fill rate on active WOs (counted by line item, then averaged)</td><td style="padding:8px;">Parts fill rate report</td><td style="padding:8px;">Parts manager</td><td style="padding:8px;">Monday morning</td></tr>
               <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px;">ELR for the week vs. posted door rate</td><td style="padding:8px;">Service revenue report</td><td style="padding:8px;">Manager</td><td style="padding:8px;">Monday morning</td></tr>
               <tr><td style="padding:8px;">Total unbilled labor $ for the week</td><td style="padding:8px;">Labor reconciliation</td><td style="padding:8px;">Manager</td><td style="padding:8px;">Monday morning</td></tr>
             </tbody>
@@ -1644,13 +1812,13 @@
   <div id="c_standup" class="tab-content">
     <div class="card">
       <div class="curr-module-header">
-        <div class="curr-day-tag">Day 3 Slot 11 — Management Systems</div>
+        <div class="curr-day-tag">Day 3 Slot 11: Management Systems</div>
         <div class="curr-module-title">Module 11: The 10-Minute Morning Standup</div>
       </div>
 
       <div class="curr-section">
         <div class="curr-section-h3">Diagnose</div>
-        <p>Most service department meetings take 30 minutes and produce zero decisions. The standup fixes this by being short, structured, and mandatory. It is a daily meeting — same time, same agenda, same attendees — that lasts 10 minutes and produces one decision minimum.</p>
+        <p>Most service department meetings take 30 minutes and produce zero decisions. The standup fixes this by being short, structured, and mandatory. It is a daily meeting, same time, same agenda, same attendees, that lasts 10 minutes and produces one decision minimum.</p>
       </div>
 
       <div class="curr-section">
@@ -1675,7 +1843,7 @@
             <strong>Which quotes are over 48 hours old?</strong> <span style="color:var(--muted);">(1 minute)</span>
           </li>
           <li style="margin-bottom:12px;">
-            <strong>Capacity stress flag:</strong> Does the 2-week forecast show scheduled hours exceeding available hours by more than 15%? If yes, what is the plan — throttle, overtime, or bring in field techs? <span style="color:var(--muted);">(2 minutes)</span>
+            <strong>Capacity stress flag:</strong> Does the 2-week forecast show scheduled hours exceeding available hours by more than 15%? If yes, what is the plan, throttle, overtime, or bring in field techs? <span style="color:var(--muted);">(2 minutes)</span>
           </li>
           <li style="margin-bottom:12px;">
             <strong>One decision:</strong> Who owns what by end of shift? <span style="color:var(--muted);">(2 minutes)</span>
@@ -1709,24 +1877,24 @@
   <div id="c_wip_review" class="tab-content">
     <div class="card">
       <div class="curr-module-header">
-        <div class="curr-day-tag">Day 3 Slot 12 — Management Systems</div>
+        <div class="curr-day-tag">Day 3 Slot 12: Management Systems</div>
         <div class="curr-module-title">Module 12: The Weekly WIP Review</div>
       </div>
 
       <div class="curr-section">
         <div class="curr-section-h3">Diagnose</div>
-        <p>Work orders that sit open for more than 14 days are almost always stuck for one of six reasons. This review forces a decision on every aged WO every single week. No WO leaves the meeting without a named owner and a target close date.</p>
+        <p>Completed work orders not invoiced within 48 hours of last labor, and in-progress work orders that have stalled, are almost always stuck for one of six reasons. This review forces a decision on every one of them every single week. No WO leaves the meeting without a named owner and a target close date.</p>
       </div>
 
       <div class="curr-section">
         <div class="curr-section-h3">Standard</div>
-        <p>A 30-minute session once per week where the manager, advisor, and foreman review every open work order older than 14 days and force a decision.</p>
+        <p>A 30-minute session once per week where the manager, advisor, and foreman review every completed work order not invoiced within 48 hours of last labor, plus every in-progress work order waiting on parts, approval, or the customer, and force a decision. In-progress work orders are measured weekly as a Service Manager and Service Administrator performance measure.</p>
       </div>
 
       <div class="formula-card">
         <div class="example-badge">Decision Framework</div>
         <div class="formula-title">WEEKLY WIP DECISION TREE</div>
-        <p style="margin-bottom:12px; color:var(--muted); font-size:0.9rem;">For every WO over 14 days, run this decision tree. No WO leaves the meeting without a decision.</p>
+        <p style="margin-bottom:12px; color:var(--muted); font-size:0.9rem;">For every WO on the review list, run this decision tree. No WO leaves the meeting without a decision.</p>
         
         <div style="overflow-x:auto; margin-bottom:16px;">
           <table style="width:100%; border-collapse:collapse; font-size:0.8rem; text-align:left;">
@@ -1743,7 +1911,7 @@
               <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px;">Technician scheduling gap</td><td style="padding:8px;">Assign technician today, schedule for this week</td><td style="padding:8px;">Shop foreman</td></tr>
               <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px;">Customer dispute unresolved</td><td style="padding:8px;">Escalate to manager, negotiate or cancel</td><td style="padding:8px;">Service manager</td></tr>
               <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px;">Stalled or abandoned</td><td style="padding:8px;">Close or kill the WO today</td><td style="padding:8px;">Service manager</td></tr>
-              <tr><td style="padding:8px;">Labor complete but not invoiced</td><td style="padding:8px;">Invoice within 24 hours</td><td style="padding:8px;">Service advisor</td></tr>
+              <tr><td style="padding:8px;">Labor complete but not invoiced</td><td style="padding:8px;">Invoice today (already past the 48-hour standard)</td><td style="padding:8px;">Service manager</td></tr>
             </tbody>
           </table>
         </div>
@@ -1751,12 +1919,12 @@
 
       <div class="floor-rule">
         <div class="floor-rule-title">HEDS Floor Rule</div>
-        Work orders must be closed and invoiced within 24 hours of technician job completion. Touch it, finish it, bill it. No WO over 14 days leaves the weekly review without a named owner and a target close date.
+        Work orders must be closed and invoiced within 48 hours of the last labor. Touch it, finish it, bill it. No WO on the review list leaves the weekly review without a named owner and a target close date.
       </div>
 
       <div class="spec-box">
         <div class="spec-title">Deliverable: Weekly WIP Review Log</div>
-        <p>All WOs over 14 days assigned to named owners with target close dates. Log maintained weekly and reviewed at the next standup.</p>
+        <p>Every WO past 48 hours of last labor, and every stalled in-progress WO, assigned to a named owner with a target close date. Log maintained weekly and reviewed at the next standup.</p>
       </div>
     </div>
   </div>
@@ -1765,13 +1933,13 @@
   <div id="c_lifecycle" class="tab-content">
     <div class="card">
       <div class="curr-module-header">
-        <div class="curr-day-tag">Day 4 Slot 13 — Process &amp; People</div>
+        <div class="curr-day-tag">Day 4 Slot 13: Process &amp; People</div>
         <div class="curr-module-title">Module 13: The Work Order Lifecycle</div>
       </div>
 
       <div class="curr-section">
         <div class="curr-section-h3">Diagnose</div>
-        <p>Jobs stall because steps are skipped. The work order lifecycle is not a suggestion — it is the production line. If a step is skipped, the job stalls and the cash stops. Treat the lifecycle like a factory floor, because that is what it is.</p>
+        <p>Jobs stall because steps are skipped. The work order lifecycle is not a suggestion, it is the production line. If a step is skipped, the job stalls and the cash stops. Treat the lifecycle like a factory floor, because that is what it is.</p>
       </div>
 
       <div class="formula-card">
@@ -1781,14 +1949,14 @@
           <li style="margin-bottom:14px;">
             <strong>Step 1: Structured Intake (Before Work Begins)</strong>
             <ul style="padding-left:20px; margin-top:6px;">
-              <li>Obtain clear complaint description from the customer (Four C's: Complaint, Cause, Correction, Coverage) — The 4-C standard applies to both retail customer intake and OEM warranty claims.</li>
+              <li>Obtain clear complaint description from the customer (Four C's: Complaint, Cause, Correction, Coverage): The 4-C standard applies to both retail customer intake and OEM warranty claims.</li>
               <li>Record machine hours, serial number, and customer contact information</li>
               <li>Get customer pre-authorization for labor before any work starts</li>
               <li>No technician touches the machine until intake is complete and approved</li>
             </ul>
             <div class="floor-rule" style="margin-top:8px;">
               <div class="floor-rule-title">Floor Rule</div>
-              If the complaint is not clear, the diagnosis will be wrong. If the diagnosis is wrong, the quote is wrong. If the quote is wrong, the job stalls. Intake is where leaks start — and where they are cheapest to prevent.
+              If the complaint is not clear, the diagnosis will be wrong. If the diagnosis is wrong, the quote is wrong. If the quote is wrong, the job stalls. Intake is where leaks start, and where they are cheapest to prevent.
             </div>
           </li>
           <li style="margin-bottom:14px;">
@@ -1803,7 +1971,7 @@
             <strong>Step 3: Parts Staging</strong>
             <ul style="padding-left:20px; margin-top:6px;">
               <li>Parts pulled and staged before the technician begins disassembly</li>
-              <li>If parts are on backorder, the WO is not dispatched until parts arrive — or the customer authorizes partial repair</li>
+              <li>If parts are on backorder, the WO is not dispatched until parts arrive, or the customer authorizes partial repair</li>
               <li>Parts person confirms staging to the advisor, not just to the parts shelf</li>
             </ul>
             <div class="floor-rule" style="margin-top:8px;">
@@ -1814,8 +1982,8 @@
           <li style="margin-bottom:14px;">
             <strong>Step 4: Final Review and Rapid Invoicing</strong>
             <ul style="padding-left:20px; margin-top:6px;">
-              <li>Technician submits time and 4-C documentation within 24 hours of mechanical completion. Advisor reviews and invoices within 48 hours of mechanical completion.</li>
-              <li>The 48-hour clock starts when labor is complete — not when parts arrive</li>
+              <li>Technician submits time and 4-C documentation within 24 hours of mechanical completion. Advisor closes and invoices within 48 hours of the last labor posted.</li>
+              <li>The 48-hour clock starts at the last labor posted, not when parts arrive</li>
               <li>Advisor reviews final invoice with foreman before releasing to billing</li>
               <li>Any write-down or discount requires manager signature on the invoice</li>
             </ul>
@@ -1833,7 +2001,7 @@
 
       <div class="floor-rule">
         <div class="floor-rule-title">HEDS Floor Rule</div>
-        The work order lifecycle is not a suggestion. It is the production line. If a step is skipped, the job stalls and the cash stops. Treat the lifecycle like a factory floor — because that is what it is.
+        The work order lifecycle is not a suggestion. It is the production line. If a step is skipped, the job stalls and the cash stops. Treat the lifecycle like a factory floor, because that is what it is.
       </div>
 
       <div class="spec-box">
@@ -1847,13 +2015,13 @@
   <div id="c_expense" class="tab-content">
     <div class="card">
       <div class="curr-module-header">
-        <div class="curr-day-tag">Day 4 Slot 14 — Process &amp; People</div>
+        <div class="curr-day-tag">Day 4 Slot 14: Process &amp; People</div>
         <div class="curr-module-title">Module 14: Expense &amp; Margin Recovery</div>
       </div>
 
       <div class="curr-section">
         <div class="curr-section-h3">Diagnose</div>
-        <p>Shops consistently fail to charge for shop supplies, environmental fees, freight, and field service travel. These are not optional charges — they are how you keep up with inflation. Every missed charge is gross margin given away.</p>
+        <p>Shops consistently fail to charge for shop supplies, environmental fees, freight, and field service travel. These are not optional charges, they are how you keep up with inflation. Every missed charge is gross margin given away.</p>
       </div>
 
       <div class="formula-card">
@@ -1882,7 +2050,7 @@
 
       <div class="floor-rule">
         <div class="floor-rule-title">HEDS Floor Rule</div>
-        If you are not charging shop supply fees on every invoice, you are giving away margin. These charges are not optional — they are how you keep up with inflation. If the customer pushes back, the answer is: "This is standard. Every dealer charges this."
+        If you are not charging shop supply fees on every invoice, you are giving away margin. These charges are not optional, they are how you keep up with inflation. If the customer pushes back, the answer is: "This is standard. Every dealer charges this."
       </div>
 
       <div class="spec-box">
@@ -1896,7 +2064,7 @@
   <div id="c_accountability" class="tab-content">
     <div class="card">
       <div class="curr-module-header">
-        <div class="curr-day-tag">Day 4 Slot 15 — Process &amp; People</div>
+        <div class="curr-day-tag">Day 4 Slot 15: Process &amp; People</div>
         <div class="curr-module-title">Module 15: Accountability &amp; Leadership</div>
       </div>
 
@@ -1920,9 +2088,9 @@
         <div class="curr-section-h3">Rules for the Conversation</div>
         <ul style="padding-left:20px;">
           <li>Keep it under 10 minutes per person</li>
-          <li>Do not solve their problems for them — ask them what they would do</li>
+          <li>Do not solve their problems for them, ask them what they would do</li>
           <li>Write down what they say and follow up next week</li>
-          <li>If someone is stuck on the same thing two weeks in a row, escalate — do not let it drift</li>
+          <li>If someone is stuck on the same thing two weeks in a row, escalate, do not let it drift</li>
         </ul>
       </div>
 
@@ -1930,7 +2098,7 @@
         <div class="example-badge">Performance Protocol</div>
         <div class="formula-title">PERFORMANCE CONVERSATIONS WITH UNDERPERFORMING TECHNICIANS</div>
         <ol class="formula-steps">
-          <li style="margin-bottom:10px;">Show them the number (productivity %, efficiency %, or billed hours)</li>
+          <li style="margin-bottom:10px;">Show them the number (recovery %, utilization %, efficiency %, or billed hours)</li>
           <li style="margin-bottom:10px;">Ask them what is causing the gap</li>
           <li style="margin-bottom:10px;">Agree on one specific change for next week</li>
           <li style="margin-bottom:10px;">Review next week. If no improvement, escalate to formal performance plan.</li>
@@ -1939,7 +2107,7 @@
 
       <div class="floor-rule">
         <div class="floor-rule-title">HEDS Floor Rule</div>
-        Avoiding the conversation is worse than having it. A technician who is at 65% productivity and does not know it will never improve. A technician who knows it and chooses not to change is a different problem — and one you can document.
+        Avoiding the conversation is worse than having it. A technician who is at 65% recovery and does not know it will never improve. A technician who knows it and chooses not to change is a different problem, and one you can document.
       </div>
 
       <div class="spec-box">
@@ -1953,7 +2121,7 @@
   <div id="c_forecasting" class="tab-content">
     <div class="card">
       <div class="curr-module-header">
-        <div class="curr-day-tag">Day 4 Slot 16 — Process &amp; People</div>
+        <div class="curr-day-tag">Day 4 Slot 16: Process &amp; People</div>
         <div class="curr-module-title">Module 16: Forecasting &amp; Leading Indicators</div>
       </div>
 
@@ -1975,7 +2143,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px;">Monthly P&amp;L</td><td style="padding:8px;">Open WO aging trend this week</td></tr>
+              <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px;">Monthly P&amp;L</td><td style="padding:8px;">Work orders past 48 hours of last labor this week (count and $)</td></tr>
               <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px;">Quarterly absorption report</td><td style="padding:8px;">Quote-to-close ratio this week</td></tr>
               <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px;">Annual revenue summary</td><td style="padding:8px;">Technician capacity utilization forecast for next 2 weeks</td></tr>
               <tr><td style="padding:8px;">Month-end unbilled labor $</td><td style="padding:8px;">Parts backorder trend this week</td></tr>
@@ -2020,13 +2188,13 @@
   <div id="c_telematics" class="tab-content">
     <div class="card">
       <div class="curr-module-header">
-        <div class="curr-day-tag">Day 5 Slot 17 — Retention &amp; Capstone</div>
+        <div class="curr-day-tag">Day 5 Slot 17: Retention &amp; Capstone</div>
         <div class="curr-module-title">Module 17: Telematics &amp; Connected Machine Triage</div>
       </div>
 
       <div class="curr-section">
         <div class="curr-section-h3">Diagnose</div>
-        <p>Telematics systems (SANY, JDLink, Kubota, Bell, etc.) stream fault codes and PM triggers to your dashboard every day. Most dealers collect the data but never act on it. A telematics alert that nobody responds to is worse than no telematics at all — it creates a false sense of visibility.</p>
+        <p>Telematics systems (SANY, JDLink, Kubota, Bell, etc.) stream fault codes and PM triggers to your dashboard every day. Most dealers collect the data but never act on it. A telematics alert that nobody responds to is worse than no telematics at all, it creates a false sense of visibility.</p>
       </div>
 
       <div class="formula-card">
@@ -2056,7 +2224,7 @@
   <div id="c_defection" class="tab-content">
     <div class="card">
       <div class="curr-module-header">
-        <div class="curr-day-tag">Day 5 Slot 18 — Retention &amp; Capstone</div>
+        <div class="curr-day-tag">Day 5 Slot 18: Retention &amp; Capstone</div>
         <div class="curr-module-title">Module 18: Customer Defection Early Warning</div>
       </div>
 
@@ -2077,7 +2245,7 @@
 
       <div class="floor-rule">
         <div class="floor-rule-title">HEDS Floor Rule</div>
-        A customer who called every 2 weeks and has not called in 45 days is not "waiting for the right time." They are shopping your competitor. Catch the drift before they leave — not after.
+        A customer who called every 2 weeks and has not called in 45 days is not "waiting for the right time." They are shopping your competitor. Catch the drift before they leave, not after.
       </div>
 
       <div class="spec-box">
@@ -2091,7 +2259,7 @@
   <div id="c_rental" class="tab-content">
     <div class="card">
       <div class="curr-module-header">
-        <div class="curr-day-tag">Day 5 Slot 19 — Retention &amp; Capstone</div>
+        <div class="curr-day-tag">Day 5 Slot 19: Retention &amp; Capstone</div>
         <div class="curr-module-title">Module 19: Rental Fleet Health &amp; Maintenance Cost</div>
       </div>
 
@@ -2112,7 +2280,7 @@
 
       <div class="floor-rule">
         <div class="floor-rule-title">HEDS Floor Rule</div>
-        Every day a rental unit sits off-rent waiting for PM is rental revenue you can never recover. Maintenance is not an expense — it is the cheapest way to protect rental revenue and resale value.
+        Every day a rental unit sits off-rent waiting for PM is rental revenue you can never recover. Maintenance is not an expense, it is the cheapest way to protect rental revenue and resale value.
       </div>
 
       <div class="spec-box">
@@ -2126,7 +2294,7 @@
   <div id="c_capstone" class="tab-content">
     <div class="card">
       <div class="curr-module-header">
-        <div class="curr-day-tag">Day 5 Slot 20 &mdash; Retention &amp; Capstone</div>
+        <div class="curr-day-tag">Day 5 Slot 20: Retention &amp; Capstone</div>
         <div class="curr-module-title">Module 20: 90-Day Action Plan &amp; Capstone</div>
       </div>
       
@@ -2146,17 +2314,17 @@
           <tr>
             <td style="padding:8px 10px; border:1px solid var(--border-color);">Days 1-30</td>
             <td style="padding:8px 10px; border:1px solid var(--border-color);">Install daily rhythm</td>
-            <td style="padding:8px 10px; border:1px solid var(--border-color);">Morning standup running, daily scorecard live, WIP aging reviewed weekly</td>
+            <td style="padding:8px 10px; border:1px solid var(--border-color);">Morning standup running, daily scorecard live, 48-hour close report reviewed weekly</td>
           </tr>
           <tr>
             <td style="padding:8px 10px; border:1px solid var(--border-color);">Days 31-60</td>
             <td style="padding:8px 10px; border:1px solid var(--border-color);">Fix top 3 leaks</td>
-            <td style="padding:8px 10px; border:1px solid var(--border-color);">Leak diagnostic completed, top 3 leaks addressed, ELR within 8% of posted rate (92% recovery minimum)</td>
+            <td style="padding:8px 10px; border:1px solid var(--border-color);">Leak diagnostic completed, top 3 leaks addressed, ELR within 8% of posted rate (92% Effective Labor Rate % minimum)</td>
           </tr>
           <tr>
             <td style="padding:8px 10px; border:1px solid var(--border-color);">Days 61-90</td>
             <td style="padding:8px 10px; border:1px solid var(--border-color);">Sustain and measure</td>
-            <td style="padding:8px 10px; border:1px solid var(--border-color);">Absorption at or above 85%, WIP under 10 days, weekly accountability check-ins running</td>
+            <td style="padding:8px 10px; border:1px solid var(--border-color);">Absorption at or above 95% of total operating expenses, work orders closed and invoiced within 48 hours of last labor, weekly accountability check-ins running</td>
           </tr>
         </table>
       </div>
@@ -2168,7 +2336,7 @@
           <li><strong>Personal Scorecard:</strong> Built using the participant's own dealership data, configured with the top 8-10 metrics from the training.</li>
           <li><strong>Top 3 Leak Priorities:</strong> Identified from the leak diagnostic, with behavior change rated Simple/Moderate/Hard and target close dates.</li>
           <li><strong>Accountability Commitment:</strong> Weekly check-in schedule with named coach or peer, using the 3 questions: What did you close? What is stuck? What do you need?</li>
-          <li><strong>Trailing 30-Day Baseline:</strong> Documented starting metrics for WIP aging, ELR, absorption, productivity, and efficiency so progress can be measured.</li>
+          <li><strong>Trailing 30-Day Baseline:</strong> Documented starting metrics for work orders past 48 hours of last labor (count and $), ELR, absorption, recovery, utilization, and efficiency so progress can be measured.</li>
         </ul>
       </div>
 
@@ -2177,7 +2345,7 @@
       </div>
 
       <div class="spec-box">
-        <strong>Required Report Data:</strong> Participant brings their own dealership data for all 10 scorecard metrics. The capstone cannot be completed with sample data &mdash; it must reflect the real operation.
+        <strong>Required Report Data:</strong> Participant brings their own dealership data for all 10 scorecard metrics. The capstone cannot be completed with sample data, it must reflect the real operation.
       </div>
 
       <div class="curr-section">
@@ -2215,7 +2383,6 @@
     <button class="tab-btn" onclick="switchDashTab('dash_m4', this)">M4: ELR</button>
     <button class="tab-btn" onclick="switchDashTab('dash_m5', this)">M5: Triage</button>
     <button class="tab-btn" onclick="switchDashTab('dash_m6', this)">M6: Warranty</button>
-    <button class="tab-btn" onclick="switchDashTab('dash_quote', this)">Quote Risk</button>
     <button class="tab-btn" onclick="switchDashTab('dash_leak', this)">Leak Diagnostic</button>
     <button class="tab-btn" onclick="switchDashTab('dash_summary', this)">Exec Scorecard</button>
   </nav>
@@ -2224,7 +2391,7 @@
   <div id="dash_m1" class="tab-content active">
     <div class="grid-2">
       <div class="card">
-        <div class="card-title">Enter Your Branch Numbers: Service Absorption</div>
+        <div class="card-title">Enter Your Branch Numbers: Service + Parts Absorption</div>
         <div class="form-group">
           <label for="m1_serv_gp">Your Total Service Gross Profit ($)</label>
           <input type="number" id="m1_serv_gp" value="170000" placeholder="Enter actual Service GP $" oninput="calcMod1()">
@@ -2234,16 +2401,16 @@
           <input type="number" id="m1_parts_gp" value="180000" placeholder="Enter actual Parts GP $" oninput="calcMod1()">
         </div>
         <div class="form-group">
-          <label for="m1_fixed_oh">Your Total Branch Fixed Overhead Expenses ($)</label>
-          <input type="number" id="m1_fixed_oh" value="330000" placeholder="Enter actual Branch Overhead $" oninput="calcMod1()">
+          <label for="m1_fixed_oh">Your Total Branch Operating Expenses ($)</label>
+          <input type="number" id="m1_fixed_oh" value="330000" placeholder="Enter actual Total Operating Expenses $" oninput="calcMod1()">
         </div>
         <div class="form-group">
           <label for="m1_labor_rev">Your Total Service Labor Revenue ($)</label>
-          <input type="number" id="m1_labor_rev" value="250000" placeholder="Enter actual Labor Revenue $" oninput="calcMod1()">
+          <input type="number" id="m1_labor_rev" value="220000" placeholder="Enter actual Labor Revenue $" oninput="calcMod1()">
         </div>
         <div class="form-group">
           <label for="m1_labor_cogs">Your Total Direct Tech Payroll &amp; Fringes ($)</label>
-          <input type="number" id="m1_labor_cogs" value="80000" placeholder="Enter actual Tech COGS $" oninput="calcMod1()">
+          <input type="number" id="m1_labor_cogs" value="50000" placeholder="Enter actual Tech COGS $" oninput="calcMod1()">
         </div>
       </div>
 
@@ -2251,13 +2418,13 @@
         <div class="card">
           <div class="card-title">Live Branch Diagnostic Calculation</div>
           <div class="metric-box">
-            <div style="font-size:0.8rem; color:var(--muted); font-weight:700;">YOUR BRANCH SERVICE ABSORPTION RATE</div>
+            <div style="font-size:0.8rem; color:var(--muted); font-weight:700;">YOUR BRANCH ABSORPTION RATE (SERVICE + PARTS)</div>
             <div class="metric-val" id="m1_res_abs">106.1%</div>
-            <div id="m1_status_abs" class="metric-status status-pass">TOP QUARTILE PASS</div>
+            <div id="m1_status_abs" class="metric-status status-pass">PASS: OPTIMAL (105-110%)</div>
           </div>
           <div class="metric-box">
             <div style="font-size:0.8rem; color:var(--muted); font-weight:700;">YOUR SERVICE LABOR GROSS MARGIN %</div>
-            <div class="metric-val" id="m1_res_gm">68.0%</div>
+            <div class="metric-val" id="m1_res_gm">77.3%</div>
             <div id="m1_status_gm" class="metric-status status-pass">PASS</div>
           </div>
         </div>
@@ -2269,7 +2436,7 @@
             <li><input type="checkbox" id="m1_chk2"> Verified Direct Tech Payroll &amp; Fringe COGS</li>
             <li><input type="checkbox" id="m1_chk3"> Verified Unapplied Labor GL Account</li>
             <li><input type="checkbox" id="m1_chk4"> Verified Parts Dept Gross Profit</li>
-            <li><input type="checkbox" id="m1_chk5"> Verified Branch Overhead Allocations</li>
+            <li><input type="checkbox" id="m1_chk5"> Verified Total Branch Operating Expenses</li>
           </ul>
         </div>
       </div>
@@ -2323,16 +2490,12 @@
       <div class="card">
         <div class="card-title">Enter Your Branch Numbers: Work-in-Progress (WIP)</div>
         <div class="form-group">
-          <label for="m2_total_wip">Your Total Open WIP Balance ($ Labor + Parts + Sublet)</label>
-          <input type="number" id="m2_total_wip" value="105000" placeholder="Enter actual WIP $" oninput="calcMod2()">
+          <label for="m2_late_count">Your Work Orders Not Closed (Invoiced) Within 48 Hours of Last Labor (#)</label>
+          <input type="number" id="m2_late_count" value="6" placeholder="Enter count of work orders" oninput="calcMod2()">
         </div>
         <div class="form-group">
-          <label for="m2_daily_rev">Your Average Daily Service Revenue ($)</label>
-          <input type="number" id="m2_daily_rev" value="11905" placeholder="Enter actual daily revenue $" oninput="calcMod2()">
-        </div>
-        <div class="form-group">
-          <label for="m2_aged_wip">Your Aged WIP Balance &gt;30 Days ($)</label>
-          <input type="number" id="m2_aged_wip" value="14500" placeholder="Enter actual aged WIP $" oninput="calcMod2()">
+          <label for="m2_late_dollars">Dollar Value of Those Work Orders ($)</label>
+          <input type="number" id="m2_late_dollars" value="14500" placeholder="Enter $ on those work orders" oninput="calcMod2()">
         </div>
       </div>
 
@@ -2340,14 +2503,15 @@
         <div class="card">
           <div class="card-title">Your WIP Health Diagnostics</div>
           <div class="metric-box">
-            <div style="font-size:0.8rem; color:var(--muted); font-weight:700;">YOUR DAYS OF OPEN WIP</div>
-            <div class="metric-val" id="m2_res_days">8.8 Days</div>
-            <div id="m2_status_days" class="metric-status status-pass">PASS</div>
+            <div style="font-size:0.8rem; color:var(--muted); font-weight:700;">WORK ORDERS NOT INVOICED WITHIN 48 HRS OF LAST LABOR</div>
+            <div class="metric-val" id="m2_res_late_count">6 WOs</div>
+            <div id="m2_status_late_count" class="metric-status status-fail">48-HOUR FAIL</div>
           </div>
           <div class="metric-box">
-            <div style="font-size:0.8rem; color:var(--muted); font-weight:700;">YOUR AGED WIP &gt;30 DAYS EXPOSURE</div>
-            <div class="metric-val" id="m2_res_aged">$14,500</div>
-            <div id="m2_status_aged" class="metric-status status-fail">AGED RISK FAIL</div>
+            <div style="font-size:0.8rem; color:var(--muted); font-weight:700;">DOLLARS ON THOSE WORK ORDERS</div>
+            <div class="metric-val" id="m2_res_late_dollars">$14,500</div>
+            <div id="m2_status_late_dollars" class="metric-status status-fail">48-HOUR FAIL</div>
+            <div style="font-size:0.75rem; color:var(--muted); margin-top:6px;">Target: 0 work orders and $0. No tiers past 48 hours.</div>
           </div>
         </div>
       </div>
@@ -2360,11 +2524,11 @@
       <div class="card">
         <div class="card-title">Enter Your Branch Numbers: Technician Performance</div>
         <div class="form-group">
-          <label for="m3_shop_billed">Your Shop Tech Billed Hours</label>
+          <label for="m3_shop_billed">Your Shop Job Flat Rate (or Estimate) Hours</label>
           <input type="number" id="m3_shop_billed" value="340" placeholder="Enter shop billed hrs" oninput="calcMod3()">
         </div>
         <div class="form-group">
-          <label for="m3_shop_clocked">Your Shop Tech Clocked On-Job Hours</label>
+          <label for="m3_shop_clocked">Your Shop Actual Job Time Hours</label>
           <input type="number" id="m3_shop_clocked" value="380" placeholder="Enter shop clocked hrs" oninput="calcMod3()">
         </div>
         <div class="form-group">
@@ -2383,12 +2547,13 @@
           <div class="metric-box">
             <div style="font-size:0.8rem; color:var(--muted); font-weight:700;">YOUR SHOP TECH EFFICIENCY</div>
             <div class="metric-val" id="m3_res_shop">89.5%</div>
-            <div id="m3_status_shop" class="metric-status status-pass">PASS</div>
+            <div id="m3_status_shop" class="metric-status status-fail">FAIL: BELOW 100%</div>
           </div>
           <div class="metric-box">
             <div style="font-size:0.8rem; color:var(--muted); font-weight:700;">YOUR FIELD TECH EFFICIENCY</div>
             <div class="metric-val" id="m3_res_field">76.9%</div>
-            <div id="m3_status_field" class="metric-status status-pass">PASS</div>
+            <div id="m3_status_field" class="metric-status status-fail">BELOW 80%</div>
+            <div style="font-size:0.75rem; color:var(--muted); margin-top:6px;">Target: 80–110% for an experienced road tech. 110–130% is PASS (top performer; top master techs regularly reach 120–130%). Above 130% is WARN: check the time coding. Travel time is billed on every trip and counts as billed hours.</div>
           </div>
         </div>
       </div>
@@ -2422,7 +2587,7 @@
             <div class="metric-val" id="m4_res_elr">$170.00 / hr</div>
           </div>
           <div class="metric-box">
-            <div style="font-size:0.8rem; color:var(--muted); font-weight:700;">YOUR ELR MATRIX RECOVERY %</div>
+            <div style="font-size:0.8rem; color:var(--muted); font-weight:700;">YOUR EFFECTIVE LABOR RATE %</div>
             <div class="metric-val" id="m4_res_rec">91.9%</div>
             <div id="m4_status_rec" class="metric-status status-fail">DISCOUNT LEAKAGE</div>
           </div>
@@ -2505,45 +2670,6 @@
     </div>
   </div>
 
-  <!-- DASHBOARD: QUOTE REVENUE RISK -->
-  <div id="dash_quote" class="tab-content">
-    <div class="grid-2">
-      <div class="card">
-        <div class="card-title">Enter Your Branch Numbers: Quote Revenue Risk</div>
-        <div class="form-group">
-          <label for="dq_total_quotes">Your Total Open Quotes / Estimates</label>
-          <input type="number" id="dq_total_quotes" placeholder="Enter total open quotes" oninput="calcQuote()">
-        </div>
-        <div class="form-group">
-          <label for="dq_stale_quotes">Quotes Over 48 Hours Without Customer Contact</label>
-          <input type="number" id="dq_stale_quotes" placeholder="Enter stale quote count" oninput="calcQuote()">
-        </div>
-        <div class="form-group">
-          <label for="dq_stale_value">Total Dollar Value of Stale Quotes ($)</label>
-          <input type="number" id="dq_stale_value" placeholder="Enter stale quote $" oninput="calcQuote()">
-        </div>
-      </div>
-      <div>
-        <div class="card">
-          <div class="card-title">Your Quote Revenue Risk</div>
-          <div class="metric-box">
-            <div style="font-size:0.8rem; color:var(--muted); font-weight:700;">YOUR STALE QUOTE COUNT</div>
-            <div class="metric-val" id="dq_res_count">—</div>
-          </div>
-          <div class="metric-box">
-            <div style="font-size:0.8rem; color:var(--muted); font-weight:700;">YOUR STALE QUOTE PERCENTAGE</div>
-            <div class="metric-val" id="dq_stale_pct">—</div>
-          </div>
-          <div class="metric-box">
-            <div style="font-size:0.8rem; color:var(--muted); font-weight:700;">YOUR QUOTE REVENUE AT RISK</div>
-            <div class="metric-val" id="dq_res_value">—</div>
-            <div id="dq_status" class="metric-status">—</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <!-- DASHBOARD: LEAK DIAGNOSTIC -->
   <div id="dash_leak" class="tab-content">
     <div class="grid-2">
@@ -2553,7 +2679,7 @@
         <div class="form-group">
           <label for="dl_gross_margin">Gross Margin Leak ($/mo)</label>
           <input type="number" id="dl_gross_margin" placeholder="Enter $/mo" oninput="calcLeak()">
-          <p style="font-size:0.8rem; color:var(--muted); margin-top:4px;">How to calculate: (Target Gross Margin % − Actual Gross Margin %) × Total Monthly Labor Revenue. Example: If your target is 68% and your actual is 62%, and your monthly labor revenue is $50,000, your leak is (68% − 62%) × $50,000 = $3,000/mo.</p>
+          <p style="font-size:0.8rem; color:var(--muted); margin-top:4px;">How to calculate: (Target Gross Margin % − Actual Gross Margin %) × Total Monthly Labor Revenue. Example: If your target is 75% and your actual is 69%, and your monthly labor revenue is $50,000, your leak is (75% − 69%) × $50,000 = $3,000/mo.</p>
         </div>
         <div class="form-group">
           <label for="dl_unapplied">Unapplied Labor Leak ($/mo)</label>
@@ -2561,9 +2687,9 @@
           <p style="font-size:0.8rem; color:var(--muted); margin-top:4px;">How to calculate: Unapplied (lost) hours per week × Posted Labor Rate × 4.3 weeks. Example: 40 unapplied hours × $185/hr × 4.3 = $31,782/mo.</p>
         </div>
         <div class="form-group">
-          <label for="dl_wip">WIP Aging Leak ($/mo)</label>
+          <label for="dl_wip">Late-Close WIP Leak ($/mo)</label>
           <input type="number" id="dl_wip" placeholder="Enter $/mo" oninput="calcLeak()">
-          <p style="font-size:0.8rem; color:var(--muted); margin-top:4px;">How to calculate: Total WIP dollars aged over 30 days that cannot be billed. Example: $14,500 in WIP over 30 days with no close date = $14,500 one-time leak (enter monthly average).</p>
+          <p style="font-size:0.8rem; color:var(--muted); margin-top:4px;">How to calculate: Dollar value of completed work orders not closed (invoiced) within 48 hours of last labor. Example: 6 work orders worth $14,500 still open past 48 hours of last labor = $14,500 sitting unbilled (enter monthly average).</p>
         </div>
         <div class="form-group">
           <label for="dl_elr">ELR Discount Leak ($/mo)</label>
@@ -2586,11 +2712,11 @@
           <div class="card-title">Your Total Monthly Leakage</div>
           <div class="metric-box">
             <div style="font-size:0.8rem; color:var(--muted); font-weight:700;">TOTAL MONTHLY DOLLAR LEAKAGE</div>
-            <div class="metric-val" id="dl_res_total">—</div>
+            <div class="metric-val" id="dl_res_total">--</div>
           </div>
           <div class="metric-box">
             <div style="font-size:0.8rem; color:var(--muted); font-weight:700;">ANNUALIZED LEAKAGE</div>
-            <div class="metric-val" id="dl_res_annual">—</div>
+            <div class="metric-val" id="dl_res_annual">--</div>
           </div>
         </div>
       </div>
@@ -2614,9 +2740,9 @@
           </thead>
           <tbody>
             <tr style="border-bottom:1px solid var(--border-color);">
-              <td style="padding:10px; font-weight:600;">Service Absorption Rate</td>
+              <td style="padding:10px; font-weight:600;">Absorption Rate (Service + Parts)</td>
               <td style="padding:10px;" id="s_val_abs">106.1%</td>
-              <td style="padding:10px;">≥ 100% Top-Quartile (85% Base)</td>
+              <td style="padding:10px;">95-100% of total operating expenses (below 95% red flag; 100% gold, 105-110% optimal)</td>
               <td style="padding:10px;" id="s_stat_abs"><span class="metric-status status-pass">PASS</span></td>
             </tr>
             <tr style="border-bottom:1px solid var(--border-color);">
@@ -2626,25 +2752,25 @@
               <td style="padding:10px;" id="s_stat_unapp"><span class="metric-status status-fail">FAIL</span></td>
             </tr>
             <tr style="border-bottom:1px solid var(--border-color);">
-              <td style="padding:10px; font-weight:600;">Days of Open WIP</td>
-              <td style="padding:10px;" id="s_val_wip">8.8 Days</td>
-              <td style="padding:10px;">≤ 10 Days</td>
-              <td style="padding:10px;" id="s_stat_wip"><span class="metric-status status-pass">PASS</span></td>
+              <td style="padding:10px; font-weight:600;">WOs Not Invoiced Within 48 Hrs of Last Labor</td>
+              <td style="padding:10px;" id="s_val_wip48">6 WOs / $14,500</td>
+              <td style="padding:10px;">0 WOs / $0</td>
+              <td style="padding:10px;" id="s_stat_wip48"><span class="metric-status status-fail">FAIL</span></td>
             </tr>
             <tr style="border-bottom:1px solid var(--border-color);">
               <td style="padding:10px; font-weight:600;">Shop Tech Efficiency</td>
               <td style="padding:10px;" id="s_val_shop">89.5%</td>
-              <td style="padding:10px;">≥ 85%</td>
-              <td style="padding:10px;" id="s_stat_shop"><span class="metric-status status-pass">PASS</span></td>
+              <td style="padding:10px;">≥ 110% (WARN 100&ndash;109.9%)</td>
+              <td style="padding:10px;" id="s_stat_shop"><span class="metric-status status-fail">FAIL</span></td>
             </tr>
             <tr style="border-bottom:1px solid var(--border-color);">
               <td style="padding:10px; font-weight:600;">Field Tech Efficiency</td>
               <td style="padding:10px;" id="s_val_field">76.9%</td>
-              <td style="padding:10px;">≥ 75%</td>
-              <td style="padding:10px;" id="s_stat_field"><span class="metric-status status-pass">PASS</span></td>
+              <td style="padding:10px;">80–110% (110–130% top performer; over 130% WARN)</td>
+              <td style="padding:10px;" id="s_stat_field"><span class="metric-status status-fail">FAIL</span></td>
             </tr>
             <tr style="border-bottom:1px solid var(--border-color);">
-              <td style="padding:10px; font-weight:600;">ELR Matrix Recovery</td>
+              <td style="padding:10px; font-weight:600;">Effective Labor Rate %</td>
               <td style="padding:10px;" id="s_val_elr">91.9% ($170.00)</td>
               <td style="padding:10px;">≥ 92%</td>
               <td style="padding:10px;" id="s_stat_elr"><span class="metric-status status-fail">FAIL</span></td>
@@ -2662,16 +2788,13 @@
               <td style="padding:10px;" id="s_stat_warr"><span class="metric-status status-pass">PASS</span></td>
             </tr>
             <tr style="border-bottom:1px solid var(--border-color);">
-              <td style="padding:10px; font-weight:600;">Quote Revenue at Risk</td>
-              <td style="padding:10px;" id="s_val_quote">—</td>
-              <td style="padding:10px;">$0 stale quotes</td>
-              <td style="padding:10px;" id="s_stat_quote">—</td>
+              <td style="padding:10px; color:var(--muted);" colspan="4">Old AI KPIs archived Oct 23 2026; new set in development.</td>
             </tr>
             <tr>
               <td style="padding:10px; font-weight:600;">Total Monthly Leak $</td>
-              <td style="padding:10px;" id="s_val_leak">—</td>
+              <td style="padding:10px;" id="s_val_leak">--</td>
               <td style="padding:10px;">$0</td>
-              <td style="padding:10px;" id="s_stat_leak">—</td>
+              <td style="padding:10px;" id="s_stat_leak">--</td>
             </tr>
           </tbody>
         </table>
@@ -2693,7 +2816,7 @@
 
   <!-- Sign-in Screen -->
   <div id="test_signin" class="card">
-    <div class="card-title">Assessment Test — Service Manager Certification</div>
+    <div class="card-title">Assessment Test: Service Manager Certification</div>
     <p style="color:var(--muted); margin-bottom:20px;">This assessment tests your knowledge of the Service Manager curriculum. You have 90 minutes. Enter the access code provided by your facilitator to begin.</p>
     <div class="form-group">
       <label for="test_access_code">Access Code</label>
@@ -2740,17 +2863,19 @@
   <div id="test_results" style="display:none;">
     <div class="card">
       <div class="card-title">Assessment Results</div>
+      <div id="result_pass_status" style="font-weight:700; margin-bottom:8px;"></div>
+      <div id="result_relay_status" style="font-size:0.9rem; color:var(--muted); margin-bottom:20px;"></div>
       <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px; margin-bottom:24px;">
         <div>
           <div style="font-size:0.85rem; color:var(--muted); text-transform:uppercase; letter-spacing:1px;">Score</div>
-          <div style="font-size:2.5rem; font-weight:800; color:var(--accent-color);" id="result_score">— / 50</div>
-          <div style="font-size:1.5rem; font-weight:700;" id="result_pct">—%</div>
+          <div style="font-size:2.5rem; font-weight:800; color:var(--accent-color);" id="result_score">-- / 50</div>
+          <div style="font-size:1.5rem; font-weight:700;" id="result_pct">--%</div>
         </div>
         <div>
           <div style="font-size:0.85rem; color:var(--muted); text-transform:uppercase; letter-spacing:1px;">Completed By</div>
-          <div style="font-size:1.1rem; font-weight:600;" id="result_name">—</div>
-          <div style="color:var(--muted);" id="result_dealership">—</div>
-          <div style="color:var(--muted);" id="result_date">—</div>
+          <div style="font-size:1.1rem; font-weight:600;" id="result_name">--</div>
+          <div style="color:var(--muted);" id="result_dealership">--</div>
+          <div style="color:var(--muted);" id="result_date">--</div>
         </div>
       </div>
 
@@ -2768,6 +2893,7 @@
 
       <div style="display:flex; gap:12px; flex-wrap:wrap;">
         <button class="btn" onclick="printResults()">Print Results</button>
+        <button class="btn btn-outline" id="btn_cert" style="display:none;" onclick="printCertificate()">Print Certificate</button>
         <button class="btn btn-outline" onclick="retakeTest()">Retake Assessment</button>
       </div>
     </div>
@@ -2834,15 +2960,17 @@ function switchMainSection(secId, btnEl) {
       const abs = ((servGp + partsGp) / fixedOh) * 100;
       document.getElementById('m1_res_abs').innerText = abs.toFixed(1) + '%';
       document.getElementById('s_val_abs').innerText = abs.toFixed(1) + '%';
-      if (abs >= 100) { setStatus('m1_status_abs', 'TOP QUARTILE PASS', 'status-pass'); document.getElementById('s_stat_abs').innerHTML = '<span class="metric-status status-pass">PASS</span>'; }
-      else if (abs >= 85) { setStatus('m1_status_abs', 'BASE ACCEPTABLE', 'status-warn'); document.getElementById('s_stat_abs').innerHTML = '<span class="metric-status status-warn">WARN</span>'; }
-      else { setStatus('m1_status_abs', 'DEFICIT FAIL', 'status-fail'); document.getElementById('s_stat_abs').innerHTML = '<span class="metric-status status-fail">FAIL</span>'; }
+      const absShown = parseFloat(abs.toFixed(1));
+      if (absShown < 95) { setStatus('m1_status_abs', 'FAIL: BELOW 95% (RED FLAG)', 'status-fail'); document.getElementById('s_stat_abs').innerHTML = '<span class="metric-status status-fail">FAIL</span>'; }
+      else if (absShown >= 105 && absShown <= 110) { setStatus('m1_status_abs', 'PASS: OPTIMAL (105-110%)', 'status-pass'); document.getElementById('s_stat_abs').innerHTML = '<span class="metric-status status-pass">PASS</span>'; }
+      else if (absShown >= 100) { setStatus('m1_status_abs', 'PASS: GOLD STANDARD (100%+)', 'status-pass'); document.getElementById('s_stat_abs').innerHTML = '<span class="metric-status status-pass">PASS</span>'; }
+      else { setStatus('m1_status_abs', 'PASS: STANDARD (95-100%)', 'status-pass'); document.getElementById('s_stat_abs').innerHTML = '<span class="metric-status status-pass">PASS</span>'; }
     }
     if (rev > 0) {
       const gm = ((rev - cogs) / rev) * 100;
       document.getElementById('m1_res_gm').innerText = gm.toFixed(1) + '%';
-      if (gm >= 68) setStatus('m1_status_gm', 'PASS', 'status-pass');
-      else setStatus('m1_status_gm', 'BELOW BENCHMARK', 'status-fail');
+      if (parseFloat(gm.toFixed(1)) >= 75) setStatus('m1_status_gm', 'PASS', 'status-pass');
+      else setStatus('m1_status_gm', 'FAIL: BELOW 75%', 'status-fail');
     }
   }
 
@@ -2864,19 +2992,18 @@ function switchMainSection(secId, btnEl) {
   }
 
   function calcMod2() {
-    const wip = parseFloat(document.getElementById('m2_total_wip').value) || 0;
-    const dailyRev = parseFloat(document.getElementById('m2_daily_rev').value) || 0;
-    const aged = parseFloat(document.getElementById('m2_aged_wip').value) || 0;
-    if (dailyRev > 0) {
-      const days = wip / dailyRev;
-      document.getElementById('m2_res_days').innerText = days.toFixed(1) + ' Days';
-      document.getElementById('s_val_wip').innerText = days.toFixed(1) + ' Days';
-      if (days <= 10) { setStatus('m2_status_days', 'PASS', 'status-pass'); document.getElementById('s_stat_wip').innerHTML = '<span class="metric-status status-pass">PASS</span>'; }
-      else { setStatus('m2_status_days', 'EXCESSIVE WIP', 'status-fail'); document.getElementById('s_stat_wip').innerHTML = '<span class="metric-status status-fail">FAIL</span>'; }
-    }
-    document.getElementById('m2_res_aged').innerText = '$' + aged.toLocaleString();
-    if (aged === 0) setStatus('m2_status_aged', 'ZERO AGED PASS', 'status-pass');
-    else setStatus('m2_status_aged', 'AGED RISK FAIL', 'status-fail');
+    const lateCount = parseFloat(document.getElementById('m2_late_count').value) || 0;
+    const lateDollars = parseFloat(document.getElementById('m2_late_dollars').value) || 0;
+    // 48-hour close standard (Daniel, Oct 23 2026): count AND dollars of work orders not closed (invoiced) within 48 hours of last labor. No aging tiers.
+    const onTime = (lateCount === 0 && lateDollars === 0);
+    document.getElementById('m2_res_late_count').innerText = lateCount.toLocaleString() + (lateCount === 1 ? ' WO' : ' WOs');
+    document.getElementById('m2_res_late_dollars').innerText = '$' + lateDollars.toLocaleString();
+    setStatus('m2_status_late_count', onTime ? '48-HOUR PASS' : '48-HOUR FAIL', onTime ? 'status-pass' : 'status-fail');
+    setStatus('m2_status_late_dollars', onTime ? '48-HOUR PASS' : '48-HOUR FAIL', onTime ? 'status-pass' : 'status-fail');
+    const sv = document.getElementById('s_val_wip48');
+    if (sv) sv.innerText = lateCount.toLocaleString() + (lateCount === 1 ? ' WO' : ' WOs') + ' / $' + lateDollars.toLocaleString();
+    const st = document.getElementById('s_stat_wip48');
+    if (st) st.innerHTML = onTime ? '<span class="metric-status status-pass">PASS</span>' : '<span class="metric-status status-fail">FAIL</span>';
   }
 
   function calcMod3() {
@@ -2888,15 +3015,21 @@ function switchMainSection(secId, btnEl) {
       const se = (sb / sc) * 100;
       document.getElementById('m3_res_shop').innerText = se.toFixed(1) + '%';
       document.getElementById('s_val_shop').innerText = se.toFixed(1) + '%';
-      if (se >= 85) { setStatus('m3_status_shop', 'PASS', 'status-pass'); document.getElementById('s_stat_shop').innerHTML = '<span class="metric-status status-pass">PASS</span>'; }
-      else { setStatus('m3_status_shop', 'BELOW 85%', 'status-fail'); document.getElementById('s_stat_shop').innerHTML = '<span class="metric-status status-fail">FAIL</span>'; }
+      const seR = Math.round(se * 10) / 10;
+      if (seR >= 110) { setStatus('m3_status_shop', 'PASS', 'status-pass'); document.getElementById('s_stat_shop').innerHTML = '<span class="metric-status status-pass">PASS</span>'; }
+      else if (seR >= 100) { setStatus('m3_status_shop', 'WARN: BELOW 110%', 'status-warn'); document.getElementById('s_stat_shop').innerHTML = '<span class="metric-status status-warn">WARN</span>'; }
+      else { setStatus('m3_status_shop', 'FAIL: BELOW 100%', 'status-fail'); document.getElementById('s_stat_shop').innerHTML = '<span class="metric-status status-fail">FAIL</span>'; }
     }
     if (fc > 0) {
       const fe = (fb / fc) * 100;
       document.getElementById('m3_res_field').innerText = fe.toFixed(1) + '%';
       document.getElementById('s_val_field').innerText = fe.toFixed(1) + '%';
-      if (fe >= 75) { setStatus('m3_status_field', 'PASS', 'status-pass'); document.getElementById('s_stat_field').innerHTML = '<span class="metric-status status-pass">PASS</span>'; }
-      else { setStatus('m3_status_field', 'BELOW 75%', 'status-fail'); document.getElementById('s_stat_field').innerHTML = '<span class="metric-status status-fail">FAIL</span>'; }
+      // Daniel, Oct 23 2026: 80-110% PASS; above 130% WARN (check time coding). 110-130% graded PASS (top performer), a HEDS choice. Grades the displayed value.
+      const feR = Math.round(fe * 10) / 10;
+      if (feR > 130) { setStatus('m3_status_field', 'WARN: CHECK TIME CODING', 'status-warn'); document.getElementById('s_stat_field').innerHTML = '<span class="metric-status status-warn">WARN</span>'; }
+      else if (feR > 110) { setStatus('m3_status_field', 'PASS (TOP PERFORMER)', 'status-pass'); document.getElementById('s_stat_field').innerHTML = '<span class="metric-status status-pass">PASS</span>'; }
+      else if (feR >= 80) { setStatus('m3_status_field', 'PASS', 'status-pass'); document.getElementById('s_stat_field').innerHTML = '<span class="metric-status status-pass">PASS</span>'; }
+      else { setStatus('m3_status_field', 'BELOW 80%', 'status-fail'); document.getElementById('s_stat_field').innerHTML = '<span class="metric-status status-fail">FAIL</span>'; }
     }
   }
 
@@ -2950,29 +3083,8 @@ function switchMainSection(secId, btnEl) {
   }
   function calcAll() {
     calcMod1(); calcEx(); calcMod2(); calcMod3(); calcMod4(); calcMod5(); calcMod6();
-    calcQuote(); calcLeak();
+    calcLeak();
     saveData();
-  }
-
-  function calcQuote() {
-    const stale = parseFloat(document.getElementById('dq_stale_quotes') ? document.getElementById('dq_stale_quotes').value : 0) || 0;
-    const value = parseFloat(document.getElementById('dq_stale_value') ? document.getElementById('dq_stale_value').value : 0) || 0;
-    var el = document.getElementById('dq_res_count'); if (el) el.innerText = stale;
-    el = document.getElementById('dq_res_value'); if (el) el.innerText = '$' + value.toLocaleString();
-    el = document.getElementById('s_val_quote'); if (el) el.innerText = '$' + value.toLocaleString();
-    el = document.getElementById('dq_status'); var el2 = document.getElementById('s_stat_quote');
-    if (stale === 0) {
-      if (el) { el.innerText = 'NO STALE QUOTES'; el.className = 'metric-status status-pass'; }
-      if (el2) el2.innerHTML = '<span class="metric-status status-pass">PASS</span>';
-    } else {
-      if (el) { el.innerText = 'REVENUE AT RISK'; el.className = 'metric-status status-fail'; }
-      if (el2) el2.innerHTML = '<span class="metric-status status-fail">FAIL</span>';
-    }    var total = parseFloat(document.getElementById('dq_total_quotes').value) || 0;
-    if (total > 0) {
-      var stalePct = (stale / total * 100).toFixed(1);
-      var staleEl = document.getElementById('dq_stale_pct');
-      if (staleEl) staleEl.innerText = stalePct + '%';
-    }
   }
 
   function calcLeak() {
@@ -3008,14 +3120,17 @@ function switchMainSection(secId, btnEl) {
     }
   }
   function printCertificate() {
+    var r = hedsCertificateRecord();
+    if (!r) return;
     var cert = document.getElementById('cert_overlay');
-    if (cert) { cert.style.display = 'flex'; return; }
-    var name = document.getElementById('cert_name') ? document.getElementById('cert_name').value : '';
-    var score = document.getElementById('cert_score') ? document.getElementById('cert_score').innerText : '';
+    if (cert) cert.parentNode.removeChild(cert);
+    var name = hedsEscape(r.candidateName);
+    var score = hedsEscape(r.correct + ' / ' + r.total + ' (' + r.scorePct + '%)');
+    var certDate = hedsEscape(r.timestamp);
     cert = document.createElement('div');
     cert.id = 'cert_overlay';
     cert.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.8);z-index:9999;display:flex;align-items:center;justify-content:center;';
-    cert.innerHTML = '<div style="background:#0e1f38;border:2px solid #e5ae25;border-radius:12px;padding:48px 40px;max-width:680px;width:90%;text-align:center;font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,sans-serif;color:#f8fafc;position:relative;" id="cert_doc"><div style="font-size:0.7rem;color:#94a3b8;text-transform:uppercase;letter-spacing:2px;margin-bottom:6px;">Heavy Equipment Dealer Solutions LLC</div><div style="font-size:1.8rem;font-weight:800;color:#e5ae25;margin-bottom:4px;">Certificate of Completion</div><div style="font-size:0.85rem;color:#94a3b8;margin-bottom:32px;">HEDS Operating Discipline Academy</div><div style="font-size:0.75rem;color:#94a3b8;margin-bottom:4px;">This certifies that</div><div style="font-size:1.6rem;font-weight:700;color:#f8fafc;margin-bottom:24px;border-bottom:1px solid #203b60;padding-bottom:12px;">' + (name || 'Participant') + '</div><div style="font-size:0.85rem;color:#94a3b8;margin-bottom:6px;">has completed the</div><div style="font-size:1.1rem;font-weight:600;color:#e5ae25;margin-bottom:24px;">Service Manager Training Program</div><div style="font-size:0.8rem;color:#94a3b8;margin-bottom:20px;">20 Modules &middot; 50-Question Assessment &middot; 90-Day Action Plan</div>' + (score ? '<div style="font-size:0.8rem;color:#94a3b8;margin-bottom:24px;">Assessment Score: <strong style="color:#e5ae25;">' + score + '</strong></div>' : '') + '<div style="display:flex;justify-content:space-between;align-items:center;margin-top:32px;border-top:1px solid #203b60;padding-top:20px;"><div style="text-align:left;"><div style="font-size:0.7rem;color:#94a3b8;">Date</div><div style="font-size:0.9rem;color:#f8fafc;">' + new Date().toLocaleDateString() + '</div></div><div style="text-align:right;"><div style="font-size:0.7rem;color:#94a3b8;">HEDS Academy</div><div style="font-size:0.9rem;color:#e5ae25;font-weight:600;">Daniel Looper</div></div></div><div style="margin-top:28px;display:flex;gap:12px;justify-content:center;"><button onclick="window.print()" style="background:#e5ae25;color:#0e1f38;border:none;padding:10px 24px;border-radius:6px;font-weight:700;cursor:pointer;font-size:0.85rem;">Print Certificate</button><button onclick="document.getElementById(\'cert_overlay\').style.display=\'none\'" style="background:transparent;color:#94a3b8;border:1px solid #203b60;padding:10px 24px;border-radius:6px;cursor:pointer;font-size:0.85rem;">Close</button></div></div>';
+    cert.innerHTML = '<div style="background:#0e1f38;border:2px solid #e5ae25;border-radius:12px;padding:48px 40px;max-width:680px;width:90%;text-align:center;font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,sans-serif;color:#f8fafc;position:relative;" id="cert_doc"><div style="font-size:0.7rem;color:#94a3b8;text-transform:uppercase;letter-spacing:2px;margin-bottom:6px;">Heavy Equipment Dealer Solutions LLC</div><div style="font-size:1.8rem;font-weight:800;color:#e5ae25;margin-bottom:4px;">Certificate of Completion</div><div style="font-size:0.85rem;color:#94a3b8;margin-bottom:32px;">HEDS Operating Discipline Academy</div><div style="font-size:0.75rem;color:#94a3b8;margin-bottom:4px;">This certifies that</div><div style="font-size:1.6rem;font-weight:700;color:#f8fafc;margin-bottom:24px;border-bottom:1px solid #203b60;padding-bottom:12px;">' + (name || 'Participant') + '</div><div style="font-size:0.85rem;color:#94a3b8;margin-bottom:6px;">has completed the</div><div style="font-size:1.1rem;font-weight:600;color:#e5ae25;margin-bottom:24px;">Service Manager Training Program</div><div style="font-size:0.8rem;color:#94a3b8;margin-bottom:20px;">20 Modules &middot; 50-Question Assessment &middot; 90-Day Action Plan</div>' + (score ? '<div style="font-size:0.8rem;color:#94a3b8;margin-bottom:24px;">Assessment Score: <strong style="color:#e5ae25;">' + score + '</strong></div>' : '') + '<div style="display:flex;justify-content:space-between;align-items:center;margin-top:32px;border-top:1px solid #203b60;padding-top:20px;"><div style="text-align:left;"><div style="font-size:0.7rem;color:#94a3b8;">Date</div><div style="font-size:0.9rem;color:#f8fafc;">' + certDate + '</div></div><div style="text-align:right;"><div style="font-size:0.7rem;color:#94a3b8;">HEDS Academy</div><div style="font-size:0.9rem;color:#e5ae25;font-weight:600;">Daniel Looper</div></div></div><div style="margin-top:28px;display:flex;gap:12px;justify-content:center;"><button onclick="window.print()" style="background:#e5ae25;color:#0e1f38;border:none;padding:10px 24px;border-radius:6px;font-weight:700;cursor:pointer;font-size:0.85rem;">Print Certificate</button><button onclick="document.getElementById(\'cert_overlay\').style.display=\'none\'" style="background:transparent;color:#94a3b8;border:1px solid #203b60;padding:10px 24px;border-radius:6px;cursor:pointer;font-size:0.85rem;">Close</button></div></div>';
     document.body.appendChild(cert);
   }
   
@@ -3132,7 +3247,7 @@ function switchMainSection(secId, btnEl) {
   var testQuestions = [
   {
     "id": "q01",
-    "module": "Module 1: Financial Foundation",
+    "module": "Module 2: Absorption & Margin",
     "module_id": "c_m1",
     "type": "mc",
     "question": "In a heavy equipment service department, what does Service Gross Margin measure?",
@@ -3147,67 +3262,67 @@ function switchMainSection(secId, btnEl) {
 },
   {
     "id": "q02",
-    "module": "Module 1: Financial Foundation",
+    "module": "Module 2: Absorption & Margin",
     "module_id": "c_m1",
     "type": "calc",
-    "question": "Your Service Gross Profit is $170,000 and your Parts Gross Profit is $180,000. Your Total Branch Fixed Overhead (rent, utilities, insurance, management salaries — the cost to keep the doors open regardless of sales) is $330,000. What is your Absorption Rate?",
+    "question": "Your Service Gross Profit is $170,000 and your Parts Gross Profit is $180,000. Your Total Operating Expenses (rent, utilities, insurance, management salaries and all other operating costs) are $330,000. What is your Absorption Rate?",
     "options": [
-      "51.5%",
       "106.1%",
+      "51.5%",
       "85.0%",
       "72.3%"
-    ]
-  ,
-    "correct": 1
-},
-  {
-    "id": "q03",
-    "module": "Module 1: Financial Foundation",
-    "module_id": "c_m1",
-    "type": "mc",
-    "question": "A service department has $250,000 in labor revenue and $80,000 in direct tech wages. What is the Service Gross Margin %?",
-    "options": [
-      "32.0%",
-      "68.0%",
-      "80.0%",
-      "42.5%"
-    ]
-  ,
-    "correct": 1
-},
-  {
-    "id": "q04",
-    "module": "Module 1: Financial Foundation",
-    "module_id": "c_m1",
-    "type": "scenario",
-    "question": "Your absorption rate is 78%. The dealer principal asks what this means. What do you tell them?",
-    "options": [
-      "Service and parts combined cover 78% of the branch's fixed overhead. The remaining 22% must come from equipment sales.",
-      "Service alone covers 78% of all dealership expenses including variable costs.",
-      "The service department is operating at a 78% profit margin on all jobs.",
-      "78% of all work orders were billed within the standard time frame this month."
     ]
   ,
     "correct": 0
 },
   {
-    "id": "q05",
-    "module": "Module 1 Midday: Labor Reconciliation",
-    "module_id": "c_ex",
-    "type": "calc",
-    "question": "You paid 10 technicians for 400 hours. 290 hours were billed on closed repair orders (ROs). 70 hours were added to open work-in-progress (WIP). How many unapplied (lost) hours?",
+    "id": "q03",
+    "module": "Module 2: Absorption & Margin",
+    "module_id": "c_m1",
+    "type": "mc",
+    "question": "A service department has $220,000 in labor revenue and $50,000 in direct tech wages. What is the Service Gross Margin %?",
     "options": [
-      "70 hours",
-      "40 hours",
-      "110 hours",
-      "0 hours"
+      "22.7%",
+      "82.5%",
+      "77.3%",
+      "29.4%"
+    ]
+  ,
+    "correct": 2
+},
+  {
+    "id": "q04",
+    "module": "Module 2: Absorption & Margin",
+    "module_id": "c_m1",
+    "type": "scenario",
+    "question": "Your absorption rate is 78%. The dealer principal asks what this means. What do you tell them?",
+    "options": [
+      "Service alone covers 78% of all dealership expenses.",
+      "Service and parts combined cover 78% of the branch's total operating expenses, below the 95% red flag line. The remaining 22% must come from equipment sales.",
+      "The service department is operating at a 78% profit margin on all jobs.",
+      "78% of all work orders were billed within the standard time frame this month."
     ]
   ,
     "correct": 1
 },
   {
+    "id": "q05",
+    "module": "Module 3: Labor Reconciliation",
+    "module_id": "c_ex",
+    "type": "calc",
+    "question": "You paid 10 technicians for 400 hours. 290 hours were billed on closed repair orders (ROs). 70 hours were added to open work-in-progress (WIP). How many unapplied (lost) hours?",
+    "options": [
+      "70 hours",
+      "110 hours",
+      "0 hours",
+      "40 hours"
+    ]
+  ,
+    "correct": 3
+},
+  {
     "id": "q06",
-    "module": "Module 1 Midday: Labor Reconciliation",
+    "module": "Module 3: Labor Reconciliation",
     "module_id": "c_ex",
     "type": "scenario",
     "question": "Your unapplied labor gap is 40 hours per week at a $185 posted rate. The dealer principal says '40 hours doesn't sound like much.' What do you tell them?",
@@ -3222,67 +3337,67 @@ function switchMainSection(secId, btnEl) {
 },
   {
     "id": "q07",
-    "module": "Module 1 Midday: Labor Reconciliation",
+    "module": "Module 3: Labor Reconciliation",
     "module_id": "c_ex",
     "type": "mc",
     "question": "What is the best way to describe unapplied (lost) labor hours to a dealer principal?",
     "options": [
-      "They are hours where technicians were performing warranty work at reduced rates.",
       "They are hours you paid for but cannot bill to a customer or attribute to an ongoing job.",
+      "They are hours where technicians were performing warranty work at reduced rates.",
       "They are the difference between estimated and actual repair time on flat-rate jobs.",
       "They are the hours technicians spend on breaks and lunch periods."
     ]
   ,
-    "correct": 1
+    "correct": 0
 },
   {
     "id": "q08",
-    "module": "Module 2: WIP & Quote Control",
+    "module": "Module 4: WIP & Quote Control",
     "module_id": "c_m2",
     "type": "calc",
-    "question": "Your total open work-in-progress (WIP) balance is $105,000. Your average daily service revenue is $11,905. How many days of WIP do you have?",
+    "question": "Last labor on 5 completed work orders was posted Monday at 3:00 PM. On Wednesday at 5:00 PM, 3 of them are still not invoiced, worth $4,200, $2,800 and $1,500. What should your 48-hour close report show?",
     "options": [
-      "14.2 days",
-      "8.8 days",
-      "10.0 days",
-      "5.5 days"
+      "0 work orders and $0, because they are less than 3 days old.",
+      "5 work orders and $8,500.",
+      "3 work orders and $8,500.",
+      "3 work orders and $4,200, counting only the largest job."
     ]
   ,
-    "correct": 1
+    "correct": 2
 },
   {
     "id": "q09",
-    "module": "Module 2: WIP & Quote Control",
+    "module": "Module 4: WIP & Quote Control",
     "module_id": "c_m2",
     "type": "mc",
-    "question": "What is the industry standard for total open work-in-progress (WIP) dollar value in a service department?",
+    "question": "What is the HEDS standard for closing a completed work order?",
     "options": [
-      "Total WIP should not exceed 30 days of average monthly service sales.",
-      "Total WIP should not exceed 10-15 days of average daily service sales.",
-      "Total WIP should be zero at the end of every pay period.",
-      "Total WIP should equal one month's worth of parts inventory."
+      "Close it within 30 days of the date the work order was opened.",
+      "Close it within 10 to 15 days, with a warning tier before it counts as late.",
+      "Close it when the customer picks up the unit.",
+      "Close and invoice it within 48 hours of the last labor posted, with no grace tiers after that."
     ]
   ,
-    "correct": 1
+    "correct": 3
 },
   {
     "id": "q10",
-    "module": "Module 2: WIP & Quote Control",
+    "module": "Module 4: WIP & Quote Control",
     "module_id": "c_m2",
     "type": "scenario",
-    "question": "You find $14,500 in work-in-progress (WIP) that has been open for more than 30 days. What is the correct response?",
+    "question": "You find 6 completed work orders worth $14,500 where the last labor was posted more than 48 hours ago and nothing has been invoiced. What is the correct response?",
     "options": [
-      "Write it off immediately since it has been open over 30 days.",
-      "Require a named owner, a specific hold reason, and a target close date — or close the work order and bill what is complete.",
-      "Wait another 30 days to see if the customer calls back.",
-      "Bill the customer for storage fees and continue holding the unit."
+      "Leave them alone until they reach 30 days, since anything under 30 days is still acceptable.",
+      "Wait for the customers to call before invoicing.",
+      "Treat every one as late: assign a named owner today and close and invoice each work order, or record the specific hold reason and a close date.",
+      "Bill the customers for storage fees and continue holding the units."
     ]
   ,
-    "correct": 1
+    "correct": 2
 },
   {
     "id": "q11",
-    "module": "Module 2: WIP & Quote Control",
+    "module": "Module 4: WIP & Quote Control",
     "module_id": "c_m2",
     "type": "mc",
     "question": "A quote has been sitting on your desk for 3 days without customer contact. What is the industry standard?",
@@ -3297,10 +3412,10 @@ function switchMainSection(secId, btnEl) {
 },
   {
     "id": "q12",
-    "module": "Module 3: Tech Efficiency",
+    "module": "Module 5: Efficiency & Capacity",
     "module_id": "c_m3",
     "type": "calc",
-    "question": "Your shop technicians billed 340 hours and clocked 380 hours on the job. What is the shop efficiency %?",
+    "question": "Your shop jobs carried 340 flat-rate (estimate) hours and took 380 hours of actual job time. What is the shop efficiency %?",
     "options": [
       "89.5%",
       "76.9%",
@@ -3312,82 +3427,82 @@ function switchMainSection(secId, btnEl) {
 },
   {
     "id": "q13",
-    "module": "Module 3: Tech Efficiency",
+    "module": "Module 5: Efficiency & Capacity",
     "module_id": "c_m3",
     "type": "mc",
-    "question": "Your shop efficiency drops below 85%. What is the most likely cause?",
+    "question": "Your shop efficiency drops below the 110% goal. What is the most likely cause?",
     "options": [
       "Technicians are intentionally working slowly to avoid new assignments.",
-      "Technicians are waiting for parts, waiting for crane or wash bay availability, or poor diagnostic direction from supervisors.",
       "The flat-rate pricing system is set too low for the local market.",
-      "The shop needs to hire more experienced master technicians."
+      "The shop needs to hire more experienced master technicians.",
+      "Technicians are waiting for parts, waiting for crane or wash bay availability, or poor diagnostic direction from supervisors."
     ]
   ,
-    "correct": 1
+    "correct": 3
 },
   {
     "id": "q14",
-    "module": "Module 3: Tech Efficiency",
+    "module": "Module 5: Efficiency & Capacity",
     "module_id": "c_m3",
     "type": "scenario",
-    "question": "Your field service technician billed 150 hours but clocked 195 hours including drive time. What is the field efficiency rate and does it meet the industry target?",
+    "question": "Your field service technician billed 150 hours (travel time is billed on every trip and is included) and clocked 195 hours including drive time. What is the field efficiency rate and does it meet the HEDS target?",
     "options": [
-      "76.9% — PASS (field service efficiency target is 75% or higher)",
-      "76.9% — FAIL (shop efficiency target is 85% or higher, but field target is lower)",
-      "130.0% — PASS (exceeding target)",
-      "76.9% — FAIL (target is 100% or higher)"
+      "76.9%: below target (the field efficiency target is 80% to 110%)",
+      "76.9%: PASS (the field efficiency target is 75% or higher)",
+      "130.0%: PASS (exceeding target)",
+      "76.9%: FAIL (the field target is 100% or higher)"
     ]
   ,
     "correct": 0
 },
   {
     "id": "q15",
-    "module": "Module 4: ELR Recovery",
+    "module": "Module 6: ELR & Discounting",
     "module_id": "c_m4",
     "type": "calc",
     "question": "Your billed labor revenue is $62,900 and your billed labor hours are 370. What is your Effective Labor Rate (ELR) in dollars per hour?",
     "options": [
       "$185.00/hr",
-      "$170.00/hr",
       "$162.50/hr",
+      "$170.00/hr",
       "$155.00/hr"
     ]
   ,
-    "correct": 1
+    "correct": 2
 },
   {
     "id": "q16",
-    "module": "Module 4: ELR Recovery",
+    "module": "Module 6: ELR & Discounting",
     "module_id": "c_m4",
     "type": "mc",
     "question": "Your posted shop door rate is $185 per hour but your Effective Labor Rate (ELR) is $170 per hour. What does this mean?",
     "options": [
       "Your technicians are not working enough billable hours to justify the posted rate.",
-      "You are losing $15 per billed hour to unauthorized discounts, unbilled diagnostic time, or rework not billed.",
       "Your posted rate is too high for the local market and needs to be lowered.",
-      "Your parts department is marking up internal sales too aggressively."
+      "Your parts department is marking up internal sales too aggressively.",
+      "You are losing $15 per billed hour to unauthorized discounts, unbilled diagnostic time, or rework not billed."
     ]
   ,
-    "correct": 1
+    "correct": 3
 },
   {
     "id": "q17",
-    "module": "Module 4: ELR Recovery",
+    "module": "Module 6: ELR & Discounting",
     "module_id": "c_m4",
     "type": "mc",
-    "question": "What is the industry target for Effective Labor Rate (ELR) recovery percentage?",
+    "question": "What is the industry target for Effective Labor Rate % (ELR as a percentage of posted rate)?",
     "options": [
-      "≥ 85% of posted rate",
       "≥ 92% of posted rate",
+      "≥ 85% of posted rate",
       "100% of posted rate with no exceptions",
       "≥ 75% of posted rate"
     ]
   ,
-    "correct": 1
+    "correct": 0
 },
   {
     "id": "q18",
-    "module": "Module 5: Triage & Quality",
+    "module": "Module 7: Triage & Dispatch",
     "module_id": "c_m5",
     "type": "calc",
     "question": "You closed 140 work orders in the past 30 days. 9 were repeat return jobs for the same complaint. What is your First-Time Fix Rate (FTFR)?",
@@ -3402,27 +3517,27 @@ function switchMainSection(secId, btnEl) {
 },
   {
     "id": "q19",
-    "module": "Module 5: Triage & Quality",
+    "module": "Module 7: Triage & Dispatch",
     "module_id": "c_m5",
     "type": "mc",
     "question": "After a machine comes into the shop and is washed, how quickly should the initial diagnostic inspection begin?",
     "options": [
-      "Within 8 hours of the machine being washed and staged.",
       "Within 2 hours of the machine being washed and staged.",
+      "Within 8 hours of the machine being washed and staged.",
       "Within 24 hours of the customer dropping off the unit.",
       "Before the customer leaves the dealership."
     ]
   ,
-    "correct": 1
+    "correct": 0
 },
   {
     "id": "q20",
-    "module": "Module 5: Triage & Quality",
+    "module": "Module 7: Triage & Dispatch",
     "module_id": "c_m5",
     "type": "scenario",
     "question": "You have 9 repeat return jobs out of 140 closed work orders. A technician consistently misdiagnoses the same system. What do you do?",
     "options": [
-      "Fire the technician immediately — repeat jobs hurt profitability.",
+      "Fire the technician immediately, repeat jobs hurt profitability.",
       "Show the technician their First-Time Fix Rate number, ask what is causing the gap, agree on one specific change, and review next week.",
       "Reassign the technician to oil changes and preventive maintenance only until diagnostic skill improves.",
       "Bill the customer for the rework and absorb the cost as a learning expense."
@@ -3432,22 +3547,22 @@ function switchMainSection(secId, btnEl) {
 },
   {
     "id": "q21",
-    "module": "Module 6: Warranty Recovery",
+    "module": "Module 8: Warranty Recovery",
     "module_id": "c_m6",
     "type": "calc",
     "question": "You claimed $48,000 in warranty dollars from the manufacturer (OEM). $480 was denied by the OEM. What is your warranty write-off percentage?",
     "options": [
       "0.10%",
-      "1.00%",
       "10.00%",
-      "5.00%"
+      "5.00%",
+      "1.00%"
     ]
   ,
-    "correct": 1
+    "correct": 3
 },
   {
     "id": "q22",
-    "module": "Module 6: Warranty Recovery",
+    "module": "Module 8: Warranty Recovery",
     "module_id": "c_m6",
     "type": "mc",
     "question": "In warranty claim documentation, what is the 4-C Story Rule?",
@@ -3455,59 +3570,59 @@ function switchMainSection(secId, btnEl) {
       "Every claim must include a Customer Complaint, a Cost estimate, and a Correction plan.",
       "No technician gets assigned their next job segment until their 4-C labor story (Complaint, Cause, Correction, Coverage) and failure photo documentation are completed and attached.",
       "Every warranty claim must be Communicated, Confirmed, and Closed within 4 business days.",
-      "The 4 C's stand for Claim, Credit, Close, and Confirm — the four steps for warranty reimbursement."
+      "The 4 C's stand for Claim, Credit, Close, and Confirm, the four steps for warranty reimbursement."
     ]
   ,
     "correct": 1
 },
   {
     "id": "q23",
-    "module": "Module 6: Warranty Recovery",
+    "module": "Module 8: Warranty Recovery",
     "module_id": "c_m6",
     "type": "scenario",
     "question": "A $480 warranty claim was denied because the technician didn't attach diagnostic photos. The OEM says it's too late to resubmit. What is the financial impact?",
     "options": [
-      "$480 loss — the claim is gone and cannot be recovered.",
-      "$480 loss, but the dealership must bill an extra $3,200 in retail revenue at 15% net margin just to recover that $480.",
+      "$480 loss, the claim is gone and cannot be recovered.",
       "The claim can be resubmitted with photos within 60 days for partial reimbursement.",
+      "$480 loss, but the dealership must bill an extra $3,200 in retail revenue at 15% net margin just to recover that $480.",
       "The OEM will reverse the denial if the dealer principal calls the regional rep."
     ]
   ,
-    "correct": 1
+    "correct": 2
 },
   {
     "id": "q24",
-    "module": "Module 7: Leak Diagnostic",
+    "module": "Module 9: Leak Diagnostic Matrix",
     "module_id": "c_leak",
     "type": "mc",
     "question": "What is the most common cause of gross margin erosion in a service department?",
     "options": [
-      "Excessive overtime pay and technician wage increases.",
       "Invoice write-downs and unbilled diagnostic time.",
+      "Excessive overtime pay and technician wage increases.",
       "Parts inventory obsolescence and vendor freight costs.",
       "High utility costs and building lease escalation."
     ]
   ,
-    "correct": 1
+    "correct": 0
 },
   {
     "id": "q25",
-    "module": "Module 7: Leak Diagnostic",
+    "module": "Module 9: Leak Diagnostic Matrix",
     "module_id": "c_leak",
     "type": "scenario",
-    "question": "Your service department has three revenue leaks: unbilled labor ($29,600/month), aged work-in-progress ($8,000/month), and labor rate discounting ($4,200/month). Which should you address first?",
+    "question": "Your service department has three revenue leaks: unbilled labor ($29,600/month), work orders not invoiced within 48 hours of last labor ($8,000/month), and labor rate discounting ($4,200/month). Which should you address first?",
     "options": [
-      "Fix all three at the same time — they are equally important.",
-      "Address the unbilled labor leak first — it has the highest dollar impact and the most straightforward operational fix (requiring real-time time entry at the technician level).",
+      "Fix all three at the same time, they are equally important.",
       "Fix the labor rate discounting first because it affects every invoice.",
-      "Fix the aged work-in-progress first because it involves the most work orders."
+      "Address the unbilled labor leak first, it has the highest dollar impact and the most straightforward operational fix (requiring real-time time entry at the technician level).",
+      "Fix the late work orders (past 48 hours of last labor) first because they involve the most work orders."
     ]
   ,
-    "correct": 1
+    "correct": 2
 },
   {
     "id": "q26",
-    "module": "Module 7: Leak Diagnostic",
+    "module": "Module 9: Leak Diagnostic Matrix",
     "module_id": "c_leak",
     "type": "mc",
     "question": "When prioritizing which operational issue to address first, what is the best approach for categorizing the effort required?",
@@ -3522,74 +3637,74 @@ function switchMainSection(secId, btnEl) {
 },
   {
     "id": "q27",
-    "module": "Module 8: Scorecards",
+    "module": "Module 10: Scorecards",
     "module_id": "c_scorecards",
     "type": "mc",
     "question": "What is the best practice for maintaining a daily service department scorecard?",
     "options": [
       "The manager enters all data. The advisor reviews it weekly.",
-      "The advisor or foreman enters the data, not the manager. The manager reads it and acts on it. The scorecard is updated at the same time every day. No exceptions.",
       "The parts manager enters all data and the service manager reviews it monthly.",
-      "Data is entered by whichever technician is available at the end of the shift."
+      "Data is entered by whichever technician is available at the end of the shift.",
+      "The advisor or foreman enters the data, not the manager. The manager reads it and acts on it. The scorecard is updated at the same time every day. No exceptions."
     ]
   ,
-    "correct": 1
+    "correct": 3
 },
   {
     "id": "q28",
-    "module": "Module 8: Scorecards",
+    "module": "Module 10: Scorecards",
     "module_id": "c_scorecards",
     "type": "scenario",
     "question": "You built a daily scorecard with 15 metrics. Three of them have not changed in two weeks and no one acts on them. What do you do?",
     "options": [
-      "Keep all 15 metrics — more data is always better.",
-      "Remove the 3 unused metrics. A scorecard that does not drive a decision is wallpaper.",
+      "Keep all 15 metrics, more data is always better.",
       "Move the 3 unused metrics to the weekly scorecard instead.",
-      "Add color coding to the 3 metrics so they stand out more."
+      "Add color coding to the 3 metrics so they stand out more.",
+      "Remove the 3 unused metrics. A scorecard that does not drive a decision is wallpaper."
     ]
   ,
-    "correct": 1
+    "correct": 3
 },
   {
     "id": "q29",
-    "module": "Module 8: Scorecards",
+    "module": "Module 10: Scorecards",
     "module_id": "c_scorecards",
     "type": "mc",
     "question": "What is the standard for service department scorecards?",
     "options": [
       "Scorecards must be reviewed by the dealer principal every Monday.",
-      "A scorecard that does not drive a decision is useless. If the number does not make someone do something different today, it should not be on the scorecard.",
       "Every scorecard must include at least 10 metrics to be comprehensive.",
-      "Scorecards should be digital only — paper scorecards are outdated."
+      "A scorecard that does not drive a decision is useless. If the number does not make someone do something different today, it should not be on the scorecard.",
+      "Scorecards should be digital only, paper scorecards are outdated."
     ]
   ,
-    "correct": 1
+    "correct": 2
 },
   {
     "id": "q30",
-    "module": "Module 9: Standup",
+    "module": "Module 11: Morning Standup",
     "module_id": "c_standup",
     "type": "mc",
     "question": "How long should a morning standup meeting (the daily shop huddle where the team reviews the day's priorities) last?",
     "options": [
-      "15 minutes — long enough to cover all open issues.",
+      "15 minutes: long enough to cover all open issues.",
+      "30 minutes: it needs to cover capacity, quotes, and late work orders.",
       "10 minutes. Not 15. Not 30. Ten.",
-      "30 minutes — it needs to cover capacity, quotes, and WIP aging.",
-      "5 minutes — just a quick check-in and then everyone goes to work."
+      "5 minutes: just a quick check-in and then everyone goes to work."
     ]
   ,
-    "correct": 1
+    "correct": 2
 },
   {
     "id": "q31",
-    "module": "Module 9: Standup",
+    "module": "Module 11: Morning Standup",
     "module_id": "c_standup",
     "type": "scenario",
     "question": "Your morning standup meeting has been taking 25-30 minutes. People are sitting down, going through every open work order, and debating solutions. What do you do?",
     "options": [
-      "Allow more time — the team needs to discuss these issues.",
+      "Allow more time, the team needs to discuss these issues.",
       "Cut it to 10 minutes. If there is nothing to discuss, the standup is 3 minutes and everyone goes to work. The purpose is daily rhythm, not meeting length.",
-      "Cancel the standup — it is wasting productive shop time.",
+      "Cancel the standup, it is wasting productive shop time.",
       "Move the standup to the afternoon when there is less pressure."
     ]
   ,
@@ -3597,7 +3712,7 @@ function switchMainSection(secId, btnEl) {
 },
   {
     "id": "q32",
-    "module": "Module 9: Standup",
+    "module": "Module 11: Morning Standup",
     "module_id": "c_standup",
     "type": "mc",
     "question": "What is a shop labor capacity stress flag in a morning standup agenda?",
@@ -3612,12 +3727,12 @@ function switchMainSection(secId, btnEl) {
 },
   {
     "id": "q33",
-    "module": "Module 10: Weekly WIP Review",
+    "module": "Module 12: Weekly WIP Review",
     "module_id": "c_wip_review",
     "type": "mc",
     "question": "During your weekly work-in-progress (WIP) review, you find a work order with parts on backorder and no alternate source identified. What is the correct action?",
     "options": [
-      "Wait for the parts to arrive — no action needed from the manager.",
+      "Wait for the parts to arrive, no action needed from the manager.",
       "Source alternate parts or update the customer with a new estimated arrival date. The parts manager owns this action.",
       "Cancel the work order and refund the customer's deposit.",
       "Bill the customer for storage fees while waiting for parts."
@@ -3627,22 +3742,22 @@ function switchMainSection(secId, btnEl) {
 },
   {
     "id": "q34",
-    "module": "Module 10: Weekly WIP Review",
+    "module": "Module 12: Weekly WIP Review",
     "module_id": "c_wip_review",
     "type": "scenario",
     "question": "A work order has been open for 22 days. Labor is complete but the invoice has not been submitted. Who owns this and what is the decision?",
     "options": [
-      "Shop foreman — assign a technician to review the completed work.",
-      "Service advisor — invoice within 24 hours. The 48-hour close clock starts when labor is complete, not when parts arrive.",
-      "Service manager — escalate to customer for final approval before invoicing.",
-      "Parts manager — verify all parts were received before invoicing."
+      "Shop foreman: assign a technician to review the completed work.",
+      "Service advisor: wait for the customer to call before invoicing.",
+      "Parts manager: verify all parts were received before invoicing.",
+      "Service Manager: they own the work order and are accountable for it. Invoice it today; it is already past the 48-hour close standard."
     ]
   ,
-    "correct": 1
+    "correct": 3
 },
   {
     "id": "q35",
-    "module": "Module 11: Work Order Lifecycle",
+    "module": "Module 13: Work Order Lifecycle",
     "module_id": "c_lifecycle",
     "type": "mc",
     "question": "What are the Four C's used in structured intake?",
@@ -3657,37 +3772,37 @@ function switchMainSection(secId, btnEl) {
 },
   {
     "id": "q36",
-    "module": "Module 11: Work Order Lifecycle",
+    "module": "Module 13: Work Order Lifecycle",
     "module_id": "c_lifecycle",
     "type": "scenario",
     "question": "A technician is standing at a disassembled machine waiting for parts that are on backorder. What is the best practice for managing this situation?",
     "options": [
-      "This is normal — parts delays are unavoidable in heavy equipment repair. The technician should wait.",
-      "Reassign the technician to another job and resolve the parts issue administratively. A standing technician is the most expensive person in the building. Best practice is to stage parts before teardown, but disassembly is often required to diagnose — manage the gap.",
+      "This is normal, parts delays are unavoidable in heavy equipment repair. The technician should wait.",
       "The technician should use the waiting time to clean the shop or help other techs until parts arrive.",
-      "Send the technician home without pay until the parts arrive to avoid idle labor cost."
+      "Send the technician home without pay until the parts arrive to avoid idle labor cost.",
+      "Reassign the technician to another job and resolve the parts issue administratively. A standing technician is the most expensive person in the building. Best practice is to stage parts before teardown, but disassembly is often required to diagnose, manage the gap."
     ]
   ,
-    "correct": 1
+    "correct": 3
 },
   {
     "id": "q37",
-    "module": "Module 11: Work Order Lifecycle",
+    "module": "Module 13: Work Order Lifecycle",
     "module_id": "c_lifecycle",
     "type": "mc",
     "question": "In a service department, when does the 48-hour invoice close standard clock start?",
     "options": [
       "When the customer drops off the unit.",
-      "When labor is complete — not when parts arrive.",
       "When the parts are received and staged.",
-      "When the customer approves the final quote."
+      "When the customer approves the final quote.",
+      "When labor is complete, not when parts arrive."
     ]
   ,
-    "correct": 1
+    "correct": 3
 },
   {
     "id": "q38",
-    "module": "Module 12: Expense & Margin",
+    "module": "Module 14: Expense & Margin Recovery",
     "module_id": "c_expense",
     "type": "mc",
     "question": "When a customer pushes back on shop supply fees, what is the correct response?",
@@ -3702,82 +3817,82 @@ function switchMainSection(secId, btnEl) {
 },
   {
     "id": "q39",
-    "module": "Module 12: Expense & Margin",
+    "module": "Module 14: Expense & Margin Recovery",
     "module_id": "c_expense",
     "type": "scenario",
     "question": "You pull your last 20 invoices. 14 of them are missing shop supply fees, environmental fees, or freight charges. What is the first thing you do?",
     "options": [
       "Re-invoice all 14 customers with the missing charges added.",
-      "Calculate the dollar amount you gave away, identify who failed to charge, and enforce the standard on every invoice going forward.",
       "Call the customers and ask if they would be willing to pay the missing fees retroactively.",
+      "Calculate the dollar amount you gave away, identify who failed to charge, and enforce the standard on every invoice going forward.",
       "Adjust your pricing matrix to absorb the missing charges in future quotes."
     ]
   ,
-    "correct": 1
+    "correct": 2
 },
   {
     "id": "q40",
-    "module": "Module 13: Accountability",
+    "module": "Module 15: Accountability & Leadership",
     "module_id": "c_accountability",
     "type": "mc",
     "question": "In a weekly one-on-one check-in between a service manager and a technician, what are the 3 standard questions?",
     "options": [
       "What did you sell? What did you spend? What did you save?",
-      "What did you close this week? What is stuck? What do you need from me?",
       "What went well? What went wrong? What will you do differently?",
-      "What is your productivity? What is your efficiency? What is your ELR?"
+      "What did you close this week? What is stuck? What do you need from me?",
+      "What is your recovery? What is your utilization? What is your ELR?"
     ]
   ,
-    "correct": 1
+    "correct": 2
 },
   {
     "id": "q41",
-    "module": "Module 13: Accountability",
+    "module": "Module 15: Accountability & Leadership",
     "module_id": "c_accountability",
     "type": "scenario",
-    "question": "A technician has been at 65% productivity (billed hours divided by paid hours) for 3 weeks. You have not had a conversation with them. What is the correct management practice?",
+    "question": "A technician has been at 65% recovery (hours on work orders divided by hours paid) for 3 weeks. You have not had a conversation with them. What is the correct management practice?",
     "options": [
-      "Wait until the monthly review to address it — weekly conversations are too frequent.",
+      "Wait until the monthly review to address it: weekly conversations are too frequent.",
+      "Write them up immediately: 65% is below the 95% recovery target and requires formal discipline.",
       "Avoiding the conversation is worse than having it. Show them the number, ask what is causing the gap, agree on one change, and review next week.",
-      "Write them up immediately — 65% is below the 85% threshold and requires formal discipline.",
-      "Reassign them to PM work only until their productivity improves."
+      "Reassign them to PM work only until their recovery improves."
     ]
   ,
-    "correct": 1
+    "correct": 2
 },
   {
     "id": "q42",
-    "module": "Module 13: Accountability",
+    "module": "Module 15: Accountability & Leadership",
     "module_id": "c_accountability",
     "type": "mc",
     "question": "How long should the weekly check-in conversation last per person?",
     "options": [
-      "Under 30 minutes — enough time to review all open work.",
-      "Under 10 minutes per person.",
-      "Exactly 15 minutes — timed and enforced.",
-      "As long as needed — do not rush a coaching conversation."
+      "Under 30 minutes, enough time to review all open work.",
+      "Exactly 15 minutes, timed and enforced.",
+      "As long as needed, do not rush a coaching conversation.",
+      "Under 10 minutes per person."
     ]
   ,
-    "correct": 1
+    "correct": 3
 },
   {
     "id": "q43",
-    "module": "Module 14: Forecasting",
+    "module": "Module 16: Forecasting & Leading Indicators",
     "module_id": "c_forecasting",
     "type": "mc",
     "question": "What is the difference between a leading and lagging indicator?",
     "options": [
-      "Leading indicators predict customer behavior; lagging indicators track technician performance.",
       "Lagging indicators tell you what happened. Leading indicators tell you what is about to happen.",
+      "Leading indicators predict customer behavior; lagging indicators track technician performance.",
       "Leading indicators are updated daily; lagging indicators are updated monthly.",
       "Leading indicators measure revenue; lagging indicators measure expenses."
     ]
   ,
-    "correct": 1
+    "correct": 0
 },
   {
     "id": "q44",
-    "module": "Module 14: Forecasting",
+    "module": "Module 16: Forecasting & Leading Indicators",
     "module_id": "c_forecasting",
     "type": "calc",
     "question": "Your scheduled and quoted work order hours for the next 2 weeks total 920 hours. Your available technician hours total 800. What is your shop labor capacity stress percentage (scheduled hours divided by available hours)?",
@@ -3792,93 +3907,93 @@ function switchMainSection(secId, btnEl) {
 },
   {
     "id": "q45",
-    "module": "Module 14: Forecasting",
+    "module": "Module 16: Forecasting & Leading Indicators",
     "module_id": "c_forecasting",
     "type": "scenario",
     "question": "Your 2-week shop labor capacity forecast shows 115% capacity stress (scheduled hours exceed available technician hours by 15%). What should you NOT do?",
     "options": [
-      "Throttle incoming work — do not accept rush jobs without manager approval.",
+      "Throttle incoming work, do not accept rush jobs without manager approval.",
       "Schedule overtime in advance, not at the last minute.",
-      "Accept all incoming work and hope the team can catch up over the weekend.",
-      "Bring in field technicians or loaners from other branches."
+      "Bring in field technicians or loaners from other branches.",
+      "Accept all incoming work and hope the team can catch up over the weekend."
     ]
   ,
-    "correct": 2
+    "correct": 3
 },
   {
     "id": "q46",
-    "module": "Module 15: Telematics",
+    "module": "Module 17: Telematics & Machine Triage",
     "module_id": "c_telematics",
     "type": "mc",
     "question": "What is the risk of machine telematics alerts (automated machine health notifications) that nobody responds to?",
     "options": [
-      "They are useful for historical analysis even if not acted upon immediately.",
       "They are worse than no telematics at all because they create a false sense of visibility.",
+      "They are useful for historical analysis even if not acted upon immediately.",
       "They should be disabled until the shop has enough staff to review them daily.",
       "They should be forwarded to the OEM for remote diagnostic support."
     ]
   ,
-    "correct": 1
+    "correct": 0
 },
   {
     "id": "q47",
-    "module": "Module 15: Telematics",
+    "module": "Module 17: Telematics & Machine Triage",
     "module_id": "c_telematics",
     "type": "scenario",
     "question": "A fault code comes in at 2 PM on a customer's excavator. It is a preventive maintenance (PM) trigger, not a catastrophic failure. What is the correct response?",
     "options": [
-      "Send a technician immediately — all fault codes require same-day response.",
       "Assess severity, schedule the repair, stage the parts, and notify the customer. Not every alert is an emergency.",
-      "Ignore it — PM triggers can wait until the next scheduled service interval.",
+      "Send a technician immediately, all fault codes require same-day response.",
+      "Ignore it: PM triggers can wait until the next scheduled service interval.",
       "Call the customer and tell them to stop operating the machine immediately."
     ]
   ,
-    "correct": 1
+    "correct": 0
 },
   {
     "id": "q48",
-    "module": "Module 16: Customer Defection",
+    "module": "Module 18: Customer Defection Warning",
     "module_id": "c_defection",
     "type": "mc",
     "question": "How do you flag a customer as at-risk for defection?",
     "options": [
       "The customer has not made a purchase in 6 months regardless of their normal interval.",
-      "The customer's last visit exceeds 2x their normal interval between service visits.",
       "The customer has filed a complaint with the service department in the last 30 days.",
+      "The customer's last visit exceeds 2x their normal interval between service visits.",
       "The customer's total spend has decreased by more than 25% year over year."
     ]
   ,
-    "correct": 1
+    "correct": 2
 },
   {
     "id": "q49",
-    "module": "Module 16: Customer Defection",
+    "module": "Module 18: Customer Defection Warning",
     "module_id": "c_defection",
     "type": "scenario",
     "question": "A customer who normally calls every 2 weeks for service has not called in 45 days. What do you do?",
     "options": [
-      "Wait another 2 weeks — they may just be slow this month.",
       "Flag them as at-risk, assign them to a service advisor, and make a follow-up call this week.",
+      "Wait another 2 weeks, they may just be slow this month.",
       "Send them an email newsletter and wait for them to call.",
-      "Drop them from the active customer list — they have clearly moved to a competitor."
+      "Drop them from the active customer list, they have clearly moved to a competitor."
     ]
   ,
-    "correct": 1
+    "correct": 0
 },
   {
     "id": "q50",
-    "module": "Module 17: Rental Fleet Health",
+    "module": "Module 19: Rental Fleet Health",
     "module_id": "c_rental",
     "type": "mc",
     "question": "What does Maintenance Cost as a percentage of Original Equipment Cost (OEC) measure in a rental fleet?",
     "options": [
-      "The total profit generated by the rental fleet as a percentage of equipment cost.",
       "The total maintenance cost divided by the total fleet Original Equipment Cost, showing how much of the asset value is being spent on upkeep.",
+      "The total profit generated by the rental fleet as a percentage of equipment cost.",
       "The depreciation rate of rental equipment over its service life.",
       "The ratio of maintenance labor costs to parts costs for the rental fleet."
     ]
   ,
-    "correct": 1
+    "correct": 0
 }
 ];
   var testAnswers = {};
@@ -3918,7 +4033,7 @@ function switchMainSection(secId, btnEl) {
     document.getElementById('test_signin_error').style.display = 'none';
     document.getElementById('test_signin').style.display = 'none';
     document.getElementById('test_running').style.display = 'block';
-    document.getElementById('test_user_name').innerText = name + ' — ' + dealership;
+    document.getElementById('test_user_name').innerText = name + ' - ' + dealership;
     
     testAnswers = {};
     testTimeRemaining = 90 * 60;
@@ -3941,7 +4056,7 @@ function switchMainSection(secId, btnEl) {
       var moduleLabel = q.module;
       
       qDiv.innerHTML = '<div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:10px;">' +
-        '<div><span style="font-size:0.75rem; color:var(--accent-color); font-weight:700; text-transform:uppercase; letter-spacing:1px;">Q' + (i+1) + ' — ' + typeLabel + '</span><br><span style="font-size:0.8rem; color:var(--muted);">' + moduleLabel + '</span></div>' +
+        '<div><span style="font-size:0.75rem; color:var(--accent-color); font-weight:700; text-transform:uppercase; letter-spacing:1px;">Q' + (i+1) + ': ' + typeLabel + '</span><br><span style="font-size:0.8rem; color:var(--muted);">' + moduleLabel + '</span></div>' +
         '</div>' +
         '<div style="font-size:1rem; margin-bottom:12px; font-weight:600;">' + q.question + '</div>' +
         '<ul class="test-options" id="opts_' + q.id + '"></ul>';
@@ -4052,6 +4167,8 @@ function switchMainSection(secId, btnEl) {
     document.getElementById('result_dealership').innerText = dealership;
     var now = new Date();
     document.getElementById('result_date').innerText = (now.getMonth()+1) + '/' + now.getDate() + '/' + now.getFullYear();
+    hedsSaveLocalResult({ track: TRACK_NAME, correct: correctCount, total: testQuestions.length, scorePct: pct, passed: hedsIsPassed(pct), candidateName: studentName, dealership: dealership, email: email, timestamp: (now.getMonth()+1) + '/' + now.getDate() + '/' + now.getFullYear(), answers: answers, relayStatus: 'pending' });
+    hedsShowPassStatus(pct);
     
     // Build module breakdown
     if (Object.keys(incorrectByModule).length > 0) {
@@ -4067,7 +4184,7 @@ function switchMainSection(secId, btnEl) {
         var sortedAreas = Object.keys(incorrectByModule).sort(function(a,b) { return incorrectByModule[b] - incorrectByModule[a]; });
         focusAreasHtml = '<div style="padding:16px; background:var(--bg); border-radius:8px; border:1px solid var(--border-color);"><div style="font-weight:700; color:var(--accent-color); margin-bottom:8px;">Recommended Focus Areas</div><div style="color:var(--muted); font-size:0.9rem;">' + sortedAreas.slice(0,3).map(function(m) { return m + ' (' + incorrectByModule[m] + ' missed)'; }).join(', ') + '</div></div>';
     } else {
-        moduleBreakdownHtml = '<div style="text-align:center; padding:20px; color:var(--accent-color); font-weight:700;">All questions correct — no focus areas needed.</div>';
+        moduleBreakdownHtml = '<div style="text-align:center; padding:20px; color:var(--accent-color); font-weight:700;">All questions correct, no focus areas needed.</div>';
         focusAreasHtml = '';
     }
     
@@ -4076,14 +4193,7 @@ function switchMainSection(secId, btnEl) {
     
     var payload = { track: TRACK_NAME, name: studentName, dealership: dealership, email: email, answers: answers, correctCount: correctCount, totalQuestions: testQuestions.length, scorePercentage: pct, answeredCount: answeredCount };
     
-    if (typeof fetch !== 'undefined') {
-        fetch(ASSESSMENT_RELAY_URL, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) }).catch(function() {});
-    } else {
-        var xhr = new XMLHttpRequest();
-        xhr.open('POST', ASSESSMENT_RELAY_URL, true);
-        xhr.setRequestHeader('Content-Type', 'application/json');
-        xhr.send(JSON.stringify(payload));
-    }
+    hedsRelayResults(payload);
   }
 
   function abandonTest() {
@@ -4108,5 +4218,71 @@ function switchMainSection(secId, btnEl) {
 
 </script>
 
+
+<script>
+  /* ===== HEDS assessment fixes (Oct 2026): pass mark, certificate gating, results relay, local results copy ===== */
+  var HEDS_PASS_MARK = 90; // percent required to pass and receive a certificate (Daniel, Oct 23 2026: 90% on all four dashboards)
+  var HEDS_RESULT_KEY = 'heds_service_test_result'; // localStorage key for this device's copy of the latest result
+  function hedsEscape(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function(c) { return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+  function hedsIsPassed(pct) { return Number(pct) >= HEDS_PASS_MARK; }
+  function hedsSaveLocalResult(rec) { try { localStorage.setItem(HEDS_RESULT_KEY, JSON.stringify(rec)); } catch (e) {} }
+  function hedsLoadLocalResult() { try { var r = localStorage.getItem(HEDS_RESULT_KEY); return r ? JSON.parse(r) : null; } catch (e) { return null; } }
+  var HEDS_RELAY_MSG = {
+    pending: 'Sending your results to HEDS Academy\u2026',
+    ok: 'Results sent to HEDS Academy.',
+    fail: 'We could not confirm that your results reached HEDS Academy. Your results are saved in this browser. Please click "Print Results" (or take a screenshot) and send it to your facilitator.'
+  };
+  function hedsRenderRelayStatus(state) {
+    var el = document.getElementById('result_relay_status');
+    if (!el) return;
+    el.textContent = HEDS_RELAY_MSG[state] || HEDS_RELAY_MSG.fail;
+    el.style.color = state === 'ok' ? '#10b981' : (state === 'pending' ? '#94a3b8' : '#ef4444');
+  }
+  function hedsSetRelayStatus(state) {
+    hedsRenderRelayStatus(state);
+    var r = hedsLoadLocalResult();
+    if (r) { r.relayStatus = state; hedsSaveLocalResult(r); }
+  }
+  function hedsShowPassStatus(pct) {
+    var passed = hedsIsPassed(pct);
+    var el = document.getElementById('result_pass_status');
+    if (el) {
+      el.textContent = passed
+        ? 'PASSED: ' + pct + '% (pass mark ' + HEDS_PASS_MARK + '%). Your certificate is available below.'
+        : 'NOT YET PASSED: ' + pct + '% (pass mark ' + HEDS_PASS_MARK + '%). Review the focus areas below and retake the assessment to earn your certificate.';
+      el.style.color = passed ? '#10b981' : '#ef4444';
+    }
+    var btn = document.getElementById('btn_cert');
+    if (btn) btn.style.display = passed ? '' : 'none';
+    return passed;
+  }
+  function hedsCertificateRecord() {
+    var r = hedsLoadLocalResult();
+    if (!r || !hedsIsPassed(r.scorePct)) {
+      alert('A certificate is issued only after passing the assessment with a score of ' + HEDS_PASS_MARK + '% or higher.');
+      return null;
+    }
+    return r;
+  }
+  // Sends results as a CORS "simple request": text/plain body, no custom headers, so no preflight is needed.
+  // The Apps Script doPost reads the JSON from e.postData.contents.
+  function hedsRelayResults(payload) {
+    hedsSetRelayStatus('pending');
+    var body = JSON.stringify(payload);
+    try {
+      if (typeof fetch !== 'undefined') {
+        fetch(ASSESSMENT_RELAY_URL, { method: 'POST', body: body, redirect: 'follow' })
+          .then(function(res) { if (!res.ok) throw new Error('HTTP ' + res.status); hedsSetRelayStatus('ok'); })
+          .catch(function() { hedsSetRelayStatus('fail'); });
+      } else {
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', ASSESSMENT_RELAY_URL, true);
+        xhr.onload = function() { hedsSetRelayStatus(xhr.status >= 200 && xhr.status < 300 ? 'ok' : 'fail'); };
+        xhr.onerror = function() { hedsSetRelayStatus('fail'); };
+        xhr.send(body);
+      }
+    } catch (e) { hedsSetRelayStatus('fail'); }
+  }
+</script>
 </body>
 </html>
