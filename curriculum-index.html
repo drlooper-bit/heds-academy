@@ -362,6 +362,10 @@ window.addEventListener('DOMContentLoaded', function() {
   var hash = window.location.hash.replace('#', '');
   if (hash && document.getElementById('track-' + hash)) { switchTrack(hash); }
 });
+window.addEventListener('hashchange', function() {
+  var hash = window.location.hash.replace('#', '');
+  if (hash && document.getElementById('track-' + hash)) { switchTrack(hash); }
+});
 </script>
 </body>
 </html>

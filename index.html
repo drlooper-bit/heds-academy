@@ -1103,7 +1103,7 @@ input, select, textarea {
         <div class="track-stats"><span>5-day onsite</span><span>Interactive dashboard</span><span>50-question assessment</span><span>90-day action plan</span></div>
         <div class="track-buttons">
           <a href="curriculum-index.html#sm" class="btn-preview">Preview Curriculum</a>
-          <a href="mailto:daniel@hedsconsulting.net?subject=HEDS Academy: Service Manager Training Signup" target="_blank" rel="noopener noreferrer" class="btn-signup">Sign Up</a>
+          <a href="mailto:daniel@hedsconsulting.net?subject=HEDS%20Academy:%20Service%20Manager%20Training%20Signup" class="btn-signup">Sign Up</a>
         </div>
       </div>
 
@@ -1115,7 +1115,7 @@ input, select, textarea {
         <div class="track-stats"><span>3-day onsite</span><span>Interactive dashboard</span><span>50-question assessment</span><span>90-day action plan</span></div>
         <div class="track-buttons">
           <a href="curriculum-index.html#rsm" class="btn-preview">Preview Curriculum</a>
-          <a href="mailto:daniel@hedsconsulting.net?subject=HEDS Academy: Rental Service Manager Training Signup" target="_blank" rel="noopener noreferrer" class="btn-signup">Sign Up</a>
+          <a href="mailto:daniel@hedsconsulting.net?subject=HEDS%20Academy:%20Rental%20Service%20Manager%20Training%20Signup" class="btn-signup">Sign Up</a>
         </div>
       </div>
 
@@ -1127,7 +1127,7 @@ input, select, textarea {
         <div class="track-stats"><span>3-day onsite</span><span>Interactive dashboard</span><span>50-question assessment</span><span>90-day action plan</span></div>
         <div class="track-buttons">
           <a href="curriculum-index.html#rm" class="btn-preview">Preview Curriculum</a>
-          <a href="mailto:daniel@hedsconsulting.net?subject=HEDS Academy: Rental Manager Training Signup" target="_blank" rel="noopener noreferrer" class="btn-signup">Sign Up</a>
+          <a href="mailto:daniel@hedsconsulting.net?subject=HEDS%20Academy:%20Rental%20Manager%20Training%20Signup" class="btn-signup">Sign Up</a>
         </div>
       </div>
 
@@ -1139,7 +1139,7 @@ input, select, textarea {
         <div class="track-stats"><span>3-day onsite</span><span>Interactive dashboard</span><span>50-question assessment</span><span>90-day action plan</span></div>
         <div class="track-buttons">
           <a href="curriculum-index.html#pm" class="btn-preview">Preview Curriculum</a>
-          <a href="mailto:daniel@hedsconsulting.net?subject=HEDS Academy: Parts Manager Training Signup" target="_blank" rel="noopener noreferrer" class="btn-signup">Sign Up</a>
+          <a href="mailto:daniel@hedsconsulting.net?subject=HEDS%20Academy:%20Parts%20Manager%20Training%20Signup" class="btn-signup">Sign Up</a>
         </div>
       </div>
 
@@ -1245,7 +1245,7 @@ input, select, textarea {
   <div class="card" style="text-align:center;">
     <h2>Ready to close the gap?</h2>
     <p>Book a 30-minute discovery call. We'll review your current state, identify the top 3 operational leaks, and recommend the right track for your team.</p>
-    <a class="cta-btn" href="mailto:daniel@hedsconsulting.net?subject=HEDS Academy: Discovery Call Request" target="_blank" rel="noopener noreferrer">Book a Discovery Call</a>
+    <a class="cta-btn" href="mailto:daniel@hedsconsulting.net?subject=HEDS%20Academy:%20Discovery%20Call%20Request">Book a Discovery Call</a>
   </div>
 </div>
 
@@ -1298,7 +1298,7 @@ input, select, textarea {
     <h2>$300 per manager</h2>
     <p>Volume pricing: 5+ managers at $250 each. 10+ at $200 each.</p>
     <p style="margin-top:16px;">To schedule an assessment for your team, request details below. We will follow up within one business day with available dates, proctoring options (in person or monitored remote), and the assessment brief.</p>
-    <a class="cta-btn" href="mailto:daniel@hedsconsulting.net?subject=HEDS Assessment: Request Details" target="_blank" rel="noopener noreferrer" style="margin-top:16px;">Request Assessment Details</a>
+    <a class="cta-btn" href="mailto:daniel@hedsconsulting.net?subject=HEDS%20Assessment:%20Request%20Details" style="margin-top:16px;">Request Assessment Details</a>
   </div>
 
   <div class="card">
@@ -1317,7 +1317,7 @@ input, select, textarea {
         <option value="5+">5+ managers</option>
       </select>
       <button type="submit" class="cta-btn" style="margin-top:8px;border:none;">Get Assessment Details</button>
-      <p id="assess-confirm" style="display:none;color:var(--success);font-size:0.9rem;text-align:center;margin-top:8px;">Thanks. We will follow up within one business day.</p>
+      <div id="assess-confirm" role="status" aria-live="polite" style="display:none;font-size:0.9rem;text-align:left;margin-top:8px;"></div>
     </form>
   </div>
 </div>
@@ -1466,23 +1466,59 @@ window.addEventListener('DOMContentLoaded', function() {
 });
 
 // ===== ASSESSMENT FORM HANDLER =====
+// Opens the visitor's email app with the request filled in. The form is not
+// cleared and no success message is shown, because the site cannot tell if an
+// email app opened or if the message was sent. The composed message is shown
+// with a copy button so it can be sent from any email account.
 function hedsAssessmentSubmit(e) {
   e.preventDefault();
-  var name = document.getElementById('assess-name').value;
-  var email = document.getElementById('assess-email').value;
-  var company = document.getElementById('assess-company').value || 'Not provided';
+  var to = 'daniel@hedsconsulting.net';
+  var name = document.getElementById('assess-name').value.trim();
+  var email = document.getElementById('assess-email').value.trim();
+  var companyRaw = document.getElementById('assess-company').value.trim();
+  var company = companyRaw || 'Not provided';
   var managers = document.getElementById('assess-managers').value;
-  var subject = encodeURIComponent('HEDS Assessment Request: ' + (company || name));
-  var body = encodeURIComponent(
+  var subjectText = 'HEDS Assessment Request: ' + (companyRaw || name);
+  var bodyText =
     'Name: ' + name + '\n' +
     'Email: ' + email + '\n' +
     'Company: ' + company + '\n' +
     'Managers: ' + managers + '\n\n' +
-    'Please send available assessment dates, proctoring options, and the assessment brief.'
-  );
-  window.location.href = 'mailto:daniel@hedsconsulting.net?subject=' + subject + '&body=' + body;
-  document.getElementById('assess-confirm').style.display = 'block';
-  document.getElementById('assessment-form').reset();
+    'Please send available assessment dates, proctoring options, and the assessment brief.';
+  var fullText = 'To: ' + to + '\nSubject: ' + subjectText + '\n\n' + bodyText;
+
+  var box = document.getElementById('assess-confirm');
+  box.innerHTML =
+    '<p style="margin:0 0 8px;">Your email app should open with this request filled in. Press Send there to reach Daniel.</p>' +
+    '<p style="margin:0 0 8px;">If no email app opened, copy the message below and send it to ' +
+    '<a href="mailto:' + to + '" style="color:var(--accent);">' + to + '</a>, or call <a href="tel:8135997893" style="color:var(--accent);">813-599-7893</a>.</p>' +
+    '<label for="assess-message" style="display:block;font-size:0.85rem;color:var(--muted);margin-bottom:4px;">Your request</label>' +
+    '<textarea id="assess-message" readonly rows="9" style="width:100%;box-sizing:border-box;padding:10px;border-radius:var(--radius);border:1px solid var(--border);background:var(--bg);color:var(--fg);font-size:0.9rem;font-family:inherit;resize:vertical;"></textarea>' +
+    '<button type="button" id="assess-copy" style="margin-top:8px;padding:8px 14px;border-radius:var(--radius);border:1px solid var(--border);background:var(--bg);color:var(--fg);cursor:pointer;">Copy message</button> ' +
+    '<span id="assess-copy-status" style="margin-left:8px;color:var(--muted);"></span>';
+  box.style.display = 'block';
+  var ta = document.getElementById('assess-message');
+  ta.value = fullText;
+
+  document.getElementById('assess-copy').onclick = function () {
+    var status = document.getElementById('assess-copy-status');
+    function fallbackCopy() {
+      ta.focus();
+      ta.select();
+      var ok = false;
+      try { ok = document.execCommand('copy'); } catch (err) { ok = false; }
+      status.textContent = ok ? 'Copied.' : 'Select the text above and copy it.';
+    }
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(fullText).then(function () {
+        status.textContent = 'Copied.';
+      }, fallbackCopy);
+    } else {
+      fallbackCopy();
+    }
+  };
+
+  window.location.href = 'mailto:' + to + '?subject=' + encodeURIComponent(subjectText) + '&body=' + encodeURIComponent(bodyText);
   return false;
 }
 
