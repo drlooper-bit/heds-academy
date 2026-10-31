@@ -601,6 +601,20 @@ body {
 .blog-intro h2 { font-size: 1.8rem; color: var(--fg); margin-bottom: 8px; font-weight: 800; }
 .blog-intro p { color: var(--muted); font-size: 0.95rem; }
 .post-list { display: grid; gap: 20px; }
+/* ===== VIDEOS (driven by assets/videos/videos.js) ===== */
+.videos-section { margin-top: 40px; }
+.videos-section[hidden] { display: none !important; }
+.videos-section h3 { font-size: 1.4rem; color: var(--fg); font-weight: 800; margin-bottom: 6px; }
+.videos-intro { color: var(--muted); font-size: 0.95rem; margin-bottom: 20px; }
+.video-grid { display: grid; grid-template-columns: 1fr; gap: 20px; justify-items: center; }
+@media (min-width: 600px) { .video-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 960px) { .video-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.video-card { width: 100%; max-width: 360px; background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; display: flex; flex-direction: column; }
+.video-card video { display: block; width: 100%; aspect-ratio: 9 / 16; height: auto; background: #000; object-fit: cover; }
+.video-body { padding: 16px 18px 20px; }
+.video-caption { color: var(--fg); font-size: 0.95rem; line-height: 1.5; margin-bottom: 12px; }
+.video-cta { color: var(--accent); font-weight: 700; font-size: 0.9rem; text-decoration: none; }
+.video-cta:hover { text-decoration: underline; }
 .post-card {
   background: var(--card-bg);
   border: 1px solid var(--border);
@@ -844,7 +858,7 @@ input, select, textarea {
   <button class="tab-btn" role="tab" aria-selected="false" onclick="showSection('training', this)">Training &amp; Academy</button>
   <button class="tab-btn" role="tab" aria-selected="false" onclick="showSection('assessment', this)">Assessment</button>
   <button class="tab-btn" role="tab" aria-selected="false" onclick="showSection('contact', this)">Contact</button>
-  <button class="tab-btn" role="tab" aria-selected="false" onclick="showSection('blog', this)">Blog</button>
+  <button class="tab-btn" role="tab" aria-selected="false" onclick="showSection('blog', this)">Blog &amp; Videos</button>
 </nav>
 </div>
 
@@ -1378,7 +1392,7 @@ input, select, textarea {
 <!-- ===== BLOG SECTION ===== -->
 <div class="section" id="sec-blog" role="tabpanel">
   <div class="blog-intro">
-    <h2>Blog</h2>
+    <h2>Blog &amp; Videos</h2>
     <p>Practical management insights for heavy equipment dealers and rental companies: KPIs, operating discipline, and margin protection.</p>
   </div>
 
@@ -1408,6 +1422,13 @@ input, select, textarea {
       </div>
     </a>
   </div>
+
+  <!-- ===== VIDEOS (only entries with active:true in assets/videos/videos.js are shown; section stays hidden when none are active) ===== -->
+  <section class="videos-section" id="videos" aria-labelledby="videos-heading" hidden>
+    <h3 id="videos-heading">Videos</h3>
+    <p class="videos-intro">Short clips from the shop floor on where your shop loses money.</p>
+    <div class="video-grid" id="video-grid"></div>
+  </section>
 </div>
 
 <!-- ===== FOOTER ===== -->
@@ -1531,6 +1552,44 @@ window.addEventListener('popstate', function() {
     showSection(hash);
   }
 });
+</script>
+<script src="assets/videos/videos.js"></script>
+<script>
+(function renderVideos() {
+  var list = (window.HEDS_VIDEOS || []).filter(function (v) { return v && v.active === true && v.src; });
+  var section = document.getElementById('videos');
+  var grid = document.getElementById('video-grid');
+  if (!section || !grid) return;
+  if (!list.length) { section.hidden = true; return; }
+  list.forEach(function (v) {
+    var card = document.createElement('article');
+    card.className = 'video-card';
+    var video = document.createElement('video');
+    video.controls = true;
+    video.playsInline = true;
+    video.setAttribute('playsinline', '');
+    video.preload = 'none';
+    if (v.poster) video.poster = v.poster;
+    video.width = 720; video.height = 1280;
+    if (v.title) video.setAttribute('aria-label', v.title);
+    var source = document.createElement('source');
+    source.src = v.src; source.type = 'video/mp4';
+    video.appendChild(source);
+    var body = document.createElement('div');
+    body.className = 'video-body';
+    var cap = document.createElement('p');
+    cap.className = 'video-caption';
+    cap.textContent = v.caption || '';
+    var cta = document.createElement('a');
+    cta.className = 'video-cta';
+    cta.href = 'https://hedsconsulting.net';
+    cta.textContent = 'Check yours at https://hedsconsulting.net';
+    body.appendChild(cap); body.appendChild(cta);
+    card.appendChild(video); card.appendChild(body);
+    grid.appendChild(card);
+  });
+  section.hidden = false;
+})();
 </script>
 
 </body>
