@@ -55,7 +55,7 @@
   "@type": "BreadcrumbList",
   "itemListElement": [
     {"@type": "ListItem", "position": 1, "name": "HEDS", "item": "https://hedsconsulting.net/"},
-    {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://hedsconsulting.net/#blog"},
+    {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://hedsconsulting.net/blog/index.html"},
     {"@type": "ListItem", "position": 3, "name": "The 48-Hour Work Order Close Standard", "item": "https://hedsconsulting.net/blog/work-order-48-hour-close-standard.html"}
   ]
 }
@@ -442,6 +442,12 @@ body {
   transition: background 0.2s;
 }
 .cta-btn:hover { background: var(--accent-hover); }
+.cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+}
 .cta-back {
   display: inline-block;
   margin-top: 24px;
@@ -598,7 +604,7 @@ html, body {
 <nav class="breadcrumb">
   <a href="../index.html">Home</a>
   <span>›</span>
-  <a href="../index.html#blog">Blog</a>
+  <a href="index.html">Blog</a>
   <span>›</span>
   The 48-Hour Work Order Close Standard
 </nav>
@@ -668,8 +674,11 @@ html, body {
   <!-- ===== CTA CARD ===== -->
   <div class="cta-card">
     <h2>Ready to install the 48-hour close standard on your shop floor?</h2>
-    <p>Review our four onsite management training tracks, explore the live KPI dashboards, or schedule a 30-minute discovery call.</p>
-    <a class="cta-btn" href="../index.html#contact">Book a Discovery Call</a>
+    <p>Review our four onsite management training tracks, <a href="../service-manager-dashboard.html">explore the live KPI dashboards</a>, or schedule a 30-minute discovery call.</p>
+    <div class="cta-actions">
+      <a class="cta-btn" href="../index.html#contact">Book a Discovery Call</a>
+      <a class="cta-btn" href="../service-manager-dashboard.html">Open the Service Dashboard</a>
+    </div>
   </div>
 
   <!-- ===== AUTHOR BIO ===== -->
@@ -681,7 +690,7 @@ html, body {
     </div>
   </div>
 
-  <a class="cta-back" href="../index.html#blog">← Back to Blog</a>
+  <a class="cta-back" href="index.html">← Back to Blog</a>
   &nbsp; &nbsp;
   <a class="cta-back" href="../index.html">Back to Home</a>
 

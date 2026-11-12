@@ -261,6 +261,14 @@ body {
   color: var(--accent);
   border-bottom-color: var(--accent);
 }
+a.tab-btn {
+  text-decoration: none;
+  color: var(--muted);
+  display: inline-flex;
+  align-items: center;
+  box-sizing: border-box;
+}
+a.tab-btn:hover { color: var(--fg); }
 
 /* ===== SECTIONS ===== */
 .section { display: none; padding: 24px 20px; max-width: 900px; margin: 0 auto; }
@@ -687,7 +695,7 @@ input, select, textarea {
   .header-inner { padding: 14px 20px; }
   .header-logo { width: 72px; height: 72px; }
   .header-text h1 { font-size: 1.5rem; }
-  .tab-nav-inner {
+  .tab-nav, .tab-nav-inner {
     flex-wrap: wrap;
     justify-content: center;
     padding: 4px 12px;
@@ -730,8 +738,8 @@ input, select, textarea {
     font-size: 0.7rem !important;
     line-height: 1.25;
   }
-  /* Clean 2x3 touch-friendly navigation grid on mobile so all 6 tabs are visible without horizontal clipping */
-  .tab-nav-inner {
+  /* Touch-friendly navigation grid on mobile so all tabs, including the KPI Dashboards link, are visible without horizontal clipping */
+  .tab-nav, .tab-nav-inner {
     display: grid !important;
     grid-template-columns: repeat(3, 1fr);
     gap: 4px;
@@ -822,6 +830,12 @@ input, select, textarea {
 }
 
 </style>
+<noscript>
+<style>
+  /* Without JS, tab sections stay in the document flow so hash anchors can scroll into view. */
+  .section { display: block !important; }
+</style>
+</noscript>
 </head>
 <body>
 
@@ -845,11 +859,13 @@ input, select, textarea {
   <button class="tab-btn" role="tab" aria-selected="false" onclick="showSection('assessment', this)">Assessment</button>
   <button class="tab-btn" role="tab" aria-selected="false" onclick="showSection('contact', this)">Contact</button>
   <button class="tab-btn" role="tab" aria-selected="false" onclick="showSection('blog', this)">Blog</button>
+  <a class="tab-btn" href="kpi-dashboards.html">KPI Dashboards</a>
 </nav>
 </div>
 
 <!-- ===== OVERVIEW SECTION ===== -->
 <div class="section active" id="sec-overview" role="tabpanel">
+  <span id="overview"></span>
   <img src="heds-hero-banner.jpg" alt="Heavy equipment lineup, excavators and wheel loaders" class="hero-banner" width="1328" height="332" onerror="this.style.display='none'">
   <div class="hero">
     <h2>We find the money your operation is losing or overlooking, and install the discipline to keep the bottlenecks from coming back.</h2>
@@ -913,6 +929,7 @@ input, select, textarea {
 
 <!-- ===== DUE DILIGENCE SECTION ===== -->
 <div class="section" id="sec-diligence" role="tabpanel">
+  <span id="diligence"></span>
   <div class="hero">
     <h2>Due Diligence &amp; Operational Inspections</h2>
     <p>We walk your floor, pull your ERP reports, and show you exactly where the cash is leaving. Not a desktop review, a full onsite operational audit of your service, parts, and rental departments.</p>
@@ -1044,6 +1061,7 @@ input, select, textarea {
 
 <!-- ===== TRAINING SECTION ===== -->
 <div class="section" id="sec-training" role="tabpanel">
+  <span id="training"></span>
   <div class="hero">
     <h2>HEDS Operating Discipline Academy</h2>
     <p>Position-specific onsite training that installs daily operating discipline, using your real data, on your floor, with your numbers. Not a webinar. Not a book. Not a generic management seminar.</p>
@@ -1255,6 +1273,7 @@ input, select, textarea {
 
 <!-- ===== ASSESSMENT SECTION ===== -->
 <div class="section" id="sec-assessment" role="tabpanel">
+  <span id="assessment"></span>
   <div class="hero">
     <h2>The HEDS Operating Discipline Assessment</h2>
     <p>50 questions. 90 minutes. Proctored. Your score report is the evidence.</p>
@@ -1328,6 +1347,7 @@ input, select, textarea {
 
 <!-- ===== CONTACT SECTION ===== -->
 <div class="section" id="sec-contact" role="tabpanel">
+  <span id="contact"></span>
   <div class="hero">
     <h2>Let's Talk</h2>
     <p>Book a 30-minute discovery call. We'll review what's happening in your operation and recommend where to start, whether that's an inspection, training, or both.</p>
@@ -1381,6 +1401,7 @@ input, select, textarea {
 
 <!-- ===== BLOG SECTION ===== -->
 <div class="section" id="sec-blog" role="tabpanel">
+  <span id="blog"></span>
   <div class="blog-intro">
     <h2>Blog</h2>
     <p>Practical management insights for heavy equipment dealers and rental companies: KPIs, operating discipline, and margin protection.</p>

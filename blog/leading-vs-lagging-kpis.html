@@ -55,7 +55,7 @@
   "@type": "BreadcrumbList",
   "itemListElement": [
     {"@type": "ListItem", "position": 1, "name": "HEDS", "item": "https://hedsconsulting.net/"},
-    {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://hedsconsulting.net/#blog"},
+    {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://hedsconsulting.net/blog/index.html"},
     {"@type": "ListItem", "position": 3, "name": "Leading vs. Lagging KPIs", "item": "https://hedsconsulting.net/blog/leading-vs-lagging-kpis.html"}
   ]
 }
@@ -442,6 +442,12 @@ body {
   transition: background 0.2s;
 }
 .cta-btn:hover { background: var(--accent-hover); }
+.cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+}
 .cta-back {
   display: inline-block;
   margin-top: 24px;
@@ -598,7 +604,7 @@ html, body {
 <nav class="breadcrumb">
   <a href="../index.html">Home</a>
   <span>›</span>
-  <a href="../index.html#blog">Blog</a>
+  <a href="index.html">Blog</a>
   <span>›</span>
   Leading vs. Lagging KPIs
 </nav>
@@ -806,7 +812,11 @@ html, body {
   <div class="cta-card">
     <h2>Is your KPI process primarily retrospective?</h2>
     <p>HEDS can help assess where leading indicators and stronger operating controls could improve visibility and execution. A review of your existing dashboards, reporting cadence, and management routines can identify where earlier intervention may have the greatest impact.</p>
-    <a class="cta-btn" href="../index.html#contact">Book a Discovery Call</a>
+    <div class="cta-actions">
+      <a class="cta-btn" href="../index.html#contact">Book a Discovery Call</a>
+      <a class="cta-btn" href="../kpi-dashboards.html">Open the KPI Dashboards</a>
+      <a class="cta-btn" href="../service-manager-dashboard.html">Open the Service Dashboard</a>
+    </div>
   </div>
 
   <!-- ===== AUTHOR BIO ===== -->
@@ -818,7 +828,7 @@ html, body {
     </div>
   </div>
 
-  <a class="cta-back" href="../index.html#blog">← Back to Blog</a>
+  <a class="cta-back" href="index.html">← Back to Blog</a>
   &nbsp; &nbsp;
   <a class="cta-back" href="../index.html">Back to Home</a>
 

@@ -4,8 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>HEDS Academy: KPI Dashboards</title>
-<meta name="description" content="Open the HEDS interactive KPI dashboards for Service, Parts, Rental, and Rental Service managers.">
+<meta name="description" content="HEDS KPI standards for Service, Parts, Rental, and Rental Service managers, with formulas, settled targets, and a link into each interactive dashboard.">
 <link rel="icon" type="image/png" href="LOGO_HEDS_small.png">
+<link rel="canonical" href="https://hedsconsulting.net/kpi-dashboards.html">
 <style>
   :root { --bg:#0e1f38; --fg:#f8fafc; --card-bg:#152847; --border-color:#203b60; --accent-color:#e5ae25; --muted:#94a3b8; --radius:8px;
     --font-main:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; }
@@ -19,15 +20,36 @@
   .brand { font-size:0.95rem; font-weight:800; color:var(--accent-color); text-transform:uppercase; letter-spacing:1.5px; margin-bottom:6px; }
   h2 { font-size:1.25rem; font-weight:700; margin-bottom:4px; }
   .subtitle { color:var(--muted); font-size:0.9rem; }
-  .top-links { margin:-8px 0 20px 0; }
+  .top-links { margin:-8px 0 20px 0; display:flex; flex-wrap:wrap; gap:8px; }
   .top-links a { display:inline-block; color:var(--accent-color); border:1px solid var(--accent-color); background:var(--card-bg); padding:6px 12px; border-radius:var(--radius); font-weight:700; font-size:0.8rem; text-decoration:none; }
-  .grid { display:grid; grid-template-columns:repeat(2,1fr); gap:16px; }
-  .card { background:var(--card-bg); border:1px solid var(--border-color); border-radius:var(--radius); padding:20px; display:flex; flex-direction:column; }
-  .card h3 { color:var(--accent-color); font-size:1.15rem; margin-bottom:6px; }
-  .card p { font-size:0.92rem; color:#cbd5e1; margin-bottom:16px; flex:1; }
-  .card a.open { align-self:flex-start; background:var(--accent-color); color:#0e1f38; font-weight:800; padding:10px 18px; border-radius:var(--radius); text-decoration:none; }
-  .card a.open:hover { background:#c89718; }
-  @media (max-width:639px) { .grid { grid-template-columns:1fr; } header { gap:12px; } .header-logo { max-height:70px; } h1 { font-size:1.3rem; } .card a.open { align-self:stretch; text-align:center; } }
+  .top-links a:hover { background:var(--accent-color); color:#0e1f38; }
+  .block { background:var(--card-bg); border:1px solid var(--border-color); border-radius:var(--radius); padding:20px; margin-bottom:20px; }
+  .block > h2 { color:var(--accent-color); margin-bottom:8px; }
+  .lead { color:#cbd5e1; font-size:0.95rem; margin-bottom:10px; }
+  .jump { display:flex; flex-wrap:wrap; gap:8px; margin:12px 0 0 0; }
+  .jump a { display:inline-block; color:var(--accent-color); border:1px solid var(--border-color); background:#0b182c; padding:6px 12px; border-radius:var(--radius); font-weight:700; font-size:0.8rem; text-decoration:none; }
+  .jump a:hover { border-color:var(--accent-color); }
+  .dept { margin-top:28px; padding-top:8px; }
+  .dept h3 { color:var(--accent-color); font-size:1.15rem; margin-bottom:6px; }
+  .note { color:#cbd5e1; font-size:0.92rem; margin-bottom:10px; }
+  .tbl-wrap { width:100%; overflow-x:auto; -webkit-overflow-scrolling:touch; border:1px solid var(--border-color); border-radius:var(--radius); }
+  table.kpi { width:100%; border-collapse:collapse; min-width:640px; font-size:0.88rem; }
+  table.kpi th { background:#0b182c; color:var(--accent-color); text-align:left; padding:10px; font-size:0.78rem; text-transform:uppercase; letter-spacing:1px; border-bottom:1px solid var(--border-color); }
+  table.kpi td { padding:10px; border-bottom:1px solid var(--border-color); vertical-align:top; color:#e2e8f0; }
+  table.kpi tr:last-child td { border-bottom:none; }
+  table.kpi td.kn { font-weight:700; color:var(--fg); width:22%; }
+  table.kpi td.kn a { color:var(--accent-color); text-decoration:none; }
+  table.kpi td.kn a:hover { text-decoration:underline; }
+  .open { display:inline-block; margin-top:12px; background:var(--accent-color); color:#0e1f38; font-weight:800; padding:10px 18px; border-radius:var(--radius); text-decoration:none; }
+  .open:hover { background:#c89718; }
+  @media (max-width:639px) {
+    header { gap:12px; }
+    .header-logo { max-height:70px; }
+    h1 { font-size:1.3rem; }
+    .block { padding:14px; }
+    table.kpi { min-width:560px; }
+    .open { display:block; text-align:center; }
+  }
 </style>
 </head>
 <body>
@@ -37,15 +59,103 @@
     <h1>Heavy Equipment Dealer Solutions LLC</h1>
     <div class="brand">HEDS Operating Discipline Academy</div>
     <h2>KPI Dashboards</h2>
-    <p class="subtitle">Pick a department to open its training curriculum, interactive dashboard, and assessment test.</p>
+    <p class="subtitle">The HEDS standards for each department, with a direct link into the interactive dashboard.</p>
   </div>
 </header>
-<div class="top-links"><a href="index.html">Back to Home</a></div>
-<div class="grid">
-  <div class="card"><h3>Service Manager</h3><p>Absorption, WIP control, technician efficiency, effective labor rate, job triage, and warranty, scored against the HEDS benchmarks.</p><a class="open" href="service-manager-dashboard.html">Open Dashboard</a></div>
-  <div class="card"><h3>Parts Manager</h3><p>Gross margin, absorption, share of dealership gross margin, salary as a percent of gross profit, turns, stock orders, obsolescence, and fill rate.</p><a class="open" href="parts-manager-dashboard.html">Open Dashboard</a></div>
-  <div class="card"><h3>Rental Manager</h3><p>Time and dollar utilization, rate realization, downtime, damage recovery, maintenance as a percent of OEC, and the 30/60/90 tracker.</p><a class="open" href="rental-manager-dashboard.html">Open Dashboard</a></div>
-  <div class="card"><h3>Rental Service Manager</h3><p>Fleet availability, maintenance as a percent of OEC, turnaround to rent-ready, tech recovery, damage recovery, and the 30/60/90 tracker.</p><a class="open" href="rental-service-manager-dashboard.html">Open Dashboard</a></div>
+<div class="top-links"><a href="index.html">Back to Home</a><a href="index.html#training">Training Tracks</a><a href="blog/index.html">Blog</a></div>
+
+<div class="block" id="kpi-tables">
+  <h2>KPI Standards by Department</h2>
+  <p class="lead">Each department below has a short description, the measures that belong on that scorecard, and a link into its dashboard. Dealer service and parts targets in these tables come from the settled HEDS dealer standards. A target is shown only where that standard is set. Rental is a separate business, and rental targets are covered in training rather than copied from the dealer list.</p>
+  <div class="jump">
+    <a href="#service-kpis">Service</a>
+    <a href="#parts-kpis">Parts</a>
+    <a href="#rental-kpis">Rental</a>
+    <a href="#rental-service-kpis">Rental Service</a>
+  </div>
+
+<section class="dept" id="service-kpis">
+  <h3>Service Manager</h3>
+  <p class="note">The Service dashboard is where a shop manager works absorption, recovery, utilization, efficiency, first-time fix, and the 48-hour close against the HEDS dealer standards. Labor figures come from the time clock and the work orders for the same period.</p>
+  <div class="tbl-wrap"><table class="kpi">
+    <thead><tr><th>KPI</th><th>Formula</th><th>HEDS Target</th></tr></thead>
+    <tbody>
+      <tr><td class="kn"><a href="service-manager-dashboard.html">Service Absorption</a></td><td>Service department gross profit divided by total operating expenses, times 100</td><td>95% to 100% is standard. 100% is the gold standard. 105% to 110% is optimal.</td></tr>
+      <tr><td class="kn"><a href="service-manager-dashboard.html">Technician Recovery</a></td><td>Hours sold divided by hours paid, times 100</td><td>95% to 100%</td></tr>
+      <tr><td class="kn"><a href="service-manager-dashboard.html">Labor Utilization</a></td><td>Hours invoiced on work orders divided by hours on work orders, times 100</td><td>95% to 100%. At 85% or below, the shop is losing money.</td></tr>
+      <tr><td class="kn"><a href="service-manager-dashboard.html">Shop Efficiency</a></td><td>Flat rate or estimated time divided by actual job time, times 100</td><td>110%</td></tr>
+      <tr><td class="kn"><a href="service-manager-dashboard.html">Last Labor to Invoice</a></td><td>Hours from the last labor posted on a work order to the invoice</td><td>48 hours</td></tr>
+      <tr><td class="kn"><a href="service-manager-dashboard.html">Service Labor Gross Margin</a></td><td>(Labor sales minus direct technician cost) divided by labor sales, times 100</td><td>75% to 80%</td></tr>
+      <tr><td class="kn"><a href="service-manager-dashboard.html">First-Time Fix Rate</a></td><td>Repairs fixed on the first attempt divided by completed repairs, times 100</td><td>85% to 90%</td></tr>
+    </tbody>
+  </table></div>
+  <a class="open" href="service-manager-dashboard.html">Open the Service Dashboard</a>
+</section>
+
+<section class="dept" id="parts-kpis">
+  <h3>Parts Manager</h3>
+  <p class="note">The Parts dashboard covers margin, absorption, turns, fill rate, obsolescence, and the other dealer parts measures. Turns are reported overall and by ABC class, since a single part can run from about one turn to thousands.</p>
+  <div class="tbl-wrap"><table class="kpi">
+    <thead><tr><th>KPI</th><th>Formula</th><th>HEDS Target</th></tr></thead>
+    <tbody>
+      <tr><td class="kn"><a href="parts-manager-dashboard.html">Parts Gross Margin</a></td><td>(Parts sales minus parts cost of sales) divided by parts sales, times 100</td><td>33% to 37%</td></tr>
+      <tr><td class="kn"><a href="parts-manager-dashboard.html">Parts Absorption</a></td><td>Parts department gross profit divided by total operating expenses, times 100</td><td>95% to 100% is standard. 100% is the gold standard. 105% to 110% is optimal.</td></tr>
+      <tr><td class="kn"><a href="parts-manager-dashboard.html">Parts Share of Dealership Gross Margin</a></td><td>Parts gross profit divided by total dealership gross profit, times 100</td><td>25% to 30% of total dealership gross margin, not percent of sales</td></tr>
+      <tr><td class="kn"><a href="parts-manager-dashboard.html">Parts Salaries as a Percent of Parts Gross Profit</a></td><td>Parts salaries divided by parts gross profit, times 100</td><td>30% or less</td></tr>
+      <tr><td class="kn"><a href="parts-manager-dashboard.html">Gross Parts Turns</a></td><td>Annual parts cost of sales divided by average parts inventory at cost</td><td>3 to 4 turns a year, reported overall and by ABC class</td></tr>
+      <tr><td class="kn"><a href="parts-manager-dashboard.html">Stock Order Percent</a></td><td>Parts purchases on stock orders divided by total parts purchases, times 100</td><td>80%</td></tr>
+      <tr><td class="kn"><a href="parts-manager-dashboard.html">Obsolete and Excess Stock</a></td><td>Obsolete and excess inventory divided by total parts inventory, times 100</td><td>Under 5% of parts inventory</td></tr>
+      <tr><td class="kn"><a href="parts-manager-dashboard.html">Parts Aging</a></td><td>Months since a part last sold</td><td>Slow moving at 6 to 8 months, when the chance of a full credit return drops. Obsolete at 12 months with no movement. Write off or purge at 18 to 24 months.</td></tr>
+      <tr><td class="kn"><a href="parts-manager-dashboard.html">Counter Fill Rate</a></td><td>Counter line items filled from stock divided by counter line items requested, times 100</td><td>85%, the sweet spot</td></tr>
+      <tr><td class="kn"><a href="parts-manager-dashboard.html">Service Fill Rate</a></td><td>Service line items filled from stock divided by service line items requested, times 100</td><td>90% to 95%</td></tr>
+      <tr><td class="kn"><a href="parts-manager-dashboard.html">Months of Supply</a></td><td>Stock on hand divided by average monthly usage</td><td>Set per dealer. Three months is an average starting point, adjusted for how fast stock orders are filled and for turns.</td></tr>
+      <tr><td class="kn"><a href="parts-manager-dashboard.html">Parts to Labor Ratio</a></td><td>Parts billed on work orders divided by labor on work orders</td><td>No single dealer-wide target. Measured by CAT class. Per-class numbers are covered in training.</td></tr>
+    </tbody>
+  </table></div>
+  <a class="open" href="parts-manager-dashboard.html">Open the Parts Dashboard</a>
+</section>
+
+<section class="dept" id="rental-kpis">
+  <h3>Rental Manager</h3>
+  <p class="note">The Rental dashboard is the commercial view of the fleet: time and dollar utilization, rate realization, downtime, damage recovery, and maintenance cost as a percent of original equipment cost. Rental books labor, parts, and maintenance differently than a dealership, so dealer targets are not applied here. The measures below are taught on the dashboard, and the HEDS targets are covered in training.</p>
+  <div class="tbl-wrap"><table class="kpi">
+    <thead><tr><th>KPI</th><th>Formula</th><th>HEDS Target</th></tr></thead>
+    <tbody>
+      <tr><td class="kn"><a href="rental-manager-dashboard.html">Time Utilization</a></td><td>Days on rent divided by available rentable days, times 100</td><td>Covered in training</td></tr>
+      <tr><td class="kn"><a href="rental-manager-dashboard.html">Dollar Utilization</a></td><td>Annual rental revenue divided by total original equipment cost (OEC), times 100</td><td>Covered in training</td></tr>
+      <tr><td class="kn"><a href="rental-manager-dashboard.html">Maintenance Cost as a Percent of OEC</a></td><td>Annual maintenance cost, with technician labor left out, divided by fleet OEC, times 100</td><td>Covered in training</td></tr>
+      <tr><td class="kn"><a href="rental-manager-dashboard.html">Productive Utilization</a></td><td>Engine hours run from telematics divided by contracted hours, times 100</td><td>Covered in training</td></tr>
+      <tr><td class="kn"><a href="rental-manager-dashboard.html">Equipment Downtime</a></td><td>Down days divided by available days, times 100</td><td>Covered in training</td></tr>
+      <tr><td class="kn"><a href="rental-manager-dashboard.html">Rate Realization</a></td><td>Actual invoiced rate divided by rack rate, times 100</td><td>Covered in training</td></tr>
+      <tr><td class="kn"><a href="rental-manager-dashboard.html">Damage Recovery Rate</a></td><td>Customer damage collected divided by total cost of customer damage repairs, times 100</td><td>Covered in training</td></tr>
+      <tr><td class="kn"><a href="rental-manager-dashboard.html">Equipment to Orders Ratio</a></td><td>Available units in a class divided by active rental requests for that class</td><td>Covered in training</td></tr>
+      <tr><td class="kn"><a href="rental-manager-dashboard.html">EBITDA Margin</a></td><td>EBITDA divided by total rental revenue, times 100</td><td>Covered in training</td></tr>
+      <tr><td class="kn"><a href="rental-manager-dashboard.html">Customer Churn (quarterly)</a></td><td>Customers lost this quarter divided by active customers last quarter, times 100</td><td>Covered in training</td></tr>
+    </tbody>
+  </table></div>
+  <a class="open" href="rental-manager-dashboard.html">Open the Rental Dashboard</a>
+</section>
+
+<section class="dept" id="rental-service-kpis">
+  <h3>Rental Service Manager</h3>
+  <p class="note">The Rental Service dashboard is the shop that keeps the fleet rent-ready: off-rent turnaround, availability, downtime, damage recovery, and the 48-hour close on rental work orders. Those measures are taught on the dashboard, and the HEDS targets are covered in training.</p>
+  <div class="tbl-wrap"><table class="kpi">
+    <thead><tr><th>KPI</th><th>Formula</th><th>HEDS Target</th></tr></thead>
+    <tbody>
+      <tr><td class="kn"><a href="rental-service-manager-dashboard.html">Off Rent to Rent-Ready</a></td><td>Hours from off rent into service to the rent-ready line, or to a failed inspection</td><td>Covered in training</td></tr>
+      <tr><td class="kn"><a href="rental-service-manager-dashboard.html">Technician Recovery</a></td><td>Hours on work orders divided by paid payroll hours, times 100</td><td>Covered in training</td></tr>
+      <tr><td class="kn"><a href="rental-service-manager-dashboard.html">Labor Utilization</a></td><td>Hours invoiced on work orders divided by hours on work orders, times 100</td><td>Covered in training</td></tr>
+      <tr><td class="kn"><a href="rental-service-manager-dashboard.html">Maintenance Cost as a Percent of OEC</a></td><td>Annual maintenance cost, with technician labor left out, divided by fleet OEC, times 100</td><td>Covered in training</td></tr>
+      <tr><td class="kn"><a href="rental-service-manager-dashboard.html">Fleet Physical Availability</a></td><td>(Rent-ready units plus on-rent units) divided by total fleet units, times 100</td><td>Covered in training</td></tr>
+      <tr><td class="kn"><a href="rental-service-manager-dashboard.html">Fleet Downtime</a></td><td>Down days divided by total fleet days, times 100</td><td>Covered in training</td></tr>
+      <tr><td class="kn"><a href="rental-service-manager-dashboard.html">Late Close Work Orders</a></td><td>Count of work orders not closed and invoiced within 48 hours of last labor</td><td>Covered in training</td></tr>
+      <tr><td class="kn"><a href="rental-service-manager-dashboard.html">Parts Buffer (Months of Supply)</a></td><td>Parts on hand divided by average monthly usage over the last six months</td><td>Covered in training</td></tr>
+      <tr><td class="kn"><a href="rental-service-manager-dashboard.html">Damage Recovery Rate</a></td><td>Customer damage collected divided by total cost of customer damage repairs, times 100</td><td>Covered in training</td></tr>
+      <tr><td class="kn"><a href="rental-service-manager-dashboard.html">Telematics Triage</a></td><td>Critical alerts triaged within 2 hours divided by total critical alerts, times 100</td><td>Covered in training</td></tr>
+    </tbody>
+  </table></div>
+  <a class="open" href="rental-service-manager-dashboard.html">Open the Rental Service Dashboard</a>
+</section>
 </div>
 </body>
 </html>
