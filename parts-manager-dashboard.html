@@ -759,6 +759,42 @@ table {
   }
 }
 
+
+  /* KPI dashboard switcher (same on all four dashboards) */
+  .dash-switcher {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px;
+    margin: -8px 0 16px 0;
+  }
+  .dash-switcher-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-right: 4px;
+  }
+  .dash-switcher a {
+    background: var(--card-bg);
+    color: var(--muted);
+    border: 1px solid var(--border-color);
+    padding: 6px 12px;
+    border-radius: var(--radius);
+    font-weight: 700;
+    font-size: 0.8rem;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+  .dash-switcher a:hover { color: var(--fg); border-color: var(--accent-color); }
+  .dash-switcher a.active { background: rgba(229, 174, 37, 0.15); color: var(--accent-color); border-color: var(--accent-color); }
+  @media (max-width: 639px) {
+    .dash-switcher { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-top: 0; }
+    .dash-switcher-label { grid-column: 1 / -1; }
+    .dash-switcher a { text-align: center; padding: 10px 8px; min-height: 44px; display: flex; align-items: center; justify-content: center; }
+  }
+  @media print { .dash-switcher { display: none !important; } }
 </style>
 </head>
 <body>
@@ -772,6 +808,15 @@ table {
     <p class="subtitle">Section 1: Industry Benchmark Curriculum | Section 2: Dealership Data Entry Dashboard</p>
   </div>
 </header>
+
+<!-- KPI Dashboard Switcher -->
+<nav class="dash-switcher" aria-label="HEDS KPI dashboards">
+  <span class="dash-switcher-label">KPI Dashboards</span>
+  <a href="service-manager-dashboard.html">Service Manager</a>
+  <a href="parts-manager-dashboard.html" class="active" aria-current="page">Parts Manager</a>
+  <a href="rental-manager-dashboard.html">Rental Manager</a>
+  <a href="rental-service-manager-dashboard.html">Rental Service Manager</a>
+</nav>
 
 <!-- Main Section Navigation -->
 <nav class="main-nav">
