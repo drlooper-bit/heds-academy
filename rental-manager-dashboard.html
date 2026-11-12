@@ -793,13 +793,17 @@ table {
     .dash-switcher-label { grid-column: 1 / -1; }
     .dash-switcher a { text-align: center; padding: 10px 8px; min-height: 44px; display: flex; align-items: center; justify-content: center; }
   }
+  .header-logo-link { display: inline-block; line-height: 0; flex-shrink: 0; }
+  .header-logo-link:hover .header-logo { opacity: 0.85; }
+  .dash-switcher a.dash-home { color: var(--accent-color); border-color: var(--accent-color); margin-right: 8px; }
+  @media (max-width: 640px) { .dash-switcher a.dash-home { grid-column: 1 / -1; margin-right: 0; } }
   @media print { .dash-switcher { display: none !important; } }
 </style>
 </head>
 <body>
 
 <header>
-  <img src="LOGO_HEDS.png" alt="HEDS Logo" class="header-logo">
+  <a href="index.html" class="header-logo-link" title="Back to HEDS home page" aria-label="HEDS home page"><img src="LOGO_HEDS.png" alt="HEDS Logo" class="header-logo"></a>
   <div class="header-text">
     <h1 style="font-size:1.8rem; font-weight:900; color:var(--accent-color); text-transform:uppercase; letter-spacing:1px; margin:0 0 2px 0; line-height:1.1;">Heavy Equipment Dealer Solutions LLC</h1>
     <div class="brand" style="font-size:0.95rem; font-weight:800; color:var(--accent-color); text-transform:uppercase; letter-spacing:1.5px; margin-bottom:6px;">HEDS Operating Discipline Academy</div>
@@ -810,6 +814,7 @@ table {
 
 <!-- KPI Dashboard Switcher -->
 <nav class="dash-switcher" aria-label="HEDS KPI dashboards">
+  <a href="index.html" class="dash-home">Back to Home</a>
   <span class="dash-switcher-label">KPI Dashboards</span>
   <a href="service-manager-dashboard.html">Service Manager</a>
   <a href="parts-manager-dashboard.html">Parts Manager</a>
