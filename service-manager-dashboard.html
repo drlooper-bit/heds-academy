@@ -797,6 +797,8 @@ table {
   .header-logo-link:hover .header-logo { opacity: 0.85; }
   .dash-switcher a.dash-home { color: var(--accent-color); border-color: var(--accent-color); margin-right: 8px; }
   @media (max-width: 640px) { .dash-switcher a.dash-home { grid-column: 1 / -1; margin-right: 0; } }
+  .dash-switcher a.dash-hub { color: var(--fg); border-color: var(--accent-color); text-transform: uppercase; letter-spacing: 1px; margin-right: 8px; }
+  @media (max-width: 640px) { .dash-switcher a.dash-hub { grid-column: 1 / -1; margin-right: 0; } }
   @media print { .dash-switcher { display: none !important; } }
 </style>
 </head>
@@ -815,7 +817,7 @@ table {
 <!-- KPI Dashboard Switcher -->
 <nav class="dash-switcher" aria-label="HEDS KPI dashboards">
   <a href="index.html" class="dash-home">Back to Home</a>
-  <span class="dash-switcher-label">KPI Dashboards</span>
+  <a href="kpi-dashboards.html" class="dash-hub" title="See all KPI dashboards">KPI Dashboards</a>
   <a href="service-manager-dashboard.html" class="active" aria-current="page">Service Manager</a>
   <a href="parts-manager-dashboard.html">Parts Manager</a>
   <a href="rental-manager-dashboard.html">Rental Manager</a>
