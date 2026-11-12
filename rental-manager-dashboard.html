@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>HEDS Academy: Rental Manager Training & Operating Platform</title>
+<title>HEDS Academy: Rental Manager Training &amp; Operating Platform</title>
 <link rel="icon" type="image/png" href="LOGO_HEDS_small.png">
 <style>
   :root {
@@ -20,6 +20,7 @@
     --radius: 8px;
     --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   }
+
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
     background-color: var(--bg);
@@ -30,6 +31,7 @@
     max-width: 1240px;
     margin: 0 auto;
   }
+
   header {
     border-bottom: 2px solid var(--border-color);
     padding-bottom: 16px;
@@ -43,7 +45,9 @@
     width: auto;
     object-fit: contain;
   }
-  .header-text { flex: 1; }
+  .header-text {
+    flex: 1;
+  }
   .brand {
     font-size: 0.85rem;
     font-weight: 700;
@@ -53,6 +57,8 @@
   }
   h1 { font-size: 1.75rem; font-weight: 800; margin-top: 4px; }
   p.subtitle { color: var(--muted); font-size: 0.95rem; margin-top: 4px; }
+
+  /* Top Section Switcher */
   .main-nav {
     display: flex;
     gap: 12px;
@@ -81,8 +87,12 @@
     color: #021226;
     box-shadow: 0 2px 8px rgba(229, 174, 37, 0.4);
   }
+
+  /* Section Visibility */
   .section-container { display: none; }
   .section-container.active { display: block; }
+
+  /* Sub-Navigation Tabs */
   .nav-tabs {
     display: flex;
     flex-wrap: wrap;
@@ -111,6 +121,8 @@
     color: #021226;
     border-color: var(--accent-color);
   }
+
+  /* Cards & Layout */
   .card {
     background: var(--card-bg);
     border: 1px solid var(--border-color);
@@ -128,8 +140,11 @@
     border-bottom: 1px solid var(--border-color);
     padding-bottom: 10px;
   }
+
   .grid-2 { display: grid; grid-template-columns: 1fr; gap: 20px; }
   @media(min-width: 768px) { .grid-2 { grid-template-columns: 1fr 1fr; } }
+
+  /* Curriculum Formatting */
   .curr-module-header {
     background: rgba(229, 174, 37, 0.1);
     border-left: 5px solid var(--accent-color);
@@ -145,6 +160,7 @@
     color: var(--accent-color);
   }
   .curr-module-title { font-size: 1.3rem; font-weight: 800; margin-top: 2px; }
+
   .curr-section { margin-bottom: 20px; }
   .curr-section-h3 {
     font-size: 1rem;
@@ -154,6 +170,8 @@
     letter-spacing: 0.5px;
     margin-bottom: 6px;
   }
+
+  /* Formula Box */
   .formula-card {
     background: rgba(0, 0, 0, 0.3);
     border: 1px solid var(--border-color);
@@ -165,6 +183,7 @@
   .formula-expr { font-family: monospace; font-size: 1rem; font-weight: 700; color: #e5ae25; margin-bottom: 10px; }
   .formula-steps { font-size: 0.85rem; color: var(--fg); padding-left: 20px; }
   .formula-steps li { margin-bottom: 6px; }
+
   .example-badge {
     display: inline-block;
     background: rgba(229, 174, 37, 0.15);
@@ -177,6 +196,8 @@
     margin-bottom: 8px;
     text-transform: uppercase;
   }
+
+  /* Floor Rule Callout */
   .floor-rule {
     background: rgba(245, 158, 11, 0.1);
     border: 1px solid var(--warning);
@@ -186,6 +207,8 @@
     font-size: 0.9rem;
   }
   .floor-rule-title { font-weight: 800; color: var(--warning); text-transform: uppercase; font-size: 0.75rem; letter-spacing: 1px; }
+
+  /* Spec Box */
   .spec-box {
     background: rgba(59, 130, 246, 0.08);
     border-left: 4px solid var(--accent-color);
@@ -195,6 +218,8 @@
     font-size: 0.88rem;
   }
   .spec-title { font-weight: 700; color: var(--accent-color); margin-bottom: 4px; }
+
+  /* Checklist & Table */
   .checklist { list-style: none; margin-top: 8px; }
   .checklist li {
     display: flex;
@@ -206,6 +231,8 @@
   }
   .checklist li:last-child { border-bottom: none; }
   .checklist input[type="checkbox"] { width: 16px; height: 16px; accent-color: var(--accent-color); }
+
+  /* Form Elements */
   .form-group { margin-bottom: 14px; }
   label { display: block; font-size: 0.85rem; font-weight: 600; color: var(--muted); margin-bottom: 4px; }
   input[type="number"], input[type="text"], input[type="password"], input[type="email"] {
@@ -219,6 +246,8 @@
     font-weight: 600;
   }
   input:focus { outline: 2px solid var(--accent-color); border-color: transparent; }
+
+  /* Results Display */
   .metric-box {
     background: rgba(0, 0, 0, 0.3);
     border: 1px solid var(--border-color);
@@ -239,6 +268,7 @@
   .status-pass { background: rgba(34, 197, 94, 0.2); color: var(--success); border: 1px solid var(--success); }
   .status-warn { background: rgba(245, 158, 11, 0.2); color: var(--warning); border: 1px solid var(--warning); }
   .status-fail { background: rgba(239, 68, 68, 0.2); color: var(--danger); border: 1px solid var(--danger); }
+
   .btn {
     background: var(--accent-color);
     color: #0e1f38;
@@ -257,8 +287,12 @@
     color: var(--fg);
   }
   .btn-outline:hover { background: var(--card-bg); border-color: var(--accent-color); }
+
   .tab-content { display: none; }
   .tab-content.active { display: block; }
+
+
+  /* Dropdown Menu for Training */
   .module-dropdown {
     position: relative;
     margin-bottom: 20px;
@@ -283,6 +317,7 @@
   .dropdown-toggle.active { border-color: var(--accent-color); box-shadow: 0 2px 8px rgba(229, 174, 37, 0.3); }
   .dropdown-arrow { font-size: 0.8rem; transition: transform 0.2s ease; }
   .dropdown-toggle.active .dropdown-arrow { transform: rotate(180deg); }
+  
   .dropdown-menu {
     display: none;
     position: absolute;
@@ -323,6 +358,9 @@
   }
   .dropdown-item:hover { background: rgba(229, 174, 37, 0.1); color: var(--accent-color); }
   .dropdown-item.active { background: var(--accent-color); color: #021226; font-weight: 600; }
+
+
+  /* Test Section */
   .test-question {
     background: var(--card-bg);
     border: 1px solid var(--border-color);
@@ -330,7 +368,12 @@
     padding: 20px;
     margin-bottom: 16px;
   }
-  .test-question .q-num { font-size: 0.8rem; color: var(--accent-color); font-weight: 700; margin-bottom: 6px; }
+  .test-question .q-num {
+    font-size: 0.8rem;
+    color: var(--accent-color);
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
   .test-question .q-text { font-size: 1rem; margin-bottom: 12px; }
   .test-options { list-style: none; padding: 0; }
   .test-options li {
@@ -344,6 +387,7 @@
   }
   .test-options li:hover { border-color: var(--accent-color); background: rgba(229, 174, 37, 0.05); }
   .test-options li.selected { border-color: var(--accent-color); background: rgba(229, 174, 37, 0.15); }
+
   .content-placeholder {
     border: 2px dashed var(--border-color);
     border-radius: var(--radius);
@@ -360,6 +404,29 @@
     font-weight: 700;
     margin-bottom: 8px;
   }
+
+  .class-table { width:100%; border-collapse:collapse; font-size:0.82rem; text-align:left; margin:12px 0; }
+  .class-table th { padding:8px; border-bottom:2px solid var(--accent-color); color:var(--accent-color); }
+  .class-table td { padding:8px; border-bottom:1px solid var(--border-color); }
+  .class-table input { width:100%; padding:6px 8px; font-size:0.82rem; }
+  .class-table .class-remove { color:var(--danger); cursor:pointer; font-weight:700; }
+  .class-table .class-remove:hover { text-decoration:underline; }
+
+  @media print {
+    body { background: #fff !important; color: #000 !important; max-width: none; padding: 0; }
+    .main-nav, .nav-tabs, .module-dropdown, .module-pager, .button-row, .btn, .input-form, .completion-tracker { display: none !important; }
+    .section-container { display: none !important; }
+    .section-container.active { display: block !important; }
+    .tab-content { display: none !important; }
+    .tab-content.active { display: block !important; }
+    .card { border: 1px solid #ccc !important; background: #fff !important; color: #000 !important; box-shadow: none !important; margin-bottom: 12px; }
+    .card-title, h1, h2, h3, .spec-title, .brand { color: #000 !important; }
+    .formula-card, .spec-box, .floor-rule { background: #f9f9f9 !important; border-color: #ccc !important; color: #000 !important; }
+    .content-card { border: 1px solid #ccc; background: #fff; color: #000; }
+  }
+
+
+  /* Completion Tracker */
   .completion-tracker {
     margin-top: 20px;
     padding: 16px;
@@ -422,21 +489,97 @@
     border: 1px solid var(--danger);
   }
   .completion-btn.completed-btn:hover { background: rgba(239, 68, 68, 0.1); }
-  .class-table { width:100%; border-collapse:collapse; font-size:0.82rem; text-align:left; margin:12px 0; }
-  .class-table th { padding:8px; border-bottom:2px solid var(--accent-color); color:var(--accent-color); }
-  .class-table td { padding:8px; border-bottom:1px solid var(--border-color); }
-  .class-table input { width:100%; padding:6px 8px; font-size:0.82rem; }
-  .class-table .class-remove { color:var(--danger); cursor:pointer; font-weight:700; }
-  .class-table .class-remove:hover { text-decoration:underline; }
-  @media print {
-    body { background: #fff; color: #000; max-width: none; padding: 0; }
-    .main-nav, .nav-tabs, .module-dropdown, .button-row, .btn, .input-form { display: none !important; }
-    .section-container { display: none !important; }
-    .section-container.active { display: block !important; }
-    .tab-content { display: none !important; }
-    .tab-content.active { display: block !important; }
-    .content-card { border: 1px solid #ccc; background: #fff; color: #000; }
+
+
+  /* Shared component additions (trajectory bar, KPI grids, data tables, pager, diploma) */
+  .trajectory-bar {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    padding: 12px 16px;
+    margin-bottom: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
   }
+  .erp-picker { display: flex; align-items: center; flex-wrap: wrap; gap: 6px; }
+  .erp-picker-label { font-size: 0.75rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin-right: 4px; }
+  .erp-btn {
+    background: var(--card-bg);
+    color: var(--muted);
+    border: 1px solid var(--border-color);
+    padding: 6px 12px;
+    border-radius: var(--radius);
+    font-weight: 700;
+    font-size: 0.78rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  .erp-btn:hover { color: var(--fg); border-color: var(--accent-color); }
+  .erp-btn.active { background: var(--accent-color); color: #021226; border-color: var(--accent-color); }
+  .erp-source { font-size: 0.82rem; color: var(--muted); margin-top: 6px; }
+  .erp-source strong { color: var(--fg); }
+
+  .kpi-grid { display: grid; grid-template-columns: 1fr; gap: 14px; margin: 12px 0; }
+  @media(min-width: 768px) {
+    .kpi-grid-4 { grid-template-columns: repeat(4, 1fr); }
+    .kpi-grid-5 { grid-template-columns: repeat(5, 1fr); }
+  }
+  .kpi-card, .kpi-tile { margin-top: 0; text-align: left; }
+  .kpi-tile .metric-val { font-size: 1.5rem; }
+  .kpi-label { font-size: 0.75rem; font-weight: 800; color: var(--accent-color); text-transform: uppercase; letter-spacing: 0.5px; }
+  .kpi-target { font-size: 1.15rem; font-weight: 800; margin: 4px 0; }
+  .kpi-desc { font-size: 0.8rem; color: var(--muted); margin-top: 6px; }
+
+  .step-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 10px; margin: 8px 0; }
+  .step-cell { background: rgba(0,0,0,0.25); border: 1px solid var(--border-color); border-radius: 6px; padding: 10px 12px; }
+  .step-cell span { display: block; font-size: 0.75rem; color: var(--muted); font-weight: 700; text-transform: uppercase; }
+  .step-cell strong { font-size: 1.05rem; }
+  .formula-result { font-size: 0.9rem; font-weight: 700; color: var(--success); margin-bottom: 8px; }
+  .formula-note { font-size: 0.85rem; color: var(--muted); margin-bottom: 6px; }
+  .cadence-list li { justify-content: space-between; gap: 12px; }
+  .cadence-list li span:last-child { color: var(--accent-color); font-weight: 600; text-align: right; }
+
+  .data-table { width: 100%; border-collapse: collapse; font-size: 0.88rem; text-align: left; }
+  .data-table th { padding: 10px; border-bottom: 2px solid var(--accent-color); color: var(--accent-color); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.5px; }
+  .data-table td { padding: 10px; border-bottom: 1px solid var(--border-color); }
+  .data-table td:first-child { font-weight: 600; }
+
+  .module-pager { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-top: 20px; }
+  .module-pager .btn:only-child { margin-left: auto; }
+
+  .diploma-frame {
+    border: 2px solid var(--accent-color);
+    border-radius: 12px;
+    background: var(--bg);
+    padding: 40px 32px;
+    text-align: center;
+    max-width: 760px;
+    margin: 0 auto;
+    position: relative;
+  }
+  .diploma-frame::before {
+    content: '';
+    position: absolute;
+    inset: 8px;
+    border: 1px solid rgba(229, 174, 37, 0.3);
+    border-radius: 8px;
+    pointer-events: none;
+  }
+  .diploma-seal {
+    width: 84px; height: 84px; border-radius: 50%;
+    border: 2px solid var(--accent-color);
+    color: var(--accent-color);
+    font-size: 0.6rem; font-weight: 800; letter-spacing: 1px; line-height: 1.3;
+    display: flex; align-items: center; justify-content: center; text-align: center;
+  }
+  @media print {
+    .trajectory-bar { display: none !important; }
+    .diploma-frame { background: #fff !important; color: #000 !important; }
+  }
+
 
 /* ===== MOBILE & TABLET RESPONSIVE ENHANCEMENTS ===== */
 html, body {
@@ -620,21 +763,20 @@ table {
 <body>
 
 <header>
-  <img src="LOGO_HEDS.png" alt="HEDS Logo" class="header-logo" style="cursor:pointer;" onclick="switchMainSection('sec_curriculum', document.querySelectorAll('.main-nav-btn')[0])">
+  <img src="LOGO_HEDS.png" alt="HEDS Logo" class="header-logo">
   <div class="header-text">
     <h1 style="font-size:1.8rem; font-weight:900; color:var(--accent-color); text-transform:uppercase; letter-spacing:1px; margin:0 0 2px 0; line-height:1.1;">Heavy Equipment Dealer Solutions LLC</h1>
     <div class="brand" style="font-size:0.95rem; font-weight:800; color:var(--accent-color); text-transform:uppercase; letter-spacing:1.5px; margin-bottom:6px;">HEDS Operating Discipline Academy</div>
     <h2 style="font-size:1.25rem; font-weight:700; color:var(--fg); margin:0 0 4px 0;">Rental Manager Training &amp; Operating Platform</h2>
-    <p class="subtitle">Section 1: Rental Manager Curriculum | Section 2: Interactive Commercial Operating Dashboard | Section 3: 30/60/90 Implementation Tracker | Section 4: Assessment Test</p>
+    <p class="subtitle">Section 1: Industry Benchmark Curriculum | Section 2: Dealership Data Entry Dashboard</p>
   </div>
 </header>
 
 <!-- Main Section Navigation -->
 <nav class="main-nav">
-  <button class="main-nav-btn active" onclick="switchMainSection('sec_curriculum', this)">&#128218; 1. Training Curriculum</button>
-  <button class="main-nav-btn" onclick="switchMainSection('sec_dashboard', this)">&#128202; 2. Interactive Operating Dashboard</button>
-  <button class="main-nav-btn" onclick="switchMainSection('sec_tracker', this)">&#128274; 3. 30/60/90 Implementation Tracker</button>
-  <button class="main-nav-btn" onclick="switchMainSection('sec_test', this)">&#9989; 4. Assessment Test</button>
+  <button class="main-nav-btn active" onclick="switchMainSection('sec_curriculum', this)">📘 1. Training Curriculum</button>
+  <button class="main-nav-btn" onclick="switchMainSection('sec_dashboard', this)">📊 2. Interactive Operating Dashboard</button>
+  <button class="main-nav-btn" onclick="switchMainSection('sec_test', this)">✅ 3. Assessment Test</button>
 </nav>
 
 <!-- ================================================================= -->
@@ -2158,6 +2300,7 @@ table {
     <button class="tab-btn" onclick="switchDashTab('dash_m9', this)">M9: Rental Leak</button>
     <button class="tab-btn" onclick="switchDashTab('dash_m10', this)">M10: Maint % of OEC</button>
     <button class="tab-btn" onclick="switchDashTab('dash_summary', this)">Exec Scorecard</button>
+    <button class="tab-btn" onclick="switchDashTab('dash_tracker', this)">30/60/90 Tracker</button>
   </nav>
 
   <!-- DASH M1: Time Utilization -->
@@ -2749,12 +2892,9 @@ table {
       </div>
     </div>
   </div>
-</div>
 
-<!-- ================================================================= -->
-<!-- SECTION 3: 30/60/90 IMPLEMENTATION TRACKER -->
-<!-- ================================================================= -->
-<div id="sec_tracker" class="section-container">
+  <!-- DASHBOARD TAB: 30/60/90 IMPLEMENTATION TRACKER -->
+  <div id="dash_tracker" class="tab-content"><div id="sec_tracker">
   <div class="card">
     <div class="card-title">30/60/90 Gated Implementation Tracker</div>
     <p style="color:var(--muted); margin-bottom:20px; font-size:0.9rem;">This gated section provides milestone checklists to evaluate and lock in commercial stabilization at 30, 60, and 90 days following training. Enter the access code for each phase to unlock its checklist. Progress is saved automatically.</p>
@@ -2855,10 +2995,11 @@ table {
       </div>
     </div>
   </div>
+</div></div>
 </div>
 
 <!-- ================================================================= -->
-<!-- SECTION 4: ASSESSMENT TEST -->
+<!-- SECTION 3: ASSESSMENT TEST -->
 <!-- ================================================================= -->
 <div id="sec_test" class="section-container">
 
@@ -2927,11 +3068,13 @@ table {
         </div>
       </div>
 
+      <!-- Module Breakdown -->
       <div style="margin-bottom:24px;">
         <h3 style="color:var(--accent-color); margin-bottom:12px; font-size:1.1rem;">Module Breakdown</h3>
         <div id="result_module_breakdown"></div>
       </div>
 
+      <!-- Focus Area Recommendation -->
       <div style="margin-bottom:24px;">
         <h3 style="color:var(--accent-color); margin-bottom:12px; font-size:1.1rem;">Recommended Training Focus Areas</h3>
         <div id="result_focus_areas"></div>
@@ -3450,7 +3593,7 @@ function switchMainSection(secId, btnEl) {
     var dashModules = document.querySelectorAll('#sec_dashboard .tab-content');
     dashModules.forEach(function(mod) {
       var id = mod.id;
-      if (id === 'dash_summary') return;
+      if (id === 'dash_summary' || id === 'dash_tracker') return;
       var card = mod.querySelector('.card');
       if (!card) return;
       if (card.querySelector('.completion-tracker')) return;
@@ -4579,6 +4722,38 @@ function switchMainSection(secId, btnEl) {
       }
     } catch (e) { hedsSetRelayStatus('fail'); }
   }
+</script>
+<script>
+  /* ===== HEDS shared navigation (identical on all four dashboards) ===== */
+  function goModule(tabId) {
+    var btn = document.querySelector('#module_menu .dropdown-item[onclick*="\'' + tabId + '\'"]');
+    switchCurrTab(tabId, btn);
+    var sec = document.getElementById('sec_curriculum');
+    if (sec && sec.scrollIntoView) sec.scrollIntoView({ behavior: 'smooth' });
+  }
+  function hedsInitModulePagers() {
+    var items = Array.prototype.slice.call(document.querySelectorAll('#module_menu .dropdown-item'));
+    var ids = items.map(function(it) { var m = (it.getAttribute('onclick') || '').match(/'([^']+)'/); return m ? m[1] : null; });
+    ids.forEach(function(id, i) {
+      var mod = document.getElementById(id);
+      if (!mod || mod.querySelector('.module-pager')) return;
+      var host = mod.querySelector('.card') || mod;
+      var pager = document.createElement('div');
+      pager.className = 'module-pager';
+      var prev = i > 0 ? '<button class="btn btn-outline" onclick="goModule(\'' + ids[i - 1] + '\')">&larr; Previous: ' + items[i - 1].innerText + '</button>' : '<span></span>';
+      var next = i < ids.length - 1 ? '<button class="btn" onclick="goModule(\'' + ids[i + 1] + '\')">Next: ' + items[i + 1].innerText + ' &rarr;</button>' : '<span></span>';
+      pager.innerHTML = prev + next;
+      host.appendChild(pager);
+    });
+  }
+  document.addEventListener('click', function(e) {
+    var dropdown = document.querySelector('.module-dropdown');
+    if (dropdown && !dropdown.contains(e.target)) closeDropdown();
+  });
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeDropdown();
+  });
+  window.addEventListener('load', function() { setTimeout(hedsInitModulePagers, 0); });
 </script>
 </body>
 </html>

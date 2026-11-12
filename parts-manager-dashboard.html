@@ -1,4 +1,6 @@
-<html lang="en"><head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>HEDS Academy: Parts Manager Training &amp; Operating Platform</title>
@@ -234,7 +236,7 @@
   /* Form Elements */
   .form-group { margin-bottom: 14px; }
   label { display: block; font-size: 0.85rem; font-weight: 600; color: var(--muted); margin-bottom: 4px; }
-  input[type="number"], input[type="text"] {
+  input[type="number"], input[type="text"], input[type="password"], input[type="email"] {
     width: 100%;
     padding: 10px 12px;
     background: rgba(0, 0, 0, 0.2);
@@ -404,12 +406,23 @@
     margin-bottom: 8px;
   }
 
+  .class-table { width:100%; border-collapse:collapse; font-size:0.82rem; text-align:left; margin:12px 0; }
+  .class-table th { padding:8px; border-bottom:2px solid var(--accent-color); color:var(--accent-color); }
+  .class-table td { padding:8px; border-bottom:1px solid var(--border-color); }
+  .class-table input { width:100%; padding:6px 8px; font-size:0.82rem; }
+  .class-table .class-remove { color:var(--danger); cursor:pointer; font-weight:700; }
+  .class-table .class-remove:hover { text-decoration:underline; }
+
   @media print {
-    body { background: #fff; color: #000; max-width: none; padding: 0; }
-    .main-nav, .nav-tabs, .module-dropdown, .button-row, .btn, .input-form { display: none !important; }
-    .section-container { display: block !important; }
+    body { background: #fff !important; color: #000 !important; max-width: none; padding: 0; }
+    .main-nav, .nav-tabs, .module-dropdown, .module-pager, .button-row, .btn, .input-form, .completion-tracker { display: none !important; }
+    .section-container { display: none !important; }
+    .section-container.active { display: block !important; }
     .tab-content { display: none !important; }
     .tab-content.active { display: block !important; }
+    .card { border: 1px solid #ccc !important; background: #fff !important; color: #000 !important; box-shadow: none !important; margin-bottom: 12px; }
+    .card-title, h1, h2, h3, .spec-title, .brand { color: #000 !important; }
+    .formula-card, .spec-box, .floor-rule { background: #f9f9f9 !important; border-color: #ccc !important; color: #000 !important; }
     .content-card { border: 1px solid #ccc; background: #fff; color: #000; }
   }
 
@@ -479,7 +492,7 @@
   .completion-btn.completed-btn:hover { background: rgba(239, 68, 68, 0.1); }
 
 
-  /* Parts page additions (built on the shared HEDS template classes) */
+  /* Shared component additions (trajectory bar, KPI grids, data tables, pager, diploma) */
   .trajectory-bar {
     background: var(--card-bg);
     border: 1px solid var(--border-color);
@@ -536,6 +549,7 @@
   .data-table td:first-child { font-weight: 600; }
 
   .module-pager { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-top: 20px; }
+  .module-pager .btn:only-child { margin-left: auto; }
 
   .diploma-frame {
     border: 2px solid var(--accent-color);
@@ -735,6 +749,8 @@ table {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
   }
+  .class-table input[type="text"] { min-width: 110px !important; }
+  .class-table input[type="number"] { min-width: 72px !important; }
   #cert_overlay > div, #cert_doc {
     padding: 24px 16px !important;
     width: 95% !important;
@@ -895,12 +911,9 @@ table {
         You cannot manage a parts department from a P&amp;L statement alone. The four foundational KPIs tell you whether the department is profitable, self-sustaining, properly weighted, and efficiently staffed. If any one of the four is outside the target range, the department is leaking profit, and the leak will not fix itself.
       </div>
 
-      <div class="completion-tracker">
-        <div class="completion-left">
-          <input type="checkbox" class="completion-checkbox" id="chk_m1" onchange="toggleModuleCheck('m1')">
-          <span class="completion-label">Mark Module 1 Complete. Deliverable: financial baseline numbers recorded.</span>
-        </div>
-        <button class="btn" onclick="goModule('c_m2')">Next: Module 2 Baseline Audit &rarr;</button>
+      <div class="curr-section">
+        <div class="curr-section-h3">Deliverable</div>
+        <p>Record your financial baseline numbers for all four KPIs before you move on to Module 2.</p>
       </div>
     </div>
   </div>
@@ -941,11 +954,6 @@ table {
         <div class="floor-rule-title">PRO TIP</div>
         The baseline audit is not a report card, it is a starting line. Do not hide the numbers. Do not round in your favor. The more honest the baseline, the more meaningful every improvement will be. A department that cannot measure itself cannot improve itself.
       </div>
-
-      <div class="module-pager">
-        <button class="btn btn-outline" onclick="goModule('c_m1')">&larr; Module 1</button>
-        <button class="btn" onclick="goModule('c_m3')">Next: Module 3 Finding Leaks &rarr;</button>
-      </div>
     </div>
   </div>
 
@@ -981,11 +989,6 @@ table {
       <div class="floor-rule">
         <div class="floor-rule-title">PRO TIP</div>
         You cannot fix a percentage. You can only fix a behavior. 'Gross margin is 28%' is not a problem. 'Counter staff is discounting 15% of all retail tickets without manager approval' is a problem you can fix. Name the behavior, name the owner, name the date.
-      </div>
-
-      <div class="module-pager">
-        <button class="btn btn-outline" onclick="goModule('c_m2')">&larr; Module 2</button>
-        <button class="btn" onclick="goModule('c_m4')">Next: Module 4 The Playbook &rarr;</button>
       </div>
     </div>
   </div>
@@ -1030,11 +1033,6 @@ table {
       <div class="floor-rule">
         <div class="floor-rule-title">PRO TIP</div>
         A scorecard that does not drive a decision is wallpaper. If the number on the scorecard does not make someone do something different today, it should not be on the board. The counter staff enters the data; the manager reads it and acts on it.
-      </div>
-
-      <div class="module-pager">
-        <button class="btn btn-outline" onclick="goModule('c_m3')">&larr; Module 3</button>
-        <button class="btn" onclick="goModule('c_m5')">Next: Module 5 Floor Execution &rarr;</button>
       </div>
     </div>
   </div>
@@ -1095,11 +1093,6 @@ table {
         <div class="floor-rule-title">PRO TIP</div>
         Inventory discipline is not about having less inventory, it is about having the right inventory. The six execution KPIs tell you whether your buying is efficient, your stock is healthy, your depth is correct, and your coverage matches actual demand.
       </div>
-
-      <div class="module-pager">
-        <button class="btn btn-outline" onclick="goModule('c_m4')">&larr; Module 4</button>
-        <button class="btn" onclick="goModule('c_m6')">Next: Module 6 Forecasting &rarr;</button>
-      </div>
     </div>
   </div>
 
@@ -1135,11 +1128,6 @@ table {
       <div class="floor-rule">
         <div class="floor-rule-title">PRO TIP</div>
         A forecast that does not drive a decision is a guess. The 90-day plan is not a wish list, it is a commitment document. Every action has an owner, a date, and a measurable KPI target. Review at day 30, day 60, and day 90. Adjust or accelerate based on results.
-      </div>
-
-      <div class="module-pager">
-        <button class="btn btn-outline" onclick="goModule('c_m5')">&larr; Module 5</button>
-        <button class="btn" onclick="goModule('c_certificate')">View Capstone Diploma &rarr;</button>
       </div>
     </div>
   </div>
@@ -1479,22 +1467,22 @@ table {
   <!-- Sign-in Screen -->
   <div id="test_signin" class="card">
     <div class="card-title">Assessment Test: Parts Manager Certification</div>
-    <p style="color:var(--muted); margin-bottom:20px;">This assessment tests your knowledge of the Parts Manager curriculum. It has 50 questions, a 90-minute timer, and a passing mark of 90%. Enter the access code provided by your facilitator to begin.</p>
+    <p style="color:var(--muted); margin-bottom:20px;">This assessment tests your knowledge of the Parts Manager curriculum. You have 90 minutes. Enter the access code provided by your facilitator to begin.</p>
     <div class="form-group">
       <label for="test_access_code">Access Code</label>
       <input type="password" id="test_access_code" placeholder="Enter access code" style="background:var(--bg); border:1px solid var(--border-color); border-radius:6px; padding:10px 12px; color:var(--fg); font-size:1rem; width:100%;">
     </div>
     <div class="form-group" style="display:none;" id="test_info_fields">
-      <label for="test_name">Your Full Name (printed on the diploma)</label>
-      <input type="text" id="test_name" placeholder="John Doe" style="background:var(--bg); border:1px solid var(--border-color); border-radius:6px; padding:10px 12px; color:var(--fg); font-size:1rem; width:100%;">
+      <label for="test_name">Your Full Name</label>
+      <input type="text" id="test_name" style="background:var(--bg); border:1px solid var(--border-color); border-radius:6px; padding:10px 12px; color:var(--fg); font-size:1rem; width:100%;">
     </div>
     <div class="form-group" style="display:none;" id="test_dealership_field">
-      <label for="test_dealership">Dealership / Branch</label>
-      <input type="text" id="test_dealership" placeholder="Apex Equipment - Store #12" style="background:var(--bg); border:1px solid var(--border-color); border-radius:6px; padding:10px 12px; color:var(--fg); font-size:1rem; width:100%;">
+      <label for="test_dealership">Dealership / Company Name</label>
+      <input type="text" id="test_dealership" style="background:var(--bg); border:1px solid var(--border-color); border-radius:6px; padding:10px 12px; color:var(--fg); font-size:1rem; width:100%;">
     </div>
     <div class="form-group" style="display:none;" id="test_email_field">
-      <label for="test_email">Corporate Email Address</label>
-      <input type="email" id="test_email" placeholder="john.doe@dealer.com" style="background:var(--bg); border:1px solid var(--border-color); border-radius:6px; padding:10px 12px; color:var(--fg); font-size:1rem; width:100%;">
+      <label for="test_email">Email Address</label>
+      <input type="email" id="test_email" style="background:var(--bg); border:1px solid var(--border-color); border-radius:6px; padding:10px 12px; color:var(--fg); font-size:1rem; width:100%;">
     </div>
     <button class="btn" style="margin-top:16px;" onclick="checkAccessCode()">Begin Assessment</button>
     <p id="test_signin_error" style="color:var(--danger); margin-top:10px; display:none;"></p>
@@ -1510,7 +1498,7 @@ table {
         </div>
         <div style="display:flex; align-items:center; gap:12px;">
           <span style="color:var(--muted); font-size:0.9rem;" id="test_progress">Question 0 of 50 answered</span>
-          <button class="btn btn-danger" onclick="abandonTest()">Submit Test</button>
+          <button class="btn btn-outline" onclick="abandonTest()">Submit Test</button>
         </div>
       </div>
       <div style="margin-top:8px; height:4px; background:var(--border-color); border-radius:2px; overflow:hidden;">
@@ -1555,7 +1543,7 @@ table {
 
       <div style="display:flex; gap:12px; flex-wrap:wrap;">
         <button class="btn" onclick="printResults()">Print Results</button>
-        <button class="btn btn-outline" id="btn_claim_cert" style="display:none;" onclick="viewCertificateFromResults()">🎓 View &amp; Print Official Diploma &rarr;</button>
+        <button class="btn btn-outline" id="btn_cert" style="display:none;" onclick="viewCertificateFromResults()">Print Certificate</button>
         <button class="btn btn-outline" onclick="retakeTest()">Retake Assessment</button>
       </div>
     </div>
@@ -1585,13 +1573,6 @@ table {
         if (label) label.innerText = btnEl.innerText;
       }
       closeDropdown();
-    }
-
-    function goModule(tabId) {
-      var btn = document.querySelector('#module_menu .dropdown-item[onclick*="\'' + tabId + '\'"]');
-      switchCurrTab(tabId, btn);
-      var sec = document.getElementById('sec_curriculum');
-      if (sec) sec.scrollIntoView({ behavior: 'smooth' });
     }
 
     function toggleDropdown() {
@@ -1870,6 +1851,101 @@ table {
       switchDashTab('dash_m10', null);
       window.print();
     }
+
+  function initCompletionTrackers() {
+    var currModules = document.querySelectorAll('#sec_curriculum .tab-content');
+    currModules.forEach(function(mod) {
+      var id = mod.id;
+      var card = mod.querySelector('.card');
+      if (!card) return;
+      
+      // Check if already has a tracker
+      if (card.querySelector('.completion-tracker')) return;
+      
+      var tracker = document.createElement('div');
+      tracker.className = 'completion-tracker';
+      tracker.id = 'tracker_' + id;
+      
+      var saved = localStorage.getItem('heds_complete_' + id);
+      var isComplete = saved === 'completed';
+      var savedDate = localStorage.getItem('heds_complete_date_' + id) || '';
+      
+      if (isComplete) tracker.classList.add('completed');
+      
+      tracker.innerHTML = '<div class="completion-left">' +
+        '<input type="checkbox" class="completion-checkbox" id="chk_' + id + '" ' + (isComplete ? 'checked' : '') + ' onchange="toggleCompletion(\'' + id + '\')">' +
+        '<span class="completion-label">' + (isComplete ? 'COMPLETED' : 'Mark as Completed') + '</span>' +
+        '</div>' +
+        '<div class="completion-date" id="date_' + id + '">' + (savedDate ? 'Completed: ' + savedDate : '') + '</div>' +
+        '<button class="completion-btn ' + (isComplete ? 'completed-btn' : '') + '" id="btn_' + id + '" onclick="toggleCompletion(\'' + id + '\')">' + (isComplete ? 'Reset' : 'Mark Complete') + '</button>';
+      
+      card.appendChild(tracker);
+    });
+    
+    // Also add to dashboard modules (except executive scorecard)
+    var dashModules = document.querySelectorAll('#sec_dashboard .tab-content');
+    dashModules.forEach(function(mod) {
+      var id = mod.id;
+      if (id === 'dash_m10') return; // Skip executive scorecard
+      var card = mod.querySelector('.card');
+      if (!card) return;
+      
+      if (card.querySelector('.completion-tracker')) return;
+      
+      var tracker = document.createElement('div');
+      tracker.className = 'completion-tracker';
+      tracker.id = 'tracker_' + id;
+      
+      var saved = localStorage.getItem('heds_complete_' + id);
+      var isComplete = saved === 'completed';
+      var savedDate = localStorage.getItem('heds_complete_date_' + id) || '';
+      
+      if (isComplete) tracker.classList.add('completed');
+      
+      tracker.innerHTML = '<div class="completion-left">' +
+        '<input type="checkbox" class="completion-checkbox" id="chk_' + id + '" ' + (isComplete ? 'checked' : '') + ' onchange="toggleCompletion(\'' + id + '\')">' +
+        '<span class="completion-label">' + (isComplete ? 'COMPLETED' : 'Mark as Completed') + '</span>' +
+        '</div>' +
+        '<div class="completion-date" id="date_' + id + '">' + (savedDate ? 'Completed: ' + savedDate : '') + '</div>' +
+        '<button class="completion-btn ' + (isComplete ? 'completed-btn' : '') + '" id="btn_' + id + '" onclick="toggleCompletion(\'' + id + '\')">' + (isComplete ? 'Reset' : 'Mark Complete') + '</button>';
+      
+      card.appendChild(tracker);
+    });
+  }
+  
+  function toggleCompletion(modId) {
+    var tracker = document.getElementById('tracker_' + modId);
+    if (!tracker) return;
+    
+    var chk = document.getElementById('chk_' + modId);
+    var btn = document.getElementById('btn_' + modId);
+    var label = tracker.querySelector('.completion-label');
+    var dateEl = document.getElementById('date_' + modId);
+    
+    var isCurrentlyComplete = tracker.classList.contains('completed');
+    
+    if (isCurrentlyComplete) {
+      // Reset
+      tracker.classList.remove('completed');
+      if (chk) chk.checked = false;
+      if (label) label.innerText = 'Mark as Completed';
+      if (dateEl) dateEl.innerText = '';
+      if (btn) { btn.classList.remove('completed-btn'); btn.innerText = 'Mark Complete'; }
+      localStorage.removeItem('heds_complete_' + modId);
+      localStorage.removeItem('heds_complete_date_' + modId);
+    } else {
+      // Mark complete
+      tracker.classList.add('completed');
+      if (chk) chk.checked = true;
+      var now = new Date();
+      var dateStr = (now.getMonth()+1) + '/' + now.getDate() + '/' + now.getFullYear() + ' ' + now.getHours() + ':' + String(now.getMinutes()).padStart(2, '0');
+      if (label) label.innerText = 'COMPLETED';
+      if (dateEl) dateEl.innerText = 'Completed: ' + dateStr;
+      if (btn) { btn.classList.add('completed-btn'); btn.innerText = 'Reset'; }
+      localStorage.setItem('heds_complete_' + modId, 'completed');
+      localStorage.setItem('heds_complete_date_' + modId, dateStr);
+    }
+  }
 
     function toggleModuleCheck(mod) {
       var chk = document.getElementById('chk_' + mod);
@@ -2786,6 +2862,7 @@ table {
     window.onload = function() {
       loadData();
       calcAll();
+      initCompletionTrackers();
     };
   </script>
 
@@ -2822,7 +2899,7 @@ table {
         : 'NOT YET PASSED: ' + pct + '% (pass mark ' + HEDS_PASS_MARK + '%). Review the focus areas below and retake the assessment to earn your certificate.';
       el.style.color = passed ? '#10b981' : '#ef4444';
     }
-    var btn = document.getElementById('btn_claim_cert');
+    var btn = document.getElementById('btn_cert');
     if (btn) btn.style.display = passed ? '' : 'none';
     return passed;
   }
@@ -2876,6 +2953,38 @@ table {
     var r = hedsLoadLocalResult();
     if (r && hedsIsPassed(r.scorePct)) hedsFillPartsDiploma(r);
   });
+</script>
+<script>
+  /* ===== HEDS shared navigation (identical on all four dashboards) ===== */
+  function goModule(tabId) {
+    var btn = document.querySelector('#module_menu .dropdown-item[onclick*="\'' + tabId + '\'"]');
+    switchCurrTab(tabId, btn);
+    var sec = document.getElementById('sec_curriculum');
+    if (sec && sec.scrollIntoView) sec.scrollIntoView({ behavior: 'smooth' });
+  }
+  function hedsInitModulePagers() {
+    var items = Array.prototype.slice.call(document.querySelectorAll('#module_menu .dropdown-item'));
+    var ids = items.map(function(it) { var m = (it.getAttribute('onclick') || '').match(/'([^']+)'/); return m ? m[1] : null; });
+    ids.forEach(function(id, i) {
+      var mod = document.getElementById(id);
+      if (!mod || mod.querySelector('.module-pager')) return;
+      var host = mod.querySelector('.card') || mod;
+      var pager = document.createElement('div');
+      pager.className = 'module-pager';
+      var prev = i > 0 ? '<button class="btn btn-outline" onclick="goModule(\'' + ids[i - 1] + '\')">&larr; Previous: ' + items[i - 1].innerText + '</button>' : '<span></span>';
+      var next = i < ids.length - 1 ? '<button class="btn" onclick="goModule(\'' + ids[i + 1] + '\')">Next: ' + items[i + 1].innerText + ' &rarr;</button>' : '<span></span>';
+      pager.innerHTML = prev + next;
+      host.appendChild(pager);
+    });
+  }
+  document.addEventListener('click', function(e) {
+    var dropdown = document.querySelector('.module-dropdown');
+    if (dropdown && !dropdown.contains(e.target)) closeDropdown();
+  });
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeDropdown();
+  });
+  window.addEventListener('load', function() { setTimeout(hedsInitModulePagers, 0); });
 </script>
 </body>
 </html>
