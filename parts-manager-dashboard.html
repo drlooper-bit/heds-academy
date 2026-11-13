@@ -1271,7 +1271,7 @@ table {
 
   <!-- DASHBOARD MODULE 1 -->
   <div id="dash_m1" class="tab-content active">
-    <div class="grid-2">
+    <div id="kpi-parts-gross-margin" class="grid-2">
       <div class="card">
         <div class="card-title">Enter Your Numbers: Parts Gross Margin</div>
         <div class="form-group"><label for="m1_parts_rev">Total Parts Revenue ($)</label><input type="number" id="m1_parts_rev" value="420000" oninput="calcAll()"></div>
@@ -1291,7 +1291,7 @@ table {
 
   <!-- DASHBOARD MODULE 2 -->
   <div id="dash_m2" class="tab-content">
-    <div class="grid-2">
+    <div id="kpi-parts-absorption" class="grid-2">
       <div class="card">
         <div class="card-title">Enter Your Numbers: Parts Contribution to Location Absorption</div>
         <div class="form-group"><label for="m2_parts_gp">Parts Gross Profit ($)</label><input type="number" id="m2_parts_gp" value="150000" oninput="calcAll()"></div>
@@ -1311,7 +1311,7 @@ table {
 
   <!-- DASHBOARD MODULE 3 -->
   <div id="dash_m3" class="tab-content">
-    <div class="grid-2">
+    <div id="kpi-parts-share-of-gross-margin" class="grid-2">
       <div class="card">
         <div class="card-title">Enter Your Numbers: Parts Share of Dealership Gross Margin</div>
         <div class="form-group"><label for="m3_parts_gm">Parts Gross Margin ($)</label><input type="number" id="m3_parts_gm" value="150000" oninput="calcAll()"></div>
@@ -1331,7 +1331,7 @@ table {
 
   <!-- DASHBOARD MODULE 4 -->
   <div id="dash_m4" class="tab-content">
-    <div class="grid-2">
+    <div id="kpi-parts-salaries" class="grid-2">
       <div class="card">
         <div class="card-title">Enter Your Numbers: Parts Salary % of GP</div>
         <div class="form-group"><label for="m4_salary">Total Parts Payroll / Salary ($)</label><input type="number" id="m4_salary" value="40000" oninput="calcAll()"></div>
@@ -1351,7 +1351,7 @@ table {
 
   <!-- DASHBOARD MODULE 5 -->
   <div id="dash_m5" class="tab-content">
-    <div class="grid-2">
+    <div id="kpi-gross-parts-turns" class="grid-2">
       <div class="card">
         <div class="card-title">Enter Your Numbers: Gross Parts Turns</div>
         <div class="form-group"><label for="m5_annual_cos">Annual Parts Cost of Sales ($)</label><input type="number" id="m5_annual_cos" value="1800000" oninput="calcAll()"></div>
@@ -1371,7 +1371,7 @@ table {
 
   <!-- DASHBOARD MODULE 6 -->
   <div id="dash_m6" class="tab-content">
-    <div class="grid-2">
+    <div id="kpi-stock-order" class="grid-2">
       <div class="card">
         <div class="card-title">Enter Your Numbers: Stock Order Efficiency</div>
         <div class="form-group"><label for="m6_stock_receipts">Stock Order Receipts ($)</label><input type="number" id="m6_stock_receipts" value="75000" oninput="calcAll()"></div>
@@ -1391,7 +1391,7 @@ table {
 
   <!-- DASHBOARD MODULE 7 -->
   <div id="dash_m7" class="tab-content">
-    <div class="grid-2">
+    <div id="kpi-obsolete-excess" class="grid-2">
       <div class="card">
         <div class="card-title">Enter Your Numbers: Obsolescence &amp; Excessive Stock</div>
         <div class="form-group"><label for="m7_obsolete">Obsolete + Excessive Stock Value ($)</label><input type="number" id="m7_obsolete" value="45000" oninput="calcAll()"></div>
@@ -1411,7 +1411,7 @@ table {
 
   <!-- DASHBOARD MODULE 8 -->
   <div id="dash_m8" class="tab-content">
-    <div class="grid-2">
+    <div id="kpi-parts-to-labor" class="grid-2">
       <div class="card">
         <div class="card-title">Enter Your Numbers: Parts-to-Labor Ratio</div>
         <div class="form-group"><label for="m8_shop_parts">Customer Shop Parts Sales ($)</label><input type="number" id="m8_shop_parts" value="120000" oninput="calcAll()"></div>
@@ -1442,13 +1442,13 @@ table {
       </div>
       <div class="card">
         <div class="card-title">Live Calculation</div>
-        <div class="metric-box">
+        <div id="kpi-counter-fill-rate" class="metric-box">
           <div style="font-size:0.8rem; color:var(--muted); font-weight:700;">COUNTER FILL RATE</div>
           <div class="metric-val" id="m9_counter_res">90.0%</div>
           <div id="m9_counter_status" class="metric-status status-pass">PASS</div>
           <div class="kpi-desc">Target: &ge; 85%. WARN 80 to 84.9%. FAIL under 80%.</div>
         </div>
-        <div class="metric-box">
+        <div id="kpi-service-fill-rate" class="metric-box">
           <div style="font-size:0.8rem; color:var(--muted); font-weight:700;">SERVICE FILL RATE</div>
           <div class="metric-val" id="m9_service_res">94.7%</div>
           <div id="m9_service_status" class="metric-status status-pass">PASS</div>
@@ -1485,7 +1485,7 @@ table {
             <tr><td>KPI 8: Parts-to-Labor Ratio</td><td id="s_val_m8">$1.20 : $1</td><td>$1 : $1</td><td id="s_stat_m8"><span class="metric-status status-pass">PASS</span></td></tr>
             <tr><td>KPI 9a: Counter Fill Rate</td><td id="s_val_m9c">90.0%</td><td>&ge; 85%</td><td id="s_stat_m9c"><span class="metric-status status-pass">PASS</span></td></tr>
             <tr><td>KPI 9b: Service Fill Rate</td><td id="s_val_m9">94.7%</td><td>&ge; 90%</td><td id="s_stat_m9"><span class="metric-status status-pass">PASS</span></td></tr>
-            <tr><td>KPI 10: Days of Supply</td><td id="s_val_m10_sub">101 days</td><td>&le; 90 days</td><td id="s_stat_m10_sub"><span class="metric-status status-fail">FAIL</span></td></tr>
+            <tr id="kpi-months-of-supply"><td>KPI 10: Days of Supply</td><td id="s_val_m10_sub">101 days</td><td>&le; 90 days</td><td id="s_stat_m10_sub"><span class="metric-status status-fail">FAIL</span></td></tr>
           </tbody>
         </table>
       </div>
@@ -3038,6 +3038,57 @@ table {
     if (e.key === 'Escape') closeDropdown();
   });
   window.addEventListener('load', function() { setTimeout(hedsInitModulePagers, 0); });
+</script>
+<style>
+  /* ===== HEDS KPI deep links: landing highlight ===== */
+  [id^="kpi-"] { scroll-margin-top:16px; }
+  .heds-kpi-target { outline:3px solid #e5ae25; outline-offset:4px; border-radius:8px; transition:outline-color 0.6s ease; }
+  .heds-kpi-target-fade { outline-color:transparent; }
+  tr.heds-kpi-target, li.heds-kpi-target { outline-offset:-2px; }
+</style>
+<script>
+  /* ===== HEDS KPI deep links (identical on all four dashboards) =====
+     A link such as dashboard.html#kpi-some-measure opens the section and tab that hold that
+     element, scrolls it into view, and outlines it briefly. Works on page load, on hash change,
+     and with the browser Back and Forward buttons. */
+  function hedsOpenHashTarget() {
+    var id = '';
+    try { id = decodeURIComponent((window.location.hash || '').slice(1)); } catch (e) { return; }
+    if (!id) return;
+    var el = document.getElementById(id);
+    if (!el) return;
+    var sec = el.closest('.section-container');
+    if (sec) {
+      var mainBtn = document.querySelector('.main-nav-btn[onclick*="\'' + sec.id + '\'"]');
+      switchMainSection(sec.id, mainBtn);
+    }
+    var dashTab = el.closest('#sec_dashboard .tab-content');
+    if (dashTab) {
+      var tabBtn = document.querySelector('#sec_dashboard .tab-btn[onclick*="\'' + dashTab.id + '\'"]');
+      switchDashTab(dashTab.id, tabBtn);
+    }
+    var currTab = el.closest('#sec_curriculum .tab-content');
+    if (currTab) {
+      var modBtn = document.querySelector('#module_menu .dropdown-item[onclick*="\'' + currTab.id + '\'"]');
+      switchCurrTab(currTab.id, modBtn);
+    }
+    var scrollEl = el;
+    if (el.classList.contains('section-container') || el.classList.contains('tab-content')) {
+      scrollEl = document.querySelector('.main-nav') || el;
+    }
+    /* Small targets (one result box, one table row, one list line) are centered so the card around them
+       stays in view; larger targets (a whole calculator) start at the top of the screen. */
+    var box = scrollEl.getBoundingClientRect();
+    scrollEl.scrollIntoView({ block: (scrollEl === el && box.height < window.innerHeight * 0.4) ? 'center' : 'start' });
+    if (el.id.indexOf('kpi-') === 0) {
+      document.querySelectorAll('.heds-kpi-target').forEach(function(x) { x.classList.remove('heds-kpi-target', 'heds-kpi-target-fade'); });
+      el.classList.add('heds-kpi-target');
+      setTimeout(function() { el.classList.add('heds-kpi-target-fade'); }, 2500);
+      setTimeout(function() { el.classList.remove('heds-kpi-target', 'heds-kpi-target-fade'); }, 3200);
+    }
+  }
+  window.addEventListener('hashchange', hedsOpenHashTarget);
+  window.addEventListener('load', function() { setTimeout(hedsOpenHashTarget, 0); });
 </script>
 </body>
 </html>

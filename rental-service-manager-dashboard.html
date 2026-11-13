@@ -1228,7 +1228,7 @@ table {
           </div>
         </div>
 
-        <div class="formula-card">
+        <div id="kpi-labor-utilization" class="formula-card">
           <div class="formula-title">TECHNICIAN RECOVERY &amp; UTILIZATION FORMULAS</div>
           <div class="formula-expr">Technician Recovery % = Hours on Work Orders / Hours of Payroll (Paid Hours) &times; 100</div>
           <div class="formula-expr" style="margin-top:6px;">Technician Utilization % = Hours Invoiced on the Work Order / Hours on Work Orders &times; 100</div>
@@ -1245,7 +1245,7 @@ table {
         </div>
       </div>
 
-      <div class="curr-section">
+      <div id="kpi-late-close-work-orders" class="curr-section">
         <div class="curr-section-h3">Part 3: Work-in-Process (WIP) &amp; The 48-Hour Close Rule</div>
         <p style="font-size:0.9rem; margin-bottom:8px;">Total labor, parts, and capital trapped in open, unclosed fleet work orders.</p>
         <div style="padding:14px; background:rgba(0,0,0,0.25); border-radius:8px; border:1px solid var(--border-color); margin:10px 0; font-size:0.85rem;">
@@ -1790,7 +1790,7 @@ table {
 
   <!-- DASH M1: Fleet Availability -->
   <div id="dash_m1" class="tab-content active">
-    <div class="grid-2">
+    <div id="kpi-fleet-availability" class="grid-2">
       <div class="card">
         <div class="card-title">Enter Your Branch Numbers: Fleet Physical Availability</div>
         <div class="form-group">
@@ -1831,7 +1831,7 @@ table {
 
   <!-- DASH M2: Maint % of OEC -->
   <div id="dash_m2" class="tab-content">
-    <div class="grid-2">
+    <div id="kpi-maintenance-cost-oec" class="grid-2">
       <div class="card">
         <div class="card-title">Enter Your Branch Numbers: Maintenance Cost as % of OEC</div>
         <div class="form-group">
@@ -1868,7 +1868,7 @@ table {
 
   <!-- DASH M3: Turnaround DTI -->
   <div id="dash_m3" class="tab-content">
-    <div class="grid-2">
+    <div id="kpi-off-rent-to-rent-ready" class="grid-2">
       <div class="card">
         <div class="card-title">Enter Your Branch Numbers: Turnaround DTI</div>
         <div class="form-group">
@@ -1906,7 +1906,7 @@ table {
 
   <!-- DASH M4: Fleet Downtime -->
   <div id="dash_m4" class="tab-content">
-    <div class="grid-2">
+    <div id="kpi-fleet-downtime" class="grid-2">
       <div class="card">
         <div class="card-title">Enter Your Branch Numbers: Fleet Downtime</div>
         <div class="form-group">
@@ -1942,7 +1942,7 @@ table {
 
   <!-- DASH M5: Tech Recovery -->
   <div id="dash_m5" class="tab-content">
-    <div class="grid-2">
+    <div id="kpi-technician-recovery" class="grid-2">
       <div class="card">
         <div class="card-title">Enter Your Branch Numbers: Technician Recovery</div>
         <div class="form-group">
@@ -1978,7 +1978,7 @@ table {
 
   <!-- DASH M6: 90-Day Parts Buffer -->
   <div id="dash_m6" class="tab-content">
-    <div class="grid-2">
+    <div id="kpi-parts-buffer" class="grid-2">
       <div class="card">
         <div class="card-title">Enter Your Branch Numbers: 90-Day Parts Buffer</div>
         <div class="form-group">
@@ -2014,7 +2014,7 @@ table {
 
   <!-- DASH M7: Damage Recovery -->
   <div id="dash_m7" class="tab-content">
-    <div class="grid-2">
+    <div id="kpi-damage-recovery" class="grid-2">
       <div class="card">
         <div class="card-title">Enter Your Branch Numbers: Damage Recovery</div>
         <div class="form-group">
@@ -2050,7 +2050,7 @@ table {
 
   <!-- DASH M8: Telematics SLA -->
   <div id="dash_m8" class="tab-content">
-    <div class="grid-2">
+    <div id="kpi-telematics-triage" class="grid-2">
       <div class="card">
         <div class="card-title">Enter Your Branch Numbers: Telematics SLA</div>
         <div class="form-group">
@@ -3910,6 +3910,57 @@ function printCertificateRSM() {
     if (e.key === 'Escape') closeDropdown();
   });
   window.addEventListener('load', function() { setTimeout(hedsInitModulePagers, 0); });
+</script>
+<style>
+  /* ===== HEDS KPI deep links: landing highlight ===== */
+  [id^="kpi-"] { scroll-margin-top:16px; }
+  .heds-kpi-target { outline:3px solid #e5ae25; outline-offset:4px; border-radius:8px; transition:outline-color 0.6s ease; }
+  .heds-kpi-target-fade { outline-color:transparent; }
+  tr.heds-kpi-target, li.heds-kpi-target { outline-offset:-2px; }
+</style>
+<script>
+  /* ===== HEDS KPI deep links (identical on all four dashboards) =====
+     A link such as dashboard.html#kpi-some-measure opens the section and tab that hold that
+     element, scrolls it into view, and outlines it briefly. Works on page load, on hash change,
+     and with the browser Back and Forward buttons. */
+  function hedsOpenHashTarget() {
+    var id = '';
+    try { id = decodeURIComponent((window.location.hash || '').slice(1)); } catch (e) { return; }
+    if (!id) return;
+    var el = document.getElementById(id);
+    if (!el) return;
+    var sec = el.closest('.section-container');
+    if (sec) {
+      var mainBtn = document.querySelector('.main-nav-btn[onclick*="\'' + sec.id + '\'"]');
+      switchMainSection(sec.id, mainBtn);
+    }
+    var dashTab = el.closest('#sec_dashboard .tab-content');
+    if (dashTab) {
+      var tabBtn = document.querySelector('#sec_dashboard .tab-btn[onclick*="\'' + dashTab.id + '\'"]');
+      switchDashTab(dashTab.id, tabBtn);
+    }
+    var currTab = el.closest('#sec_curriculum .tab-content');
+    if (currTab) {
+      var modBtn = document.querySelector('#module_menu .dropdown-item[onclick*="\'' + currTab.id + '\'"]');
+      switchCurrTab(currTab.id, modBtn);
+    }
+    var scrollEl = el;
+    if (el.classList.contains('section-container') || el.classList.contains('tab-content')) {
+      scrollEl = document.querySelector('.main-nav') || el;
+    }
+    /* Small targets (one result box, one table row, one list line) are centered so the card around them
+       stays in view; larger targets (a whole calculator) start at the top of the screen. */
+    var box = scrollEl.getBoundingClientRect();
+    scrollEl.scrollIntoView({ block: (scrollEl === el && box.height < window.innerHeight * 0.4) ? 'center' : 'start' });
+    if (el.id.indexOf('kpi-') === 0) {
+      document.querySelectorAll('.heds-kpi-target').forEach(function(x) { x.classList.remove('heds-kpi-target', 'heds-kpi-target-fade'); });
+      el.classList.add('heds-kpi-target');
+      setTimeout(function() { el.classList.add('heds-kpi-target-fade'); }, 2500);
+      setTimeout(function() { el.classList.remove('heds-kpi-target', 'heds-kpi-target-fade'); }, 3200);
+    }
+  }
+  window.addEventListener('hashchange', hedsOpenHashTarget);
+  window.addEventListener('load', function() { setTimeout(hedsOpenHashTarget, 0); });
 </script>
 </body>
 </html>
