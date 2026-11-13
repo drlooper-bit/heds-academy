@@ -883,7 +883,7 @@ table {
 
       <div class="curr-section">
         <div class="curr-section-h3">The Diagnosis</div>
-        <p>Parts departments consistently operate without understanding the four foundational financial KPIs that determine whether the department is generating profit or draining it. When gross margin falls below 33%, absorption drops below 60%, or salary exceeds 30% of gross profit, the department becomes a cost center rather than a profit center. You cannot fix what you do not measure.</p>
+        <p>Parts departments consistently operate without understanding the four foundational financial KPIs that determine whether the department is generating profit or draining it. When gross margin falls below 33%, parts absorption drops below 30% of the location's absorption, or salary exceeds 30% of gross profit, the department becomes a cost center rather than a profit center. You cannot fix what you do not measure.</p>
       </div>
 
       <div class="kpi-grid kpi-grid-4">
@@ -894,8 +894,8 @@ table {
         </div>
         <div class="metric-box kpi-card">
           <div class="kpi-label">KPI 2: Absorption Rate</div>
-          <div class="kpi-target">Target &ge; 60%</div>
-          <div class="kpi-desc">% of total store expenses covered by parts GP</div>
+          <div class="kpi-target">Target 30% to 40%</div>
+          <div class="kpi-desc">Parts' contribution to the location's absorption</div>
         </div>
         <div class="metric-box kpi-card">
           <div class="kpi-label">KPI 3: Parts Share of Gross Margin</div>
@@ -935,12 +935,12 @@ table {
       <!-- KPI 2 WORKED EXAMPLE -->
       <div class="formula-card">
         <div class="example-badge">Worked Example: KPI 2 (Parts Absorption Rate)</div>
-        <div class="formula-title">BENCHMARK: &ge; 60.0%</div>
-        <div class="formula-expr">Absorption % = [ Parts Gross Profit / Total Fixed + Variable Expenses ] &times; 100</div>
+        <div class="formula-title">BENCHMARK: 30% to 40% of the location's absorption</div>
+        <div class="formula-expr">Parts contribution % = [ Parts Gross Profit / Location Total Operating Expenses ] &times; 100</div>
         <div class="step-grid">
           <div class="step-cell"><span>1. Parts Gross Profit</span><strong>$150,000</strong></div>
-          <div class="step-cell"><span>2. Total Store Expenses</span><strong>$250,000</strong></div>
-          <div class="step-cell"><span>3. Absorption Rate</span><strong style="color:var(--success);">60.0% (PASS)</strong></div>
+          <div class="step-cell"><span>2. Location Operating Expenses</span><strong>$250,000</strong></div>
+          <div class="step-cell"><span>3. Parts contribution</span><strong>60.0% (above the 30% to 40% target)</strong></div>
         </div>
       </div>
 
@@ -989,7 +989,7 @@ table {
           </thead>
           <tbody>
             <tr><td>KPI 1: Gross Margin</td><td>33%-37%</td><td>35.7%</td><td><span class="metric-status status-pass">PASS</span></td></tr>
-            <tr><td>KPI 2: Absorption Rate</td><td>&ge; 60%</td><td>60.0%</td><td><span class="metric-status status-pass">PASS</span></td></tr>
+            <tr><td>KPI 2: Absorption Rate</td><td>30% to 40% of the location's absorption</td><td>60.0%</td><td><span class="metric-status status-pass">PASS</span></td></tr>
             <tr><td>KPI 3: Parts Share of Dealership Gross Margin</td><td>25%-30%</td><td>25.0%</td><td><span class="metric-status status-pass">PASS</span></td></tr>
             <tr><td>KPI 4: Salary % of GP</td><td>&le; 30%</td><td>26.7%</td><td><span class="metric-status status-pass">PASS</span></td></tr>
             <tr><td>KPI 5: Gross Turns</td><td>3-4x</td><td>3.6x</td><td><span class="metric-status status-pass">PASS</span></td></tr>
@@ -1245,7 +1245,7 @@ table {
   <!-- 10-KPI MASTER TELEMETRY BANK -->
   <div class="kpi-grid kpi-grid-5" style="margin-bottom:24px;">
     <div class="metric-box kpi-tile"><div class="kpi-label">01 Gross Margin</div><div class="metric-val" id="m1_res">35.7%</div><div id="m1_status" class="metric-status status-pass">PASS</div><div class="kpi-desc">Target: 33%-37%</div></div>
-    <div class="metric-box kpi-tile"><div class="kpi-label">02 Absorption</div><div class="metric-val" id="m2_res">60.0%</div><div id="m2_status" class="metric-status status-pass">PASS</div><div class="kpi-desc">Target: &ge; 60%</div></div>
+    <div class="metric-box kpi-tile"><div class="kpi-label">02 Absorption</div><div class="metric-val" id="m2_res">60.0%</div><div id="m2_status" class="metric-status status-pass">PASS</div><div class="kpi-desc">Target: 30% to 40% of the location's absorption</div></div>
     <div class="metric-box kpi-tile"><div class="kpi-label">03 Parts Share of GM</div><div class="metric-val" id="m3_res">25.0%</div><div id="m3_status" class="metric-status status-pass">PASS</div><div class="kpi-desc">Target: 25%-30% of dealership gross margin</div></div>
     <div class="metric-box kpi-tile"><div class="kpi-label">04 Salary / GP</div><div class="metric-val" id="m4_res">26.7%</div><div id="m4_status" class="metric-status status-pass">PASS</div><div class="kpi-desc">Target: &le; 30%</div></div>
     <div class="metric-box kpi-tile"><div class="kpi-label">05 Gross Turns</div><div class="metric-val" id="m5_res">3.6x</div><div id="m5_status" class="metric-status status-pass">PASS</div><div class="kpi-desc">Target: 3.0x to 4.0x</div><div class="kpi-desc" id="m5_note" style="color:var(--warning);"></div></div>
@@ -1293,17 +1293,17 @@ table {
   <div id="dash_m2" class="tab-content">
     <div class="grid-2">
       <div class="card">
-        <div class="card-title">Enter Your Numbers: Parts Absorption Rate</div>
+        <div class="card-title">Enter Your Numbers: Parts Contribution to Location Absorption</div>
         <div class="form-group"><label for="m2_parts_gp">Parts Gross Profit ($)</label><input type="number" id="m2_parts_gp" value="150000" oninput="calcAll()"></div>
         <div class="form-group"><label for="m2_total_exp">Total Store Fixed + Variable Operating Expenses ($)</label><input type="number" id="m2_total_exp" value="250000" oninput="calcAll()"></div>
       </div>
       <div class="card">
         <div class="card-title">Live Calculation</div>
         <div class="metric-box">
-          <div style="font-size:0.8rem; color:var(--muted); font-weight:700;">PARTS ABSORPTION RATE</div>
+          <div style="font-size:0.8rem; color:var(--muted); font-weight:700;">PARTS CONTRIBUTION TO LOCATION ABSORPTION</div>
           <div class="metric-val" id="dash_m2_hero">60.0%</div>
           <div id="dash_m2_status" class="metric-status status-pass">PASS</div>
-          <div class="kpi-desc">Benchmark Target: &ge; 60% Self-Sufficient</div>
+          <div class="kpi-desc">Target: 30% to 40% of the location's absorption. Below 30% is a red flag.</div>
         </div>
       </div>
     </div>
@@ -1476,7 +1476,7 @@ table {
           </thead>
           <tbody>
             <tr><td>KPI 1: Parts Gross Margin</td><td id="s_val_m1">35.7%</td><td>33%-37%</td><td id="s_stat_m1"><span class="metric-status status-pass">PASS</span></td></tr>
-            <tr><td>KPI 2: Parts Absorption Rate</td><td id="s_val_m2">60.0%</td><td>&ge; 60%</td><td id="s_stat_m2"><span class="metric-status status-pass">PASS</span></td></tr>
+            <tr><td>KPI 2: Parts Absorption Rate</td><td id="s_val_m2">60.0%</td><td>30% to 40% of the location's absorption</td><td id="s_stat_m2"><span class="metric-status status-pass">PASS</span></td></tr>
             <tr><td>KPI 3: Parts Share of Dealership Gross Margin</td><td id="s_val_m3">25.0%</td><td>25%-30%</td><td id="s_stat_m3"><span class="metric-status status-pass">PASS</span></td></tr>
             <tr><td>KPI 4: Parts Salary % of GP</td><td id="s_val_m4">26.7%</td><td>&le; 30%</td><td id="s_stat_m4"><span class="metric-status status-pass">PASS</span></td></tr>
             <tr><td>KPI 5: Gross Parts Turns</td><td id="s_val_m5">3.6x</td><td>3-4x</td><td id="s_stat_m5"><span class="metric-status status-pass">PASS</span></td></tr>
@@ -1703,7 +1703,8 @@ table {
       var exp = parseFloat(document.getElementById('m2_total_exp').value) || 0;
       if (exp > 0) {
         var abs = (gp / exp) * 100;
-        showKpi(2, abs.toFixed(1) + '%', abs >= 60 ? 'PASS' : (abs >= 50 ? 'WARN' : 'FAIL'));
+        var absShown = parseFloat(abs.toFixed(1));
+        showKpi(2, abs.toFixed(1) + '%', absShown < 30 ? 'FAIL' : 'PASS');
       }
     }
 
@@ -2070,7 +2071,7 @@ table {
     "type": "mc",
     "question": "Parts Absorption Rate measures which of the following?",
     "options": [
-      "The percentage of total store fixed and variable operating expenses covered by parts gross profit",
+      "Parts' contribution to the location's absorption: parts gross profit divided by the location's total operating expenses, times 100",
       "How quickly parts inventory turns over during the year",
       "The percentage of parts requests filled from stock on the first request",
       "The ratio of parts sales to labor sales in the service department"
@@ -2096,15 +2097,15 @@ table {
     "id": "q07",
     "module": "Module 1: Financials",
     "type": "mc",
-    "question": "What is the minimum Parts Absorption Rate target for a healthy heavy equipment parts department?",
+    "question": "What is the Parts Absorption Rate target for a healthy heavy equipment parts department?",
     "options": [
-      "40%",
-      "60%",
+      "30% to 40% of the location's absorption",
+      "60% or higher",
       "50%",
       "75%"
     ]
   ,
-    "correct": 1
+    "correct": 0
 },
   {
     "id": "q08",
