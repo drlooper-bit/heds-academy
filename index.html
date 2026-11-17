@@ -1122,7 +1122,7 @@ input, select, textarea {
         <div class="track-buttons">
           <a href="curriculum-index.html#sm" class="btn-preview">Preview Curriculum</a>
           <a href="service-manager-dashboard.html" class="btn-preview">Open Dashboard</a>
-          <a href="mailto:daniel@hedsconsulting.net?subject=HEDS%20Academy:%20Service%20Manager%20Training%20Signup" class="btn-signup">Sign Up</a>
+          <a href="#sec-contact" class="btn-signup" onclick="return hedsLeadGo('Service Manager Training');">Sign Up</a>
         </div>
       </div>
 
@@ -1135,7 +1135,7 @@ input, select, textarea {
         <div class="track-buttons">
           <a href="curriculum-index.html#rsm" class="btn-preview">Preview Curriculum</a>
           <a href="rental-service-manager-dashboard.html" class="btn-preview">Open Dashboard</a>
-          <a href="mailto:daniel@hedsconsulting.net?subject=HEDS%20Academy:%20Rental%20Service%20Manager%20Training%20Signup" class="btn-signup">Sign Up</a>
+          <a href="#sec-contact" class="btn-signup" onclick="return hedsLeadGo('Rental Service Manager Training');">Sign Up</a>
         </div>
       </div>
 
@@ -1148,7 +1148,7 @@ input, select, textarea {
         <div class="track-buttons">
           <a href="curriculum-index.html#rm" class="btn-preview">Preview Curriculum</a>
           <a href="rental-manager-dashboard.html" class="btn-preview">Open Dashboard</a>
-          <a href="mailto:daniel@hedsconsulting.net?subject=HEDS%20Academy:%20Rental%20Manager%20Training%20Signup" class="btn-signup">Sign Up</a>
+          <a href="#sec-contact" class="btn-signup" onclick="return hedsLeadGo('Rental Manager Training');">Sign Up</a>
         </div>
       </div>
 
@@ -1161,7 +1161,7 @@ input, select, textarea {
         <div class="track-buttons">
           <a href="curriculum-index.html#pm" class="btn-preview">Preview Curriculum</a>
           <a href="parts-manager-dashboard.html" class="btn-preview">Open Dashboard</a>
-          <a href="mailto:daniel@hedsconsulting.net?subject=HEDS%20Academy:%20Parts%20Manager%20Training%20Signup" class="btn-signup">Sign Up</a>
+          <a href="#sec-contact" class="btn-signup" onclick="return hedsLeadGo('Parts Manager Training');">Sign Up</a>
         </div>
       </div>
 
@@ -1267,7 +1267,7 @@ input, select, textarea {
   <div class="card" style="text-align:center;">
     <h2>Ready to close the gap?</h2>
     <p>Book a 30-minute discovery call. We'll review your current state, identify the top 3 operational leaks, and recommend the right track for your team.</p>
-    <a class="cta-btn" href="mailto:daniel@hedsconsulting.net?subject=HEDS%20Academy:%20Discovery%20Call%20Request">Book a Discovery Call</a>
+    <a class="cta-btn" href="#sec-contact" onclick="return hedsLeadGo('Discovery Call');">Book a Discovery Call</a>
   </div>
 </div>
 
@@ -1321,11 +1321,11 @@ input, select, textarea {
     <h2>$300 per manager</h2>
     <p>Volume pricing: 5+ managers at $250 each. 10+ at $200 each.</p>
     <p style="margin-top:16px;">To schedule an assessment for your team, request details below. We will follow up within one business day with available dates, proctoring options (in person or monitored remote), and the assessment brief.</p>
-    <a class="cta-btn" href="mailto:daniel@hedsconsulting.net?subject=HEDS%20Assessment:%20Request%20Details" style="margin-top:16px;">Request Assessment Details</a>
+    <a class="cta-btn" href="#assessment-form" onclick="document.getElementById('assessment-form').scrollIntoView({behavior:'smooth'}); return false;" style="margin-top:16px;">Request Assessment Details</a>
   </div>
 
   <div class="card">
-    <h2>Prefer email?</h2>
+    <h2>Request Assessment Details</h2>
     <form id="assessment-form" onsubmit="return hedsAssessmentSubmit(event);" style="display:flex;flex-direction:column;gap:12px;max-width:480px;margin:0 auto;">
       <label for="assess-name" style="font-size:0.9rem;color:var(--muted);">Your name</label>
       <input type="text" id="assess-name" name="name" required placeholder="John Smith" style="padding:12px;border-radius:var(--radius);border:1px solid var(--border);background:var(--bg);color:var(--fg);font-size:1rem;">
@@ -1339,9 +1339,11 @@ input, select, textarea {
         <option value="2-4">2-4 managers</option>
         <option value="5+">5+ managers</option>
       </select>
+      <input type="text" id="assess-website" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;">
       <button type="submit" class="cta-btn" style="margin-top:8px;border:none;">Get Assessment Details</button>
       <div id="assess-confirm" role="status" aria-live="polite" style="display:none;font-size:0.9rem;text-align:left;margin-top:8px;"></div>
     </form>
+    <p style="font-size:0.85rem;color:var(--muted);text-align:center;margin-top:12px;">Prefer email? <a href="mailto:daniel@hedsconsulting.net" style="color:var(--accent);">daniel@hedsconsulting.net</a> or call <a href="tel:8135997893" style="color:var(--accent);">813-599-7893</a>.</p>
   </div>
 </div>
 
@@ -1366,6 +1368,38 @@ input, select, textarea {
       <span>📍</span>
       <span>Leesburg, Florida</span>
     </div>
+  </div>
+
+  <div class="card" id="lead-form-card">
+    <h2>Get in Touch</h2>
+    <p style="margin-bottom:16px;">Tell us what you need. We will respond within one business day.</p>
+    <form id="lead-form-el" onsubmit="return hedsLeadSubmit(event);" style="display:flex;flex-direction:column;gap:12px;max-width:480px;margin:0 auto;">
+      <label for="lead-name" style="font-size:0.9rem;color:var(--muted);">Your name *</label>
+      <input type="text" id="lead-name" required placeholder="John Smith" style="padding:12px;border-radius:var(--radius);border:1px solid var(--border);background:var(--bg);color:var(--fg);font-size:1rem;">
+      <label for="lead-email" style="font-size:0.9rem;color:var(--muted);">Email *</label>
+      <input type="email" id="lead-email" required placeholder="you@dealership.com" style="padding:12px;border-radius:var(--radius);border:1px solid var(--border);background:var(--bg);color:var(--fg);font-size:1rem;">
+      <label for="lead-company" style="font-size:0.9rem;color:var(--muted);">Company</label>
+      <input type="text" id="lead-company" placeholder="Dealership or rental company name" style="padding:12px;border-radius:var(--radius);border:1px solid var(--border);background:var(--bg);color:var(--fg);font-size:1rem;">
+      <label for="lead-phone" style="font-size:0.9rem;color:var(--muted);">Phone (optional)</label>
+      <input type="tel" id="lead-phone" placeholder="(555) 555-5555" style="padding:12px;border-radius:var(--radius);border:1px solid var(--border);background:var(--bg);color:var(--fg);font-size:1rem;">
+      <label for="lead-interest" style="font-size:0.9rem;color:var(--muted);">I'm interested in</label>
+      <select id="lead-interest" style="padding:12px;border-radius:var(--radius);border:1px solid var(--border);background:var(--bg);color:var(--fg);font-size:1rem;">
+        <option value="Discovery Call">Discovery Call</option>
+        <option value="Due Diligence / Operational Audit">Due Diligence / Operational Audit</option>
+        <option value="Service Manager Training">Service Manager Training</option>
+        <option value="Rental Service Manager Training">Rental Service Manager Training</option>
+        <option value="Rental Manager Training">Rental Manager Training</option>
+        <option value="Parts Manager Training">Parts Manager Training</option>
+        <option value="Follow-Up Coaching">Follow-Up Coaching</option>
+        <option value="Other">Other</option>
+      </select>
+      <label for="lead-message" style="font-size:0.9rem;color:var(--muted);">Message (optional)</label>
+      <textarea id="lead-message" rows="4" placeholder="What is happening in your operation?" style="padding:12px;border-radius:var(--radius);border:1px solid var(--border);background:var(--bg);color:var(--fg);font-size:1rem;font-family:inherit;resize:vertical;"></textarea>
+      <input type="text" id="lead-website" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;">
+      <button type="submit" class="cta-btn" style="margin-top:8px;border:none;">Send Request</button>
+      <div id="lead-status" role="status" aria-live="polite" style="display:none;font-size:0.9rem;text-align:left;margin-top:8px;"></div>
+    </form>
+    <p style="font-size:0.85rem;color:var(--muted);text-align:center;margin-top:12px;">Prefer email or a call? <a href="mailto:daniel@hedsconsulting.net" style="color:var(--accent);">daniel@hedsconsulting.net</a> | <a href="tel:8135997893" style="color:var(--accent);">813-599-7893</a></p>
   </div>
 
   <div class="card">
@@ -1491,60 +1525,118 @@ window.addEventListener('DOMContentLoaded', function() {
   }
 });
 
-// ===== ASSESSMENT FORM HANDLER =====
-// Opens the visitor's email app with the request filled in. The form is not
-// cleared and no success message is shown, because the site cannot tell if an
-// email app opened or if the message was sent. The composed message is shown
-// with a copy button so it can be sent from any email account.
+// ===== LEAD CAPTURE (shared by both forms) =====
+var HEDS_LEAD_RELAY_URL = 'https://script.google.com/macros/s/AKfycbymws_e31nyHrB6ge_U9NnVIdRFy-zNXKfGsVbWpm6OYz9_6lkpGL2RpFJebhxowwXn/exec';
+var HEDS_PAGE_LOADED_AT = Date.now();
+
+function hedsLeadGo(interest) {
+  showSection('contact');
+  var sel = document.getElementById('lead-interest');
+  if (sel) {
+    for (var i = 0; i < sel.options.length; i++) {
+      if (sel.options[i].value === interest) { sel.selectedIndex = i; break; }
+    }
+  }
+  var card = document.getElementById('lead-form-card');
+  if (card) card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  var nameField = document.getElementById('lead-name');
+  if (nameField) setTimeout(function () { nameField.focus(); }, 400);
+  return false;
+}
+
+function hedsLeadSetStatus(boxId, html) {
+  var box = document.getElementById(boxId);
+  if (!box) return;
+  box.style.display = 'block';
+  box.innerHTML = html;
+}
+
+function hedsLeadFallbackHtml() {
+  return '<p style="margin:0;">Something went wrong sending your request. Please email <a href="mailto:daniel@hedsconsulting.net" style="color:var(--accent);">daniel@hedsconsulting.net</a> or call <a href="tel:8135997893" style="color:var(--accent);">813-599-7893</a>.</p>';
+}
+
+function hedsLeadPost(payload, statusId, successHtml) {
+  // Hidden "website" field is a honeypot: bots fill it. Pretend success, send nothing.
+  if (payload.website) { hedsLeadSetStatus(statusId, successHtml); return; }
+  // Submitted faster than a human can fill the form = bot. Pretend success, send nothing.
+  if (Date.now() - HEDS_PAGE_LOADED_AT < 3000) { hedsLeadSetStatus(statusId, successHtml); return; }
+  delete payload.website;
+  hedsLeadSetStatus(statusId, '<p style="margin:0;color:var(--fg);">Sending…</p>');
+  var body = JSON.stringify(payload);
+  function onFail() { hedsLeadSetStatus(statusId, hedsLeadFallbackHtml()); }
+  function onDone() { hedsLeadSetStatus(statusId, successHtml); }
+  if (window.fetch) {
+    window.fetch(HEDS_LEAD_RELAY_URL, { method: 'POST', body: body, redirect: 'follow' })
+      .then(function (r) { if (r.ok) onDone(); else onFail(); })
+      .catch(onFail);
+  } else {
+    try {
+      var xhr = new XMLHttpRequest();
+      xhr.open('POST', HEDS_LEAD_RELAY_URL, true);
+      xhr.onload = function () { if (xhr.status >= 200 && xhr.status < 300) onDone(); else onFail(); };
+      xhr.onerror = onFail;
+      xhr.send(body);
+    } catch (err) { onFail(); }
+  }
+}
+
+// ===== MAIN LEAD FORM (contact section) =====
+function hedsLeadSubmit(e) {
+  e.preventDefault();
+  var name = document.getElementById('lead-name').value.trim();
+  var email = document.getElementById('lead-email').value.trim();
+  if (!name || !email) {
+    hedsLeadSetStatus('lead-status', '<p style="margin:0;">Please enter your name and email.</p>');
+    return false;
+  }
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    hedsLeadSetStatus('lead-status', '<p style="margin:0;">Please enter a valid email address.</p>');
+    return false;
+  }
+  var payload = {
+    type: 'lead',
+    source: 'index-lead-form',
+    interest: document.getElementById('lead-interest').value,
+    name: name,
+    email: email,
+    company: document.getElementById('lead-company').value.trim(),
+    phone: document.getElementById('lead-phone').value.trim(),
+    message: document.getElementById('lead-message').value.trim(),
+    website: (document.getElementById('lead-website') || {}).value || ''
+  };
+  hedsLeadPost(payload, 'lead-status',
+    '<p style="margin:0;color:var(--accent);font-weight:600;">Request received. Daniel will follow up within one business day.</p>');
+  return false;
+}
+
+// ===== ASSESSMENT DETAILS FORM =====
 function hedsAssessmentSubmit(e) {
   e.preventDefault();
-  var to = 'daniel@hedsconsulting.net';
   var name = document.getElementById('assess-name').value.trim();
   var email = document.getElementById('assess-email').value.trim();
+  if (!name || !email) {
+    hedsLeadSetStatus('assess-confirm', '<p style="margin:0;">Please enter your name and email.</p>');
+    return false;
+  }
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    hedsLeadSetStatus('assess-confirm', '<p style="margin:0;">Please enter a valid email address.</p>');
+    return false;
+  }
   var companyRaw = document.getElementById('assess-company').value.trim();
-  var company = companyRaw || 'Not provided';
   var managers = document.getElementById('assess-managers').value;
-  var subjectText = 'HEDS Assessment Request: ' + (companyRaw || name);
-  var bodyText =
-    'Name: ' + name + '\n' +
-    'Email: ' + email + '\n' +
-    'Company: ' + company + '\n' +
-    'Managers: ' + managers + '\n\n' +
-    'Please send available assessment dates, proctoring options, and the assessment brief.';
-  var fullText = 'To: ' + to + '\nSubject: ' + subjectText + '\n\n' + bodyText;
-
-  var box = document.getElementById('assess-confirm');
-  box.innerHTML =
-    '<p style="margin:0 0 8px;">Your email app should open with this request filled in. Press Send there to reach Daniel.</p>' +
-    '<p style="margin:0 0 8px;">If no email app opened, copy the message below and send it to ' +
-    '<a href="mailto:' + to + '" style="color:var(--accent);">' + to + '</a>, or call <a href="tel:8135997893" style="color:var(--accent);">813-599-7893</a>.</p>' +
-    '<label for="assess-message" style="display:block;font-size:0.85rem;color:var(--muted);margin-bottom:4px;">Your request</label>' +
-    '<textarea id="assess-message" readonly rows="9" style="width:100%;box-sizing:border-box;padding:10px;border-radius:var(--radius);border:1px solid var(--border);background:var(--bg);color:var(--fg);font-size:0.9rem;font-family:inherit;resize:vertical;"></textarea>' +
-    '<button type="button" id="assess-copy" style="margin-top:8px;padding:8px 14px;border-radius:var(--radius);border:1px solid var(--border);background:var(--bg);color:var(--fg);cursor:pointer;">Copy message</button> ' +
-    '<span id="assess-copy-status" style="margin-left:8px;color:var(--muted);"></span>';
-  box.style.display = 'block';
-  var ta = document.getElementById('assess-message');
-  ta.value = fullText;
-
-  document.getElementById('assess-copy').onclick = function () {
-    var status = document.getElementById('assess-copy-status');
-    function fallbackCopy() {
-      ta.focus();
-      ta.select();
-      var ok = false;
-      try { ok = document.execCommand('copy'); } catch (err) { ok = false; }
-      status.textContent = ok ? 'Copied.' : 'Select the text above and copy it.';
-    }
-    if (navigator.clipboard && window.isSecureContext) {
-      navigator.clipboard.writeText(fullText).then(function () {
-        status.textContent = 'Copied.';
-      }, fallbackCopy);
-    } else {
-      fallbackCopy();
-    }
+  var payload = {
+    type: 'lead',
+    source: 'assessment-form',
+    interest: 'Assessment details',
+    name: name,
+    email: email,
+    company: companyRaw,
+    phone: '',
+    message: 'Assessment request for ' + managers + ' manager(s). Please send available dates, proctoring options, and the assessment brief.',
+    website: (document.getElementById('assess-website') || {}).value || ''
   };
-
-  window.location.href = 'mailto:' + to + '?subject=' + encodeURIComponent(subjectText) + '&body=' + encodeURIComponent(bodyText);
+  hedsLeadPost(payload, 'assess-confirm',
+    '<p style="margin:0;color:var(--accent);font-weight:600;">Request received. We will follow up within one business day with available dates, proctoring options, and the assessment brief.</p>');
   return false;
 }
 
