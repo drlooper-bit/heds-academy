@@ -1307,10 +1307,10 @@ table {
           <li><strong>Step 1:</strong> Calculate the annual ownership cost per unit for a class (maintenance + depreciation + insurance + interest). <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></li>
           <li><strong>Step 2:</strong> Determine the target margin (e.g., 40% gross margin &rarr; multiply cost by 1.67). <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></li>
           <li><strong>Step 3:</strong> Divide by target annual rental days (e.g., 250 days for 70% time utilization). <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></li>
-          <li><strong>Step 4:</strong> This gives your daily rack rate. Set weekly at ~3.5&times; daily and monthly at ~10&times; daily.</li>
+          <li><strong>Step 4:</strong> This gives your daily rack rate. Set the weekly rate at 3&times; daily and the 28-day monthly rate at 9&times; daily. The weekly rate is one third of the 28-day rate, and the daily rate is one third of the weekly rate.</li>
           <li><strong>Step 5:</strong> Pull actual invoiced rates for the trailing 90 days. Divide actual invoiced rate by rack rate to get rate realization percentage.</li>
         </ol>
-        <p style="margin-top:10px; font-size:0.88rem;"><strong>Worked Example (20T Excavator):</strong> Annual Ownership Cost: $48,000/unit. Target Gross Margin: 40% &rarr; Multiplier: 1.67. Target Rental Days: 250 days. Daily Rack Rate = ($48,000 &times; 1.67) / 250 = $80,160 / 250 = <strong>$321/day</strong>. Set weekly at $1,120 (3.5&times;) and monthly at $3,210 (10&times;).</p>
+        <p style="margin-top:10px; font-size:0.88rem;"><strong>Worked Example (20T Excavator):</strong> Annual Ownership Cost: $48,000/unit. Target Gross Margin: 40% &rarr; Multiplier: 1.67. Target Rental Days: 250 days. Daily Rack Rate = ($48,000 &times; 1.67) / 250 = $80,160 / 250 = <strong>$321/day</strong>. Set weekly at $963 (3&times;) and the 28-day month at $2,889 (9&times;).</p>
         <p style="margin-top:8px; font-size:0.88rem;"><strong>Rate Realization Audit (trailing 90 days):</strong> Rack Rate: $321/day. Actual Average Invoiced Rate: $248/day. Rate Realization = ($248 / $321) &times; 100 = <strong style="color:var(--danger);">77.3% (FAIL: Below 90% target)</strong>. Rate erosion: $73/day &times; 250 days &times; 8 units = $146,000/year in lost revenue.</p>
         <div style="margin-top:8px; font-size:0.85rem;">
           <strong>HEDS Target Benchmark:</strong>
@@ -1341,7 +1341,7 @@ table {
         </div>
         <div class="spec-box" style="background:rgba(59, 130, 246, 0.1); border-color:var(--accent-color);">
           <div class="spec-title">Manager's Insight</div>
-          <p style="font-size:0.88rem;">Construction equipment typically rents for 14 to 28 days. If your average rental duration on excavators is 32 days and your monthly rate is 10&times; the daily rate, customers are paying $3,210 for 32 days instead of $321 &times; 32 = $10,272. That's a 69% discount, and you didn't even know you gave it. The rate structure should create a natural incentive for the customer to choose the right duration tier.</p>
+          <p style="font-size:0.88rem;">Construction equipment typically rents for 14 to 28 days. If your average rental duration on excavators is 32 days and your 28-day monthly rate is 9&times; the daily rate, a customer who keeps the machine 32 days and is billed only one 28-day cycle pays $2,889 instead of $321 &times; 32 = $10,272. The 4 days past the cycle are free, and you didn't even know you gave them. The rate structure should create a natural incentive for the customer to choose the right duration tier.</p>
         </div>
       </div>
 
@@ -1352,14 +1352,14 @@ table {
           <li><strong>Step 1:</strong> Pull total rental days from the ERP for the trailing 90 days. <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></li>
           <li><strong>Step 2:</strong> Count the number of completed rental contracts in that same period. <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></li>
           <li><strong>Step 3:</strong> Divide total days by completed rentals to get average duration.</li>
-          <li><strong>Step 4:</strong> Compare against the rate structure: if average duration is 32 days and your monthly cap is 30 days, the customer is getting 2 free days at the monthly rate. Adjust the monthly rate to 28 days to capture the extension.</li>
+          <li><strong>Step 4:</strong> Compare against the rate structure: if average duration is 32 days and the monthly rate covers a 28-day cycle, the customer is getting 4 free days unless the extra days are billed at the daily rate or as a new cycle.</li>
         </ol>
-        <p style="margin-top:10px; font-size:0.88rem;"><strong>Worked Example:</strong> Total Rental Days (90 days): 2,400. Completed Rentals: 85. Average Duration = 2,400 / 85 = <strong>28.2 days per rental</strong>. If monthly rate = 10&times; daily and kicks in at day 30: most rentals fall in the weekly-to-daily gap. <em>Action:</em> Add a 3-week rate (18&times; daily) to bridge the gap between weekly (3.5&times;) and monthly (10&times;).</p>
+        <p style="margin-top:10px; font-size:0.88rem;"><strong>Worked Example:</strong> Total Rental Days (90 days): 2,400. Completed Rentals: 85. Average Duration = 2,400 / 85 = <strong>28.2 days per rental</strong>. If the weekly rate is 3&times; daily and the 28-day monthly rate is 9&times; daily, most rentals fall between the weekly and monthly tiers. <em>Action:</em> Bill three weekly rates (3 &times; 3&times; = 9&times; daily) at the same price as the 28-day month, so there is no gap between the weekly and monthly tiers.</p>
         <div style="margin-top:8px; font-size:0.85rem;">
           <strong>HEDS Target Benchmark:</strong>
           <ul style="padding-left:16px; margin-top:4px;">
             <li><strong>Construction equipment:</strong> 14&ndash;28 days average duration</li>
-            <li><strong>Rate structure tiers:</strong> Daily &rarr; 3-day &rarr; Weekly (3.5&times;) &rarr; 3-week (18&times;) &rarr; Monthly (10&times; daily, capped at 28 days)</li>
+            <li><strong>Rate structure tiers:</strong> Daily &rarr; Weekly (3&times; daily) &rarr; 28-day month (9&times; daily, the same price as three weekly rates)</li>
           </ul>
         </div>
       </div>
@@ -4018,7 +4018,7 @@ function switchMainSection(secId, btnEl) {
       "Weekly = 2× daily, Monthly = 5× daily",
       "Weekly = 5× daily, Monthly = 20× daily",
       "All rates are the same regardless of duration",
-      "Weekly = 3.5× daily, Monthly = 10× daily"
+      "Weekly = 3× daily, 28-day Monthly = 9× daily"
     ]
   ,
     "correct": 3
