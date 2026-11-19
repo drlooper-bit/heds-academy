@@ -30,6 +30,11 @@
   .contact-list a { color:var(--accent-color); }
   .cta { display:inline-block; margin-top:8px; background:var(--accent-color); color:#0e1f38; font-weight:800; padding:10px 18px; border-radius:var(--radius); text-decoration:none; }
   .cta:hover { background:#c89718; }
+  .sr-only { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; }
+  .cta-row { display:flex; flex-wrap:wrap; gap:12px; margin:14px 0 18px; }
+  .cta-row .cta { margin-top:0; }
+  .cta.cta-outline { background:transparent; color:var(--accent-color); border:2px solid var(--accent-color); padding:8px 16px; }
+  .cta.cta-outline:hover { background:rgba(229,174,37,0.14); }
   .faq { margin-top:16px; }
   .faq-item { border-top:1px solid var(--border-color); padding:14px 0; }
   .faq-item:first-of-type { border-top:none; padding-top:0; }
@@ -62,6 +67,10 @@
 <div class="block">
   <h2>Get in touch</h2>
   <p class="lead">Book a 30-minute discovery call. We will review what is happening in your operation and recommend where to start, whether that is an inspection, training, or both.</p>
+  <div class="cta-row">
+    <a class="cta" href="https://calendar.app.google/8R2rX7THVQffsytT8" target="_blank" rel="noopener">Book a Discovery Call<span class="sr-only"> (opens in a new tab)</span></a>
+    <a class="cta cta-outline" href="https://docs.google.com/forms/d/e/1FAIpQLScPCb8GgApY22VvkqBPgJkSG4VDWZYXaAfI-SuHNkSpPyMV6A/viewform" target="_blank" rel="noopener">Send Us Your Details<span class="sr-only"> (opens in a new tab)</span></a>
+  </div>
   <ul class="contact-list">
     <li>Email: <a href="mailto:daniel@hedsconsulting.net">daniel@hedsconsulting.net</a></li>
     <li>Phone: <a href="tel:3527245603">(352) 724-5603</a></li>
@@ -71,7 +80,7 @@
 
 <div class="block">
   <h2>Book a 30-minute discovery call</h2>
-  <p class="lead">To book the call, email Daniel or phone the number above, and he will confirm a time.</p>
+  <p class="lead">Use the Book a Discovery Call button above to pick a time. You can also email Daniel or phone the number above, and he will confirm a time.</p>
   <a class="cta" href="mailto:daniel@hedsconsulting.net?subject=HEDS%20Discovery%20Call%20Request">Request a discovery call</a>
   <p class="lead" style="margin-top:14px;">What happens on the discovery call:</p>
   <ul>

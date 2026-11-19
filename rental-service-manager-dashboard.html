@@ -1216,7 +1216,7 @@ table {
       </div>
 
       <div class="curr-section">
-        <div class="curr-section-h3">Part 2: Technician Recovery, Utilization &amp; Applied Wrench-Time</div>
+        <div class="curr-section-h3">Part 2: Labor Recovery, Utilization &amp; Applied Wrench-Time</div>
 
         <div class="grid-2" style="margin: 12px 0;">
           <div class="spec-box" style="background:rgba(34, 197, 94, 0.08); border-left-color:var(--success); margin:0;">
@@ -1230,8 +1230,8 @@ table {
         </div>
 
         <div id="kpi-labor-utilization" class="formula-card">
-          <div class="formula-title">TECHNICIAN RECOVERY &amp; UTILIZATION FORMULAS</div>
-          <div class="formula-expr">Technician Recovery % = Hours on Work Orders / Hours of Payroll (Paid Hours) &times; 100</div>
+          <div class="formula-title">LABOR RECOVERY &amp; UTILIZATION FORMULAS</div>
+          <div class="formula-expr">Labor Recovery % = Hours on Work Orders / Hours of Payroll (Paid Hours) &times; 100</div>
           <div class="formula-expr" style="margin-top:6px;">Technician Utilization % = Hours Invoiced on the Work Order / Hours on Work Orders &times; 100</div>
           <p style="font-size:0.85rem; margin-top:6px;"><strong>Worked Example:</strong> Shop has 5 technicians working 40 hours = 200 Total Paid Payroll Hours. Total hours booked to open fleet work orders = 174 hours. Unapplied hours = 26 hours. Recovery: (174 / 200) &times; 100 = <strong style="color:var(--warning);">87.0% (WARN: below the 95 to 100% target, above the 85% red flag)</strong></p>
           <p style="font-size:0.85rem; margin-top:4px;"><strong>HEDS Target Benchmarks (same as dealer):</strong> Recovery 95% to 100% and Utilization 95% to 100%, red flag at 85% or below on either. Above 100% on either: WARN, check the time coding. HEDS has no separate measure beyond these two.</p>
@@ -1323,7 +1323,7 @@ table {
           </div>
           <div class="spec-box" style="background:rgba(239, 68, 68, 0.08); border-left-color:var(--danger); margin:0;">
             <div class="spec-title" style="color:var(--danger);">What It Does NOT Measure</div>
-            <p style="font-size:0.88rem;">Shop-based repair throughput or technician recovery and utilization.</p>
+            <p style="font-size:0.88rem;">Shop-based repair throughput or labor recovery and utilization.</p>
           </div>
         </div>
 
@@ -1780,7 +1780,7 @@ table {
     <button class="tab-btn" onclick="switchDashTab('dash_m2', this)">M2: Maint % of OEC</button>
     <button class="tab-btn" onclick="switchDashTab('dash_m3', this)">M3: Turnaround DTI</button>
     <button class="tab-btn" onclick="switchDashTab('dash_m4', this)">M4: Fleet Downtime</button>
-    <button class="tab-btn" onclick="switchDashTab('dash_m5', this)">M5: Tech Recovery</button>
+    <button class="tab-btn" onclick="switchDashTab('dash_m5', this)">M5: Labor Recovery</button>
     <button class="tab-btn" onclick="switchDashTab('dash_m6', this)">M6: 90-Day Parts</button>
     <button class="tab-btn" onclick="switchDashTab('dash_m7', this)">M7: Damage Recovery</button>
     <button class="tab-btn" onclick="switchDashTab('dash_m8', this)">M8: Telematics SLA</button>
@@ -1941,11 +1941,11 @@ table {
     </div>
   </div>
 
-  <!-- DASH M5: Tech Recovery -->
+  <!-- DASH M5: Labor Recovery -->
   <div id="dash_m5" class="tab-content">
     <div id="kpi-technician-recovery" class="grid-2">
       <div class="card">
-        <div class="card-title">Enter Your Branch Numbers: Technician Recovery</div>
+        <div class="card-title">Enter Your Branch Numbers: Labor Recovery</div>
         <div class="form-group">
           <label for="dm5_wo_hours">Your Hours on Work Orders</label>
           <input type="number" id="dm5_wo_hours" value="174" placeholder="Enter WO hours" oninput="calcMod5()">
@@ -1959,7 +1959,7 @@ table {
         <div class="card">
           <div class="card-title">Recovery Diagnostic</div>
           <div class="metric-box">
-            <div style="font-size:0.8rem; color:var(--muted); font-weight:700;">TECHNICIAN RECOVERY %</div>
+            <div style="font-size:0.8rem; color:var(--muted); font-weight:700;">LABOR RECOVERY %</div>
             <div class="metric-val" id="dm5_res_prod">87.0%</div>
             <div id="dm5_status" class="metric-status status-warn">WARN</div>
           </div>
@@ -2171,7 +2171,7 @@ table {
               <td style="padding:10px; color:var(--muted);" colspan="4">Old AI KPIs archived Oct 23 2026; new set in development.</td>
             </tr>
             <tr style="border-bottom:1px solid var(--border-color);">
-              <td style="padding:10px; font-weight:600;">Technician Recovery</td>
+              <td style="padding:10px; font-weight:600;">Labor Recovery</td>
               <td style="padding:10px;" id="s_val_prod">--</td>
               <td style="padding:10px;">95 to 100% (red flag &le; 85%)</td>
               <td style="padding:10px;" id="s_stat_prod">--</td>
@@ -3080,7 +3080,7 @@ function printCertificateRSM() {
     "module": "Module 3: Shop Workflow & WIP",
     "module_id": "c_m3",
     "type": "calc",
-    "question": "A shop employs 4 technicians working 40 paid payroll hours each (160 total paid hours). During the week, technicians work a combined 136 hours directly on open fleet repair and PM work orders. What is the Technician Recovery rate (hours on work orders / hours of payroll)?",
+    "question": "A shop employs 4 technicians working 40 paid payroll hours each (160 total paid hours). During the week, technicians work a combined 136 hours directly on open fleet repair and PM work orders. What is the Labor Recovery rate (hours on work orders / hours of payroll)?",
     "options": [
       "85.0%",
       "75.0%",

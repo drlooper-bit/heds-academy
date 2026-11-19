@@ -27,7 +27,7 @@
             { kpi: 'parts_absorption', f: function (v) { return pct(v.pgp, v.opex); } }] },
       ] },
       { name: 'Service', tiles: [
-        { title: 'Technician Recovery', def: 'Hours sold divided by hours paid, times 100.',
+        { title: 'Labor Recovery', def: 'Hours sold divided by hours paid, times 100.',
           inputs: [I('sold', 'Hours sold', 820, 10, 2200, 10, 'hours'), I('paid', 'Hours paid', 1000, 100, 2000, 10, 'hours')], outputs: ratio('technician_recovery', 'sold', 'paid') },
         { title: 'Labor Utilization', def: 'Hours invoiced on work orders divided by hours on work orders, times 100.',
           inputs: [I('inv', 'Hours invoiced on work orders', 680, 0, 2200, 10, 'hours'), I('wo', 'Hours on work orders', 820, 10, 2200, 10, 'hours')], outputs: ratio('labor_utilization', 'inv', 'wo') },
@@ -82,7 +82,7 @@
       { name: 'Rental Service', tiles: [
         { title: 'Off Rent to Rent-Ready', def: 'Hours from off rent into service to the rent-ready line, or to a failed inspection.',
           inputs: [I('hrs', 'Average hours, off rent to rent-ready', 36, 1, 200, 1, 'hours')], outputs: [{ kpi: 'rent_ready_turnaround', f: function (v) { return v.hrs; } }] },
-        { title: 'Technician Recovery', def: 'Hours on work orders divided by paid payroll hours, times 100.',
+        { title: 'Labor Recovery', def: 'Hours on work orders divided by paid payroll hours, times 100.',
           inputs: [I('wo', 'Hours on work orders', 870, 10, 2200, 10, 'hours'), I('paid', 'Paid payroll hours', 1000, 100, 2000, 10, 'hours')], outputs: ratio('rs_technician_recovery', 'wo', 'paid') },
         { title: 'Labor Utilization', def: 'Hours invoiced on work orders divided by hours on work orders, times 100.',
           inputs: [I('inv', 'Hours invoiced on work orders', 780, 0, 2200, 10, 'hours'), I('wo2', 'Hours on work orders', 870, 10, 2200, 10, 'hours')], outputs: ratio('rs_labor_utilization', 'inv', 'wo2') },

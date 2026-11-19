@@ -990,7 +990,7 @@ table {
           </div>
           <div class="spec-box" style="background:rgba(239, 68, 68, 0.08); border-left-color:var(--danger); margin:0;">
             <div class="spec-title" style="color:var(--danger);">What It Does NOT Measure</div>
-            <p style="font-size:0.88rem;">Individual shop bay throughput or technician recovery and utilization: those are the Service Manager's KPIs.</p>
+            <p style="font-size:0.88rem;">Individual shop bay throughput or labor recovery and utilization: those are the Service Manager's KPIs.</p>
           </div>
         </div>
         <div class="spec-box" style="background:rgba(59, 130, 246, 0.1); border-color:var(--accent-color);">
@@ -2325,11 +2325,11 @@ table {
         </div>
         <div class="form-group">
           <label for="dm1_total_units">Total Fleet Units</label>
-          <input type="number" id="dm1_total_units" value="12" placeholder="Enter total fleet units" oninput="calcMod1()">
+          <input type="number" id="dm1_total_units" value="150" placeholder="Enter total fleet units" oninput="calcMod1()">
         </div>
         <div class="form-group">
           <label for="dm1_idle_units">Units in Yard Not On Rent (idle)</label>
-          <input type="number" id="dm1_idle_units" value="2" placeholder="Enter idle units" oninput="calcMod1()">
+          <input type="number" id="dm1_idle_units" value="35" placeholder="Enter idle units" oninput="calcMod1()">
         </div>
       </div>
       <div>
@@ -2342,8 +2342,8 @@ table {
           </div>
           <div class="metric-box">
             <div style="font-size:0.8rem; color:var(--muted); font-weight:700;">IDLE FLEET %</div>
-            <div class="metric-val" id="dm1_res_idle">25.0%</div>
-            <div id="dm1_idle_status" class="metric-status status-warn">WARN</div>
+            <div class="metric-val" id="dm1_res_idle">23.3%</div>
+            <div id="dm1_idle_status" class="metric-status status-pass">PASS</div>
           </div>
         </div>
         <div class="card">
@@ -2485,7 +2485,7 @@ table {
         <div class="card-title">Enter Your Branch Numbers: Rate Realization</div>
         <div class="form-group">
           <label for="dm6_actual_rate">Actual Invoiced Rate ($/day)</label>
-          <input type="number" id="dm6_actual_rate" value="289" placeholder="Enter actual invoiced rate" oninput="calcMod6()">
+          <input type="number" id="dm6_actual_rate" value="248" placeholder="Enter actual invoiced rate" oninput="calcMod6()">
         </div>
         <div class="form-group">
           <label for="dm6_rack_rate">Rack Rate ($/day)</label>
@@ -2578,7 +2578,7 @@ table {
         <div class="card-title">Enter Your Branch Numbers: Equipment-to-Orders Ratio</div>
         <div class="form-group">
           <label for="dm8_avail_units">Available Units (on rent + rent-ready, excluding down)</label>
-          <input type="number" id="dm8_avail_units" value="12" placeholder="Enter available units" oninput="calcMod8()">
+          <input type="number" id="dm8_avail_units" value="10" placeholder="Enter available units" oninput="calcMod8()">
         </div>
         <div class="form-group">
           <label for="dm8_active_reqs">Active Rental Requests (trailing 30 days)</label>
