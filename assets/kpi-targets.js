@@ -103,6 +103,7 @@
       pending: 'Whether rental targets show in the calculator and library.' },
     /* ---- Rental Service ---- */
     rent_ready_turnaround: { name: 'Off Rent to Rent-Ready', unit: 'hrs',
+      short: '48 hours or less passes, per the Rental Service dashboard',
       text: 'Rental targets are covered in training. The Rental Service dashboard grades 48 hours or less as a pass.',
       rules: [{ op: 'gt', v: 48, grade: 'FAIL', label: 'Over 48 hours' }], otherwise: { grade: 'PASS' } },
     rs_technician_recovery: { name: 'Technician Recovery', unit: '%',

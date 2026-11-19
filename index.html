@@ -1375,10 +1375,47 @@ input, select, textarea {
 <!-- ===== FLEET SECTION (placeholder until step 5) ===== -->
 <div class="section" id="sec-fleet" role="tabpanel">
   <span id="fleet"></span>
+  <span id="fleet-owners"></span>
   <div class="hero">
-    <h2>Fleet</h2>
-    <p>The page for our large fleet owner offering is coming.</p>
-    <a class="cta-btn" href="#sec-contact" onclick="showSection('contact'); return false;">Get in Touch</a>
+    <h2>HEDS for Fleet Owners</h2>
+    <p>You own the heavy equipment. Your dealers and rental companies keep it running. HEDS helps you read their service and parts performance with the same KPIs we teach dealer service, parts and rental managers.</p>
+    <a class="cta-btn" href="#sec-contact" onclick="showSection('contact'); return false;">Book a Discovery Call</a>
+  </div>
+  <!-- DANIEL: package name, price, what is included onsite for fleet owners, scope of engine support, repair/rebuild/replace/buy decision rules and thresholds, deliverable format -->
+
+  <div class="card">
+    <h2>Who This Is For</h2>
+    <p>This is for large construction companies that own heavy equipment, depend on dealers and rental companies for parts and service, and need engine and fleet support.</p>
+    <p>If your machines spend time waiting on a shop, a part or a rental replacement, the KPIs below let you see where the time and money are going and hold your vendors to a standard.</p>
+  </div>
+
+  <div class="card dd-scope">
+    <h2>What HEDS Looks At</h2>
+    <p>Each row is a dealer or rental KPI read from the owner's side. The target is the HEDS target for that KPI, and the last column says why it matters to you. The KPI names link to the definitions in the KPI Libraries.</p>
+    <div id="fleet-kpis"><noscript><p>This table needs JavaScript. The Dealer KPI Library and Rental KPI Library list the same KPIs and targets.</p></noscript></div>
+  </div>
+
+  <div class="card">
+    <h2>Buy-Side Guidance From Product History</h2>
+    <p>Every machine leaves a record in its service history, parts purchases, downtime and maintenance cost. This is how HEDS reads that record.</p>
+    <ol style="margin:8px 0 8px 22px;">
+      <li>Collect the unit's service work orders, parts purchases, down days and total maintenance cost for the period you want to judge.</li>
+      <li>Work out maintenance cost as a percent of the unit's OEC, and compare it with the rest of your fleet and with the HEDS target in the table above.</li>
+      <li>Look at the downtime and its causes, such as waiting on parts, waiting on labor, or repeat visits for the same fault.</li>
+      <li>Score the vendor on the same record: the labor rate billed against the posted rate, whether the parts were on the shelf, how long the work orders took to close, and whether the first repair held.</li>
+      <li>Decide to repair, rebuild, replace or buy with that history in hand, and take the vendor's own numbers to your next conversation with your dealer or rental company.</li>
+    </ol>
+    <p>The history is the evidence, and the decision stays with you.</p>
+  </div>
+
+  <div class="card" style="border-color:var(--accent);text-align:center;">
+    <h2>Start With a Conversation</h2>
+    <p>HEDS onsite work uses your real data, and a dealership engagement runs 5 days onsite. The Initial Snapshot shows how HEDS reads a location's reports against these KPIs, and a discovery call is the place to talk about your fleet.</p>
+    <div style="margin-top:12px;">
+      <a class="cta-btn" href="#sec-contact" onclick="showSection('contact'); return false;">Book a Discovery Call</a>
+      <a class="cta-secondary" href="#snapshot" onclick="showSection('overview'); return false;">See the Initial Snapshot</a>
+    </div>
+    <p style="font-size:0.85rem;margin-top:12px;"><a href="fleet-owners.html" style="color:var(--muted);">Open this page on its own</a> | <a href="dealer-kpi-library.html" style="color:var(--muted);">Dealer KPI Library</a> | <a href="rental-kpi-library.html" style="color:var(--muted);">Rental KPI Library</a></p>
   </div>
 </div>
 
@@ -1570,7 +1607,8 @@ var SEC_ALIASES = {
   training: 'dealership', tracks: 'dealership', academy: 'dealership', sm: 'dealership', pm: 'dealership',
   services: 'diligence', rsm: 'rental', rm: 'rental',
   snapshot: 'overview', 'initial-snapshot': 'overview',
-  'dd-scorecard': 'diligence', 'due-diligence-scorecard': 'diligence'
+  'dd-scorecard': 'diligence', 'due-diligence-scorecard': 'diligence',
+  'fleet-owners': 'fleet', 'fleet-owner': 'fleet'
 };
 var SERVICE_SECS = ['diligence', 'dealership', 'rental', 'fleet'];
 var lastService = 'diligence';
@@ -1727,5 +1765,6 @@ window.addEventListener('popstate', function() {
 
 <script src="assets/kpi-targets.js"></script>
 <script src="assets/dd-scorecard.js"></script>
+<script src="assets/fleet-owners.js"></script>
 </body>
 </html>
