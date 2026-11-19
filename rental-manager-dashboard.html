@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>HEDS Academy: Rental Manager Training & Operating Platform</title>
+<title>HEDS Academy: Rental Manager Training &amp; Operating Platform</title>
 <link rel="icon" type="image/png" href="LOGO_HEDS_small.png">
 <style>
   :root {
@@ -20,6 +20,7 @@
     --radius: 8px;
     --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   }
+
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
     background-color: var(--bg);
@@ -30,6 +31,7 @@
     max-width: 1240px;
     margin: 0 auto;
   }
+
   header {
     border-bottom: 2px solid var(--border-color);
     padding-bottom: 16px;
@@ -43,7 +45,9 @@
     width: auto;
     object-fit: contain;
   }
-  .header-text { flex: 1; }
+  .header-text {
+    flex: 1;
+  }
   .brand {
     font-size: 0.85rem;
     font-weight: 700;
@@ -53,6 +57,8 @@
   }
   h1 { font-size: 1.75rem; font-weight: 800; margin-top: 4px; }
   p.subtitle { color: var(--muted); font-size: 0.95rem; margin-top: 4px; }
+
+  /* Top Section Switcher */
   .main-nav {
     display: flex;
     gap: 12px;
@@ -81,8 +87,12 @@
     color: #021226;
     box-shadow: 0 2px 8px rgba(229, 174, 37, 0.4);
   }
+
+  /* Section Visibility */
   .section-container { display: none; }
   .section-container.active { display: block; }
+
+  /* Sub-Navigation Tabs */
   .nav-tabs {
     display: flex;
     flex-wrap: wrap;
@@ -111,6 +121,8 @@
     color: #021226;
     border-color: var(--accent-color);
   }
+
+  /* Cards & Layout */
   .card {
     background: var(--card-bg);
     border: 1px solid var(--border-color);
@@ -128,8 +140,11 @@
     border-bottom: 1px solid var(--border-color);
     padding-bottom: 10px;
   }
+
   .grid-2 { display: grid; grid-template-columns: 1fr; gap: 20px; }
   @media(min-width: 768px) { .grid-2 { grid-template-columns: 1fr 1fr; } }
+
+  /* Curriculum Formatting */
   .curr-module-header {
     background: rgba(229, 174, 37, 0.1);
     border-left: 5px solid var(--accent-color);
@@ -145,6 +160,7 @@
     color: var(--accent-color);
   }
   .curr-module-title { font-size: 1.3rem; font-weight: 800; margin-top: 2px; }
+
   .curr-section { margin-bottom: 20px; }
   .curr-section-h3 {
     font-size: 1rem;
@@ -154,6 +170,8 @@
     letter-spacing: 0.5px;
     margin-bottom: 6px;
   }
+
+  /* Formula Box */
   .formula-card {
     background: rgba(0, 0, 0, 0.3);
     border: 1px solid var(--border-color);
@@ -165,6 +183,7 @@
   .formula-expr { font-family: monospace; font-size: 1rem; font-weight: 700; color: #e5ae25; margin-bottom: 10px; }
   .formula-steps { font-size: 0.85rem; color: var(--fg); padding-left: 20px; }
   .formula-steps li { margin-bottom: 6px; }
+
   .example-badge {
     display: inline-block;
     background: rgba(229, 174, 37, 0.15);
@@ -177,6 +196,8 @@
     margin-bottom: 8px;
     text-transform: uppercase;
   }
+
+  /* Floor Rule Callout */
   .floor-rule {
     background: rgba(245, 158, 11, 0.1);
     border: 1px solid var(--warning);
@@ -186,6 +207,8 @@
     font-size: 0.9rem;
   }
   .floor-rule-title { font-weight: 800; color: var(--warning); text-transform: uppercase; font-size: 0.75rem; letter-spacing: 1px; }
+
+  /* Spec Box */
   .spec-box {
     background: rgba(59, 130, 246, 0.08);
     border-left: 4px solid var(--accent-color);
@@ -195,6 +218,8 @@
     font-size: 0.88rem;
   }
   .spec-title { font-weight: 700; color: var(--accent-color); margin-bottom: 4px; }
+
+  /* Checklist & Table */
   .checklist { list-style: none; margin-top: 8px; }
   .checklist li {
     display: flex;
@@ -206,6 +231,8 @@
   }
   .checklist li:last-child { border-bottom: none; }
   .checklist input[type="checkbox"] { width: 16px; height: 16px; accent-color: var(--accent-color); }
+
+  /* Form Elements */
   .form-group { margin-bottom: 14px; }
   label { display: block; font-size: 0.85rem; font-weight: 600; color: var(--muted); margin-bottom: 4px; }
   input[type="number"], input[type="text"], input[type="password"], input[type="email"] {
@@ -219,6 +246,8 @@
     font-weight: 600;
   }
   input:focus { outline: 2px solid var(--accent-color); border-color: transparent; }
+
+  /* Results Display */
   .metric-box {
     background: rgba(0, 0, 0, 0.3);
     border: 1px solid var(--border-color);
@@ -239,6 +268,7 @@
   .status-pass { background: rgba(34, 197, 94, 0.2); color: var(--success); border: 1px solid var(--success); }
   .status-warn { background: rgba(245, 158, 11, 0.2); color: var(--warning); border: 1px solid var(--warning); }
   .status-fail { background: rgba(239, 68, 68, 0.2); color: var(--danger); border: 1px solid var(--danger); }
+
   .btn {
     background: var(--accent-color);
     color: #0e1f38;
@@ -257,8 +287,12 @@
     color: var(--fg);
   }
   .btn-outline:hover { background: var(--card-bg); border-color: var(--accent-color); }
+
   .tab-content { display: none; }
   .tab-content.active { display: block; }
+
+
+  /* Dropdown Menu for Training */
   .module-dropdown {
     position: relative;
     margin-bottom: 20px;
@@ -283,6 +317,7 @@
   .dropdown-toggle.active { border-color: var(--accent-color); box-shadow: 0 2px 8px rgba(229, 174, 37, 0.3); }
   .dropdown-arrow { font-size: 0.8rem; transition: transform 0.2s ease; }
   .dropdown-toggle.active .dropdown-arrow { transform: rotate(180deg); }
+  
   .dropdown-menu {
     display: none;
     position: absolute;
@@ -323,6 +358,9 @@
   }
   .dropdown-item:hover { background: rgba(229, 174, 37, 0.1); color: var(--accent-color); }
   .dropdown-item.active { background: var(--accent-color); color: #021226; font-weight: 600; }
+
+
+  /* Test Section */
   .test-question {
     background: var(--card-bg);
     border: 1px solid var(--border-color);
@@ -330,7 +368,12 @@
     padding: 20px;
     margin-bottom: 16px;
   }
-  .test-question .q-num { font-size: 0.8rem; color: var(--accent-color); font-weight: 700; margin-bottom: 6px; }
+  .test-question .q-num {
+    font-size: 0.8rem;
+    color: var(--accent-color);
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
   .test-question .q-text { font-size: 1rem; margin-bottom: 12px; }
   .test-options { list-style: none; padding: 0; }
   .test-options li {
@@ -344,6 +387,7 @@
   }
   .test-options li:hover { border-color: var(--accent-color); background: rgba(229, 174, 37, 0.05); }
   .test-options li.selected { border-color: var(--accent-color); background: rgba(229, 174, 37, 0.15); }
+
   .content-placeholder {
     border: 2px dashed var(--border-color);
     border-radius: var(--radius);
@@ -360,6 +404,29 @@
     font-weight: 700;
     margin-bottom: 8px;
   }
+
+  .class-table { width:100%; border-collapse:collapse; font-size:0.82rem; text-align:left; margin:12px 0; }
+  .class-table th { padding:8px; border-bottom:2px solid var(--accent-color); color:var(--accent-color); }
+  .class-table td { padding:8px; border-bottom:1px solid var(--border-color); }
+  .class-table input { width:100%; padding:6px 8px; font-size:0.82rem; }
+  .class-table .class-remove { color:var(--danger); cursor:pointer; font-weight:700; }
+  .class-table .class-remove:hover { text-decoration:underline; }
+
+  @media print {
+    body { background: #fff !important; color: #000 !important; max-width: none; padding: 0; }
+    .main-nav, .nav-tabs, .module-dropdown, .module-pager, .button-row, .btn, .input-form, .completion-tracker { display: none !important; }
+    .section-container { display: none !important; }
+    .section-container.active { display: block !important; }
+    .tab-content { display: none !important; }
+    .tab-content.active { display: block !important; }
+    .card { border: 1px solid #ccc !important; background: #fff !important; color: #000 !important; box-shadow: none !important; margin-bottom: 12px; }
+    .card-title, h1, h2, h3, .spec-title, .brand { color: #000 !important; }
+    .formula-card, .spec-box, .floor-rule { background: #f9f9f9 !important; border-color: #ccc !important; color: #000 !important; }
+    .content-card { border: 1px solid #ccc; background: #fff; color: #000; }
+  }
+
+
+  /* Completion Tracker */
   .completion-tracker {
     margin-top: 20px;
     padding: 16px;
@@ -422,21 +489,97 @@
     border: 1px solid var(--danger);
   }
   .completion-btn.completed-btn:hover { background: rgba(239, 68, 68, 0.1); }
-  .class-table { width:100%; border-collapse:collapse; font-size:0.82rem; text-align:left; margin:12px 0; }
-  .class-table th { padding:8px; border-bottom:2px solid var(--accent-color); color:var(--accent-color); }
-  .class-table td { padding:8px; border-bottom:1px solid var(--border-color); }
-  .class-table input { width:100%; padding:6px 8px; font-size:0.82rem; }
-  .class-table .class-remove { color:var(--danger); cursor:pointer; font-weight:700; }
-  .class-table .class-remove:hover { text-decoration:underline; }
-  @media print {
-    body { background: #fff; color: #000; max-width: none; padding: 0; }
-    .main-nav, .nav-tabs, .module-dropdown, .button-row, .btn, .input-form { display: none !important; }
-    .section-container { display: none !important; }
-    .section-container.active { display: block !important; }
-    .tab-content { display: none !important; }
-    .tab-content.active { display: block !important; }
-    .content-card { border: 1px solid #ccc; background: #fff; color: #000; }
+
+
+  /* Shared component additions (trajectory bar, KPI grids, data tables, pager, diploma) */
+  .trajectory-bar {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    padding: 12px 16px;
+    margin-bottom: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
   }
+  .erp-picker { display: flex; align-items: center; flex-wrap: wrap; gap: 6px; }
+  .erp-picker-label { font-size: 0.75rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin-right: 4px; }
+  .erp-btn {
+    background: var(--card-bg);
+    color: var(--muted);
+    border: 1px solid var(--border-color);
+    padding: 6px 12px;
+    border-radius: var(--radius);
+    font-weight: 700;
+    font-size: 0.78rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  .erp-btn:hover { color: var(--fg); border-color: var(--accent-color); }
+  .erp-btn.active { background: var(--accent-color); color: #021226; border-color: var(--accent-color); }
+  .erp-source { font-size: 0.82rem; color: var(--muted); margin-top: 6px; }
+  .erp-source strong { color: var(--fg); }
+
+  .kpi-grid { display: grid; grid-template-columns: 1fr; gap: 14px; margin: 12px 0; }
+  @media(min-width: 768px) {
+    .kpi-grid-4 { grid-template-columns: repeat(4, 1fr); }
+    .kpi-grid-5 { grid-template-columns: repeat(5, 1fr); }
+  }
+  .kpi-card, .kpi-tile { margin-top: 0; text-align: left; }
+  .kpi-tile .metric-val { font-size: 1.5rem; }
+  .kpi-label { font-size: 0.75rem; font-weight: 800; color: var(--accent-color); text-transform: uppercase; letter-spacing: 0.5px; }
+  .kpi-target { font-size: 1.15rem; font-weight: 800; margin: 4px 0; }
+  .kpi-desc { font-size: 0.8rem; color: var(--muted); margin-top: 6px; }
+
+  .step-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 10px; margin: 8px 0; }
+  .step-cell { background: rgba(0,0,0,0.25); border: 1px solid var(--border-color); border-radius: 6px; padding: 10px 12px; }
+  .step-cell span { display: block; font-size: 0.75rem; color: var(--muted); font-weight: 700; text-transform: uppercase; }
+  .step-cell strong { font-size: 1.05rem; }
+  .formula-result { font-size: 0.9rem; font-weight: 700; color: var(--success); margin-bottom: 8px; }
+  .formula-note { font-size: 0.85rem; color: var(--muted); margin-bottom: 6px; }
+  .cadence-list li { justify-content: space-between; gap: 12px; }
+  .cadence-list li span:last-child { color: var(--accent-color); font-weight: 600; text-align: right; }
+
+  .data-table { width: 100%; border-collapse: collapse; font-size: 0.88rem; text-align: left; }
+  .data-table th { padding: 10px; border-bottom: 2px solid var(--accent-color); color: var(--accent-color); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.5px; }
+  .data-table td { padding: 10px; border-bottom: 1px solid var(--border-color); }
+  .data-table td:first-child { font-weight: 600; }
+
+  .module-pager { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-top: 20px; }
+  .module-pager .btn:only-child { margin-left: auto; }
+
+  .diploma-frame {
+    border: 2px solid var(--accent-color);
+    border-radius: 12px;
+    background: var(--bg);
+    padding: 40px 32px;
+    text-align: center;
+    max-width: 760px;
+    margin: 0 auto;
+    position: relative;
+  }
+  .diploma-frame::before {
+    content: '';
+    position: absolute;
+    inset: 8px;
+    border: 1px solid rgba(229, 174, 37, 0.3);
+    border-radius: 8px;
+    pointer-events: none;
+  }
+  .diploma-seal {
+    width: 84px; height: 84px; border-radius: 50%;
+    border: 2px solid var(--accent-color);
+    color: var(--accent-color);
+    font-size: 0.6rem; font-weight: 800; letter-spacing: 1px; line-height: 1.3;
+    display: flex; align-items: center; justify-content: center; text-align: center;
+  }
+  @media print {
+    .trajectory-bar { display: none !important; }
+    .diploma-frame { background: #fff !important; color: #000 !important; }
+  }
+
 
 /* ===== MOBILE & TABLET RESPONSIVE ENHANCEMENTS ===== */
 html, body {
@@ -615,26 +758,77 @@ table {
   }
 }
 
+
+  /* KPI dashboard switcher (same on all four dashboards) */
+  .dash-switcher {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px;
+    margin: -8px 0 16px 0;
+  }
+  .dash-switcher-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-right: 4px;
+  }
+  .dash-switcher a {
+    background: var(--card-bg);
+    color: var(--muted);
+    border: 1px solid var(--border-color);
+    padding: 6px 12px;
+    border-radius: var(--radius);
+    font-weight: 700;
+    font-size: 0.8rem;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+  .dash-switcher a:hover { color: var(--fg); border-color: var(--accent-color); }
+  .dash-switcher a.active { background: rgba(229, 174, 37, 0.15); color: var(--accent-color); border-color: var(--accent-color); }
+  @media (max-width: 639px) {
+    .dash-switcher { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-top: 0; }
+    .dash-switcher-label { grid-column: 1 / -1; }
+    .dash-switcher a { text-align: center; padding: 10px 8px; min-height: 44px; display: flex; align-items: center; justify-content: center; }
+  }
+  .header-logo-link { display: inline-block; line-height: 0; flex-shrink: 0; }
+  .header-logo-link:hover .header-logo { opacity: 0.85; }
+  .dash-switcher a.dash-home { color: var(--accent-color); border-color: var(--accent-color); margin-right: 8px; }
+  @media (max-width: 640px) { .dash-switcher a.dash-home { grid-column: 1 / -1; margin-right: 0; } }
+  .dash-switcher a.dash-hub { color: var(--fg); border-color: var(--accent-color); text-transform: uppercase; letter-spacing: 1px; margin-right: 8px; }
+  @media (max-width: 640px) { .dash-switcher a.dash-hub { grid-column: 1 / -1; margin-right: 0; } }
+  @media print { .dash-switcher { display: none !important; } }
 </style>
 </head>
 <body>
 
 <header>
-  <img src="LOGO_HEDS.png" alt="HEDS Logo" class="header-logo" style="cursor:pointer;" onclick="switchMainSection('sec_curriculum', document.querySelectorAll('.main-nav-btn')[0])">
+  <a href="index.html" class="header-logo-link" title="Back to HEDS home page" aria-label="HEDS home page"><img src="LOGO_HEDS.png" alt="HEDS Logo" class="header-logo"></a>
   <div class="header-text">
     <h1 style="font-size:1.8rem; font-weight:900; color:var(--accent-color); text-transform:uppercase; letter-spacing:1px; margin:0 0 2px 0; line-height:1.1;">Heavy Equipment Dealer Solutions LLC</h1>
     <div class="brand" style="font-size:0.95rem; font-weight:800; color:var(--accent-color); text-transform:uppercase; letter-spacing:1.5px; margin-bottom:6px;">HEDS Operating Discipline Academy</div>
     <h2 style="font-size:1.25rem; font-weight:700; color:var(--fg); margin:0 0 4px 0;">Rental Manager Training &amp; Operating Platform</h2>
-    <p class="subtitle">Section 1: Rental Manager Curriculum | Section 2: Interactive Commercial Operating Dashboard | Section 3: 30/60/90 Implementation Tracker | Section 4: Assessment Test</p>
+    <p class="subtitle">Section 1: Industry Benchmark Curriculum | Section 2: Dealership Data Entry Dashboard</p>
   </div>
 </header>
 
+<!-- KPI Dashboard Switcher -->
+<nav class="dash-switcher" aria-label="HEDS KPI dashboards">
+  <a href="index.html" class="dash-home">Back to Home</a>
+  <a href="kpi-dashboards.html" class="dash-hub" title="See all KPI dashboards">KPI Dashboards</a>
+  <a href="service-manager-dashboard.html">Service Manager</a>
+  <a href="parts-manager-dashboard.html">Parts Manager</a>
+  <a href="rental-manager-dashboard.html" class="active" aria-current="page">Rental Manager</a>
+  <a href="rental-service-manager-dashboard.html">Rental Service Manager</a>
+</nav>
+
 <!-- Main Section Navigation -->
 <nav class="main-nav">
-  <button class="main-nav-btn active" onclick="switchMainSection('sec_curriculum', this)">&#128218; 1. Training Curriculum</button>
-  <button class="main-nav-btn" onclick="switchMainSection('sec_dashboard', this)">&#128202; 2. Interactive Operating Dashboard</button>
-  <button class="main-nav-btn" onclick="switchMainSection('sec_tracker', this)">&#128274; 3. 30/60/90 Implementation Tracker</button>
-  <button class="main-nav-btn" onclick="switchMainSection('sec_test', this)">&#9989; 4. Assessment Test</button>
+  <button class="main-nav-btn active" onclick="switchMainSection('sec_curriculum', this)">📘 1. Training Curriculum</button>
+  <button class="main-nav-btn" onclick="switchMainSection('sec_dashboard', this)">📊 2. Interactive Operating Dashboard</button>
+  <button class="main-nav-btn" onclick="switchMainSection('sec_test', this)">✅ 3. Assessment Test</button>
 </nav>
 
 <!-- ================================================================= -->
@@ -673,7 +867,7 @@ table {
       </div>
 
       <div class="floor-rule">
-        <div class="floor-rule-title">Floor Rule</div>
+        <div class="floor-rule-title">PRO TIP</div>
         If a customer calls for a machine you own and you can't rent it because it's in the shop, in the yard, or uninspected, that's not a service problem, that's a revenue problem you own. Every turned-away rental is a logged revenue event with your name on it.
       </div>
 
@@ -735,7 +929,7 @@ table {
       </div>
 
       <div class="floor-rule">
-        <div class="floor-rule-title">Floor Rule</div>
+        <div class="floor-rule-title">PRO TIP</div>
         If you're not tracking turned-away revenue, you don't know what your rental department is actually capable of earning. The first number a Rental Manager should know after total revenue is the revenue they didn't capture.
       </div>
 
@@ -781,7 +975,7 @@ table {
       </div>
 
       <div class="floor-rule">
-        <div class="floor-rule-title">Floor Rule</div>
+        <div class="floor-rule-title">PRO TIP</div>
         Dollar utilization below 50% on a class means your capital is sleeping. Either restructure the rate, reduce the fleet count in that class, or sell the underperformers and reinvest the capital in a class that earns.
       </div>
 
@@ -855,7 +1049,7 @@ table {
       </div>
 
       <div class="floor-rule">
-        <div class="floor-rule-title">Floor Rule</div>
+        <div class="floor-rule-title">PRO TIP</div>
         A machine on rent for 30 days that ran 8 hours of engine time has 27% productive utilization. Time utilization is the floor; productive utilization is the truth. If you don't measure all three, you're managing with one eye closed.
       </div>
 
@@ -906,7 +1100,7 @@ table {
       </div>
 
       <div class="floor-rule">
-        <div class="floor-rule-title">Floor Rule</div>
+        <div class="floor-rule-title">PRO TIP</div>
         Below 55% time utilization on a class means you own too many of that machine for your market. Above 85% means you're turning away business. Both problems are fixable, but only if you measure by class, not fleet-wide.
       </div>
 
@@ -1006,7 +1200,7 @@ table {
       </div>
 
       <div class="floor-rule">
-        <div class="floor-rule-title">Floor Rule</div>
+        <div class="floor-rule-title">PRO TIP</div>
         Negative net contribution per unit means that class of equipment is costing you money to own. Revenue alone makes it look like it's working. Only revenue minus cost tells you the truth. If the net contribution is negative for two consecutive quarters, sell the underperformers and reinvest the capital in a class that earns.
       </div>
 
@@ -1051,7 +1245,7 @@ table {
       </div>
 
       <div class="floor-rule">
-        <div class="floor-rule-title">Floor Rule</div>
+        <div class="floor-rule-title">PRO TIP</div>
         If your ERP says a machine is "on rent" but your telematics says it hasn't run in 6 days, your utilization data is fiction. Reconcile telematics engine hours against ERP contracted hours every single day. A machine sitting idle on a jobsite at 13% productive utilization is not "on rent", it's "on hold." Charge the right rate for the right usage.
       </div>
 
@@ -1082,7 +1276,7 @@ table {
       </div>
 
       <div class="floor-rule">
-        <div class="floor-rule-title">Floor Rule</div>
+        <div class="floor-rule-title">PRO TIP</div>
         If you don't know your rack rate, your realized rate, and the gap between them, you're not managing rates, you're guessing. Every dollar of rate erosion across a 150-unit fleet is $75,000 to $150,000 per year in lost revenue.
       </div>
 
@@ -1113,10 +1307,10 @@ table {
           <li><strong>Step 1:</strong> Calculate the annual ownership cost per unit for a class (maintenance + depreciation + insurance + interest). <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></li>
           <li><strong>Step 2:</strong> Determine the target margin (e.g., 40% gross margin &rarr; multiply cost by 1.67). <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></li>
           <li><strong>Step 3:</strong> Divide by target annual rental days (e.g., 250 days for 70% time utilization). <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></li>
-          <li><strong>Step 4:</strong> This gives your daily rack rate. Set weekly at ~3.5&times; daily and monthly at ~10&times; daily.</li>
+          <li><strong>Step 4:</strong> This gives your daily rack rate. Set the weekly rate at 3&times; daily and the 28-day monthly rate at 9&times; daily. The weekly rate is one third of the 28-day rate, and the daily rate is one third of the weekly rate.</li>
           <li><strong>Step 5:</strong> Pull actual invoiced rates for the trailing 90 days. Divide actual invoiced rate by rack rate to get rate realization percentage.</li>
         </ol>
-        <p style="margin-top:10px; font-size:0.88rem;"><strong>Worked Example (20T Excavator):</strong> Annual Ownership Cost: $48,000/unit. Target Gross Margin: 40% &rarr; Multiplier: 1.67. Target Rental Days: 250 days. Daily Rack Rate = ($48,000 &times; 1.67) / 250 = $80,160 / 250 = <strong>$321/day</strong>. Set weekly at $1,120 (3.5&times;) and monthly at $3,210 (10&times;).</p>
+        <p style="margin-top:10px; font-size:0.88rem;"><strong>Worked Example (20T Excavator):</strong> Annual Ownership Cost: $48,000/unit. Target Gross Margin: 40% &rarr; Multiplier: 1.67. Target Rental Days: 250 days. Daily Rack Rate = ($48,000 &times; 1.67) / 250 = $80,160 / 250 = <strong>$321/day</strong>. Set weekly at $963 (3&times;) and the 28-day month at $2,889 (9&times;).</p>
         <p style="margin-top:8px; font-size:0.88rem;"><strong>Rate Realization Audit (trailing 90 days):</strong> Rack Rate: $321/day. Actual Average Invoiced Rate: $248/day. Rate Realization = ($248 / $321) &times; 100 = <strong style="color:var(--danger);">77.3% (FAIL: Below 90% target)</strong>. Rate erosion: $73/day &times; 250 days &times; 8 units = $146,000/year in lost revenue.</p>
         <div style="margin-top:8px; font-size:0.85rem;">
           <strong>HEDS Target Benchmark:</strong>
@@ -1129,7 +1323,7 @@ table {
       </div>
 
       <div class="floor-rule">
-        <div class="floor-rule-title">Floor Rule</div>
+        <div class="floor-rule-title">PRO TIP</div>
         Every dollar of rate erosion below 90% realization is a direct hit to EBITDA. $73/day on 8 excavators over 250 rental days = $146,000/year. That's a manager's salary. You're giving away a manager's salary in unmanaged discounts.
       </div>
 
@@ -1147,7 +1341,7 @@ table {
         </div>
         <div class="spec-box" style="background:rgba(59, 130, 246, 0.1); border-color:var(--accent-color);">
           <div class="spec-title">Manager's Insight</div>
-          <p style="font-size:0.88rem;">Construction equipment typically rents for 14 to 28 days. If your average rental duration on excavators is 32 days and your monthly rate is 10&times; the daily rate, customers are paying $3,210 for 32 days instead of $321 &times; 32 = $10,272. That's a 69% discount, and you didn't even know you gave it. The rate structure should create a natural incentive for the customer to choose the right duration tier.</p>
+          <p style="font-size:0.88rem;">Construction equipment typically rents for 14 to 28 days. If your average rental duration on excavators is 32 days and your 28-day monthly rate is 9&times; the daily rate, a customer who keeps the machine 32 days and is billed only one 28-day cycle pays $2,889 instead of $321 &times; 32 = $10,272. The 4 days past the cycle are free, and you didn't even know you gave them. The rate structure should create a natural incentive for the customer to choose the right duration tier.</p>
         </div>
       </div>
 
@@ -1158,20 +1352,20 @@ table {
           <li><strong>Step 1:</strong> Pull total rental days from the ERP for the trailing 90 days. <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></li>
           <li><strong>Step 2:</strong> Count the number of completed rental contracts in that same period. <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></li>
           <li><strong>Step 3:</strong> Divide total days by completed rentals to get average duration.</li>
-          <li><strong>Step 4:</strong> Compare against the rate structure: if average duration is 32 days and your monthly cap is 30 days, the customer is getting 2 free days at the monthly rate. Adjust the monthly rate to 28 days to capture the extension.</li>
+          <li><strong>Step 4:</strong> Compare against the rate structure: if average duration is 32 days and the monthly rate covers a 28-day cycle, the customer is getting 4 free days unless the extra days are billed at the daily rate or as a new cycle.</li>
         </ol>
-        <p style="margin-top:10px; font-size:0.88rem;"><strong>Worked Example:</strong> Total Rental Days (90 days): 2,400. Completed Rentals: 85. Average Duration = 2,400 / 85 = <strong>28.2 days per rental</strong>. If monthly rate = 10&times; daily and kicks in at day 30: most rentals fall in the weekly-to-daily gap. <em>Action:</em> Add a 3-week rate (18&times; daily) to bridge the gap between weekly (3.5&times;) and monthly (10&times;).</p>
+        <p style="margin-top:10px; font-size:0.88rem;"><strong>Worked Example:</strong> Total Rental Days (90 days): 2,400. Completed Rentals: 85. Average Duration = 2,400 / 85 = <strong>28.2 days per rental</strong>. If the weekly rate is 3&times; daily and the 28-day monthly rate is 9&times; daily, most rentals fall between the weekly and monthly tiers. <em>Action:</em> Bill three weekly rates (3 &times; 3&times; = 9&times; daily) at the same price as the 28-day month, so there is no gap between the weekly and monthly tiers.</p>
         <div style="margin-top:8px; font-size:0.85rem;">
           <strong>HEDS Target Benchmark:</strong>
           <ul style="padding-left:16px; margin-top:4px;">
             <li><strong>Construction equipment:</strong> 14&ndash;28 days average duration</li>
-            <li><strong>Rate structure tiers:</strong> Daily &rarr; 3-day &rarr; Weekly (3.5&times;) &rarr; 3-week (18&times;) &rarr; Monthly (10&times; daily, capped at 28 days)</li>
+            <li><strong>Rate structure tiers:</strong> Daily &rarr; Weekly (3&times; daily) &rarr; 28-day month (9&times; daily, the same price as three weekly rates)</li>
           </ul>
         </div>
       </div>
 
       <div class="floor-rule">
-        <div class="floor-rule-title">Floor Rule</div>
+        <div class="floor-rule-title">PRO TIP</div>
         If your average rental duration is longer than your monthly rate's break-even day, you're giving away free rental days. Audit the duration against the rate structure every quarter. Adjust the tier breakpoints so the customer always pays the right tier for their actual usage.
       </div>
 
@@ -1238,7 +1432,7 @@ table {
       </div>
 
       <div class="floor-rule">
-        <div class="floor-rule-title">Floor Rule</div>
+        <div class="floor-rule-title">PRO TIP</div>
         Any asset class with negative net contribution for two consecutive quarters goes on a performance plan or goes to auction. Emotion has no place in fleet capital decisions. "Our customers love that machine" is not a financial argument.
       </div>
 
@@ -1328,7 +1522,7 @@ table {
       </div>
 
       <div class="floor-rule">
-        <div class="floor-rule-title">Floor Rule</div>
+        <div class="floor-rule-title">PRO TIP</div>
         If your debt-to-asset ratio exceeds 45%, a single bad quarter can force you to sell machines at auction to service debt. Keep leverage below 30% so you can hold through downturns without fire-sale dispositions.
       </div>
 
@@ -1396,7 +1590,7 @@ table {
       </div>
 
       <div class="floor-rule">
-        <div class="floor-rule-title">Floor Rule</div>
+        <div class="floor-rule-title">PRO TIP</div>
         If you can't produce a signed rental agreement, damage photos, and an insurance certificate for every unit currently on rent, your exposure is unmeasured. One totaled machine without insurance verification is a $200,000 mistake that ends careers.
       </div>
 
@@ -1433,7 +1627,7 @@ table {
           </ol>
         </div>
         <div class="floor-rule">
-          <div class="floor-rule-title">Floor Rule</div>
+          <div class="floor-rule-title">PRO TIP</div>
           No signed agreement, no insurance cert, no machine. The rental counter dispatcher does not override this rule. The Branch Manager does not override this rule for a "good customer." A $200,000 machine without insurance is a $200,000 bet that nothing goes wrong.
         </div>
       </div>
@@ -1451,7 +1645,7 @@ table {
           </ol>
         </div>
         <div class="floor-rule">
-          <div class="floor-rule-title">Floor Rule</div>
+          <div class="floor-rule-title">PRO TIP</div>
           No photos = no claim. No joint signature at dispatch = no damage claim at return. The documentation IS the claim. If the customer didn't sign the pre-rental condition sheet, you cannot charge them for damage that wasn't documented as pre-existing. Joint inspection at dispatch eliminates 90% of damage disputes.
         </div>
       </div>
@@ -1585,7 +1779,7 @@ table {
       </div>
 
       <div class="floor-rule">
-        <div class="floor-rule-title">Floor Rule</div>
+        <div class="floor-rule-title">PRO TIP</div>
         Every turned-away rental request is a logged revenue event. If you don't track it, you can't fix it. If you can't fix it, you can't justify acquiring more fleet. The turned-away log is your capital acquisition business case.
       </div>
 
@@ -1629,7 +1823,7 @@ table {
       </div>
 
       <div class="floor-rule">
-        <div class="floor-rule-title">Floor Rule</div>
+        <div class="floor-rule-title">PRO TIP</div>
         Track the equipment-to-orders ratio by class every week. When the ratio drops below 0.9 on a class with a high OEC ROI, that's your business case for fleet acquisition. When it stays above 1.2 for 90 days, that's your disposition signal.
       </div>
 
@@ -1674,7 +1868,7 @@ table {
       </div>
 
       <div class="floor-rule">
-        <div class="floor-rule-title">Floor Rule</div>
+        <div class="floor-rule-title">PRO TIP</div>
         If your quote-to-conversion drops below 60% for two consecutive weeks, audit your rack rate against the local market and your equipment-to-orders ratio by class. A dropping conversion rate is the earliest signal that something in your pricing or inventory is wrong, before it shows up in revenue.
       </div>
 
@@ -1820,7 +2014,7 @@ table {
       </div>
 
       <div class="floor-rule">
-        <div class="floor-rule-title">Floor Rule</div>
+        <div class="floor-rule-title">PRO TIP</div>
         If your ERP says a machine is "on rent" but your telematics says it hasn't run in 6 days, your utilization data is fiction. Reconcile telematics engine hours against ERP contracted hours every single day. The telematics platform is the Rental Manager's most important data source, not the ERP.
       </div>
 
@@ -1873,7 +2067,7 @@ table {
       </div>
 
       <div class="floor-rule">
-        <div class="floor-rule-title">Floor Rule</div>
+        <div class="floor-rule-title">PRO TIP</div>
         If a customer runs 200 hours on a 160-hour contract and you don't bill the overage, you've given away $1,800 on a single machine. Across your fleet, that's six figures of free equipment usage. Reconcile daily, invoice weekly, and enforce the overage rate without exception.
       </div>
 
@@ -1974,7 +2168,7 @@ table {
       </div>
 
       <div class="floor-rule">
-        <div class="floor-rule-title">Floor Rule</div>
+        <div class="floor-rule-title">PRO TIP</div>
         A machine that breaks down on the next customer's jobsite because you saw the telematics warning and didn't coordinate with the Service Manager is your failure, not the Service Manager's. The Rental Manager owns the commercial decision to hold or re-rent. The Service Manager owns the repair. Coordinate daily.
       </div>
 
@@ -2005,7 +2199,7 @@ table {
       </div>
 
       <div class="floor-rule">
-        <div class="floor-rule-title">Floor Rule</div>
+        <div class="floor-rule-title">PRO TIP</div>
         The rental department is a business. If you can't produce a one-page P&amp;L with utilization, rate realization, EBITDA margin, and net contribution by class, you're not managing, you're reporting. The scorecard IS the job.
       </div>
 
@@ -2135,7 +2329,7 @@ table {
       </div>
 
       <div class="floor-rule">
-        <div class="floor-rule-title">Floor Rule</div>
+        <div class="floor-rule-title">PRO TIP</div>
         The plan is not a suggestion. The Rental Manager signs it, dates it, and commits to a 30-day review with their facilitator. No plan, no certificate.
       </div>
     </div>
@@ -2158,11 +2352,12 @@ table {
     <button class="tab-btn" onclick="switchDashTab('dash_m9', this)">M9: Rental Leak</button>
     <button class="tab-btn" onclick="switchDashTab('dash_m10', this)">M10: Maint % of OEC</button>
     <button class="tab-btn" onclick="switchDashTab('dash_summary', this)">Exec Scorecard</button>
+    <button class="tab-btn" onclick="switchDashTab('dash_tracker', this)">30/60/90 Tracker</button>
   </nav>
 
   <!-- DASH M1: Time Utilization -->
   <div id="dash_m1" class="tab-content active">
-    <div class="grid-2">
+    <div id="kpi-time-utilization" class="grid-2">
       <div class="card">
         <div class="card-title">Enter Your Branch Numbers: Time Utilization</div>
         <div class="form-group">
@@ -2212,7 +2407,7 @@ table {
 
   <!-- DASH M2: Dollar Utilization -->
   <div id="dash_m2" class="tab-content">
-    <div class="grid-2">
+    <div id="kpi-dollar-utilization" class="grid-2">
       <div class="card">
         <div class="card-title">Enter Your Branch Numbers: Dollar Utilization</div>
         <div class="form-group">
@@ -2294,7 +2489,7 @@ table {
 
   <!-- DASH M4: Productive Utilization -->
   <div id="dash_m4" class="tab-content">
-    <div class="grid-2">
+    <div id="kpi-productive-utilization" class="grid-2">
       <div class="card">
         <div class="card-title">Enter Your Branch Numbers: Productive Utilization</div>
         <div class="form-group">
@@ -2330,7 +2525,7 @@ table {
 
   <!-- DASH M5: Equipment Downtime -->
   <div id="dash_m5" class="tab-content">
-    <div class="grid-2">
+    <div id="kpi-equipment-downtime" class="grid-2">
       <div class="card">
         <div class="card-title">Enter Your Branch Numbers: Equipment Downtime</div>
         <div class="form-group">
@@ -2366,7 +2561,7 @@ table {
 
   <!-- DASH M6: Rate Realization -->
   <div id="dash_m6" class="tab-content">
-    <div class="grid-2">
+    <div id="kpi-rate-realization" class="grid-2">
       <div class="card">
         <div class="card-title">Enter Your Branch Numbers: Rate Realization</div>
         <div class="form-group">
@@ -2418,7 +2613,7 @@ table {
 
   <!-- DASH M7: Damage Recovery -->
   <div id="dash_m7" class="tab-content">
-    <div class="grid-2">
+    <div id="kpi-damage-recovery" class="grid-2">
       <div class="card">
         <div class="card-title">Enter Your Branch Numbers: Damage Recovery</div>
         <div class="form-group">
@@ -2459,7 +2654,7 @@ table {
 
   <!-- DASH M8: Equipment-to-Orders Ratio -->
   <div id="dash_m8" class="tab-content">
-    <div class="grid-2">
+    <div id="kpi-equipment-to-orders" class="grid-2">
       <div class="card">
         <div class="card-title">Enter Your Branch Numbers: Equipment-to-Orders Ratio</div>
         <div class="form-group">
@@ -2594,7 +2789,7 @@ table {
 
   <!-- DASH M10: Maintenance Cost % of OEC -->
   <div id="dash_m10" class="tab-content">
-    <div class="grid-2">
+    <div id="kpi-maintenance-cost-oec" class="grid-2">
       <div class="card">
         <div class="card-title">Enter Your Branch Numbers: Maintenance Cost % of OEC</div>
         <div class="form-group">
@@ -2720,7 +2915,7 @@ table {
           </tbody>
         </table>
       </div>
-      <div style="margin-top:16px; padding:16px; background:rgba(0,0,0,0.2); border-radius:var(--radius); border:1px solid var(--border-color);">
+      <div id="kpi-ebitda-margin" style="margin-top:16px; padding:16px; background:rgba(0,0,0,0.2); border-radius:var(--radius); border:1px solid var(--border-color);">
         <div class="card-title" style="border:none; padding:0; margin-bottom:12px;">EBITDA Margin Calculator</div>
         <div class="grid-2">
           <div class="form-group">
@@ -2732,7 +2927,7 @@ table {
             <input type="number" id="s_revenue_input" value="2400000" placeholder="Enter total rental revenue $" oninput="calcEBITDA()">
           </div>
         </div>
-        <div class="grid-2" style="margin-top:8px;">
+        <div id="kpi-customer-churn" class="grid-2" style="margin-top:8px;">
           <div class="form-group">
             <label for="s_churn_lost">Customers Lost This Quarter</label>
             <input type="number" id="s_churn_lost" value="4" placeholder="Enter customers lost" oninput="calcChurn()">
@@ -2749,12 +2944,9 @@ table {
       </div>
     </div>
   </div>
-</div>
 
-<!-- ================================================================= -->
-<!-- SECTION 3: 30/60/90 IMPLEMENTATION TRACKER -->
-<!-- ================================================================= -->
-<div id="sec_tracker" class="section-container">
+  <!-- DASHBOARD TAB: 30/60/90 IMPLEMENTATION TRACKER -->
+  <div id="dash_tracker" class="tab-content"><div id="sec_tracker">
   <div class="card">
     <div class="card-title">30/60/90 Gated Implementation Tracker</div>
     <p style="color:var(--muted); margin-bottom:20px; font-size:0.9rem;">This gated section provides milestone checklists to evaluate and lock in commercial stabilization at 30, 60, and 90 days following training. Enter the access code for each phase to unlock its checklist. Progress is saved automatically.</p>
@@ -2855,10 +3047,11 @@ table {
       </div>
     </div>
   </div>
+</div></div>
 </div>
 
 <!-- ================================================================= -->
-<!-- SECTION 4: ASSESSMENT TEST -->
+<!-- SECTION 3: ASSESSMENT TEST -->
 <!-- ================================================================= -->
 <div id="sec_test" class="section-container">
 
@@ -2927,11 +3120,13 @@ table {
         </div>
       </div>
 
+      <!-- Module Breakdown -->
       <div style="margin-bottom:24px;">
         <h3 style="color:var(--accent-color); margin-bottom:12px; font-size:1.1rem;">Module Breakdown</h3>
         <div id="result_module_breakdown"></div>
       </div>
 
+      <!-- Focus Area Recommendation -->
       <div style="margin-bottom:24px;">
         <h3 style="color:var(--accent-color); margin-bottom:12px; font-size:1.1rem;">Recommended Training Focus Areas</h3>
         <div id="result_focus_areas"></div>
@@ -3450,7 +3645,7 @@ function switchMainSection(secId, btnEl) {
     var dashModules = document.querySelectorAll('#sec_dashboard .tab-content');
     dashModules.forEach(function(mod) {
       var id = mod.id;
-      if (id === 'dash_summary') return;
+      if (id === 'dash_summary' || id === 'dash_tracker') return;
       var card = mod.querySelector('.card');
       if (!card) return;
       if (card.querySelector('.completion-tracker')) return;
@@ -3823,7 +4018,7 @@ function switchMainSection(secId, btnEl) {
       "Weekly = 2× daily, Monthly = 5× daily",
       "Weekly = 5× daily, Monthly = 20× daily",
       "All rates are the same regardless of duration",
-      "Weekly = 3.5× daily, Monthly = 10× daily"
+      "Weekly = 3× daily, 28-day Monthly = 9× daily"
     ]
   ,
     "correct": 3
@@ -4579,6 +4774,89 @@ function switchMainSection(secId, btnEl) {
       }
     } catch (e) { hedsSetRelayStatus('fail'); }
   }
+</script>
+<script>
+  /* ===== HEDS shared navigation (identical on all four dashboards) ===== */
+  function goModule(tabId) {
+    var btn = document.querySelector('#module_menu .dropdown-item[onclick*="\'' + tabId + '\'"]');
+    switchCurrTab(tabId, btn);
+    var sec = document.getElementById('sec_curriculum');
+    if (sec && sec.scrollIntoView) sec.scrollIntoView({ behavior: 'smooth' });
+  }
+  function hedsInitModulePagers() {
+    var items = Array.prototype.slice.call(document.querySelectorAll('#module_menu .dropdown-item'));
+    var ids = items.map(function(it) { var m = (it.getAttribute('onclick') || '').match(/'([^']+)'/); return m ? m[1] : null; });
+    ids.forEach(function(id, i) {
+      var mod = document.getElementById(id);
+      if (!mod || mod.querySelector('.module-pager')) return;
+      var host = mod.querySelector('.card') || mod;
+      var pager = document.createElement('div');
+      pager.className = 'module-pager';
+      var prev = i > 0 ? '<button class="btn btn-outline" onclick="goModule(\'' + ids[i - 1] + '\')">&larr; Previous: ' + items[i - 1].innerText + '</button>' : '<span></span>';
+      var next = i < ids.length - 1 ? '<button class="btn" onclick="goModule(\'' + ids[i + 1] + '\')">Next: ' + items[i + 1].innerText + ' &rarr;</button>' : '<span></span>';
+      pager.innerHTML = prev + next;
+      host.appendChild(pager);
+    });
+  }
+  document.addEventListener('click', function(e) {
+    var dropdown = document.querySelector('.module-dropdown');
+    if (dropdown && !dropdown.contains(e.target)) closeDropdown();
+  });
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeDropdown();
+  });
+  window.addEventListener('load', function() { setTimeout(hedsInitModulePagers, 0); });
+</script>
+<style>
+  /* ===== HEDS KPI deep links: landing highlight ===== */
+  [id^="kpi-"] { scroll-margin-top:16px; }
+  .heds-kpi-target { outline:3px solid #e5ae25; outline-offset:4px; border-radius:8px; transition:outline-color 0.6s ease; }
+  .heds-kpi-target-fade { outline-color:transparent; }
+  tr.heds-kpi-target, li.heds-kpi-target { outline-offset:-2px; }
+</style>
+<script>
+  /* ===== HEDS KPI deep links (identical on all four dashboards) =====
+     A link such as dashboard.html#kpi-some-measure opens the section and tab that hold that
+     element, scrolls it into view, and outlines it briefly. Works on page load, on hash change,
+     and with the browser Back and Forward buttons. */
+  function hedsOpenHashTarget() {
+    var id = '';
+    try { id = decodeURIComponent((window.location.hash || '').slice(1)); } catch (e) { return; }
+    if (!id) return;
+    var el = document.getElementById(id);
+    if (!el) return;
+    var sec = el.closest('.section-container');
+    if (sec) {
+      var mainBtn = document.querySelector('.main-nav-btn[onclick*="\'' + sec.id + '\'"]');
+      switchMainSection(sec.id, mainBtn);
+    }
+    var dashTab = el.closest('#sec_dashboard .tab-content');
+    if (dashTab) {
+      var tabBtn = document.querySelector('#sec_dashboard .tab-btn[onclick*="\'' + dashTab.id + '\'"]');
+      switchDashTab(dashTab.id, tabBtn);
+    }
+    var currTab = el.closest('#sec_curriculum .tab-content');
+    if (currTab) {
+      var modBtn = document.querySelector('#module_menu .dropdown-item[onclick*="\'' + currTab.id + '\'"]');
+      switchCurrTab(currTab.id, modBtn);
+    }
+    var scrollEl = el;
+    if (el.classList.contains('section-container') || el.classList.contains('tab-content')) {
+      scrollEl = document.querySelector('.main-nav') || el;
+    }
+    /* Small targets (one result box, one table row, one list line) are centered so the card around them
+       stays in view; larger targets (a whole calculator) start at the top of the screen. */
+    var box = scrollEl.getBoundingClientRect();
+    scrollEl.scrollIntoView({ block: (scrollEl === el && box.height < window.innerHeight * 0.4) ? 'center' : 'start' });
+    if (el.id.indexOf('kpi-') === 0) {
+      document.querySelectorAll('.heds-kpi-target').forEach(function(x) { x.classList.remove('heds-kpi-target', 'heds-kpi-target-fade'); });
+      el.classList.add('heds-kpi-target');
+      setTimeout(function() { el.classList.add('heds-kpi-target-fade'); }, 2500);
+      setTimeout(function() { el.classList.remove('heds-kpi-target', 'heds-kpi-target-fade'); }, 3200);
+    }
+  }
+  window.addEventListener('hashchange', hedsOpenHashTarget);
+  window.addEventListener('load', function() { setTimeout(hedsOpenHashTarget, 0); });
 </script>
 </body>
 </html>

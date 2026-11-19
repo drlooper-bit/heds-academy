@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HEDS Academy: Rental Service Manager Training &amp; Operating Platform</title>
 <meta name="description" content="HEDS Academy Rental Service Manager Training & Operating Platform. Curriculum, live fleet calculators, 30/60/90 implementation tracker, and 50-question assessment.">
-<link rel="icon" type="image/png" href="LOGO_HEDS_small.png">
 <meta property="og:title" content="HEDS Academy: Rental Service Manager Platform">
 <meta property="og:description" content="Training curriculum, operational calculators, and 30/60/90 implementation tracking for equipment rental leaders.">
 <meta property="og:type" content="website">
-<title>HEDS Academy: Rental Service Manager Training & Operating Platform</title>
+<link rel="icon" type="image/png" href="LOGO_HEDS_small.png">
 <style>
   :root {
     --bg: #0e1f38;
@@ -20,10 +20,11 @@
     --muted: #94a3b8;
     --success: #22c55e;
     --warning: #e5ae25;
-    --danger: #f87171;
+    --danger: #ef4444;
     --radius: 8px;
     --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   }
+
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
     background-color: var(--bg);
@@ -34,6 +35,7 @@
     max-width: 1240px;
     margin: 0 auto;
   }
+
   header {
     border-bottom: 2px solid var(--border-color);
     padding-bottom: 16px;
@@ -47,7 +49,9 @@
     width: auto;
     object-fit: contain;
   }
-  .header-text { flex: 1; }
+  .header-text {
+    flex: 1;
+  }
   .brand {
     font-size: 0.85rem;
     font-weight: 700;
@@ -57,6 +61,8 @@
   }
   h1 { font-size: 1.75rem; font-weight: 800; margin-top: 4px; }
   p.subtitle { color: var(--muted); font-size: 0.95rem; margin-top: 4px; }
+
+  /* Top Section Switcher */
   .main-nav {
     display: flex;
     gap: 12px;
@@ -85,8 +91,12 @@
     color: #021226;
     box-shadow: 0 2px 8px rgba(229, 174, 37, 0.4);
   }
+
+  /* Section Visibility */
   .section-container { display: none; }
   .section-container.active { display: block; }
+
+  /* Sub-Navigation Tabs */
   .nav-tabs {
     display: flex;
     flex-wrap: wrap;
@@ -115,6 +125,8 @@
     color: #021226;
     border-color: var(--accent-color);
   }
+
+  /* Cards & Layout */
   .card {
     background: var(--card-bg);
     border: 1px solid var(--border-color);
@@ -132,8 +144,11 @@
     border-bottom: 1px solid var(--border-color);
     padding-bottom: 10px;
   }
+
   .grid-2 { display: grid; grid-template-columns: 1fr; gap: 20px; }
   @media(min-width: 768px) { .grid-2 { grid-template-columns: 1fr 1fr; } }
+
+  /* Curriculum Formatting */
   .curr-module-header {
     background: rgba(229, 174, 37, 0.1);
     border-left: 5px solid var(--accent-color);
@@ -149,6 +164,7 @@
     color: var(--accent-color);
   }
   .curr-module-title { font-size: 1.3rem; font-weight: 800; margin-top: 2px; }
+
   .curr-section { margin-bottom: 20px; }
   .curr-section-h3 {
     font-size: 1rem;
@@ -158,6 +174,8 @@
     letter-spacing: 0.5px;
     margin-bottom: 6px;
   }
+
+  /* Formula Box */
   .formula-card {
     background: rgba(0, 0, 0, 0.3);
     border: 1px solid var(--border-color);
@@ -169,6 +187,7 @@
   .formula-expr { font-family: monospace; font-size: 1rem; font-weight: 700; color: #e5ae25; margin-bottom: 10px; }
   .formula-steps { font-size: 0.85rem; color: var(--fg); padding-left: 20px; }
   .formula-steps li { margin-bottom: 6px; }
+
   .example-badge {
     display: inline-block;
     background: rgba(229, 174, 37, 0.15);
@@ -181,6 +200,8 @@
     margin-bottom: 8px;
     text-transform: uppercase;
   }
+
+  /* Floor Rule Callout */
   .floor-rule {
     background: rgba(245, 158, 11, 0.1);
     border: 1px solid var(--warning);
@@ -190,6 +211,8 @@
     font-size: 0.9rem;
   }
   .floor-rule-title { font-weight: 800; color: var(--warning); text-transform: uppercase; font-size: 0.75rem; letter-spacing: 1px; }
+
+  /* Spec Box */
   .spec-box {
     background: rgba(59, 130, 246, 0.08);
     border-left: 4px solid var(--accent-color);
@@ -199,6 +222,8 @@
     font-size: 0.88rem;
   }
   .spec-title { font-weight: 700; color: var(--accent-color); margin-bottom: 4px; }
+
+  /* Checklist & Table */
   .checklist { list-style: none; margin-top: 8px; }
   .checklist li {
     display: flex;
@@ -210,6 +235,8 @@
   }
   .checklist li:last-child { border-bottom: none; }
   .checklist input[type="checkbox"] { width: 16px; height: 16px; accent-color: var(--accent-color); }
+
+  /* Form Elements */
   .form-group { margin-bottom: 14px; }
   label { display: block; font-size: 0.85rem; font-weight: 600; color: var(--muted); margin-bottom: 4px; }
   input[type="number"], input[type="text"], input[type="password"], input[type="email"] {
@@ -223,6 +250,8 @@
     font-weight: 600;
   }
   input:focus { outline: 2px solid var(--accent-color); border-color: transparent; }
+
+  /* Results Display */
   .metric-box {
     background: rgba(0, 0, 0, 0.3);
     border: 1px solid var(--border-color);
@@ -243,6 +272,7 @@
   .status-pass { background: rgba(34, 197, 94, 0.2); color: var(--success); border: 1px solid var(--success); }
   .status-warn { background: rgba(245, 158, 11, 0.2); color: var(--warning); border: 1px solid var(--warning); }
   .status-fail { background: rgba(239, 68, 68, 0.2); color: var(--danger); border: 1px solid var(--danger); }
+
   .btn {
     background: var(--accent-color);
     color: #0e1f38;
@@ -261,8 +291,12 @@
     color: var(--fg);
   }
   .btn-outline:hover { background: var(--card-bg); border-color: var(--accent-color); }
+
   .tab-content { display: none; }
   .tab-content.active { display: block; }
+
+
+  /* Dropdown Menu for Training */
   .module-dropdown {
     position: relative;
     margin-bottom: 20px;
@@ -287,6 +321,7 @@
   .dropdown-toggle.active { border-color: var(--accent-color); box-shadow: 0 2px 8px rgba(229, 174, 37, 0.3); }
   .dropdown-arrow { font-size: 0.8rem; transition: transform 0.2s ease; }
   .dropdown-toggle.active .dropdown-arrow { transform: rotate(180deg); }
+  
   .dropdown-menu {
     display: none;
     position: absolute;
@@ -327,6 +362,9 @@
   }
   .dropdown-item:hover { background: rgba(229, 174, 37, 0.1); color: var(--accent-color); }
   .dropdown-item.active { background: var(--accent-color); color: #021226; font-weight: 600; }
+
+
+  /* Test Section */
   .test-question {
     background: var(--card-bg);
     border: 1px solid var(--border-color);
@@ -334,7 +372,12 @@
     padding: 20px;
     margin-bottom: 16px;
   }
-  .test-question .q-num { font-size: 0.8rem; color: var(--accent-color); font-weight: 700; margin-bottom: 6px; }
+  .test-question .q-num {
+    font-size: 0.8rem;
+    color: var(--accent-color);
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
   .test-question .q-text { font-size: 1rem; margin-bottom: 12px; }
   .test-options { list-style: none; padding: 0; }
   .test-options li {
@@ -348,6 +391,7 @@
   }
   .test-options li:hover { border-color: var(--accent-color); background: rgba(229, 174, 37, 0.05); }
   .test-options li.selected { border-color: var(--accent-color); background: rgba(229, 174, 37, 0.15); }
+
   .content-placeholder {
     border: 2px dashed var(--border-color);
     border-radius: var(--radius);
@@ -364,6 +408,29 @@
     font-weight: 700;
     margin-bottom: 8px;
   }
+
+  .class-table { width:100%; border-collapse:collapse; font-size:0.82rem; text-align:left; margin:12px 0; }
+  .class-table th { padding:8px; border-bottom:2px solid var(--accent-color); color:var(--accent-color); }
+  .class-table td { padding:8px; border-bottom:1px solid var(--border-color); }
+  .class-table input { width:100%; padding:6px 8px; font-size:0.82rem; }
+  .class-table .class-remove { color:var(--danger); cursor:pointer; font-weight:700; }
+  .class-table .class-remove:hover { text-decoration:underline; }
+
+  @media print {
+    body { background: #fff !important; color: #000 !important; max-width: none; padding: 0; }
+    .main-nav, .nav-tabs, .module-dropdown, .module-pager, .button-row, .btn, .input-form, .completion-tracker { display: none !important; }
+    .section-container { display: none !important; }
+    .section-container.active { display: block !important; }
+    .tab-content { display: none !important; }
+    .tab-content.active { display: block !important; }
+    .card { border: 1px solid #ccc !important; background: #fff !important; color: #000 !important; box-shadow: none !important; margin-bottom: 12px; }
+    .card-title, h1, h2, h3, .spec-title, .brand { color: #000 !important; }
+    .formula-card, .spec-box, .floor-rule { background: #f9f9f9 !important; border-color: #ccc !important; color: #000 !important; }
+    .content-card { border: 1px solid #ccc; background: #fff; color: #000; }
+  }
+
+
+  /* Completion Tracker */
   .completion-tracker {
     margin-top: 20px;
     padding: 16px;
@@ -426,27 +493,97 @@
     border: 1px solid var(--danger);
   }
   .completion-btn.completed-btn:hover { background: rgba(239, 68, 68, 0.1); }
-  @media (max-width: 768px) {
-    header { flex-direction: column; text-align: center; gap: 12px; }
-    .header-logo { max-height: 80px; margin: 0 auto; }
-    .main-nav { flex-direction: column; gap: 8px; }
-    .main-nav-btn { width: 100%; text-align: left; padding: 10px 14px; font-size: 0.9rem; }
-    .nav-tabs { overflow-x: auto; flex-wrap: nowrap; -webkit-overflow-scrolling: touch; padding-bottom: 8px; }
-    .nav-tabs .tab-btn { flex: 0 0 auto; }
-    .grid-2 { grid-template-columns: 1fr !important; }
-    body { padding: 8px; }
+
+
+  /* Shared component additions (trajectory bar, KPI grids, data tables, pager, diploma) */
+  .trajectory-bar {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    padding: 12px 16px;
+    margin-bottom: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .erp-picker { display: flex; align-items: center; flex-wrap: wrap; gap: 6px; }
+  .erp-picker-label { font-size: 0.75rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin-right: 4px; }
+  .erp-btn {
+    background: var(--card-bg);
+    color: var(--muted);
+    border: 1px solid var(--border-color);
+    padding: 6px 12px;
+    border-radius: var(--radius);
+    font-weight: 700;
+    font-size: 0.78rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  .erp-btn:hover { color: var(--fg); border-color: var(--accent-color); }
+  .erp-btn.active { background: var(--accent-color); color: #021226; border-color: var(--accent-color); }
+  .erp-source { font-size: 0.82rem; color: var(--muted); margin-top: 6px; }
+  .erp-source strong { color: var(--fg); }
+
+  .kpi-grid { display: grid; grid-template-columns: 1fr; gap: 14px; margin: 12px 0; }
+  @media(min-width: 768px) {
+    .kpi-grid-4 { grid-template-columns: repeat(4, 1fr); }
+    .kpi-grid-5 { grid-template-columns: repeat(5, 1fr); }
+  }
+  .kpi-card, .kpi-tile { margin-top: 0; text-align: left; }
+  .kpi-tile .metric-val { font-size: 1.5rem; }
+  .kpi-label { font-size: 0.75rem; font-weight: 800; color: var(--accent-color); text-transform: uppercase; letter-spacing: 0.5px; }
+  .kpi-target { font-size: 1.15rem; font-weight: 800; margin: 4px 0; }
+  .kpi-desc { font-size: 0.8rem; color: var(--muted); margin-top: 6px; }
+
+  .step-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 10px; margin: 8px 0; }
+  .step-cell { background: rgba(0,0,0,0.25); border: 1px solid var(--border-color); border-radius: 6px; padding: 10px 12px; }
+  .step-cell span { display: block; font-size: 0.75rem; color: var(--muted); font-weight: 700; text-transform: uppercase; }
+  .step-cell strong { font-size: 1.05rem; }
+  .formula-result { font-size: 0.9rem; font-weight: 700; color: var(--success); margin-bottom: 8px; }
+  .formula-note { font-size: 0.85rem; color: var(--muted); margin-bottom: 6px; }
+  .cadence-list li { justify-content: space-between; gap: 12px; }
+  .cadence-list li span:last-child { color: var(--accent-color); font-weight: 600; text-align: right; }
+
+  .data-table { width: 100%; border-collapse: collapse; font-size: 0.88rem; text-align: left; }
+  .data-table th { padding: 10px; border-bottom: 2px solid var(--accent-color); color: var(--accent-color); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.5px; }
+  .data-table td { padding: 10px; border-bottom: 1px solid var(--border-color); }
+  .data-table td:first-child { font-weight: 600; }
+
+  .module-pager { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-top: 20px; }
+  .module-pager .btn:only-child { margin-left: auto; }
+
+  .diploma-frame {
+    border: 2px solid var(--accent-color);
+    border-radius: 12px;
+    background: var(--bg);
+    padding: 40px 32px;
+    text-align: center;
+    max-width: 760px;
+    margin: 0 auto;
+    position: relative;
+  }
+  .diploma-frame::before {
+    content: '';
+    position: absolute;
+    inset: 8px;
+    border: 1px solid rgba(229, 174, 37, 0.3);
+    border-radius: 8px;
+    pointer-events: none;
+  }
+  .diploma-seal {
+    width: 84px; height: 84px; border-radius: 50%;
+    border: 2px solid var(--accent-color);
+    color: var(--accent-color);
+    font-size: 0.6rem; font-weight: 800; letter-spacing: 1px; line-height: 1.3;
+    display: flex; align-items: center; justify-content: center; text-align: center;
   }
   @media print {
-    body { background: #fff !important; color: #000 !important; max-width: none; padding: 0; }
-    .main-nav, .nav-tabs, .module-dropdown, .button-row, .btn, .input-form, .completion-tracker { display: none !important; }
-    .section-container { display: none !important; }
-    .section-container.active { display: block !important; }
-    .tab-content { display: none !important; }
-    .tab-content.active { display: block !important; }
-    .card { border: 1px solid #ccc !important; background: #fff !important; color: #000 !important; box-shadow: none !important; margin-bottom: 12px; }
-    .card-title, h1, h2, h3, .spec-title, .brand { color: #000 !important; }
-    .formula-card, .spec-box, .floor-rule { background: #f9f9f9 !important; border-color: #ccc !important; color: #000 !important; }
+    .trajectory-bar { display: none !important; }
+    .diploma-frame { background: #fff !important; color: #000 !important; }
   }
+
 
 /* ===== MOBILE & TABLET RESPONSIVE ENHANCEMENTS ===== */
 html, body {
@@ -615,6 +752,8 @@ table {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
   }
+  .class-table input[type="text"] { min-width: 110px !important; }
+  .class-table input[type="number"] { min-width: 72px !important; }
   #cert_overlay > div, #cert_doc {
     padding: 24px 16px !important;
     width: 95% !important;
@@ -623,28 +762,77 @@ table {
   }
 }
 
+
+  /* KPI dashboard switcher (same on all four dashboards) */
+  .dash-switcher {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px;
+    margin: -8px 0 16px 0;
+  }
+  .dash-switcher-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-right: 4px;
+  }
+  .dash-switcher a {
+    background: var(--card-bg);
+    color: var(--muted);
+    border: 1px solid var(--border-color);
+    padding: 6px 12px;
+    border-radius: var(--radius);
+    font-weight: 700;
+    font-size: 0.8rem;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+  .dash-switcher a:hover { color: var(--fg); border-color: var(--accent-color); }
+  .dash-switcher a.active { background: rgba(229, 174, 37, 0.15); color: var(--accent-color); border-color: var(--accent-color); }
+  @media (max-width: 639px) {
+    .dash-switcher { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-top: 0; }
+    .dash-switcher-label { grid-column: 1 / -1; }
+    .dash-switcher a { text-align: center; padding: 10px 8px; min-height: 44px; display: flex; align-items: center; justify-content: center; }
+  }
+  .header-logo-link { display: inline-block; line-height: 0; flex-shrink: 0; }
+  .header-logo-link:hover .header-logo { opacity: 0.85; }
+  .dash-switcher a.dash-home { color: var(--accent-color); border-color: var(--accent-color); margin-right: 8px; }
+  @media (max-width: 640px) { .dash-switcher a.dash-home { grid-column: 1 / -1; margin-right: 0; } }
+  .dash-switcher a.dash-hub { color: var(--fg); border-color: var(--accent-color); text-transform: uppercase; letter-spacing: 1px; margin-right: 8px; }
+  @media (max-width: 640px) { .dash-switcher a.dash-hub { grid-column: 1 / -1; margin-right: 0; } }
+  @media print { .dash-switcher { display: none !important; } }
 </style>
 </head>
 <body>
 
 <header>
-  <a href="javascript:void(0)" onclick="switchMainSection('sec_curriculum', document.querySelectorAll('.main-nav-btn')[0])" aria-label="Go to Training Curriculum">
-    <img src="LOGO_HEDS.png" alt="HEDS Logo" class="header-logo" width="120" height="120" onerror="this.style.display='none'">
-  </a>
+  <a href="index.html" class="header-logo-link" title="Back to HEDS home page" aria-label="HEDS home page"><img src="LOGO_HEDS.png" alt="HEDS Logo" class="header-logo"></a>
   <div class="header-text">
     <h1 style="font-size:1.8rem; font-weight:900; color:var(--accent-color); text-transform:uppercase; letter-spacing:1px; margin:0 0 2px 0; line-height:1.1;">Heavy Equipment Dealer Solutions LLC</h1>
     <div class="brand" style="font-size:0.95rem; font-weight:800; color:var(--accent-color); text-transform:uppercase; letter-spacing:1.5px; margin-bottom:6px;">HEDS Operating Discipline Academy</div>
     <h2 style="font-size:1.25rem; font-weight:700; color:var(--fg); margin:0 0 4px 0;">Rental Service Manager Training &amp; Operating Platform</h2>
-    <p class="subtitle">Section 1: Rental Service Manager Curriculum | Section 2: Interactive Fleet Operating Dashboard | Section 3: 30/60/90 Implementation Tracker | Section 4: Assessment Test</p>
+    <p class="subtitle">Section 1: Industry Benchmark Curriculum | Section 2: Dealership Data Entry Dashboard</p>
   </div>
 </header>
 
+<!-- KPI Dashboard Switcher -->
+<nav class="dash-switcher" aria-label="HEDS KPI dashboards">
+  <a href="index.html" class="dash-home">Back to Home</a>
+  <a href="kpi-dashboards.html" class="dash-hub" title="See all KPI dashboards">KPI Dashboards</a>
+  <a href="service-manager-dashboard.html">Service Manager</a>
+  <a href="parts-manager-dashboard.html">Parts Manager</a>
+  <a href="rental-manager-dashboard.html">Rental Manager</a>
+  <a href="rental-service-manager-dashboard.html" class="active" aria-current="page">Rental Service Manager</a>
+</nav>
+
 <!-- Main Section Navigation -->
 <nav class="main-nav">
-  <button class="main-nav-btn active" onclick="switchMainSection('sec_curriculum', this)">&#128218; 1. Training Curriculum</button>
-  <button class="main-nav-btn" onclick="switchMainSection('sec_dashboard', this)">&#128202; 2. Interactive Operating Dashboard</button>
-  <button class="main-nav-btn" onclick="switchMainSection('sec_tracker', this)">&#128274; 3. 30/60/90 Implementation Tracker</button>
-  <button class="main-nav-btn" onclick="switchMainSection('sec_test', this)">&#9989; 4. Assessment Test</button>
+  <button class="main-nav-btn active" onclick="switchMainSection('sec_curriculum', this)">📘 1. Training Curriculum</button>
+  <button class="main-nav-btn" onclick="switchMainSection('sec_dashboard', this)">📊 2. Interactive Operating Dashboard</button>
+  <button class="main-nav-btn" onclick="switchMainSection('sec_test', this)">✅ 3. Assessment Test</button>
 </nav>
 
 <!-- ================================================================= -->
@@ -682,7 +870,7 @@ table {
       </div>
 
       <div class="floor-rule">
-        <div class="floor-rule-title">Floor Rule</div>
+        <div class="floor-rule-title">PRO TIP</div>
         In rental operations, the rental counter is your primary internal customer. Your product is a certified rent-ready machine on the green line earning revenue. Every day a unit sits dead in your yard or shop is cash burned.
       </div>
 
@@ -745,7 +933,7 @@ table {
       </div>
 
       <div class="floor-rule">
-        <div class="floor-rule-title">Floor Rule</div>
+        <div class="floor-rule-title">PRO TIP</div>
         If your fleet availability drops below 92%, your shop throughput is choking branch revenue. The rental counter cannot rent machines that are trapped in your yard.
       </div>
 
@@ -871,7 +1059,7 @@ table {
       </div>
 
       <div class="floor-rule">
-        <div class="floor-rule-title">Floor Rule</div>
+        <div class="floor-rule-title">PRO TIP</div>
         Any machine whose trailing 12-month maintenance cost (tech labor excluded) exceeds the 8% of OEC target requires mandatory GM and Fleet Manager review before another dollar of labor or parts is authorized.
       </div>
 
@@ -986,7 +1174,7 @@ table {
       </div>
 
       <div class="floor-rule">
-        <div class="floor-rule-title">Floor Rule</div>
+        <div class="floor-rule-title">PRO TIP</div>
         Fast-track jobs (PMs and turns &lt;3 hours) never wait behind a 40-hour engine overhaul. Stage separate lanes so easy revenue returns to the yard immediately.
       </div>
 
@@ -1040,7 +1228,7 @@ table {
           </div>
         </div>
 
-        <div class="formula-card">
+        <div id="kpi-labor-utilization" class="formula-card">
           <div class="formula-title">TECHNICIAN RECOVERY &amp; UTILIZATION FORMULAS</div>
           <div class="formula-expr">Technician Recovery % = Hours on Work Orders / Hours of Payroll (Paid Hours) &times; 100</div>
           <div class="formula-expr" style="margin-top:6px;">Technician Utilization % = Hours Invoiced on the Work Order / Hours on Work Orders &times; 100</div>
@@ -1057,7 +1245,7 @@ table {
         </div>
       </div>
 
-      <div class="curr-section">
+      <div id="kpi-late-close-work-orders" class="curr-section">
         <div class="curr-section-h3">Part 3: Work-in-Process (WIP) &amp; The 48-Hour Close Rule</div>
         <p style="font-size:0.9rem; margin-bottom:8px;">Total labor, parts, and capital trapped in open, unclosed fleet work orders.</p>
         <div style="padding:14px; background:rgba(0,0,0,0.25); border-radius:8px; border:1px solid var(--border-color); margin:10px 0; font-size:0.85rem;">
@@ -1095,7 +1283,7 @@ table {
       </div>
 
       <div class="floor-rule">
-        <div class="floor-rule-title">Floor Rule</div>
+        <div class="floor-rule-title">PRO TIP</div>
         Compliance is an operational discipline, not an annual inspection. A service truck without current DOT medical/DVIR or a disabled bay without LOTO will shut down your shop faster than a broken machine.
       </div>
 
@@ -1175,7 +1363,7 @@ table {
       </div>
 
       <div class="floor-rule">
-        <div class="floor-rule-title">HEDS Floor Rule</div>
+        <div class="floor-rule-title">PRO TIP</div>
         A technician removing 4 used oil filters during a 1,000-hour PM must hot-drain them for 12&ndash;24 hours, mechanically crush them to recover residual oil, and store them in a designated recycling drum. Throwing used filters into the municipal trash is an EPA violation.
       </div>
 
@@ -1223,7 +1411,7 @@ table {
       </div>
 
       <div class="floor-rule">
-        <div class="floor-rule-title">Floor Rule</div>
+        <div class="floor-rule-title">PRO TIP</div>
         Do not carry dealership-level inventory in a rental shop. Maintain a strict 90-day run-rate buffer of PM filters, fluids, teeth, and high-wear hoses. Everything else is procured on demand through structured dealer SLAs.
       </div>
 
@@ -1320,7 +1508,7 @@ table {
       </div>
 
       <div class="floor-rule">
-        <div class="floor-rule-title">Floor Rule</div>
+        <div class="floor-rule-title">PRO TIP</div>
         When 5 machines are down and 2 techs are available, you do not fix the machine that is easiest. You fix the machine that has the highest daily rental rate and an active customer reservation.
       </div>
 
@@ -1445,7 +1633,7 @@ table {
       </div>
 
       <div class="floor-rule">
-        <div class="floor-rule-title">Floor Rule</div>
+        <div class="floor-rule-title">PRO TIP</div>
         The 15-minute morning standup is non-negotiable. If you don't set the battle plan at 7:00 AM, the shop will run you instead of you running the shop.
       </div>
 
@@ -1575,7 +1763,7 @@ table {
       </div>
 
       <div class="floor-rule">
-        <div class="floor-rule-title">HEDS Floor Rule</div>
+        <div class="floor-rule-title">PRO TIP</div>
         The plan is not a suggestion. The Service Manager signs it, dates it, and commits to a 30-day review with their facilitator. No plan, no certificate.
       </div>
     </div>
@@ -1597,11 +1785,12 @@ table {
     <button class="tab-btn" onclick="switchDashTab('dash_m8', this)">M8: Telematics SLA</button>
     <button class="tab-btn" onclick="switchDashTab('dash_m9', this)">M9: Rental Leak</button>
     <button class="tab-btn" onclick="switchDashTab('dash_summary', this)">Exec Scorecard</button>
+    <button class="tab-btn" onclick="switchDashTab('dash_tracker', this)">30/60/90 Tracker</button>
   </nav>
 
   <!-- DASH M1: Fleet Availability -->
   <div id="dash_m1" class="tab-content active">
-    <div class="grid-2">
+    <div id="kpi-fleet-availability" class="grid-2">
       <div class="card">
         <div class="card-title">Enter Your Branch Numbers: Fleet Physical Availability</div>
         <div class="form-group">
@@ -1642,7 +1831,7 @@ table {
 
   <!-- DASH M2: Maint % of OEC -->
   <div id="dash_m2" class="tab-content">
-    <div class="grid-2">
+    <div id="kpi-maintenance-cost-oec" class="grid-2">
       <div class="card">
         <div class="card-title">Enter Your Branch Numbers: Maintenance Cost as % of OEC</div>
         <div class="form-group">
@@ -1679,7 +1868,7 @@ table {
 
   <!-- DASH M3: Turnaround DTI -->
   <div id="dash_m3" class="tab-content">
-    <div class="grid-2">
+    <div id="kpi-off-rent-to-rent-ready" class="grid-2">
       <div class="card">
         <div class="card-title">Enter Your Branch Numbers: Turnaround DTI</div>
         <div class="form-group">
@@ -1698,6 +1887,7 @@ table {
             <div style="font-size:0.8rem; color:var(--muted); font-weight:700;">AVG TURNAROUND HOURS</div>
             <div class="metric-val" id="dm3_res_hrs">36.0 hrs</div>
             <div id="dm3_status" class="metric-status status-pass">PASS</div>
+            <div style="font-size:0.8rem; color:var(--muted); margin-top:8px;" id="dm3_res_units">Based on 45 units returned off-rent in the trailing 30 days.</div>
           </div>
         </div>
         <div class="card">
@@ -1716,7 +1906,7 @@ table {
 
   <!-- DASH M4: Fleet Downtime -->
   <div id="dash_m4" class="tab-content">
-    <div class="grid-2">
+    <div id="kpi-fleet-downtime" class="grid-2">
       <div class="card">
         <div class="card-title">Enter Your Branch Numbers: Fleet Downtime</div>
         <div class="form-group">
@@ -1752,7 +1942,7 @@ table {
 
   <!-- DASH M5: Tech Recovery -->
   <div id="dash_m5" class="tab-content">
-    <div class="grid-2">
+    <div id="kpi-technician-recovery" class="grid-2">
       <div class="card">
         <div class="card-title">Enter Your Branch Numbers: Technician Recovery</div>
         <div class="form-group">
@@ -1788,7 +1978,7 @@ table {
 
   <!-- DASH M6: 90-Day Parts Buffer -->
   <div id="dash_m6" class="tab-content">
-    <div class="grid-2">
+    <div id="kpi-parts-buffer" class="grid-2">
       <div class="card">
         <div class="card-title">Enter Your Branch Numbers: 90-Day Parts Buffer</div>
         <div class="form-group">
@@ -1824,7 +2014,7 @@ table {
 
   <!-- DASH M7: Damage Recovery -->
   <div id="dash_m7" class="tab-content">
-    <div class="grid-2">
+    <div id="kpi-damage-recovery" class="grid-2">
       <div class="card">
         <div class="card-title">Enter Your Branch Numbers: Damage Recovery</div>
         <div class="form-group">
@@ -1860,7 +2050,7 @@ table {
 
   <!-- DASH M8: Telematics SLA -->
   <div id="dash_m8" class="tab-content">
-    <div class="grid-2">
+    <div id="kpi-telematics-triage" class="grid-2">
       <div class="card">
         <div class="card-title">Enter Your Branch Numbers: Telematics SLA</div>
         <div class="form-group">
@@ -2018,12 +2208,9 @@ table {
       </div>
     </div>
   </div>
-</div>
 
-<!-- ================================================================= -->
-<!-- SECTION 3: 30/60/90 IMPLEMENTATION TRACKER -->
-<!-- ================================================================= -->
-<div id="sec_tracker" class="section-container">
+  <!-- DASHBOARD TAB: 30/60/90 IMPLEMENTATION TRACKER -->
+  <div id="dash_tracker" class="tab-content"><div id="sec_tracker">
   <div class="card">
     <div class="card-title">HEDS 30/60/90 Gated Implementation Tracker</div>
     <p style="color:var(--muted); margin-bottom:20px; font-size:0.9rem;">This gated section provides milestone checklists to evaluate and lock in operational stabilization at 30, 60, and 90 days following training. Enter the access code for each phase to unlock its checklist. Progress is saved automatically.</p>
@@ -2123,10 +2310,11 @@ table {
       </div>
     </div>
   </div>
+</div></div>
 </div>
 
 <!-- ================================================================= -->
-<!-- SECTION 4: ASSESSMENT TEST -->
+<!-- SECTION 3: ASSESSMENT TEST -->
 <!-- ================================================================= -->
 <div id="sec_test" class="section-container">
 
@@ -2195,11 +2383,13 @@ table {
         </div>
       </div>
 
+      <!-- Module Breakdown -->
       <div style="margin-bottom:24px;">
         <h3 style="color:var(--accent-color); margin-bottom:12px; font-size:1.1rem;">Module Breakdown</h3>
         <div id="result_module_breakdown"></div>
       </div>
 
+      <!-- Focus Area Recommendation -->
       <div style="margin-bottom:24px;">
         <h3 style="color:var(--accent-color); margin-bottom:12px; font-size:1.1rem;">Recommended Training Focus Areas</h3>
         <div id="result_focus_areas"></div>
@@ -2214,6 +2404,7 @@ table {
   </div>
 
 </div>
+
 <script>
     var ASSESSMENT_RELAY_URL = 'https://script.google.com/macros/s/AKfycbymws_e31nyHrB6ge_U9NnVIdRFy-zNXKfGsVbWpm6OYz9_6lkpGL2RpFJebhxowwXn/exec';
   var TRACK_NAME = 'Rental Service Manager Training';
@@ -2268,13 +2459,6 @@ function printCertificateRSM() {
     if (toggle) toggle.classList.remove('active');
   }
 
-  document.addEventListener('click', function(e) {
-    var dropdown = document.querySelector('.module-dropdown');
-    if (dropdown && !dropdown.contains(e.target)) closeDropdown();
-  });
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') closeDropdown();
-  });
 
   function switchDashTab(tabId, btnEl) {
     document.querySelectorAll('#sec_dashboard .tab-content').forEach(function(el) { el.classList.remove('active'); });
@@ -2340,6 +2524,8 @@ function printCertificateRSM() {
     var returns = parseFloat(document.getElementById('dm3_total_returns') ? document.getElementById('dm3_total_returns').value : 0) || 0;
     var hrs = parseFloat(document.getElementById('dm3_avg_hours') ? document.getElementById('dm3_avg_hours').value : 0) || 0;
     document.getElementById('dm3_res_hrs').innerText = hrs.toFixed(1) + ' hrs';
+    var unitsEl = document.getElementById('dm3_res_units');
+    if (unitsEl) unitsEl.innerText = 'Based on ' + returns + ' units returned off-rent in the trailing 30 days.';
     document.getElementById('s_val_dti').innerText = hrs.toFixed(1) + ' hrs';
     var hrsR = Math.round(hrs * 10) / 10;
     if (hrsR > 0 && hrsR <= 48) { setStatus('dm3_status', 'PASS', 'status-pass'); setScoreStatus('s_stat_dti', '<span class="metric-status status-pass">PASS</span>', '', '', 'pass'); }
@@ -2523,7 +2709,7 @@ function printCertificateRSM() {
     var dashModules = document.querySelectorAll('#sec_dashboard .tab-content');
     dashModules.forEach(function(mod) {
       var id = mod.id;
-      if (id === 'dash_summary') return;
+      if (id === 'dash_summary' || id === 'dash_tracker') return;
       var card = mod.querySelector('.card');
       if (!card) return;
       if (card.querySelector('.completion-tracker')) return;
@@ -3692,6 +3878,89 @@ function printCertificateRSM() {
       }
     } catch (e) { hedsSetRelayStatus('fail'); }
   }
+</script>
+<script>
+  /* ===== HEDS shared navigation (identical on all four dashboards) ===== */
+  function goModule(tabId) {
+    var btn = document.querySelector('#module_menu .dropdown-item[onclick*="\'' + tabId + '\'"]');
+    switchCurrTab(tabId, btn);
+    var sec = document.getElementById('sec_curriculum');
+    if (sec && sec.scrollIntoView) sec.scrollIntoView({ behavior: 'smooth' });
+  }
+  function hedsInitModulePagers() {
+    var items = Array.prototype.slice.call(document.querySelectorAll('#module_menu .dropdown-item'));
+    var ids = items.map(function(it) { var m = (it.getAttribute('onclick') || '').match(/'([^']+)'/); return m ? m[1] : null; });
+    ids.forEach(function(id, i) {
+      var mod = document.getElementById(id);
+      if (!mod || mod.querySelector('.module-pager')) return;
+      var host = mod.querySelector('.card') || mod;
+      var pager = document.createElement('div');
+      pager.className = 'module-pager';
+      var prev = i > 0 ? '<button class="btn btn-outline" onclick="goModule(\'' + ids[i - 1] + '\')">&larr; Previous: ' + items[i - 1].innerText + '</button>' : '<span></span>';
+      var next = i < ids.length - 1 ? '<button class="btn" onclick="goModule(\'' + ids[i + 1] + '\')">Next: ' + items[i + 1].innerText + ' &rarr;</button>' : '<span></span>';
+      pager.innerHTML = prev + next;
+      host.appendChild(pager);
+    });
+  }
+  document.addEventListener('click', function(e) {
+    var dropdown = document.querySelector('.module-dropdown');
+    if (dropdown && !dropdown.contains(e.target)) closeDropdown();
+  });
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeDropdown();
+  });
+  window.addEventListener('load', function() { setTimeout(hedsInitModulePagers, 0); });
+</script>
+<style>
+  /* ===== HEDS KPI deep links: landing highlight ===== */
+  [id^="kpi-"] { scroll-margin-top:16px; }
+  .heds-kpi-target { outline:3px solid #e5ae25; outline-offset:4px; border-radius:8px; transition:outline-color 0.6s ease; }
+  .heds-kpi-target-fade { outline-color:transparent; }
+  tr.heds-kpi-target, li.heds-kpi-target { outline-offset:-2px; }
+</style>
+<script>
+  /* ===== HEDS KPI deep links (identical on all four dashboards) =====
+     A link such as dashboard.html#kpi-some-measure opens the section and tab that hold that
+     element, scrolls it into view, and outlines it briefly. Works on page load, on hash change,
+     and with the browser Back and Forward buttons. */
+  function hedsOpenHashTarget() {
+    var id = '';
+    try { id = decodeURIComponent((window.location.hash || '').slice(1)); } catch (e) { return; }
+    if (!id) return;
+    var el = document.getElementById(id);
+    if (!el) return;
+    var sec = el.closest('.section-container');
+    if (sec) {
+      var mainBtn = document.querySelector('.main-nav-btn[onclick*="\'' + sec.id + '\'"]');
+      switchMainSection(sec.id, mainBtn);
+    }
+    var dashTab = el.closest('#sec_dashboard .tab-content');
+    if (dashTab) {
+      var tabBtn = document.querySelector('#sec_dashboard .tab-btn[onclick*="\'' + dashTab.id + '\'"]');
+      switchDashTab(dashTab.id, tabBtn);
+    }
+    var currTab = el.closest('#sec_curriculum .tab-content');
+    if (currTab) {
+      var modBtn = document.querySelector('#module_menu .dropdown-item[onclick*="\'' + currTab.id + '\'"]');
+      switchCurrTab(currTab.id, modBtn);
+    }
+    var scrollEl = el;
+    if (el.classList.contains('section-container') || el.classList.contains('tab-content')) {
+      scrollEl = document.querySelector('.main-nav') || el;
+    }
+    /* Small targets (one result box, one table row, one list line) are centered so the card around them
+       stays in view; larger targets (a whole calculator) start at the top of the screen. */
+    var box = scrollEl.getBoundingClientRect();
+    scrollEl.scrollIntoView({ block: (scrollEl === el && box.height < window.innerHeight * 0.4) ? 'center' : 'start' });
+    if (el.id.indexOf('kpi-') === 0) {
+      document.querySelectorAll('.heds-kpi-target').forEach(function(x) { x.classList.remove('heds-kpi-target', 'heds-kpi-target-fade'); });
+      el.classList.add('heds-kpi-target');
+      setTimeout(function() { el.classList.add('heds-kpi-target-fade'); }, 2500);
+      setTimeout(function() { el.classList.remove('heds-kpi-target', 'heds-kpi-target-fade'); }, 3200);
+    }
+  }
+  window.addEventListener('hashchange', hedsOpenHashTarget);
+  window.addEventListener('load', function() { setTimeout(hedsOpenHashTarget, 0); });
 </script>
 </body>
 </html>

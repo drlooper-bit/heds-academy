@@ -55,7 +55,7 @@
   "@type": "BreadcrumbList",
   "itemListElement": [
     {"@type": "ListItem", "position": 1, "name": "HEDS", "item": "https://hedsconsulting.net/"},
-    {"@type": "ListItem", "position": 2, "name": "Blog & Videos", "item": "https://hedsconsulting.net/#blog"},
+    {"@type": "ListItem", "position": 2, "name": "Blog & Videos", "item": "https://hedsconsulting.net/blog/index.html"},
     {"@type": "ListItem", "position": 3, "name": "Leading vs. Lagging KPIs", "item": "https://hedsconsulting.net/blog/leading-vs-lagging-kpis.html"}
   ]
 }
@@ -442,6 +442,12 @@ body {
   transition: background 0.2s;
 }
 .cta-btn:hover { background: var(--accent-hover); }
+.cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+}
 .cta-back {
   display: inline-block;
   margin-top: 24px;
@@ -598,7 +604,7 @@ html, body {
 <nav class="breadcrumb">
   <a href="../index.html">Home</a>
   <span>›</span>
-  <a href="../index.html#blog">Blog &amp; Videos</a>
+  <a href="index.html">Blog &amp; Videos</a>
   <span>›</span>
   Leading vs. Lagging KPIs
 </nav>
@@ -647,7 +653,7 @@ html, body {
     <h3>Lagging indicators: What happened?</h3>
     <p>These measures establish actual performance and financial results.</p>
     <ul>
-      <li><strong>Absorption rate:</strong> How much of total dealership operating expenses is covered by combined Service and Parts gross profit ((Service GP + Parts GP) ÷ Total Dealership Operating Expenses; under 95% is a red flag, 95-99.9% standard, 100%+ gold standard, 105-110% optimal).</li>
+      <li><strong>Absorption rate:</strong> How much of total dealership operating expenses is covered by combined Service and Parts gross profit ((Service GP + Parts GP) ÷ Total Dealership Operating Expenses). The location target is 100% to 110%.</li>
       <li><strong>Effective labor rate (ELR):</strong> Labor revenue realized per billed labor hour.</li>
       <li><strong>WIP aging:</strong> How long work orders remain open and how much value is tied up in unfinished or uninvoiced work.</li>
       <li><strong>Service gross margin:</strong> How effectively the department converts revenue into gross profit.</li>
@@ -806,7 +812,11 @@ html, body {
   <div class="cta-card">
     <h2>Is your KPI process primarily retrospective?</h2>
     <p>HEDS can help assess where leading indicators and stronger operating controls could improve visibility and execution. A review of your existing dashboards, reporting cadence, and management routines can identify where earlier intervention may have the greatest impact.</p>
-    <a class="cta-btn" href="../index.html#contact">Book a Discovery Call</a>
+    <div class="cta-actions">
+      <a class="cta-btn" href="../index.html#contact">Book a Discovery Call</a>
+      <a class="cta-btn" href="../kpi-dashboards.html">Open the KPI Dashboards</a>
+      <a class="cta-btn" href="../service-manager-dashboard.html#sec_dashboard">Open the Service Dashboard</a>
+    </div>
   </div>
 
   <!-- ===== AUTHOR BIO ===== -->
@@ -818,7 +828,7 @@ html, body {
     </div>
   </div>
 
-  <a class="cta-back" href="../index.html#blog">← Back to Blog &amp; Videos</a>
+  <a class="cta-back" href="index.html">← Back to Blog &amp; Videos</a>
   &nbsp; &nbsp;
   <a class="cta-back" href="../index.html">Back to Home</a>
 
@@ -828,7 +838,7 @@ html, body {
 <footer class="footer">
   <img src="../LOGO_HEDS_small.png" alt="HEDS" width="72" height="72" loading="lazy" onerror="this.style.display='none'">
   <p><strong style="color:var(--accent);">HEDS</strong> - Heavy Equipment Dealer Solutions LLC</p>
-  <p>Leesburg, Florida &nbsp;|&nbsp; <a href="mailto:daniel@hedsconsulting.net" style="color:var(--muted);text-decoration:none;">daniel@hedsconsulting.net</a> &nbsp;|&nbsp; <a href="tel:8135997893" style="color:var(--muted);text-decoration:none;">813-599-7893</a></p>
+  <p>Leesburg, Florida &nbsp;|&nbsp; <a href="mailto:daniel@hedsconsulting.net" style="color:var(--muted);text-decoration:none;">daniel@hedsconsulting.net</a> &nbsp;|&nbsp; <a href="tel:3527245603" style="color:var(--muted);text-decoration:none;">352-724-5603</a></p>
   <p style="margin-top:8px;opacity:0.5;">© 2026 HEDS. All rights reserved.</p>
 </footer>
 

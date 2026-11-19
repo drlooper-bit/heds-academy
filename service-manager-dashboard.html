@@ -1,7 +1,9 @@
-<html lang="en"><head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>🐴 HEDS Academy - Service Manager Curriculum &amp; Interactive Dashboard</title>
+<title>HEDS Academy: Service Manager Training &amp; Operating Platform</title>
 <link rel="icon" type="image/png" href="LOGO_HEDS_small.png">
 <style>
   :root {
@@ -233,7 +235,7 @@
   /* Form Elements */
   .form-group { margin-bottom: 14px; }
   label { display: block; font-size: 0.85rem; font-weight: 600; color: var(--muted); margin-bottom: 4px; }
-  input[type="number"], input[type="text"] {
+  input[type="number"], input[type="text"], input[type="password"], input[type="email"] {
     width: 100%;
     padding: 10px 12px;
     background: rgba(0, 0, 0, 0.2);
@@ -403,12 +405,23 @@
     margin-bottom: 8px;
   }
 
+  .class-table { width:100%; border-collapse:collapse; font-size:0.82rem; text-align:left; margin:12px 0; }
+  .class-table th { padding:8px; border-bottom:2px solid var(--accent-color); color:var(--accent-color); }
+  .class-table td { padding:8px; border-bottom:1px solid var(--border-color); }
+  .class-table input { width:100%; padding:6px 8px; font-size:0.82rem; }
+  .class-table .class-remove { color:var(--danger); cursor:pointer; font-weight:700; }
+  .class-table .class-remove:hover { text-decoration:underline; }
+
   @media print {
-    body { background: #fff; color: #000; max-width: none; padding: 0; }
-    .main-nav, .nav-tabs, .module-dropdown, .button-row, .btn, .input-form { display: none !important; }
-    .section-container { display: block !important; }
+    body { background: #fff !important; color: #000 !important; max-width: none; padding: 0; }
+    .main-nav, .nav-tabs, .module-dropdown, .module-pager, .button-row, .btn, .input-form, .completion-tracker { display: none !important; }
+    .section-container { display: none !important; }
+    .section-container.active { display: block !important; }
     .tab-content { display: none !important; }
     .tab-content.active { display: block !important; }
+    .card { border: 1px solid #ccc !important; background: #fff !important; color: #000 !important; box-shadow: none !important; margin-bottom: 12px; }
+    .card-title, h1, h2, h3, .spec-title, .brand { color: #000 !important; }
+    .formula-card, .spec-box, .floor-rule { background: #f9f9f9 !important; border-color: #ccc !important; color: #000 !important; }
     .content-card { border: 1px solid #ccc; background: #fff; color: #000; }
   }
 
@@ -476,6 +489,96 @@
     border: 1px solid var(--danger);
   }
   .completion-btn.completed-btn:hover { background: rgba(239, 68, 68, 0.1); }
+
+
+  /* Shared component additions (trajectory bar, KPI grids, data tables, pager, diploma) */
+  .trajectory-bar {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    padding: 12px 16px;
+    margin-bottom: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .erp-picker { display: flex; align-items: center; flex-wrap: wrap; gap: 6px; }
+  .erp-picker-label { font-size: 0.75rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin-right: 4px; }
+  .erp-btn {
+    background: var(--card-bg);
+    color: var(--muted);
+    border: 1px solid var(--border-color);
+    padding: 6px 12px;
+    border-radius: var(--radius);
+    font-weight: 700;
+    font-size: 0.78rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  .erp-btn:hover { color: var(--fg); border-color: var(--accent-color); }
+  .erp-btn.active { background: var(--accent-color); color: #021226; border-color: var(--accent-color); }
+  .erp-source { font-size: 0.82rem; color: var(--muted); margin-top: 6px; }
+  .erp-source strong { color: var(--fg); }
+
+  .kpi-grid { display: grid; grid-template-columns: 1fr; gap: 14px; margin: 12px 0; }
+  @media(min-width: 768px) {
+    .kpi-grid-4 { grid-template-columns: repeat(4, 1fr); }
+    .kpi-grid-5 { grid-template-columns: repeat(5, 1fr); }
+  }
+  .kpi-card, .kpi-tile { margin-top: 0; text-align: left; }
+  .kpi-tile .metric-val { font-size: 1.5rem; }
+  .kpi-label { font-size: 0.75rem; font-weight: 800; color: var(--accent-color); text-transform: uppercase; letter-spacing: 0.5px; }
+  .kpi-target { font-size: 1.15rem; font-weight: 800; margin: 4px 0; }
+  .kpi-desc { font-size: 0.8rem; color: var(--muted); margin-top: 6px; }
+
+  .step-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 10px; margin: 8px 0; }
+  .step-cell { background: rgba(0,0,0,0.25); border: 1px solid var(--border-color); border-radius: 6px; padding: 10px 12px; }
+  .step-cell span { display: block; font-size: 0.75rem; color: var(--muted); font-weight: 700; text-transform: uppercase; }
+  .step-cell strong { font-size: 1.05rem; }
+  .formula-result { font-size: 0.9rem; font-weight: 700; color: var(--success); margin-bottom: 8px; }
+  .formula-note { font-size: 0.85rem; color: var(--muted); margin-bottom: 6px; }
+  .cadence-list li { justify-content: space-between; gap: 12px; }
+  .cadence-list li span:last-child { color: var(--accent-color); font-weight: 600; text-align: right; }
+
+  .data-table { width: 100%; border-collapse: collapse; font-size: 0.88rem; text-align: left; }
+  .data-table th { padding: 10px; border-bottom: 2px solid var(--accent-color); color: var(--accent-color); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.5px; }
+  .data-table td { padding: 10px; border-bottom: 1px solid var(--border-color); }
+  .data-table td:first-child { font-weight: 600; }
+
+  .module-pager { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-top: 20px; }
+  .module-pager .btn:only-child { margin-left: auto; }
+
+  .diploma-frame {
+    border: 2px solid var(--accent-color);
+    border-radius: 12px;
+    background: var(--bg);
+    padding: 40px 32px;
+    text-align: center;
+    max-width: 760px;
+    margin: 0 auto;
+    position: relative;
+  }
+  .diploma-frame::before {
+    content: '';
+    position: absolute;
+    inset: 8px;
+    border: 1px solid rgba(229, 174, 37, 0.3);
+    border-radius: 8px;
+    pointer-events: none;
+  }
+  .diploma-seal {
+    width: 84px; height: 84px; border-radius: 50%;
+    border: 2px solid var(--accent-color);
+    color: var(--accent-color);
+    font-size: 0.6rem; font-weight: 800; letter-spacing: 1px; line-height: 1.3;
+    display: flex; align-items: center; justify-content: center; text-align: center;
+  }
+  @media print {
+    .trajectory-bar { display: none !important; }
+    .diploma-frame { background: #fff !important; color: #000 !important; }
+  }
 
 
 /* ===== MOBILE & TABLET RESPONSIVE ENHANCEMENTS ===== */
@@ -645,6 +748,8 @@ table {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
   }
+  .class-table input[type="text"] { min-width: 110px !important; }
+  .class-table input[type="number"] { min-width: 72px !important; }
   #cert_overlay > div, #cert_doc {
     padding: 24px 16px !important;
     width: 95% !important;
@@ -653,12 +758,54 @@ table {
   }
 }
 
+
+  /* KPI dashboard switcher (same on all four dashboards) */
+  .dash-switcher {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px;
+    margin: -8px 0 16px 0;
+  }
+  .dash-switcher-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-right: 4px;
+  }
+  .dash-switcher a {
+    background: var(--card-bg);
+    color: var(--muted);
+    border: 1px solid var(--border-color);
+    padding: 6px 12px;
+    border-radius: var(--radius);
+    font-weight: 700;
+    font-size: 0.8rem;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+  .dash-switcher a:hover { color: var(--fg); border-color: var(--accent-color); }
+  .dash-switcher a.active { background: rgba(229, 174, 37, 0.15); color: var(--accent-color); border-color: var(--accent-color); }
+  @media (max-width: 639px) {
+    .dash-switcher { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-top: 0; }
+    .dash-switcher-label { grid-column: 1 / -1; }
+    .dash-switcher a { text-align: center; padding: 10px 8px; min-height: 44px; display: flex; align-items: center; justify-content: center; }
+  }
+  .header-logo-link { display: inline-block; line-height: 0; flex-shrink: 0; }
+  .header-logo-link:hover .header-logo { opacity: 0.85; }
+  .dash-switcher a.dash-home { color: var(--accent-color); border-color: var(--accent-color); margin-right: 8px; }
+  @media (max-width: 640px) { .dash-switcher a.dash-home { grid-column: 1 / -1; margin-right: 0; } }
+  .dash-switcher a.dash-hub { color: var(--fg); border-color: var(--accent-color); text-transform: uppercase; letter-spacing: 1px; margin-right: 8px; }
+  @media (max-width: 640px) { .dash-switcher a.dash-hub { grid-column: 1 / -1; margin-right: 0; } }
+  @media print { .dash-switcher { display: none !important; } }
 </style>
 </head>
 <body>
 
 <header>
-  <img src="LOGO_HEDS.png" alt="HEDS Logo" class="header-logo">
+  <a href="index.html" class="header-logo-link" title="Back to HEDS home page" aria-label="HEDS home page"><img src="LOGO_HEDS.png" alt="HEDS Logo" class="header-logo"></a>
   <div class="header-text">
     <h1 style="font-size:1.8rem; font-weight:900; color:var(--accent-color); text-transform:uppercase; letter-spacing:1px; margin:0 0 2px 0; line-height:1.1;">Heavy Equipment Dealer Solutions LLC</h1>
     <div class="brand" style="font-size:0.95rem; font-weight:800; color:var(--accent-color); text-transform:uppercase; letter-spacing:1.5px; margin-bottom:6px;">HEDS Operating Discipline Academy</div>
@@ -666,6 +813,16 @@ table {
     <p class="subtitle">Section 1: Industry Benchmark Curriculum | Section 2: Dealership Data Entry Dashboard</p>
   </div>
 </header>
+
+<!-- KPI Dashboard Switcher -->
+<nav class="dash-switcher" aria-label="HEDS KPI dashboards">
+  <a href="index.html" class="dash-home">Back to Home</a>
+  <a href="kpi-dashboards.html" class="dash-hub" title="See all KPI dashboards">KPI Dashboards</a>
+  <a href="service-manager-dashboard.html" class="active" aria-current="page">Service Manager</a>
+  <a href="parts-manager-dashboard.html">Parts Manager</a>
+  <a href="rental-manager-dashboard.html">Rental Manager</a>
+  <a href="rental-service-manager-dashboard.html">Rental Service Manager</a>
+</nav>
 
 <!-- Main Section Navigation -->
 <nav class="main-nav">
@@ -750,7 +907,7 @@ table {
       </div>
 
       <div class="floor-rule">
-        <div class="floor-rule-title">HEDS Floor Rule</div>
+        <div class="floor-rule-title">PRO TIP</div>
         If you cannot find the report in your system, ask your parts manager, your controller, or your DMS support contact. Do not skip the exercise because the report name is different. The data exists in every system, it just has a different label. Items marked "varies" may require a custom report or a standard report with filters applied.
       </div>
     </div>
@@ -766,13 +923,15 @@ table {
 
       <div class="curr-section">
         <div class="curr-section-h3">Diagnose</div>
-        <p>Service departments frequently operate as standalone cost centers rather than branch absorption engines. When absorption (service + parts gross profit against total operating expenses) falls below 95%, that is a red flag: branch expenses drain whole-goods margins during market downcycles.</p>
+        <p>Service departments frequently operate as standalone cost centers rather than as a share of the location's absorption. Service carries 70% to 75% of the location's absorption, and below 70% is a red flag. Parts carries 30% to 40%, and below 30% is a red flag. The location target, service gross profit plus parts gross profit against total operating expenses, is 100% to 110%. When the location comes in under 100%, remaining expenses still have to be covered by equipment sales.</p>
       </div>
 
       <div class="curr-section">
         <div class="curr-section-h3">Standard</div>
         <ul style="padding-left: 20px;">
-          <li><strong>Branch Absorption Target (Service + Parts):</strong> Standard is <strong>95% to 100%</strong> of total operating expenses covered by Service + Parts gross profit. Below 95% is a red flag. 100% is the gold standard and 105% to 110% is optimal.</li>
+          <li>The location absorption target is 100% to 110%. That is service gross profit plus parts gross profit, divided by the location's total operating expenses, times 100.</li>
+          <li>The service department carries 70% to 75% of the location's absorption. Below 70% is a red flag.</li>
+          <li>Parts carries 30% to 40% of the location's absorption. Below 30% is a red flag.</li>
           <li><strong>Service Labor Gross Margin Target:</strong> <strong>75% to 80%</strong> gross margin on total billable labor sales.</li>
         </ul>
       </div>
@@ -780,7 +939,9 @@ table {
       <div class="formula-card">
         <div class="example-badge">Industry Standard Worked Example</div>
         <div class="formula-title">FORMULA &amp; WORKED ABSORPTION CALCULATION</div>
-        <div class="formula-expr">Branch Absorption % = [ (Service GP + Parts GP) / Total Operating Expenses ] × 100</div>
+        <div class="formula-expr">Location Absorption % = [ (Service GP + Parts GP) / Total Operating Expenses ] × 100</div>
+        <div class="formula-expr" style="margin-top:8px;">Service contribution % = [ Service GP / Total Operating Expenses ] × 100</div>
+        <div class="formula-expr" style="margin-top:8px;">Parts contribution % = [ Parts GP / Total Operating Expenses ] × 100</div>
         
         <ol class="formula-steps">
           <li style="margin-bottom:16px;">
@@ -942,7 +1103,7 @@ table {
                   <div class="spec-title" style="color:var(--success);">What Total Operating Expenses Measure</div>
                   <ul style="padding-left:16px; font-size:0.85rem; line-height:1.6;">
                     <li><strong>The "Keep the Lights On" Threshold:</strong> Establishes the absolute minimum gross profit the branch must generate each month before producing a single dollar of net profit.</li>
-                    <li><strong>The Denominator for Absorption:</strong> This $330,000 figure is the denominator in the Absorption Ratio. Because your Total Aftermarket GP is $350,000, your branch has a 106.1% Absorption Rate ($350,000 ÷ $330,000), in the 105% to 110% optimal range: Parts and Service pay 100% of the branch's bills plus generate a surplus.</li>
+                    <li><strong>The Denominator for Absorption:</strong> This $330,000 figure is the denominator in the Absorption Ratio. Because your Total Aftermarket GP is $350,000, your location has a 106.1% Absorption Rate ($350,000 ÷ $330,000), inside the 100% to 110% location target: Parts and Service pay 100% of the branch's bills plus generate a surplus. In this example service contributes 51.5% ($170,000 ÷ $330,000), which is below the 70% to 75% service share, and parts contributes 54.5% ($180,000 ÷ $330,000), which is above the 30% to 40% parts share. The location can sit in target while the departmental split is off.</li>
                     <li><strong>Administrative &amp; Facility Bloat:</strong> Tracking month-over-month highlights if indirect costs are spiraling (software costs, excessive admin hiring, utility inefficiency).</li>
                     <li><strong>Shared Resource Costs:</strong> Shows the true cost of infrastructure supporting all departments, from the showroom floor to the service bays.</li>
                   </ul>
@@ -986,7 +1147,7 @@ table {
                   <ul style="padding-left:16px; font-size:0.85rem; line-height:1.6;">
                     <li><strong>Financial Resilience (Bulletproofing):</strong> An absorption rate over 100% means the dealership is financially self-sufficient without having to sell a single piece of new or used equipment. If the economy crashes and sales drop to zero, the branch can still pay rent, keep the lights on, and make payroll purely on aftermarket operations.</li>
                     <li><strong>Sales Profit Velocity:</strong> Because fixed operations cover 106.1% of operating expenses, financial pressure on Sales is eliminated. Every dollar of gross profit generated from selling whole goods drops directly to the bottom line as pure net profit (minus variable sales commissions).</li>
-                    <li><strong>True Fixed Operations Performance:</strong> Proves the combined strength of Parts and Service. 100% is the gold standard and 105% to 110% is optimal. Below 95% is a red flag.</li>
+                    <li><strong>True Fixed Operations Performance:</strong> Proves the combined strength of Parts and Service. The location target is 100% to 110%. Service should carry 70% to 75% of that, and parts should carry 30% to 40%.</li>
                     <li><strong>Business Valuation:</strong> Dealerships with an absorption rate consistently over 100% are highly valued in the industry because they represent low-risk, cash-flowing businesses capable of surviving market downturns.</li>
                   </ul>
                 </div>
@@ -1008,12 +1169,12 @@ table {
               </div>
             </div>
           </li>
-          <li><strong>Result:</strong> <span class="metric-status status-pass">PASS: OPTIMAL</span>: Branch covers 106.1% of total operating expenses from aftermarket operations (105% to 110% optimal).</li>
+          <li><strong>Result:</strong> <span class="metric-status status-pass">PASS</span>: The location covers 106.1% of total operating expenses from aftermarket operations, inside the 100% to 110% location target. Service contribution is 51.5%, below the 70% to 75% share (red flag). Parts contribution is 54.5%, above the 30% to 40% share.</li>
         </ol>
       </div>
 
       <div class="floor-rule">
-        <div class="floor-rule-title">HEDS Floor Rule</div>
+        <div class="floor-rule-title">PRO TIP</div>
         Never discount labor rates to win a job. Every dollar of discounted labor comes 100% out of bottom-line net profit, not overhead.
       </div>
 
@@ -1268,7 +1429,7 @@ table {
       </div>
 
       <div class="floor-rule">
-        <div class="floor-rule-title">HEDS Floor Rule</div>
+        <div class="floor-rule-title">PRO TIP</div>
         Every work order with labor must be closed and invoiced within 48 hours of the last labor posted. Touch it, finish it, bill it.
       </div>
     </div>
@@ -1332,15 +1493,15 @@ table {
       <div class="floor-rule">
         <div class="floor-rule-title">HEDS Labor Measures (Same for Dealer and Rental)</div>
         <ul style="padding-left:20px; margin-top:6px; line-height:1.8;">
-          <li><strong>Labor Recovery %</strong> = Hours on Work Orders / Hours of Payroll (Paid Hours) &times; 100. Target 95&ndash;100%.</li>
-          <li><strong>Labor Utilization %</strong> = Hours Invoiced on the Work Order / Hours on Work Orders &times; 100. Target 95&ndash;100%.</li>
+          <li id="kpi-technician-recovery"><strong>Labor Recovery %</strong> = Hours on Work Orders / Hours of Payroll (Paid Hours) &times; 100. Target 95% to 100%.</li>
+          <li id="kpi-labor-utilization"><strong>Labor Utilization %</strong> = Hours Invoiced on the Work Order / Hours on Work Orders &times; 100. Target 95% to 100%.</li>
           <li><strong>Both:</strong> red flag at 85% or below (at that point the shop is not making money, it is losing money). Above 100%: WARN, check the time coding.</li>
         </ul>
         HEDS uses only these two labor measures. There is no separate "productivity" measure. Shop Efficiency and road tech Field Efficiency (above) are job-time measures and stay as they are.
       </div>
 
       <div class="floor-rule">
-        <div class="floor-rule-title">HEDS Floor Rule (2-Stage Parts Rule)</div>
+        <div class="floor-rule-title">PRO TIP</div>
         For PMs and planned jobs, parts are pre-pulled and staged at the bay prior to assignment. For teardown diagnostics, initial diagnostic parts pull occurs within 2 hours of teardown completion. Technicians never wait at parts counter lines.
       </div>
     </div>
@@ -1442,7 +1603,7 @@ table {
       </div>
 
       <div class="floor-rule">
-        <div class="floor-rule-title">HEDS Floor Rule</div>
+        <div class="floor-rule-title">PRO TIP</div>
         Diagnostic time is billable time. No technician begins diagnostic work without a customer-signed authorization for an initial 2-hour diagnostic minimum.
       </div>
     </div>
@@ -1544,7 +1705,7 @@ table {
       </div>
 
       <div class="floor-rule">
-        <div class="floor-rule-title">HEDS Floor Rule</div>
+        <div class="floor-rule-title">PRO TIP</div>
         Never dispatch a technician without a verified symptom description, equipment serial number, and customer-approved spend authorization logged on the work order segment.
       </div>
     </div>
@@ -1646,7 +1807,7 @@ table {
       </div>
 
       <div class="floor-rule">
-        <div class="floor-rule-title">HEDS Floor Rule (4-C Story Rule)</div>
+        <div class="floor-rule-title">PRO TIP</div>
         No technician gets assigned their next job segment until their 4-C labor story (Complaint, Cause, Correction, Coverage) and failure photo documentation are completed and attached.
       </div>
     </div>
@@ -1687,7 +1848,7 @@ table {
             </thead>
             <tbody>
               <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600;">Gross Margin &lt; 75%</td><td style="padding:8px;">Invoice write-downs, unbilled diagnostic time</td><td style="padding:8px;">Enforce flat-rate estimating, bill all diagnostics, manager sign-off on write-downs</td><td style="padding:8px; color:var(--danger);">$[Your number]</td></tr>
-              <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600;">Absorption &lt; 95%</td><td style="padding:8px;">Low service + parts + rental GP combined</td><td style="padding:8px;">Fix margin leaks in all three departments</td><td style="padding:8px; color:var(--danger);">$[Your number]</td></tr>
+              <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600;">Location absorption below 100%</td><td style="padding:8px;">Low service + parts GP combined against total operating expenses</td><td style="padding:8px;">Fix margin leaks in service and parts, and check that service is carrying 70% to 75% and parts 30% to 40%</td><td style="padding:8px; color:var(--danger);">$[Your number]</td></tr>
               <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600;">Recovery &le; 85% (red flag)</td><td style="padding:8px;">Technicians idle, no dispatch, waiting on parts</td><td style="padding:8px;">Multi-job queue rule, parts staging before teardown, dispatch matching</td><td style="padding:8px; color:var(--danger);">$[Your number]</td></tr>
               <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600;">Efficiency &lt; 110%</td><td style="padding:8px;">Wrong technician on complex job, bad flat-rate quote</td><td style="padding:8px;">Skill-to-job matching, quote review before dispatch</td><td style="padding:8px; color:var(--danger);">$[Your number]</td></tr>
               <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600;">ELR &gt; 8% below posted (Effective Labor Rate % below 92%)</td><td style="padding:8px;">Unauthorized discounts, rework not billed</td><td style="padding:8px;">Stop unauthorized discounting, bill all rework, bill diagnostic time</td><td style="padding:8px; color:var(--danger);">$[Your number]</td></tr>
@@ -1712,7 +1873,7 @@ table {
       </div>
 
       <div class="floor-rule">
-        <div class="floor-rule-title">HEDS Floor Rule</div>
+        <div class="floor-rule-title">PRO TIP</div>
         You cannot fix a percentage. You can only fix a behavior. "Recovery is 72%" is not a problem. "Technician Dave is waiting 4 hours per day for parts to be staged" is a problem you can fix. Name the behavior, name the owner, name the date.
       </div>
 
@@ -1798,7 +1959,7 @@ table {
       </div>
 
       <div class="floor-rule">
-        <div class="floor-rule-title">HEDS Floor Rule</div>
+        <div class="floor-rule-title">PRO TIP</div>
         A scorecard that does not drive a decision is wallpaper. If the number on the scorecard does not make someone do something different today, it should not be on the board.
       </div>
 
@@ -1863,7 +2024,7 @@ table {
       </div>
 
       <div class="floor-rule">
-        <div class="floor-rule-title">HEDS Floor Rule</div>
+        <div class="floor-rule-title">PRO TIP</div>
         If your standup takes 30 minutes, you are having a meeting, not a standup. Cut it to 10. If there is nothing to discuss, the standup is 3 minutes and everyone goes to work. The purpose is rhythm, not duration.
       </div>
 
@@ -1919,7 +2080,7 @@ table {
       </div>
 
       <div class="floor-rule">
-        <div class="floor-rule-title">HEDS Floor Rule</div>
+        <div class="floor-rule-title">PRO TIP</div>
         Work orders must be closed and invoiced within 48 hours of the last labor. Touch it, finish it, bill it. No WO on the review list leaves the weekly review without a named owner and a target close date.
       </div>
 
@@ -1956,7 +2117,7 @@ table {
               <li>No technician touches the machine until intake is complete and approved</li>
             </ul>
             <div class="floor-rule" style="margin-top:8px;">
-              <div class="floor-rule-title">Floor Rule</div>
+              <div class="floor-rule-title">PRO TIP</div>
               If the complaint is not clear, the diagnosis will be wrong. If the diagnosis is wrong, the quote is wrong. If the quote is wrong, the job stalls. Intake is where leaks start, and where they are cheapest to prevent.
             </div>
           </li>
@@ -1976,7 +2137,7 @@ table {
               <li>Parts person confirms staging to the advisor, not just to the parts shelf</li>
             </ul>
             <div class="floor-rule" style="margin-top:8px;">
-              <div class="floor-rule-title">Floor Rule</div>
+              <div class="floor-rule-title">PRO TIP</div>
               A technician standing at a disassembled machine waiting for parts is the most expensive person in your building. Stage parts before teardown or do not start the job.
             </div>
           </li>
@@ -2001,7 +2162,7 @@ table {
       </div>
 
       <div class="floor-rule">
-        <div class="floor-rule-title">HEDS Floor Rule</div>
+        <div class="floor-rule-title">PRO TIP</div>
         The work order lifecycle is not a suggestion. It is the production line. If a step is skipped, the job stalls and the cash stops. Treat the lifecycle like a factory floor, because that is what it is.
       </div>
 
@@ -2050,7 +2211,7 @@ table {
       </div>
 
       <div class="floor-rule">
-        <div class="floor-rule-title">HEDS Floor Rule</div>
+        <div class="floor-rule-title">PRO TIP</div>
         If you are not charging shop supply fees on every invoice, you are giving away margin. These charges are not optional, they are how you keep up with inflation. If the customer pushes back, the answer is: "This is standard. Every dealer charges this."
       </div>
 
@@ -2107,7 +2268,7 @@ table {
       </div>
 
       <div class="floor-rule">
-        <div class="floor-rule-title">HEDS Floor Rule</div>
+        <div class="floor-rule-title">PRO TIP</div>
         Avoiding the conversation is worse than having it. A technician who is at 65% recovery and does not know it will never improve. A technician who knows it and chooses not to change is a different problem, and one you can document.
       </div>
 
@@ -2174,7 +2335,7 @@ table {
       </div>
 
       <div class="floor-rule">
-        <div class="floor-rule-title">HEDS Floor Rule</div>
+        <div class="floor-rule-title">PRO TIP</div>
         Lagging indicators tell you what happened. Leading indicators tell you what is about to happen. A manager who only reads lagging indicators is driving by looking in the rearview mirror. The capacity stress flag from the 2-week forecast should be the first topic of discussion at every Tuesday morning standup.
       </div>
 
@@ -2210,7 +2371,7 @@ table {
       </div>
 
       <div class="floor-rule">
-        <div class="floor-rule-title">HEDS Floor Rule</div>
+        <div class="floor-rule-title">PRO TIP</div>
         A telematics alert that nobody responds to is worse than no telematics at all. It creates a false sense of visibility. If you have the data, use it. If you do not have time to use it, do not pretend you do.
       </div>
 
@@ -2245,7 +2406,7 @@ table {
       </div>
 
       <div class="floor-rule">
-        <div class="floor-rule-title">HEDS Floor Rule</div>
+        <div class="floor-rule-title">PRO TIP</div>
         A customer who called every 2 weeks and has not called in 45 days is not "waiting for the right time." They are shopping your competitor. Catch the drift before they leave, not after.
       </div>
 
@@ -2280,7 +2441,7 @@ table {
       </div>
 
       <div class="floor-rule">
-        <div class="floor-rule-title">HEDS Floor Rule</div>
+        <div class="floor-rule-title">PRO TIP</div>
         Every day a rental unit sits off-rent waiting for PM is rental revenue you can never recover. Maintenance is not an expense, it is the cheapest way to protect rental revenue and resale value.
       </div>
 
@@ -2325,7 +2486,7 @@ table {
           <tr>
             <td style="padding:8px 10px; border:1px solid var(--border-color);">Days 61-90</td>
             <td style="padding:8px 10px; border:1px solid var(--border-color);">Sustain and measure</td>
-            <td style="padding:8px 10px; border:1px solid var(--border-color);">Absorption at or above 95% of total operating expenses, work orders closed and invoiced within 48 hours of last labor, weekly accountability check-ins running</td>
+            <td style="padding:8px 10px; border:1px solid var(--border-color);">Location absorption of 100% to 110% of total operating expenses, work orders closed and invoiced within 48 hours of last labor, weekly accountability check-ins running</td>
           </tr>
         </table>
       </div>
@@ -2342,7 +2503,7 @@ table {
       </div>
 
       <div class="floor-rule">
-        <strong>Floor Rule:</strong> The plan is not a suggestion. The participant signs it, dates it, and commits to a 30-day review with their facilitator. No plan, no certificate.
+        <strong>PRO TIP.</strong> The plan is not a suggestion. The participant signs it, dates it, and commits to a 30-day review with their facilitator. No plan, no certificate.
       </div>
 
       <div class="spec-box">
@@ -2419,11 +2580,21 @@ table {
         <div class="card">
           <div class="card-title">Live Branch Diagnostic Calculation</div>
           <div class="metric-box">
-            <div style="font-size:0.8rem; color:var(--muted); font-weight:700;">YOUR BRANCH ABSORPTION RATE (SERVICE + PARTS)</div>
+            <div style="font-size:0.8rem; color:var(--muted); font-weight:700;">YOUR LOCATION ABSORPTION RATE (SERVICE + PARTS)</div>
             <div class="metric-val" id="m1_res_abs">106.1%</div>
-            <div id="m1_status_abs" class="metric-status status-pass">PASS: OPTIMAL (105-110%)</div>
+            <div id="m1_status_abs" class="metric-status status-pass">PASS (100% to 110%)</div>
+          </div>
+          <div id="kpi-service-absorption" class="metric-box">
+            <div style="font-size:0.8rem; color:var(--muted); font-weight:700;">SERVICE CONTRIBUTION TO LOCATION ABSORPTION</div>
+            <div class="metric-val" id="m1_res_serv_abs">51.5%</div>
+            <div id="m1_status_serv_abs" class="metric-status status-fail">FAIL: BELOW 70% (RED FLAG)</div>
           </div>
           <div class="metric-box">
+            <div style="font-size:0.8rem; color:var(--muted); font-weight:700;">PARTS CONTRIBUTION TO LOCATION ABSORPTION</div>
+            <div class="metric-val" id="m1_res_parts_abs">54.5%</div>
+            <div id="m1_status_parts_abs" class="metric-status status-pass">ABOVE 30% TO 40% TARGET</div>
+          </div>
+          <div id="kpi-service-labor-gross-margin" class="metric-box">
             <div style="font-size:0.8rem; color:var(--muted); font-weight:700;">YOUR SERVICE LABOR GROSS MARGIN %</div>
             <div class="metric-val" id="m1_res_gm">77.3%</div>
             <div id="m1_status_gm" class="metric-status status-pass">PASS</div>
@@ -2487,7 +2658,7 @@ table {
 
   <!-- DASHBOARD MODULE 2 -->
   <div id="dash_m2" class="tab-content">
-    <div class="grid-2">
+    <div id="kpi-last-labor-to-invoice" class="grid-2">
       <div class="card">
         <div class="card-title">Enter Your Branch Numbers: Work-in-Progress (WIP)</div>
         <div class="form-group">
@@ -2545,7 +2716,7 @@ table {
       <div>
         <div class="card">
           <div class="card-title">Your Efficiency Benchmarks</div>
-          <div class="metric-box">
+          <div id="kpi-shop-efficiency" class="metric-box">
             <div style="font-size:0.8rem; color:var(--muted); font-weight:700;">YOUR SHOP TECH EFFICIENCY</div>
             <div class="metric-val" id="m3_res_shop">89.5%</div>
             <div id="m3_status_shop" class="metric-status status-fail">FAIL: BELOW 100%</div>
@@ -2564,7 +2735,7 @@ table {
   <!-- DASHBOARD MODULE 4 -->
   <div id="dash_m4" class="tab-content">
     <div class="grid-2">
-      <div class="card">
+      <div class="card" id="kpi-effective-labor-rate">
         <div class="card-title">Enter Your Branch Numbers: Effective Labor Rate (ELR)</div>
         <div class="form-group">
           <label for="m4_billed_rev">Your Total Billed Labor Revenue ($)</label>
@@ -2619,7 +2790,7 @@ table {
       <div>
         <div class="card">
           <div class="card-title">Your Velocity &amp; Quality Performance</div>
-          <div class="metric-box">
+          <div id="kpi-first-time-fix-rate" class="metric-box">
             <div style="font-size:0.8rem; color:var(--muted); font-weight:700;">YOUR FIRST-TIME FIX RATE (FTFR)</div>
             <div class="metric-val" id="m5_res_ftfr">93.6%</div>
             <div id="m5_status_ftfr" class="metric-status status-pass">PASS</div>
@@ -2741,10 +2912,22 @@ table {
           </thead>
           <tbody>
             <tr style="border-bottom:1px solid var(--border-color);">
-              <td style="padding:10px; font-weight:600;">Absorption Rate (Service + Parts)</td>
+              <td style="padding:10px; font-weight:600;">Location Absorption Rate (Service + Parts)</td>
               <td style="padding:10px;" id="s_val_abs">106.1%</td>
-              <td style="padding:10px;">95-100% of total operating expenses (below 95% red flag; 100% gold, 105-110% optimal)</td>
+              <td style="padding:10px;">100% to 110% of total operating expenses</td>
               <td style="padding:10px;" id="s_stat_abs"><span class="metric-status status-pass">PASS</span></td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border-color);">
+              <td style="padding:10px; font-weight:600;">Service Contribution to Location Absorption</td>
+              <td style="padding:10px;" id="s_val_serv_abs">51.5%</td>
+              <td style="padding:10px;">70% to 75% (below 70% red flag)</td>
+              <td style="padding:10px;" id="s_stat_serv_abs"><span class="metric-status status-fail">FAIL</span></td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border-color);">
+              <td style="padding:10px; font-weight:600;">Parts Contribution to Location Absorption</td>
+              <td style="padding:10px;" id="s_val_parts_abs">54.5%</td>
+              <td style="padding:10px;">30% to 40% (below 30% red flag)</td>
+              <td style="padding:10px;" id="s_stat_parts_abs"><span class="metric-status status-pass">PASS</span></td>
             </tr>
             <tr style="border-bottom:1px solid var(--border-color);">
               <td style="padding:10px; font-weight:600;">Unapplied Labor Cash Loss</td>
@@ -2848,8 +3031,8 @@ table {
           <span style="color:var(--muted); margin-left:12px;" id="test_timer">Time Remaining: 90:00</span>
         </div>
         <div style="display:flex; align-items:center; gap:12px;">
-          <span style="color:var(--muted); font-size:0.9rem;" id="test_progress">Question 1 of 50</span>
-          <button class="btn btn-danger" onclick="abandonTest()">Submit Test</button>
+          <span style="color:var(--muted); font-size:0.9rem;" id="test_progress">Question 0 of 50 answered</span>
+          <button class="btn btn-outline" onclick="abandonTest()">Submit Test</button>
         </div>
       </div>
       <div style="margin-top:8px; height:4px; background:var(--border-color); border-radius:2px; overflow:hidden;">
@@ -2901,7 +3084,6 @@ table {
   </div>
 
 </div>
-
 
 <script>
     var ASSESSMENT_RELAY_URL = 'https://script.google.com/macros/s/AKfycbymws_e31nyHrB6ge_U9NnVIdRFy-zNXKfGsVbWpm6OYz9_6lkpGL2RpFJebhxowwXn/exec';
@@ -2959,13 +3141,26 @@ function switchMainSection(secId, btnEl) {
     const cogs = parseFloat(document.getElementById('m1_labor_cogs').value) || 0;
     if (fixedOh > 0) {
       const abs = ((servGp + partsGp) / fixedOh) * 100;
+      const servShare = (servGp / fixedOh) * 100;
+      const partsShare = (partsGp / fixedOh) * 100;
       document.getElementById('m1_res_abs').innerText = abs.toFixed(1) + '%';
       document.getElementById('s_val_abs').innerText = abs.toFixed(1) + '%';
       const absShown = parseFloat(abs.toFixed(1));
-      if (absShown < 95) { setStatus('m1_status_abs', 'FAIL: BELOW 95% (RED FLAG)', 'status-fail'); document.getElementById('s_stat_abs').innerHTML = '<span class="metric-status status-fail">FAIL</span>'; }
-      else if (absShown >= 105 && absShown <= 110) { setStatus('m1_status_abs', 'PASS: OPTIMAL (105-110%)', 'status-pass'); document.getElementById('s_stat_abs').innerHTML = '<span class="metric-status status-pass">PASS</span>'; }
-      else if (absShown >= 100) { setStatus('m1_status_abs', 'PASS: GOLD STANDARD (100%+)', 'status-pass'); document.getElementById('s_stat_abs').innerHTML = '<span class="metric-status status-pass">PASS</span>'; }
-      else { setStatus('m1_status_abs', 'PASS: STANDARD (95-100%)', 'status-pass'); document.getElementById('s_stat_abs').innerHTML = '<span class="metric-status status-pass">PASS</span>'; }
+      if (absShown < 100) { setStatus('m1_status_abs', 'FAIL: BELOW 100%', 'status-fail'); document.getElementById('s_stat_abs').innerHTML = '<span class="metric-status status-fail">FAIL</span>'; }
+      else if (absShown <= 110) { setStatus('m1_status_abs', 'PASS (100% to 110%)', 'status-pass'); document.getElementById('s_stat_abs').innerHTML = '<span class="metric-status status-pass">PASS</span>'; }
+      else { setStatus('m1_status_abs', 'ABOVE 100% TO 110% TARGET', 'status-pass'); document.getElementById('s_stat_abs').innerHTML = '<span class="metric-status status-pass">PASS</span>'; }
+      document.getElementById('m1_res_serv_abs').innerText = servShare.toFixed(1) + '%';
+      document.getElementById('s_val_serv_abs').innerText = servShare.toFixed(1) + '%';
+      const servShown = parseFloat(servShare.toFixed(1));
+      if (servShown < 70) { setStatus('m1_status_serv_abs', 'FAIL: BELOW 70% (RED FLAG)', 'status-fail'); document.getElementById('s_stat_serv_abs').innerHTML = '<span class="metric-status status-fail">FAIL</span>'; }
+      else if (servShown <= 75) { setStatus('m1_status_serv_abs', 'PASS (70% to 75%)', 'status-pass'); document.getElementById('s_stat_serv_abs').innerHTML = '<span class="metric-status status-pass">PASS</span>'; }
+      else { setStatus('m1_status_serv_abs', 'ABOVE 70% TO 75% TARGET', 'status-pass'); document.getElementById('s_stat_serv_abs').innerHTML = '<span class="metric-status status-pass">PASS</span>'; }
+      document.getElementById('m1_res_parts_abs').innerText = partsShare.toFixed(1) + '%';
+      document.getElementById('s_val_parts_abs').innerText = partsShare.toFixed(1) + '%';
+      const partsShown = parseFloat(partsShare.toFixed(1));
+      if (partsShown < 30) { setStatus('m1_status_parts_abs', 'FAIL: BELOW 30% (RED FLAG)', 'status-fail'); document.getElementById('s_stat_parts_abs').innerHTML = '<span class="metric-status status-fail">FAIL</span>'; }
+      else if (partsShown <= 40) { setStatus('m1_status_parts_abs', 'PASS (30% to 40%)', 'status-pass'); document.getElementById('s_stat_parts_abs').innerHTML = '<span class="metric-status status-pass">PASS</span>'; }
+      else { setStatus('m1_status_parts_abs', 'ABOVE 30% TO 40% TARGET', 'status-pass'); document.getElementById('s_stat_parts_abs').innerHTML = '<span class="metric-status status-pass">PASS</span>'; }
     }
     if (rev > 0) {
       const gm = ((rev - cogs) / rev) * 100;
@@ -3299,7 +3494,7 @@ function switchMainSection(secId, btnEl) {
     "question": "Your absorption rate is 78%. The dealer principal asks what this means. What do you tell them?",
     "options": [
       "Service alone covers 78% of all dealership expenses.",
-      "Service and parts combined cover 78% of the branch's total operating expenses, below the 95% red flag line. The remaining 22% must come from equipment sales.",
+      "Service and parts combined cover 78% of the location's total operating expenses, below the 100% to 110% location target. The remaining 22% must come from equipment sales.",
       "The service department is operating at a 78% profit margin on all jobs.",
       "78% of all work orders were billed within the standard time frame this month."
     ]
@@ -4284,6 +4479,89 @@ function switchMainSection(secId, btnEl) {
       }
     } catch (e) { hedsSetRelayStatus('fail'); }
   }
+</script>
+<script>
+  /* ===== HEDS shared navigation (identical on all four dashboards) ===== */
+  function goModule(tabId) {
+    var btn = document.querySelector('#module_menu .dropdown-item[onclick*="\'' + tabId + '\'"]');
+    switchCurrTab(tabId, btn);
+    var sec = document.getElementById('sec_curriculum');
+    if (sec && sec.scrollIntoView) sec.scrollIntoView({ behavior: 'smooth' });
+  }
+  function hedsInitModulePagers() {
+    var items = Array.prototype.slice.call(document.querySelectorAll('#module_menu .dropdown-item'));
+    var ids = items.map(function(it) { var m = (it.getAttribute('onclick') || '').match(/'([^']+)'/); return m ? m[1] : null; });
+    ids.forEach(function(id, i) {
+      var mod = document.getElementById(id);
+      if (!mod || mod.querySelector('.module-pager')) return;
+      var host = mod.querySelector('.card') || mod;
+      var pager = document.createElement('div');
+      pager.className = 'module-pager';
+      var prev = i > 0 ? '<button class="btn btn-outline" onclick="goModule(\'' + ids[i - 1] + '\')">&larr; Previous: ' + items[i - 1].innerText + '</button>' : '<span></span>';
+      var next = i < ids.length - 1 ? '<button class="btn" onclick="goModule(\'' + ids[i + 1] + '\')">Next: ' + items[i + 1].innerText + ' &rarr;</button>' : '<span></span>';
+      pager.innerHTML = prev + next;
+      host.appendChild(pager);
+    });
+  }
+  document.addEventListener('click', function(e) {
+    var dropdown = document.querySelector('.module-dropdown');
+    if (dropdown && !dropdown.contains(e.target)) closeDropdown();
+  });
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeDropdown();
+  });
+  window.addEventListener('load', function() { setTimeout(hedsInitModulePagers, 0); });
+</script>
+<style>
+  /* ===== HEDS KPI deep links: landing highlight ===== */
+  [id^="kpi-"] { scroll-margin-top:16px; }
+  .heds-kpi-target { outline:3px solid #e5ae25; outline-offset:4px; border-radius:8px; transition:outline-color 0.6s ease; }
+  .heds-kpi-target-fade { outline-color:transparent; }
+  tr.heds-kpi-target, li.heds-kpi-target { outline-offset:-2px; }
+</style>
+<script>
+  /* ===== HEDS KPI deep links (identical on all four dashboards) =====
+     A link such as dashboard.html#kpi-some-measure opens the section and tab that hold that
+     element, scrolls it into view, and outlines it briefly. Works on page load, on hash change,
+     and with the browser Back and Forward buttons. */
+  function hedsOpenHashTarget() {
+    var id = '';
+    try { id = decodeURIComponent((window.location.hash || '').slice(1)); } catch (e) { return; }
+    if (!id) return;
+    var el = document.getElementById(id);
+    if (!el) return;
+    var sec = el.closest('.section-container');
+    if (sec) {
+      var mainBtn = document.querySelector('.main-nav-btn[onclick*="\'' + sec.id + '\'"]');
+      switchMainSection(sec.id, mainBtn);
+    }
+    var dashTab = el.closest('#sec_dashboard .tab-content');
+    if (dashTab) {
+      var tabBtn = document.querySelector('#sec_dashboard .tab-btn[onclick*="\'' + dashTab.id + '\'"]');
+      switchDashTab(dashTab.id, tabBtn);
+    }
+    var currTab = el.closest('#sec_curriculum .tab-content');
+    if (currTab) {
+      var modBtn = document.querySelector('#module_menu .dropdown-item[onclick*="\'' + currTab.id + '\'"]');
+      switchCurrTab(currTab.id, modBtn);
+    }
+    var scrollEl = el;
+    if (el.classList.contains('section-container') || el.classList.contains('tab-content')) {
+      scrollEl = document.querySelector('.main-nav') || el;
+    }
+    /* Small targets (one result box, one table row, one list line) are centered so the card around them
+       stays in view; larger targets (a whole calculator) start at the top of the screen. */
+    var box = scrollEl.getBoundingClientRect();
+    scrollEl.scrollIntoView({ block: (scrollEl === el && box.height < window.innerHeight * 0.4) ? 'center' : 'start' });
+    if (el.id.indexOf('kpi-') === 0) {
+      document.querySelectorAll('.heds-kpi-target').forEach(function(x) { x.classList.remove('heds-kpi-target', 'heds-kpi-target-fade'); });
+      el.classList.add('heds-kpi-target');
+      setTimeout(function() { el.classList.add('heds-kpi-target-fade'); }, 2500);
+      setTimeout(function() { el.classList.remove('heds-kpi-target', 'heds-kpi-target-fade'); }, 3200);
+    }
+  }
+  window.addEventListener('hashchange', hedsOpenHashTarget);
+  window.addEventListener('load', function() { setTimeout(hedsOpenHashTarget, 0); });
 </script>
 </body>
 </html>

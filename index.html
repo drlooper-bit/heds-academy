@@ -50,7 +50,7 @@
   "url": "https://hedsconsulting.net/",
   "logo": "https://hedsconsulting.net/LOGO_HEDS_small.png",
   "image": "https://hedsconsulting.net/LOGO_HEDS_small.png",
-  "telephone": "813-599-7893",
+  "telephone": "352-724-5603",
   "email": "daniel@hedsconsulting.net",
   "address": {
     "@type": "PostalAddress",
@@ -68,15 +68,15 @@
   "@type": "EducationalOrganization",
   "name": "HEDS Operating Discipline Academy",
   "parentOrganization": "Heavy Equipment Dealer Solutions LLC",
-  "description": "Position-specific onsite training for heavy equipment dealers and rental companies. 6 training tracks: Service Manager, Rental Service Manager, Rental Manager, Parts Manager, Branch Manager, and Regional & Executive Leadership.",
+  "description": "Position-specific onsite training for heavy equipment dealers and rental companies. 6 training tracks. Four are live: Service Manager, Rental Service Manager, Rental Manager, and Parts Manager. Branch Manager and Regional & Executive Leadership are in development.",
   "url": "https://hedsconsulting.net/",
   "department": [
     {"@type": "EducationalOrganization", "name": "Service Manager Training"},
     {"@type": "EducationalOrganization", "name": "Rental Service Manager Training"},
     {"@type": "EducationalOrganization", "name": "Rental Manager Training"},
     {"@type": "EducationalOrganization", "name": "Parts Manager Training"},
-    {"@type": "EducationalOrganization", "name": "Branch Manager Training"},
-    {"@type": "EducationalOrganization", "name": "Regional & Executive Leadership Training"}
+    {"@type": "EducationalOrganization", "name": "Branch Manager Training (In Development)"},
+    {"@type": "EducationalOrganization", "name": "Regional & Executive Leadership Training (In Development)"}
   ]
 }
 </script>
@@ -98,7 +98,7 @@
       "name": "What training tracks are available?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Six tracks: Service Manager, Rental Service Manager, Rental Manager, Parts Manager, Branch Manager, and Regional & Executive Leadership. Each track is position-specific with its own interactive dashboard and 50-question assessment."
+        "text": "Six tracks. Four are live now: Service Manager, Rental Service Manager, Rental Manager, and Parts Manager. Each live track is position-specific with its own interactive dashboard and 50-question assessment. Branch Manager and Regional & Executive Leadership are in development and not yet available."
       }
     },
     {
@@ -261,6 +261,14 @@ body {
   color: var(--accent);
   border-bottom-color: var(--accent);
 }
+a.tab-btn {
+  text-decoration: none;
+  color: var(--muted);
+  display: inline-flex;
+  align-items: center;
+  box-sizing: border-box;
+}
+a.tab-btn:hover { color: var(--fg); }
 
 /* ===== SECTIONS ===== */
 .section { display: none; padding: 24px 20px; max-width: 900px; margin: 0 auto; }
@@ -701,7 +709,7 @@ input, select, textarea {
   .header-inner { padding: 14px 20px; }
   .header-logo { width: 72px; height: 72px; }
   .header-text h1 { font-size: 1.5rem; }
-  .tab-nav-inner {
+  .tab-nav, .tab-nav-inner {
     flex-wrap: wrap;
     justify-content: center;
     padding: 4px 12px;
@@ -744,8 +752,8 @@ input, select, textarea {
     font-size: 0.7rem !important;
     line-height: 1.25;
   }
-  /* Clean 2x3 touch-friendly navigation grid on mobile so all 6 tabs are visible without horizontal clipping */
-  .tab-nav-inner {
+  /* Touch-friendly navigation grid on mobile so all tabs, including the KPI Dashboards link, are visible without horizontal clipping */
+  .tab-nav, .tab-nav-inner {
     display: grid !important;
     grid-template-columns: repeat(3, 1fr);
     gap: 4px;
@@ -836,6 +844,12 @@ input, select, textarea {
 }
 
 </style>
+<noscript>
+<style>
+  /* Without JS, tab sections stay in the document flow so hash anchors can scroll into view. */
+  .section { display: block !important; }
+</style>
+</noscript>
 </head>
 <body>
 
@@ -859,11 +873,13 @@ input, select, textarea {
   <button class="tab-btn" role="tab" aria-selected="false" onclick="showSection('assessment', this)">Assessment</button>
   <button class="tab-btn" role="tab" aria-selected="false" onclick="showSection('contact', this)">Contact</button>
   <button class="tab-btn" role="tab" aria-selected="false" onclick="showSection('blog', this)">Blog &amp; Videos</button>
+  <a class="tab-btn" href="kpi-dashboards.html">KPI Library</a>
 </nav>
 </div>
 
 <!-- ===== OVERVIEW SECTION ===== -->
 <div class="section active" id="sec-overview" role="tabpanel">
+  <span id="overview"></span>
   <img src="heds-hero-banner.jpg" alt="Heavy equipment lineup, excavators and wheel loaders" class="hero-banner" width="1328" height="332" onerror="this.style.display='none'">
   <div class="hero">
     <h2>We find the money your operation is losing or overlooking, and install the discipline to keep the bottlenecks from coming back.</h2>
@@ -880,7 +896,7 @@ input, select, textarea {
     <div class="service-card">
       <div class="service-icon">🎓</div>
       <h3>Training &amp; Academy</h3>
-      <p>Onsite training that installs the daily operating discipline to stop the leaks from coming back. 3 to 5 days at your dealership or rental company with your real data, your people, and your shop floor.</p>
+      <p>Onsite training that installs the daily operating discipline to stop the leaks from coming back. 5 days at your dealership or rental company with your real data, your people, and your shop floor.</p>
       <a class="cta-secondary" href="#sec-training" onclick="showSection('training'); return false;">Learn More →</a>
     </div>
   </div>
@@ -892,7 +908,7 @@ input, select, textarea {
       <li><strong>Your real data, not sample data.</strong> Every audit and every training module uses your actual WIP, your labor numbers, your parts fill rate, your rental fleet status.</li>
       <li><strong>Daily discipline, not monthly reports.</strong> By the time an accounting report shows a problem, the cash is already gone. We install daily and weekly rhythms that catch leaks before they hit the P&L.</li>
       <li><strong>Industry-specific.</strong> Built from multi-location product support leadership across heavy equipment dealerships and rental operations. Not generic management consulting.</li>
-      <li><strong>Clear scoping.</strong> Individual manager packages and location packages: 1 week per manager, one-on-one with a HEDS Qualified Instructor. No hidden fees, no bundled services you don't need. Book a discovery call for a custom quote.</li>
+      <li><strong>Clear scoping.</strong> Individual manager packages and location packages: 5 days onsite per manager, one-on-one with a HEDS Qualified Instructor. No hidden fees, no bundled services you don't need. Book a discovery call for a custom quote.</li>
     </ul>
   </div>
 
@@ -900,7 +916,7 @@ input, select, textarea {
     <div class="stat-box"><span class="stat-num">40+</span><span class="stat-label">Training Modules</span></div>
     <div class="stat-box"><span class="stat-num">10</span><span class="stat-label">Live Calculators</span></div>
     <div class="stat-box"><span class="stat-num">50</span><span class="stat-label">Assessment Questions</span></div>
-    <div class="stat-box"><span class="stat-num">3–5</span><span class="stat-label">Days Onsite</span></div>
+    <div class="stat-box"><span class="stat-num">5</span><span class="stat-label">Days Onsite</span></div>
     <div class="stat-box"><span class="stat-num">90</span><span class="stat-label">Day Action Plan</span></div>
   </div>
 
@@ -927,6 +943,7 @@ input, select, textarea {
 
 <!-- ===== DUE DILIGENCE SECTION ===== -->
 <div class="section" id="sec-diligence" role="tabpanel">
+  <span id="diligence"></span>
   <div class="hero">
     <h2>Due Diligence &amp; Operational Inspections</h2>
     <p>We walk your floor, pull your ERP reports, and show you exactly where the cash is leaving. Not a desktop review, a full onsite operational audit of your service, parts, and rental departments.</p>
@@ -974,7 +991,7 @@ input, select, textarea {
       <div class="service-card" style="text-align:left;">
         <h3 style="color:var(--accent);">Branch Operations</h3>
         <ul style="font-size:0.9rem;">
-          <li>Absorption rate ((Service GP + Parts GP) ÷ Total Dealership Operating Expenses; <95% red flag, 95-99.9% standard, 100%+ gold, 105-110% optimal)</li>
+          <li>Absorption rate ((Service GP + Parts GP) ÷ Total Dealership Operating Expenses). The location target is 100% to 110%.</li>
           <li>Cross-functional accountability</li>
           <li>Daily operating rhythms</li>
           <li>Scorecard discipline and review cadence</li>
@@ -1058,6 +1075,7 @@ input, select, textarea {
 
 <!-- ===== TRAINING SECTION ===== -->
 <div class="section" id="sec-training" role="tabpanel">
+  <span id="training"></span>
   <div class="hero">
     <h2>HEDS Operating Discipline Academy</h2>
     <p>Position-specific onsite training that installs daily operating discipline, using your real data, on your floor, with your numbers. Not a webinar. Not a book. Not a generic management seminar.</p>
@@ -1092,7 +1110,7 @@ input, select, textarea {
 
   <!-- ===== STATS BAR ===== -->
   <div class="stats">
-    <div class="stat-box"><span class="stat-num">6</span><span class="stat-label">Training Tracks</span></div>
+    <div class="stat-box"><span class="stat-num">6</span><span class="stat-label">Training Tracks (4 Live, 2 in Development)</span></div>
     <div class="stat-box"><span class="stat-num">50</span><span class="stat-label">Assessment Questions</span></div>
     <div class="stat-box"><span class="stat-num">90</span><span class="stat-label">Day Action Plan</span></div>
     <div class="stat-box"><span class="stat-num">10+</span><span class="stat-label">Live Calculators</span></div>
@@ -1117,6 +1135,7 @@ input, select, textarea {
         <div class="track-stats"><span>5-day onsite</span><span>Interactive dashboard</span><span>50-question assessment</span><span>90-day action plan</span></div>
         <div class="track-buttons">
           <a href="curriculum-index.html#sm" class="btn-preview">Preview Curriculum</a>
+          <a href="service-manager-dashboard.html#sec_dashboard" class="btn-preview">Open Dashboard</a>
           <a href="mailto:daniel@hedsconsulting.net?subject=HEDS%20Academy:%20Service%20Manager%20Training%20Signup" class="btn-signup">Sign Up</a>
         </div>
       </div>
@@ -1126,9 +1145,10 @@ input, select, textarea {
         <h3 style="color:var(--accent);">🚜 Rental Service Manager Training</h3>
         <div class="track-audience">Rental Service Managers, Shop Foremen, Field Service Coordinators, PM Coordinators</div>
         <p style="font-size:0.9rem;margin-bottom:12px;">Internal production only, no retail labor sales, just fleet uptime. This track builds the discipline that keeps rental equipment rent-ready and the shop priority-driven: PM compliance, fleet reliability, turnaround standards, and wrench-time efficiency. Participants build scorecards from their own fleet data and leave with a 90-day plan to move MTTR, PM compliance, and rent-ready turnaround in the right direction.</p>
-        <div class="track-stats"><span>3-day onsite</span><span>Interactive dashboard</span><span>50-question assessment</span><span>90-day action plan</span></div>
+        <div class="track-stats"><span>5-day onsite</span><span>Interactive dashboard</span><span>50-question assessment</span><span>90-day action plan</span></div>
         <div class="track-buttons">
           <a href="curriculum-index.html#rsm" class="btn-preview">Preview Curriculum</a>
+          <a href="rental-service-manager-dashboard.html#sec_dashboard" class="btn-preview">Open Dashboard</a>
           <a href="mailto:daniel@hedsconsulting.net?subject=HEDS%20Academy:%20Rental%20Service%20Manager%20Training%20Signup" class="btn-signup">Sign Up</a>
         </div>
       </div>
@@ -1138,9 +1158,10 @@ input, select, textarea {
         <h3 style="color:var(--accent);">💰 Rental Manager Training</h3>
         <div class="track-audience">Rental Managers, Rental Coordinators, Fleet Coordinators, Dispatch Leads</div>
         <p style="font-size:0.9rem;margin-bottom:12px;">Own the rental department P&amp;L from fleet utilization to damage recovery. This track installs the commercial discipline that separates profitable rental operations from equipment parking lots: rate realization, time and dollar utilization, fleet capital allocation, contract and damage recovery, and logistics dispatch. Participants leave with their own department scorecard and a 90-day plan built on their actual fleet data.</p>
-        <div class="track-stats"><span>3-day onsite</span><span>Interactive dashboard</span><span>50-question assessment</span><span>90-day action plan</span></div>
+        <div class="track-stats"><span>5-day onsite</span><span>Interactive dashboard</span><span>50-question assessment</span><span>90-day action plan</span></div>
         <div class="track-buttons">
           <a href="curriculum-index.html#rm" class="btn-preview">Preview Curriculum</a>
+          <a href="rental-manager-dashboard.html#sec_dashboard" class="btn-preview">Open Dashboard</a>
           <a href="mailto:daniel@hedsconsulting.net?subject=HEDS%20Academy:%20Rental%20Manager%20Training%20Signup" class="btn-signup">Sign Up</a>
         </div>
       </div>
@@ -1150,9 +1171,10 @@ input, select, textarea {
         <h3 style="color:var(--accent);">📦 Parts Manager Training</h3>
         <div class="track-audience">Parts Managers, Assistant Parts Managers, Parts Counter Supervisors, Warehouse/Inventory Leads</div>
         <p style="font-size:0.9rem;margin-bottom:12px;">Run the parts department as the profit center it should be, not the cost center everyone tolerates. This track installs the discipline that turns inventory, margin, and fill rate into managed outcomes: stock order efficiency, obsolescence control, parts-to-labor ratio, and salary as a percentage of gross profit. Participants leave with a profit-leak diagnostic built on their own data and a 90-day plan to move every KPI in the right direction.</p>
-        <div class="track-stats"><span>3-day onsite</span><span>Interactive dashboard</span><span>50-question assessment</span><span>90-day action plan</span></div>
+        <div class="track-stats"><span>5-day onsite</span><span>Interactive dashboard</span><span>50-question assessment</span><span>90-day action plan</span></div>
         <div class="track-buttons">
           <a href="curriculum-index.html#pm" class="btn-preview">Preview Curriculum</a>
+          <a href="parts-manager-dashboard.html#sec_dashboard" class="btn-preview">Open Dashboard</a>
           <a href="mailto:daniel@hedsconsulting.net?subject=HEDS%20Academy:%20Parts%20Manager%20Training%20Signup" class="btn-signup">Sign Up</a>
         </div>
       </div>
@@ -1189,8 +1211,8 @@ input, select, textarea {
       </div>
       <div class="process-step">
         <div class="step-num">2</div>
-        <h4>Onsite Intensive (3–5 Days)</h4>
-        <p>Classroom + floor time + live process redesign using the client's real data. Every participant builds their own scorecard and 90-day action plan. Cap: up to 12 leaders per onsite engagement.</p>
+        <h4>Onsite Intensive (5 Days)</h4>
+        <p>Classroom work, floor time and live process redesign using the client's real data. Each manager works one on one with a HEDS Qualified Instructor and builds a personal scorecard and 90-day action plan.</p>
       </div>
       <div class="process-step">
         <div class="step-num">3</div>
@@ -1252,7 +1274,7 @@ input, select, textarea {
       <span class="badge badge-gold">Branch Managers</span>
       <span class="badge badge-gold">Regional Managers</span>
     </div>
-    <p style="font-size:0.9rem;">Individual manager training or location packages: 1 week per manager, one-on-one with a HEDS Qualified Instructor. Location packages include cross-functional integration so your whole team works together.</p>
+    <p style="font-size:0.9rem;">Individual manager training or location packages: 5 days onsite per manager, one-on-one with a HEDS Qualified Instructor. Location packages include cross-functional integration so your whole team works together.</p>
   </div>
 
   <!-- ===== CTA ===== -->
@@ -1265,6 +1287,7 @@ input, select, textarea {
 
 <!-- ===== ASSESSMENT SECTION ===== -->
 <div class="section" id="sec-assessment" role="tabpanel">
+  <span id="assessment"></span>
   <div class="hero">
     <h2>The HEDS Operating Discipline Assessment</h2>
     <p>50 questions. 90 minutes. Proctored. Your score report is the evidence.</p>
@@ -1273,7 +1296,7 @@ input, select, textarea {
   <div class="card">
     <h2>What It Is</h2>
     <p>A 50-question assessment that measures operating discipline across the areas that matter most to a heavy equipment dealer or rental company: WIP management, labor recovery, parts operations, fleet utilization, and branch-level leading indicators.</p>
-    <p>Each question maps to a specific KPI from the HEDS curriculum. Your score report breaks down performance by category and identifies the three highest-leverage focus areas for your team.</p>
+    <p>Each question maps to a specific KPI used across the heavy equipment industry, so the assessment tests industry knowledge, not the HEDS curriculum. Your score report breaks down performance by category and identifies the three highest-leverage focus areas for your team.</p>
   </div>
 
   <div class="card">
@@ -1338,6 +1361,7 @@ input, select, textarea {
 
 <!-- ===== CONTACT SECTION ===== -->
 <div class="section" id="sec-contact" role="tabpanel">
+  <span id="contact"></span>
   <div class="hero">
     <h2>Let's Talk</h2>
     <p>Book a 30-minute discovery call. We'll review what's happening in your operation and recommend where to start, whether that's an inspection, training, or both.</p>
@@ -1350,11 +1374,15 @@ input, select, textarea {
     </div>
     <div class="contact-item">
       <span>📞</span>
-      <a href="tel:8135997893">813-599-7893</a>
+      <a href="tel:3527245603">352-724-5603</a>
     </div>
     <div class="contact-item">
       <span>📍</span>
       <span>Leesburg, Florida</span>
+    </div>
+    <div class="contact-item">
+      <span>&#128196;</span>
+      <a href="contact.html">Full contact page</a>
     </div>
   </div>
 
@@ -1375,7 +1403,7 @@ input, select, textarea {
     <div class="table-container"><table class="table">
       <tr><th>Service</th><th>What It Does</th><th>Next Step</th></tr>
       <tr><td><strong>Due Diligence &amp; Inspections</strong></td><td>Onsite audit that finds the dollar leaks</td><td>Book a discovery call</td></tr>
-      <tr><td><strong>Training &amp; Academy</strong></td><td>3 to 5 day onsite program that installs the discipline</td><td>Book a discovery call</td></tr>
+      <tr><td><strong>Training &amp; Academy</strong></td><td>5-day onsite program that installs the discipline</td><td>Book a discovery call</td></tr>
       <tr><td><strong>Follow-Up Coaching</strong></td><td>Virtual sessions targeting specific stalled metrics</td><td>Book a discovery call</td></tr>
       <tr><td><strong>Acquisition Due Diligence</strong></td><td>EBITDA quality and operational risk assessment</td><td>Book a discovery call</td></tr>
     </table></div>
@@ -1384,13 +1412,14 @@ input, select, textarea {
 
   <div class="card" style="text-align:center;">
     <h2>Prefer email?</h2>
-    <p>Send a message and we'll respond within 24 hours.</p>
+    <p>Send a message and we'll respond within one business day.</p>
     <a class="cta-btn" href="mailto:daniel@hedsconsulting.net?subject=HEDS%20Inquiry">Email Daniel</a>
   </div>
 </div>
 
 <!-- ===== BLOG SECTION ===== -->
 <div class="section" id="sec-blog" role="tabpanel">
+  <span id="blog"></span>
   <div class="blog-intro">
     <h2>Blog &amp; Videos</h2>
     <p>Practical management insights for heavy equipment dealers and rental companies: KPIs, operating discipline, and margin protection.</p>
@@ -1435,7 +1464,7 @@ input, select, textarea {
 <footer class="footer">
   <img src="LOGO_HEDS_small.png" alt="HEDS" width="72" height="72" loading="lazy" onerror="this.style.display='none'">
   <p><strong style="color:var(--accent);">HEDS</strong> - Heavy Equipment Dealer Solutions LLC</p>
-  <p>Leesburg, Florida &nbsp;|&nbsp; <a href="mailto:daniel@hedsconsulting.net" style="color:var(--muted);text-decoration:none;">daniel@hedsconsulting.net</a> &nbsp;|&nbsp; <a href="tel:8135997893" style="color:var(--muted);text-decoration:none;">813-599-7893</a></p>
+  <p>Leesburg, Florida &nbsp;|&nbsp; <a href="mailto:daniel@hedsconsulting.net" style="color:var(--muted);text-decoration:none;">daniel@hedsconsulting.net</a> &nbsp;|&nbsp; <a href="tel:3527245603" style="color:var(--muted);text-decoration:none;">352-724-5603</a></p>
   <p style="margin-top:8px;">
     <a href="https://www.linkedin.com/company/heavy-equipment-dealer-solutions-llc" target="_blank" rel="noopener noreferrer" style="color:var(--muted);text-decoration:none;margin-right:16px;">LinkedIn</a>
     <a href="https://www.facebook.com/profile.php?id=61595076603200" target="_blank" rel="noopener noreferrer" style="color:var(--muted);text-decoration:none;margin-right:16px;">Facebook</a>
@@ -1513,7 +1542,7 @@ function hedsAssessmentSubmit(e) {
   box.innerHTML =
     '<p style="margin:0 0 8px;">Your email app should open with this request filled in. Press Send there to reach Daniel.</p>' +
     '<p style="margin:0 0 8px;">If no email app opened, copy the message below and send it to ' +
-    '<a href="mailto:' + to + '" style="color:var(--accent);">' + to + '</a>, or call <a href="tel:8135997893" style="color:var(--accent);">813-599-7893</a>.</p>' +
+    '<a href="mailto:' + to + '" style="color:var(--accent);">' + to + '</a>, or call <a href="tel:3527245603" style="color:var(--accent);">352-724-5603</a>.</p>' +
     '<label for="assess-message" style="display:block;font-size:0.85rem;color:var(--muted);margin-bottom:4px;">Your request</label>' +
     '<textarea id="assess-message" readonly rows="9" style="width:100%;box-sizing:border-box;padding:10px;border-radius:var(--radius);border:1px solid var(--border);background:var(--bg);color:var(--fg);font-size:0.9rem;font-family:inherit;resize:vertical;"></textarea>' +
     '<button type="button" id="assess-copy" style="margin-top:8px;padding:8px 14px;border-radius:var(--radius);border:1px solid var(--border);background:var(--bg);color:var(--fg);cursor:pointer;">Copy message</button> ' +
