@@ -803,6 +803,13 @@ table {
   @media (max-width: 640px) { .dash-switcher a.dash-hub { grid-column: 1 / -1; margin-right: 0; } }
   @media print { .dash-switcher { display: none !important; } }
 </style>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6BHY2N14ZY"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-6BHY2N14ZY');
+</script>
 </head>
 <body>
 
@@ -1368,7 +1375,7 @@ table {
           <li><strong>Rack Rate Owner:</strong> Rental Manager (set quarterly, reviewed with Branch GM).</li>
           <li><strong>Rate Realization Owner:</strong> Rental Manager (monitored monthly by class).</li>
           <li><strong>Discount Approval Authority:</strong> All discounts &gt; 5% require Rental Manager approval. All discounts &gt; 10% require Branch GM approval.</li>
-          <li><strong>Escalation Trigger:</strong> Rate realization below 85% on any class for two consecutive months &rarr; mandatory rate audit and discount freeze.</li>
+          <li><strong>Escalation Trigger:</strong> Rate realization below 90% on any class for two consecutive months &rarr; mandatory rate audit and discount freeze.</li>
         </ul>
       </div>
     </div>
@@ -2915,7 +2922,7 @@ table {
         </div>
         <ul class="checklist">
           <li><input type="checkbox" id="g2_chk1" onchange="saveGateCheckboxes()"> <strong>Dollar Utilization by Class Trending:</strong> 2-month trend tracked for each class. Underperformers identified.</li>
-          <li><input type="checkbox" id="g2_chk2" onchange="saveGateCheckboxes()"> <strong>Rate Realization Discipline:</strong> All discounts &gt; 5% now require Rental Manager approval. Discount freeze on classes below 85% realization.</li>
+          <li><input type="checkbox" id="g2_chk2" onchange="saveGateCheckboxes()"> <strong>Rate Realization Discipline:</strong> All discounts &gt; 5% now require Rental Manager approval. Discount freeze on classes below 90% realization.</li>
           <li><input type="checkbox" id="g2_chk3" onchange="saveGateCheckboxes()"> <strong>Damage Recovery Workflow Operational:</strong> 4-photo check-in/out standard enforced. Pre-rental joint inspection at dispatch. 48-hour damage estimate workflow active.</li>
           <li><input type="checkbox" id="g2_chk4" onchange="saveGateCheckboxes()"> <strong>Equipment-to-Orders Ratio Tracked:</strong> Weekly ratio by class. Under-supplied classes flagged for acquisition review.</li>
           <li><input type="checkbox" id="g2_chk6" onchange="saveGateCheckboxes()"> <strong>Overage Billing Active:</strong> Hour-meter overage invoiced on all contracts exceeding contracted hours.</li>
