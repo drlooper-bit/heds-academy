@@ -1,8 +1,8 @@
 /*
   HEDS KPI calculator. Plain static JavaScript with no outside requests.
   Every target and grade comes from assets/kpi-targets.js, so this file holds no target numbers.
-  Usage: put <div id="calc-app" data-audience="dealer"></div> on a page, then load kpi-targets.js
-  and this file. The audience is "dealer" or "rental".
+  Usage: put <div data-calc="service"></div> inside the category section, then load kpi-targets.js
+  and this file. Categories: absorption, service, parts, rental, rental-service. Each one is its own calculator.
 */
 (function () {
   'use strict';
@@ -17,7 +17,7 @@
 
   var TABS = {
     dealer: [
-      { name: 'Service', tiles: [
+      { name: 'Absorption', tiles: [
         { title: 'Location Absorption',
           def: "Service gross profit plus parts gross profit, divided by the location's total operating expenses, times 100. Service and parts each show their share of that same result.",
           inputs: [I('sgp', 'Service gross profit', 87000, 0, 300000, 1000, '$'), I('pgp', 'Parts gross profit', 36000, 0, 300000, 1000, '$'), I('opex', "Total location operating expenses", 120000, 10000, 500000, 1000, '$')],
@@ -25,6 +25,8 @@
             { kpi: 'location_absorption', f: function (v) { return pct(v.sgp + v.pgp, v.opex); } },
             { kpi: 'service_absorption', f: function (v) { return pct(v.sgp, v.opex); } },
             { kpi: 'parts_absorption', f: function (v) { return pct(v.pgp, v.opex); } }] },
+      ] },
+      { name: 'Service', tiles: [
         { title: 'Technician Recovery', def: 'Hours sold divided by hours paid, times 100.',
           inputs: [I('sold', 'Hours sold', 820, 10, 2200, 10, 'hours'), I('paid', 'Hours paid', 1000, 100, 2000, 10, 'hours')], outputs: ratio('technician_recovery', 'sold', 'paid') },
         { title: 'Labor Utilization', def: 'Hours invoiced on work orders divided by hours on work orders, times 100.',
@@ -104,6 +106,11 @@
     ]
   };
 
+  var GROUPS = {
+    absorption: TABS.dealer[0], service: TABS.dealer[1], parts: TABS.dealer[2],
+    rental: TABS.rental[0], 'rental-service': TABS.rental[1]
+  };
+
   var UNIT_SUFFIX = { '%': '%', turns: ' turns', hrs: ' hours', orders: ' orders', months: ' months' };
 
   function nf(v, d) { return v.toLocaleString('en-US', { maximumFractionDigits: d === undefined ? 1 : d }); }
@@ -115,37 +122,25 @@
   function el(tag, cls, text) { var e = document.createElement(tag); if (cls) e.className = cls; if (text !== undefined) e.textContent = text; return e; }
 
   function init(root) {
-    var aud = root.getAttribute('data-audience');
-    var tabs = TABS[aud];
-    if (!tabs) return;
-    var state = {}, current = 0, updaters = [];
+    var key = root.getAttribute('data-calc');
+    var group = GROUPS[key];
+    if (!group) return;
+    var state = {};
+    group.tiles.forEach(function (tile) { tile.inputs.forEach(function (d) { state[tile.title + ':' + d.key] = d.val; }); });
 
-    var tabRow = el('div', 'calc-tabs');
-    tabRow.setAttribute('role', 'tablist');
-    var panel = el('div', 'calc-grid');
-    var buttons = [];
-
-    tabs.forEach(function (tab, ti) {
-      var b = el('button', '', tab.name);
-      b.type = 'button'; b.setAttribute('role', 'tab');
-      b.onclick = function () { current = ti; draw(); };
-      buttons.push(b); tabRow.appendChild(b);
-      tab.tiles.forEach(function (tile) { tile.inputs.forEach(function (d) { state[ti + ':' + tile.title + ':' + d.key] = d.val; }); });
-    });
+    var bar = el('div', 'calc-tabs');
     var reset = el('button', 'calc-reset', 'Reset to sample numbers');
     reset.type = 'button';
     reset.onclick = function () {
-      tabs.forEach(function (tab, ti) { tab.tiles.forEach(function (tile) { tile.inputs.forEach(function (d) { state[ti + ':' + tile.title + ':' + d.key] = d.val; }); }); });
+      group.tiles.forEach(function (tile) { tile.inputs.forEach(function (d) { state[tile.title + ':' + d.key] = d.val; }); });
       draw();
     };
-    tabRow.appendChild(reset);
+    bar.appendChild(reset);
+    var panel = el('div', 'calc-grid');
 
     function draw() {
-      buttons.forEach(function (b, i) { b.setAttribute('aria-selected', i === current ? 'true' : 'false'); });
       panel.textContent = '';
-      updaters = [];
-      var tab = tabs[current];
-      tab.tiles.forEach(function (tile) {
+      group.tiles.forEach(function (tile) {
         var card = el('div', 'tile');
         card.appendChild(el('h4', '', tile.title));
         card.appendChild(el('p', 'def', tile.def));
@@ -153,7 +148,7 @@
         card.appendChild(outBox);
         var vals = function () {
           var v = {};
-          tile.inputs.forEach(function (d) { v[d.key] = state[current + ':' + tile.title + ':' + d.key]; });
+          tile.inputs.forEach(function (d) { v[d.key] = state[tile.title + ':' + d.key]; });
           return v;
         };
         function refresh() {
@@ -164,24 +159,22 @@
             var row = el('div', 'out');
             row.appendChild(el('span', 'nm', t.name));
             row.appendChild(el('span', 'val', nf(val, 1) + (UNIT_SUFFIX[t.unit] || '')));
-            var p = el('span', 'pill ' + g.grade.toLowerCase(), g.grade + (g.label ? ': ' + g.label : ''));
-            row.appendChild(p);
+            row.appendChild(el('span', 'pill ' + g.grade.toLowerCase(), g.grade + (g.label ? ': ' + g.label : '')));
             row.appendChild(el('span', 'tg', 'Target: ' + t.text));
             outBox.appendChild(row);
           });
         }
         tile.inputs.forEach(function (d) {
-          var key = current + ':' + tile.title + ':' + d.key;
+          var sk = tile.title + ':' + d.key;
           var wrap = el('div', 'slider');
           var lab = el('label');
-          var name = el('span', '', d.label);
-          var out = el('b', '', showInput(d, state[key]));
-          var idn = 'sl-' + aud + '-' + current + '-' + tile.title.replace(/\W+/g, '') + '-' + d.key;
+          var out = el('b', '', showInput(d, state[sk]));
+          var idn = 'sl-' + key + '-' + tile.title.replace(/\W+/g, '') + '-' + d.key;
           lab.setAttribute('for', idn);
-          lab.appendChild(name); lab.appendChild(out);
+          lab.appendChild(el('span', '', d.label)); lab.appendChild(out);
           var r = document.createElement('input');
-          r.type = 'range'; r.id = idn; r.min = d.min; r.max = d.max; r.step = d.step; r.value = state[key];
-          r.oninput = function () { state[key] = parseFloat(r.value); out.textContent = showInput(d, state[key]); refresh(); };
+          r.type = 'range'; r.id = idn; r.min = d.min; r.max = d.max; r.step = d.step; r.value = state[sk];
+          r.oninput = function () { state[sk] = parseFloat(r.value); out.textContent = showInput(d, state[sk]); refresh(); };
           wrap.appendChild(lab); wrap.appendChild(r);
           card.appendChild(wrap);
         });
@@ -190,12 +183,22 @@
       });
     }
 
-    root.appendChild(tabRow);
+    root.appendChild(bar);
     root.appendChild(panel);
     root.appendChild(el('p', 'calc-note', 'These sample numbers are made up for illustration. Move the sliders to see how each result and grade changes. Targets come from the same list the KPI Library uses.'));
     draw();
   }
 
-  var node = document.getElementById('calc-app');
-  if (node) init(node);
+  document.querySelectorAll('[data-calc]').forEach(init);
+
+  // The old single calculator anchor now goes to the first category calculator on the page.
+  function aliasJump() {
+    var h = window.location.hash;
+    if (h !== '#calculator' && h !== '#kpi-calculator') return;
+    var first = document.querySelector('[data-calc]');
+    if (!first || !first.parentNode.id) return;
+    if (history.replaceState) history.replaceState(null, '', '#' + first.parentNode.id);
+    setTimeout(function () { first.parentNode.scrollIntoView(); }, 50);
+  }
+  aliasJump();
 })();

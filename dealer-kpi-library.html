@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>HEDS Dealer KPI Library and Calculator</title>
-<meta name="description" content="HEDS KPI standards for Service and Parts managers, with formulas, settled targets, a link into each interactive dashboard, and a KPI calculator.">
+<meta name="description" content="HEDS KPI standards for Service and Parts managers, with formulas, settled targets, a link into each interactive dashboard, and a KPI calculator for each category.">
 <link rel="icon" type="image/png" href="LOGO_HEDS_small.png">
 <link rel="canonical" href="https://hedsconsulting.net/dealer-kpi-library.html">
 <link rel="stylesheet" href="assets/kpi-library.css">
@@ -19,7 +19,7 @@
     <p class="subtitle">The HEDS standards for each department, with a direct link into the interactive dashboard.</p>
   </div>
 </header>
-<div class="top-links"><a href="index.html">Back to Home</a><a href="index.html#dealership">Dealership</a><a href="#calculator">KPI Calculator</a><a href="rental-kpi-library.html">Rental KPI Library</a><a href="blog/index.html">Blog</a><a href="contact.html">Contact</a></div>
+<div class="top-links"><a href="index.html">Back to Home</a><a href="index.html#dealership">Dealership</a><a href="#service-calculator">KPI Calculators</a><a href="rental-kpi-library.html">Rental KPI Library</a><a href="blog/index.html">Blog</a><a href="contact.html">Contact</a></div>
 
 <div class="block" id="kpi-tables">
   <h2>KPI Standards by Department</h2>
@@ -27,7 +27,10 @@
   <div class="jump">
     <a href="#service-kpis">Service</a>
     <a href="#parts-kpis">Parts</a>
-    <a href="#calculator">Calculator</a>
+    <a href="#absorption-kpis">Location Absorption</a>
+    <a href="#service-calculator">Service Calculator</a>
+    <a href="#parts-calculator">Parts Calculator</a>
+    <a href="#absorption-calculator">Absorption Calculator</a>
   </div>
 
 <section class="dept" id="service-kpis">
@@ -36,8 +39,6 @@
   <div class="tbl-wrap"><table class="kpi">
     <thead><tr><th>KPI</th><th>Formula</th><th>HEDS Target</th></tr></thead>
     <tbody>
-      <tr><td class="kn"><a href="service-manager-dashboard.html#kpi-service-absorption">Location Absorption</a></td><td>Service gross profit plus parts gross profit, divided by the location's total operating expenses, times 100</td><td>The location target is 100% to 110%.</td></tr>
-      <tr><td class="kn"><a href="service-manager-dashboard.html#kpi-service-absorption">Service Absorption</a></td><td>Service department gross profit divided by the location's total operating expenses, times 100. This is service's contribution to the location's absorption.</td><td>Service carries 70% to 75% of the location's absorption. Below 70% is a red flag.</td></tr>
       <tr><td class="kn"><a href="service-manager-dashboard.html#kpi-technician-recovery">Technician Recovery</a></td><td>Hours sold divided by hours paid, times 100</td><td>95% to 100%</td></tr>
       <tr><td class="kn"><a href="service-manager-dashboard.html#kpi-labor-utilization">Labor Utilization</a></td><td>Hours invoiced on work orders divided by hours on work orders, times 100</td><td>95% to 100%. At 85% or below, the shop is losing money.</td></tr>
       <tr><td class="kn"><a href="service-manager-dashboard.html#kpi-shop-efficiency">Shop Efficiency</a></td><td>Flat rate or estimated time divided by actual job time, times 100</td><td>110%</td></tr>
@@ -48,6 +49,12 @@
     </tbody>
   </table></div>
   <a class="open" href="service-manager-dashboard.html#sec_dashboard">Open the Service Dashboard</a>
+  <div class="calc-block" id="service-calculator">
+    <h4>Service KPI Calculator</h4>
+    <p class="note">Move the sliders to see how each result and grade changes against the HEDS targets. The sample numbers are made up. Nothing you enter leaves your device.</p>
+    <div data-calc="service"></div>
+    <noscript><p class="note">The calculator needs JavaScript. The KPI table above and the dashboard work without it.</p></noscript>
+  </div>
 </section>
 
 <section class="dept" id="parts-kpis">
@@ -57,7 +64,6 @@
     <thead><tr><th>KPI</th><th>Formula</th><th>HEDS Target</th></tr></thead>
     <tbody>
       <tr><td class="kn"><a href="parts-manager-dashboard.html#kpi-parts-gross-margin">Parts Gross Margin</a></td><td>(Parts sales minus parts cost of sales) divided by parts sales, times 100</td><td>33% to 37%</td></tr>
-      <tr><td class="kn"><a href="parts-manager-dashboard.html#kpi-parts-absorption">Parts Absorption</a></td><td>Parts department gross profit divided by the location's total operating expenses, times 100. This is parts' contribution to the location's absorption.</td><td>Parts carries 30% to 40% of the location's absorption. Below 30% is a red flag.</td></tr>
       <tr><td class="kn"><a href="parts-manager-dashboard.html#kpi-parts-share-of-gross-margin">Parts Share of Dealership Gross Margin</a></td><td>Parts gross profit divided by total dealership gross profit, times 100</td><td>25% to 30% of total dealership gross margin, not percent of sales</td></tr>
       <tr><td class="kn"><a href="parts-manager-dashboard.html#kpi-parts-salaries">Parts Salaries as a Percent of Parts Gross Profit</a></td><td>Parts salaries divided by parts gross profit, times 100</td><td>30% or less</td></tr>
       <tr><td class="kn"><a href="parts-manager-dashboard.html#kpi-gross-parts-turns">Gross Parts Turns</a></td><td>Annual parts cost of sales divided by average parts inventory at cost</td><td>3 to 4 turns a year, reported overall and by ABC class</td></tr>
@@ -71,15 +77,34 @@
     </tbody>
   </table></div>
   <a class="open" href="parts-manager-dashboard.html#sec_dashboard">Open the Parts Dashboard</a>
+  <div class="calc-block" id="parts-calculator">
+    <h4>Parts KPI Calculator</h4>
+    <p class="note">Move the sliders to see how each result and grade changes against the HEDS targets. The sample numbers are made up. Nothing you enter leaves your device.</p>
+    <div data-calc="parts"></div>
+    <noscript><p class="note">The calculator needs JavaScript. The KPI table above and the dashboard work without it.</p></noscript>
+  </div>
+</section>
+
+<section class="dept" id="absorption-kpis">
+  <h3>Location Absorption</h3>
+  <p class="note">Absorption uses the total operating expenses of the whole location. Service and parts each show their share of the same result. These measures are worked on the Service and Parts dashboards.</p>
+  <div class="tbl-wrap"><table class="kpi">
+    <thead><tr><th>KPI</th><th>Formula</th><th>HEDS Target</th></tr></thead>
+    <tbody>
+      <tr><td class="kn"><a href="service-manager-dashboard.html#kpi-service-absorption">Location Absorption</a></td><td>Service gross profit plus parts gross profit, divided by the location's total operating expenses, times 100</td><td>The location target is 100% to 110%.</td></tr>
+      <tr><td class="kn"><a href="service-manager-dashboard.html#kpi-service-absorption">Service Absorption</a></td><td>Service department gross profit divided by the location's total operating expenses, times 100. This is service's contribution to the location's absorption.</td><td>Service carries 70% to 75% of the location's absorption. Below 70% is a red flag.</td></tr>
+      <tr><td class="kn"><a href="parts-manager-dashboard.html#kpi-parts-absorption">Parts Absorption</a></td><td>Parts department gross profit divided by the location's total operating expenses, times 100. This is parts' contribution to the location's absorption.</td><td>Parts carries 30% to 40% of the location's absorption. Below 30% is a red flag.</td></tr>
+    </tbody>
+  </table></div>
+  <div class="calc-block" id="absorption-calculator">
+    <h4>Location Absorption Calculator</h4>
+    <p class="note">Move the sliders to see how each result and grade changes against the HEDS targets. The sample numbers are made up. Nothing you enter leaves your device.</p>
+    <div data-calc="absorption"></div>
+    <noscript><p class="note">The calculator needs JavaScript. The KPI table above and the dashboard work without it.</p></noscript>
+  </div>
 </section>
 </div>
 
-<div class="block" id="calculator">
-  <h2>KPI Calculator</h2>
-  <p class="lead">Move the sliders to see how each dealer KPI result and grade changes against the HEDS targets. The tabs follow the Service and Parts dashboards. The sample numbers are made up. Nothing you enter leaves your device.</p>
-  <div id="calc-app" data-audience="dealer"></div>
-  <noscript><p class="note">The calculator needs JavaScript. The KPI tables above and the dashboards work without it.</p></noscript>
-</div>
 <script src="assets/kpi-targets.js"></script>
 <script src="assets/kpi-calculator.js"></script>
 </body>

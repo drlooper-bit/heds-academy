@@ -68,3 +68,7 @@
 @media (min-width:700px) { .choose { grid-template-columns:1fr 1fr; } }
 .choose .open { text-align:center; }
 @media (max-width:640px) { .calc-reset { margin-left:0; } }
+.calc-block { margin-top:22px; padding:16px; border:1px solid var(--accent-color); border-radius:var(--radius); background:#0e1f38; scroll-margin-top:12px; }
+.calc-block h4 { color:var(--accent-color); font-size:1.05rem; margin-bottom:4px; }
+.calc-block .note { margin-bottom:6px; }
+@media (max-width:640px) { .calc-block { padding:12px; } }

@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>HEDS Rental KPI Library and Calculator</title>
-<meta name="description" content="HEDS KPI standards for Rental and Rental Service managers, with formulas, a link into each interactive dashboard, and a KPI calculator.">
+<meta name="description" content="HEDS KPI standards for Rental and Rental Service managers, with formulas, a link into each interactive dashboard, and a KPI calculator for each category.">
 <link rel="icon" type="image/png" href="LOGO_HEDS_small.png">
 <link rel="canonical" href="https://hedsconsulting.net/rental-kpi-library.html">
 <link rel="stylesheet" href="assets/kpi-library.css">
@@ -19,7 +19,7 @@
     <p class="subtitle">The HEDS standards for each department, with a direct link into the interactive dashboard.</p>
   </div>
 </header>
-<div class="top-links"><a href="index.html">Back to Home</a><a href="index.html#rental">Rental</a><a href="#calculator">KPI Calculator</a><a href="dealer-kpi-library.html">Dealer KPI Library</a><a href="blog/index.html">Blog</a><a href="contact.html">Contact</a></div>
+<div class="top-links"><a href="index.html">Back to Home</a><a href="index.html#rental">Rental</a><a href="#rental-calculator">KPI Calculators</a><a href="dealer-kpi-library.html">Dealer KPI Library</a><a href="blog/index.html">Blog</a><a href="contact.html">Contact</a></div>
 
 <div class="block" id="kpi-tables">
   <h2>KPI Standards by Department</h2>
@@ -27,7 +27,8 @@
   <div class="jump">
     <a href="#rental-kpis">Rental</a>
     <a href="#rental-service-kpis">Rental Service</a>
-    <a href="#calculator">Calculator</a>
+    <a href="#rental-calculator">Rental Calculator</a>
+    <a href="#rental-service-calculator">Rental Service Calculator</a>
   </div>
 
 <section class="dept" id="rental-kpis">
@@ -48,6 +49,12 @@
     </tbody>
   </table></div>
   <a class="open" href="rental-manager-dashboard.html#sec_dashboard">Open the Rental Dashboard</a>
+  <div class="calc-block" id="rental-calculator">
+    <h4>Rental KPI Calculator</h4>
+    <p class="note">Move the sliders to see how each result and grade changes against the HEDS targets. The sample numbers are made up. Nothing you enter leaves your device.</p>
+    <div data-calc="rental"></div>
+    <noscript><p class="note">The calculator needs JavaScript. The KPI table above and the dashboard work without it.</p></noscript>
+  </div>
 </section>
 
 <section class="dept" id="rental-service-kpis">
@@ -69,15 +76,15 @@
     </tbody>
   </table></div>
   <a class="open" href="rental-service-manager-dashboard.html#sec_dashboard">Open the Rental Service Dashboard</a>
+  <div class="calc-block" id="rental-service-calculator">
+    <h4>Rental Service KPI Calculator</h4>
+    <p class="note">Move the sliders to see how each result and grade changes against the HEDS targets. The sample numbers are made up. Nothing you enter leaves your device.</p>
+    <div data-calc="rental-service"></div>
+    <noscript><p class="note">The calculator needs JavaScript. The KPI table above and the dashboard work without it.</p></noscript>
+  </div>
 </section>
 </div>
 
-<div class="block" id="calculator">
-  <h2>KPI Calculator</h2>
-  <p class="lead">Move the sliders to see how each rental KPI result and grade changes. The tabs follow the Rental and Rental Service dashboards. The sample numbers are made up. Nothing you enter leaves your device.</p>
-  <div id="calc-app" data-audience="rental"></div>
-  <noscript><p class="note">The calculator needs JavaScript. The KPI tables above and the dashboards work without it.</p></noscript>
-</div>
 <script src="assets/kpi-targets.js"></script>
 <script src="assets/kpi-calculator.js"></script>
 </body>
