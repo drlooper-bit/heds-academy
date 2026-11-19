@@ -817,7 +817,7 @@ table {
 <!-- KPI Dashboard Switcher -->
 <nav class="dash-switcher" aria-label="HEDS KPI dashboards">
   <a href="index.html" class="dash-home">Back to Home</a>
-  <a href="kpi-dashboards.html" class="dash-hub" title="See all KPI dashboards">KPI Dashboards</a>
+  <a href="dealer-kpi-library.html" class="dash-hub" title="Open the Dealer KPI Library">Dealer KPI Library</a>
   <a href="service-manager-dashboard.html" class="active" aria-current="page">Service Manager</a>
   <a href="parts-manager-dashboard.html">Parts Manager</a>
   <a href="rental-manager-dashboard.html">Rental Manager</a>
@@ -899,7 +899,7 @@ table {
             <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600;">General Ledger Expense Report</td><td style="padding:8px;">General Ledger Reports</td><td style="padding:8px;">GL Transaction Report</td><td style="padding:8px;">GL Summary (varies)</td></tr>
             <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600;">Open Work Order Report</td><td style="padding:8px;">Work in Process Report (Product Support / Service / Analysis)</td><td style="padding:8px;">Work In Process Report</td><td style="padding:8px;">Work Order (open)</td></tr>
             <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600;">Closed Work Order History</td><td style="padding:8px;">Service History (Work Order archive)</td><td style="padding:8px;">Maintenance Work Order Report</td><td style="padding:8px;">Work Order (closed)</td></tr>
-            <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600;">Shop Labor Tracking Report</td><td style="padding:8px;">Labor Productivity / Efficiency (Business Intelligence)</td><td style="padding:8px;">Labor Tracking (varies)</td><td style="padding:8px;">Labor Log (varies)</td></tr>
+            <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600;">Shop Labor Tracking Report</td><td style="padding:8px;">Labor Efficiency (Business Intelligence)</td><td style="padding:8px;">Labor Tracking (varies)</td><td style="padding:8px;">Labor Log (varies)</td></tr>
             <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600;">Open Quote / Estimate Report</td><td style="padding:8px;">Estimates (Service Management)</td><td style="padding:8px;">Quoting (varies)</td><td style="padding:8px;">Estimates (Work Order module)</td></tr>
             <tr><td style="padding:8px; font-weight:600;">Parts Fill Rate Report</td><td style="padding:8px;">Fill Rates (Business Intelligence: Parts)</td><td style="padding:8px;">Fill Rate (varies)</td><td style="padding:8px;">Inventory Analysis (varies)</td></tr>
           </tbody>
@@ -1469,7 +1469,7 @@ table {
           </li>
 
           <li style="margin-bottom:16px;">
-            <strong>Field Technicians:</strong> Billed 150 hrs (incl. billed travel time) / Clocked 195 hrs (incl. drive time) = <strong style="color:var(--danger);">76.9% Field Efficiency</strong> (<span class="metric-status status-fail">BELOW 80%</span>; target is 80–110%).
+            <strong>Field Technicians:</strong> Billed 150 hrs (incl. billed travel time) / Clocked 195 hrs (incl. drive time) = <strong style="color:var(--danger);">76.9% Field Efficiency</strong> (<span class="metric-status status-fail">BELOW 80%</span>; target is 80 to 110%).
             <div style="margin-top:10px; margin-bottom:10px; padding:14px; background:rgba(0,0,0,0.25); border-radius:var(--radius); border:1px solid var(--border-color);">
               <div class="grid-2" style="margin-bottom:10px;">
                 <div class="spec-box" style="background:rgba(34, 197, 94, 0.08); border-left-color:var(--success); margin:0;">
@@ -1483,7 +1483,7 @@ table {
               </div>
               <div class="floor-rule" style="background:rgba(59, 130, 246, 0.1); border-color:var(--accent-color); margin:0;">
                 <div class="floor-rule-title" style="color:var(--accent-color);">Manager's Insight</div>
-                The baseline field efficiency target for an experienced heavy equipment road tech is 80–110%. Top-tier master technicians regularly exceed 120–130%, so 110–130% is graded PASS (top performer). Above 130%, check the time coding before you celebrate. Because travel is billed on every trip, a low number means on-job time that was not billed. To protect field efficiency, ensure field trucks are pre-stocked with fast-moving PM parts and dispatch routes are optimized to avoid double-backing.
+                The baseline field efficiency target for an experienced heavy equipment road tech is 80 to 110%. Top-tier master technicians regularly exceed 120 to 130%, so 110 to 130% is graded PASS (top performer). Above 130%, check the time coding before you celebrate. Because travel is billed on every trip, a low number means on-job time that was not billed. To protect field efficiency, ensure field trucks are pre-stocked with fast-moving PM parts and dispatch routes are optimized to avoid double-backing.
               </div>
             </div>
           </li>
@@ -1497,7 +1497,7 @@ table {
           <li id="kpi-labor-utilization"><strong>Labor Utilization %</strong> = Hours Invoiced on the Work Order / Hours on Work Orders &times; 100. Target 95% to 100%.</li>
           <li><strong>Both:</strong> red flag at 85% or below (at that point the shop is not making money, it is losing money). Above 100%: WARN, check the time coding.</li>
         </ul>
-        HEDS uses only these two labor measures. There is no separate "productivity" measure. Shop Efficiency and road tech Field Efficiency (above) are job-time measures and stay as they are.
+        HEDS uses only these two labor measures and has no separate measure beyond them. Shop Efficiency and road tech Field Efficiency (above) are job-time measures and stay as they are.
       </div>
 
       <div class="floor-rule">
@@ -2725,7 +2725,7 @@ table {
             <div style="font-size:0.8rem; color:var(--muted); font-weight:700;">YOUR FIELD TECH EFFICIENCY</div>
             <div class="metric-val" id="m3_res_field">76.9%</div>
             <div id="m3_status_field" class="metric-status status-fail">BELOW 80%</div>
-            <div style="font-size:0.75rem; color:var(--muted); margin-top:6px;">Target: 80–110% for an experienced road tech. 110–130% is PASS (top performer; top master techs regularly reach 120–130%). Above 130% is WARN: check the time coding. Travel time is billed on every trip and counts as billed hours.</div>
+            <div style="font-size:0.75rem; color:var(--muted); margin-top:6px;">Target: 80 to 110% for an experienced road tech. 110 to 130% is PASS (top performer; top master techs regularly reach 120 to 130%). Above 130% is WARN: check the time coding. Travel time is billed on every trip and counts as billed hours.</div>
           </div>
         </div>
       </div>
@@ -2950,7 +2950,7 @@ table {
             <tr style="border-bottom:1px solid var(--border-color);">
               <td style="padding:10px; font-weight:600;">Field Tech Efficiency</td>
               <td style="padding:10px;" id="s_val_field">76.9%</td>
-              <td style="padding:10px;">80–110% (110–130% top performer; over 130% WARN)</td>
+              <td style="padding:10px;">80 to 110% (110 to 130% top performer; over 130% WARN)</td>
               <td style="padding:10px;" id="s_stat_field"><span class="metric-status status-fail">FAIL</span></td>
             </tr>
             <tr style="border-bottom:1px solid var(--border-color);">

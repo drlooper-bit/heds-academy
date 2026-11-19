@@ -817,7 +817,7 @@ table {
 <!-- KPI Dashboard Switcher -->
 <nav class="dash-switcher" aria-label="HEDS KPI dashboards">
   <a href="index.html" class="dash-home">Back to Home</a>
-  <a href="kpi-dashboards.html" class="dash-hub" title="See all KPI dashboards">KPI Dashboards</a>
+  <a href="rental-kpi-library.html" class="dash-hub" title="Open the Rental KPI Library">Rental KPI Library</a>
   <a href="service-manager-dashboard.html">Service Manager</a>
   <a href="parts-manager-dashboard.html">Parts Manager</a>
   <a href="rental-manager-dashboard.html" class="active" aria-current="page">Rental Manager</a>
@@ -843,7 +843,7 @@ table {
     <div class="dropdown-menu" id="module_menu">
       <div class="dropdown-group-label">Rental Manager Curriculum</div>
       <button class="dropdown-item active" onclick="switchCurrTab('c_m1', this)">Module 1: The Rental Manager's Commercial Mindset</button>
-      <button class="dropdown-item" onclick="switchCurrTab('c_m2', this)">Module 2: Fleet Utilization: Time, Dollar &amp; Productive</button>
+      <button class="dropdown-item" onclick="switchCurrTab('c_m2', this)">Module 2: Fleet Utilization: Time and Dollar</button>
       <button class="dropdown-item" onclick="switchCurrTab('c_m3', this)">Module 3: Rental Rate Strategy &amp; Pricing Discipline</button>
       <button class="dropdown-item" onclick="switchCurrTab('c_m4', this)">Module 4: Fleet Capital &amp; Lifecycle Management</button>
       <button class="dropdown-item" onclick="switchCurrTab('c_m5', this)">Module 5: Contract, Risk &amp; Damage Recovery</button>
@@ -1006,7 +1006,7 @@ table {
               <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600;">Primary metric</td><td style="padding:8px;">Dollar utilization, RPU, EBITDA</td><td style="padding:8px;">Fleet availability, turnaround, PM compliance</td></tr>
               <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600;">Fleet question</td><td style="padding:8px;">"Is it earning?"</td><td style="padding:8px;">"Is it ready?"</td></tr>
               <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600;">Rate</td><td style="padding:8px;">Sets and monitors rack rate</td><td style="padding:8px;">N/A</td></tr>
-              <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600;">Telematics</td><td style="padding:8px;">Hour-meter billing, productive utilization, geo</td><td style="padding:8px;">Fault codes, PM scheduling, breakdown prevention</td></tr>
+              <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600;">Telematics</td><td style="padding:8px;">Hour-meter billing, geo</td><td style="padding:8px;">Fault codes, PM scheduling, breakdown prevention</td></tr>
               <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600;">Downtime</td><td style="padding:8px;">"What's the dollar cost of downtime?"</td><td style="padding:8px;">"How fast can we get it back on the line?"</td></tr>
               <tr><td style="padding:8px; font-weight:600;">Scorecard</td><td style="padding:8px;">Rental Executive Scorecard (commercial)</td><td style="padding:8px;">Shop Executive Scorecard (operational)</td></tr>
             </tbody>
@@ -1035,22 +1035,22 @@ table {
     </div>
   </div>
 
-  <!-- MODULE 2: Fleet Utilization: Time, Dollar & Productive -->
+  <!-- MODULE 2: Fleet Utilization: Time and Dollar -->
   <div id="c_m2" class="tab-content">
     <div class="card">
       <div class="curr-module-header">
         <div class="curr-day-tag">Module 2: Fleet Utilization</div>
-        <div class="curr-module-title">Module 2: Fleet Utilization: Time, Dollar &amp; Productive</div>
+        <div class="curr-module-title">Module 2: Fleet Utilization: Time and Dollar</div>
       </div>
 
       <div class="curr-section">
         <div class="curr-section-h3">Goal</div>
-        <p>Master the three layers of utilization measurement: time (is it on rent?), dollar (is it earning its keep?), and productive (is the customer actually running it?). Learn to break revenue and cost down by equipment class to find which machine types are making money and which are quietly bleeding.</p>
+        <p>Master the two layers of utilization measurement: time (is it on rent?) and dollar (is it earning its keep?). Learn to break revenue and cost down by equipment class to find which machine types are making money and which are quietly bleeding.</p>
       </div>
 
       <div class="floor-rule">
         <div class="floor-rule-title">PRO TIP</div>
-        A machine on rent for 30 days that ran 8 hours of engine time has 27% productive utilization. Time utilization is the floor; productive utilization is the truth. If you don't measure all three, you're managing with one eye closed.
+        Time utilization is the floor. Dollar utilization shows whether the machine earns its keep. If you measure only one of the two, you're managing with one eye closed.
       </div>
 
       <div class="curr-section">
@@ -1205,57 +1205,11 @@ table {
       </div>
 
       <div class="curr-section">
-        <div class="curr-section-h3">Part 4: Productive Utilization: Telematics-Driven True Utilization</div>
-        <div class="grid-2" style="margin: 12px 0;">
-          <div class="spec-box" style="background:rgba(34, 197, 94, 0.08); border-left-color:var(--success); margin:0;">
-            <div class="spec-title" style="color:var(--success);">What It Measures</div>
-            <p style="font-size:0.88rem;">The percentage of contracted rental hours that a machine actually ran based on telematics engine hour data, the difference between "on paper" utilization and "real" utilization.</p>
-          </div>
-          <div class="spec-box" style="background:rgba(239, 68, 68, 0.08); border-left-color:var(--danger); margin:0;">
-            <div class="spec-title" style="color:var(--danger);">What It Does NOT Measure</div>
-            <p style="font-size:0.88rem;">Whether the rate was profitable or whether the customer was the right customer. Productive utilization validates activity, not pricing.</p>
-          </div>
-        </div>
-        <div class="spec-box" style="background:rgba(59, 130, 246, 0.1); border-color:var(--accent-color);">
-          <div class="spec-title">Manager's Insight</div>
-          <p style="font-size:0.88rem;">A machine can be "on rent" for 30 days and sit idle on a jobsite for 28 of them. Time utilization says 100%. Productive utilization says 10%. If your customer rents a machine for a month but only uses it for 3 days, either the rate is wrong (too high for the actual usage), the machine is the wrong type for the job, or the customer doesn't need a monthly rental, they need a daily rental. Productive utilization exposes the gap between what you billed for and what the customer actually used.</p>
-        </div>
-      </div>
-
-      <div class="formula-card">
-        <div class="example-badge">Industry Standard Worked Example</div>
-        <div class="formula-title">PRODUCTIVE UTILIZATION FORMULA</div>
-        <div class="formula-expr">Productive Utilization % = (Actual Telematics Engine Hours Run [YOUR NUMBER] / Total Contracted Hours [YOUR NUMBER]) &times; 100</div>
-        <ol class="formula-steps">
-          <li><strong>Step 1:</strong> Pull telematics engine hour reports for all units on rent during the trailing 30 days. <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></li>
-          <li><strong>Step 2:</strong> Pull the contracted hours for each rental agreement (e.g., monthly = 160 hours, weekly = 40 hours, daily = 8 hours). <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></li>
-          <li><strong>Step 3:</strong> For each unit, divide actual telematics hours by contracted hours and multiply by 100.</li>
-          <li><strong>Step 4:</strong> Aggregate by class to find which classes are under-utilized on-site.</li>
-          <li><strong>Step 5:</strong> Flag units with &lt;25% productive utilization for rate or contract structure review.</li>
-        </ol>
-        <p style="margin-top:10px; font-size:0.88rem;"><strong>Worked Example (Excavator EX-101, Monthly Rental, 160 contracted hours):</strong> Telematics engine hours this month: 142 hours. Productive Utilization = (142 / 160) &times; 100 = <strong style="color:var(--success);">88.8% (PASS: Actively working)</strong></p>
-        <div style="margin-top:8px; font-size:0.85rem;">
-          <strong>HEDS Target Benchmark:</strong>
-          <ul style="padding-left:16px; margin-top:4px;">
-            <li><strong>Target Band:</strong> &ge; 60% productive utilization (machine is actively running on-site)</li>
-            <li><strong>Warning Band:</strong> 30% to 59% (under-utilized, review rate structure or contract type)</li>
-            <li><strong>Critical Fail:</strong> &lt; 30% (machine is sitting idle, wrong rental type, wrong rate, or wrong customer)</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="floor-rule">
-        <div class="floor-rule-title">PRO TIP</div>
-        If your ERP says a machine is "on rent" but your telematics says it hasn't run in 6 days, your utilization data is fiction. Reconcile telematics engine hours against ERP contracted hours every single day. A machine sitting idle on a jobsite at 13% productive utilization is not "on rent", it's "on hold." Charge the right rate for the right usage.
-      </div>
-
-      <div class="curr-section">
         <div class="curr-section-h3">Accountability Cascade</div>
         <ul style="padding-left:20px; font-size:0.88rem; line-height:1.8;">
           <li><strong>Time Utilization Owner:</strong> Rental Manager (monitored by class).</li>
           <li><strong>Dollar Utilization Owner:</strong> Rental Manager (reviewed monthly with Branch GM).</li>
           <li><strong>Net Contribution Per Class Owner:</strong> Rental Manager (drives acquisition/disposition).</li>
-          <li><strong>Productive Utilization Owner:</strong> Rental Manager (daily telematics reconciliation).</li>
           <li><strong>Escalation Trigger:</strong> Any class with negative net contribution for two consecutive quarters &rarr; formal disposition review.</li>
         </ul>
       </div>
@@ -1336,7 +1290,7 @@ table {
           </div>
           <div class="spec-box" style="background:rgba(239, 68, 68, 0.08); border-left-color:var(--danger); margin:0;">
             <div class="spec-title" style="color:var(--danger);">What It Does NOT Measure</div>
-            <p style="font-size:0.88rem;">Whether the customer actually used the machine during the rental period (that's productive utilization in Module 2).</p>
+            <p style="font-size:0.88rem;">Whether the customer actually used the machine during the rental period.</p>
           </div>
         </div>
         <div class="spec-box" style="background:rgba(59, 130, 246, 0.1); border-color:var(--accent-color);">
@@ -1445,7 +1399,7 @@ table {
           </div>
           <div class="spec-box" style="background:rgba(239, 68, 68, 0.08); border-left-color:var(--danger); margin:0;">
             <div class="spec-title" style="color:var(--danger);">What It Does NOT Measure</div>
-            <p style="font-size:0.88rem;">Whether the machine was a good purchase at acquisition or whether the depreciation schedule is optimal. OEC ROI measures ongoing capital productivity, not historical purchase quality.</p>
+            <p style="font-size:0.88rem;">Whether the machine was a good purchase at acquisition or whether the depreciation schedule is optimal. OEC ROI measures the ongoing return on capital, not historical purchase quality.</p>
           </div>
         </div>
         <div class="spec-box" style="background:rgba(59, 130, 246, 0.1); border-color:var(--accent-color);">
@@ -2010,7 +1964,7 @@ table {
 
       <div class="curr-section">
         <div class="curr-section-h3">Goal</div>
-        <p>Master the telematics systems that turn fleet data into billing accuracy, productive utilization measurement, geolocation visibility, and proactive fault awareness, making telematics the data backbone that feeds every other KPI in this program.</p>
+        <p>Master the telematics systems that turn fleet data into billing accuracy, geolocation visibility, and proactive fault awareness, making telematics the data backbone that feeds every other KPI in this program.</p>
       </div>
 
       <div class="floor-rule">
@@ -2052,7 +2006,7 @@ table {
           <li><strong>Step 2:</strong> Pull the contracted hours from each active rental agreement. <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></li>
           <li><strong>Step 3:</strong> For each unit, subtract contracted hours from actual telematics hours.</li>
           <li><strong>Step 4:</strong> If positive (overage): multiply by the overage rate and invoice the customer.</li>
-          <li><strong>Step 5:</strong> If negative (under-utilization): flag for productive utilization review (Module 2).</li>
+          <li><strong>Step 5:</strong> If negative (under-utilization): flag for rate and contract review (Module 2).</li>
           <li><strong>Step 6:</strong> Track the percentage of active contracts that were reconciled this month (billing reconciliation rate).</li>
         </ol>
         <p style="margin-top:10px; font-size:0.88rem;"><strong>Worked Example (Excavator EX-101, Monthly Contract, 160 contracted hours):</strong> Telematics engine hours this month: 194 hours. Overage: 194 &minus; 160 = 34 hours. Overage rate: $45/hour. <strong>Overage Revenue: 34 &times; $45 = $1,530</strong> (recovered, was being left on the table before telematics reconciliation). Fleet-wide monthly overage recovery (150 units): ~$50,400/month in newly captured revenue.</p>
@@ -2344,13 +2298,12 @@ table {
     <button class="tab-btn active" onclick="switchDashTab('dash_m1', this)">M1: Time Utilization</button>
     <button class="tab-btn" onclick="switchDashTab('dash_m2', this)">M2: Dollar Utilization</button>
     <button class="tab-btn" onclick="switchDashTab('dash_m3', this)">M3: Revenue &amp; Cost/Class</button>
-    <button class="tab-btn" onclick="switchDashTab('dash_m4', this)">M4: Productive Util.</button>
-    <button class="tab-btn" onclick="switchDashTab('dash_m5', this)">M5: Equipment Downtime</button>
-    <button class="tab-btn" onclick="switchDashTab('dash_m6', this)">M6: Rate Realization</button>
-    <button class="tab-btn" onclick="switchDashTab('dash_m7', this)">M7: Damage Recovery</button>
-    <button class="tab-btn" onclick="switchDashTab('dash_m8', this)">M8: Equip-to-Orders</button>
-    <button class="tab-btn" onclick="switchDashTab('dash_m9', this)">M9: Rental Leak</button>
-    <button class="tab-btn" onclick="switchDashTab('dash_m10', this)">M10: Maint % of OEC</button>
+        <button class="tab-btn" onclick="switchDashTab('dash_m5', this)">M4: Equipment Downtime</button>
+    <button class="tab-btn" onclick="switchDashTab('dash_m6', this)">M5: Rate Realization</button>
+    <button class="tab-btn" onclick="switchDashTab('dash_m7', this)">M6: Damage Recovery</button>
+    <button class="tab-btn" onclick="switchDashTab('dash_m8', this)">M7: Equip-to-Orders</button>
+    <button class="tab-btn" onclick="switchDashTab('dash_m9', this)">M8: Rental Leak</button>
+    <button class="tab-btn" onclick="switchDashTab('dash_m10', this)">M9: Maint % of OEC</button>
     <button class="tab-btn" onclick="switchDashTab('dash_summary', this)">Exec Scorecard</button>
     <button class="tab-btn" onclick="switchDashTab('dash_tracker', this)">30/60/90 Tracker</button>
   </nav>
@@ -2484,42 +2437,6 @@ table {
         <li><input type="checkbox" id="dm3_chk3"> Ranked classes by net contribution per unit</li>
         <li><input type="checkbox" id="dm3_chk4"> Flagged negative net contribution classes for disposition review</li>
       </ul>
-    </div>
-  </div>
-
-  <!-- DASH M4: Productive Utilization -->
-  <div id="dash_m4" class="tab-content">
-    <div id="kpi-productive-utilization" class="grid-2">
-      <div class="card">
-        <div class="card-title">Enter Your Branch Numbers: Productive Utilization</div>
-        <div class="form-group">
-          <label for="dm4_telematics_hrs">Telematics Engine Hours (trailing 30 days)</label>
-          <input type="number" id="dm4_telematics_hrs" value="142" placeholder="Enter telematics engine hours" oninput="calcMod4()">
-        </div>
-        <div class="form-group">
-          <label for="dm4_contracted_hrs">Contracted Hours (per rental agreement)</label>
-          <input type="number" id="dm4_contracted_hrs" value="160" placeholder="Enter contracted hours" oninput="calcMod4()">
-        </div>
-      </div>
-      <div>
-        <div class="card">
-          <div class="card-title">Productive Utilization Diagnostic</div>
-          <div class="metric-box">
-            <div style="font-size:0.8rem; color:var(--muted); font-weight:700;">PRODUCTIVE UTILIZATION %</div>
-            <div class="metric-val" id="dm4_res">88.8%</div>
-            <div id="dm4_status" class="metric-status status-pass">PASS</div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-title">Required ERP Report Verification Checklist</div>
-          <ul class="checklist">
-            <li><input type="checkbox" id="dm4_chk1"> Verified Telematics Engine Hour Extract (trailing 30 days)</li>
-            <li><input type="checkbox" id="dm4_chk2"> Verified Contracted Hours vs. Actual Hours Reconciliation</li>
-            <li><input type="checkbox" id="dm4_chk3"> Flagged units with &lt; 25% productive utilization</li>
-            <li><input type="checkbox" id="dm4_chk4"> Reconciled telematics hours against ERP contracted hours</li>
-          </ul>
-        </div>
-      </div>
     </div>
   </div>
 
@@ -2859,12 +2776,6 @@ table {
               <td style="padding:10px;" id="s_stat_rpu">--</td>
             </tr>
             <tr style="border-bottom:1px solid var(--border-color);">
-              <td style="padding:10px; font-weight:600;">Productive Utilization</td>
-              <td style="padding:10px;" id="s_val_prod">--</td>
-              <td style="padding:10px;">&ge; 60%</td>
-              <td style="padding:10px;" id="s_stat_prod">--</td>
-            </tr>
-            <tr style="border-bottom:1px solid var(--border-color);">
               <td style="padding:10px; font-weight:600;">Equipment Downtime %</td>
               <td style="padding:10px;" id="s_val_down">--</td>
               <td style="padding:10px;">&lt; 8%</td>
@@ -2998,14 +2909,13 @@ table {
       <div id="gate2_content" style="display:none;">
         <div class="floor-rule">
           <div class="floor-rule-title">Operational Focus</div>
-          Connecting utilization and rate discipline to damage recovery, equipment-to-orders ratio, and productive utilization.
+          Connecting utilization and rate discipline to damage recovery and equipment-to-orders ratio.
         </div>
         <ul class="checklist">
           <li><input type="checkbox" id="g2_chk1" onchange="saveGateCheckboxes()"> <strong>Dollar Utilization by Class Trending:</strong> 2-month trend tracked for each class. Underperformers identified.</li>
           <li><input type="checkbox" id="g2_chk2" onchange="saveGateCheckboxes()"> <strong>Rate Realization Discipline:</strong> All discounts &gt; 5% now require Rental Manager approval. Discount freeze on classes below 85% realization.</li>
           <li><input type="checkbox" id="g2_chk3" onchange="saveGateCheckboxes()"> <strong>Damage Recovery Workflow Operational:</strong> 4-photo check-in/out standard enforced. Pre-rental joint inspection at dispatch. 48-hour damage estimate workflow active.</li>
           <li><input type="checkbox" id="g2_chk4" onchange="saveGateCheckboxes()"> <strong>Equipment-to-Orders Ratio Tracked:</strong> Weekly ratio by class. Under-supplied classes flagged for acquisition review.</li>
-          <li><input type="checkbox" id="g2_chk5" onchange="saveGateCheckboxes()"> <strong>Productive Utilization Reporting:</strong> Telematics engine hours vs. contracted hours reconciled weekly for all on-rent units.</li>
           <li><input type="checkbox" id="g2_chk6" onchange="saveGateCheckboxes()"> <strong>Overage Billing Active:</strong> Hour-meter overage invoiced on all contracts exceeding contracted hours.</li>
           <li><input type="checkbox" id="g2_chk7" onchange="saveGateCheckboxes()"> <strong>Geolocation Fleet Audit:</strong> All units confirmed on telematics platform. Last-ping within 48 hours for 100% of fleet.</li>
           <li><input type="checkbox" id="g2_chk8" onchange="saveGateCheckboxes()"> <strong>Stock-Out Revenue Monthly Report:</strong> First monthly turned-away revenue report presented to GM.</li>
@@ -3388,20 +3298,6 @@ function switchMainSection(secId, btnEl) {
 
   function calcMod3() { renderClassTable(); saveData(); }
 
-  function calcMod4() {
-    var teleHrs = parseFloat(document.getElementById('dm4_telematics_hrs') ? document.getElementById('dm4_telematics_hrs').value : 0) || 0;
-    var contractHrs = parseFloat(document.getElementById('dm4_contracted_hrs') ? document.getElementById('dm4_contracted_hrs').value : 0) || 0;
-    if (contractHrs > 0) {
-      var pct = (teleHrs / contractHrs) * 100;
-      document.getElementById('dm4_res').innerText = pct.toFixed(1) + '%';
-      document.getElementById('s_val_prod').innerText = pct.toFixed(1) + '%';
-      if (pct >= 60) { setStatus('dm4_status', 'PASS', 'status-pass'); setScoreStatus('s_stat_prod', '<span class="metric-status status-pass">PASS</span>', '', '', 'pass'); }
-      else if (pct >= 30) { setStatus('dm4_status', 'WARN', 'status-warn'); setScoreStatus('s_stat_prod', '', '<span class="metric-status status-warn">WARN</span>', '', 'warn'); }
-      else { setStatus('dm4_status', 'FAIL', 'status-fail'); setScoreStatus('s_stat_prod', '', '', '<span class="metric-status status-fail">FAIL</span>', 'fail'); }
-    }
-    saveData();
-  }
-
   function calcMod5() {
     var totalAvail = parseFloat(document.getElementById('dm5_total_avail_days') ? document.getElementById('dm5_total_avail_days').value : 0) || 0;
     var downDays = parseFloat(document.getElementById('dm5_down_days') ? document.getElementById('dm5_down_days').value : 0) || 0;
@@ -3578,7 +3474,7 @@ function switchMainSection(secId, btnEl) {
   }
 
   function calcAll() {
-    calcMod1(); calcMod2(); calcMod3(); calcMod4(); calcMod5(); calcMod6(); calcMod7(); calcMod8(); calcMod9(); calcMod10(); calcMod11();
+    calcMod1(); calcMod2(); calcMod3(); calcMod5(); calcMod6(); calcMod7(); calcMod8(); calcMod9(); calcMod10(); calcMod11();
     saveData();
   }
 

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HEDS Rental KPI Library and Calculator</title>
+<meta name="description" content="HEDS KPI standards for Rental and Rental Service managers, with formulas, a link into each interactive dashboard, and a KPI calculator.">
+<link rel="icon" type="image/png" href="LOGO_HEDS_small.png">
+<link rel="canonical" href="https://hedsconsulting.net/rental-kpi-library.html">
+<link rel="stylesheet" href="assets/kpi-library.css">
+</head>
+<body>
+<header>
+  <a href="index.html" class="header-logo-link" title="Back to HEDS home page" aria-label="HEDS home page"><img src="LOGO_HEDS.png" alt="HEDS Logo" class="header-logo"></a>
+  <div>
+    <h1>Heavy Equipment Dealer Solutions LLC</h1>
+    <div class="brand">HEDS Operating Discipline Academy</div>
+    <h2>Rental KPI Library and Calculator</h2>
+    <p class="subtitle">The HEDS standards for each department, with a direct link into the interactive dashboard.</p>
+  </div>
+</header>
+<div class="top-links"><a href="index.html">Back to Home</a><a href="index.html#rental">Rental</a><a href="#calculator">KPI Calculator</a><a href="dealer-kpi-library.html">Dealer KPI Library</a><a href="blog/index.html">Blog</a><a href="contact.html">Contact</a></div>
+
+<div class="block" id="kpi-tables">
+  <h2>KPI Standards by Department</h2>
+  <p class="lead">Each department below has a short description, the measures that belong on that scorecard, and a link into its dashboard. Rental is a separate business, and rental targets are covered in training rather than copied from the dealer list.</p>
+  <div class="jump">
+    <a href="#rental-kpis">Rental</a>
+    <a href="#rental-service-kpis">Rental Service</a>
+    <a href="#calculator">Calculator</a>
+  </div>
+
+<section class="dept" id="rental-kpis">
+  <h3>Rental Manager</h3>
+  <p class="note">The Rental dashboard is the commercial view of the fleet: time and dollar utilization, rate realization, downtime, damage recovery, and maintenance cost as a percent of original equipment cost. Rental books labor, parts, and maintenance differently than a dealership, so dealer targets are not applied here. The measures below are taught on the dashboard, and the HEDS targets are covered in training.</p>
+  <div class="tbl-wrap"><table class="kpi">
+    <thead><tr><th>KPI</th><th>Formula</th><th>HEDS Target</th></tr></thead>
+    <tbody>
+      <tr><td class="kn"><a href="rental-manager-dashboard.html#kpi-time-utilization">Time Utilization</a></td><td>Days on rent divided by available rentable days, times 100</td><td>Covered in training</td></tr>
+      <tr><td class="kn"><a href="rental-manager-dashboard.html#kpi-dollar-utilization">Dollar Utilization</a></td><td>Annual rental revenue divided by total original equipment cost (OEC), times 100</td><td>Covered in training</td></tr>
+      <tr><td class="kn"><a href="rental-manager-dashboard.html#kpi-maintenance-cost-oec">Maintenance Cost as a Percent of OEC</a></td><td>Annual maintenance cost, with technician labor left out, divided by fleet OEC, times 100</td><td>Covered in training</td></tr>
+      <tr><td class="kn"><a href="rental-manager-dashboard.html#kpi-equipment-downtime">Equipment Downtime</a></td><td>Down days divided by available days, times 100</td><td>Covered in training</td></tr>
+      <tr><td class="kn"><a href="rental-manager-dashboard.html#kpi-rate-realization">Rate Realization</a></td><td>Actual invoiced rate divided by rack rate, times 100</td><td>Covered in training</td></tr>
+      <tr><td class="kn"><a href="rental-manager-dashboard.html#kpi-damage-recovery">Damage Recovery Rate</a></td><td>Customer damage collected divided by total cost of customer damage repairs, times 100</td><td>Covered in training</td></tr>
+      <tr><td class="kn"><a href="rental-manager-dashboard.html#kpi-equipment-to-orders">Equipment to Orders Ratio</a></td><td>Available units in a class divided by active rental requests for that class</td><td>Covered in training</td></tr>
+      <tr><td class="kn"><a href="rental-manager-dashboard.html#kpi-ebitda-margin">EBITDA Margin</a></td><td>EBITDA divided by total rental revenue, times 100</td><td>Covered in training</td></tr>
+      <tr><td class="kn"><a href="rental-manager-dashboard.html#kpi-customer-churn">Customer Churn (quarterly)</a></td><td>Customers lost this quarter divided by active customers last quarter, times 100</td><td>Covered in training</td></tr>
+    </tbody>
+  </table></div>
+  <a class="open" href="rental-manager-dashboard.html#sec_dashboard">Open the Rental Dashboard</a>
+</section>
+
+<section class="dept" id="rental-service-kpis">
+  <h3>Rental Service Manager</h3>
+  <p class="note">The Rental Service dashboard is the shop that keeps the fleet rent-ready: off-rent turnaround, availability, downtime, damage recovery, and the 48-hour close on rental work orders. Those measures are taught on the dashboard, and the HEDS targets are covered in training.</p>
+  <div class="tbl-wrap"><table class="kpi">
+    <thead><tr><th>KPI</th><th>Formula</th><th>HEDS Target</th></tr></thead>
+    <tbody>
+      <tr><td class="kn"><a href="rental-service-manager-dashboard.html#kpi-off-rent-to-rent-ready">Off Rent to Rent-Ready</a></td><td>Hours from off rent into service to the rent-ready line, or to a failed inspection</td><td>Covered in training</td></tr>
+      <tr><td class="kn"><a href="rental-service-manager-dashboard.html#kpi-technician-recovery">Technician Recovery</a></td><td>Hours on work orders divided by paid payroll hours, times 100</td><td>Covered in training</td></tr>
+      <tr><td class="kn"><a href="rental-service-manager-dashboard.html#kpi-labor-utilization">Labor Utilization</a></td><td>Hours invoiced on work orders divided by hours on work orders, times 100</td><td>Covered in training</td></tr>
+      <tr><td class="kn"><a href="rental-service-manager-dashboard.html#kpi-maintenance-cost-oec">Maintenance Cost as a Percent of OEC</a></td><td>Annual maintenance cost, with technician labor left out, divided by fleet OEC, times 100</td><td>Covered in training</td></tr>
+      <tr><td class="kn"><a href="rental-service-manager-dashboard.html#kpi-fleet-availability">Fleet Physical Availability</a></td><td>(Rent-ready units plus on-rent units) divided by total fleet units, times 100</td><td>Covered in training</td></tr>
+      <tr><td class="kn"><a href="rental-service-manager-dashboard.html#kpi-fleet-downtime">Fleet Downtime</a></td><td>Down days divided by total fleet days, times 100</td><td>Covered in training</td></tr>
+      <tr><td class="kn"><a href="rental-service-manager-dashboard.html#kpi-late-close-work-orders">Late Close Work Orders</a></td><td>Count of work orders not closed and invoiced within 48 hours of last labor</td><td>Covered in training</td></tr>
+      <tr><td class="kn"><a href="rental-service-manager-dashboard.html#kpi-parts-buffer">Parts Buffer (Months of Supply)</a></td><td>Parts on hand divided by average monthly usage over the last six months</td><td>Covered in training</td></tr>
+      <tr><td class="kn"><a href="rental-service-manager-dashboard.html#kpi-damage-recovery">Damage Recovery Rate</a></td><td>Customer damage collected divided by total cost of customer damage repairs, times 100</td><td>Covered in training</td></tr>
+      <tr><td class="kn"><a href="rental-service-manager-dashboard.html#kpi-telematics-triage">Telematics Triage</a></td><td>Critical alerts triaged within 2 hours divided by total critical alerts, times 100</td><td>Covered in training</td></tr>
+    </tbody>
+  </table></div>
+  <a class="open" href="rental-service-manager-dashboard.html#sec_dashboard">Open the Rental Service Dashboard</a>
+</section>
+</div>
+
+<div class="block" id="calculator">
+  <h2>KPI Calculator</h2>
+  <p class="lead">Move the sliders to see how each rental KPI result and grade changes. The tabs follow the Rental and Rental Service dashboards. The sample numbers are made up. Nothing you enter leaves your device.</p>
+  <div id="calc-app" data-audience="rental"></div>
+  <noscript><p class="note">The calculator needs JavaScript. The KPI tables above and the dashboards work without it.</p></noscript>
+</div>
+<script src="assets/kpi-targets.js"></script>
+<script src="assets/kpi-calculator.js"></script>
+</body>
+</html>

@@ -821,7 +821,7 @@ table {
 <!-- KPI Dashboard Switcher -->
 <nav class="dash-switcher" aria-label="HEDS KPI dashboards">
   <a href="index.html" class="dash-home">Back to Home</a>
-  <a href="kpi-dashboards.html" class="dash-hub" title="See all KPI dashboards">KPI Dashboards</a>
+  <a href="rental-kpi-library.html" class="dash-hub" title="Open the Rental KPI Library">Rental KPI Library</a>
   <a href="service-manager-dashboard.html">Service Manager</a>
   <a href="parts-manager-dashboard.html">Parts Manager</a>
   <a href="rental-manager-dashboard.html">Rental Manager</a>
@@ -1233,7 +1233,7 @@ table {
           <div class="formula-expr">Technician Recovery % = Hours on Work Orders / Hours of Payroll (Paid Hours) &times; 100</div>
           <div class="formula-expr" style="margin-top:6px;">Technician Utilization % = Hours Invoiced on the Work Order / Hours on Work Orders &times; 100</div>
           <p style="font-size:0.85rem; margin-top:6px;"><strong>Worked Example:</strong> Shop has 5 technicians working 40 hours = 200 Total Paid Payroll Hours. Total hours booked to open fleet work orders = 174 hours. Unapplied hours = 26 hours. Recovery: (174 / 200) &times; 100 = <strong style="color:var(--warning);">87.0% (WARN: below the 95&ndash;100% target, above the 85% red flag)</strong></p>
-          <p style="font-size:0.85rem; margin-top:4px;"><strong>HEDS Target Benchmarks (same as dealer):</strong> Recovery 95&ndash;100% and Utilization 95&ndash;100%, red flag at 85% or below on either. Above 100% on either: WARN, check the time coding. HEDS has no separate "productivity" measure.</p>
+          <p style="font-size:0.85rem; margin-top:4px;"><strong>HEDS Target Benchmarks (same as dealer):</strong> Recovery 95% to 100% and Utilization 95% to 100%, red flag at 85% or below on either. Above 100% on either: WARN, check the time coding. HEDS has no separate measure beyond these two.</p>
         </div>
 
         <div class="floor-rule">
@@ -3263,7 +3263,7 @@ function printCertificateRSM() {
     "options": [
       "Throw them immediately into the standard municipal trash dumpster",
       "Wash them with solvent and place them in the metal scrap pile",
-      "Hot-drain the filters for at least 12–24 hours, mechanically crush them to recover residual oil, and store in a designated recycling drum",
+      "Hot-drain the filters for at least 12 to 24 hours, mechanically crush them to recover residual oil, and store in a designated recycling drum",
       "Bury them in the gravel retention yard"
     ]
   ,
@@ -3336,7 +3336,7 @@ function printCertificateRSM() {
     "type": "scenario",
     "question": "A 35-ton excavator with a daily rental rate of $800 is down in the shop waiting on a hydraulic pressure sensor from the primary OEM dealer. The dealer notifies the shop that the part is backordered for 3 weeks. What should the manager do?",
     "options": [
-      "Initiate the multi-channel sourcing protocol: check sister branch inventory, request regional depot emergency drop-ship, or source an approved aftermarket equivalent to resolve the machine hold within 24–48 hours",
+      "Initiate the multi-channel sourcing protocol: check sister branch inventory, request regional depot emergency drop-ship, or source an approved aftermarket equivalent to resolve the machine hold within 24 to 48 hours",
       "Let the machine sit in the bay for 3 weeks until the factory part arrives",
       "Cancel the work order and sell the excavator",
       "Tell the customer to rent an excavator from a competitor"
