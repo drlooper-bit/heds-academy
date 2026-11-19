@@ -839,6 +839,16 @@ input, select, textarea {
   .sub-nav:not(.open) { display: none !important; }
   .sub-nav .tab-btn { font-size: 0.72rem !important; padding: 6px 2px !important; }
 }
+
+/* ===== OVERVIEW AREAS ROW (same look as the Services sub-tab bar, no active state) ===== */
+.areas-bar { display: flex; justify-content: center; background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius); margin-bottom: 24px; overflow-x: auto; }
+.areas-bar .area-btn { background: transparent; border: none; border-bottom: 3px solid transparent; color: var(--muted); cursor: pointer; font-family: var(--font); font-size: 0.84rem; font-weight: 600; padding: 12px 20px; white-space: nowrap; min-height: 44px; min-width: 48px; transition: all 0.2s; }
+.areas-bar .area-btn:hover { color: var(--fg); border-bottom-color: var(--border); }
+.areas-bar .area-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+@media (max-width: 767px) {
+  .areas-bar { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; padding: 4px; overflow-x: visible; }
+  .areas-bar .area-btn { width: 100%; font-size: 0.72rem; padding: 6px 2px; white-space: normal; line-height: 1.15; text-align: center; border: 1px solid rgba(32, 59, 96, 0.7); border-radius: 6px; background: rgba(14, 31, 56, 0.75); }
+}
 </style>
 <noscript>
 <style>
@@ -881,6 +891,12 @@ input, select, textarea {
 <div class="section active" id="sec-overview" role="tabpanel">
   <span id="overview"></span>
   <img src="heds-hero-banner.jpg" alt="Heavy equipment lineup, excavators and wheel loaders" class="hero-banner" width="1328" height="332" onerror="this.style.display='none'">
+  <nav class="areas-bar" aria-label="Areas we cover">
+    <button type="button" class="area-btn" onclick="showSection('diligence')">Due Diligence</button>
+    <button type="button" class="area-btn" onclick="showSection('dealership')">Dealership</button>
+    <button type="button" class="area-btn" onclick="showSection('rental')">Rental</button>
+    <button type="button" class="area-btn" onclick="showSection('fleet')">Fleet</button>
+  </nav>
   <div class="hero">
     <h2>We find the money your operation is losing or overlooking, and install the discipline to keep the bottlenecks from coming back.</h2>
     <p>HEDS is a heavy equipment dealership services firm serving dealers, rental companies, and equipment groups across the United States. We combine onsite operational audits with hands-on management training to stop margin leakage where it starts, on the shop floor.</p>
