@@ -1,0 +1,209 @@
+/* HEDS offers: one shared "How it works" illustration for every paid offer.
+   Each offer has numbered steps, the deliverable, and the price.
+   To change a price or step, edit it here once and every page updates.
+   Search this file for PRICE-TBC to find every price that is not confirmed yet.
+   Pages place an offer with <div data-offer="snapshot"></div>.
+   No dashes or bullet lists in any text below. Full sentences only. */
+(function (w) {
+  'use strict';
+
+  var BOOK = 'https://calendar.app.google/8R2rX7THVQffsytT8';
+  var FORM = 'https://docs.google.com/forms/d/e/1FAIpQLScPCb8GgApY22VvkqBPgJkSG4VDWZYXaAfI-SuHNkSpPyMV6A/viewform';
+  var EXTRA = 'Additional work you ask for beyond the package is billed at $200 an hour.';
+  var TRAVEL = 'Travel time, mileage, lodging and meals are invoiced at actual cost and are not built into the price.';
+
+  // price rows: { label, amount } with amount null meaning not confirmed (PRICE-TBC).
+  var OFFERS = {
+
+    snapshot: {
+      title: 'Initial Snapshot',
+      steps: [
+        { h: 'Book a short call', t: 'You book a discovery call with HEDS to confirm which location the snapshot covers and which reports you can send.' },
+        { h: 'Send a few reports', t: 'You send a small set of reports you already run, such as the Departmental P&L Summary, the Open Work Order Report and the Shop Labor Tracking Report.' },
+        { h: 'HEDS reads them', t: 'HEDS reads those reports against a handful of KPIs from the HEDS KPI Library, such as location absorption, effective labor rate, labor recovery, parts gross margin and WIP aging.' },
+        { h: 'You get the snapshot', t: 'HEDS returns a short snapshot of where your location stands and calls out your biggest dollar leak.' }
+      ],
+      deliver: 'A short written snapshot that shows where your location stands on a handful of KPIs, with your biggest dollar leak called out so you know where to start.',
+      price: [ { label: 'Initial Snapshot', amount: null } ] // PRICE-TBC
+    },
+
+    review: {
+      title: 'Report Review',
+      steps: [
+        { h: 'You send your numbers', t: 'You send your P&L and the standard service and parts reports from your dealer system.' },
+        { h: 'Daniel reviews them', t: 'Daniel Looper reviews the reports against HEDS benchmarks and works out where performance is falling short.' },
+        { h: 'You get the review', t: 'HEDS delivers the review within 48 hours of receiving your reports.' }
+      ],
+      deliver: 'Your current performance beside HEDS benchmarks, a projection of what closing each gap is worth in dollars calculated from your own numbers, and an account of where each department is struggling.',
+      price: [ { label: 'Report Review on its own', amount: '$1,600' } ],
+      note: 'If you book the onsite day of the Operational Health Check within 30 days, the full $1,600 is credited toward the $2,200 Operational Health Check, so you pay $600 more at that point.',
+      extra: false, travel: false,
+      cta: { label: 'Book a Discovery Call', href: BOOK }
+    },
+
+    ohc: {
+      title: 'Operational Health Check',
+      lead: 'For dealer principals, general managers, and service and parts managers at small and mid size heavy equipment dealerships.',
+      steps: [
+        { h: 'You send your numbers', t: 'You send your P&L and the standard service and parts reports from your dealer system.' },
+        { h: 'Daniel reviews them', t: 'Daniel Looper reviews the reports against HEDS benchmarks and delivers the review within 48 hours of receiving them.' },
+        { h: 'One day onsite', t: 'Daniel comes to your dealership for one day to see why the gaps are happening, which means looking at the process, whether it is followed, and whether following it would fix the problem.' }
+      ],
+      deliver: 'Your current performance beside HEDS benchmarks, a projection of what closing each gap is worth in dollars calculated from your own numbers, and an in depth account of where each department is struggling and whether the cause is people or process.',
+      price: [ { label: 'Operational Health Check, flat fee', amount: '$2,200' } ],
+      note: 'The price covers the report review and one day onsite. If you bought the Report Review first and book the onsite day within 30 days, the $1,600 review fee is credited in full.',
+      extra: true, travel: true,
+      cta: { label: 'Book a Discovery Call', href: BOOK }
+    },
+
+    audit: {
+      title: 'Onsite Audit and Due Diligence',
+      steps: [
+        { h: 'Scope the audit', t: 'You book a 30 minute discovery call, and HEDS agrees the locations, the departments and the number of days with you.' },
+        { h: 'Send your reports', t: 'You pull four standard ERP or DMS reports, and HEDS builds a baseline snapshot before arriving onsite.' },
+        { h: 'Daniel audits onsite', t: 'Daniel Looper is the auditor. He walks the shop floor, reviews the parts counter and the rental yard, verifies the ERP reports and interviews your managers.' },
+        { h: 'You get the findings report', t: 'HEDS delivers the findings report within 5 business days, and the report is included with every audit.' }
+      ],
+      deliver: 'A findings report with dollar quantified leaks, a department by department scorecard against industry benchmarks, and a prioritized fix list ranked by dollar impact and ease of implementation.',
+      price: [
+        { label: 'Single Location Audit, 1 day', amount: null },        // PRICE-TBC
+        { label: 'Full Branch Audit, 2 days', amount: null },           // PRICE-TBC
+        { label: 'Multi Branch Audit, 1 to 2 days per site', amount: null }, // PRICE-TBC
+        { label: 'Acquisition Due Diligence, 3 to 5 days', amount: null }    // PRICE-TBC
+      ],
+      extra: true, travel: true,
+      cta: { label: 'Book a Discovery Call', href: BOOK }
+    },
+
+    training: {
+      title: 'Onsite Training Course, 5 Days',
+      lead: 'Each course is five days onsite for one manager, one on one with a HEDS Qualified Instructor, built on your real data.',
+      steps: [
+        { h: 'Scope the course', t: 'You book a discovery call, and HEDS recommends the right track and agrees the dates for the manager or managers who will attend.' },
+        { h: 'Send the pre-work', t: 'Three to five days before the course, you send four standard reports, and HEDS returns a one page Current State Scorecard.' },
+        { h: 'Five days onsite', t: 'The manager spends five days at your location with classroom work, floor time and live process redesign using your real data.' },
+        { h: 'Leave with a plan', t: 'By the end of the week the manager has built a personal scorecard and a written 90 day action plan from your own numbers.' }
+      ],
+      deliver: 'A personal scorecard, a signed and dated 90 day action plan, an interactive dashboard you keep, the 50 question Industry Knowledge Assessment with a score report, implementation templates and a certificate of completion.',
+      price: [
+        { label: 'Service Manager course', amount: null },        // PRICE-TBC
+        { label: 'Parts Manager course', amount: null },         // PRICE-TBC
+        { label: 'Rental Manager course', amount: null },        // PRICE-TBC
+        { label: 'Rental Service Manager course', amount: null } // PRICE-TBC
+      ],
+      note: 'Location packages for several managers are quoted on the discovery call. Branch Manager and Regional and Executive Leadership courses are in development.',
+      extra: true, travel: true,
+      cta: { label: 'Book a Discovery Call', href: BOOK }
+    },
+
+    followup: {
+      title: 'Follow-Up Coaching',
+      lead: 'Purchased separately after a course. It is never bundled into a package you may not need.',
+      steps: [
+        { h: 'A metric stalls', t: 'After your course, you or HEDS see that a metric is not moving as planned.' },
+        { h: 'Agree the focus', t: 'You and HEDS agree which stalled metric the coaching will target.' },
+        { h: 'Virtual sessions', t: 'HEDS runs virtual coaching sessions on that specific area until execution is back on plan.' }
+      ],
+      deliver: 'Virtual coaching sessions focused on the specific metric that is not progressing as planned.',
+      price: [ { label: 'Follow-Up Coaching', amount: null } ], // PRICE-TBC
+      cta: { label: 'Book a Discovery Call', href: BOOK }
+    },
+
+    fleet: {
+      title: 'HEDS for Fleet Owners',
+      lead: 'For large construction companies that own heavy equipment and depend on dealers and rental companies for parts and service.',
+      steps: [
+        { h: 'Talk with HEDS', t: 'You book a discovery call to agree which dealers, rental companies and machines you want reviewed.' },
+        { h: 'Send the history', t: 'You send each machine\u2019s service work orders, parts purchases, down days and total maintenance cost for the period you want to judge.' },
+        { h: 'HEDS reads the record', t: 'HEDS works out maintenance cost as a percent of OEC, reviews the downtime and its causes, and scores each vendor on labor rate billed, parts on the shelf, work order close time and first time fix.' },
+        { h: 'You decide', t: 'You use the findings to decide whether to repair, rebuild, replace or buy, and to hold your dealer or rental company to a standard.' }
+      ],
+      // DELIVERABLE-TBC: Daniel to confirm the package name, scope and report format for fleet owners.
+      deliver: 'A written read of each vendor\u2019s service and parts performance against the HEDS KPI targets, with the maintenance cost and downtime history for each machine you want to judge.',
+      price: [ { label: 'Fleet owner package', amount: null } ], // PRICE-TBC
+      extra: true, travel: true,
+      cta: { label: 'Book a Discovery Call', href: BOOK }
+    },
+
+    assessment: {
+      title: 'Industry Knowledge Assessment',
+      lead: 'The assessment is standalone. If it reveals gaps, the training tracks are there, and if it does not, you keep the report.',
+      steps: [
+        { h: 'Request the assessment', t: 'You send the request form for your team.' },
+        { h: 'Pick the date', t: 'HEDS follows up within one business day with available dates, proctoring options and the assessment brief.' },
+        { h: 'Managers sit the test', t: 'Each manager takes the 50 question proctored assessment in 90 minutes, either in person or in a monitored remote session, with no open books and no AI assistants.' },
+        { h: 'You get the scores', t: 'HEDS returns a score report for each manager.' }
+      ],
+      deliver: 'A score report for each manager with an overall score from 0 to 100 and a percentile ranking against industry benchmarks, a breakdown by module, three focus areas to close first, and a side by side comparison when several managers sit the test.',
+      price: [
+        { label: 'Per manager', amount: '$300' },
+        { label: 'Each manager when 5 or more sit the test', amount: '$250' },
+        { label: 'Each manager when 10 or more sit the test', amount: '$200' }
+      ],
+      cta: { label: 'Request Assessment Details', href: FORM }
+    }
+  };
+
+  function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
+
+  function build(id, o) {
+    var steps = o.steps.map(function (s, i) {
+      return '<li class="ho-step"><span class="ho-num" aria-hidden="true">' + (i + 1) + '</span>' +
+        '<h4>' + esc(s.h) + '</h4><p>' + esc(s.t) + '</p></li>';
+    }).join('');
+
+    var anyTbc = false;
+    var rows = o.price.map(function (r) {
+      var val;
+      if (r.amount) {
+        val = '<span class="ho-amount">' + esc(r.amount) + '</span>';
+      } else {
+        anyTbc = true;
+        val = '<span class="ho-tbc">Price: to be confirmed</span>';
+      }
+      return '<div class="ho-row"><span class="ho-label">' + esc(r.label) + '</span>' + val + '</div>';
+    }).join('');
+
+    var fine = [];
+    if (o.extra) fine.push(EXTRA);
+    if (o.travel) fine.push(TRAVEL);
+
+    var cta = o.cta ? '<p class="ho-cta"><a class="cta-btn" href="' + o.cta.href + '" target="_blank" rel="noopener">' +
+      esc(o.cta.label) + '<span class="sr-only"> (opens in a new tab)</span></a></p>' : '';
+
+    var html =
+      '<section class="heds-offer" data-offer-id="' + id + '" aria-label="' + esc(o.title) + ': how it works">' +
+        '<p class="ho-kicker">How it works</p>' +
+        '<h3 class="ho-title">' + esc(o.title) + '</h3>' +
+        (o.lead ? '<p class="ho-lead">' + esc(o.lead) + '</p>' : '') +
+        '<ol class="ho-steps">' + steps + '</ol>' +
+        '<div class="ho-foot">' +
+          '<div class="ho-box"><h4>What you receive</h4><p>' + esc(o.deliver) + '</p></div>' +
+          '<div class="ho-box ho-price' + (anyTbc ? ' ho-price-tbc' : '') + '"><h4>Price</h4>' + rows +
+            (o.note ? '<p class="ho-note">' + esc(o.note) + '</p>' : '') + '</div>' +
+        '</div>' +
+        (fine.length ? '<p class="ho-fine">' + esc(fine.join(' ')) + '</p>' : '') +
+        cta +
+      '</section>';
+    return { html: html, tbc: anyTbc };
+  }
+
+  function render() {
+    var mounts = document.querySelectorAll('[data-offer]:not([data-offer-done])');
+    for (var i = 0; i < mounts.length; i++) {
+      var m = mounts[i];
+      var id = m.getAttribute('data-offer');
+      var o = OFFERS[id];
+      if (!o) continue;
+      var b = build(id, o);
+      m.innerHTML = b.html;
+      if (b.tbc) m.insertBefore(document.createComment(' PRICE-TBC: ' + id + ' '), m.firstChild);
+      m.setAttribute('data-offer-done', '1');
+    }
+  }
+
+  w.hedsRenderOffers = render;
+  w.HEDS_OFFERS = OFFERS;
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', render);
+  else render();
+})(window);

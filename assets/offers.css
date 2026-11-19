@@ -1,0 +1,66 @@
+/* Shared style for the "How it works" offer illustration. One look for every paid offer. */
+.heds-offer {
+  background: var(--card-bg, #152847);
+  border: 1px solid var(--accent, var(--accent-color, #f2a900));
+  border-radius: var(--radius, 8px);
+  padding: 22px;
+  margin: 0 0 20px;
+  color: var(--fg, #f8fafc);
+  text-align: left;
+}
+.heds-offer .ho-kicker {
+  margin: 0 0 2px; font-size: 0.78rem; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase;
+  color: var(--muted, #94a3b8);
+}
+.heds-offer .ho-title { margin: 0 0 8px; font-size: 1.3rem; color: var(--accent, var(--accent-color, #f2a900)); }
+.heds-offer .ho-lead { margin: 0 0 14px; color: #cbd5e1; font-size: 0.95rem; }
+.heds-offer .ho-steps {
+  list-style: none; margin: 14px 0; padding: 0;
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 12px;
+}
+.heds-offer .ho-step {
+  position: relative; background: rgba(6, 21, 41, 0.55); border: 1px solid var(--border, var(--border-color, #203b60));
+  border-radius: var(--radius, 8px); padding: 16px 14px 14px; list-style: none;
+}
+.heds-offer .ho-num {
+  display: inline-block; width: 32px; height: 32px; line-height: 32px; text-align: center; border-radius: 50%;
+  background: var(--accent, var(--accent-color, #f2a900)); color: #061529; font-weight: 800; margin-bottom: 8px;
+}
+.heds-offer .ho-step h4 { margin: 0 0 6px; font-size: 0.98rem; color: var(--fg, #f8fafc); }
+.heds-offer .ho-step p { margin: 0; font-size: 0.88rem; color: #cbd5e1; line-height: 1.5; }
+.heds-offer .ho-foot { display: grid; grid-template-columns: 1.4fr 1fr; gap: 12px; margin-top: 4px; }
+.heds-offer .ho-box {
+  border: 1px solid var(--border, var(--border-color, #203b60)); border-radius: var(--radius, 8px);
+  padding: 14px; background: rgba(6, 21, 41, 0.35);
+}
+.heds-offer .ho-box h4 {
+  margin: 0 0 6px; font-size: 0.8rem; letter-spacing: 1.2px; text-transform: uppercase;
+  color: var(--accent, var(--accent-color, #f2a900));
+}
+.heds-offer .ho-box p { margin: 0; font-size: 0.92rem; color: #e2e8f0; line-height: 1.55; }
+.heds-offer .ho-row {
+  display: flex; justify-content: space-between; align-items: baseline; gap: 10px; flex-wrap: wrap;
+  padding: 6px 0; border-top: 1px solid var(--border, var(--border-color, #203b60));
+}
+.heds-offer .ho-row:first-of-type { border-top: 0; padding-top: 0; }
+.heds-offer .ho-label { font-size: 0.9rem; color: #e2e8f0; }
+.heds-offer .ho-amount { font-size: 1.5rem; font-weight: 800; color: var(--accent, var(--accent-color, #f2a900)); }
+.heds-offer .ho-tbc {
+  font-size: 0.85rem; font-weight: 700; font-style: italic; color: var(--accent, var(--accent-color, #f2a900));
+  border: 1px dashed var(--accent, var(--accent-color, #f2a900)); border-radius: 6px; padding: 2px 8px;
+}
+.heds-offer .ho-note { margin-top: 10px !important; font-size: 0.82rem !important; color: var(--muted, #94a3b8) !important; }
+.heds-offer .ho-fine { margin: 12px 0 0; font-size: 0.82rem; color: var(--muted, #94a3b8); }
+.heds-offer .ho-cta { margin: 14px 0 0; text-align: center; }
+.heds-offer .ho-cta .cta-btn {
+  display: inline-block; background: var(--accent, var(--accent-color, #f2a900)); color: #061529; font-weight: 800;
+  padding: 10px 20px; border-radius: var(--radius, 8px); text-decoration: none;
+}
+@media (max-width: 700px) {
+  .heds-offer { padding: 16px 14px; }
+  .heds-offer .ho-steps { grid-template-columns: 1fr; }
+  .heds-offer .ho-foot { grid-template-columns: 1fr; }
+}
+@media print { .heds-offer .ho-cta { display: none; } }
+.heds-offer .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.card .heds-offer { margin: 18px 0 4px; border-color: var(--border, var(--border-color, #203b60)); background: rgba(6, 21, 41, 0.35); }
