@@ -1584,21 +1584,28 @@ table {
           </div>
         </div>
 
+        <div class="formula-card">
+          <div class="formula-title">DOWNTIME LOST REVENUE</div>
+          <div class="formula-expr" style="margin-top:6px;">Downtime Lost Revenue = (Annual Rental Revenue &times; Fleet Downtime %) &times; Cat Class Time Utilization %</div>
+          <p style="font-size:0.85rem; margin-top:6px;">Downtime revenue is what the fleet would bill if the down machines had been rentable all the time. A machine only earns while it is on rent, so the lost revenue is that figure times the time utilization of the cat class the machine belongs to. Without the utilization factor, the cost of downtime is overstated.</p>
+          <p style="font-size:0.85rem; margin-top:6px;"><strong>Worked Example:</strong> Annual rental revenue is $10,000,000. Fleet downtime is 6.0%, so downtime revenue is $10,000,000 &times; 6.0% = $600,000. Cat class time utilization is 75%, so downtime lost revenue is $600,000 &times; 75% = $450,000 per year.</p>
+        </div>
+
         <div style="padding:14px; background:rgba(0,0,0,0.25); border-radius:8px; border:1px solid var(--border-color); margin:10px 0; font-size:0.82rem; overflow-x:auto;">
           <p style="color:var(--accent-color); font-weight:700; margin-bottom:8px;">FLEET DOWNTIME % IMPACT MATRIX:</p>
           <table style="width:100%; border-collapse:collapse; font-size:0.8rem; text-align:left;">
             <thead>
               <tr style="border-bottom:2px solid var(--accent-color); color:var(--accent-color);">
                 <th style="padding:8px;">Fleet Downtime %</th>
-                <th style="padding:8px;">Annual Loss on $10M</th>
+                <th style="padding:8px;">Annual Lost Revenue on $10M (at 75% time utilization)</th>
                 <th style="padding:8px;">Operational State</th>
                 <th style="padding:8px;">Management Action</th>
               </tr>
             </thead>
             <tbody>
-              <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px;">&lt; 6.0% (Optimal)</td><td style="padding:8px;">&lt; $300,000</td><td style="padding:8px;">World-Class</td><td style="padding:8px;">Maintain Fast-Track discipline</td></tr>
-              <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px;">6.0% to 8.0%</td><td style="padding:8px;">$300K to $500K</td><td style="padding:8px;">Healthy Standard</td><td style="padding:8px;">Monitor 90-day parts buffers</td></tr>
-              <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px;">8.1% to 12.0%</td><td style="padding:8px;">$500K to $900K</td><td style="padding:8px;">Drag Warning</td><td style="padding:8px;">Execute daily 5-day WIP scrub</td></tr>
+              <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px;">&lt; 6.0% (Optimal)</td><td style="padding:8px;">&lt; $450,000</td><td style="padding:8px;">World-Class</td><td style="padding:8px;">Maintain Fast-Track discipline</td></tr>
+              <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px;">6.0% to 8.0%</td><td style="padding:8px;">$450K to $600K</td><td style="padding:8px;">Healthy Standard</td><td style="padding:8px;">Monitor 90-day parts buffers</td></tr>
+              <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px;">8.1% to 12.0%</td><td style="padding:8px;">$600K to $900K</td><td style="padding:8px;">Drag Warning</td><td style="padding:8px;">Execute daily 5-day WIP scrub</td></tr>
               <tr><td style="padding:8px;">&gt; 12.0% (Critical)</td><td style="padding:8px;">&gt; $900K+</td><td style="padding:8px;">Severe Cash Bleed</td><td style="padding:8px;">Mandatory GM bay intervention</td></tr>
             </tbody>
           </table>
@@ -1916,7 +1923,15 @@ table {
         </div>
         <div class="form-group">
           <label for="dm4_down_days">Your Days Down in Shop</label>
-          <input type="number" id="dm4_down_days" value="315" placeholder="Enter days down in shop" oninput="calcMod4()">
+          <input type="number" id="dm4_down_days" value="270" placeholder="Enter days down in shop" oninput="calcMod4()">
+        </div>
+        <div class="form-group">
+          <label for="dm4_revenue">Your Annual Rental Revenue ($)</label>
+          <input type="number" id="dm4_revenue" value="10000000" placeholder="Enter annual rental revenue $" oninput="calcMod4()">
+        </div>
+        <div class="form-group">
+          <label for="dm4_util">Cat Class Time Utilization %</label>
+          <input type="number" id="dm4_util" value="75" placeholder="Enter cat class time utilization %" oninput="calcMod4()">
         </div>
       </div>
       <div>
@@ -1924,8 +1939,16 @@ table {
           <div class="card-title">Fleet Downtime Diagnostic</div>
           <div class="metric-box">
             <div style="font-size:0.8rem; color:var(--muted); font-weight:700;">FLEET DOWNTIME %</div>
-            <div class="metric-val" id="dm4_res_pct">7.0%</div>
+            <div class="metric-val" id="dm4_res_pct">6.0%</div>
             <div id="dm4_status" class="metric-status status-pass">PASS</div>
+          </div>
+          <div class="metric-box">
+            <div style="font-size:0.8rem; color:var(--muted); font-weight:700;">DOWNTIME REVENUE (REVENUE &times; DOWNTIME %)</div>
+            <div class="metric-val" id="dm4_res_dtrev">$600,000</div>
+          </div>
+          <div class="metric-box">
+            <div style="font-size:0.8rem; color:var(--muted); font-weight:700;">DOWNTIME LOST REVENUE (&times; CAT CLASS TIME UTILIZATION)</div>
+            <div class="metric-val" id="dm4_res_lost" style="color:var(--danger);">$450,000</div>
           </div>
           <p style="font-size:0.8rem; color:var(--muted);">Old AI KPIs archived Oct 23 2026; new set in development.</p>
         </div>
@@ -2094,7 +2117,7 @@ table {
         <div class="form-group">
           <label for="dm9_turnaround">Turnaround Drag ($/mo)</label>
           <input type="number" id="dm9_turnaround" value="0" placeholder="Enter $/mo" oninput="calcLeak()">
-          <p style="font-size:0.8rem; color:var(--muted); margin-top:4px;">Lost revenue from units sitting &gt;48h in turnaround pipeline. (Excess turnaround hours &times; daily rental rate &times; affected units)</p>
+          <p style="font-size:0.8rem; color:var(--muted); margin-top:4px;">Lost revenue from units sitting &gt;48h in turnaround pipeline. (Excess turnaround hours &times; daily rental rate &times; affected units &times; cat class time utilization)</p>
         </div>
         <div class="form-group">
           <label for="dm9_unrecovered">Unrecovered Damage ($/mo)</label>
@@ -2542,12 +2565,20 @@ function printCertificateRSM() {
       var pct = (downDays / totalDays) * 100;
       document.getElementById('dm4_res_pct').innerText = pct.toFixed(1) + '%';
       document.getElementById('s_val_down').innerText = pct.toFixed(1) + '%';
+      var rev4 = parseFloat(document.getElementById('dm4_revenue') ? document.getElementById('dm4_revenue').value : 0) || 0;
+      var util4 = parseFloat(document.getElementById('dm4_util') ? document.getElementById('dm4_util').value : 0) || 0;
+      var dtRev = rev4 * (downDays / totalDays);
+      var lostRev = dtRev * (util4 / 100);
+      var dtEl = document.getElementById('dm4_res_dtrev'); if (dtEl) dtEl.innerText = '$' + Math.round(dtRev).toLocaleString('en-US');
+      var lostEl = document.getElementById('dm4_res_lost'); if (lostEl) lostEl.innerText = '$' + Math.round(lostRev).toLocaleString('en-US');
       if (pct < 8) { setStatus('dm4_status', 'PASS', 'status-pass'); setScoreStatus('s_stat_down', '<span class="metric-status status-pass">PASS</span>', '', '', 'pass'); }
       else if (pct >= 8 && pct <= 12) { setStatus('dm4_status', 'WARN', 'status-warn'); setScoreStatus('s_stat_down', '', '<span class="metric-status status-warn">WARN</span>', '', 'warn'); }
       else { setStatus('dm4_status', 'FAIL', 'status-fail'); setScoreStatus('s_stat_down', '', '', '<span class="metric-status status-fail">FAIL</span>', 'fail'); }
     } else {
       document.getElementById('dm4_res_pct').innerText = '--';
       document.getElementById('s_val_down').innerText = '--';
+      var dtEl2 = document.getElementById('dm4_res_dtrev'); if (dtEl2) dtEl2.innerText = '--';
+      var lostEl2 = document.getElementById('dm4_res_lost'); if (lostEl2) lostEl2.innerText = '--';
       setStatus('dm4_status', '--', 'status-warn');
     }
     saveData();

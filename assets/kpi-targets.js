@@ -121,7 +121,7 @@
       rules: [{ op: 'gte', v: 92, grade: 'PASS' }, { op: 'gte', v: 88, grade: 'WARN' }], otherwise: { grade: 'FAIL' } },
     fleet_downtime: { name: 'Fleet Downtime', unit: '%',
       short: 'Under 8% passes, per the Rental Service dashboard',
-      text: 'Rental targets are covered in training. The Rental Service dashboard grades under 8% as a pass.',
+      text: 'Rental targets are covered in training. The Rental Service dashboard grades under 8% as a pass. Downtime lost revenue is downtime revenue times the cat class time utilization.',
       rules: [{ op: 'lt', v: 8, grade: 'PASS' }, { op: 'lte', v: 12, grade: 'WARN' }], otherwise: { grade: 'FAIL' } },
     late_close_work_orders: { name: 'Late Close Work Orders', unit: 'orders',
       text: 'Rental targets are covered in training. Any work order past 48 hours of last labor is a fail.',
