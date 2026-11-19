@@ -77,7 +77,15 @@
         { title: 'EBITDA Margin', def: 'EBITDA divided by total rental revenue, times 100.',
           inputs: [I('eb', 'EBITDA', 700000, -500000, 4000000, 10000, '$'), I('rr', 'Total rental revenue', 2700000, 10000, 10000000, 50000, '$')], outputs: ratio('ebitda_margin', 'eb', 'rr') },
         { title: 'Customer Churn (quarterly)', def: 'Customers lost this quarter divided by active customers last quarter, times 100.',
-          inputs: [I('lost', 'Customers lost this quarter', 6, 0, 100, 1, 'customers'), I('act', 'Active customers last quarter', 80, 1, 400, 1, 'customers')], outputs: ratio('customer_churn', 'lost', 'act') }
+          inputs: [I('lost', 'Customers lost this quarter', 6, 0, 100, 1, 'customers'), I('act', 'Active customers last quarter', 80, 1, 400, 1, 'customers')], outputs: ratio('customer_churn', 'lost', 'act') },
+        { title: 'Equipment Downtime', def: 'Down days divided by available days, times 100. Downtime lost revenue is downtime revenue times the cat class time utilization.',
+          inputs: [I('dd', 'Days down in shop', 240, 0, 5000, 5, 'days'), I('av2', 'Available rentable days', 4000, 100, 15000, 100, 'days')], outputs: ratio('equipment_downtime', 'dd', 'av2') },
+        { title: 'Rate Realization', def: 'Actual invoiced rate divided by rack rate, times 100.',
+          inputs: [I('ar', 'Actual average invoiced daily rate', 290, 1, 2000, 1, '$'), I('rk', 'Rack daily rate', 321, 1, 2000, 1, '$')], outputs: ratio('rate_realization', 'ar', 'rk') },
+        { title: 'Damage Recovery Rate', def: 'Customer damage collected divided by total cost of customer damage repairs, times 100.',
+          inputs: [I('dc2', 'Customer damage collected', 15000, 0, 200000, 500, '$'), I('dr2', 'Total cost of customer damage repairs', 20000, 500, 200000, 500, '$')], outputs: ratio('damage_recovery_rate', 'dc2', 'dr2') },
+        { title: 'Equipment to Orders Ratio', def: 'Available units in a class divided by active rental requests for that class.',
+          inputs: [I('au', 'Available units in the class', 12, 0, 200, 1, 'units'), I('rq', 'Active rental requests for the class', 12, 1, 200, 1, 'requests')], outputs: [{ kpi: 'equipment_to_orders', f: function (v) { return v.au / Math.max(v.rq, 1); } }] }
       ] },
       { name: 'Rental Service', tiles: [
         { title: 'Off Rent to Rent-Ready', def: 'Hours from off rent into service to the rent-ready line, or to a failed inspection.',
@@ -158,7 +166,7 @@
             var t = T[o.kpi], val = o.f(v), g = grade(o.kpi, val);
             var row = el('div', 'out');
             row.appendChild(el('span', 'nm', t.name));
-            row.appendChild(el('span', 'val', nf(val, 1) + (UNIT_SUFFIX[t.unit] || '')));
+            row.appendChild(el('span', 'val', nf(val, t.unit === 'ratio' ? 2 : 1) + (UNIT_SUFFIX[t.unit] || '')));
             row.appendChild(el('span', 'pill ' + g.grade.toLowerCase(), g.grade + (g.label ? ': ' + g.label : '')));
             row.appendChild(el('span', 'tg', 'Target: ' + t.text));
             outBox.appendChild(row);

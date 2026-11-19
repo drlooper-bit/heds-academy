@@ -97,6 +97,19 @@
       text: 'Rental targets are covered in training. The Rental dashboard grades 30% or more as a pass.',
       rules: [{ op: 'gte', v: 30, grade: 'PASS' }, { op: 'gte', v: 20, grade: 'WARN' }], otherwise: { grade: 'FAIL' },
       pending: 'Whether rental targets show in the calculator and library. The settled band is 30% to 46%.' },
+    equipment_downtime: { name: 'Equipment Downtime', unit: '%',
+      short: 'Under 8% passes, per the Rental dashboard',
+      text: 'Rental targets are covered in training. The Rental dashboard grades under 8% as a pass. Downtime lost revenue is downtime revenue times the cat class time utilization.',
+      rules: [{ op: 'lt', v: 8, grade: 'PASS' }, { op: 'lte', v: 12, grade: 'WARN' }], otherwise: { grade: 'FAIL' } },
+    rate_realization: { name: 'Rate Realization', unit: '%',
+      short: '90% or more passes, per the Rental dashboard',
+      text: 'Rental targets are covered in training. The Rental dashboard grades 90% or more as a pass.',
+      rules: [{ op: 'gte', v: 90, grade: 'PASS' }, { op: 'gte', v: 80, grade: 'WARN' }], otherwise: { grade: 'FAIL' },
+      pending: 'The dashboard escalation text says below 85% for two months, while the calculator grades PASS at 90%, WARN at 80%.' },
+    equipment_to_orders: { name: 'Equipment to Orders Ratio', unit: 'ratio',
+      short: '0.9 to 1.2 passes, per the Rental dashboard',
+      text: 'Rental targets are covered in training. The Rental dashboard grades 0.9 to 1.2 as a pass.',
+      rules: [{ op: 'lt', v: 0.8, grade: 'FAIL', label: 'Under supplied' }, { op: 'lt', v: 0.9, grade: 'WARN', label: 'Under supplied' }, { op: 'lte', v: 1.2, grade: 'PASS' }, { op: 'lte', v: 1.5, grade: 'WARN', label: 'Over supplied' }], otherwise: { grade: 'FAIL', label: 'Over supplied' } },
     customer_churn: { name: 'Customer Churn (quarterly)', unit: '%',
       text: 'Rental targets are covered in training. The Rental dashboard grades under 10% as a pass.',
       rules: [{ op: 'lt', v: 10, grade: 'PASS' }, { op: 'lte', v: 15, grade: 'WARN' }], otherwise: { grade: 'FAIL' },
@@ -140,7 +153,7 @@
 
   function grade(id, value) {
     var t = T[id];
-    var v = Math.round(value * 10) / 10;
+    var v = t.unit === 'ratio' ? Math.round(value * 100) / 100 : Math.round(value * 10) / 10;
     for (var i = 0; i < t.rules.length; i++) {
       var r = t.rules[i], hit = false;
       if (r.op === 'gt') hit = v > r.v;

@@ -7,6 +7,7 @@
 <meta name="description" content="Onsite audits, due diligence and position-specific training for heavy equipment dealers, rental companies and fleet owners. Uses your real data, installs daily operating discipline, and produces a 90-day action plan.">
 <meta name="google-site-verification" content="juXi8AiDSJ-9oK6rN8mlBASv7m_epb6sMyjfsM-3wls">
 <link rel="icon" type="image/png" href="LOGO_HEDS_small.png">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
 <link rel="canonical" href="https://hedsconsulting.net/">
 <meta property="og:title" content="HEDS Operating Discipline Academy: Heavy Equipment Dealer Solutions LLC">
 <meta property="og:description" content="Onsite audits, due diligence and training that install daily operating discipline at heavy equipment dealerships, rental companies and fleet owners.">
@@ -1565,28 +1566,13 @@ input, select, textarea {
   <div class="card" style="text-align:center;">
     <h2>$300 per manager</h2>
     <p>Volume pricing: 5+ managers at $250 each. 10+ at $200 each.</p>
-    <p style="margin-top:16px;">To schedule an assessment for your team, request details below. We will follow up within one business day with available dates, proctoring options (in person or monitored remote), and the assessment brief.</p>
-    <a class="cta-btn" href="mailto:daniel@hedsconsulting.net?subject=HEDS%20Assessment:%20Request%20Details" style="margin-top:16px;">Request Assessment Details</a>
+    <p style="margin-top:16px;">To schedule an assessment for your team, request details with the button below. We will follow up within one business day with available dates, proctoring options (in person or monitored remote), and the assessment brief.</p>
+    <a class="cta-btn" href="https://docs.google.com/forms/d/e/1FAIpQLScPCb8GgApY22VvkqBPgJkSG4VDWZYXaAfI-SuHNkSpPyMV6A/viewform" target="_blank" rel="noopener" style="margin-top:16px;">Request Assessment Details<span class="sr-only"> (opens in a new tab)</span></a>
   </div>
 
   <div class="card">
-    <h2>Prefer email?</h2>
-    <form id="assessment-form" onsubmit="return hedsAssessmentSubmit(event);" style="display:flex;flex-direction:column;gap:12px;max-width:480px;margin:0 auto;">
-      <label for="assess-name" style="font-size:0.9rem;color:var(--muted);">Your name</label>
-      <input type="text" id="assess-name" name="name" required placeholder="John Smith" style="padding:12px;border-radius:var(--radius);border:1px solid var(--border);background:var(--bg);color:var(--fg);font-size:1rem;">
-      <label for="assess-email" style="font-size:0.9rem;color:var(--muted);">Email</label>
-      <input type="email" id="assess-email" name="email" required placeholder="you@dealership.com" style="padding:12px;border-radius:var(--radius);border:1px solid var(--border);background:var(--bg);color:var(--fg);font-size:1rem;">
-      <label for="assess-company" style="font-size:0.9rem;color:var(--muted);">Company</label>
-      <input type="text" id="assess-company" name="company" placeholder="Dealership or rental company name" style="padding:12px;border-radius:var(--radius);border:1px solid var(--border);background:var(--bg);color:var(--fg);font-size:1rem;">
-      <label for="assess-managers" style="font-size:0.9rem;color:var(--muted);">How many managers?</label>
-      <select id="assess-managers" name="managers" style="padding:12px;border-radius:var(--radius);border:1px solid var(--border);background:var(--bg);color:var(--fg);font-size:1rem;">
-        <option value="1">1 manager</option>
-        <option value="2-4">2-4 managers</option>
-        <option value="5+">5+ managers</option>
-      </select>
-      <button type="submit" class="cta-btn" style="margin-top:8px;border:none;">Get Assessment Details</button>
-      <div id="assess-confirm" role="status" aria-live="polite" style="display:none;font-size:0.9rem;text-align:left;margin-top:8px;"></div>
-    </form>
+    <h2>Prefer email or a call?</h2>
+    <p>You can also email <a href="mailto:daniel@hedsconsulting.net" style="color:var(--accent);">daniel@hedsconsulting.net</a> or call <a href="tel:3527245603" style="color:var(--accent);">(352) 724-5603</a>, and Daniel will send available dates, proctoring options and the assessment brief.</p>
   </div>
 </div>
 
@@ -1796,64 +1782,6 @@ window.addEventListener('DOMContentLoaded', function() {
     }
   }
 });
-
-// ===== ASSESSMENT FORM HANDLER =====
-// Opens the visitor's email app with the request filled in. The form is not
-// cleared and no success message is shown, because the site cannot tell if an
-// email app opened or if the message was sent. The composed message is shown
-// with a copy button so it can be sent from any email account.
-function hedsAssessmentSubmit(e) {
-  e.preventDefault();
-  var to = 'daniel@hedsconsulting.net';
-  var name = document.getElementById('assess-name').value.trim();
-  var email = document.getElementById('assess-email').value.trim();
-  var companyRaw = document.getElementById('assess-company').value.trim();
-  var company = companyRaw || 'Not provided';
-  var managers = document.getElementById('assess-managers').value;
-  var subjectText = 'HEDS Assessment Request: ' + (companyRaw || name);
-  var bodyText =
-    'Name: ' + name + '\n' +
-    'Email: ' + email + '\n' +
-    'Company: ' + company + '\n' +
-    'Managers: ' + managers + '\n\n' +
-    'Please send available assessment dates, proctoring options, and the assessment brief.';
-  var fullText = 'To: ' + to + '\nSubject: ' + subjectText + '\n\n' + bodyText;
-
-  var box = document.getElementById('assess-confirm');
-  box.innerHTML =
-    '<p style="margin:0 0 8px;">Your email app should open with this request filled in. Press Send there to reach Daniel.</p>' +
-    '<p style="margin:0 0 8px;">If no email app opened, copy the message below and send it to ' +
-    '<a href="mailto:' + to + '" style="color:var(--accent);">' + to + '</a>, or call <a href="tel:3527245603" style="color:var(--accent);">352-724-5603</a>.</p>' +
-    '<label for="assess-message" style="display:block;font-size:0.85rem;color:var(--muted);margin-bottom:4px;">Your request</label>' +
-    '<textarea id="assess-message" readonly rows="9" style="width:100%;box-sizing:border-box;padding:10px;border-radius:var(--radius);border:1px solid var(--border);background:var(--bg);color:var(--fg);font-size:0.9rem;font-family:inherit;resize:vertical;"></textarea>' +
-    '<button type="button" id="assess-copy" style="margin-top:8px;padding:8px 14px;border-radius:var(--radius);border:1px solid var(--border);background:var(--bg);color:var(--fg);cursor:pointer;">Copy message</button> ' +
-    '<span id="assess-copy-status" style="margin-left:8px;color:var(--muted);"></span>';
-  box.style.display = 'block';
-  var ta = document.getElementById('assess-message');
-  ta.value = fullText;
-
-  document.getElementById('assess-copy').onclick = function () {
-    var status = document.getElementById('assess-copy-status');
-    function fallbackCopy() {
-      ta.focus();
-      ta.select();
-      var ok = false;
-      try { ok = document.execCommand('copy'); } catch (err) { ok = false; }
-      status.textContent = ok ? 'Copied.' : 'Select the text above and copy it.';
-    }
-    if (navigator.clipboard && window.isSecureContext) {
-      navigator.clipboard.writeText(fullText).then(function () {
-        status.textContent = 'Copied.';
-      }, fallbackCopy);
-    } else {
-      fallbackCopy();
-    }
-  };
-
-  window.location.href = 'mailto:' + to + '?subject=' + encodeURIComponent(subjectText) + '&body=' + encodeURIComponent(bodyText);
-  return false;
-}
-
 
 // Support browser back/forward buttons
 window.addEventListener('popstate', function() {
