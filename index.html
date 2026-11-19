@@ -69,7 +69,7 @@
   "name": "HEDS Operating Discipline Academy",
   "parentOrganization": "Heavy Equipment Dealer Solutions LLC",
   "description": "Position-specific onsite training for heavy equipment dealers and rental companies. 6 training tracks. Four are live: Service Manager, Rental Service Manager, Rental Manager, and Parts Manager. Branch Manager and Regional & Executive Leadership are in development.",
-  "url": "https://hedsconsulting.net/",
+  "url": "https://hedsconsulting.net/#training",
   "department": [
     {"@type": "EducationalOrganization", "name": "Service Manager Training"},
     {"@type": "EducationalOrganization", "name": "Rental Service Manager Training"},
@@ -835,7 +835,7 @@ input, select, textarea {
 .sub-nav.open { display: flex; }
 .sub-nav .tab-btn { font-size: 0.84rem; padding: 12px 20px; }
 @media (max-width: 767px) {
-  .sub-nav.open { display: grid !important; grid-template-columns: repeat(4, 1fr) !important; }
+  .sub-nav.open { display: grid !important; grid-template-columns: repeat(5, 1fr) !important; }
   .sub-nav:not(.open) { display: none !important; }
   .sub-nav .tab-btn { font-size: 0.72rem !important; padding: 6px 2px !important; }
 }
@@ -846,7 +846,7 @@ input, select, textarea {
 .areas-bar .area-btn:hover { color: var(--fg); border-bottom-color: var(--border); }
 .areas-bar .area-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
 @media (max-width: 767px) {
-  .areas-bar { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; padding: 4px; overflow-x: visible; }
+  .areas-bar { display: grid; grid-template-columns: repeat(5, 1fr); gap: 4px; padding: 4px; overflow-x: visible; }
   .areas-bar .area-btn { width: 100%; font-size: 0.72rem; padding: 6px 2px; white-space: normal; line-height: 1.15; text-align: center; border: 1px solid rgba(32, 59, 96, 0.7); border-radius: 6px; background: rgba(14, 31, 56, 0.75); }
 }
 </style>
@@ -884,6 +884,7 @@ input, select, textarea {
   <button class="tab-btn" role="tab" aria-selected="false" data-sec="dealership" onclick="showSection('dealership', this)">Dealership</button>
   <button class="tab-btn" role="tab" aria-selected="false" data-sec="rental" onclick="showSection('rental', this)">Rental</button>
   <button class="tab-btn" role="tab" aria-selected="false" data-sec="fleet" onclick="showSection('fleet', this)">Fleet</button>
+  <button class="tab-btn" role="tab" aria-selected="false" data-sec="training" onclick="showSection('training', this)">Training</button>
 </nav>
 </div>
 
@@ -896,6 +897,7 @@ input, select, textarea {
     <button type="button" class="area-btn" onclick="showSection('dealership')">Dealership</button>
     <button type="button" class="area-btn" onclick="showSection('rental')">Rental</button>
     <button type="button" class="area-btn" onclick="showSection('fleet')">Fleet</button>
+    <button type="button" class="area-btn" onclick="showSection('training')">Training</button>
   </nav>
   <div class="hero">
     <h2>We find the money your operation is losing or overlooking, and install the discipline to keep the bottlenecks from coming back.</h2>
@@ -1121,10 +1123,9 @@ input, select, textarea {
   </div>
 </div>
 
-<!-- ===== DEALERSHIP SECTION (#training and #academy still resolve here) ===== -->
+<!-- ===== DEALERSHIP SECTION ===== -->
 <div class="section" id="sec-dealership" role="tabpanel">
   <span id="dealership"></span>
-  <span id="training"></span>
   <div class="hero">
     <h2>Dealership Training and Audits</h2>
     <p>Position-specific onsite training that installs daily operating discipline, using your real data, on your floor, with your numbers. Not a webinar. Not a book. Not a generic management seminar.</p>
@@ -1192,6 +1193,7 @@ input, select, textarea {
     <div style="display:grid;gap:14px;">
 
       <!-- Track 1: Service Manager -->
+      <div data-shared="track-sm" style="display:contents">
       <div class="card" style="margin-bottom:0;border-color:var(--border);">
         <h3 style="color:var(--accent);">🔧 Service Manager Training</h3>
         <div class="track-audience">Service Managers, Service Advisors, Shop Foremen, Service Administrators, Field Service Coordinators, Dispatch</div>
@@ -1203,8 +1205,10 @@ input, select, textarea {
           <a href="mailto:daniel@hedsconsulting.net?subject=HEDS%20Academy:%20Service%20Manager%20Training%20Signup" class="btn-signup">Sign Up</a>
         </div>
       </div>
+      </div>
 
       <!-- Track 4: Parts Manager -->
+      <div data-shared="track-pm" style="display:contents">
       <div class="card" style="margin-bottom:0;border-color:var(--border);">
         <h3 style="color:var(--accent);">📦 Parts Manager Training</h3>
         <div class="track-audience">Parts Managers, Assistant Parts Managers, Parts Counter Supervisors, Warehouse/Inventory Leads</div>
@@ -1216,8 +1220,10 @@ input, select, textarea {
           <a href="mailto:daniel@hedsconsulting.net?subject=HEDS%20Academy:%20Parts%20Manager%20Training%20Signup" class="btn-signup">Sign Up</a>
         </div>
       </div>
+      </div>
 
       <!-- Track 5: Branch Manager (Coming Soon) -->
+      <div data-shared="track-bm" style="display:contents">
       <div class="card" style="margin-bottom:0;border-color:var(--border);opacity:0.85;">
         <h3 style="color:var(--accent);">🏢 Branch Manager Training</h3>
         <div class="track-audience">Branch Managers, General Managers, Multi-Store Leaders</div>
@@ -1225,14 +1231,17 @@ input, select, textarea {
         <div class="track-stats"><span>In development</span></div>
         <span class="badge-coming-soon">Coming Soon</span>
       </div>
+      </div>
 
       <!-- Track 6: Regional & Executive (Coming Soon) -->
+      <div data-shared="track-re" style="display:contents">
       <div class="card" style="margin-bottom:0;border-color:var(--border);opacity:0.85;">
         <h3 style="color:var(--accent);">📊 Regional &amp; Executive Leadership</h3>
         <div class="track-audience">Regional Managers, Product Support Executives, Owners</div>
         <p style="font-size:0.9rem;margin-bottom:12px;">Multi-branch orchestration, capital allocation, dealer group strategy, and executive KPI oversight. Curriculum in development.</p>
         <div class="track-stats"><span>In development</span></div>
         <span class="badge-coming-soon">Coming Soon</span>
+      </div>
       </div>
 
     </div>
@@ -1363,6 +1372,7 @@ input, select, textarea {
     <div style="display:grid;gap:14px;">
 
       <!-- Track 2: Rental Service Manager -->
+      <div data-shared="track-rsm" style="display:contents">
       <div class="card" style="margin-bottom:0;border-color:var(--border);">
         <h3 style="color:var(--accent);">🚜 Rental Service Manager Training</h3>
         <div class="track-audience">Rental Service Managers, Shop Foremen, Field Service Coordinators, PM Coordinators</div>
@@ -1374,8 +1384,10 @@ input, select, textarea {
           <a href="mailto:daniel@hedsconsulting.net?subject=HEDS%20Academy:%20Rental%20Service%20Manager%20Training%20Signup" class="btn-signup">Sign Up</a>
         </div>
       </div>
+      </div>
 
       <!-- Track 3: Rental Manager -->
+      <div data-shared="track-rm" style="display:contents">
       <div class="card" style="margin-bottom:0;border-color:var(--border);">
         <h3 style="color:var(--accent);">💰 Rental Manager Training</h3>
         <div class="track-audience">Rental Managers, Rental Coordinators, Fleet Coordinators, Dispatch Leads</div>
@@ -1386,6 +1398,7 @@ input, select, textarea {
           <a href="rental-manager-dashboard.html#sec_dashboard" class="btn-preview">Open Dashboard</a>
           <a href="mailto:daniel@hedsconsulting.net?subject=HEDS%20Academy:%20Rental%20Manager%20Training%20Signup" class="btn-signup">Sign Up</a>
         </div>
+      </div>
       </div>
 
     </div>
@@ -1441,6 +1454,67 @@ input, select, textarea {
   </div>
 </div>
 
+
+<!-- ===== TRAINING SECTION (#training, #academy and #tracks resolve here) ===== -->
+<div class="section" id="sec-training" role="tabpanel">
+  <span id="training"></span>
+  <div class="hero">
+    <h2>HEDS Operating Discipline Academy</h2>
+    <p>Position-specific onsite training that installs daily operating discipline, using your real data, on your floor, with your numbers. Not a webinar. Not a book. Not a generic management seminar.</p>
+  </div>
+
+  <div class="stats">
+    <div class="stat-box"><span class="stat-num">6</span><span class="stat-label">Training Tracks (4 Live, 2 in Development)</span></div>
+    <div class="stat-box"><span class="stat-num">5</span><span class="stat-label">Days Onsite</span></div>
+    <div class="stat-box"><span class="stat-num">50</span><span class="stat-label">Assessment Questions</span></div>
+    <div class="stat-box"><span class="stat-num">90</span><span class="stat-label">Day Action Plan</span></div>
+  </div>
+
+  <div class="card">
+    <h2>What the Academy Does</h2>
+    <p>Heavy equipment dealers, rental companies and equipment groups track KPIs but fail on the daily behaviors that drive them. The Academy closes that gap, onsite, with your real data, using operating standards developed across multi-location product support leadership on the dealer floor.</p>
+
+    <h3 style="color:var(--accent);margin-top:16px;">Why most dealer training fails</h3>
+    <div class="problem-grid">
+      <div class="problem-card">
+        <h3>The Problem</h3>
+        <ul>
+          <li>Generic leadership programs miss heavy equipment operational reality</li>
+          <li>Classroom learning dies on the floor, with no connection to WIP boards, parts counters or rent-ready lists</li>
+          <li>Managers hear "labor recovery" or "fill rate" but leave without a single checklist or scorecard they can use Monday morning</li>
+        </ul>
+      </div>
+      <div class="problem-card solution">
+        <h3>What HEDS Academy Does Differently</h3>
+        <ul>
+          <li>Every module uses your actual operational data: aged WIP, parts snapshots, fleet status and branch scorecards</li>
+          <li>Participants build or refine their own scorecards and action plans during the 5 days onsite</li>
+          <li>Human management behaviors are primary; technology is secondary</li>
+          <li>Follow-up coaching is available on a performance-triggered basis, not bundled into a package you may not need</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" style="text-align:center;">
+    <p style="color:var(--accent);font-weight:600;font-size:1.1rem;margin:0;">You leave with standards installed, not just slides reviewed.</p>
+  </div>
+
+  <div class="card">
+    <h2>All Six Training Tracks</h2>
+    <p style="margin-bottom:16px;">Each live track is a standalone 5-day onsite program with its own interactive dashboard and the 50-question Industry Knowledge Assessment, and each ends with a 90-day action plan built on your real data. All tracks share a Day 1 financial foundation so every role speaks the same language before breaking into position-specific work. Open any track to preview the curriculum or its dashboard.</p>
+    <div style="display:grid;gap:14px;">
+      <div data-clone="track-sm" style="display:contents"></div>
+      <div data-clone="track-pm" style="display:contents"></div>
+      <div data-clone="track-rm" style="display:contents"></div>
+      <div data-clone="track-rsm" style="display:contents"></div>
+      <div data-clone="track-bm" style="display:contents"></div>
+      <div data-clone="track-re" style="display:contents"></div>
+    </div>
+  </div>
+
+  <div data-clone="academy-common" style="display:contents"></div>
+</div>
 
 <!-- ===== ASSESSMENT SECTION ===== -->
 <div class="section" id="sec-assessment" role="tabpanel">
@@ -1626,13 +1700,13 @@ input, select, textarea {
 <script>
 // Old and shortcut anchors that now resolve to a renamed or moved tab.
 var SEC_ALIASES = {
-  training: 'dealership', tracks: 'dealership', academy: 'dealership', sm: 'dealership', pm: 'dealership',
+  tracks: 'training', academy: 'training', sm: 'dealership', pm: 'dealership',
   services: 'diligence', rsm: 'rental', rm: 'rental',
   snapshot: 'overview', 'initial-snapshot': 'overview',
   'dd-scorecard': 'diligence', 'due-diligence-scorecard': 'diligence',
   'fleet-owners': 'fleet', 'fleet-owner': 'fleet'
 };
-var SERVICE_SECS = ['diligence', 'dealership', 'rental', 'fleet'];
+var SERVICE_SECS = ['diligence', 'dealership', 'rental', 'fleet', 'training'];
 var lastService = 'diligence';
 var SCROLL_ANCHORS = { snapshot: 'snapshot', 'initial-snapshot': 'snapshot', 'dd-scorecard': 'dd-scorecard', 'due-diligence-scorecard': 'dd-scorecard' };
 function scrollAnchorFor(hash) {
