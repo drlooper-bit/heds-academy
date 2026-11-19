@@ -886,6 +886,21 @@ input, select, textarea {
     <p>HEDS is a heavy equipment dealership services firm serving dealers, rental companies, and equipment groups across the United States. We combine onsite operational audits with hands-on management training to stop margin leakage where it starts, on the shop floor.</p>
   </div>
 
+  <!-- ===== INITIAL SNAPSHOT (first offer; shared on Overview, Dealership and Rental) ===== -->
+  <span id="snapshot"></span>
+  <div class="card" style="border-color:var(--accent);" data-shared="snapshot-card">
+    <h2>Start With an Initial Snapshot</h2>
+    <p style="color:var(--accent);font-weight:600;font-size:1.05rem;">We show you the biggest dollar leak in your location before you commit to anything else.</p>
+    <p>You send a small set of reports you already run, such as the Departmental P&amp;L Summary, the Open Work Order Report and the Shop Labor Tracking Report. If your system names them differently, the Service Manager and Parts Manager dashboards list what each report is called in IntelliDealer / e-Emphasys, Epicor and Texada.</p>
+    <p>HEDS returns a short snapshot of where your location stands on a handful of KPIs from the HEDS KPI Library, such as location absorption, effective labor rate against 92% of posted rate, labor recovery, parts gross margin and WIP aging. The snapshot calls out your biggest dollar leak, so you know exactly where to start.</p>
+    <p>Rental locations can also include fleet measures from the KPI Library, such as time utilization, dollar utilization and maintenance cost as a percent of OEC.</p>
+    <!-- DANIEL: price/turnaround -->
+    <div style="text-align:center;margin-top:16px;">
+      <a class="cta-btn" href="contact.html">Request Your Initial Snapshot</a>
+      <p style="font-size:0.85rem;margin:12px 0 0;"><a href="kpi-dashboards.html" style="color:var(--muted);">Browse the KPI Library</a></p>
+    </div>
+  </div>
+
   <div class="service-grid">
     <div class="service-card">
       <div class="service-icon">🔍</div>
@@ -1125,6 +1140,8 @@ input, select, textarea {
     <p style="color:var(--accent);font-weight:600;font-size:1.1rem;margin:0;">You leave with standards installed, not just slides reviewed.</p>
   </div>
 
+  <div data-clone="snapshot-card" style="display:contents"></div>
+
   <div class="card">
     <h2>What We Audit</h2>
     <div class="service-grid" data-clone="audit-service audit-parts"></div>
@@ -1282,6 +1299,8 @@ input, select, textarea {
     <h2>Rental Training and Audits</h2>
     <p>Position-specific onsite training for Rental Managers and Rental Service Managers, using your real fleet data, with an interactive dashboard for each track.</p>
   </div>
+
+  <div data-clone="snapshot-card" style="display:contents"></div>
 
   <div class="card">
     <h2>What We Audit</h2>
@@ -1523,10 +1542,12 @@ input, select, textarea {
 // Old and shortcut anchors that now resolve to a renamed or moved tab.
 var SEC_ALIASES = {
   training: 'dealership', tracks: 'dealership', academy: 'dealership', sm: 'dealership', pm: 'dealership',
-  services: 'diligence', rsm: 'rental', rm: 'rental'
+  services: 'diligence', rsm: 'rental', rm: 'rental',
+  snapshot: 'overview', 'initial-snapshot': 'overview'
 };
 var SERVICE_SECS = ['diligence', 'dealership', 'rental', 'fleet'];
 var lastService = 'diligence';
+var snapshotRequested = /^#(sec-)?(initial-)?snapshot$/.test(window.location.hash);
 
 function resolveSec(hash) {
   var h = (hash || '').replace(/^#/, '').replace(/^sec-/, '');
@@ -1588,6 +1609,19 @@ window.addEventListener('DOMContentLoaded', function() {
   var hash = resolveSec(window.location.hash);
   if (hash && document.getElementById('sec-' + hash)) {
     showSection(hash);
+    if (/^#(sec-)?(initial-)?snapshot$/.test(window.location.hash) || snapshotRequested) {
+      setTimeout(function() {
+        var snap = document.getElementById('snapshot');
+        var hdr = document.querySelector('.site-header-group');
+        if (snap && snap.nextElementSibling) {
+          var y = snap.nextElementSibling.getBoundingClientRect().top + window.pageYOffset - (hdr ? hdr.offsetHeight : 0) - 12;
+          window.scrollTo({ top: y, behavior: 'instant' });
+        }
+      }, 300);
+    } else if (window.location.hash) {
+      // Undo the browser's native jump to the hidden anchor span so the tab starts at its top.
+      setTimeout(function() { window.scrollTo({ top: 0, behavior: 'instant' }); }, 300);
+    }
   }
 });
 
