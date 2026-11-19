@@ -846,6 +846,7 @@ input, select, textarea {
   .section { display: block !important; }
 </style>
 </noscript>
+<link rel="stylesheet" href="assets/dd-scorecard.css">
 </head>
 <body>
 
@@ -1068,6 +1069,18 @@ input, select, textarea {
       <li>Branch-level consistency audit, are all locations operating to the same standard?</li>
       <li>Management capability assessment, can the current team execute the plan?</li>
     </ul>
+  </div>
+
+  <span id="dd-scorecard"></span>
+  <div class="card dd-scope" style="border-color:var(--accent);">
+    <h2>Due Diligence Scorecard: Visibility View</h2>
+    <p>These are the KPIs a buyer should check in each department, the HEDS target for each, and why each one matters to EBITDA quality.</p>
+    <div id="dd-visibility"><noscript><p>This view needs JavaScript. The full scorecard page lists the same KPIs.</p></noscript></div>
+    <div class="dd-actions">
+      <a class="dd-primary" href="due-diligence-scorecard.html#inspection">Open the inspection scorecard</a>
+      <a class="dd-secondary" href="#snapshot" onclick="showSection('overview'); return false;">Ask for an Initial Snapshot</a>
+      <a class="dd-secondary" href="#sec-contact" onclick="showSection('contact'); return false;">Book a discovery call</a>
+    </div>
   </div>
 
   <div class="card">
@@ -1556,11 +1569,17 @@ input, select, textarea {
 var SEC_ALIASES = {
   training: 'dealership', tracks: 'dealership', academy: 'dealership', sm: 'dealership', pm: 'dealership',
   services: 'diligence', rsm: 'rental', rm: 'rental',
-  snapshot: 'overview', 'initial-snapshot': 'overview'
+  snapshot: 'overview', 'initial-snapshot': 'overview',
+  'dd-scorecard': 'diligence', 'due-diligence-scorecard': 'diligence'
 };
 var SERVICE_SECS = ['diligence', 'dealership', 'rental', 'fleet'];
 var lastService = 'diligence';
-var snapshotRequested = /^#(sec-)?(initial-)?snapshot$/.test(window.location.hash);
+var SCROLL_ANCHORS = { snapshot: 'snapshot', 'initial-snapshot': 'snapshot', 'dd-scorecard': 'dd-scorecard', 'due-diligence-scorecard': 'dd-scorecard' };
+function scrollAnchorFor(hash) {
+  var h = (hash || '').replace(/^#/, '').replace(/^sec-/, '');
+  return SCROLL_ANCHORS[h] || null;
+}
+var scrollAnchorRequested = scrollAnchorFor(window.location.hash);
 
 function resolveSec(hash) {
   var h = (hash || '').replace(/^#/, '').replace(/^sec-/, '');
@@ -1622,9 +1641,10 @@ window.addEventListener('DOMContentLoaded', function() {
   var hash = resolveSec(window.location.hash);
   if (hash && document.getElementById('sec-' + hash)) {
     showSection(hash);
-    if (/^#(sec-)?(initial-)?snapshot$/.test(window.location.hash) || snapshotRequested) {
+    var scrollId = scrollAnchorFor(window.location.hash) || scrollAnchorRequested;
+    if (scrollId) {
       setTimeout(function() {
-        var snap = document.getElementById('snapshot');
+        var snap = document.getElementById(scrollId);
         var hdr = document.querySelector('.site-header-group');
         if (snap && snap.nextElementSibling) {
           var y = snap.nextElementSibling.getBoundingClientRect().top + window.pageYOffset - (hdr ? hdr.offsetHeight : 0) - 12;
@@ -1705,5 +1725,7 @@ window.addEventListener('popstate', function() {
 });
 </script>
 
+<script src="assets/kpi-targets.js"></script>
+<script src="assets/dd-scorecard.js"></script>
 </body>
 </html>

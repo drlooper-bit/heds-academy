@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HEDS Due Diligence Scorecard for EBITDA Quality</title>
+<meta name="description" content="A visibility view and an inspection scorecard that grade a target dealer or rental business against HEDS KPI targets and explain why each KPI matters to EBITDA quality.">
+<link rel="icon" type="image/png" href="LOGO_HEDS_small.png">
+<link rel="canonical" href="https://hedsconsulting.net/due-diligence-scorecard.html">
+<link rel="stylesheet" href="assets/kpi-library.css">
+<link rel="stylesheet" href="assets/dd-scorecard.css">
+</head>
+<body>
+<header>
+  <a href="index.html" class="header-logo-link" title="Back to HEDS home page" aria-label="HEDS home page"><img src="LOGO_HEDS.png" alt="HEDS Logo" class="header-logo"></a>
+  <div>
+    <h1>Heavy Equipment Dealer Solutions LLC</h1>
+    <div class="brand">HEDS Operating Discipline Academy</div>
+    <h2>Due Diligence Scorecard</h2>
+    <p class="subtitle">What a buyer should check in Service, Parts, Rental Fleet, and the Location, and why each KPI matters to EBITDA quality.</p>
+  </div>
+</header>
+<div class="top-links"><a href="index.html">Back to Home</a><a href="index.html#dd-scorecard">Due Diligence tab</a><a href="#visibility">Visibility View</a><a href="#inspection">Inspection Scorecard</a><a href="index.html#snapshot">Initial Snapshot</a></div>
+
+<div class="block dd-scope" id="visibility">
+  <h2>Visibility View</h2>
+  <p class="lead">These are the KPIs a buyer should check in each department, the HEDS target for each, and why each one matters to EBITDA quality.</p>
+  <div id="dd-visibility"></div>
+</div>
+
+<div class="block dd-scope" id="inspection">
+  <h2>Inspection Scorecard</h2>
+  <p class="lead">Enter the target business's numbers. Each KPI is graded PASS, WARN, or FAIL against the HEDS target. Nothing is saved or sent, and the numbers stay in this browser window.</p>
+  <div id="dd-scorecard-app"></div>
+  <div class="dd-summary" id="dd-summary" aria-live="polite"></div>
+  <div class="dd-actions">
+    <button type="button" class="dd-secondary" onclick="window.print()">Print this scorecard</button>
+  </div>
+  <p class="calc-note">The grades are a screening view against HEDS targets and are not a valuation. Absorption uses the total operating expenses of the whole location.</p>
+</div>
+
+<div class="block dd-scope dd-noprint" id="dd-cta">
+  <h2>Want HEDS to run this on a real business?</h2>
+  <p class="lead">An Initial Snapshot shows where a location stands on the site's existing KPIs and calls out the biggest dollar leak. A discovery call is the first step.</p>
+  <div class="dd-actions">
+    <a class="dd-primary" href="index.html#snapshot">See the Initial Snapshot</a>
+    <a class="dd-secondary" href="contact.html">Book a discovery call</a>
+  </div>
+</div>
+
+<script src="assets/kpi-targets.js"></script>
+<script src="assets/dd-scorecard.js"></script>
+</body>
+</html>
