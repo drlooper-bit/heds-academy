@@ -829,6 +829,16 @@ input, select, textarea {
   }
 }
 
+
+/* ===== SERVICES SUB-NAV (nested tabs under Services We Offer) ===== */
+.sub-nav { display: none; background: var(--card-bg); justify-content: center; border-bottom: 1px solid var(--border); }
+.sub-nav.open { display: flex; }
+.sub-nav .tab-btn { font-size: 0.84rem; padding: 12px 20px; }
+@media (max-width: 767px) {
+  .sub-nav.open { display: grid !important; grid-template-columns: repeat(4, 1fr) !important; }
+  .sub-nav:not(.open) { display: none !important; }
+  .sub-nav .tab-btn { font-size: 0.72rem !important; padding: 6px 2px !important; }
+}
 </style>
 <noscript>
 <style>
@@ -851,15 +861,19 @@ input, select, textarea {
   </div>
 </header>
 
-<!-- ===== TAB NAV ===== -->
-<nav class="tab-nav" role="tablist">
-  <button class="tab-btn active" role="tab" aria-selected="true" onclick="showSection('overview', this)">Overview</button>
-  <button class="tab-btn" role="tab" aria-selected="false" onclick="showSection('diligence', this)">Due Diligence &amp; Inspections</button>
-  <button class="tab-btn" role="tab" aria-selected="false" onclick="showSection('training', this)">Training &amp; Academy</button>
-  <button class="tab-btn" role="tab" aria-selected="false" onclick="showSection('assessment', this)">Assessment</button>
-  <button class="tab-btn" role="tab" aria-selected="false" onclick="showSection('contact', this)">Contact</button>
-  <button class="tab-btn" role="tab" aria-selected="false" onclick="showSection('blog', this)">Blog</button>
+<nav class="tab-nav" role="tablist" aria-label="Main sections">
+  <button class="tab-btn active" role="tab" aria-selected="true" data-sec="overview" onclick="showSection('overview', this)">Overview</button>
+  <button class="tab-btn" role="tab" aria-selected="false" aria-expanded="false" aria-controls="sub-nav" id="services-parent" data-parent="services" onclick="showServices()">Services We Offer</button>
+  <button class="tab-btn" role="tab" aria-selected="false" data-sec="assessment" onclick="showSection('assessment', this)">Assessment</button>
+  <button class="tab-btn" role="tab" aria-selected="false" data-sec="contact" onclick="showSection('contact', this)">Contact</button>
+  <button class="tab-btn" role="tab" aria-selected="false" data-sec="blog" onclick="showSection('blog', this)">Blog</button>
   <a class="tab-btn" href="kpi-dashboards.html">KPI Library</a>
+</nav>
+<nav class="tab-nav sub-nav" id="sub-nav" role="tablist" aria-label="Services We Offer">
+  <button class="tab-btn" role="tab" aria-selected="false" data-sec="diligence" onclick="showSection('diligence', this)">Due Diligence</button>
+  <button class="tab-btn" role="tab" aria-selected="false" data-sec="dealership" onclick="showSection('dealership', this)">Dealership</button>
+  <button class="tab-btn" role="tab" aria-selected="false" data-sec="rental" onclick="showSection('rental', this)">Rental</button>
+  <button class="tab-btn" role="tab" aria-selected="false" data-sec="fleet" onclick="showSection('fleet', this)">Fleet</button>
 </nav>
 </div>
 
@@ -881,9 +895,15 @@ input, select, textarea {
     </div>
     <div class="service-card">
       <div class="service-icon">🎓</div>
-      <h3>Training &amp; Academy</h3>
-      <p>Onsite training that installs the daily operating discipline to stop the leaks from coming back. 5 days at your dealership or rental company with your real data, your people, and your shop floor.</p>
-      <a class="cta-secondary" href="#sec-training" onclick="showSection('training'); return false;">Learn More →</a>
+      <h3>Dealership</h3>
+      <p>Onsite training and service and parts audits that install the daily operating discipline to stop the leaks from coming back. 5 days at your dealership with your real data, your people, and your shop floor.</p>
+      <a class="cta-secondary" href="#sec-dealership" onclick="showSection('dealership'); return false;">Learn More →</a>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🚜</div>
+      <h3>Rental</h3>
+      <p>Onsite training for Rental Managers and Rental Service Managers that builds the daily discipline behind fleet uptime and utilization. 5 days at your rental company with your real data, plus an interactive dashboard for each track.</p>
+      <a class="cta-secondary" href="#sec-rental" onclick="showSection('rental'); return false;">Learn More →</a>
     </div>
   </div>
 
@@ -937,7 +957,7 @@ input, select, textarea {
   <div class="card">
     <h2>What We Audit</h2>
     <div class="service-grid">
-      <div class="service-card" style="text-align:left;">
+      <div class="service-card" style="text-align:left;" data-shared="audit-service">
         <h3 style="color:var(--accent);">Service Department</h3>
         <ul style="font-size:0.9rem;">
           <li>WIP aging and days-to-invoice</li>
@@ -949,7 +969,7 @@ input, select, textarea {
           <li>Absorption contribution</li>
         </ul>
       </div>
-      <div class="service-card" style="text-align:left;">
+      <div class="service-card" style="text-align:left;" data-shared="audit-parts">
         <h3 style="color:var(--accent);">Parts Department</h3>
         <ul style="font-size:0.9rem;">
           <li>Fill rate and backorder exposure</li>
@@ -961,7 +981,7 @@ input, select, textarea {
           <li>Master data cleanliness in ERP</li>
         </ul>
       </div>
-      <div class="service-card" style="text-align:left;">
+      <div class="service-card" style="text-align:left;" data-shared="audit-rental-fleet">
         <h3 style="color:var(--accent);">Rental Fleet</h3>
         <ul style="font-size:0.9rem;">
           <li>Time utilization rate</li>
@@ -1058,11 +1078,12 @@ input, select, textarea {
   </div>
 </div>
 
-<!-- ===== TRAINING SECTION ===== -->
-<div class="section" id="sec-training" role="tabpanel">
+<!-- ===== DEALERSHIP SECTION (formerly Training & Academy; #training still resolves here) ===== -->
+<div class="section" id="sec-dealership" role="tabpanel">
+  <span id="dealership"></span>
   <span id="training"></span>
   <div class="hero">
-    <h2>HEDS Operating Discipline Academy</h2>
+    <h2>Dealership Training and Audits</h2>
     <p>Position-specific onsite training that installs daily operating discipline, using your real data, on your floor, with your numbers. Not a webinar. Not a book. Not a generic management seminar.</p>
   </div>
 
@@ -1104,10 +1125,17 @@ input, select, textarea {
     <p style="color:var(--accent);font-weight:600;font-size:1.1rem;margin:0;">You leave with standards installed, not just slides reviewed.</p>
   </div>
 
-  <!-- ===== TRAINING TRACKS ===== -->
+  <div class="card">
+    <h2>What We Audit</h2>
+    <div class="service-grid" data-clone="audit-service audit-parts"></div>
+  </div>
+
+  <!-- ===== DEALER TRAINING TRACKS ===== -->
   <div class="card">
     <h2>Training Tracks</h2>
-    <p style="margin-bottom:16px;">Each track is a standalone program with its own interactive dashboard and 50-question assessment. All tracks share a Day 1 financial foundation so every role speaks the same language before breaking into position-specific work. Click any track to preview the curriculum syllabus and sign up.</p>
+    <div data-shared="tracks-intro" style="display:contents">
+      <p style="margin-bottom:16px;">Each track is a standalone program with its own interactive dashboard and 50-question assessment. All tracks share a Day 1 financial foundation so every role speaks the same language before breaking into position-specific work. Click any track to preview the curriculum syllabus and sign up.</p>
+    </div>
 
     <div style="display:grid;gap:14px;">
 
@@ -1121,32 +1149,6 @@ input, select, textarea {
           <a href="curriculum-index.html#sm" class="btn-preview">Preview Curriculum</a>
           <a href="service-manager-dashboard.html#sec_dashboard" class="btn-preview">Open Dashboard</a>
           <a href="mailto:daniel@hedsconsulting.net?subject=HEDS%20Academy:%20Service%20Manager%20Training%20Signup" class="btn-signup">Sign Up</a>
-        </div>
-      </div>
-
-      <!-- Track 2: Rental Service Manager -->
-      <div class="card" style="margin-bottom:0;border-color:var(--border);">
-        <h3 style="color:var(--accent);">🚜 Rental Service Manager Training</h3>
-        <div class="track-audience">Rental Service Managers, Shop Foremen, Field Service Coordinators, PM Coordinators</div>
-        <p style="font-size:0.9rem;margin-bottom:12px;">Internal production only, no retail labor sales, just fleet uptime. This track builds the discipline that keeps rental equipment rent-ready and the shop priority-driven: PM compliance, fleet reliability, turnaround standards, and wrench-time efficiency. Participants build scorecards from their own fleet data and leave with a 90-day plan to move MTTR, PM compliance, and rent-ready turnaround in the right direction.</p>
-        <div class="track-stats"><span>5-day onsite</span><span>Interactive dashboard</span><span>50-question assessment</span><span>90-day action plan</span></div>
-        <div class="track-buttons">
-          <a href="curriculum-index.html#rsm" class="btn-preview">Preview Curriculum</a>
-          <a href="rental-service-manager-dashboard.html#sec_dashboard" class="btn-preview">Open Dashboard</a>
-          <a href="mailto:daniel@hedsconsulting.net?subject=HEDS%20Academy:%20Rental%20Service%20Manager%20Training%20Signup" class="btn-signup">Sign Up</a>
-        </div>
-      </div>
-
-      <!-- Track 3: Rental Manager -->
-      <div class="card" style="margin-bottom:0;border-color:var(--border);">
-        <h3 style="color:var(--accent);">💰 Rental Manager Training</h3>
-        <div class="track-audience">Rental Managers, Rental Coordinators, Fleet Coordinators, Dispatch Leads</div>
-        <p style="font-size:0.9rem;margin-bottom:12px;">Own the rental department P&amp;L from fleet utilization to damage recovery. This track installs the commercial discipline that separates profitable rental operations from equipment parking lots: rate realization, time and dollar utilization, fleet capital allocation, contract and damage recovery, and logistics dispatch. Participants leave with their own department scorecard and a 90-day plan built on their actual fleet data.</p>
-        <div class="track-stats"><span>5-day onsite</span><span>Interactive dashboard</span><span>50-question assessment</span><span>90-day action plan</span></div>
-        <div class="track-buttons">
-          <a href="curriculum-index.html#rm" class="btn-preview">Preview Curriculum</a>
-          <a href="rental-manager-dashboard.html#sec_dashboard" class="btn-preview">Open Dashboard</a>
-          <a href="mailto:daniel@hedsconsulting.net?subject=HEDS%20Academy:%20Rental%20Manager%20Training%20Signup" class="btn-signup">Sign Up</a>
         </div>
       </div>
 
@@ -1184,13 +1186,15 @@ input, select, textarea {
     </div>
   </div>
 
+  <!-- ===== SHARED ACADEMY BLOCKS (also shown on Rental) ===== -->
+  <div data-shared="academy-common" style="display:contents">
   <!-- ===== HOW IT WORKS ===== -->
   <div class="card">
     <h2>How It Works</h2>
     <div class="process">
       <div class="process-step">
         <div class="step-num">1</div>
-        <h4>Pre-Work (Remote, 3–5 Days Before)</h4>
+        <h4>Pre-Work (Remote, 3 to 5 Days Before)</h4>
         <p>Lightweight data package, four out-of-the-box reports, no raw ERP dumps required. HEDS returns a one-page Current State Scorecard before onsite start.</p>
       </div>
       <div class="process-step">
@@ -1267,7 +1271,72 @@ input, select, textarea {
     <p>Book a 30-minute discovery call. We'll review your current state, identify the top 3 operational leaks, and recommend the right track for your team.</p>
     <a class="cta-btn" href="mailto:daniel@hedsconsulting.net?subject=HEDS%20Academy:%20Discovery%20Call%20Request">Book a Discovery Call</a>
   </div>
+  </div>
 </div>
+
+
+<!-- ===== RENTAL SECTION ===== -->
+<div class="section" id="sec-rental" role="tabpanel">
+  <span id="rental"></span>
+  <div class="hero">
+    <h2>Rental Training and Audits</h2>
+    <p>Position-specific onsite training for Rental Managers and Rental Service Managers, using your real fleet data, with an interactive dashboard for each track.</p>
+  </div>
+
+  <div class="card">
+    <h2>What We Audit</h2>
+    <div class="service-grid" data-clone="audit-service audit-parts audit-rental-fleet"></div>
+  </div>
+
+  <!-- ===== RENTAL TRAINING TRACKS ===== -->
+  <div class="card">
+    <h2>Training Tracks</h2>
+    <div data-clone="tracks-intro" style="display:contents"></div>
+
+    <div style="display:grid;gap:14px;">
+
+      <!-- Track 2: Rental Service Manager -->
+      <div class="card" style="margin-bottom:0;border-color:var(--border);">
+        <h3 style="color:var(--accent);">🚜 Rental Service Manager Training</h3>
+        <div class="track-audience">Rental Service Managers, Shop Foremen, Field Service Coordinators, PM Coordinators</div>
+        <p style="font-size:0.9rem;margin-bottom:12px;">Internal production only, no retail labor sales, just fleet uptime. This track builds the discipline that keeps rental equipment rent-ready and the shop priority-driven: PM compliance, fleet reliability, turnaround standards, and wrench-time efficiency. Participants build scorecards from their own fleet data and leave with a 90-day plan to move MTTR, PM compliance, and rent-ready turnaround in the right direction.</p>
+        <div class="track-stats"><span>5-day onsite</span><span>Interactive dashboard</span><span>50-question assessment</span><span>90-day action plan</span></div>
+        <div class="track-buttons">
+          <a href="curriculum-index.html#rsm" class="btn-preview">Preview Curriculum</a>
+          <a href="rental-service-manager-dashboard.html#sec_dashboard" class="btn-preview">Open Dashboard</a>
+          <a href="mailto:daniel@hedsconsulting.net?subject=HEDS%20Academy:%20Rental%20Service%20Manager%20Training%20Signup" class="btn-signup">Sign Up</a>
+        </div>
+      </div>
+
+      <!-- Track 3: Rental Manager -->
+      <div class="card" style="margin-bottom:0;border-color:var(--border);">
+        <h3 style="color:var(--accent);">💰 Rental Manager Training</h3>
+        <div class="track-audience">Rental Managers, Rental Coordinators, Fleet Coordinators, Dispatch Leads</div>
+        <p style="font-size:0.9rem;margin-bottom:12px;">Own the rental department P&amp;L from fleet utilization to damage recovery. This track installs the commercial discipline that separates profitable rental operations from equipment parking lots: rate realization, time and dollar utilization, fleet capital allocation, contract and damage recovery, and logistics dispatch. Participants leave with their own department scorecard and a 90-day plan built on their actual fleet data.</p>
+        <div class="track-stats"><span>5-day onsite</span><span>Interactive dashboard</span><span>50-question assessment</span><span>90-day action plan</span></div>
+        <div class="track-buttons">
+          <a href="curriculum-index.html#rm" class="btn-preview">Preview Curriculum</a>
+          <a href="rental-manager-dashboard.html#sec_dashboard" class="btn-preview">Open Dashboard</a>
+          <a href="mailto:daniel@hedsconsulting.net?subject=HEDS%20Academy:%20Rental%20Manager%20Training%20Signup" class="btn-signup">Sign Up</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div data-clone="academy-common" style="display:contents"></div>
+</div>
+
+<!-- ===== FLEET SECTION (placeholder until step 5) ===== -->
+<div class="section" id="sec-fleet" role="tabpanel">
+  <span id="fleet"></span>
+  <div class="hero">
+    <h2>Fleet</h2>
+    <p>The page for our large fleet owner offering is coming.</p>
+    <a class="cta-btn" href="#sec-contact" onclick="showSection('contact'); return false;">Get in Touch</a>
+  </div>
+</div>
+
 
 <!-- ===== ASSESSMENT SECTION ===== -->
 <div class="section" id="sec-assessment" role="tabpanel">
@@ -1451,33 +1520,48 @@ input, select, textarea {
 </footer>
 
 <script>
+// Old and shortcut anchors that now resolve to a renamed or moved tab.
+var SEC_ALIASES = {
+  training: 'dealership', tracks: 'dealership', academy: 'dealership', sm: 'dealership', pm: 'dealership',
+  services: 'diligence', rsm: 'rental', rm: 'rental'
+};
+var SERVICE_SECS = ['diligence', 'dealership', 'rental', 'fleet'];
+var lastService = 'diligence';
+
+function resolveSec(hash) {
+  var h = (hash || '').replace(/^#/, '').replace(/^sec-/, '');
+  return SEC_ALIASES[h] || h;
+}
+
+function showServices() {
+  showSection(lastService);
+}
+
 function showSection(secId, btn) {
+  secId = resolveSec(secId);
   var targetSection = document.getElementById('sec-' + secId);
   if (!targetSection) return;
-  
+
   // Toggle active section
   document.querySelectorAll('.section').forEach(function(el) {
     el.classList.remove('active');
   });
   targetSection.classList.add('active');
-  
-  // Toggle active tab button by matching section ID
+
+  // Toggle active tab buttons (top level and nested Services tabs)
+  var isService = SERVICE_SECS.indexOf(secId) !== -1;
+  if (isService) lastService = secId;
+  document.getElementById('sub-nav').classList.toggle('open', isService);
   document.querySelectorAll('.tab-btn').forEach(function(el) {
-    el.classList.remove('active');
-    el.setAttribute('aria-selected', 'false');
-  });
-  // Find the tab button that corresponds to this section
-  var tabBtns = document.querySelectorAll('.tab-btn');
-  for (var i = 0; i < tabBtns.length; i++) {
-    var onclickAttr = tabBtns[i].getAttribute('onclick') || '';
-    if (onclickAttr.indexOf("'" + secId + "'") !== -1) {
-      tabBtns[i].classList.add('active');
-      tabBtns[i].setAttribute('aria-selected', 'true');
-      tabBtns[i].scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
-      break;
+    var on = el.getAttribute('data-sec') === secId || (isService && el.getAttribute('data-parent') === 'services');
+    el.classList.toggle('active', on);
+    el.setAttribute('aria-selected', on ? 'true' : 'false');
+    if (el.hasAttribute('aria-expanded')) el.setAttribute('aria-expanded', isService ? 'true' : 'false');
+    if (on && el.getAttribute('data-sec') === secId && el.scrollIntoView) {
+      el.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
     }
-  }
-  
+  });
+
   // Sync URL hash for deep linking and back/forward
   if (history.replaceState) {
     history.replaceState(null, '', '#' + secId);
@@ -1485,9 +1569,23 @@ function showSection(secId, btn) {
   window.scrollTo(0, 0);
 }
 
+// Shared blocks: one source in the page, reused wherever a data-clone placeholder names it.
+function fillSharedBlocks() {
+  document.querySelectorAll('[data-clone]').forEach(function(slot) {
+    slot.getAttribute('data-clone').split(/\s+/).forEach(function(name) {
+      var src = document.querySelector('[data-shared="' + name + '"]');
+      if (!src) return;
+      var copy = src.cloneNode(true);
+      copy.removeAttribute('data-shared');
+      slot.appendChild(copy);
+    });
+  });
+}
+
 // Support direct link to tabs on page load
 window.addEventListener('DOMContentLoaded', function() {
-  var hash = window.location.hash.replace('#', '').replace(/^sec-/, '');
+  fillSharedBlocks();
+  var hash = resolveSec(window.location.hash);
   if (hash && document.getElementById('sec-' + hash)) {
     showSection(hash);
   }
@@ -1553,7 +1651,7 @@ function hedsAssessmentSubmit(e) {
 
 // Support browser back/forward buttons
 window.addEventListener('popstate', function() {
-  var hash = window.location.hash.replace('#', '').replace(/^sec-/, '') || 'overview';
+  var hash = resolveSec(window.location.hash) || 'overview';
   if (document.getElementById('sec-' + hash)) {
     showSection(hash);
   }
