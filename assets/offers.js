@@ -1,7 +1,6 @@
 /* HEDS offers: one shared "How it works" illustration for every paid offer.
    Each offer has numbered steps, the deliverable, and the price.
    To change a price or step, edit it here once and every page updates.
-   Search this file for PRICE-TBC to find every price that is not confirmed yet.
    Pages place an offer with <div data-offer="snapshot"></div>.
    No dashes or bullet lists in any text below. Full sentences only. */
 (function (w) {
@@ -12,7 +11,7 @@
   var EXTRA = 'Additional work you ask for beyond the package is billed at $200 an hour.';
   var TRAVEL = 'Travel time, mileage, lodging and meals are invoiced at actual cost and are not built into the price.';
 
-  // price rows: { label, amount } with amount null meaning not confirmed (PRICE-TBC).
+  // price rows: { label, amount }. Edit amounts here and every page updates.
   var OFFERS = {
 
     snapshot: {
@@ -25,7 +24,7 @@
       ],
       deliver: 'A short written snapshot that shows where your location stands on a handful of KPIs, with your biggest dollar leak called out so you know where to start.',
       see: { links: [{ t: 'Dealer KPI Library', h: 'dealer-kpi-library.html' }], then: 'then book an Operational Health Check.' },
-      price: [ { label: 'Initial Snapshot', amount: null } ] // PRICE-TBC
+      price: [ { label: 'Initial Snapshot, one page on three KPIs', amount: 'Free' } ]
     },
 
     review: {
@@ -38,7 +37,7 @@
       deliver: 'Your current performance beside HEDS benchmarks, a projection of what closing each gap is worth in dollars calculated from your own numbers, and an account of where each department is struggling.',
       see: { links: [{ t: 'Dealer KPI Library', h: 'dealer-kpi-library.html' }], then: 'then book an Operational Health Check.' },
       price: [ { label: 'Report Review on its own', amount: '$1,600' } ],
-      note: 'If you book the onsite day of the Operational Health Check within 30 days, the full $1,600 is credited toward the $2,200 Operational Health Check, so you pay $600 more at that point.',
+      note: 'If you paid $1,600 for the report review and book the onsite day within 30 days, you pay $600 more for the onsite day.',
       extra: false, travel: false,
       cta: { label: 'Book a Discovery Call', href: BOOK }
     },
@@ -54,7 +53,7 @@
       deliver: 'Your current performance beside HEDS benchmarks, a projection of what closing each gap is worth in dollars calculated from your own numbers, and an in depth account of where each department is struggling and whether the cause is people or process.',
       see: { links: [{ t: 'Dealer KPI Library', h: 'dealer-kpi-library.html' }], then: 'then book your Operational Health Check.' },
       price: [ { label: 'Operational Health Check, flat fee', amount: '$2,200' } ],
-      note: 'The price covers the report review and one day onsite. If you bought the Report Review first and book the onsite day within 30 days, the $1,600 review fee is credited in full.',
+      note: 'The price covers the report review and one day onsite. If you paid $1,600 for the report review first and book the onsite day within 30 days, you pay $600 more for the onsite day.',
       extra: true, travel: true,
       cta: { label: 'Book a Discovery Call', href: BOOK }
     },
@@ -70,10 +69,12 @@
       deliver: 'A findings report with dollar quantified leaks, a department by department scorecard against industry benchmarks, and a prioritized fix list ranked by dollar impact and ease of implementation.',
       see: { links: [{ t: 'Due Diligence Scorecard', h: 'due-diligence-scorecard.html' }], then: 'then book an Operational Health Check.' },
       price: [
-        { label: 'Single Location Audit, 1 day', amount: null },        // PRICE-TBC
-        { label: 'Full Branch Audit, 2 days', amount: null },           // PRICE-TBC
-        { label: 'Multi Branch Audit, 1 to 2 days per site', amount: null }, // PRICE-TBC
-        { label: 'Acquisition Due Diligence, 3 to 5 days', amount: null }    // PRICE-TBC
+        { label: 'Single Location Audit, 1 day', amount: '$3,200' },
+        { label: 'Full Branch Audit, 2 days', amount: '$5,600' },
+        { label: 'Multi Branch Audit, 1 day per site', amount: '$2,800 per site' },
+        { label: 'Multi Branch Audit, 2 days per site', amount: '$4,800 per site' },
+        { label: 'Acquisition Due Diligence, 3 days', amount: '$8,000' },
+        { label: 'Acquisition Due Diligence, 5 days', amount: '$12,000' }
       ],
       extra: true, travel: true,
       cta: { label: 'Book a Discovery Call', href: BOOK }
@@ -91,12 +92,12 @@
       deliver: 'A personal scorecard, a signed and dated 90 day action plan, an interactive dashboard you keep, the 50 question Industry Knowledge Assessment with a score report, implementation templates and a certificate of completion.',
       see: { links: [{ t: 'Service Manager', h: 'service-manager-dashboard.html' }, { t: 'Parts Manager', h: 'parts-manager-dashboard.html' }, { t: 'Rental Manager', h: 'rental-manager-dashboard.html' }, { t: 'Rental Service Manager', h: 'rental-service-manager-dashboard.html' }], then: 'then take the $300 Industry Knowledge Assessment.' },
       price: [
-        { label: 'Service Manager course', amount: null },        // PRICE-TBC
-        { label: 'Parts Manager course', amount: null },         // PRICE-TBC
-        { label: 'Rental Manager course', amount: null },        // PRICE-TBC
-        { label: 'Rental Service Manager course', amount: null } // PRICE-TBC
+        { label: 'Service Manager course', amount: '$8,000 per manager' },
+        { label: 'Parts Manager course', amount: '$8,000 per manager' },
+        { label: 'Rental Manager course', amount: '$8,000 per manager' },
+        { label: 'Rental Service Manager course', amount: '$8,000 per manager' }
       ],
-      note: 'Location packages for several managers are quoted on the discovery call. Branch Manager and Regional and Executive Leadership courses are in development.',
+      note: 'Location packages for several managers are scoped on a discovery call. Branch Manager and Regional and Executive Leadership courses are in development.',
       extra: true, travel: true,
       cta: { label: 'Book a Discovery Call', href: BOOK }
     },
@@ -110,7 +111,10 @@
         { h: 'Virtual sessions', t: 'HEDS runs virtual coaching sessions on that specific area until execution is back on plan.' }
       ],
       deliver: 'Virtual coaching sessions focused on the specific metric that is not progressing as planned.',
-      price: [ { label: 'Follow-Up Coaching', amount: null } ], // PRICE-TBC
+      price: [
+        { label: 'Follow-Up Coaching, one session', amount: '$300' },
+        { label: 'Follow-Up Coaching, 5 sessions', amount: '$1,350' }
+      ],
       cta: { label: 'Book a Discovery Call', href: BOOK }
     },
 
@@ -126,7 +130,7 @@
       // DELIVERABLE-TBC: Daniel to confirm the package name, scope and report format for fleet owners.
       deliver: 'A written read of each vendor\u2019s service and parts performance against the HEDS KPI targets, with the maintenance cost and downtime history for each machine you want to judge.',
       see: { links: [{ t: 'fleet KPI table', h: 'fleet-owners.html#fleet-kpis' }], then: 'then book a discovery call to talk about your fleet.' },
-      price: [ { label: 'Fleet owner package', amount: null } ], // PRICE-TBC
+      price: [ { label: 'Fleet owner package, up to 25 machines', amount: '$3,200' } ],
       extra: true, travel: true,
       cta: { label: 'Book a Discovery Call', href: BOOK }
     },
@@ -158,16 +162,8 @@
         '<h4>' + esc(s.h) + '</h4><p>' + esc(s.t) + '</p></li>';
     }).join('');
 
-    var anyTbc = false;
     var rows = o.price.map(function (r) {
-      var val;
-      if (r.amount) {
-        val = '<span class="ho-amount">' + esc(r.amount) + '</span>';
-      } else {
-        anyTbc = true;
-        val = '<span class="ho-tbc">Price: to be confirmed</span>';
-      }
-      return '<div class="ho-row"><span class="ho-label">' + esc(r.label) + '</span>' + val + '</div>';
+      return '<div class="ho-row"><span class="ho-label">' + esc(r.label) + '</span><span class="ho-amount">' + esc(r.amount) + '</span></div>';
     }).join('');
 
     var fine = [];
@@ -194,13 +190,13 @@
         '<ol class="ho-steps">' + steps + '</ol>' +
         '<div class="ho-foot">' +
           '<div class="ho-box"><h4>What you receive</h4><p>' + esc(o.deliver) + '</p></div>' +
-          '<div class="ho-box ho-price' + (anyTbc ? ' ho-price-tbc' : '') + '"><h4>Price</h4>' + rows +
+          '<div class="ho-box ho-price"><h4>Price</h4>' + rows +
             (o.note ? '<p class="ho-note">' + esc(o.note) + '</p>' : '') + '</div>' +
         '</div>' +
         (fine.length ? '<p class="ho-fine">' + esc(fine.join(' ')) + '</p>' : '') + see +
         cta +
       '</section>';
-    return { html: html, tbc: anyTbc };
+    return { html: html };
   }
 
   function render() {
@@ -212,7 +208,6 @@
       if (!o) continue;
       var b = build(id, o);
       m.innerHTML = b.html;
-      if (b.tbc) m.insertBefore(document.createComment(' PRICE-TBC: ' + id + ' '), m.firstChild);
       m.setAttribute('data-offer-done', '1');
     }
   }

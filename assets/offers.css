@@ -44,11 +44,7 @@
 }
 .heds-offer .ho-row:first-of-type { border-top: 0; padding-top: 0; }
 .heds-offer .ho-label { font-size: 0.9rem; color: #e2e8f0; }
-.heds-offer .ho-amount { font-size: 1.5rem; font-weight: 800; color: var(--accent, var(--accent-color, #f2a900)); }
-.heds-offer .ho-tbc {
-  font-size: 0.85rem; font-weight: 700; font-style: italic; color: var(--accent, var(--accent-color, #f2a900));
-  border: 1px dashed var(--accent, var(--accent-color, #f2a900)); border-radius: 6px; padding: 2px 8px;
-}
+.heds-offer .ho-amount { font-size: 1.25rem; font-weight: 800; color: var(--accent, var(--accent-color, #f2a900)); }
 .heds-offer .ho-note { margin-top: 10px !important; font-size: 0.82rem !important; color: var(--muted, #94a3b8) !important; }
 .heds-offer .ho-fine { margin: 12px 0 0; font-size: 0.82rem; color: var(--muted, #94a3b8); }
 .heds-offer .ho-cta { margin: 14px 0 0; text-align: center; }
