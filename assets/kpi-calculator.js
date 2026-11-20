@@ -27,8 +27,8 @@
             { kpi: 'parts_absorption', f: function (v) { return pct(v.pgp, v.opex); } }] },
       ] },
       { name: 'Service', tiles: [
-        { title: 'Labor Recovery', def: 'Hours sold divided by hours paid, times 100.',
-          inputs: [I('sold', 'Hours sold', 820, 10, 2200, 10, 'hours'), I('paid', 'Hours paid', 1000, 100, 2000, 10, 'hours')], outputs: ratio('technician_recovery', 'sold', 'paid') },
+        { title: 'Labor Recovery', def: 'Hours on work orders divided by paid payroll hours, times 100.',
+          inputs: [I('wo', 'Hours on work orders', 820, 10, 2200, 10, 'hours'), I('paid', 'Paid payroll hours', 1000, 100, 2000, 10, 'hours')], outputs: ratio('technician_recovery', 'wo', 'paid') },
         { title: 'Labor Utilization', def: 'Hours invoiced on work orders divided by hours on work orders, times 100.',
           inputs: [I('inv', 'Hours invoiced on work orders', 680, 0, 2200, 10, 'hours'), I('wo', 'Hours on work orders', 820, 10, 2200, 10, 'hours')], outputs: ratio('labor_utilization', 'inv', 'wo') },
         { title: 'Shop Efficiency', def: 'Flat rate or estimated time divided by actual job time, times 100.',

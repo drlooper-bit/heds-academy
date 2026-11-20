@@ -8,7 +8,7 @@
   if (!T || !root) return;
   var ROWS = [
     ['Service you buy', 'effective_labor_rate', "Compare what you pay per billed hour with the dealer's posted rate to see whether your invoices match the rate you were quoted.", 'dealer-kpi-library.html#service-kpis'],
-    ['Service you buy', 'technician_recovery', "It shows how much of the dealer's paid technician time becomes billed work, which tells you how tightly the shop that services your machines is run.", 'dealer-kpi-library.html#service-kpis'],
+    ['Service you buy', 'technician_recovery', "It shows how much of the dealer's paid technician time is booked to work orders, which tells you how tightly the shop that services your machines is run.", 'dealer-kpi-library.html#service-kpis'],
     ['Service you buy', 'last_labor_to_invoice', 'A work order still open after the last labor delays your invoice and your records, so this shows how quickly your dealer closes the job.', 'dealer-kpi-library.html#service-kpis'],
     ['Service you buy', 'first_time_fix_rate', 'Repeat visits for the same fault keep your machine down longer, so this shows how often the dealer fixes it the first time.', 'dealer-kpi-library.html#service-kpis'],
     ['Parts you buy', 'counter_fill_rate', 'It shows how often the dealer has the part in stock when your people ask for it at the counter.', 'dealer-kpi-library.html#parts-kpis'],

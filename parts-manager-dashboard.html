@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>HEDS Academy: Parts Manager Training &amp; Operating Platform</title>
+<title>HEDS Operating Discipline Academy: Parts Manager Training &amp; Operating Platform</title>
 <meta name="description" content="Heavy Equipment Dealer Solutions LLC: Parts Manager Training Program with interactive KPI dashboard, curriculum, and certification assessment.">
 <link rel="canonical" href="https://hedsconsulting.net/parts-manager-dashboard.html">
 <link rel="icon" type="image/png" href="LOGO_HEDS_small.png">
@@ -1527,7 +1527,7 @@ table {
   <!-- Sign-in Screen -->
   <div id="test_signin" class="card">
     <div class="card-title">Industry Knowledge Assessment: Parts Manager Certification</div>
-    <p style="color:var(--muted); margin-bottom:20px;">This assessment tests your knowledge of the Parts Manager curriculum. You have 90 minutes to answer all 50 questions. When you submit, your answers go to HEDS Academy. HEDS grades the assessment and returns your result to you. The score is not shown on this page.</p>
+    <p style="color:var(--muted); margin-bottom:20px;">This assessment tests your knowledge of the Parts Manager curriculum. You have 90 minutes to answer all 50 questions. When you submit, your answers go to HEDS. HEDS grades the assessment and returns your result to you. The score is not shown on this page.</p>
     <div class="form-group" id="test_info_fields">
       <label for="test_name">Your Full Name</label>
       <input type="text" id="test_name" style="background:var(--bg); border:1px solid var(--border-color); border-radius:6px; padding:10px 12px; color:var(--fg); font-size:1rem; width:100%;">
@@ -1569,7 +1569,7 @@ table {
   <div id="test_results" style="display:none;">
     <div class="card">
       <div class="card-title">Assessment Submitted</div>
-      <p style="margin-bottom:12px;">Your answers were submitted to HEDS Academy. HEDS grades the assessment and returns your result, and any certificate, to you. Your score is not shown on this page.</p>
+      <p style="margin-bottom:12px;">Your answers were submitted to HEDS. HEDS grades the assessment and returns your result, and any certificate, to you. Your score is not shown on this page.</p>
       <div id="result_relay_status" style="font-size:0.9rem; color:var(--muted); margin-bottom:20px;"></div>
       <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px; margin-bottom:24px;">
         <div>
@@ -2795,9 +2795,9 @@ table {
   function hedsEscape(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function(c) { return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
   // Submission only: answers go to HEDS, which grades them and returns the result.
   var HEDS_RELAY_MSG = {
-    pending: 'Sending your answers to HEDS Academy\u2026',
-    ok: 'Your answers were sent to HEDS Academy. HEDS will grade them and return your result.',
-    fail: 'We could not confirm that your answers reached HEDS Academy. Use the email button below to send them, or print this page and give it to your facilitator.'
+    pending: 'Sending your answers to HEDS\u2026',
+    ok: 'Your answers were sent to HEDS. HEDS will grade them and return your result.',
+    fail: 'We could not confirm that your answers reached HEDS. Use the email button below to send them, or print this page and give it to your facilitator.'
   };
   function hedsRenderRelayStatus(state) {
     var el = document.getElementById('result_relay_status');

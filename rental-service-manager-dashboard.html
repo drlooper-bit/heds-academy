@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>HEDS Academy: Rental Service Manager Training &amp; Operating Platform</title>
-<meta name="description" content="HEDS Academy Rental Service Manager Training & Operating Platform. Curriculum, live fleet calculators, 30/60/90 implementation tracker, and 50-question assessment.">
-<meta property="og:title" content="HEDS Academy: Rental Service Manager Platform">
+<title>HEDS Operating Discipline Academy: Rental Service Manager Training &amp; Operating Platform</title>
+<meta name="description" content="HEDS Operating Discipline Academy Rental Service Manager Training & Operating Platform. Curriculum, live fleet calculators, 30/60/90 implementation tracker, and 50-question assessment.">
+<meta property="og:title" content="HEDS Operating Discipline Academy: Rental Service Manager Platform">
 <meta property="og:description" content="Training curriculum, operational calculators, and 30/60/90 implementation tracking for equipment rental leaders.">
 <meta property="og:type" content="website">
 <link rel="canonical" href="https://hedsconsulting.net/rental-service-manager-dashboard.html">
@@ -1235,7 +1235,7 @@ table {
           <div class="formula-expr">Labor Recovery % = Hours on Work Orders / Hours of Payroll (Paid Hours) &times; 100</div>
           <div class="formula-expr" style="margin-top:6px;">Technician Utilization % = Hours Invoiced on the Work Order / Hours on Work Orders &times; 100</div>
           <p style="font-size:0.85rem; margin-top:6px;"><strong>Worked Example:</strong> Shop has 5 technicians working 40 hours = 200 Total Paid Payroll Hours. Total hours booked to open fleet work orders = 174 hours. Unapplied hours = 26 hours. Recovery: (174 / 200) &times; 100 = <strong style="color:var(--warning);">87.0% (WARN: below the 95 to 100% target, above the 85% red flag)</strong></p>
-          <p style="font-size:0.85rem; margin-top:4px;"><strong>HEDS Target Benchmarks (same as dealer):</strong> Recovery 95% to 100% and Utilization 95% to 100%, red flag at 85% or below on either. Above 100% on either: WARN, check the time coding. HEDS has no separate measure beyond these two.</p>
+          <p style="font-size:0.85rem; margin-top:4px;"><strong>HEDS Target Benchmarks (same as dealer):</strong> Recovery 95% to 100% and Utilization 100% to 110%, red flag at 85% or below on either. Above the top of the band (100% for Recovery, 110% for Utilization): WARN, check the time coding. HEDS has no separate measure beyond these two.</p>
         </div>
 
         <div class="floor-rule">
@@ -2335,7 +2335,7 @@ table {
   <!-- Sign-in Screen -->
   <div id="test_signin" class="card">
     <div class="card-title">Industry Knowledge Assessment: Rental Service Manager Certification</div>
-    <p style="color:var(--muted); margin-bottom:20px;">This assessment tests your knowledge of the Rental Service Manager curriculum. You have 90 minutes to answer all 50 questions. When you submit, your answers go to HEDS Academy. HEDS grades the assessment and returns your result to you. The score is not shown on this page.</p>
+    <p style="color:var(--muted); margin-bottom:20px;">This assessment tests your knowledge of the Rental Service Manager curriculum. You have 90 minutes to answer all 50 questions. When you submit, your answers go to HEDS. HEDS grades the assessment and returns your result to you. The score is not shown on this page.</p>
     <div class="form-group" id="test_info_fields">
       <label for="test_name">Your Full Name</label>
       <input type="text" id="test_name" style="background:var(--bg); border:1px solid var(--border-color); border-radius:6px; padding:10px 12px; color:var(--fg); font-size:1rem; width:100%;">
@@ -2377,7 +2377,7 @@ table {
   <div id="test_results" style="display:none;">
     <div class="card">
       <div class="card-title">Assessment Submitted</div>
-      <p style="margin-bottom:12px;">Your answers were submitted to HEDS Academy. HEDS grades the assessment and returns your result, and any certificate, to you. Your score is not shown on this page.</p>
+      <p style="margin-bottom:12px;">Your answers were submitted to HEDS. HEDS grades the assessment and returns your result, and any certificate, to you. Your score is not shown on this page.</p>
       <div id="result_relay_status" style="font-size:0.9rem; color:var(--muted); margin-bottom:20px;"></div>
       <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px; margin-bottom:24px;">
         <div>
@@ -3667,9 +3667,9 @@ table {
   function hedsEscape(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function(c) { return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
   // Submission only: answers go to HEDS, which grades them and returns the result.
   var HEDS_RELAY_MSG = {
-    pending: 'Sending your answers to HEDS Academy\u2026',
-    ok: 'Your answers were sent to HEDS Academy. HEDS will grade them and return your result.',
-    fail: 'We could not confirm that your answers reached HEDS Academy. Use the email button below to send them, or print this page and give it to your facilitator.'
+    pending: 'Sending your answers to HEDS\u2026',
+    ok: 'Your answers were sent to HEDS. HEDS will grade them and return your result.',
+    fail: 'We could not confirm that your answers reached HEDS. Use the email button below to send them, or print this page and give it to your facilitator.'
   };
   function hedsRenderRelayStatus(state) {
     var el = document.getElementById('result_relay_status');
