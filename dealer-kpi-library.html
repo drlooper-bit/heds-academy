@@ -59,7 +59,7 @@
     <thead><tr><th>KPI</th><th>Formula</th><th>HEDS Target</th></tr></thead>
     <tbody>
       <tr><td class="kn"><a href="service-manager-dashboard.html#kpi-technician-recovery">Labor Recovery</a></td><td>Hours on work orders divided by paid payroll hours, times 100</td><td>95% to 100%</td></tr>
-      <tr><td class="kn"><a href="service-manager-dashboard.html#kpi-labor-utilization">Labor Utilization</a></td><td>Hours invoiced on work orders divided by hours on work orders, times 100</td><td>100% to 110%. At 85% or below, the shop is losing money.</td></tr>
+      <tr><td class="kn"><a href="service-manager-dashboard.html#kpi-labor-utilization">Labor Utilization</a></td><td>Hours invoiced on work orders divided by hours on work orders, times 100</td><td>100% to 110%. Above 110% passes. 85% or below is a red flag.</td></tr>
       <tr><td class="kn"><a href="service-manager-dashboard.html#kpi-shop-efficiency">Technician Efficiency</a></td><td>Shop: flat rate or estimated time divided by actual job time, times 100. Road: billed hours divided by clocked on-job hours, times 100.</td><td>Shop 110%. Road 80% to 110%.</td></tr>
       <tr><td class="kn"><a href="service-manager-dashboard.html#kpi-effective-labor-rate">Effective Labor Rate</a></td><td>Effective labor rate on customer-billed work divided by posted labor rate, times 100</td><td>92% of posted labor rate. Below 92% is a red flag.</td></tr>
       <tr><td class="kn"><a href="service-manager-dashboard.html#kpi-last-labor-to-invoice">Last Labor to Invoice</a></td><td>Count of work orders not invoiced within 48 hours of the last labor posted on the work order</td><td>48 hours</td></tr>
@@ -89,7 +89,7 @@
 
 <section class="dept" id="parts-kpis">
   <h3>Parts Manager</h3>
-  <p class="note">The Parts scorecard has eight core KPIs. Turns are reported overall and by ABC class, since a single part can run from about one turn to thousands. Parts Aging (slow moving at 6 to 8 months, obsolete at 12 months with no movement) sits inside Obsolete and Excess Stock, and Days of Supply is read alongside it.</p>
+  <p class="note">The Parts scorecard has eight core KPIs. Turns are reported overall and by ABC class, since a single part can run from about one turn to thousands. Parts Aging (slow moving at 6 to 8 months, obsolete at 12 months with no movement) sits inside Obsolete and Excess Stock, and Days of Supply, a secondary measure, is read alongside it.</p>
   <h4 class="tier-h">Core KPIs (8)</h4>
   <div class="tbl-wrap"><table class="kpi" data-tier="core">
     <thead><tr><th>KPI</th><th>Formula</th><th>HEDS Target</th></tr></thead>
@@ -111,7 +111,7 @@
     <tbody>
       <tr><td class="kn"><a href="parts-manager-dashboard.html#kpi-parts-share-of-gross-margin">Parts Share of Dealership Gross Margin</a></td><td>Parts gross profit divided by total dealership gross profit, times 100</td><td>25% to 30% of total dealership gross margin, not percent of sales</td></tr>
       <tr><td class="kn"><a href="parts-manager-dashboard.html#kpi-obsolete-excess">Parts Aging</a></td><td>Months since a part last sold</td><td>Slow moving at 6 to 8 months, when the chance of a full credit return drops. Obsolete at 12 months with no movement. Write off or purge at 18 to 24 months.</td></tr>
-      <tr><td class="kn"><a href="parts-manager-dashboard.html#kpi-months-of-supply">Months of Supply</a></td><td>Stock on hand divided by average monthly usage</td><td>Set per dealer. Three months is an average starting point, adjusted for how fast stock orders are filled and for turns.</td></tr>
+      <tr><td class="kn"><a href="parts-manager-dashboard.html#kpi-days-of-supply">Days of Supply</a></td><td>Inventory value divided by average daily usage</td><td>Set per dealer, with 90 days or less as the HEDS starting point.</td></tr>
       <tr><td class="kn"><a href="parts-manager-dashboard.html#kpi-parts-to-labor">Parts to Labor Ratio</a></td><td>Parts billed on work orders divided by labor on work orders</td><td>No single dealer-wide target. Measured by CAT class. Per-class numbers are covered in training.</td></tr>
     </tbody>
   </table></div>

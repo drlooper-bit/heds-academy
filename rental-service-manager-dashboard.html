@@ -21,7 +21,7 @@
     --muted: #94a3b8;
     --success: #22c55e;
     --warning: #e5ae25;
-    --danger: #ef4444;
+    --danger: #f87171;
     --radius: 8px;
     --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   }
@@ -270,9 +270,9 @@
     font-weight: 700;
     text-transform: uppercase;
   }
-  .status-pass { background: rgba(34, 197, 94, 0.2); color: var(--success); border: 1px solid var(--success); }
-  .status-warn { background: rgba(245, 158, 11, 0.2); color: var(--warning); border: 1px solid var(--warning); }
-  .status-fail { background: rgba(239, 68, 68, 0.2); color: var(--danger); border: 1px solid var(--danger); }
+  .status-pass { background: rgba(34, 197, 94, 0.2); color: #4ade80; border: 1px solid var(--success); }
+  .status-warn { background: rgba(245, 158, 11, 0.2); color: #fbbf24; border: 1px solid var(--warning); }
+  .status-fail { background: rgba(239, 68, 68, 0.2); color: #fca5a5; border: 1px solid var(--danger); }
 
   .btn {
     background: var(--accent-color);
@@ -912,22 +912,11 @@ table {
         <div class="example-badge">Industry Standard Worked Example</div>
         <div class="formula-title">FLEET PHYSICAL AVAILABILITY FORMULA</div>
         <div class="formula-expr">Fleet Physical Availability % = [Rent-Ready Units + On-Rent Units] / Total Fleet Units &times; 100</div>
-        <ol class="formula-steps">
-          <li><strong>Step 1:</strong> Extract total active fleet units assigned to your branch from the ERP Fleet Master. <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></li>
-          <li><strong>Step 2:</strong> Count the number of units currently on-rent to customers (Status = On-Rent). <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></li>
-          <li><strong>Step 3:</strong> Count the number of units currently staged on the ready-line certified for delivery (Status = Rent-Ready). <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></li>
-          <li><strong>Step 4:</strong> Add on-rent units and rent-ready units together to find your Total Revenue-Producing Units.</li>
-          <li><strong>Step 5:</strong> Divide Total Revenue-Producing Units by Total Fleet Units.</li>
-          <li><strong>Step 6:</strong> Multiply by 100 to calculate your Fleet Physical Availability percentage.</li>
-        </ol>
+        <div class="dash-table" style="margin:10px 0; font-size:0.85rem; overflow-x:auto;"><table style="width:100%; border-collapse:collapse; font-size:0.8rem; text-align:left;"><thead><tr style="border-bottom:2px solid var(--accent-color); color:var(--accent-color);"><th style="padding:8px;">Step</th><th style="padding:8px;">Formula step</th></tr></thead><tbody><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Step 1</td><td style="padding:8px;">Extract total active fleet units assigned to your branch from the ERP Fleet Master. <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Step 2</td><td style="padding:8px;">Count the number of units currently on-rent to customers (Status = On-Rent). <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Step 3</td><td style="padding:8px;">Count the number of units currently staged on the ready-line certified for delivery (Status = Rent-Ready). <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Step 4</td><td style="padding:8px;">Add on-rent units and rent-ready units together to find your Total Revenue-Producing Units.</td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Step 5</td><td style="padding:8px;">Divide Total Revenue-Producing Units by Total Fleet Units.</td></tr><tr><td style="padding:8px; font-weight:600; width:30%;">Step 6</td><td style="padding:8px;">Multiply by 100 to calculate your Fleet Physical Availability percentage.</td></tr></tbody></table></div>
         <p style="margin-top:10px; font-size:0.88rem;"><strong>Worked Example:</strong> Total Active Branch Fleet: 150 units. Units On-Rent: 105. Units on Ready-Line (Green-Tagged): 35. Calculation: (105 + 35) / 150 &times; 100 = 140/150 &times; 100 = <strong style="color:var(--success);">93.3% (PASS: Above 92% Target)</strong></p>
         <div style="margin-top:8px; font-size:0.85rem;">
           <strong>HEDS Target Benchmark:</strong>
-          <ul style="padding-left:16px; margin-top:4px;">
-            <li><strong>Target Band:</strong> &ge; 92% Physical Availability</li>
-            <li><strong>Warning Band:</strong> 88.0% to 91.9%</li>
-            <li><strong>Critical Fail:</strong> &lt; 88.0% (Signals severe shop gridlock or yard backlog)</li>
-          </ul>
+          <div class="dash-table" style="margin:10px 0; font-size:0.85rem; overflow-x:auto;"><table style="width:100%; border-collapse:collapse; font-size:0.8rem; text-align:left;"><thead><tr style="border-bottom:2px solid var(--accent-color); color:var(--accent-color);"><th style="padding:8px;">Measure</th><th style="padding:8px;">Target</th></tr></thead><tbody><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Target Band</td><td style="padding:8px;">&ge; 92% Physical Availability</td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Warning Band</td><td style="padding:8px;">88.0% to 91.9%</td></tr><tr><td style="padding:8px; font-weight:600; width:30%;">Critical Fail</td><td style="padding:8px;">&lt; 88.0% (Signals severe shop gridlock or yard backlog)</td></tr></tbody></table></div>
         </div>
       </div>
 
@@ -956,26 +945,14 @@ table {
         <div style="margin:12px 0; font-size:0.85rem; padding:14px; background:rgba(0,0,0,0.25); border-radius:8px; border:1px solid var(--border-color);">
           <strong style="color:var(--accent-color);">HEDS Rent-Ready Rule:</strong> When a unit comes off rent, it goes to service for inspection and has 48 hours to be back on the rent-ready line. The clock starts when the unit comes off rent into service and stops when it is on the rent-ready line. If the inspection finds a failure, the rent-ready clock stops at the failed inspection. From there the unit is handled as a normal work order in the service process, under the 48-hour close rule (closed and invoiced within 48 hours of last labor). Repair time does not count against the 48-hour rent-ready clock.
           <strong style="color:var(--accent-color); display:block; margin-top:8px;">Stage Gates (they add up to the 48 hours):</strong>
-          <ol style="padding-left:20px; margin-top:8px;">
-            <li><strong>Gate 1: Return Check-In &amp; Photo Audit:</strong> &le; 4 hours from coming off rent into service.</li>
-            <li><strong>Gate 2: Wash Rack &amp; Decontamination:</strong> &le; 8 hours from check-in completion.</li>
-            <li><strong>Gate 3: Safety Inspection &amp; Standard PM:</strong> &le; 24 hours from wash rack exit.</li>
-            <li><strong>Gate 4: Ready-Line Green Tagging &amp; ERP Release:</strong> &le; 12 hours from service completion.</li>
-            <li><strong>Total:</strong> &le; 48 hours from coming off rent into service to the rent-ready line (or to the failed inspection, if the unit fails).</li>
-          </ol>
+          <div class="dash-table" style="margin:10px 0; font-size:0.85rem; overflow-x:auto;"><table style="width:100%; border-collapse:collapse; font-size:0.8rem; text-align:left;"><thead><tr style="border-bottom:2px solid var(--accent-color); color:var(--accent-color);"><th style="padding:8px;">Item</th><th style="padding:8px;">Detail</th></tr></thead><tbody><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Gate 1: Return Check-In &amp; Photo Audit</td><td style="padding:8px;">&le; 4 hours from coming off rent into service.</td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Gate 2: Wash Rack &amp; Decontamination</td><td style="padding:8px;">&le; 8 hours from check-in completion.</td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Gate 3: Safety Inspection &amp; Standard PM</td><td style="padding:8px;">&le; 24 hours from wash rack exit.</td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Gate 4: Ready-Line Green Tagging &amp; ERP Release</td><td style="padding:8px;">&le; 12 hours from service completion.</td></tr><tr><td style="padding:8px; font-weight:600; width:30%;">Total</td><td style="padding:8px;">&le; 48 hours from coming off rent into service to the rent-ready line (or to the failed inspection, if the unit fails).</td></tr></tbody></table></div>
         </div>
       </div>
 
       <div class="curr-section">
         <div class="curr-section-h3">Part 3: Yard Dwell Time Taxonomy &amp; Root-Cause Elimination</div>
         <p style="font-size:0.9rem; margin-bottom:8px;"><strong>The 5 Root Causes of Yard Dwell Time:</strong></p>
-        <ol style="padding-left:20px; font-size:0.88rem; line-height:1.8;">
-          <li><strong>The Ghost Return:</strong> Delivery driver drops machine in the back lot without handing the return paperwork to the yard specialist or rental counter. Unit sits uninspected for 24 to 48 hours.</li>
-          <li><strong>The Wash Rack Chokepoint:</strong> Wash rack is treated as a catch-all queue with no staging priority. Quick-turn machines sit behind heavily caked dozers that take 4 hours to clean.</li>
-          <li><strong>The Unassigned Work Order Gap:</strong> Unit is washed and staged in the yard, but no work order is opened in the ERP. Technicians walk past it because it is not on their dispatch board.</li>
-          <li><strong>Missing Parts Hold:</strong> Unit is pulled into a service bay, disassembled, and discovered to need an air filter or hydraulic seal not in stock. Machine is pushed back into the yard with parts off.</li>
-          <li><strong>Ready-Line Tagging Delay:</strong> Inspection and PM are completed, but the technician did not sign off the 4-C sheet or update the ERP status to "Rent-Ready." The rental counter still sees the unit as "Down."</li>
-        </ol>
+        <div class="dash-table" style="margin:10px 0; font-size:0.85rem; overflow-x:auto;"><table style="width:100%; border-collapse:collapse; font-size:0.8rem; text-align:left;"><thead><tr style="border-bottom:2px solid var(--accent-color); color:var(--accent-color);"><th style="padding:8px;">Item</th><th style="padding:8px;">Detail</th></tr></thead><tbody><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">The Ghost Return</td><td style="padding:8px;">Delivery driver drops machine in the back lot without handing the return paperwork to the yard specialist or rental counter. Unit sits uninspected for 24 to 48 hours.</td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">The Wash Rack Chokepoint</td><td style="padding:8px;">Wash rack is treated as a catch-all queue with no staging priority. Quick-turn machines sit behind heavily caked dozers that take 4 hours to clean.</td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">The Unassigned Work Order Gap</td><td style="padding:8px;">Unit is washed and staged in the yard, but no work order is opened in the ERP. Technicians walk past it because it is not on their dispatch board.</td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Missing Parts Hold</td><td style="padding:8px;">Unit is pulled into a service bay, disassembled, and discovered to need an air filter or hydraulic seal not in stock. Machine is pushed back into the yard with parts off.</td></tr><tr><td style="padding:8px; font-weight:600; width:30%;">Ready-Line Tagging Delay</td><td style="padding:8px;">Inspection and PM are completed, but the technician did not sign off the 4-C sheet or update the ERP status to "Rent-Ready." The rental counter still sees the unit as "Down."</td></tr></tbody></table></div>
       </div>
 
       <div class="curr-section">
@@ -983,7 +960,7 @@ table {
         <p style="font-size:0.9rem; margin-bottom:8px;">To eliminate confusion between the shop floor, yard personnel, and rental counter, enforce a <strong>3-Tag Weatherproof Physical Hanging System</strong>:</p>
         <div class="grid-2" style="margin: 8px 0;">
           <div class="spec-box">
-            <div class="spec-title" style="color:#ef4444;">RED TAG (Mechanically Down / In-Process)</div>
+            <div class="spec-title" style="color:#f87171;">RED TAG (Mechanically Down / In-Process)</div>
             <p style="font-size:0.85rem;">Unit is not rentable. Down for mechanical repair, open PM, or waiting on parts. Required Data: Unit ID, Work Order #, Assigned Technician, Down Reason, Date Tagged.</p>
           </div>
           <div class="spec-box">
@@ -999,20 +976,12 @@ table {
 
       <div class="curr-section">
         <div class="curr-section-h3">Manager's Tips &amp; Floor Controls</div>
-        <ul style="padding-left: 20px; font-size:0.88rem; line-height:1.8;">
-          <li><strong>The 4-Hour Check-In Rule:</strong> If a delivery driver drops a machine at 2:00 PM, the return inspection, fluid check, and 4-point photos must be completed and logged into the ERP before 6:00 PM that same day.</li>
-          <li><strong>Wash Rack Prioritization:</strong> Wash quick-turn, high-demand machines first. Never wash a unit that is headed for a 40-hour engine overhaul before washing 3 excavators that only need a 250-hour PM and a wash to hit the ready-line.</li>
-          <li><strong>The Green Line Boundary:</strong> Green-tagged machines are parked strictly in designated "Ready-Line" bays facing forward with keys in the lockbox. A red-tagged or yellow-tagged unit is never permitted to cross into the ready-line staging area.</li>
-        </ul>
+        <div class="dash-table" style="margin:10px 0; font-size:0.85rem; overflow-x:auto;"><table style="width:100%; border-collapse:collapse; font-size:0.8rem; text-align:left;"><thead><tr style="border-bottom:2px solid var(--accent-color); color:var(--accent-color);"><th style="padding:8px;">Item</th><th style="padding:8px;">Detail</th></tr></thead><tbody><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">The 4-Hour Check-In Rule</td><td style="padding:8px;">If a delivery driver drops a machine at 2:00 PM, the return inspection, fluid check, and 4-point photos must be completed and logged into the ERP before 6:00 PM that same day.</td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Wash Rack Prioritization</td><td style="padding:8px;">Wash quick-turn, high-demand machines first. Never wash a unit that is headed for a 40-hour engine overhaul before washing 3 excavators that only need a 250-hour PM and a wash to hit the ready-line.</td></tr><tr><td style="padding:8px; font-weight:600; width:30%;">The Green Line Boundary</td><td style="padding:8px;">Green-tagged machines are parked strictly in designated "Ready-Line" bays facing forward with keys in the lockbox. A red-tagged or yellow-tagged unit is never permitted to cross into the ready-line staging area.</td></tr></tbody></table></div>
       </div>
 
       <div class="curr-section">
         <div class="curr-section-h3">Rhythm &amp; Operating Cadence</div>
-        <ul style="padding-left: 20px; font-size:0.88rem; line-height:1.8;">
-          <li><strong>Daily 7:00 AM Yard Sweep:</strong> Shop Foreman and Lead Yard Specialist walk the return yard to verify all machines returned overnight have yellow tags and work orders opened.</li>
-          <li><strong>Daily 1:00 PM Turnaround Handoff:</strong> Service Manager and Rental Counter Supervisor review the ready-line queue for afternoon customer dispatch.</li>
-          <li><strong>Weekly Turnaround SLA Review:</strong> Every Tuesday at 8:00 AM, review average hours from off rent into service to the rent-ready line per asset class vs. the 48-hour rent-ready rule.</li>
-        </ul>
+        <div class="dash-table" style="margin:10px 0; font-size:0.85rem; overflow-x:auto;"><table style="width:100%; border-collapse:collapse; font-size:0.8rem; text-align:left;"><thead><tr style="border-bottom:2px solid var(--accent-color); color:var(--accent-color);"><th style="padding:8px;">Item</th><th style="padding:8px;">Detail</th></tr></thead><tbody><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Daily 7:00 AM Yard Sweep</td><td style="padding:8px;">Shop Foreman and Lead Yard Specialist walk the return yard to verify all machines returned overnight have yellow tags and work orders opened.</td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Daily 1:00 PM Turnaround Handoff</td><td style="padding:8px;">Service Manager and Rental Counter Supervisor review the ready-line queue for afternoon customer dispatch.</td></tr><tr><td style="padding:8px; font-weight:600; width:30%;">Weekly Turnaround SLA Review</td><td style="padding:8px;">Every Tuesday at 8:00 AM, review average hours from off rent into service to the rent-ready line per asset class vs. the 48-hour rent-ready rule.</td></tr></tbody></table></div>
       </div>
 
       <div class="curr-section">
@@ -1022,13 +991,7 @@ table {
 
       <div class="curr-section">
         <div class="curr-section-h3">Accountability Cascade</div>
-        <ul style="padding-left: 20px; font-size:0.88rem; line-height:1.8;">
-          <li><strong>Return Gate &amp; 4-Hour Check-In Owner:</strong> Lead Yard Specialist (Named individual).</li>
-          <li><strong>Wash Rack Flow Owner:</strong> Wash Rack Lead / Yard Foreman.</li>
-          <li><strong>Fast-Track PM &amp; Repair Throughput Owner:</strong> Shop Foreman.</li>
-          <li><strong>Final Ready-Line Sign-Off &amp; ERP Status Owner:</strong> Rental Service Manager.</li>
-          <li><strong>Escalation Trigger:</strong> Any machine sitting in yellow or red status for &gt;48 hours without an active technician assigned must be escalated directly to the Branch Manager.</li>
-        </ul>
+        <div class="dash-table" style="margin:10px 0; font-size:0.85rem; overflow-x:auto;"><table style="width:100%; border-collapse:collapse; font-size:0.8rem; text-align:left;"><thead><tr style="border-bottom:2px solid var(--accent-color); color:var(--accent-color);"><th style="padding:8px;">Owner</th><th style="padding:8px;">Responsibility</th></tr></thead><tbody><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Return Gate &amp; 4-Hour Check-In Owner</td><td style="padding:8px;">Lead Yard Specialist (Named individual).</td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Wash Rack Flow Owner</td><td style="padding:8px;">Wash Rack Lead / Yard Foreman.</td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Fast-Track PM &amp; Repair Throughput Owner</td><td style="padding:8px;">Shop Foreman.</td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Final Ready-Line Sign-Off &amp; ERP Status Owner</td><td style="padding:8px;">Rental Service Manager.</td></tr><tr><td style="padding:8px; font-weight:600; width:30%;">Escalation Trigger</td><td style="padding:8px;">Any machine sitting in yellow or red status for &gt;48 hours without an active technician assigned must be escalated directly to the Branch Manager.</td></tr></tbody></table></div>
         <div class="spec-box" style="margin-top:12px;">
           <div class="spec-title">Deliverable</div>
           <p>Branch Turnaround SLA Process Map and Physical Staging Layout Diagram.</p>
@@ -1080,14 +1043,7 @@ table {
           <div class="example-badge">Industry Standard Worked Example</div>
           <div class="formula-title">MAINTENANCE COST AS % OF OEC FORMULA</div>
           <div class="formula-expr">Annual Maint % of OEC = Trailing 12-Mo Total Maint Spend (excluding tech labor) / Original Equipment Cost &times; 100</div>
-          <ol class="formula-steps">
-            <li><strong>Step 1:</strong> Leave out internal technician labor: rental books it as an operating expense, not as maintenance cost.</li>
-            <li><strong>Step 2:</strong> Enter total parts and filter costs charged to the unit. <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></li>
-            <li><strong>Step 3:</strong> Enter all sublet repair, glass, tire, and outside vendor costs. <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></li>
-            <li><strong>Step 4:</strong> Sum parts and sublet (no tech labor) to find Total 12-Month Maintenance Spend.</li>
-            <li><strong>Step 5:</strong> Divide by the machine's capitalized OEC. <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></li>
-            <li><strong>Step 6:</strong> Multiply by 100 to get the annual maintenance percentage.</li>
-          </ol>
+          <div class="dash-table" style="margin:10px 0; font-size:0.85rem; overflow-x:auto;"><table style="width:100%; border-collapse:collapse; font-size:0.8rem; text-align:left;"><thead><tr style="border-bottom:2px solid var(--accent-color); color:var(--accent-color);"><th style="padding:8px;">Step</th><th style="padding:8px;">Formula step</th></tr></thead><tbody><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Step 1</td><td style="padding:8px;">Leave out internal technician labor: rental books it as an operating expense, not as maintenance cost.</td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Step 2</td><td style="padding:8px;">Enter total parts and filter costs charged to the unit. <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Step 3</td><td style="padding:8px;">Enter all sublet repair, glass, tire, and outside vendor costs. <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Step 4</td><td style="padding:8px;">Sum parts and sublet (no tech labor) to find Total 12-Month Maintenance Spend.</td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Step 5</td><td style="padding:8px;">Divide by the machine's capitalized OEC. <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></td></tr><tr><td style="padding:8px; font-weight:600; width:30%;">Step 6</td><td style="padding:8px;">Multiply by 100 to get the annual maintenance percentage.</td></tr></tbody></table></div>
           <div style="margin-top:12px; font-size:0.85rem;">
             <p><strong>Worked Examples (Industry Standard Benchmarks):</strong></p>
             <p style="margin-top:6px;"><strong>Machine A (20-Ton Excavator):</strong> OEC: $240,000. 12-Mo Maint Spend (excl. tech labor): $10,800. Calculation: ($10,800 / $240,000) &times; 100 = <strong style="color:var(--success);">4.5% &rarr; PASS (at or below the 8% of OEC target)</strong></p>
@@ -1095,12 +1051,7 @@ table {
           </div>
           <div style="margin-top:8px; font-size:0.85rem;">
             <strong>HEDS Target Benchmark:</strong>
-            <ul style="padding-left:16px; margin-top:4px;">
-              <li><strong>Target:</strong> 8% of OEC / Year or less (fleet cost, tech labor excluded)</li>
-              <li><strong>Warning Band:</strong> 8.1% to 10.0%</li>
-              <li><strong>Fail / Disposition Flag:</strong> &gt; 10.0% of OEC</li>
-              <li><strong>Fleet type:</strong> a small fleet runs a lower percentage, a large fleet a higher one, and a mixed fleet lands somewhere in that range.</li>
-            </ul>
+            <div class="dash-table" style="margin:10px 0; font-size:0.85rem; overflow-x:auto;"><table style="width:100%; border-collapse:collapse; font-size:0.8rem; text-align:left;"><thead><tr style="border-bottom:2px solid var(--accent-color); color:var(--accent-color);"><th style="padding:8px;">Measure</th><th style="padding:8px;">Target</th></tr></thead><tbody><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Target</td><td style="padding:8px;">8% of OEC / Year or less (fleet cost, tech labor excluded)</td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Warning Band</td><td style="padding:8px;">8.1% to 10.0%</td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Fail / Disposition Flag</td><td style="padding:8px;">&gt; 10.0% of OEC</td></tr><tr><td style="padding:8px; font-weight:600; width:30%;">Fleet type</td><td style="padding:8px;">a small fleet runs a lower percentage, a large fleet a higher one, and a mixed fleet lands somewhere in that range.</td></tr></tbody></table></div>
           </div>
         </div>
       </div>
@@ -1124,19 +1075,11 @@ table {
         <p style="font-size:0.9rem; margin-bottom:8px;">Identifies the bottom 5% of fleet assets that generate disproportionate maintenance cost, chronic telematics faults, and repeat downtime.</p>
         <div style="padding:14px; background:rgba(0,0,0,0.25); border-radius:8px; border:1px solid var(--border-color); margin:10px 0; font-size:0.85rem;">
           <p><strong>The Economic Obsolescence Curve:</strong></p>
-          <ul style="padding-left:20px; margin-top:6px; line-height:1.8;">
-            <li><strong>Years 1 to 2 (0 to 2,000 hrs):</strong> Maintenance cost is well below the 8% of OEC target, covered by OEM warranty. High utilization.</li>
-            <li><strong>Years 3 to 4 (2,000 to 5,000 hrs):</strong> Maintenance stabilizes at or below the 8% of OEC target. Predictable PM cycles.</li>
-            <li><strong>Years 5+ (5,000+ hrs):</strong> The Tipping Point. Cumulative wear on pins, bushings, hydraulic pumps, engines, and emissions systems drives maintenance above the 8% of OEC target while utilization and rental rates decline.</li>
-            <li><strong>Cumulative Lifetime Cap:</strong> When total cumulative lifetime maintenance spend reaches <strong>35% to 40% of OEC</strong>, the asset has reached the end of its economic rental life.</li>
-          </ul>
+          <div class="dash-table" style="margin:10px 0; font-size:0.85rem; overflow-x:auto;"><table style="width:100%; border-collapse:collapse; font-size:0.8rem; text-align:left;"><thead><tr style="border-bottom:2px solid var(--accent-color); color:var(--accent-color);"><th style="padding:8px;">Item</th><th style="padding:8px;">Detail</th></tr></thead><tbody><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Years 1 to 2 (0 to 2,000 hrs)</td><td style="padding:8px;">Maintenance cost is well below the 8% of OEC target, covered by OEM warranty. High utilization.</td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Years 3 to 4 (2,000 to 5,000 hrs)</td><td style="padding:8px;">Maintenance stabilizes at or below the 8% of OEC target. Predictable PM cycles.</td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Years 5+ (5,000+ hrs)</td><td style="padding:8px;">The Tipping Point. Cumulative wear on pins, bushings, hydraulic pumps, engines, and emissions systems drives maintenance above the 8% of OEC target while utilization and rental rates decline.</td></tr><tr><td style="padding:8px; font-weight:600; width:30%;">Cumulative Lifetime Cap</td><td style="padding:8px;">When total cumulative lifetime maintenance spend reaches <strong>35% to 40% of OEC</strong>, the asset has reached the end of its economic rental life.</td></tr></tbody></table></div>
         </div>
         <div class="floor-rule">
           <div class="floor-rule-title">Manager's Tips on Fleet Disposition</div>
-          <ul style="padding-left:20px; margin-top:6px; font-size:0.88rem; line-height:1.8;">
-            <li><strong>Package for Auction Before Major Failure:</strong> Do not spend $8,000 rebuilding a hydraulic pump on a 6,000-hour machine only to auction it 6 months later. Cut the asset loose before the major component overhaul.</li>
-            <li><strong>Seasonal Timing:</strong> Present disposition recommendations to your GM in Q3/Q4 so equipment can hit spring contractor auctions at peak valuation.</li>
-          </ul>
+          <div class="dash-table" style="margin:10px 0; font-size:0.85rem; overflow-x:auto;"><table style="width:100%; border-collapse:collapse; font-size:0.8rem; text-align:left;"><thead><tr style="border-bottom:2px solid var(--accent-color); color:var(--accent-color);"><th style="padding:8px;">Item</th><th style="padding:8px;">Detail</th></tr></thead><tbody><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Package for Auction Before Major Failure</td><td style="padding:8px;">Do not spend $8,000 rebuilding a hydraulic pump on a 6,000-hour machine only to auction it 6 months later. Cut the asset loose before the major component overhaul.</td></tr><tr><td style="padding:8px; font-weight:600; width:30%;">Seasonal Timing</td><td style="padding:8px;">Present disposition recommendations to your GM in Q3/Q4 so equipment can hit spring contractor auctions at peak valuation.</td></tr></tbody></table></div>
         </div>
         <div class="spec-box" style="margin-top:12px;">
           <div class="spec-title">Deliverable: 5% At-Risk Fleet Review Sheet</div>
@@ -1185,11 +1128,7 @@ table {
 
         <div style="padding:14px; background:rgba(0,0,0,0.25); border-radius:8px; border:1px solid var(--border-color); margin:10px 0; font-size:0.85rem;">
           <p><strong>Standard Shop Lane Architecture:</strong></p>
-          <ol style="padding-left:20px; margin-top:6px; line-height:1.8;">
-            <li><strong>Lane 1: Fast-Track / Make-Ready:</strong> Dedicated bays for return safety inspections, fluid top-offs, minor wear items, and 250h PMs. Target completion: &lt; 4 hours.</li>
-            <li><strong>Lane 2: Scheduled Mid-Level PMs:</strong> Dedicated bays for 500h/1000h scheduled services, hydraulic hose replacement, and track/tire adjustments. Target completion: &lt; 24 hours.</li>
-            <li><strong>Lane 3: Major Repair &amp; Component Overhaul:</strong> Dedicated bays for major engine, transmission, cylinder packings, and structural welding. Managed with strict milestone gates and parts staging.</li>
-          </ol>
+          <div class="dash-table" style="margin:10px 0; font-size:0.85rem; overflow-x:auto;"><table style="width:100%; border-collapse:collapse; font-size:0.8rem; text-align:left;"><thead><tr style="border-bottom:2px solid var(--accent-color); color:var(--accent-color);"><th style="padding:8px;">Item</th><th style="padding:8px;">Detail</th></tr></thead><tbody><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Lane 1: Fast-Track / Make-Ready</td><td style="padding:8px;">Dedicated bays for return safety inspections, fluid top-offs, minor wear items, and 250h PMs. Target completion: &lt; 4 hours.</td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Lane 2: Scheduled Mid-Level PMs</td><td style="padding:8px;">Dedicated bays for 500h/1000h scheduled services, hydraulic hose replacement, and track/tire adjustments. Target completion: &lt; 24 hours.</td></tr><tr><td style="padding:8px; font-weight:600; width:30%;">Lane 3: Major Repair &amp; Component Overhaul</td><td style="padding:8px;">Dedicated bays for major engine, transmission, cylinder packings, and structural welding. Managed with strict milestone gates and parts staging.</td></tr></tbody></table></div>
         </div>
       </div>
 
@@ -1219,15 +1158,12 @@ table {
           <div class="formula-expr">Labor Recovery % = Hours on Work Orders / Hours of Payroll (Paid Hours) &times; 100</div>
           <div class="formula-expr" style="margin-top:6px;">Technician Utilization % = Hours Invoiced on the Work Order / Hours on Work Orders &times; 100</div>
           <p style="font-size:0.85rem; margin-top:6px;"><strong>Worked Example:</strong> Shop has 5 technicians working 40 hours = 200 Total Paid Payroll Hours. Total hours booked to open fleet work orders = 174 hours. Unapplied hours = 26 hours. Recovery: (174 / 200) &times; 100 = <strong style="color:var(--warning);">87.0% (WARN: below the 95 to 100% target, above the 85% red flag)</strong></p>
-          <p style="font-size:0.85rem; margin-top:4px;"><strong>HEDS Target Benchmarks (same as dealer):</strong> Recovery 95% to 100% and Utilization 100% to 110%, red flag at 85% or below on either. Above the top of the band (100% for Recovery, 110% for Utilization): WARN, check the time coding. HEDS has no separate measure beyond these two.</p>
+          <p style="font-size:0.85rem; margin-top:4px;"><strong>HEDS Target Benchmarks (same as dealer):</strong> Recovery 95% to 100% and Utilization 100% to 110%, red flag at 85% or below on either. Labor Utilization above 110% passes. Labor Recovery above 100%: WARN, check the time coding. HEDS has no separate measure beyond these two.</p>
         </div>
 
         <div class="floor-rule">
           <div class="floor-rule-title">Manager's Tips on Eliminating Lost Wrench-Time</div>
-          <ul style="padding-left:20px; margin-top:6px; font-size:0.88rem; line-height:1.8;">
-            <li><strong>Stop Using Techs as Yard Hostlers:</strong> Hire a lower-cost yard porter or wash-rack attendant to move machines in and out of bays. Paying a $38/hr master technician to jump-start and jockey machines across the yard is pure operational waste.</li>
-            <li><strong>Pre-Stage Parts at the Bay:</strong> The technician should never walk to the parts room to look up filters. The parts expediter stages the PM kit in a tote at the bay before the machine is pulled in.</li>
-          </ul>
+          <div class="dash-table" style="margin:10px 0; font-size:0.85rem; overflow-x:auto;"><table style="width:100%; border-collapse:collapse; font-size:0.8rem; text-align:left;"><thead><tr style="border-bottom:2px solid var(--accent-color); color:var(--accent-color);"><th style="padding:8px;">Item</th><th style="padding:8px;">Detail</th></tr></thead><tbody><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Stop Using Techs as Yard Hostlers</td><td style="padding:8px;">Hire a lower-cost yard porter or wash-rack attendant to move machines in and out of bays. Paying a $38/hr master technician to jump-start and jockey machines across the yard is pure operational waste.</td></tr><tr><td style="padding:8px; font-weight:600; width:30%;">Pre-Stage Parts at the Bay</td><td style="padding:8px;">The technician should never walk to the parts room to look up filters. The parts expediter stages the PM kit in a tote at the bay before the machine is pulled in.</td></tr></tbody></table></div>
         </div>
       </div>
 
@@ -1236,19 +1172,14 @@ table {
         <p style="font-size:0.9rem; margin-bottom:8px;">Total labor, parts, and capital trapped in open, unclosed fleet work orders.</p>
         <div style="padding:14px; background:rgba(0,0,0,0.25); border-radius:8px; border:1px solid var(--border-color); margin:10px 0; font-size:0.85rem;">
           <p><strong>Why Fleet WIP Stagnates (The 4 Root Causes):</strong></p>
-          <ol style="padding-left:20px; margin-top:6px; line-height:1.8;">
-            <li><strong>Category A (Dealer Parts Delay):</strong> Tech disassembled machine, found broken part, ordered from dealer; machine sits in bay.</li>
-            <li><strong>Category B (Sublet Vendor Lag):</strong> Waiting on outside glass, hydraulic cylinder re-chroming, or track pressing vendor.</li>
-            <li><strong>Category C (Technician Reassigned):</strong> Job was paused to put tech on an emergency breakdown; work half-done.</li>
-            <li><strong>Category D (Administrative Ghost WIP):</strong> Repair was physically finished 3 days ago and machine is in the yard, but work order was never closed in the ERP.</li>
-          </ol>
+          <div class="dash-table" style="margin:10px 0; font-size:0.85rem; overflow-x:auto;"><table style="width:100%; border-collapse:collapse; font-size:0.8rem; text-align:left;"><thead><tr style="border-bottom:2px solid var(--accent-color); color:var(--accent-color);"><th style="padding:8px;">Item</th><th style="padding:8px;">Detail</th></tr></thead><tbody><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Category A (Dealer Parts Delay)</td><td style="padding:8px;">Tech disassembled machine, found broken part, ordered from dealer; machine sits in bay.</td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Category B (Sublet Vendor Lag)</td><td style="padding:8px;">Waiting on outside glass, hydraulic cylinder re-chroming, or track pressing vendor.</td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Category C (Technician Reassigned)</td><td style="padding:8px;">Job was paused to put tech on an emergency breakdown; work half-done.</td></tr><tr><td style="padding:8px; font-weight:600; width:30%;">Category D (Administrative Ghost WIP)</td><td style="padding:8px;">Repair was physically finished 3 days ago and machine is in the yard, but work order was never closed in the ERP.</td></tr></tbody></table></div>
         </div>
         <div class="floor-rule">
           <div class="floor-rule-title">HEDS Target Benchmark</div>
           Every work order with labor is closed and invoiced within <strong>48 hours of the last labor</strong> posted. Target: <strong>0</strong> work orders past 48 hours. There are no tiers past 48 hours: a work order is either on time or late. Jobs still in progress (Categories A to C) are reviewed every week in the WIP scrub. Internal fleet work orders follow the same rule: the rental department is the customer, and service invoices it like any other customer.
         </div>
         <div class="spec-box" style="margin-top:12px;">
-          <div class="spec-title">Deliverable: Cleaned Fleet WIP Aging Board</div>
+          <div class="spec-title">Deliverable: Cleaned Work Order Board for the 48-Hour Rule</div>
           <p>Live audit of all open work orders in your ERP. Flag every work order past 48 hours of last labor. Categorize each into A, B, C, or D. Clear all Category D ghost tickets immediately. For Category A and B, establish an expedited vendor contact plan.</p>
         </div>
       </div>
@@ -1289,12 +1220,7 @@ table {
 
         <div style="padding:14px; background:rgba(0,0,0,0.25); border-radius:8px; border:1px solid var(--border-color); margin:10px 0; font-size:0.85rem;">
           <p><strong>Core Facility Standards:</strong></p>
-          <ul style="padding-left:20px; margin-top:6px; line-height:1.8;">
-            <li><strong>Lockout / Tagout (LOTO) Discipline:</strong> Mandatory physical lockout tags and keyed padlocks on all disabled equipment undergoing electrical, hydraulic, or powertrain repair.</li>
-            <li><strong>Overhead Crane &amp; Rigging Certifications:</strong> Annual load testing and daily visual inspection of wire rope, synthetic slings, shackles, and hoist limit switches.</li>
-            <li><strong>Jack Stand &amp; Heavy Blocking Standards:</strong> Prohibit working under machines supported solely by hydraulics. Mandatory certified steel blocking and rated jack stands.</li>
-            <li><strong>Personal Protective Equipment (PPE) Compliance:</strong> 100% compliance on steel-toe boots, ANSI Z87.1 safety glasses, hearing protection in wash bays, and nitrile gloves for fluid handling.</li>
-          </ul>
+          <div class="dash-table" style="margin:10px 0; font-size:0.85rem; overflow-x:auto;"><table style="width:100%; border-collapse:collapse; font-size:0.8rem; text-align:left;"><thead><tr style="border-bottom:2px solid var(--accent-color); color:var(--accent-color);"><th style="padding:8px;">Item</th><th style="padding:8px;">Detail</th></tr></thead><tbody><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Lockout / Tagout (LOTO) Discipline</td><td style="padding:8px;">Mandatory physical lockout tags and keyed padlocks on all disabled equipment undergoing electrical, hydraulic, or powertrain repair.</td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Overhead Crane &amp; Rigging Certifications</td><td style="padding:8px;">Annual load testing and daily visual inspection of wire rope, synthetic slings, shackles, and hoist limit switches.</td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Jack Stand &amp; Heavy Blocking Standards</td><td style="padding:8px;">Prohibit working under machines supported solely by hydraulics. Mandatory certified steel blocking and rated jack stands.</td></tr><tr><td style="padding:8px; font-weight:600; width:30%;">Personal Protective Equipment (PPE) Compliance</td><td style="padding:8px;">100% compliance on steel-toe boots, ANSI Z87.1 safety glasses, hearing protection in wash bays, and nitrile gloves for fluid handling.</td></tr></tbody></table></div>
         </div>
       </div>
 
@@ -1314,12 +1240,7 @@ table {
 
         <div style="padding:14px; background:rgba(0,0,0,0.25); border-radius:8px; border:1px solid var(--border-color); margin:10px 0; font-size:0.85rem;">
           <p><strong>Core Mobile Standards:</strong></p>
-          <ul style="padding-left:20px; margin-top:6px; line-height:1.8;">
-            <li><strong>Driver Vehicle Inspection Reports (DVIR):</strong> Mandatory daily pre-trip and post-trip digital DVIR submissions before service trucks roll.</li>
-            <li><strong>Gross Vehicle Weight Rating (GVWR) Management:</strong> Strict quarterly scale audits to ensure cranes, toolboxes, fluid tanks, and compressors do not exceed chassis GVWR.</li>
-            <li><strong>Hours of Service (HOS) &amp; Medical Cards:</strong> Compliance tracking for commercial driver licenses (CDL) and DOT medical certification for all field technicians.</li>
-            <li><strong>Mobile Boom &amp; Crane Certifications:</strong> Annual ANSI/OSHA certified dielectric and structural crane testing for all mobile service body cranes.</li>
-          </ul>
+          <div class="dash-table" style="margin:10px 0; font-size:0.85rem; overflow-x:auto;"><table style="width:100%; border-collapse:collapse; font-size:0.8rem; text-align:left;"><thead><tr style="border-bottom:2px solid var(--accent-color); color:var(--accent-color);"><th style="padding:8px;">Item</th><th style="padding:8px;">Detail</th></tr></thead><tbody><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Driver Vehicle Inspection Reports (DVIR)</td><td style="padding:8px;">Mandatory daily pre-trip and post-trip digital DVIR submissions before service trucks roll.</td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Gross Vehicle Weight Rating (GVWR) Management</td><td style="padding:8px;">Strict quarterly scale audits to ensure cranes, toolboxes, fluid tanks, and compressors do not exceed chassis GVWR.</td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Hours of Service (HOS) &amp; Medical Cards</td><td style="padding:8px;">Compliance tracking for commercial driver licenses (CDL) and DOT medical certification for all field technicians.</td></tr><tr><td style="padding:8px; font-weight:600; width:30%;">Mobile Boom &amp; Crane Certifications</td><td style="padding:8px;">Annual ANSI/OSHA certified dielectric and structural crane testing for all mobile service body cranes.</td></tr></tbody></table></div>
         </div>
       </div>
 
@@ -1339,12 +1260,7 @@ table {
 
         <div style="padding:14px; background:rgba(0,0,0,0.25); border-radius:8px; border:1px solid var(--border-color); margin:10px 0; font-size:0.85rem;">
           <p><strong>Core Environmental Standards:</strong></p>
-          <ul style="padding-left:20px; margin-top:6px; line-height:1.8;">
-            <li><strong>Oil/Water Separator Maintenance:</strong> Monthly visual sediment checks and quarterly sludge extraction logs to prevent municipal sewer discharges.</li>
-            <li><strong>Secondary Containment:</strong> 110% capacity secondary containment basins on all bulk new oil, waste oil, DEF, and antifreeze storage tanks.</li>
-            <li><strong>Spill Kit Staging:</strong> Hydrocarbon spill kits staged at every wash rack, fluid transfer station, and inside every field service truck.</li>
-            <li><strong>Used Filter Crushing &amp; Disposal:</strong> Hot-draining and mechanical crushing of all used oil filters prior to certified recycling pickup.</li>
-          </ul>
+          <div class="dash-table" style="margin:10px 0; font-size:0.85rem; overflow-x:auto;"><table style="width:100%; border-collapse:collapse; font-size:0.8rem; text-align:left;"><thead><tr style="border-bottom:2px solid var(--accent-color); color:var(--accent-color);"><th style="padding:8px;">Item</th><th style="padding:8px;">Detail</th></tr></thead><tbody><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Oil/Water Separator Maintenance</td><td style="padding:8px;">Monthly visual sediment checks and quarterly sludge extraction logs to prevent municipal sewer discharges.</td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Secondary Containment</td><td style="padding:8px;">110% capacity secondary containment basins on all bulk new oil, waste oil, DEF, and antifreeze storage tanks.</td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Spill Kit Staging</td><td style="padding:8px;">Hydrocarbon spill kits staged at every wash rack, fluid transfer station, and inside every field service truck.</td></tr><tr><td style="padding:8px; font-weight:600; width:30%;">Used Filter Crushing &amp; Disposal</td><td style="padding:8px;">Hot-draining and mechanical crushing of all used oil filters prior to certified recycling pickup.</td></tr></tbody></table></div>
         </div>
       </div>
 
@@ -1358,21 +1274,11 @@ table {
         <div class="formula-title">BRANCH COMPLIANCE AUDIT SCORE</div>
         <div class="formula-expr">Compliance Score % = (Passed Audit Items / Total Audit Items) &times; 100</div>
         <div class="formula-expr" style="margin-top:6px;">LOTO Violation Rate = (Observed LOTO Violations / Total Repair Orders Audited) &times; 100</div>
-        <ol class="formula-steps">
-          <li><strong>Step 1:</strong> Enter the total number of audit items on your 20-point safety checklist. <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></li>
-          <li><strong>Step 2:</strong> Enter the number of passed items from your most recent walk-through audit. <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></li>
-          <li><strong>Step 3:</strong> Divide passed by total and multiply by 100 to get your Branch Compliance Score %.</li>
-          <li><strong>Step 4:</strong> Pull the trailing 30-day repair order log. Count how many active repair orders had documented LOTO compliance. Divide by total repair orders to get LOTO Compliance Rate %.</li>
-        </ol>
+        <div class="dash-table" style="margin:10px 0; font-size:0.85rem; overflow-x:auto;"><table style="width:100%; border-collapse:collapse; font-size:0.8rem; text-align:left;"><thead><tr style="border-bottom:2px solid var(--accent-color); color:var(--accent-color);"><th style="padding:8px;">Step</th><th style="padding:8px;">Formula step</th></tr></thead><tbody><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Step 1</td><td style="padding:8px;">Enter the total number of audit items on your 20-point safety checklist. <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Step 2</td><td style="padding:8px;">Enter the number of passed items from your most recent walk-through audit. <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Step 3</td><td style="padding:8px;">Divide passed by total and multiply by 100 to get your Branch Compliance Score %.</td></tr><tr><td style="padding:8px; font-weight:600; width:30%;">Step 4</td><td style="padding:8px;">Pull the trailing 30-day repair order log. Count how many active repair orders had documented LOTO compliance. Divide by total repair orders to get LOTO Compliance Rate %.</td></tr></tbody></table></div>
         <p style="margin-top:10px; font-size:0.85rem;"><strong>Worked Example:</strong> 20-point audit checklist, 17 items passed. Compliance Score: (17 / 20) &times; 100 = <strong style="color:var(--danger);">85.0% (WARN: Below 90% Target)</strong>. 3 open violations: missing LOTO on press brake bay, expired crane certification on Service Truck 2, no spill kit in wash bay.</p>
         <div style="margin-top:8px; font-size:0.85rem;">
           <strong>HEDS Target Benchmarks:</strong>
-          <ul style="padding-left:16px; margin-top:4px;">
-            <li><strong>Branch Compliance Audit Score:</strong> &ge; 95% on all 20-point facility &amp; mobile audits</li>
-            <li><strong>LOTO Compliance Rate:</strong> 100% on all repair orders involving electrical, hydraulic, or powertrain energy isolation</li>
-            <li><strong>DVIR Submission Rate:</strong> 100% pre-trip and post-trip on all mobile service truck deployments</li>
-            <li><strong>Open Violation Remediation:</strong> &le; 48 hours from identification to corrective action closure</li>
-          </ul>
+          <div class="dash-table" style="margin:10px 0; font-size:0.85rem; overflow-x:auto;"><table style="width:100%; border-collapse:collapse; font-size:0.8rem; text-align:left;"><thead><tr style="border-bottom:2px solid var(--accent-color); color:var(--accent-color);"><th style="padding:8px;">Measure</th><th style="padding:8px;">Target</th></tr></thead><tbody><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Branch Compliance Audit Score</td><td style="padding:8px;">&ge; 95% on all 20-point facility &amp; mobile audits</td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">LOTO Compliance Rate</td><td style="padding:8px;">100% on all repair orders involving electrical, hydraulic, or powertrain energy isolation</td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">DVIR Submission Rate</td><td style="padding:8px;">100% pre-trip and post-trip on all mobile service truck deployments</td></tr><tr><td style="padding:8px; font-weight:600; width:30%;">Open Violation Remediation</td><td style="padding:8px;">&le; 48 hours from identification to corrective action closure</td></tr></tbody></table></div>
         </div>
       </div>
 
@@ -1426,20 +1332,11 @@ table {
           <div class="formula-expr">Monthly Run Rate = Trailing 6-Mo Parts Consumption / 6</div>
           <div class="formula-expr" style="margin-top:6px;">90-Day Target Inventory = Monthly Run Rate &times; 3</div>
           <div class="formula-expr" style="margin-top:6px;">Days of Supply = Current Inventory $ / Average Daily Parts Usage $</div>
-          <ol class="formula-steps">
-            <li><strong>Step 1:</strong> Enter trailing 6-month parts consumption for the SKU. <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></li>
-            <li><strong>Step 2:</strong> Divide by 6 to get Monthly Run Rate.</li>
-            <li><strong>Step 3:</strong> Multiply by 3 to get the 90-Day Target Stock Level.</li>
-            <li><strong>Step 4:</strong> Set Reorder Point (Min) = 1 month of supply. Maximum Stock Level (Max) = 3 months of supply.</li>
-          </ol>
+          <div class="dash-table" style="margin:10px 0; font-size:0.85rem; overflow-x:auto;"><table style="width:100%; border-collapse:collapse; font-size:0.8rem; text-align:left;"><thead><tr style="border-bottom:2px solid var(--accent-color); color:var(--accent-color);"><th style="padding:8px;">Step</th><th style="padding:8px;">Formula step</th></tr></thead><tbody><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Step 1</td><td style="padding:8px;">Enter trailing 6-month parts consumption for the SKU. <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Step 2</td><td style="padding:8px;">Divide by 6 to get Monthly Run Rate.</td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Step 3</td><td style="padding:8px;">Multiply by 3 to get the 90-Day Target Stock Level.</td></tr><tr><td style="padding:8px; font-weight:600; width:30%;">Step 4</td><td style="padding:8px;">Set Reorder Point (Min) = 1 month of supply. Maximum Stock Level (Max) = 3 months of supply.</td></tr></tbody></table></div>
           <p style="margin-top:10px; font-size:0.85rem;"><strong>Worked Example (Filter Inventory Run Rate):</strong> Part: Engine Oil Filter (P/N HF6510) used across 25 skid steers. Trailing 6-Month Consumption: 48 filters. Monthly Run Rate: 48 / 6 = 8 filters/month. Target 90-Day Stock Level: 8 &times; 3 = 24 filters. Reorder Point (Min): 8 filters (30-day buffer). Maximum Stock Level (Max): 24 filters (90-day buffer).</p>
           <div style="margin-top:8px; font-size:0.85rem;">
             <strong>HEDS Target Benchmarks:</strong>
-            <ul style="padding-left:16px; margin-top:4px;">
-              <li><strong>Run-Rate Stocking Window:</strong> Strict 90-Day (3-Month) Buffer on high-velocity PM and wear items.</li>
-              <li><strong>Maintenance Parts Fill Rate:</strong> &ge; 95% for all scheduled PM kits, counted by line item, then averaged.</li>
-              <li><strong>Dead Stock / Obsolescence:</strong> &lt; 3% of total inventory value with zero movement in &gt;180 days (&lt; 5% over 365 days).</li>
-            </ul>
+            <div class="dash-table" style="margin:10px 0; font-size:0.85rem; overflow-x:auto;"><table style="width:100%; border-collapse:collapse; font-size:0.8rem; text-align:left;"><thead><tr style="border-bottom:2px solid var(--accent-color); color:var(--accent-color);"><th style="padding:8px;">Item</th><th style="padding:8px;">Detail</th></tr></thead><tbody><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Run-Rate Stocking Window</td><td style="padding:8px;">Strict 90-Day (3-Month) Buffer on high-velocity PM and wear items.</td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Maintenance Parts Fill Rate</td><td style="padding:8px;">&ge; 95% for all scheduled PM kits, counted by line item, then averaged.</td></tr><tr><td style="padding:8px; font-weight:600; width:30%;">Dead Stock / Obsolescence</td><td style="padding:8px;">&lt; 3% of total inventory value with zero movement in &gt;180 days (&lt; 5% over 365 days).</td></tr></tbody></table></div>
           </div>
         </div>
       </div>
@@ -1520,12 +1417,7 @@ table {
           <div class="example-badge">Industry Standard Worked Example</div>
           <div class="formula-title">SHOP PRIORITY INDEX (SPI)</div>
           <div class="formula-expr">SPI = Daily Book Rental Rate ($) / Estimated Mechanical Repair Hours</div>
-          <ol class="formula-steps">
-            <li><strong>Step 1:</strong> Enter the Daily Book Rental Rate for each down unit. <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></li>
-            <li><strong>Step 2:</strong> Enter the estimated repair hours for each unit. <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></li>
-            <li><strong>Step 3:</strong> Divide Daily Rate by Repair Hours to calculate SPI for each unit.</li>
-            <li><strong>Step 4:</strong> Rank units highest SPI to lowest. Assign your available technician to the highest SPI unit first.</li>
-          </ol>
+          <div class="dash-table" style="margin:10px 0; font-size:0.85rem; overflow-x:auto;"><table style="width:100%; border-collapse:collapse; font-size:0.8rem; text-align:left;"><thead><tr style="border-bottom:2px solid var(--accent-color); color:var(--accent-color);"><th style="padding:8px;">Step</th><th style="padding:8px;">Formula step</th></tr></thead><tbody><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Step 1</td><td style="padding:8px;">Enter the Daily Book Rental Rate for each down unit. <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Step 2</td><td style="padding:8px;">Enter the estimated repair hours for each unit. <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Step 3</td><td style="padding:8px;">Divide Daily Rate by Repair Hours to calculate SPI for each unit.</td></tr><tr><td style="padding:8px; font-weight:600; width:30%;">Step 4</td><td style="padding:8px;">Rank units highest SPI to lowest. Assign your available technician to the highest SPI unit first.</td></tr></tbody></table></div>
           <p style="margin-top:8px; font-size:0.85rem;"><strong>Worked Scenario Walkthrough:</strong> 3 down machines, 1 available technician (8-hour shift):</p>
           <ul style="padding-left:20px; font-size:0.85rem; margin-top:6px; line-height:1.8;">
             <li><strong>Unit A: 50-Ton Excavator</strong> | Daily Rate: $850 | Repair: 2.0h | SPI = $850/2.0 = <strong style="color:var(--success);">425.0</strong></li>
@@ -1558,12 +1450,7 @@ table {
           </ol>
           <div style="margin-top:10px; font-size:0.85rem;">
             <strong>HEDS Target Benchmarks:</strong>
-            <ul style="padding-left:16px; margin-top:4px;">
-              <li><strong>Fleet Downtime %:</strong> down days divided by available days, times 100. Under 8% (Critical alert: &gt;12%)</li>
-              <li><strong>Maintenance Cost:</strong> measured as % of OEC, not % of revenue: 8% of OEC or less, tech labor excluded (Module 2)</li>
-              <li><strong>Damage Recovery Rate:</strong> &ge; 85% of customer abuse recovered</li>
-              <li><strong>Lost Revenue from In-Service Stock-Outs:</strong> $0 / Month</li>
-            </ul>
+            <div class="dash-table" style="margin:10px 0; font-size:0.85rem; overflow-x:auto;"><table style="width:100%; border-collapse:collapse; font-size:0.8rem; text-align:left;"><thead><tr style="border-bottom:2px solid var(--accent-color); color:var(--accent-color);"><th style="padding:8px;">Measure</th><th style="padding:8px;">Target</th></tr></thead><tbody><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Fleet Downtime %</td><td style="padding:8px;">down days divided by available days, times 100. Under 8% (Critical alert: &gt;12%)</td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Maintenance Cost</td><td style="padding:8px;">measured as % of OEC, not % of revenue: 8% of OEC or less, tech labor excluded (Module 2)</td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Damage Recovery Rate</td><td style="padding:8px;">&ge; 85% of customer abuse recovered</td></tr><tr><td style="padding:8px; font-weight:600; width:30%;">Lost Revenue from In-Service Stock-Outs</td><td style="padding:8px;">$0 / Month</td></tr></tbody></table></div>
           </div>
         </div>
 
@@ -1596,10 +1483,7 @@ table {
 
         <div class="floor-rule">
           <div class="floor-rule-title">Manager's Tips on Counter Synchronization &amp; Telematics</div>
-          <ul style="padding-left:20px; margin-top:6px; font-size:0.88rem; line-height:1.8;">
-            <li><strong>The Morning Rush Sheet:</strong> At 7:00 AM, the rental counter supervisor hands the service foreman the "Today's Unfulfilled Demand List." If a contractor needs a 45ft articulating boom lift at 1:00 PM and none are on the ready-line, the foreman immediately triages the yellow-tagged boom lifts in the yard to get one prepped by 11:30 AM.</li>
-            <li><strong>Proactive Telematics Fault Triaging:</strong> Review red stop and derate alerts in the telematics portal daily to dispatch mobile technicians before a minor sensor fault shuts down a customer jobsite.</li>
-          </ul>
+          <div class="dash-table" style="margin:10px 0; font-size:0.85rem; overflow-x:auto;"><table style="width:100%; border-collapse:collapse; font-size:0.8rem; text-align:left;"><thead><tr style="border-bottom:2px solid var(--accent-color); color:var(--accent-color);"><th style="padding:8px;">Item</th><th style="padding:8px;">Detail</th></tr></thead><tbody><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">The Morning Rush Sheet</td><td style="padding:8px;">At 7:00 AM, the rental counter supervisor hands the service foreman the "Today's Unfulfilled Demand List." If a contractor needs a 45ft articulating boom lift at 1:00 PM and none are on the ready-line, the foreman immediately triages the yellow-tagged boom lifts in the yard to get one prepped by 11:30 AM.</td></tr><tr><td style="padding:8px; font-weight:600; width:30%;">Proactive Telematics Fault Triaging</td><td style="padding:8px;">Review red stop and derate alerts in the telematics portal daily to dispatch mobile technicians before a minor sensor fault shuts down a customer jobsite.</td></tr></tbody></table></div>
         </div>
       </div>
 
@@ -1648,10 +1532,7 @@ table {
         </div>
 
         <p style="font-size:0.9rem; margin-bottom:8px;"><strong>Standup Protocol:</strong> Standing Up, No Chairs, Strict 15-Minute Timebox.</p>
-        <ul style="padding-left:20px; font-size:0.88rem; line-height:1.8;">
-          <li><strong>Time:</strong> 7:00 AM to 7:15 AM Sharp.</li>
-          <li><strong>Attendees:</strong> Rental Service Manager, Shop Foreman, Lead Yard Specialist, Parts Expediter, Rental Counter Supervisor.</li>
-        </ul>
+        <div class="dash-table" style="margin:10px 0; font-size:0.85rem; overflow-x:auto;"><table style="width:100%; border-collapse:collapse; font-size:0.8rem; text-align:left;"><thead><tr style="border-bottom:2px solid var(--accent-color); color:var(--accent-color);"><th style="padding:8px;">Item</th><th style="padding:8px;">Detail</th></tr></thead><tbody><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Time</td><td style="padding:8px;">7:00 AM to 7:15 AM Sharp.</td></tr><tr><td style="padding:8px; font-weight:600; width:30%;">Attendees</td><td style="padding:8px;">Rental Service Manager, Shop Foreman, Lead Yard Specialist, Parts Expediter, Rental Counter Supervisor.</td></tr></tbody></table></div>
 
         <div style="padding:14px; background:rgba(0,0,0,0.25); border-radius:8px; border:1px solid var(--border-color); margin:10px 0; font-size:0.82rem; overflow-x:auto;">
           <p style="color:var(--accent-color); font-weight:700; margin-bottom:8px;">THE 15-MINUTE DAILY STANDUP BATTLE PLAN:</p>
@@ -1692,19 +1573,11 @@ table {
           <div class="formula-title">WEEKLY VARIANCE &amp; KPI CADENCE FORMULAS</div>
           <div class="formula-expr">Standup Attendance Rate % = (Days Standup Held / Total Business Days) &times; 100</div>
           <div class="formula-expr" style="margin-top:6px;">Late-Close Count = Count of Work Orders Not Closed and Invoiced Within 48 Hours of Last Labor</div>
-          <ol class="formula-steps">
-            <li><strong>Step 1:</strong> Enter total business days and how many days the standup was actually held. <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></li>
-            <li><strong>Step 2:</strong> Pull the open work order report (last labor date). Count work orders past 48 hours of last labor. <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></li>
-            <li><strong>Step 3:</strong> Calculate Standup Attendance Rate and Late-Close Count for your weekly variance review.</li>
-          </ol>
+          <div class="dash-table" style="margin:10px 0; font-size:0.85rem; overflow-x:auto;"><table style="width:100%; border-collapse:collapse; font-size:0.8rem; text-align:left;"><thead><tr style="border-bottom:2px solid var(--accent-color); color:var(--accent-color);"><th style="padding:8px;">Step</th><th style="padding:8px;">Formula step</th></tr></thead><tbody><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Step 1</td><td style="padding:8px;">Enter total business days and how many days the standup was actually held. <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Step 2</td><td style="padding:8px;">Pull the open work order report (last labor date). Count work orders past 48 hours of last labor. <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></td></tr><tr><td style="padding:8px; font-weight:600; width:30%;">Step 3</td><td style="padding:8px;">Calculate Standup Attendance Rate and Late-Close Count for your weekly variance review.</td></tr></tbody></table></div>
           <p style="margin-top:10px; font-size:0.85rem;"><strong>Worked Example:</strong> Standup held 4 of 5 business days = <strong style="color:var(--success);">80.0%</strong>. 3 work orders past 48 hours of last labor = <strong style="color:var(--danger);">3 Late-Close Violations (FAIL)</strong>.</p>
           <div style="margin-top:8px; font-size:0.85rem;">
             <strong>HEDS Target Benchmarks:</strong>
-            <ul style="padding-left:16px; margin-top:4px;">
-              <li><strong>Standup Attendance Rate:</strong> 100% (5 of 5 business days)</li>
-              <li><strong>Late-Close Violations:</strong> 0 work orders past 48 hours of last labor (no tiers)</li>
-              <li><strong>Weekly Variance Review Duration:</strong> &le; 30 minutes with 4-point standing agenda</li>
-            </ul>
+            <div class="dash-table" style="margin:10px 0; font-size:0.85rem; overflow-x:auto;"><table style="width:100%; border-collapse:collapse; font-size:0.8rem; text-align:left;"><thead><tr style="border-bottom:2px solid var(--accent-color); color:var(--accent-color);"><th style="padding:8px;">Measure</th><th style="padding:8px;">Target</th></tr></thead><tbody><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Standup Attendance Rate</td><td style="padding:8px;">100% (5 of 5 business days)</td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Late-Close Violations</td><td style="padding:8px;">0 work orders past 48 hours of last labor (no tiers)</td></tr><tr><td style="padding:8px; font-weight:600; width:30%;">Weekly Variance Review Duration</td><td style="padding:8px;">&le; 30 minutes with 4-point standing agenda</td></tr></tbody></table></div>
           </div>
         </div>
 
@@ -1712,30 +1585,20 @@ table {
           <p><strong>Weekly Variance Review (Tuesday, 30 Minutes)</strong></p>
           <p style="margin-top:4px; font-size:0.82rem; color:var(--muted);">Participants: Rental Service Manager, Shop Foreman, Rental Operations Manager, Parts Expediter.</p>
           <p style="margin-top:6px; font-weight:700; font-size:0.85rem;">Standing 4-Point Agenda:</p>
-          <ol style="padding-left:20px; margin-top:6px; line-height:1.8;">
-            <li><strong>Overdue PM Review:</strong> Review the PM status of each unit against its due meter. Flag any unit &gt;25 hours overdue.</li>
-            <li><strong>Weekly WIP Scrub:</strong> Review every work order past 48 hours of last labor, plus every stalled in-progress job. Close and invoice, or assign vendor escalation owners.</li>
-            <li><strong>Rent-Ready Rule Performance:</strong> Review average hours from off rent into service to the rent-ready line vs. the 48-hour rule. Identify wash rack or staging bottlenecks.</li>
-            <li><strong>First-Time Fix Post-Mortem:</strong> Audit any repeat breakdown on a machine within 30 days of release. Review root cause with signing technician.</li>
-          </ol>
+          <div class="dash-table" style="margin:10px 0; font-size:0.85rem; overflow-x:auto;"><table style="width:100%; border-collapse:collapse; font-size:0.8rem; text-align:left;"><thead><tr style="border-bottom:2px solid var(--accent-color); color:var(--accent-color);"><th style="padding:8px;">Item</th><th style="padding:8px;">Detail</th></tr></thead><tbody><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Overdue PM Review</td><td style="padding:8px;">Review the PM status of each unit against its due meter. Flag any unit &gt;25 hours overdue.</td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Weekly WIP Scrub</td><td style="padding:8px;">Review every work order past 48 hours of last labor, plus every stalled in-progress job. Close and invoice, or assign vendor escalation owners.</td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Rent-Ready Rule Performance</td><td style="padding:8px;">Review average hours from off rent into service to the rent-ready line vs. the 48-hour rule. Identify wash rack or staging bottlenecks.</td></tr><tr><td style="padding:8px; font-weight:600; width:30%;">First-Time Fix Post-Mortem</td><td style="padding:8px;">Audit any repeat breakdown on a machine within 30 days of release. Review root cause with signing technician.</td></tr></tbody></table></div>
         </div>
 
         <div style="padding:14px; background:rgba(0,0,0,0.25); border-radius:8px; border:1px solid var(--border-color); margin:10px 0; font-size:0.85rem;">
           <p><strong>Monthly Executive Readout (First Thursday, 45 Minutes)</strong></p>
           <p style="margin-top:4px; font-size:0.82rem; color:var(--muted);">Participants: Rental Service Manager, Branch General Manager, Regional Fleet Director.</p>
           <p style="margin-top:6px; font-weight:700; font-size:0.85rem;">Standing Executive Deliverables:</p>
-          <ol style="padding-left:20px; margin-top:6px; line-height:1.8;">
-            <li><strong>Maintenance Cost as % of OEC:</strong> Branch-wide total (tech labor excluded) vs. the 8% of OEC target, plus itemized review of the top 5 cost outlier units.</li>
-            <li><strong>Fleet Physical Availability % vs. Time Utilization %:</strong> Correlation analysis between maintenance throughput and commercial utilization.</li>
-            <li><strong>5% At-Risk Fleet Disposition Package:</strong> Formal capital review of units exceeding lifecycle maintenance caps (35% to 40% cumulative OEC).</li>
-            <li><strong>Customer Damage Recovery Audit:</strong> Invoiced damage dollars vs. actual damage repair expense (target &ge; 85% recovery).</li>
-          </ol>
+          <div class="dash-table" style="margin:10px 0; font-size:0.85rem; overflow-x:auto;"><table style="width:100%; border-collapse:collapse; font-size:0.8rem; text-align:left;"><thead><tr style="border-bottom:2px solid var(--accent-color); color:var(--accent-color);"><th style="padding:8px;">Measure</th><th style="padding:8px;">Target</th></tr></thead><tbody><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Maintenance Cost as % of OEC</td><td style="padding:8px;">Branch-wide total (tech labor excluded) vs. the 8% of OEC target, plus itemized review of the top 5 cost outlier units.</td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Fleet Physical Availability % vs. Time Utilization %</td><td style="padding:8px;">Correlation analysis between maintenance throughput and commercial utilization.</td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">5% At-Risk Fleet Disposition Package</td><td style="padding:8px;">Formal capital review of units exceeding lifecycle maintenance caps (35% to 40% cumulative OEC).</td></tr><tr><td style="padding:8px; font-weight:600; width:30%;">Customer Damage Recovery Audit</td><td style="padding:8px;">Invoiced damage dollars vs. actual damage repair expense (target &ge; 85% recovery).</td></tr></tbody></table></div>
         </div>
       </div>
 
       <div class="curr-section">
         <div class="curr-section-h3">The 90-Day Rental Service Action Plan (Capstone)</div>
-        <p style="font-size:0.9rem; margin-bottom:10px;">To achieve HEDS Academy Certification, the Rental Service Manager must complete the 50-question timed assessment and submit a fully developed <strong>90-Day Rental Service Action Plan</strong> featuring:</p>
+        <p style="font-size:0.9rem; margin-bottom:10px;">To achieve the HEDS Operating Discipline Academy Certification, the Rental Service Manager must complete the 50-question timed assessment and submit a fully developed <strong>90-Day Rental Service Action Plan</strong> featuring:</p>
         <ol style="padding-left:20px; font-size:0.88rem; line-height:1.8;">
           <li><strong>Branch Baseline Scorecard:</strong> Trailing 90-day baseline vs. 90-day targets across all 10 Core KPIs.</li>
           <li><strong>Top 3 Revenue Leak SOPs &amp; Visual Controls:</strong>
@@ -1978,7 +1841,7 @@ table {
             <div style="font-size:0.8rem; color:var(--muted); font-weight:700;">LABOR UTILIZATION %</div>
             <div class="metric-val" id="dm5_res_util">109.2%</div>
             <div id="dm5_status_util" class="metric-status status-pass">PASS</div>
-            <div style="font-size:0.75rem; color:var(--muted); margin-top:6px;">Target: 100% to 110%. Red flag at 85% or below. Above 110%: check the time coding.</div>
+            <div style="font-size:0.75rem; color:var(--muted); margin-top:6px;">Target 100% to 110%. Above 110% passes. 85% or below is a red flag.</div>
           </div>
           <div class="metric-box">
             <div style="font-size:0.8rem; color:var(--muted); font-weight:700;">LATE CLOSE WORK ORDERS</div>
@@ -2185,7 +2048,7 @@ table {
             <tr style="border-bottom:1px solid var(--border-color);">
               <td style="padding:10px; font-weight:600;">Labor Utilization</td>
               <td style="padding:10px;" id="s_val_util">--</td>
-              <td style="padding:10px;">100% to 110% (red flag at 85% or below)</td>
+              <td style="padding:10px;">100% to 110%. Above 110% passes. 85% or below is a red flag.</td>
               <td style="padding:10px;" id="s_stat_util">--</td>
             </tr>
             <tr style="border-bottom:1px solid var(--border-color);">
@@ -2356,7 +2219,7 @@ table {
 
   <!-- Sign-in Screen -->
   <div id="test_signin" class="card">
-    <div class="card-title">Industry Knowledge Assessment: Rental Service Manager Certification</div>
+    <div class="card-title">Industry Knowledge Assessment: HEDS Operating Discipline Academy Certification</div>
     <p style="color:var(--muted); margin-bottom:20px;">This assessment tests your industry knowledge for the Rental Service Manager role. It is step one of the HEDS training cycle, and HEDS uses your result to decide where to focus with you. You have 90 minutes to answer all 50 questions. When you submit, your answers go to HEDS. HEDS grades the assessment and returns your result to you. The score is not shown on this page.</p>
     <div class="form-group" id="test_info_fields">
       <label for="test_name">Your Full Name</label>
@@ -2585,8 +2448,7 @@ table {
       var ut = (invHrs / woHrs) * 100;
       document.getElementById('dm5_res_util').innerText = ut.toFixed(1) + '%';
       document.getElementById('s_val_util').innerText = ut.toFixed(1) + '%';
-      if (ut > 110) { setStatus('dm5_status_util', 'WARN: CHECK TIME CODING', 'status-warn'); setScoreStatus('s_stat_util', '', '<span class="metric-status status-warn">WARN</span>', '', 'warn'); }
-      else if (ut >= 100) { setStatus('dm5_status_util', 'PASS', 'status-pass'); setScoreStatus('s_stat_util', '<span class="metric-status status-pass">PASS</span>', '', '', 'pass'); }
+      if (ut >= 100) { setStatus('dm5_status_util', 'PASS', 'status-pass'); setScoreStatus('s_stat_util', '<span class="metric-status status-pass">PASS</span>', '', '', 'pass'); }
       else if (ut > 85) { setStatus('dm5_status_util', 'WARN', 'status-warn'); setScoreStatus('s_stat_util', '', '<span class="metric-status status-warn">WARN</span>', '', 'warn'); }
       else { setStatus('dm5_status_util', 'FAIL: RED FLAG', 'status-fail'); setScoreStatus('s_stat_util', '', '', '<span class="metric-status status-fail">FAIL</span>', 'fail'); }
     } else {
@@ -3716,7 +3578,7 @@ table {
     var el = document.getElementById('result_relay_status');
     if (!el) return;
     el.textContent = HEDS_RELAY_MSG[state] || HEDS_RELAY_MSG.fail;
-    el.style.color = state === 'ok' ? '#10b981' : (state === 'pending' ? '#94a3b8' : '#ef4444');
+    el.style.color = state === 'ok' ? '#10b981' : (state === 'pending' ? '#94a3b8' : '#f87171');
     var wrap = document.getElementById('result_mailto_wrap');
     if (wrap) wrap.style.display = state === 'ok' ? 'none' : 'block';
   }

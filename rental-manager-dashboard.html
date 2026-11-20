@@ -18,7 +18,7 @@
     --muted: #94a3b8;
     --success: #22c55e;
     --warning: #e5ae25;
-    --danger: #ef4444;
+    --danger: #f87171;
     --radius: 8px;
     --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   }
@@ -267,9 +267,9 @@
     font-weight: 700;
     text-transform: uppercase;
   }
-  .status-pass { background: rgba(34, 197, 94, 0.2); color: var(--success); border: 1px solid var(--success); }
-  .status-warn { background: rgba(245, 158, 11, 0.2); color: var(--warning); border: 1px solid var(--warning); }
-  .status-fail { background: rgba(239, 68, 68, 0.2); color: var(--danger); border: 1px solid var(--danger); }
+  .status-pass { background: rgba(34, 197, 94, 0.2); color: #4ade80; border: 1px solid var(--success); }
+  .status-warn { background: rgba(245, 158, 11, 0.2); color: #fbbf24; border: 1px solid var(--warning); }
+  .status-fail { background: rgba(239, 68, 68, 0.2); color: #fca5a5; border: 1px solid var(--danger); }
 
   .btn {
     background: var(--accent-color);
@@ -889,7 +889,7 @@ table {
           </div>
           <div class="spec-box" style="background:rgba(239, 68, 68, 0.08); border-left-color:var(--danger); margin:0;">
             <div class="spec-title" style="color:var(--danger);">What It Does NOT Measure</div>
-            <p style="font-size:0.88rem;">Individual technician wrench-time, shop WIP aging, or PM status by unit. Those belong to the Rental Service Manager. The Rental Manager's lens is commercial: revenue, utilization, rate, cost, and contribution.</p>
+            <p style="font-size:0.88rem;">Individual technician wrench-time, shop work orders past the 48-hour rule, or PM status by unit. Those belong to the Rental Service Manager. The Rental Manager's lens is commercial: revenue, utilization, rate, cost, and contribution.</p>
           </div>
         </div>
         <div class="spec-box" style="background:rgba(59, 130, 246, 0.1); border-color:var(--accent-color);">
@@ -897,10 +897,7 @@ table {
           <p style="font-size:0.88rem;">Most rental departments started as a side service of a dealership or a yard with spare machines. The manager was a dispatcher who knew the equipment. Over time, the fleet grew, the revenue grew, and nobody noticed that the person running it was still operating like a dispatcher, not like a business manager. The Rental Manager's job is to run the rental department the way a GM runs a dealership: with a P&amp;L, a scorecard, and daily targets.</p>
         </div>
         <p style="font-size:0.9rem; margin:10px 0;"><strong>The Commercial Lens Shift:</strong></p>
-        <ul style="padding-left:20px; font-size:0.88rem; line-height:1.8;">
-          <li><strong>Dispatcher mindset:</strong> "Is the machine available? Send it out."</li>
-          <li><strong>Rental Manager mindset:</strong> "What's the time utilization by class? What's the dollar utilization? What's the rate realization? What's the net contribution per class? Which classes should we acquire more of, and which should we sell?"</li>
-        </ul>
+        <div class="dash-table" style="margin:10px 0; font-size:0.85rem; overflow-x:auto;"><table style="width:100%; border-collapse:collapse; font-size:0.8rem; text-align:left;"><thead><tr style="border-bottom:2px solid var(--accent-color); color:var(--accent-color);"><th style="padding:8px;">Item</th><th style="padding:8px;">Detail</th></tr></thead><tbody><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Dispatcher mindset</td><td style="padding:8px;">"Is the machine available? Send it out."</td></tr><tr><td style="padding:8px; font-weight:600; width:30%;">Rental Manager mindset</td><td style="padding:8px;">"What's the time utilization by class? What's the dollar utilization? What's the rate realization? What's the net contribution per class? Which classes should we acquire more of, and which should we sell?"</td></tr></tbody></table></div>
       </div>
 
       <div class="curr-section">
@@ -919,21 +916,11 @@ table {
         <div class="example-badge">Industry Standard Worked Example</div>
         <div class="formula-title">TURNED-AWAY REVENUE FORMULA</div>
         <div class="formula-expr">Turned-Away Revenue ($/mo) = Total Lost Rental Requests [YOUR NUMBER] &times; Avg Daily Rate [$ YOUR NUMBER] &times; Avg Days Requested [YOUR NUMBER]</div>
-        <ol class="formula-steps">
-          <li><strong>Step 1:</strong> Pull the trailing 90-day turned-away log from the rental counter (or start tracking it today). <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></li>
-          <li><strong>Step 2:</strong> Count the total number of requests where no unit was available for the requested class. <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></li>
-          <li><strong>Step 3:</strong> Multiply by the average daily rental rate for that class. <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></li>
-          <li><strong>Step 4:</strong> Multiply by the average number of days the customer wanted the machine. <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></li>
-          <li><strong>Step 5:</strong> Divide by 3 to get monthly average turned-away revenue.</li>
-        </ol>
+        <div class="dash-table" style="margin:10px 0; font-size:0.85rem; overflow-x:auto;"><table style="width:100%; border-collapse:collapse; font-size:0.8rem; text-align:left;"><thead><tr style="border-bottom:2px solid var(--accent-color); color:var(--accent-color);"><th style="padding:8px;">Step</th><th style="padding:8px;">Formula step</th></tr></thead><tbody><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Step 1</td><td style="padding:8px;">Pull the trailing 90-day turned-away log from the rental counter (or start tracking it today). <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Step 2</td><td style="padding:8px;">Count the total number of requests where no unit was available for the requested class. <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Step 3</td><td style="padding:8px;">Multiply by the average daily rental rate for that class. <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Step 4</td><td style="padding:8px;">Multiply by the average number of days the customer wanted the machine. <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></td></tr><tr><td style="padding:8px; font-weight:600; width:30%;">Step 5</td><td style="padding:8px;">Divide by 3 to get monthly average turned-away revenue.</td></tr></tbody></table></div>
         <p style="margin-top:10px; font-size:0.88rem;"><strong>Worked Example:</strong> Trailing 90 days: 18 turned-away requests (6 per month average). Average daily rate: $475/day. Average days requested: 7 days. Turned-Away Revenue = 6 &times; $475 &times; 7 = <strong style="color:var(--success);">$19,950/mo in lost rental capacity</strong></p>
         <div style="margin-top:8px; font-size:0.85rem;">
           <strong>HEDS Target Benchmark:</strong>
-          <ul style="padding-left:16px; margin-top:4px;">
-            <li><strong>Target:</strong> $0/mo in turned-away revenue (every request filled)</li>
-            <li><strong>Warning:</strong> $5,000 to $15,000/mo (under-supplied on key classes)</li>
-            <li><strong>Critical Fail:</strong> > $15,000/mo (severe stock-out problem, acquire more fleet)</li>
-          </ul>
+          <div class="dash-table" style="margin:10px 0; font-size:0.85rem; overflow-x:auto;"><table style="width:100%; border-collapse:collapse; font-size:0.8rem; text-align:left;"><thead><tr style="border-bottom:2px solid var(--accent-color); color:var(--accent-color);"><th style="padding:8px;">Measure</th><th style="padding:8px;">Target</th></tr></thead><tbody><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Target</td><td style="padding:8px;">$0/mo in turned-away revenue (every request filled)</td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Warning</td><td style="padding:8px;">$5,000 to $15,000/mo (under-supplied on key classes)</td></tr><tr><td style="padding:8px; font-weight:600; width:30%;">Critical Fail</td><td style="padding:8px;">> $15,000/mo (severe stock-out problem, acquire more fleet)</td></tr></tbody></table></div>
         </div>
       </div>
 
@@ -965,21 +952,11 @@ table {
         <div class="formula-title">DOLLAR UTILIZATION FORMULA</div>
         <p style="font-size:0.85rem; margin-bottom:6px;">Definition (American Rental Association method): dollar (financial) utilization is the capital efficiency of an asset, its annual rental revenue against its purchase cost (OEC).</p>
         <div class="formula-expr">Dollar Utilization % = (Annual Rental Revenue [$ YOUR NUMBER] / Total Original Equipment Cost (OEC) [$ YOUR NUMBER]) &times; 100</div>
-        <ol class="formula-steps">
-          <li><strong>Step 1:</strong> Sum the annual rental revenue for all units in a class (or the entire fleet). <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></li>
-          <li><strong>Step 2:</strong> Sum the OEC (original capitalized acquisition cost) for all units in that class. <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></li>
-          <li><strong>Step 3:</strong> Divide total annual rental revenue by total OEC.</li>
-          <li><strong>Step 4:</strong> Multiply by 100 to get the dollar utilization percentage.</li>
-        </ol>
+        <div class="dash-table" style="margin:10px 0; font-size:0.85rem; overflow-x:auto;"><table style="width:100%; border-collapse:collapse; font-size:0.8rem; text-align:left;"><thead><tr style="border-bottom:2px solid var(--accent-color); color:var(--accent-color);"><th style="padding:8px;">Step</th><th style="padding:8px;">Formula step</th></tr></thead><tbody><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Step 1</td><td style="padding:8px;">Sum the annual rental revenue for all units in a class (or the entire fleet). <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Step 2</td><td style="padding:8px;">Sum the OEC (original capitalized acquisition cost) for all units in that class. <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Step 3</td><td style="padding:8px;">Divide total annual rental revenue by total OEC.</td></tr><tr><td style="padding:8px; font-weight:600; width:30%;">Step 4</td><td style="padding:8px;">Multiply by 100 to get the dollar utilization percentage.</td></tr></tbody></table></div>
         <p style="margin-top:10px; font-size:0.88rem;"><strong>Worked Example (Fleet-wide):</strong> Total Annual Rental Revenue: $2,520,000. Total Fleet OEC: $4,200,000. Dollar Utilization = ($2,520,000 / $4,200,000) &times; 100 = <strong style="color:var(--success);">60.0% (PASS: within the 55% to 65% heavy equipment target)</strong></p>
         <div style="margin-top:8px; font-size:0.85rem;">
           <strong>HEDS Target Benchmark:</strong>
-          <ul style="padding-left:16px; margin-top:4px;">
-            <li><strong>Target Band:</strong> 55% to 65% for heavy construction equipment (national rental chains and regional equipment yards). Above 65% still passes: check for a fleet shortage or under-pricing.</li>
-            <li><strong>Warning Band:</strong> 50% to 54.9%. Independent and specialty dealers often accept 50% to 58%, depending on machine life and secondary-market salvage value.</li>
-            <li><strong>Fail:</strong> &lt; 50% (review fleet mix, rate or disposition: capital is trapped)</li>
-            <li><strong>Contrast:</strong> light general tools and event rentals run 100% to 150%, because heavy machinery carries a higher upfront cost that amortizes over a 5 to 7+ year life.</li>
-          </ul>
+          <div class="dash-table" style="margin:10px 0; font-size:0.85rem; overflow-x:auto;"><table style="width:100%; border-collapse:collapse; font-size:0.8rem; text-align:left;"><thead><tr style="border-bottom:2px solid var(--accent-color); color:var(--accent-color);"><th style="padding:8px;">Measure</th><th style="padding:8px;">Target</th></tr></thead><tbody><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Target Band</td><td style="padding:8px;">55% to 65% for heavy construction equipment (national rental chains and regional equipment yards). Above 65% still passes: check for a fleet shortage or under-pricing.</td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Warning Band</td><td style="padding:8px;">50% to 54.9%. Independent and specialty dealers often accept 50% to 58%, depending on machine life and secondary-market salvage value.</td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Fail</td><td style="padding:8px;">&lt; 50% (review fleet mix, rate or disposition: capital is trapped)</td></tr><tr><td style="padding:8px; font-weight:600; width:30%;">Contrast</td><td style="padding:8px;">light general tools and event rentals run 100% to 150%, because heavy machinery carries a higher upfront cost that amortizes over a 5 to 7+ year life.</td></tr></tbody></table></div>
         </div>
       </div>
 
@@ -1025,21 +1002,12 @@ table {
 
       <div class="curr-section">
         <div class="curr-section-h3">Rhythm &amp; Operating Cadence</div>
-        <ul style="padding-left:20px; font-size:0.88rem; line-height:1.8;">
-          <li><strong>Daily 7:30 AM Rental Counter Huddle:</strong> Rental Manager, Dispatcher, Lead Yard Specialist. Review today's reservations, available units, turned-away requests from yesterday.</li>
-          <li><strong>Weekly Tuesday Utilization Review:</strong> Rental Manager, Branch Manager. Review time utilization, dollar utilization, and rate realization by class. Flag classes below target band.</li>
-          <li><strong>Monthly Rental P&amp;L Review:</strong> Rental Manager, Branch GM, Regional Director. Full scorecard: revenue by class, cost by class, net contribution, EBITDA margin, personnel expense %.</li>
-        </ul>
+        <div class="dash-table" style="margin:10px 0; font-size:0.85rem; overflow-x:auto;"><table style="width:100%; border-collapse:collapse; font-size:0.8rem; text-align:left;"><thead><tr style="border-bottom:2px solid var(--accent-color); color:var(--accent-color);"><th style="padding:8px;">Item</th><th style="padding:8px;">Detail</th></tr></thead><tbody><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Daily 7:30 AM Rental Counter Huddle</td><td style="padding:8px;">Rental Manager, Dispatcher, Lead Yard Specialist. Review today's reservations, available units, turned-away requests from yesterday.</td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Weekly Tuesday Utilization Review</td><td style="padding:8px;">Rental Manager, Branch Manager. Review time utilization, dollar utilization, and rate realization by class. Flag classes below target band.</td></tr><tr><td style="padding:8px; font-weight:600; width:30%;">Monthly Rental P&amp;L Review</td><td style="padding:8px;">Rental Manager, Branch GM, Regional Director. Full scorecard: revenue by class, cost by class, net contribution, EBITDA margin, personnel expense %.</td></tr></tbody></table></div>
       </div>
 
       <div class="curr-section">
         <div class="curr-section-h3">Accountability Cascade</div>
-        <ul style="padding-left:20px; font-size:0.88rem; line-height:1.8;">
-          <li><strong>Dollar Utilization Owner:</strong> Rental Manager (by class and fleet-wide).</li>
-          <li><strong>Turned-Away Revenue Tracker:</strong> Rental Dispatcher / Counter Lead.</li>
-          <li><strong>Rate Integrity Owner:</strong> Rental Manager.</li>
-          <li><strong>Escalation Trigger:</strong> Any class dropping below 50% dollar utilization for two consecutive months triggers a formal fleet mix review with the Branch GM.</li>
-        </ul>
+        <div class="dash-table" style="margin:10px 0; font-size:0.85rem; overflow-x:auto;"><table style="width:100%; border-collapse:collapse; font-size:0.8rem; text-align:left;"><thead><tr style="border-bottom:2px solid var(--accent-color); color:var(--accent-color);"><th style="padding:8px;">Owner</th><th style="padding:8px;">Responsibility</th></tr></thead><tbody><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Dollar Utilization Owner</td><td style="padding:8px;">Rental Manager (by class and fleet-wide).</td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Turned-Away Revenue Tracker</td><td style="padding:8px;">Rental Dispatcher / Counter Lead.</td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Rate Integrity Owner</td><td style="padding:8px;">Rental Manager.</td></tr><tr><td style="padding:8px; font-weight:600; width:30%;">Escalation Trigger</td><td style="padding:8px;">Any class dropping below 50% dollar utilization for two consecutive months triggers a formal fleet mix review with the Branch GM.</td></tr></tbody></table></div>
       </div>
     </div>
   </div>
@@ -1089,22 +1057,11 @@ table {
         <div class="example-badge">Industry Standard Worked Example</div>
         <div class="formula-title">TIME UTILIZATION FORMULA</div>
         <div class="formula-expr">Time Utilization % = (Total Days Units Were On Rent [YOUR NUMBER] / Total Available Rentable Days [YOUR NUMBER]) &times; 100</div>
-        <ol class="formula-steps">
-          <li><strong>Step 1:</strong> Count the total number of units in a class (e.g., 12 excavators). <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></li>
-          <li><strong>Step 2:</strong> Multiply by 365 days to get Total Available Rentable Days (12 &times; 365 = 4,380). <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></li>
-          <li><strong>Step 3:</strong> Subtract days units were in major overhaul or off-fleet (e.g., 120 days) to get Net Available Days (4,380 &minus; 120 = 4,260). <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></li>
-          <li><strong>Step 4:</strong> Pull the total rental days from the ERP contract extract for that class (e.g., 2,980 days). <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></li>
-          <li><strong>Step 5:</strong> Divide rental days by net available days and multiply by 100.</li>
-          <li><strong>Step 6:</strong> Compare against the 65% to 75% target band.</li>
-        </ol>
+        <div class="dash-table" style="margin:10px 0; font-size:0.85rem; overflow-x:auto;"><table style="width:100%; border-collapse:collapse; font-size:0.8rem; text-align:left;"><thead><tr style="border-bottom:2px solid var(--accent-color); color:var(--accent-color);"><th style="padding:8px;">Step</th><th style="padding:8px;">Formula step</th></tr></thead><tbody><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Step 1</td><td style="padding:8px;">Count the total number of units in a class (e.g., 12 excavators). <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Step 2</td><td style="padding:8px;">Multiply by 365 days to get Total Available Rentable Days (12 &times; 365 = 4,380). <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Step 3</td><td style="padding:8px;">Subtract days units were in major overhaul or off-fleet (e.g., 120 days) to get Net Available Days (4,380 &minus; 120 = 4,260). <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Step 4</td><td style="padding:8px;">Pull the total rental days from the ERP contract extract for that class (e.g., 2,980 days). <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Step 5</td><td style="padding:8px;">Divide rental days by net available days and multiply by 100.</td></tr><tr><td style="padding:8px; font-weight:600; width:30%;">Step 6</td><td style="padding:8px;">Compare against the 65% to 75% target band.</td></tr></tbody></table></div>
         <p style="margin-top:10px; font-size:0.88rem;"><strong>Worked Example (Excavator Class, 12 units):</strong> Total Available Days: 12 &times; 365 = 4,380. Major Overhaul Days: 120. Net Available Days: 4,260. Total Days On Rent: 2,980. Time Utilization = (2,980 / 4,260) &times; 100 = <strong style="color:var(--success);">70.0% (PASS: Within 65% to 75% Target)</strong></p>
         <div style="margin-top:8px; font-size:0.85rem;">
           <strong>HEDS Target Benchmark:</strong>
-          <ul style="padding-left:16px; margin-top:4px;">
-            <li><strong>Target Band:</strong> 65% to 75% time utilization</li>
-            <li><strong>Warning Band:</strong> 55% to 64% (monitor, may need fleet reduction)</li>
-            <li><strong>Critical Fail:</strong> &lt; 55% (over-supplied, sell underperformers) or &gt; 85% (under-supplied, acquire more)</li>
-          </ul>
+          <div class="dash-table" style="margin:10px 0; font-size:0.85rem; overflow-x:auto;"><table style="width:100%; border-collapse:collapse; font-size:0.8rem; text-align:left;"><thead><tr style="border-bottom:2px solid var(--accent-color); color:var(--accent-color);"><th style="padding:8px;">Measure</th><th style="padding:8px;">Target</th></tr></thead><tbody><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Target Band</td><td style="padding:8px;">65% to 75% time utilization</td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Warning Band</td><td style="padding:8px;">55% to 64% (monitor, may need fleet reduction)</td></tr><tr><td style="padding:8px; font-weight:600; width:30%;">Critical Fail</td><td style="padding:8px;">&lt; 55% (over-supplied, sell underperformers) or &gt; 85% (under-supplied, acquire more)</td></tr></tbody></table></div>
         </div>
       </div>
 
@@ -1135,19 +1092,11 @@ table {
         <div class="example-badge">Industry Standard Worked Example</div>
         <div class="formula-title">IDLE FLEET PERCENTAGE FORMULA</div>
         <div class="formula-expr">Idle Fleet % = (Units in Yard Not On Rent [YOUR NUMBER] / Total Fleet Units [YOUR NUMBER]) &times; 100</div>
-        <ol class="formula-steps">
-          <li><strong>Step 1:</strong> Count total fleet units assigned to your branch. <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></li>
-          <li><strong>Step 2:</strong> Count units currently in the yard that are NOT on rent and NOT in the shop for active repair (Status = Yard-Hold or Rent-Ready but no active contract). <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></li>
-          <li><strong>Step 3:</strong> Divide idle units by total fleet units and multiply by 100.</li>
-        </ol>
+        <div class="dash-table" style="margin:10px 0; font-size:0.85rem; overflow-x:auto;"><table style="width:100%; border-collapse:collapse; font-size:0.8rem; text-align:left;"><thead><tr style="border-bottom:2px solid var(--accent-color); color:var(--accent-color);"><th style="padding:8px;">Step</th><th style="padding:8px;">Formula step</th></tr></thead><tbody><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Step 1</td><td style="padding:8px;">Count total fleet units assigned to your branch. <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Step 2</td><td style="padding:8px;">Count units currently in the yard that are NOT on rent and NOT in the shop for active repair (Status = Yard-Hold or Rent-Ready but no active contract). <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></td></tr><tr><td style="padding:8px; font-weight:600; width:30%;">Step 3</td><td style="padding:8px;">Divide idle units by total fleet units and multiply by 100.</td></tr></tbody></table></div>
         <p style="margin-top:10px; font-size:0.88rem;"><strong>Worked Example:</strong> Total Fleet: 150 units. Units On Rent: 105. Units in Shop: 10. Units in Yard (idle): 35. Idle Fleet % = (35 / 150) &times; 100 = <strong style="color:var(--warning);">23.3% (PASS: Below 25% Target)</strong></p>
         <div style="margin-top:8px; font-size:0.85rem;">
           <strong>HEDS Target Benchmark:</strong>
-          <ul style="padding-left:16px; margin-top:4px;">
-            <li><strong>Target:</strong> &lt; 25% idle fleet (75%+ are on rent or in active shop work)</li>
-            <li><strong>Warning Band:</strong> 25% to 35% (too much iron sitting dead)</li>
-            <li><strong>Critical Fail:</strong> &gt; 35% (severe over-supply, disposition review required)</li>
-          </ul>
+          <div class="dash-table" style="margin:10px 0; font-size:0.85rem; overflow-x:auto;"><table style="width:100%; border-collapse:collapse; font-size:0.8rem; text-align:left;"><thead><tr style="border-bottom:2px solid var(--accent-color); color:var(--accent-color);"><th style="padding:8px;">Measure</th><th style="padding:8px;">Target</th></tr></thead><tbody><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Target</td><td style="padding:8px;">&lt; 25% idle fleet (75%+ are on rent or in active shop work)</td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Warning Band</td><td style="padding:8px;">25% to 35% (too much iron sitting dead)</td></tr><tr><td style="padding:8px; font-weight:600; width:30%;">Critical Fail</td><td style="padding:8px;">&gt; 35% (severe over-supply, disposition review required)</td></tr></tbody></table></div>
         </div>
       </div>
 
@@ -1175,13 +1124,7 @@ table {
         <div class="formula-expr">Revenue Per Unit (Class) = Annual Rental Revenue for Class [$ YOUR NUMBER] / Unit Count in Class [YOUR NUMBER]</div>
         <div class="formula-expr" style="margin-top:6px;">Cost Per Unit (Class) = Annual Ownership Cost for Class [$ YOUR NUMBER] / Unit Count in Class [YOUR NUMBER]</div>
         <div class="formula-expr" style="margin-top:6px;">Net Contribution Per Unit = Revenue Per Unit [$ YOUR NUMBER] &minus; Cost Per Unit [$ YOUR NUMBER]</div>
-        <ol class="formula-steps">
-          <li><strong>Step 1:</strong> For each equipment class, divide annual rental revenue by the number of units in that class. <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></li>
-          <li><strong>Step 2:</strong> For each class, sum maintenance cost + annual depreciation + insurance + interest/carrying cost. Divide by unit count. <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></li>
-          <li><strong>Step 3:</strong> Subtract cost per unit from revenue per unit to get net contribution per unit.</li>
-          <li><strong>Step 4:</strong> Rank classes by net contribution per unit from highest to lowest.</li>
-          <li><strong>Step 5:</strong> Flag any class with negative or near-zero net contribution for disposition review.</li>
-        </ol>
+        <div class="dash-table" style="margin:10px 0; font-size:0.85rem; overflow-x:auto;"><table style="width:100%; border-collapse:collapse; font-size:0.8rem; text-align:left;"><thead><tr style="border-bottom:2px solid var(--accent-color); color:var(--accent-color);"><th style="padding:8px;">Step</th><th style="padding:8px;">Formula step</th></tr></thead><tbody><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Step 1</td><td style="padding:8px;">For each equipment class, divide annual rental revenue by the number of units in that class. <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Step 2</td><td style="padding:8px;">For each class, sum maintenance cost + annual depreciation + insurance + interest/carrying cost. Divide by unit count. <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Step 3</td><td style="padding:8px;">Subtract cost per unit from revenue per unit to get net contribution per unit.</td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Step 4</td><td style="padding:8px;">Rank classes by net contribution per unit from highest to lowest.</td></tr><tr><td style="padding:8px; font-weight:600; width:30%;">Step 5</td><td style="padding:8px;">Flag any class with negative or near-zero net contribution for disposition review.</td></tr></tbody></table></div>
         <div style="margin-top:12px; font-size:0.85rem; overflow-x:auto;">
           <table style="width:100%; border-collapse:collapse; font-size:0.8rem; text-align:left;">
             <thead>
@@ -1192,7 +1135,7 @@ table {
             <tbody>
               <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px;">20T Excavator</td><td style="padding:8px;">8</td><td style="padding:8px;">$170,000</td><td style="padding:8px;">$48,000</td><td style="padding:8px; color:var(--success); font-weight:700;">$122,000</td><td style="padding:8px;"><span class="metric-status status-pass">PASS</span></td></tr>
               <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px;">Skid Steer</td><td style="padding:8px;">15</td><td style="padding:8px;">$19,800</td><td style="padding:8px;">$22,000</td><td style="padding:8px; color:var(--danger); font-weight:700;">&minus;$2,200</td><td style="padding:8px;"><span class="metric-status status-fail">FAIL</span></td></tr>
-              <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px;">Telehandler</td><td style="padding:8px;">6</td><td style="padding:8px;">$36,000</td><td style="padding:8px;">$28,000</td><td style="padding:8px; color:var(--warning); font-weight:700;">$8,000</td><td style="padding:8px;"><span class="metric-status status-warn">WARN</span></td></tr>
+              <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px;">Telehandler</td><td style="padding:8px;">6</td><td style="padding:8px;">$36,000</td><td style="padding:8px;">$28,000</td><td style="padding:8px; color:var(--success); font-weight:700;">$8,000</td><td style="padding:8px;"><span class="metric-status status-pass">PASS</span></td></tr>
               <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px;">Boom Lift (60ft)</td><td style="padding:8px;">5</td><td style="padding:8px;">$18,800</td><td style="padding:8px;">$21,500</td><td style="padding:8px; color:var(--danger); font-weight:700;">&minus;$2,700</td><td style="padding:8px;"><span class="metric-status status-fail">FAIL</span></td></tr>
               <tr><td style="padding:8px;">Compactor (5T)</td><td style="padding:8px;">4</td><td style="padding:8px;">$32,500</td><td style="padding:8px;">$14,000</td><td style="padding:8px; color:var(--success); font-weight:700;">$18,500</td><td style="padding:8px;"><span class="metric-status status-pass">PASS</span></td></tr>
             </tbody>
@@ -1200,11 +1143,7 @@ table {
         </div>
         <div style="margin-top:10px; font-size:0.85rem;">
           <strong>HEDS Target Benchmark:</strong>
-          <ul style="padding-left:16px; margin-top:4px;">
-            <li><strong>PASS:</strong> Positive net contribution per unit (class is profitable)</li>
-            <li><strong>WARN:</strong> $0 to $5,000 net contribution (marginal, review rate or cost)</li>
-            <li><strong>FAIL:</strong> Negative net contribution (class is losing money, disposition candidate)</li>
-          </ul>
+          <div class="dash-table" style="margin:10px 0; font-size:0.85rem; overflow-x:auto;"><table style="width:100%; border-collapse:collapse; font-size:0.8rem; text-align:left;"><thead><tr style="border-bottom:2px solid var(--accent-color); color:var(--accent-color);"><th style="padding:8px;">Measure</th><th style="padding:8px;">Target</th></tr></thead><tbody><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">PASS</td><td style="padding:8px;">Positive net contribution per unit (class is profitable)</td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">WARN</td><td style="padding:8px;">$0 to $5,000 net contribution (marginal, review rate or cost)</td></tr><tr><td style="padding:8px; font-weight:600; width:30%;">FAIL</td><td style="padding:8px;">Negative net contribution (class is losing money, disposition candidate)</td></tr></tbody></table></div>
         </div>
       </div>
 
@@ -1215,12 +1154,7 @@ table {
 
       <div class="curr-section">
         <div class="curr-section-h3">Accountability Cascade</div>
-        <ul style="padding-left:20px; font-size:0.88rem; line-height:1.8;">
-          <li><strong>Time Utilization Owner:</strong> Rental Manager (monitored by class).</li>
-          <li><strong>Dollar Utilization Owner:</strong> Rental Manager (reviewed monthly with Branch GM).</li>
-          <li><strong>Net Contribution Per Class Owner:</strong> Rental Manager (drives acquisition/disposition).</li>
-          <li><strong>Escalation Trigger:</strong> Any class with negative net contribution for two consecutive quarters &rarr; formal disposition review.</li>
-        </ul>
+        <div class="dash-table" style="margin:10px 0; font-size:0.85rem; overflow-x:auto;"><table style="width:100%; border-collapse:collapse; font-size:0.8rem; text-align:left;"><thead><tr style="border-bottom:2px solid var(--accent-color); color:var(--accent-color);"><th style="padding:8px;">Owner</th><th style="padding:8px;">Responsibility</th></tr></thead><tbody><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Time Utilization Owner</td><td style="padding:8px;">Rental Manager (monitored by class).</td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Dollar Utilization Owner</td><td style="padding:8px;">Rental Manager (reviewed monthly with Branch GM).</td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Net Contribution Per Class Owner</td><td style="padding:8px;">Rental Manager (drives acquisition/disposition).</td></tr><tr><td style="padding:8px; font-weight:600; width:30%;">Escalation Trigger</td><td style="padding:8px;">Any class with negative net contribution for two consecutive quarters &rarr; formal disposition review.</td></tr></tbody></table></div>
       </div>
     </div>
   </div>
@@ -1266,22 +1200,12 @@ table {
         <div class="formula-title">RACK RATE &amp; RATE REALIZATION FORMULAS</div>
         <div class="formula-expr">Rack Rate (Daily) = (Annual Ownership Cost per Unit [$ YOUR NUMBER] &times; Target Margin Multiplier [YOUR NUMBER]) / Target Annual Rental Days [YOUR NUMBER]</div>
         <div class="formula-expr" style="margin-top:6px;">Rate Realization % = (Actual Invoiced Rate [$ YOUR NUMBER] / Rack Rate [$ YOUR NUMBER]) &times; 100</div>
-        <ol class="formula-steps">
-          <li><strong>Step 1:</strong> Calculate the annual ownership cost per unit for a class (maintenance + depreciation + insurance + interest). <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></li>
-          <li><strong>Step 2:</strong> Determine the target margin (e.g., 40% gross margin &rarr; multiply cost by 1.67). <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></li>
-          <li><strong>Step 3:</strong> Divide by target annual rental days (e.g., 250 days for 70% time utilization). <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></li>
-          <li><strong>Step 4:</strong> This gives your daily rack rate. Set the weekly rate at 3&times; daily and the 28-day monthly rate at 9&times; daily. The weekly rate is one third of the 28-day rate, and the daily rate is one third of the weekly rate.</li>
-          <li><strong>Step 5:</strong> Pull actual invoiced rates for the trailing 90 days. Divide actual invoiced rate by rack rate to get rate realization percentage.</li>
-        </ol>
+        <div class="dash-table" style="margin:10px 0; font-size:0.85rem; overflow-x:auto;"><table style="width:100%; border-collapse:collapse; font-size:0.8rem; text-align:left;"><thead><tr style="border-bottom:2px solid var(--accent-color); color:var(--accent-color);"><th style="padding:8px;">Step</th><th style="padding:8px;">Formula step</th></tr></thead><tbody><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Step 1</td><td style="padding:8px;">Calculate the annual ownership cost per unit for a class (maintenance + depreciation + insurance + interest). <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Step 2</td><td style="padding:8px;">Determine the target margin (e.g., 40% gross margin &rarr; multiply cost by 1.67). <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Step 3</td><td style="padding:8px;">Divide by target annual rental days (e.g., 250 days for 70% time utilization). <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Step 4</td><td style="padding:8px;">This gives your daily rack rate. Set the weekly rate at 3&times; daily and the 28-day monthly rate at 9&times; daily. The weekly rate is one third of the 28-day rate, and the daily rate is one third of the weekly rate.</td></tr><tr><td style="padding:8px; font-weight:600; width:30%;">Step 5</td><td style="padding:8px;">Pull actual invoiced rates for the trailing 90 days. Divide actual invoiced rate by rack rate to get rate realization percentage.</td></tr></tbody></table></div>
         <p style="margin-top:10px; font-size:0.88rem;"><strong>Worked Example (20T Excavator):</strong> Annual Ownership Cost: $48,000/unit. Target Gross Margin: 40% &rarr; Multiplier: 1.67. Target Rental Days: 250 days. Daily Rack Rate = ($48,000 &times; 1.67) / 250 = $80,160 / 250 = <strong>$321/day</strong>. Set weekly at $963 (3&times;) and the 28-day month at $2,889 (9&times;).</p>
         <p style="margin-top:8px; font-size:0.88rem;"><strong>Rate Realization Audit (trailing 90 days):</strong> Rack Rate: $321/day. Actual Average Invoiced Rate: $248/day. Rate Realization = ($248 / $321) &times; 100 = <strong style="color:var(--danger);">77.3% (FAIL: Below 90% target)</strong>. Rate erosion: $73/day &times; 250 days &times; 8 units = $146,000/year in lost revenue.</p>
         <div style="margin-top:8px; font-size:0.85rem;">
           <strong>HEDS Target Benchmark:</strong>
-          <ul style="padding-left:16px; margin-top:4px;">
-            <li><strong>Rate Realization Target:</strong> &ge; 90% of rack rate</li>
-            <li><strong>Warning Band:</strong> 80% to 89% (moderate discount discipline needed)</li>
-            <li><strong>Critical Fail:</strong> &lt; 80% (severe rate erosion, review discount policy and sales practices)</li>
-          </ul>
+          <div class="dash-table" style="margin:10px 0; font-size:0.85rem; overflow-x:auto;"><table style="width:100%; border-collapse:collapse; font-size:0.8rem; text-align:left;"><thead><tr style="border-bottom:2px solid var(--accent-color); color:var(--accent-color);"><th style="padding:8px;">Measure</th><th style="padding:8px;">Target</th></tr></thead><tbody><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Rate Realization Target</td><td style="padding:8px;">&ge; 90% of rack rate</td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Warning Band</td><td style="padding:8px;">80% to 89% (moderate discount discipline needed)</td></tr><tr><td style="padding:8px; font-weight:600; width:30%;">Critical Fail</td><td style="padding:8px;">&lt; 80% (severe rate erosion, review discount policy and sales practices)</td></tr></tbody></table></div>
         </div>
       </div>
 
@@ -1311,19 +1235,11 @@ table {
       <div class="formula-card">
         <div class="formula-title">AVERAGE RENTAL DURATION FORMULA</div>
         <div class="formula-expr">Average Rental Duration = Total Rental Days [YOUR NUMBER] / Total Completed Rentals [YOUR NUMBER]</div>
-        <ol class="formula-steps">
-          <li><strong>Step 1:</strong> Pull total rental days from the ERP for the trailing 90 days. <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></li>
-          <li><strong>Step 2:</strong> Count the number of completed rental contracts in that same period. <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></li>
-          <li><strong>Step 3:</strong> Divide total days by completed rentals to get average duration.</li>
-          <li><strong>Step 4:</strong> Compare against the rate structure: if average duration is 32 days and the monthly rate covers a 28-day cycle, the customer is getting 4 free days unless the extra days are billed at the daily rate or as a new cycle.</li>
-        </ol>
+        <div class="dash-table" style="margin:10px 0; font-size:0.85rem; overflow-x:auto;"><table style="width:100%; border-collapse:collapse; font-size:0.8rem; text-align:left;"><thead><tr style="border-bottom:2px solid var(--accent-color); color:var(--accent-color);"><th style="padding:8px;">Step</th><th style="padding:8px;">Formula step</th></tr></thead><tbody><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Step 1</td><td style="padding:8px;">Pull total rental days from the ERP for the trailing 90 days. <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Step 2</td><td style="padding:8px;">Count the number of completed rental contracts in that same period. <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Step 3</td><td style="padding:8px;">Divide total days by completed rentals to get average duration.</td></tr><tr><td style="padding:8px; font-weight:600; width:30%;">Step 4</td><td style="padding:8px;">Compare against the rate structure: if average duration is 32 days and the monthly rate covers a 28-day cycle, the customer is getting 4 free days unless the extra days are billed at the daily rate or as a new cycle.</td></tr></tbody></table></div>
         <p style="margin-top:10px; font-size:0.88rem;"><strong>Worked Example:</strong> Total Rental Days (90 days): 2,400. Completed Rentals: 85. Average Duration = 2,400 / 85 = <strong>28.2 days per rental</strong>. If the weekly rate is 3&times; daily and the 28-day monthly rate is 9&times; daily, most rentals fall between the weekly and monthly tiers. <em>Action:</em> Bill three weekly rates (3 &times; 3&times; = 9&times; daily) at the same price as the 28-day month, so there is no gap between the weekly and monthly tiers.</p>
         <div style="margin-top:8px; font-size:0.85rem;">
           <strong>HEDS Target Benchmark:</strong>
-          <ul style="padding-left:16px; margin-top:4px;">
-            <li><strong>Construction equipment:</strong> 14 to 28 days average duration</li>
-            <li><strong>Rate structure tiers:</strong> Daily &rarr; Weekly (3&times; daily) &rarr; 28-day month (9&times; daily, the same price as three weekly rates)</li>
-          </ul>
+          <div class="dash-table" style="margin:10px 0; font-size:0.85rem; overflow-x:auto;"><table style="width:100%; border-collapse:collapse; font-size:0.8rem; text-align:left;"><thead><tr style="border-bottom:2px solid var(--accent-color); color:var(--accent-color);"><th style="padding:8px;">Item</th><th style="padding:8px;">Detail</th></tr></thead><tbody><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Construction equipment</td><td style="padding:8px;">14 to 28 days average duration</td></tr><tr><td style="padding:8px; font-weight:600; width:30%;">Rate structure tiers</td><td style="padding:8px;">Daily &rarr; Weekly (3&times; daily) &rarr; 28-day month (9&times; daily, the same price as three weekly rates)</td></tr></tbody></table></div>
         </div>
       </div>
 
@@ -1354,13 +1270,7 @@ table {
         <div class="example-badge">Industry Standard Worked Example</div>
         <div class="formula-title">RATE EROSION FORMULA</div>
         <div class="formula-expr">Rate Erosion ($/yr) = (Rack Rate [$ YOUR NUMBER] &minus; Actual Invoiced Rate [$ YOUR NUMBER]) &times; Annual Rental Days [YOUR NUMBER] &times; Fleet Unit Count [YOUR NUMBER]</div>
-        <ol class="formula-steps">
-          <li><strong>Step 1:</strong> For each class, subtract the actual average invoiced rate from the rack rate to get the per-day erosion. <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></li>
-          <li><strong>Step 2:</strong> Multiply by the annual rental days for that class. <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></li>
-          <li><strong>Step 3:</strong> Multiply by the number of units in that class. <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></li>
-          <li><strong>Step 4:</strong> Sum across all classes to get total annual rate erosion.</li>
-          <li><strong>Step 5:</strong> Present to the GM: "We are giving away $X per year in unmanaged discounts."</li>
-        </ol>
+        <div class="dash-table" style="margin:10px 0; font-size:0.85rem; overflow-x:auto;"><table style="width:100%; border-collapse:collapse; font-size:0.8rem; text-align:left;"><thead><tr style="border-bottom:2px solid var(--accent-color); color:var(--accent-color);"><th style="padding:8px;">Step</th><th style="padding:8px;">Formula step</th></tr></thead><tbody><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Step 1</td><td style="padding:8px;">For each class, subtract the actual average invoiced rate from the rack rate to get the per-day erosion. <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Step 2</td><td style="padding:8px;">Multiply by the annual rental days for that class. <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Step 3</td><td style="padding:8px;">Multiply by the number of units in that class. <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Step 4</td><td style="padding:8px;">Sum across all classes to get total annual rate erosion.</td></tr><tr><td style="padding:8px; font-weight:600; width:30%;">Step 5</td><td style="padding:8px;">Present to the GM: "We are giving away $X per year in unmanaged discounts."</td></tr></tbody></table></div>
         <p style="margin-top:10px; font-size:0.88rem;"><strong>Worked Example:</strong> Excavator: $73/day erosion &times; 250 days &times; 8 units = $146,000/yr. Skid Steer: $28/day erosion &times; 200 days &times; 15 units = $84,000/yr. Telehandler: $45/day erosion &times; 180 days &times; 6 units = $48,600/yr. <strong style="color:var(--danger);">Total Annual Rate Erosion: $278,600/yr</strong></p>
       </div>
 
@@ -1371,12 +1281,7 @@ table {
 
       <div class="curr-section">
         <div class="curr-section-h3">Accountability Cascade</div>
-        <ul style="padding-left:20px; font-size:0.88rem; line-height:1.8;">
-          <li><strong>Rack Rate Owner:</strong> Rental Manager (set quarterly, reviewed with Branch GM).</li>
-          <li><strong>Rate Realization Owner:</strong> Rental Manager (monitored monthly by class).</li>
-          <li><strong>Discount Approval Authority:</strong> All discounts &gt; 5% require Rental Manager approval. All discounts &gt; 10% require Branch GM approval.</li>
-          <li><strong>Escalation Trigger:</strong> Rate realization below 90% on any class for two consecutive months &rarr; mandatory rate audit and discount freeze.</li>
-        </ul>
+        <div class="dash-table" style="margin:10px 0; font-size:0.85rem; overflow-x:auto;"><table style="width:100%; border-collapse:collapse; font-size:0.8rem; text-align:left;"><thead><tr style="border-bottom:2px solid var(--accent-color); color:var(--accent-color);"><th style="padding:8px;">Owner</th><th style="padding:8px;">Responsibility</th></tr></thead><tbody><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Rack Rate Owner</td><td style="padding:8px;">Rental Manager (set quarterly, reviewed with Branch GM).</td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Rate Realization Owner</td><td style="padding:8px;">Rental Manager (monitored monthly by class).</td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Discount Approval Authority</td><td style="padding:8px;">All discounts &gt; 5% require Rental Manager approval. All discounts &gt; 10% require Branch GM approval.</td></tr><tr><td style="padding:8px; font-weight:600; width:30%;">Escalation Trigger</td><td style="padding:8px;">Rate realization below 90% on any class for two consecutive months &rarr; mandatory rate audit and discount freeze.</td></tr></tbody></table></div>
       </div>
     </div>
   </div>
@@ -1421,13 +1326,7 @@ table {
         <div class="example-badge">Industry Standard Worked Example</div>
         <div class="formula-title">OEC ROI BY CLASS FORMULA</div>
         <div class="formula-expr">OEC ROI (Class) % = (Annual Rental Revenue for Class [$ YOUR NUMBER] / Total OEC for Class [$ YOUR NUMBER]) &times; 100</div>
-        <ol class="formula-steps">
-          <li><strong>Step 1:</strong> Pull the fleet asset register grouped by class with total OEC per class. <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></li>
-          <li><strong>Step 2:</strong> Pull trailing 12-month rental revenue by class. <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></li>
-          <li><strong>Step 3:</strong> Divide class revenue by class OEC and multiply by 100.</li>
-          <li><strong>Step 4:</strong> Rank classes from highest to lowest OEC ROI.</li>
-          <li><strong>Step 5:</strong> Compare against the target band and prioritize capital allocation toward the top.</li>
-        </ol>
+        <div class="dash-table" style="margin:10px 0; font-size:0.85rem; overflow-x:auto;"><table style="width:100%; border-collapse:collapse; font-size:0.8rem; text-align:left;"><thead><tr style="border-bottom:2px solid var(--accent-color); color:var(--accent-color);"><th style="padding:8px;">Step</th><th style="padding:8px;">Formula step</th></tr></thead><tbody><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Step 1</td><td style="padding:8px;">Pull the fleet asset register grouped by class with total OEC per class. <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Step 2</td><td style="padding:8px;">Pull trailing 12-month rental revenue by class. <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Step 3</td><td style="padding:8px;">Divide class revenue by class OEC and multiply by 100.</td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Step 4</td><td style="padding:8px;">Rank classes from highest to lowest OEC ROI.</td></tr><tr><td style="padding:8px; font-weight:600; width:30%;">Step 5</td><td style="padding:8px;">Compare against the target band and prioritize capital allocation toward the top.</td></tr></tbody></table></div>
         <div style="margin-top:12px; font-size:0.85rem; overflow-x:auto;">
           <table style="width:100%; border-collapse:collapse; font-size:0.8rem; text-align:left;">
             <thead>
@@ -1467,20 +1366,11 @@ table {
       <div class="formula-card">
         <div class="formula-title">DEBT-TO-ASSET RATIO FORMULA</div>
         <div class="formula-expr">Debt-to-Asset Ratio % = (Long-Term Fleet Debt [$ YOUR NUMBER] / Total Fleet OEC [$ YOUR NUMBER]) &times; 100</div>
-        <ol class="formula-steps">
-          <li><strong>Step 1:</strong> Sum all outstanding long-term debt on fleet assets (floorplan, equipment loans, capital leases). <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></li>
-          <li><strong>Step 2:</strong> Sum the total OEC of all fleet units. <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></li>
-          <li><strong>Step 3:</strong> Divide total debt by total OEC and multiply by 100.</li>
-          <li><strong>Step 4:</strong> Compare against the &lt; 30% target.</li>
-        </ol>
+        <div class="dash-table" style="margin:10px 0; font-size:0.85rem; overflow-x:auto;"><table style="width:100%; border-collapse:collapse; font-size:0.8rem; text-align:left;"><thead><tr style="border-bottom:2px solid var(--accent-color); color:var(--accent-color);"><th style="padding:8px;">Step</th><th style="padding:8px;">Formula step</th></tr></thead><tbody><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Step 1</td><td style="padding:8px;">Sum all outstanding long-term debt on fleet assets (floorplan, equipment loans, capital leases). <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Step 2</td><td style="padding:8px;">Sum the total OEC of all fleet units. <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Step 3</td><td style="padding:8px;">Divide total debt by total OEC and multiply by 100.</td></tr><tr><td style="padding:8px; font-weight:600; width:30%;">Step 4</td><td style="padding:8px;">Compare against the &lt; 30% target.</td></tr></tbody></table></div>
         <p style="margin-top:10px; font-size:0.88rem;"><strong>Worked Example:</strong> Total Long-Term Fleet Debt: $1,260,000. Total Fleet OEC: $4,200,000. Debt-to-Asset = ($1,260,000 / $4,200,000) &times; 100 = <strong style="color:var(--warning);">30.0% (PASS: At target ceiling)</strong></p>
         <div style="margin-top:8px; font-size:0.85rem;">
           <strong>HEDS Target Benchmark:</strong>
-          <ul style="padding-left:16px; margin-top:4px;">
-            <li><strong>Target:</strong> &lt; 30% (healthy leverage, majority equity)</li>
-            <li><strong>Warning Band:</strong> 30% to 45% (moderate leverage, monitor debt service coverage)</li>
-            <li><strong>Critical Fail:</strong> &gt; 45% (highly leveraged, vulnerable to market downturn)</li>
-          </ul>
+          <div class="dash-table" style="margin:10px 0; font-size:0.85rem; overflow-x:auto;"><table style="width:100%; border-collapse:collapse; font-size:0.8rem; text-align:left;"><thead><tr style="border-bottom:2px solid var(--accent-color); color:var(--accent-color);"><th style="padding:8px;">Measure</th><th style="padding:8px;">Target</th></tr></thead><tbody><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Target</td><td style="padding:8px;">&lt; 30% (healthy leverage, majority equity)</td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Warning Band</td><td style="padding:8px;">30% to 45% (moderate leverage, monitor debt service coverage)</td></tr><tr><td style="padding:8px; font-weight:600; width:30%;">Critical Fail</td><td style="padding:8px;">&gt; 45% (highly leveraged, vulnerable to market downturn)</td></tr></tbody></table></div>
         </div>
       </div>
 
@@ -1511,14 +1401,7 @@ table {
         <div class="formula-title">CUMULATIVE LIFETIME ROI &amp; DISPOSITION TRIGGER</div>
         <div class="formula-expr">Cumulative Lifetime ROI % = (Total Lifetime Rental Revenue [$ YOUR NUMBER] / OEC [$ YOUR NUMBER]) &times; 100</div>
         <p style="font-size:0.85rem; margin-top:8px;"><strong>Disposition Trigger:</strong> When cumulative lifetime ROI reaches 100% (the machine has earned its OEC back) AND annual net contribution is negative, the asset has reached end of economic rental life. Sell before the next major repair.</p>
-        <ol class="formula-steps">
-          <li><strong>Step 1:</strong> Rank all fleet units by net contribution (revenue &minus; cost) from lowest to highest. <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></li>
-          <li><strong>Step 2:</strong> Identify the bottom 5% (e.g., bottom 8 of 150 units). <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></li>
-          <li><strong>Step 3:</strong> For each, calculate cumulative lifetime ROI (total lifetime revenue &divide; OEC).</li>
-          <li><strong>Step 4:</strong> If lifetime ROI &gt; 100% and annual net contribution is negative: recommend disposition.</li>
-          <li><strong>Step 5:</strong> If lifetime ROI &lt; 100% and annual net contribution is positive: keep and monitor.</li>
-          <li><strong>Step 6:</strong> If lifetime ROI &lt; 100% and annual net contribution is negative: review for major overhaul vs. disposition.</li>
-        </ol>
+        <div class="dash-table" style="margin:10px 0; font-size:0.85rem; overflow-x:auto;"><table style="width:100%; border-collapse:collapse; font-size:0.8rem; text-align:left;"><thead><tr style="border-bottom:2px solid var(--accent-color); color:var(--accent-color);"><th style="padding:8px;">Step</th><th style="padding:8px;">Formula step</th></tr></thead><tbody><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Step 1</td><td style="padding:8px;">Rank all fleet units by net contribution (revenue &minus; cost) from lowest to highest. <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Step 2</td><td style="padding:8px;">Identify the bottom 5% (e.g., bottom 8 of 150 units). <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Step 3</td><td style="padding:8px;">For each, calculate cumulative lifetime ROI (total lifetime revenue &divide; OEC).</td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Step 4</td><td style="padding:8px;">If lifetime ROI &gt; 100% and annual net contribution is negative: recommend disposition.</td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Step 5</td><td style="padding:8px;">If lifetime ROI &lt; 100% and annual net contribution is positive: keep and monitor.</td></tr><tr><td style="padding:8px; font-weight:600; width:30%;">Step 6</td><td style="padding:8px;">If lifetime ROI &lt; 100% and annual net contribution is negative: review for major overhaul vs. disposition.</td></tr></tbody></table></div>
         <p style="margin-top:10px; font-size:0.88rem;"><strong>Worked Example (Boom Lift BL-301, 15 years old):</strong> OEC: $95,000. Lifetime Rental Revenue: $112,000 (118% lifetime ROI). Annual Net Contribution: &minus;$4,200. Next required major repair: $18,000. <strong style="color:var(--danger);">Decision: DISPOSE, do not invest $18k in a machine that's already earned its OEC back and is losing money annually.</strong></p>
       </div>
 
@@ -1529,12 +1412,7 @@ table {
 
       <div class="curr-section">
         <div class="curr-section-h3">Accountability Cascade</div>
-        <ul style="padding-left:20px; font-size:0.88rem; line-height:1.8;">
-          <li><strong>Fleet Capital Allocation Owner:</strong> Rental Manager (quarterly review with Branch GM).</li>
-          <li><strong>Debt-to-Asset Monitor:</strong> Rental Manager (reported monthly to GM/Finance).</li>
-          <li><strong>5% At-Risk Review Owner:</strong> Rental Manager (quarterly disposition package).</li>
-          <li><strong>Escalation Trigger:</strong> Any class with negative net contribution for 2 consecutive quarters &rarr; formal disposition review with Branch GM and Regional Director.</li>
-        </ul>
+        <div class="dash-table" style="margin:10px 0; font-size:0.85rem; overflow-x:auto;"><table style="width:100%; border-collapse:collapse; font-size:0.8rem; text-align:left;"><thead><tr style="border-bottom:2px solid var(--accent-color); color:var(--accent-color);"><th style="padding:8px;">Owner</th><th style="padding:8px;">Responsibility</th></tr></thead><tbody><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Fleet Capital Allocation Owner</td><td style="padding:8px;">Rental Manager (quarterly review with Branch GM).</td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Debt-to-Asset Monitor</td><td style="padding:8px;">Rental Manager (reported monthly to GM/Finance).</td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">5% At-Risk Review Owner</td><td style="padding:8px;">Rental Manager (quarterly disposition package).</td></tr><tr><td style="padding:8px; font-weight:600; width:30%;">Escalation Trigger</td><td style="padding:8px;">Any class with negative net contribution for 2 consecutive quarters &rarr; formal disposition review with Branch GM and Regional Director.</td></tr></tbody></table></div>
       </div>
     </div>
   </div>
@@ -1580,14 +1458,7 @@ table {
         </div>
         <div style="padding:14px; background:rgba(0,0,0,0.25); border-radius:8px; border:1px solid var(--border-color); margin:10px 0; font-size:0.85rem;">
           <p><strong>Contract Compliance Standards:</strong></p>
-          <ol style="padding-left:20px; margin-top:6px; line-height:1.8;">
-            <li><strong>Signed Agreement:</strong> 100% of on-rent units must have a signed rental agreement on file, no exceptions.</li>
-            <li><strong>Insurance Certificate:</strong> Certificate of insurance (COI) on file before machine leaves the yard. Must list your company as certificate holder and additional insured.</li>
-            <li><strong>Damage Waiver or Deposit:</strong> Either a damage waiver fee (7 to 12% of rental rate) or a security deposit on file for every rental.</li>
-            <li><strong>Return Condition Section:</strong> Contract must specify return condition (clean, fueled, undamaged) and cleaning/fuel charges for non-compliance.</li>
-            <li><strong>Hour-Meter Overage Clause:</strong> Contract must specify the contracted hours and the overage rate for exceeding them (verified via telematics in Module 7).</li>
-            <li><strong>Pre-Rental Joint Inspection Sign-Off:</strong> Both the dealer's dispatch representative and the customer must jointly inspect and sign the pre-rental condition sheet at dispatch, not just at return. Both parties confirm the machine's condition, fuel level, hour meter reading, and any pre-existing damage before the machine leaves the yard. This eliminates "it was already damaged" disputes at check-in.</li>
-          </ol>
+          <div class="dash-table" style="margin:10px 0; font-size:0.85rem; overflow-x:auto;"><table style="width:100%; border-collapse:collapse; font-size:0.8rem; text-align:left;"><thead><tr style="border-bottom:2px solid var(--accent-color); color:var(--accent-color);"><th style="padding:8px;">Item</th><th style="padding:8px;">Detail</th></tr></thead><tbody><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Signed Agreement</td><td style="padding:8px;">100% of on-rent units must have a signed rental agreement on file, no exceptions.</td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Insurance Certificate</td><td style="padding:8px;">Certificate of insurance (COI) on file before machine leaves the yard. Must list your company as certificate holder and additional insured.</td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Damage Waiver or Deposit</td><td style="padding:8px;">Either a damage waiver fee (7 to 12% of rental rate) or a security deposit on file for every rental.</td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Return Condition Section</td><td style="padding:8px;">Contract must specify return condition (clean, fueled, undamaged) and cleaning/fuel charges for non-compliance.</td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Hour-Meter Overage Clause</td><td style="padding:8px;">Contract must specify the contracted hours and the overage rate for exceeding them (verified via telematics in Module 7).</td></tr><tr><td style="padding:8px; font-weight:600; width:30%;">Pre-Rental Joint Inspection Sign-Off</td><td style="padding:8px;">Both the dealer's dispatch representative and the customer must jointly inspect and sign the pre-rental condition sheet at dispatch, not just at return. Both parties confirm the machine's condition, fuel level, hour meter reading, and any pre-existing damage before the machine leaves the yard. This eliminates "it was already damaged" disputes at check-in.</td></tr></tbody></table></div>
         </div>
         <div class="floor-rule">
           <div class="floor-rule-title">PRO TIP</div>
@@ -1600,12 +1471,7 @@ table {
         <p style="font-size:0.9rem; margin-bottom:10px;">The 4-photo standard applies at <strong>both dispatch and return</strong>. At dispatch, the dealer's representative and the customer jointly walk the machine, photograph it, and sign the condition sheet together. At return, the check-in specialist walks the machine with the customer present.</p>
         <div style="padding:14px; background:rgba(0,0,0,0.25); border-radius:8px; border:1px solid var(--border-color); margin:10px 0; font-size:0.85rem;">
           <p><strong>The Pre-Rental Joint Inspection Standard:</strong></p>
-          <ol style="padding-left:20px; margin-top:6px; line-height:1.8;">
-            <li><strong>Joint Walk-Around at Dispatch:</strong> The dealer's dispatcher and the customer (or their site representative) walk the machine together before it leaves the yard. Both parties photograph and document: (a) fuel level, (b) hour meter reading, (c) any pre-existing damage (scratches, dents, glass, track/tire wear), (d) attachment condition.</li>
-            <li><strong>4-Photo Set at Dispatch:</strong> Front view, rear view, left side, right side, with timestamps and hour meter visible in at least one photo. Both parties sign the condition sheet acknowledging the pre-rental state.</li>
-            <li><strong>4-Photo Set at Return:</strong> Same 4 angles at check-in. Any new damage is immediately visible by comparing dispatch and return photo sets side by side.</li>
-            <li><strong>Condition Sheet Sign-Off:</strong> A single condition sheet with dispatch photos/signature on the front and return photos/signature on the back. The customer signs at both dispatch and return. No signature = no claim = no charge.</li>
-          </ol>
+          <div class="dash-table" style="margin:10px 0; font-size:0.85rem; overflow-x:auto;"><table style="width:100%; border-collapse:collapse; font-size:0.8rem; text-align:left;"><thead><tr style="border-bottom:2px solid var(--accent-color); color:var(--accent-color);"><th style="padding:8px;">Item</th><th style="padding:8px;">Detail</th></tr></thead><tbody><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Joint Walk-Around at Dispatch</td><td style="padding:8px;">The dealer's dispatcher and the customer (or their site representative) walk the machine together before it leaves the yard. Both parties photograph and document: (a) fuel level, (b) hour meter reading, (c) any pre-existing damage (scratches, dents, glass, track/tire wear), (d) attachment condition.</td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">4-Photo Set at Dispatch</td><td style="padding:8px;">Front view, rear view, left side, right side, with timestamps and hour meter visible in at least one photo. Both parties sign the condition sheet acknowledging the pre-rental state.</td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">4-Photo Set at Return</td><td style="padding:8px;">Same 4 angles at check-in. Any new damage is immediately visible by comparing dispatch and return photo sets side by side.</td></tr><tr><td style="padding:8px; font-weight:600; width:30%;">Condition Sheet Sign-Off</td><td style="padding:8px;">A single condition sheet with dispatch photos/signature on the front and return photos/signature on the back. The customer signs at both dispatch and return. No signature = no claim = no charge.</td></tr></tbody></table></div>
         </div>
         <div class="floor-rule">
           <div class="floor-rule-title">PRO TIP</div>
@@ -1635,21 +1501,11 @@ table {
         <div class="example-badge">Industry Standard Worked Example</div>
         <div class="formula-title">DAMAGE RECOVERY RATE FORMULA</div>
         <div class="formula-expr">Damage Recovery Rate % = (Customer Damage Invoiced &amp; Collected [$ YOUR NUMBER] / Total Cost of Customer Damage Repairs [$ YOUR NUMBER]) &times; 100</div>
-        <ol class="formula-steps">
-          <li><strong>Step 1:</strong> Pull the trailing 12-month damage event log from the ERP. <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></li>
-          <li><strong>Step 2:</strong> Sum the total cost of all customer-caused damage repairs (parts + labor). <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></li>
-          <li><strong>Step 3:</strong> Sum the total amount invoiced to customers for damage. <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></li>
-          <li><strong>Step 4:</strong> Sum the total amount actually collected on those invoices. <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></li>
-          <li><strong>Step 5:</strong> Divide collected amount by total repair cost and multiply by 100.</li>
-        </ol>
+        <div class="dash-table" style="margin:10px 0; font-size:0.85rem; overflow-x:auto;"><table style="width:100%; border-collapse:collapse; font-size:0.8rem; text-align:left;"><thead><tr style="border-bottom:2px solid var(--accent-color); color:var(--accent-color);"><th style="padding:8px;">Step</th><th style="padding:8px;">Formula step</th></tr></thead><tbody><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Step 1</td><td style="padding:8px;">Pull the trailing 12-month damage event log from the ERP. <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Step 2</td><td style="padding:8px;">Sum the total cost of all customer-caused damage repairs (parts + labor). <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Step 3</td><td style="padding:8px;">Sum the total amount invoiced to customers for damage. <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Step 4</td><td style="padding:8px;">Sum the total amount actually collected on those invoices. <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></td></tr><tr><td style="padding:8px; font-weight:600; width:30%;">Step 5</td><td style="padding:8px;">Divide collected amount by total repair cost and multiply by 100.</td></tr></tbody></table></div>
         <p style="margin-top:10px; font-size:0.88rem;"><strong>Worked Example:</strong> Total Customer Damage Repair Cost (12 mo): $186,000. Total Damage Invoiced to Customers: $158,000. Total Damage Collected: $143,000. Damage Recovery Rate = ($143,000 / $186,000) &times; 100 = <strong style="color:var(--warning);">76.9% (WARN: Below 85% target)</strong>. Gap: $43,000 in uncollected damage. Target improvement: 4-photo documentation + 48-hour estimate workflow + joint dispatch inspection.</p>
         <div style="margin-top:8px; font-size:0.85rem;">
           <strong>HEDS Target Benchmark:</strong>
-          <ul style="padding-left:16px; margin-top:4px;">
-            <li><strong>Target:</strong> &ge; 85% damage recovery rate</li>
-            <li><strong>Warning Band:</strong> 70% to 84% (documentation or collection process gaps)</li>
-            <li><strong>Critical Fail:</strong> &lt; 70% (severe, damage cost is eroding rental margin)</li>
-          </ul>
+          <div class="dash-table" style="margin:10px 0; font-size:0.85rem; overflow-x:auto;"><table style="width:100%; border-collapse:collapse; font-size:0.8rem; text-align:left;"><thead><tr style="border-bottom:2px solid var(--accent-color); color:var(--accent-color);"><th style="padding:8px;">Measure</th><th style="padding:8px;">Target</th></tr></thead><tbody><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Target</td><td style="padding:8px;">&ge; 85% damage recovery rate</td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Warning Band</td><td style="padding:8px;">70% to 84% (documentation or collection process gaps)</td></tr><tr><td style="padding:8px; font-weight:600; width:30%;">Critical Fail</td><td style="padding:8px;">&lt; 70% (severe, damage cost is eroding rental margin)</td></tr></tbody></table></div>
         </div>
       </div>
 
@@ -1676,11 +1532,7 @@ table {
         <div class="formula-expr">Collection Rate % = (Total Rental Revenue Collected [$ YOUR NUMBER] / Total Rental Revenue Invoiced [$ YOUR NUMBER]) &times; 100</div>
         <div style="margin-top:8px; font-size:0.85rem;">
           <strong>HEDS Target Benchmark:</strong>
-          <ul style="padding-left:16px; margin-top:4px;">
-            <li><strong>Collection Rate Target:</strong> &ge; 95% of invoiced rental revenue</li>
-            <li><strong>Past-Due &gt; 60 Days:</strong> &lt; 5% of total outstanding</li>
-            <li><strong>Past-Due &gt; 90 Days:</strong> &lt; 2% of total outstanding</li>
-          </ul>
+          <div class="dash-table" style="margin:10px 0; font-size:0.85rem; overflow-x:auto;"><table style="width:100%; border-collapse:collapse; font-size:0.8rem; text-align:left;"><thead><tr style="border-bottom:2px solid var(--accent-color); color:var(--accent-color);"><th style="padding:8px;">Measure</th><th style="padding:8px;">Target</th></tr></thead><tbody><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Collection Rate Target</td><td style="padding:8px;">&ge; 95% of invoiced rental revenue</td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Past-Due &gt; 60 Days</td><td style="padding:8px;">&lt; 5% of total outstanding</td></tr><tr><td style="padding:8px; font-weight:600; width:30%;">Past-Due &gt; 90 Days</td><td style="padding:8px;">&lt; 2% of total outstanding</td></tr></tbody></table></div>
         </div>
       </div>
 
@@ -1717,13 +1569,7 @@ table {
 
       <div class="curr-section">
         <div class="curr-section-h3">Accountability Cascade</div>
-        <ul style="padding-left:20px; font-size:0.88rem; line-height:1.8;">
-          <li><strong>Contract Compliance Owner:</strong> Rental Manager (100% compliance audit monthly).</li>
-          <li><strong>Pre-Rental Joint Inspection Owner:</strong> Dispatch Lead / Counter Lead (joint sign-off at dispatch).</li>
-          <li><strong>Damage Documentation Owner:</strong> Check-In Specialist / Yard Lead (4-photo standard at dispatch and return).</li>
-          <li><strong>Damage Recovery Owner:</strong> Rental Manager (monitored weekly, invoiced within 48 hours).</li>
-          <li><strong>Collections Owner:</strong> Rental Manager (escalation protocol enforced, no exceptions for "good customers").</li>
-        </ul>
+        <div class="dash-table" style="margin:10px 0; font-size:0.85rem; overflow-x:auto;"><table style="width:100%; border-collapse:collapse; font-size:0.8rem; text-align:left;"><thead><tr style="border-bottom:2px solid var(--accent-color); color:var(--accent-color);"><th style="padding:8px;">Owner</th><th style="padding:8px;">Responsibility</th></tr></thead><tbody><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Contract Compliance Owner</td><td style="padding:8px;">Rental Manager (100% compliance audit monthly).</td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Pre-Rental Joint Inspection Owner</td><td style="padding:8px;">Dispatch Lead / Counter Lead (joint sign-off at dispatch).</td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Damage Documentation Owner</td><td style="padding:8px;">Check-In Specialist / Yard Lead (4-photo standard at dispatch and return).</td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Damage Recovery Owner</td><td style="padding:8px;">Rental Manager (monitored weekly, invoiced within 48 hours).</td></tr><tr><td style="padding:8px; font-weight:600; width:30%;">Collections Owner</td><td style="padding:8px;">Rental Manager (escalation protocol enforced, no exceptions for "good customers").</td></tr></tbody></table></div>
       </div>
     </div>
   </div>
@@ -1768,20 +1614,11 @@ table {
         <div class="example-badge">Industry Standard Worked Example</div>
         <div class="formula-title">EQUIPMENT-TO-ORDERS RATIO FORMULA</div>
         <div class="formula-expr">Equipment-to-Orders Ratio = Available Units in Class [YOUR NUMBER] / Active Rental Requests for Class [YOUR NUMBER]</div>
-        <ol class="formula-steps">
-          <li><strong>Step 1:</strong> Count the total available units in a class (on rent + rent-ready, excluding down units). <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></li>
-          <li><strong>Step 2:</strong> Count the total active rental requests for that class in the trailing 30 days (filled + turned away). <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></li>
-          <li><strong>Step 3:</strong> Divide available units by active requests.</li>
-          <li><strong>Step 4:</strong> Ratio = 1.0: balanced. &gt; 1.2: over-supplied. &lt; 0.9: under-supplied (turning away business).</li>
-        </ol>
+        <div class="dash-table" style="margin:10px 0; font-size:0.85rem; overflow-x:auto;"><table style="width:100%; border-collapse:collapse; font-size:0.8rem; text-align:left;"><thead><tr style="border-bottom:2px solid var(--accent-color); color:var(--accent-color);"><th style="padding:8px;">Step</th><th style="padding:8px;">Formula step</th></tr></thead><tbody><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Step 1</td><td style="padding:8px;">Count the total available units in a class (on rent + rent-ready, excluding down units). <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Step 2</td><td style="padding:8px;">Count the total active rental requests for that class in the trailing 30 days (filled + turned away). <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Step 3</td><td style="padding:8px;">Divide available units by active requests.</td></tr><tr><td style="padding:8px; font-weight:600; width:30%;">Step 4</td><td style="padding:8px;">Ratio = 1.0: balanced. &gt; 1.2: over-supplied. &lt; 0.9: under-supplied (turning away business).</td></tr></tbody></table></div>
         <p style="margin-top:10px; font-size:0.88rem;"><strong>Worked Example:</strong> Excavator Class: 10 available units, 14 active requests &rarr; ratio = 0.71 (<strong style="color:var(--danger);">UNDER-SUPPLIED</strong>: turning away 4 requests/month). Light Tower Class: 8 available units, 4 active requests &rarr; ratio = 2.0 (<strong style="color:var(--danger);">OVER-SUPPLIED</strong>: 4 units idle).</p>
         <div style="margin-top:8px; font-size:0.85rem;">
           <strong>HEDS Target Benchmark:</strong>
-          <ul style="padding-left:16px; margin-top:4px;">
-            <li><strong>Target Band:</strong> 0.9 to 1.2 (balanced supply and demand)</li>
-            <li><strong>Warning:</strong> 0.8 to 0.89 (slightly under-supplied) or 1.21 to 1.5 (slightly over-supplied)</li>
-            <li><strong>Critical Fail:</strong> &lt; 0.8 (severe stock-out) or &gt; 1.5 (severe over-supply)</li>
-          </ul>
+          <div class="dash-table" style="margin:10px 0; font-size:0.85rem; overflow-x:auto;"><table style="width:100%; border-collapse:collapse; font-size:0.8rem; text-align:left;"><thead><tr style="border-bottom:2px solid var(--accent-color); color:var(--accent-color);"><th style="padding:8px;">Measure</th><th style="padding:8px;">Target</th></tr></thead><tbody><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Target Band</td><td style="padding:8px;">0.9 to 1.2 (balanced supply and demand)</td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Warning</td><td style="padding:8px;">0.8 to 0.89 (slightly under-supplied) or 1.21 to 1.5 (slightly over-supplied)</td></tr><tr><td style="padding:8px; font-weight:600; width:30%;">Critical Fail</td><td style="padding:8px;">&lt; 0.8 (severe stock-out) or &gt; 1.5 (severe over-supply)</td></tr></tbody></table></div>
         </div>
       </div>
 
@@ -1812,21 +1649,11 @@ table {
         <div class="example-badge">Industry Standard Worked Example</div>
         <div class="formula-title">QUOTE-TO-CONVERSION RATE FORMULA</div>
         <div class="formula-expr">Quote-to-Conversion % = (Quotes Won [YOUR NUMBER] / Total Quotes Sent [YOUR NUMBER]) &times; 100</div>
-        <ol class="formula-steps">
-          <li><strong>Step 1:</strong> Pull the trailing 30-day quote log from the rental counter or CRM. <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></li>
-          <li><strong>Step 2:</strong> Count total quotes sent (all statuses: won, lost, expired, pending). <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></li>
-          <li><strong>Step 3:</strong> Count quotes won (converted to a signed rental contract). <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></li>
-          <li><strong>Step 4:</strong> Divide quotes won by total quotes sent and multiply by 100.</li>
-          <li><strong>Step 5:</strong> Break down by class and by loss reason (rate too high, no inventory, lost to competitor, customer cancelled).</li>
-        </ol>
+        <div class="dash-table" style="margin:10px 0; font-size:0.85rem; overflow-x:auto;"><table style="width:100%; border-collapse:collapse; font-size:0.8rem; text-align:left;"><thead><tr style="border-bottom:2px solid var(--accent-color); color:var(--accent-color);"><th style="padding:8px;">Step</th><th style="padding:8px;">Formula step</th></tr></thead><tbody><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Step 1</td><td style="padding:8px;">Pull the trailing 30-day quote log from the rental counter or CRM. <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Step 2</td><td style="padding:8px;">Count total quotes sent (all statuses: won, lost, expired, pending). <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Step 3</td><td style="padding:8px;">Count quotes won (converted to a signed rental contract). <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Step 4</td><td style="padding:8px;">Divide quotes won by total quotes sent and multiply by 100.</td></tr><tr><td style="padding:8px; font-weight:600; width:30%;">Step 5</td><td style="padding:8px;">Break down by class and by loss reason (rate too high, no inventory, lost to competitor, customer cancelled).</td></tr></tbody></table></div>
         <p style="margin-top:10px; font-size:0.88rem;"><strong>Worked Example:</strong> Trailing 30 days: 85 quotes sent, 52 won. Quote-to-Conversion = (52 / 85) &times; 100 = <strong style="color:var(--success);">61.2% (PASS: Above 60% Target)</strong>. Breakdown by class: Excavator 68% (PASS), Skid Steer 55% (WARN, check rate competitiveness), Boom Lift 42% (FAIL, rate too high or fleet too old for market).</p>
         <div style="margin-top:8px; font-size:0.85rem;">
           <strong>HEDS Target Benchmark:</strong>
-          <ul style="padding-left:16px; margin-top:4px;">
-            <li><strong>Target:</strong> &ge; 60% quote-to-conversion rate</li>
-            <li><strong>Warning Band:</strong> 45% to 59% (rates may be uncompetitive, audit rack rate vs. market)</li>
-            <li><strong>Critical Fail:</strong> &lt; 45% (severe rate or availability problem, review pricing and inventory)</li>
-          </ul>
+          <div class="dash-table" style="margin:10px 0; font-size:0.85rem; overflow-x:auto;"><table style="width:100%; border-collapse:collapse; font-size:0.8rem; text-align:left;"><thead><tr style="border-bottom:2px solid var(--accent-color); color:var(--accent-color);"><th style="padding:8px;">Measure</th><th style="padding:8px;">Target</th></tr></thead><tbody><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Target</td><td style="padding:8px;">&ge; 60% quote-to-conversion rate</td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Warning Band</td><td style="padding:8px;">45% to 59% (rates may be uncompetitive, audit rack rate vs. market)</td></tr><tr><td style="padding:8px; font-weight:600; width:30%;">Critical Fail</td><td style="padding:8px;">&lt; 45% (severe rate or availability problem, review pricing and inventory)</td></tr></tbody></table></div>
         </div>
       </div>
 
@@ -1858,21 +1685,11 @@ table {
         <div class="formula-title">TRANSPORT COST PER MOVE &amp; FREIGHT RECOVERY</div>
         <div class="formula-expr">Transport Cost/Move = Total Freight Cost [$ YOUR NUMBER] / Number of Moves [YOUR NUMBER]</div>
         <div class="formula-expr" style="margin-top:6px;">Freight Recovery % = (Freight Charged to Customer [$ YOUR NUMBER] / Total Freight Cost [$ YOUR NUMBER]) &times; 100</div>
-        <ol class="formula-steps">
-          <li><strong>Step 1:</strong> Sum total freight cost (lowboy, tilt-bed, fuel, driver) for the trailing 90 days. <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></li>
-          <li><strong>Step 2:</strong> Count total moves (deliveries + pickups) in the same period. <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></li>
-          <li><strong>Step 3:</strong> Divide total freight cost by number of moves to get average cost per move.</li>
-          <li><strong>Step 4:</strong> Sum the freight charges billed to customers on rental contracts.</li>
-          <li><strong>Step 5:</strong> Divide freight charged by total freight cost and multiply by 100 to get recovery %.</li>
-        </ol>
+        <div class="dash-table" style="margin:10px 0; font-size:0.85rem; overflow-x:auto;"><table style="width:100%; border-collapse:collapse; font-size:0.8rem; text-align:left;"><thead><tr style="border-bottom:2px solid var(--accent-color); color:var(--accent-color);"><th style="padding:8px;">Step</th><th style="padding:8px;">Formula step</th></tr></thead><tbody><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Step 1</td><td style="padding:8px;">Sum total freight cost (lowboy, tilt-bed, fuel, driver) for the trailing 90 days. <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Step 2</td><td style="padding:8px;">Count total moves (deliveries + pickups) in the same period. <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Step 3</td><td style="padding:8px;">Divide total freight cost by number of moves to get average cost per move.</td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Step 4</td><td style="padding:8px;">Sum the freight charges billed to customers on rental contracts.</td></tr><tr><td style="padding:8px; font-weight:600; width:30%;">Step 5</td><td style="padding:8px;">Divide freight charged by total freight cost and multiply by 100 to get recovery %.</td></tr></tbody></table></div>
         <p style="margin-top:10px; font-size:0.88rem;"><strong>Worked Example:</strong> Trailing 90 days: 150 moves, $48,000 total freight cost. Transport Cost/Move = $48,000 / 150 = <strong>$320/move</strong>. Freight charged to customers: $39,600. Freight Recovery = ($39,600 / $48,000) &times; 100 = <strong style="color:var(--warning);">82.5% (PASS: Above 80% Target)</strong>. Unrecovered freight: $8,400/quarter = $33,600/year absorbed.</p>
         <div style="margin-top:8px; font-size:0.85rem;">
           <strong>HEDS Target Benchmark:</strong>
-          <ul style="padding-left:16px; margin-top:4px;">
-            <li><strong>Freight Recovery Target:</strong> &ge; 80% of total freight cost recovered</li>
-            <li><strong>Warning Band:</strong> 60% to 79% (freight absorbing margin, raise delivery charge)</li>
-            <li><strong>Critical Fail:</strong> &lt; 60% (severe freight leakage, build freight into rental rate or charge separately)</li>
-          </ul>
+          <div class="dash-table" style="margin:10px 0; font-size:0.85rem; overflow-x:auto;"><table style="width:100%; border-collapse:collapse; font-size:0.8rem; text-align:left;"><thead><tr style="border-bottom:2px solid var(--accent-color); color:var(--accent-color);"><th style="padding:8px;">Measure</th><th style="padding:8px;">Target</th></tr></thead><tbody><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Freight Recovery Target</td><td style="padding:8px;">&ge; 80% of total freight cost recovered</td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Warning Band</td><td style="padding:8px;">60% to 79% (freight absorbing margin, raise delivery charge)</td></tr><tr><td style="padding:8px; font-weight:600; width:30%;">Critical Fail</td><td style="padding:8px;">&lt; 60% (severe freight leakage, build freight into rental rate or charge separately)</td></tr></tbody></table></div>
         </div>
       </div>
 
@@ -1897,13 +1714,7 @@ table {
       <div class="formula-card">
         <div class="formula-title">STOCK-OUT REVENUE LOSS FORMULA</div>
         <div class="formula-expr">Stock-Out Revenue Loss ($/mo) = Turned-Away Requests [YOUR NUMBER] &times; Avg Daily Rate for Class [$ YOUR NUMBER] &times; Avg Days Requested [YOUR NUMBER]</div>
-        <ol class="formula-steps">
-          <li><strong>Step 1:</strong> Maintain a turned-away request log at the rental counter (date, class, days, customer, reason). <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></li>
-          <li><strong>Step 2:</strong> Monthly: count turned-away requests by class. <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></li>
-          <li><strong>Step 3:</strong> Multiply by average daily rate for that class. <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></li>
-          <li><strong>Step 4:</strong> Multiply by average days requested. <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></li>
-          <li><strong>Step 5:</strong> Sum by class and present monthly: "We lost $X in turned-away revenue this month."</li>
-        </ol>
+        <div class="dash-table" style="margin:10px 0; font-size:0.85rem; overflow-x:auto;"><table style="width:100%; border-collapse:collapse; font-size:0.8rem; text-align:left;"><thead><tr style="border-bottom:2px solid var(--accent-color); color:var(--accent-color);"><th style="padding:8px;">Step</th><th style="padding:8px;">Formula step</th></tr></thead><tbody><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Step 1</td><td style="padding:8px;">Maintain a turned-away request log at the rental counter (date, class, days, customer, reason). <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Step 2</td><td style="padding:8px;">Monthly: count turned-away requests by class. <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Step 3</td><td style="padding:8px;">Multiply by average daily rate for that class. <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Step 4</td><td style="padding:8px;">Multiply by average days requested. <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></td></tr><tr><td style="padding:8px; font-weight:600; width:30%;">Step 5</td><td style="padding:8px;">Sum by class and present monthly: "We lost $X in turned-away revenue this month."</td></tr></tbody></table></div>
         <p style="margin-top:10px; font-size:0.88rem;"><strong>Worked Example:</strong> Excavator: 6 turned-away &times; $850/day &times; 7 days = $35,700/mo. Skid Steer: 4 turned-away &times; $180/day &times; 5 days = $3,600/mo. <strong style="color:var(--danger);">Total Monthly Stock-Out Revenue Loss: $39,300/mo ($471,600/yr)</strong></p>
       </div>
 
@@ -1933,32 +1744,17 @@ table {
       <div class="formula-card">
         <div class="formula-title">CUSTOMER CHURN SCORE FORMULA</div>
         <div class="formula-expr">Quarterly Churn % = (Customers Lost This Quarter [YOUR NUMBER] / Total Active Customers Last Quarter [YOUR NUMBER]) &times; 100</div>
-        <ol class="formula-steps">
-          <li><strong>Step 1:</strong> Count total active customers who rented in the prior quarter. <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></li>
-          <li><strong>Step 2:</strong> Count customers from that prior quarter who did NOT rent in the current quarter (lost). <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></li>
-          <li><strong>Step 3:</strong> Divide lost customers by prior quarter total and multiply by 100.</li>
-          <li><strong>Step 4:</strong> For each lost customer: determine reason (competitor, project ended, bought own equipment, price dispute, service issue).</li>
-        </ol>
+        <div class="dash-table" style="margin:10px 0; font-size:0.85rem; overflow-x:auto;"><table style="width:100%; border-collapse:collapse; font-size:0.8rem; text-align:left;"><thead><tr style="border-bottom:2px solid var(--accent-color); color:var(--accent-color);"><th style="padding:8px;">Step</th><th style="padding:8px;">Formula step</th></tr></thead><tbody><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Step 1</td><td style="padding:8px;">Count total active customers who rented in the prior quarter. <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Step 2</td><td style="padding:8px;">Count customers from that prior quarter who did NOT rent in the current quarter (lost). <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Step 3</td><td style="padding:8px;">Divide lost customers by prior quarter total and multiply by 100.</td></tr><tr><td style="padding:8px; font-weight:600; width:30%;">Step 4</td><td style="padding:8px;">For each lost customer: determine reason (competitor, project ended, bought own equipment, price dispute, service issue).</td></tr></tbody></table></div>
         <p style="margin-top:10px; font-size:0.88rem;"><strong>Worked Example:</strong> Prior quarter: 45 active customers. Current quarter: 4 of those 45 did not rent. Churn = (4 / 45) &times; 100 = <strong style="color:var(--success);">8.9% (PASS: Below 10% Target)</strong>. Lost customers: 2 went to competitor (rate), 1 project ended, 1 bought own equipment. <strong>Revenue impact:</strong> $42,000/quarter in lost recurring revenue.</p>
         <div style="margin-top:8px; font-size:0.85rem;">
           <strong>HEDS Target Benchmark:</strong>
-          <ul style="padding-left:16px; margin-top:4px;">
-            <li><strong>Target:</strong> &lt; 10% quarterly churn</li>
-            <li><strong>Warning Band:</strong> 10% to 15% (monitor, investigate loss reasons)</li>
-            <li><strong>Critical Fail:</strong> &gt; 15% (severe retention problem, review rate, service, competitive positioning)</li>
-          </ul>
+          <div class="dash-table" style="margin:10px 0; font-size:0.85rem; overflow-x:auto;"><table style="width:100%; border-collapse:collapse; font-size:0.8rem; text-align:left;"><thead><tr style="border-bottom:2px solid var(--accent-color); color:var(--accent-color);"><th style="padding:8px;">Measure</th><th style="padding:8px;">Target</th></tr></thead><tbody><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Target</td><td style="padding:8px;">&lt; 10% quarterly churn</td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Warning Band</td><td style="padding:8px;">10% to 15% (monitor, investigate loss reasons)</td></tr><tr><td style="padding:8px; font-weight:600; width:30%;">Critical Fail</td><td style="padding:8px;">&gt; 15% (severe retention problem, review rate, service, competitive positioning)</td></tr></tbody></table></div>
         </div>
       </div>
 
       <div class="curr-section">
         <div class="curr-section-h3">Accountability Cascade</div>
-        <ul style="padding-left:20px; font-size:0.88rem; line-height:1.8;">
-          <li><strong>Equipment-to-Orders Ratio Owner:</strong> Rental Manager (weekly by class).</li>
-          <li><strong>Quote-to-Conversion Owner:</strong> Rental Manager / Counter Lead (weekly by class).</li>
-          <li><strong>Transport Cost &amp; Freight Recovery Owner:</strong> Rental Manager (monthly review).</li>
-          <li><strong>Turned-Away Revenue Log Owner:</strong> Rental Dispatcher / Counter Lead (daily log, monthly report).</li>
-          <li><strong>Customer Retention &amp; Churn Owner:</strong> Rental Manager (monthly top-10 review, quarterly churn score).</li>
-        </ul>
+        <div class="dash-table" style="margin:10px 0; font-size:0.85rem; overflow-x:auto;"><table style="width:100%; border-collapse:collapse; font-size:0.8rem; text-align:left;"><thead><tr style="border-bottom:2px solid var(--accent-color); color:var(--accent-color);"><th style="padding:8px;">Owner</th><th style="padding:8px;">Responsibility</th></tr></thead><tbody><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Equipment-to-Orders Ratio Owner</td><td style="padding:8px;">Rental Manager (weekly by class).</td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Quote-to-Conversion Owner</td><td style="padding:8px;">Rental Manager / Counter Lead (weekly by class).</td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Transport Cost &amp; Freight Recovery Owner</td><td style="padding:8px;">Rental Manager (monthly review).</td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Turned-Away Revenue Log Owner</td><td style="padding:8px;">Rental Dispatcher / Counter Lead (daily log, monthly report).</td></tr><tr><td style="padding:8px; font-weight:600; width:30%;">Customer Retention &amp; Churn Owner</td><td style="padding:8px;">Rental Manager (monthly top-10 review, quarterly churn score).</td></tr></tbody></table></div>
       </div>
     </div>
   </div>
@@ -2010,22 +1806,11 @@ table {
         <div class="formula-expr">Hour-Meter Overage (Hours) = Actual Telematics Hours [YOUR NUMBER] &minus; Contracted Hours [YOUR NUMBER]</div>
         <div class="formula-expr" style="margin-top:6px;">Overage Revenue ($) = Hour-Meter Overage [YOUR NUMBER] &times; Overage Rate [$ YOUR NUMBER]</div>
         <div class="formula-expr" style="margin-top:6px;">Billing Reconciliation Rate % = (Contracts Reconciled with Telematics [YOUR NUMBER] / Total Active Contracts [YOUR NUMBER]) &times; 100</div>
-        <ol class="formula-steps">
-          <li><strong>Step 1:</strong> Pull the telematics engine hour extract for all units currently on rent. <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></li>
-          <li><strong>Step 2:</strong> Pull the contracted hours from each active rental agreement. <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></li>
-          <li><strong>Step 3:</strong> For each unit, subtract contracted hours from actual telematics hours.</li>
-          <li><strong>Step 4:</strong> If positive (overage): multiply by the overage rate and invoice the customer.</li>
-          <li><strong>Step 5:</strong> If negative (under-utilization): flag for rate and contract review (Module 2).</li>
-          <li><strong>Step 6:</strong> Track the percentage of active contracts that were reconciled this month (billing reconciliation rate).</li>
-        </ol>
+        <div class="dash-table" style="margin:10px 0; font-size:0.85rem; overflow-x:auto;"><table style="width:100%; border-collapse:collapse; font-size:0.8rem; text-align:left;"><thead><tr style="border-bottom:2px solid var(--accent-color); color:var(--accent-color);"><th style="padding:8px;">Step</th><th style="padding:8px;">Formula step</th></tr></thead><tbody><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Step 1</td><td style="padding:8px;">Pull the telematics engine hour extract for all units currently on rent. <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Step 2</td><td style="padding:8px;">Pull the contracted hours from each active rental agreement. <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Step 3</td><td style="padding:8px;">For each unit, subtract contracted hours from actual telematics hours.</td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Step 4</td><td style="padding:8px;">If positive (overage): multiply by the overage rate and invoice the customer.</td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Step 5</td><td style="padding:8px;">If negative (under-utilization): flag for rate and contract review (Module 2).</td></tr><tr><td style="padding:8px; font-weight:600; width:30%;">Step 6</td><td style="padding:8px;">Track the percentage of active contracts that were reconciled this month (billing reconciliation rate).</td></tr></tbody></table></div>
         <p style="margin-top:10px; font-size:0.88rem;"><strong>Worked Example (Excavator EX-101, Monthly Contract, 160 contracted hours):</strong> Telematics engine hours this month: 194 hours. Overage: 194 &minus; 160 = 34 hours. Overage rate: $45/hour. <strong>Overage Revenue: 34 &times; $45 = $1,530</strong> (recovered, was being left on the table before telematics reconciliation). Fleet-wide monthly overage recovery (150 units): ~$50,400/month in newly captured revenue.</p>
         <div style="margin-top:8px; font-size:0.85rem;">
           <strong>HEDS Target Benchmark:</strong>
-          <ul style="padding-left:16px; margin-top:4px;">
-            <li><strong>Billing Reconciliation Rate:</strong> &ge; 90% of active contracts reconciled monthly</li>
-            <li><strong>Overage Recovery Target:</strong> $0 in unrecovered overage, every hour over contract is invoiced</li>
-            <li><strong>Reconciliation Frequency:</strong> Daily for high-value units (&ge;$100K OEC), weekly for standard units</li>
-          </ul>
+          <div class="dash-table" style="margin:10px 0; font-size:0.85rem; overflow-x:auto;"><table style="width:100%; border-collapse:collapse; font-size:0.8rem; text-align:left;"><thead><tr style="border-bottom:2px solid var(--accent-color); color:var(--accent-color);"><th style="padding:8px;">Measure</th><th style="padding:8px;">Target</th></tr></thead><tbody><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Billing Reconciliation Rate</td><td style="padding:8px;">&ge; 90% of active contracts reconciled monthly</td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Overage Recovery Target</td><td style="padding:8px;">$0 in unrecovered overage, every hour over contract is invoiced</td></tr><tr><td style="padding:8px; font-weight:600; width:30%;">Reconciliation Frequency</td><td style="padding:8px;">Daily for high-value units (&ge;$100K OEC), weekly for standard units</td></tr></tbody></table></div>
         </div>
       </div>
 
@@ -2052,12 +1837,7 @@ table {
         </div>
         <div style="padding:14px; background:rgba(0,0,0,0.25); border-radius:8px; border:1px solid var(--border-color); margin:10px 0; font-size:0.85rem;">
           <p><strong>Key Geolocation Capabilities:</strong></p>
-          <ol style="padding-left:20px; margin-top:6px; line-height:1.8;">
-            <li><strong>Geofencing:</strong> Set a virtual boundary around each customer's jobsite. Alert when a machine exits the boundary.</li>
-            <li><strong>Last-Ping Tracking:</strong> Every unit's last reported location with timestamp. No machine should be "unlocated" for more than 48 hours.</li>
-            <li><strong>Overdue Alert:</strong> Contract return date passed and machine hasn't checked in &rarr; automatic alert to dispatcher.</li>
-            <li><strong>Theft Recovery Protocol:</strong> Machine moves outside geofence after hours or without authorization &rarr; alert + police report + GPS location for recovery.</li>
-          </ol>
+          <div class="dash-table" style="margin:10px 0; font-size:0.85rem; overflow-x:auto;"><table style="width:100%; border-collapse:collapse; font-size:0.8rem; text-align:left;"><thead><tr style="border-bottom:2px solid var(--accent-color); color:var(--accent-color);"><th style="padding:8px;">Item</th><th style="padding:8px;">Detail</th></tr></thead><tbody><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Geofencing</td><td style="padding:8px;">Set a virtual boundary around each customer's jobsite. Alert when a machine exits the boundary.</td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Last-Ping Tracking</td><td style="padding:8px;">Every unit's last reported location with timestamp. No machine should be "unlocated" for more than 48 hours.</td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Overdue Alert</td><td style="padding:8px;">Contract return date passed and machine hasn't checked in &rarr; automatic alert to dispatcher.</td></tr><tr><td style="padding:8px; font-weight:600; width:30%;">Theft Recovery Protocol</td><td style="padding:8px;">Machine moves outside geofence after hours or without authorization &rarr; alert + police report + GPS location for recovery.</td></tr></tbody></table></div>
         </div>
         <div class="floor-rule">
           <div class="floor-rule-title">The 48-Hour Rule</div>
@@ -2137,13 +1917,7 @@ table {
 
       <div class="curr-section">
         <div class="curr-section-h3">Accountability Cascade</div>
-        <ul style="padding-left:20px; font-size:0.88rem; line-height:1.8;">
-          <li><strong>Hour-Meter Billing Owner:</strong> Rental Manager (daily reconciliation for high-value, weekly for standard).</li>
-          <li><strong>Geolocation Owner:</strong> Rental Dispatcher (daily fleet location check).</li>
-          <li><strong>Usage Profile Owner:</strong> Rental Manager (quarterly per-account review).</li>
-          <li><strong>Fault Coordination Owner:</strong> Rental Manager (daily review &rarr; Service Manager notification).</li>
-          <li><strong>Escalation Trigger:</strong> Any unit unpinged for &gt; 48 hours &rarr; immediate investigation. Any critical fault on a unit due for re-rent &rarr; hold and service before dispatch.</li>
-        </ul>
+        <div class="dash-table" style="margin:10px 0; font-size:0.85rem; overflow-x:auto;"><table style="width:100%; border-collapse:collapse; font-size:0.8rem; text-align:left;"><thead><tr style="border-bottom:2px solid var(--accent-color); color:var(--accent-color);"><th style="padding:8px;">Owner</th><th style="padding:8px;">Responsibility</th></tr></thead><tbody><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Hour-Meter Billing Owner</td><td style="padding:8px;">Rental Manager (daily reconciliation for high-value, weekly for standard).</td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Geolocation Owner</td><td style="padding:8px;">Rental Dispatcher (daily fleet location check).</td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Usage Profile Owner</td><td style="padding:8px;">Rental Manager (quarterly per-account review).</td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Fault Coordination Owner</td><td style="padding:8px;">Rental Manager (daily review &rarr; Service Manager notification).</td></tr><tr><td style="padding:8px; font-weight:600; width:30%;">Escalation Trigger</td><td style="padding:8px;">Any unit unpinged for &gt; 48 hours &rarr; immediate investigation. Any critical fault on a unit due for re-rent &rarr; hold and service before dispatch.</td></tr></tbody></table></div>
       </div>
     </div>
   </div>
@@ -2198,13 +1972,7 @@ table {
           <li><strong>Participants:</strong> Rental Manager, Branch Manager.</li>
         </ul>
         <p style="font-size:0.9rem; margin-top:8px; font-weight:700;">Standing Agenda:</p>
-        <ol style="padding-left:20px; font-size:0.88rem; line-height:1.8;">
-          <li><strong>Time Utilization by Class:</strong> Trailing 7-day utilization vs. 65 to 75% target.</li>
-          <li><strong>Dollar Utilization by Class:</strong> Trailing 12-month rental revenue &divide; OEC by class.</li>
-          <li><strong>Rate Realization:</strong> Actual invoiced rate vs. rack rate for the week. Flag any class below 90%.</li>
-          <li><strong>Stock-Out &amp; Turned-Away Revenue:</strong> Count and dollar value of unfulfilled requests.</li>
-          <li><strong>Damage Recovery Status:</strong> New damage events, invoiced, collected, aging.</li>
-        </ol>
+        <div class="dash-table" style="margin:10px 0; font-size:0.85rem; overflow-x:auto;"><table style="width:100%; border-collapse:collapse; font-size:0.8rem; text-align:left;"><thead><tr style="border-bottom:2px solid var(--accent-color); color:var(--accent-color);"><th style="padding:8px;">Measure</th><th style="padding:8px;">Target</th></tr></thead><tbody><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Time Utilization by Class</td><td style="padding:8px;">Trailing 7-day utilization vs. 65 to 75% target.</td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Dollar Utilization by Class</td><td style="padding:8px;">Trailing 12-month rental revenue &divide; OEC by class.</td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Rate Realization</td><td style="padding:8px;">Actual invoiced rate vs. rack rate for the week. Flag any class below 90%.</td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Stock-Out &amp; Turned-Away Revenue</td><td style="padding:8px;">Count and dollar value of unfulfilled requests.</td></tr><tr><td style="padding:8px; font-weight:600; width:30%;">Damage Recovery Status</td><td style="padding:8px;">New damage events, invoiced, collected, aging.</td></tr></tbody></table></div>
       </div>
 
       <div class="curr-section">
@@ -2262,33 +2030,18 @@ table {
         <div class="formula-expr">EBITDA Margin % = (Net Income + Interest + Taxes + Depreciation + Amortization [$ YOUR NUMBER] / Total Rental Revenue [$ YOUR NUMBER]) &times; 100</div>
         <div class="formula-expr" style="margin-top:6px;">Personnel Expense % = (Total Wages + Benefits + Payroll Taxes [$ YOUR NUMBER] / Total Rental Revenue [$ YOUR NUMBER]) &times; 100</div>
         <div class="formula-expr" style="margin-top:6px;">Revenue Growth % = ((Current Period Revenue &minus; Prior Period Revenue) [$ YOUR NUMBER] / Prior Period Revenue [$ YOUR NUMBER]) &times; 100</div>
-        <ol class="formula-steps">
-          <li><strong>Step 1:</strong> Pull the trailing 12-month rental P&amp;L from accounting. Calculate EBITDA (net income + interest + taxes + D&amp;A). <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></li>
-          <li><strong>Step 2:</strong> Divide EBITDA by total rental revenue and multiply by 100.</li>
-          <li><strong>Step 3:</strong> Pull total wages + benefits + payroll taxes for the rental department. Divide by total rental revenue. <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></li>
-          <li><strong>Step 4:</strong> Compare current period revenue to prior period revenue. Divide the difference by prior period revenue. <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></li>
-        </ol>
+        <div class="dash-table" style="margin:10px 0; font-size:0.85rem; overflow-x:auto;"><table style="width:100%; border-collapse:collapse; font-size:0.8rem; text-align:left;"><thead><tr style="border-bottom:2px solid var(--accent-color); color:var(--accent-color);"><th style="padding:8px;">Step</th><th style="padding:8px;">Formula step</th></tr></thead><tbody><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Step 1</td><td style="padding:8px;">Pull the trailing 12-month rental P&amp;L from accounting. Calculate EBITDA (net income + interest + taxes + D&amp;A). <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Step 2</td><td style="padding:8px;">Divide EBITDA by total rental revenue and multiply by 100.</td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Step 3</td><td style="padding:8px;">Pull total wages + benefits + payroll taxes for the rental department. Divide by total rental revenue. <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></td></tr><tr><td style="padding:8px; font-weight:600; width:30%;">Step 4</td><td style="padding:8px;">Compare current period revenue to prior period revenue. Divide the difference by prior period revenue. <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></td></tr></tbody></table></div>
         <p style="margin-top:10px; font-size:0.88rem;"><strong>Worked Example:</strong> Annual Rental Revenue: $2,400,000. EBITDA: $720,000. EBITDA Margin = ($720,000 / $2,400,000) &times; 100 = <strong style="color:var(--warning);">30.0% (PASS: At target)</strong>. Personnel Wages + Benefits: $624,000. Personnel Expense = ($624,000 / $2,400,000) &times; 100 = <strong style="color:var(--success);">26.0% (PASS: Below 35% target)</strong>. Prior Year Revenue: $2,180,000. Revenue Growth = (($2,400,000 &minus; $2,180,000) / $2,180,000) &times; 100 = <strong style="color:var(--success);">10.1% (PASS: Above 10% target)</strong></p>
         <div style="margin-top:8px; font-size:0.85rem;">
           <strong>HEDS Target Benchmarks:</strong>
-          <ul style="padding-left:16px; margin-top:4px;">
-            <li><strong>EBITDA Margin:</strong> 30% to 46% of rental revenue. Below 30% is a red flag.</li>
-            <li><strong>Personnel Expense:</strong> &lt; 35% of revenue (independent target: 15% to 30%)</li>
-            <li><strong>Revenue Growth:</strong> &ge; 10% year-over-year</li>
-          </ul>
+          <div class="dash-table" style="margin:10px 0; font-size:0.85rem; overflow-x:auto;"><table style="width:100%; border-collapse:collapse; font-size:0.8rem; text-align:left;"><thead><tr style="border-bottom:2px solid var(--accent-color); color:var(--accent-color);"><th style="padding:8px;">Measure</th><th style="padding:8px;">Target</th></tr></thead><tbody><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">EBITDA Margin</td><td style="padding:8px;">30% to 46% of rental revenue. Below 30% is a red flag.</td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Personnel Expense</td><td style="padding:8px;">&lt; 35% of revenue (independent target: 15% to 30%)</td></tr><tr><td style="padding:8px; font-weight:600; width:30%;">Revenue Growth</td><td style="padding:8px;">&ge; 10% year-over-year</td></tr></tbody></table></div>
         </div>
       </div>
 
       <div class="curr-section">
         <div class="curr-section-h3">The 90-Day Rental Manager Action Plan (Capstone)</div>
-        <p style="font-size:0.9rem; margin-bottom:10px;">To achieve Academy Certification, the Rental Manager must complete the 50-question timed assessment and submit a fully developed <strong>90-Day Rental Manager Action Plan</strong> featuring:</p>
-        <ol style="padding-left:20px; font-size:0.88rem; line-height:1.8;">
-          <li><strong>Branch Baseline Scorecard:</strong> Trailing 90-day baseline vs. targets across all 11 Core KPIs by class.</li>
-          <li><strong>Top 3 Revenue Leaks with Quantified Dollar Impact:</strong> Rate erosion, turned-away revenue, unrecovered damage/overage.</li>
-          <li><strong>Revenue &amp; Cost Per Class Model:</strong> Full class-level P&amp;L with disposition recommendations.</li>
-          <li><strong>5% At-Risk Fleet Disposition Package:</strong> Bottom 5% of units audited with repair-vs-sell analysis.</li>
-          <li><strong>Signed Leadership Accountability Contract:</strong> Named daily huddle, weekly review, monthly P&amp;L review rhythms with discount discipline and telematics reconciliation commitment.</li>
-        </ol>
+        <p style="font-size:0.9rem; margin-bottom:10px;">To achieve the HEDS Operating Discipline Academy Certification, the Rental Manager must complete the 50-question timed assessment and submit a fully developed <strong>90-Day Rental Manager Action Plan</strong> featuring:</p>
+        <div class="dash-table" style="margin:10px 0; font-size:0.85rem; overflow-x:auto;"><table style="width:100%; border-collapse:collapse; font-size:0.8rem; text-align:left;"><thead><tr style="border-bottom:2px solid var(--accent-color); color:var(--accent-color);"><th style="padding:8px;">Item</th><th style="padding:8px;">Detail</th></tr></thead><tbody><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Branch Baseline Scorecard</td><td style="padding:8px;">Trailing 90-day baseline vs. targets across all 11 Core KPIs by class.</td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Top 3 Revenue Leaks with Quantified Dollar Impact</td><td style="padding:8px;">Rate erosion, turned-away revenue, unrecovered damage/overage.</td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Revenue &amp; Cost Per Class Model</td><td style="padding:8px;">Full class-level P&amp;L with disposition recommendations.</td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">5% At-Risk Fleet Disposition Package</td><td style="padding:8px;">Bottom 5% of units audited with repair-vs-sell analysis.</td></tr><tr><td style="padding:8px; font-weight:600; width:30%;">Signed Leadership Accountability Contract</td><td style="padding:8px;">Named daily huddle, weekly review, monthly P&amp;L review rhythms with discount discipline and telematics reconciliation commitment.</td></tr></tbody></table></div>
       </div>
 
       <div class="floor-rule">
@@ -2819,7 +2572,7 @@ table {
             </tr>
             <tr><td colspan="4" style="padding:12px 10px 6px 10px; font-weight:800; font-size:0.8rem; letter-spacing:1px; text-transform:uppercase; color:var(--muted); border-bottom:2px solid var(--border-color);">Secondary measures and leak calculations</td></tr>
             <tr style="border-bottom:1px solid var(--border-color);">
-              <td style="padding:10px; font-weight:600;">Net Contribution per Unit (revenue per unit by class average)</td>
+              <td style="padding:10px; font-weight:600;">Net Contribution per Unit (average across classes)</td>
               <td style="padding:10px;" id="s_val_rpu">--</td>
               <td style="padding:10px;">Positive net contribution</td>
               <td style="padding:10px;" id="s_stat_rpu">--</td>
@@ -2980,7 +2733,7 @@ table {
 
   <!-- Sign-in Screen -->
   <div id="test_signin" class="card">
-    <div class="card-title">Industry Knowledge Assessment: Rental Manager Certification</div>
+    <div class="card-title">Industry Knowledge Assessment: HEDS Operating Discipline Academy Certification</div>
     <p style="color:var(--muted); margin-bottom:20px;">This assessment tests your industry knowledge for the Rental Manager role. It is step one of the HEDS training cycle, and HEDS uses your result to decide where to focus with you. You have 90 minutes to answer all 50 questions. When you submit, your answers go to HEDS. HEDS grades the assessment and returns your result to you. The score is not shown on this page.</p>
     <div class="form-group" id="test_info_fields">
       <label for="test_name">Your Full Name</label>
@@ -3193,12 +2946,12 @@ function switchMainSection(secId, btnEl) {
     });
     var avgNet = totalUnits > 0 ? (totalRev - totalCost) / totalUnits : 0;
     var avgEl = document.getElementById('dm3_avg');
-    if (avgEl) avgEl.innerText = (avgNet >= 0 ? '$' : '&minus;$') + Math.abs(avgNet).toLocaleString();
+    if (avgEl) avgEl.innerText = (avgNet >= 0 ? '$' : '\u2212$') + Math.abs(Math.round(avgNet)).toLocaleString();
     var negEl = document.getElementById('dm3_neg');
     if (negEl) negEl.innerText = negCount + ' of ' + classRows.length + ' classes';
     // Update scorecard
     var sVal = document.getElementById('s_val_rpu');
-    if (sVal) sVal.innerText = '$' + (totalUnits > 0 ? Math.round(totalRev / totalUnits).toLocaleString() : 0);
+    if (sVal) sVal.innerText = (avgNet >= 0 ? '$' : '\u2212$') + Math.abs(Math.round(avgNet)).toLocaleString();
     var sStat = document.getElementById('s_stat_rpu');
     if (sStat) { if (negCount === 0) sStat.innerHTML = '<span class="metric-status status-pass">PASS</span>'; else if (negCount <= classRows.length/2) sStat.innerHTML = '<span class="metric-status status-warn">WARN</span>'; else sStat.innerHTML = '<span class="metric-status status-fail">FAIL</span>'; }
   }
@@ -3256,11 +3009,11 @@ function switchMainSection(secId, btnEl) {
     if (el_total_units) el_total_units.textContent = totalUnits.toLocaleString();
     // Update scorecard
     var sVal = document.getElementById('s_val_rpu');
-    if (sVal) sVal.innerText = '$' + (totalUnits > 0 ? Math.round(totalRev / totalUnits).toLocaleString() : 0);
+    if (sVal) sVal.innerText = (avgNet >= 0 ? '$' : '\u2212$') + Math.abs(Math.round(avgNet)).toLocaleString();
     var sStat = document.getElementById('s_stat_rpu');
     if (sStat) { if (negCount === 0) sStat.innerHTML = '<span class="metric-status status-pass">PASS</span>'; else if (negCount <= classRows.length/2) sStat.innerHTML = '<span class="metric-status status-warn">WARN</span>'; else sStat.innerHTML = '<span class="metric-status status-fail">FAIL</span>'; }
     var avgEl2 = document.getElementById('dm3_avg');
-    if (avgEl2) avgEl2.innerText = (avgNet >= 0 ? '$' : '&minus;$') + Math.abs(avgNet).toLocaleString();
+    if (avgEl2) avgEl2.innerText = (avgNet >= 0 ? '$' : '\u2212$') + Math.abs(Math.round(avgNet)).toLocaleString();
     var negEl2 = document.getElementById('dm3_neg');
     if (negEl2) negEl2.innerText = negCount + ' of ' + classRows.length + ' classes';
   }
@@ -4473,7 +4226,7 @@ function switchMainSection(secId, btnEl) {
     var el = document.getElementById('result_relay_status');
     if (!el) return;
     el.textContent = HEDS_RELAY_MSG[state] || HEDS_RELAY_MSG.fail;
-    el.style.color = state === 'ok' ? '#10b981' : (state === 'pending' ? '#94a3b8' : '#ef4444');
+    el.style.color = state === 'ok' ? '#10b981' : (state === 'pending' ? '#94a3b8' : '#f87171');
     var wrap = document.getElementById('result_mailto_wrap');
     if (wrap) wrap.style.display = state === 'ok' ? 'none' : 'block';
   }

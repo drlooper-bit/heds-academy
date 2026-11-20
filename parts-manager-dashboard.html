@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>HEDS Operating Discipline Academy: Parts Manager Training &amp; Operating Platform</title>
-<meta name="description" content="Heavy Equipment Dealer Solutions LLC: Parts Manager Training Program with interactive KPI dashboard, curriculum, and certification assessment.">
+<meta name="description" content="Heavy Equipment Dealer Solutions LLC: Parts Manager Training Program with interactive KPI dashboard, curriculum, and the HEDS Operating Discipline Academy Certification assessment.">
 <link rel="canonical" href="https://hedsconsulting.net/parts-manager-dashboard.html">
 <link rel="icon" type="image/png" href="LOGO_HEDS_small.png">
 <style>
@@ -18,7 +18,7 @@
     --muted: #94a3b8;
     --success: #22c55e;
     --warning: #e5ae25;
-    --danger: #ef4444;
+    --danger: #f87171;
     --radius: 8px;
     --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   }
@@ -267,9 +267,9 @@
     font-weight: 700;
     text-transform: uppercase;
   }
-  .status-pass { background: rgba(34, 197, 94, 0.2); color: var(--success); border: 1px solid var(--success); }
-  .status-warn { background: rgba(245, 158, 11, 0.2); color: var(--warning); border: 1px solid var(--warning); }
-  .status-fail { background: rgba(239, 68, 68, 0.2); color: var(--danger); border: 1px solid var(--danger); }
+  .status-pass { background: rgba(34, 197, 94, 0.2); color: #4ade80; border: 1px solid var(--success); }
+  .status-warn { background: rgba(245, 158, 11, 0.2); color: #fbbf24; border: 1px solid var(--warning); }
+  .status-fail { background: rgba(239, 68, 68, 0.2); color: #fca5a5; border: 1px solid var(--danger); }
 
   .btn {
     background: var(--accent-color);
@@ -1005,7 +1005,7 @@ table {
             <tr><td>KPI 7: Obsolescence &amp; Excess</td><td>&lt; 5%</td><td>9.0%</td><td><span class="metric-status status-warn">WARN</span></td></tr>
             <tr><td>KPI 8: Parts-to-Labor Ratio</td><td>$1 : $1</td><td>$1.20 : $1</td><td><span class="metric-status status-pass">PASS</span></td></tr>
             <tr><td>KPI 9: First-Time Fill Rate</td><td>Counter &ge; 85% / Service &ge; 90%</td><td>90.0% / 94.7%</td><td><span class="metric-status status-pass">PASS</span></td></tr>
-            <tr><td>KPI 10: Days of Supply</td><td>&le; 90d</td><td>101 days</td><td><span class="metric-status status-fail">FAIL</span></td></tr>
+            <tr><td>KPI 10: Days of Supply</td><td>Set per dealer, with 90 days or less as the HEDS starting point.</td><td>101 days</td><td><span class="metric-status status-warn">WARN</span></td></tr>
           </tbody>
         </table>
       </div>
@@ -1144,8 +1144,8 @@ table {
         <div class="formula-card">
           <div class="example-badge">KPI 10: Days of Supply</div>
           <div class="formula-expr">Inventory Value / Daily Usage</div>
-          <div class="formula-result">Maximum: 90 Days (over 90 = FAIL)</div>
-          <p class="formula-note">Velocity tiering is a general rule of thumb, not a standard: about 30 days on fast-movers (A), 90 days medium (B), 180 days slow (C). The parts manager still has to research days of supply part by part, because not everything fits a bucket. A part you know you will need that the manufacturer cannot supply stays on hand whatever its tier. The 90-day dealer-wide maximum still stands.</p>
+          <div class="formula-result">Set per dealer, with 90 days or less as the HEDS starting point. Over 90 days grades WARN.</div>
+          <p class="formula-note">Velocity tiering is a general rule of thumb, not a standard: about 30 days on fast-movers (A), 90 days medium (B), 180 days slow (C). The parts manager still has to research days of supply part by part, because not everything fits a bucket. A part you know you will need that the manufacturer cannot supply stays on hand whatever its tier. Each dealer sets its own figure, with 90 days or less as the HEDS starting point.</p>
         </div>
       </div>
 
@@ -1261,7 +1261,7 @@ table {
     <div class="metric-box kpi-tile"><div class="kpi-label">07 Obsolescence</div><div class="metric-val" id="m7_res">9.0%</div><div id="m7_status" class="metric-status status-warn">WARN</div><div class="kpi-desc">Target: &lt; 5% (WARN 5 to 10%, FAIL over 10%)</div></div>
     <div class="metric-box kpi-tile"><div class="kpi-label">08 Parts/Labor (secondary)</div><div class="metric-val" id="m8_res">$1.20 : $1</div><div id="m8_status" class="metric-status status-pass">PASS</div><div class="kpi-desc">Target: $1:$1 (PASS $1.00 to $1.50)</div></div>
     <div class="metric-box kpi-tile"><div class="kpi-label">09 Fill Rate</div><div class="metric-val" id="m9_res">90.0% / 94.7%</div><div id="m9_status" class="metric-status status-pass">PASS</div><div class="kpi-desc">Counter / Service. Targets: counter &ge; 85%, service &ge; 90% (by line item, then averaged)</div></div>
-    <div class="metric-box kpi-tile"><div class="kpi-label">10 Supply Days</div><div class="metric-val" id="s_val_m10">101 days</div><div id="s_stat_m10"><span class="metric-status status-fail">FAIL</span></div><div class="kpi-desc">Target: &le; 90 days</div></div>
+    <div class="metric-box kpi-tile"><div class="kpi-label">10 Supply Days</div><div class="metric-val" id="s_val_m10">101 days</div><div id="s_stat_m10"><span class="metric-status status-warn">WARN</span></div><div class="kpi-desc">Set per dealer, 90 days or less as the HEDS starting point</div></div>
   </div>
 
   <nav class="nav-tabs">
@@ -1495,7 +1495,7 @@ table {
             <tr><td colspan="4" style="padding:12px 10px 6px 10px; font-weight:800; font-size:0.8rem; letter-spacing:1px; text-transform:uppercase; color:var(--muted);">Secondary measures (3)</td></tr>
             <tr><td>Parts Share of Dealership Gross Margin</td><td id="s_val_m3">25.0%</td><td>25%-30%</td><td id="s_stat_m3"><span class="metric-status status-pass">PASS</span></td></tr>
             <tr><td>Parts to Labor Ratio</td><td id="s_val_m8">$1.20 : $1</td><td>$1 : $1</td><td id="s_stat_m8"><span class="metric-status status-pass">PASS</span></td></tr>
-            <tr id="kpi-months-of-supply"><td>Days of Supply</td><td id="s_val_m10_sub">101 days</td><td>&le; 90 days</td><td id="s_stat_m10_sub"><span class="metric-status status-fail">FAIL</span></td></tr>
+            <tr id="kpi-days-of-supply"><td>Days of Supply</td><td id="s_val_m10_sub">101 days</td><td>Set per dealer, with 90 days or less as the HEDS starting point.</td><td id="s_stat_m10_sub"><span class="metric-status status-warn">WARN</span></td></tr>
           </tbody>
         </table>
       </div>
@@ -1528,7 +1528,7 @@ table {
 
   <!-- Sign-in Screen -->
   <div id="test_signin" class="card">
-    <div class="card-title">Industry Knowledge Assessment: Parts Manager Certification</div>
+    <div class="card-title">Industry Knowledge Assessment: HEDS Operating Discipline Academy Certification</div>
     <p style="color:var(--muted); margin-bottom:20px;">This assessment tests your industry knowledge for the Parts Manager role. It is step one of the HEDS training cycle, and HEDS uses your result to decide where to focus with you. You have 90 minutes to answer all 50 questions. When you submit, your answers go to HEDS. HEDS grades the assessment and returns your result to you. The score is not shown on this page.</p>
     <div class="form-group" id="test_info_fields">
       <label for="test_name">Your Full Name</label>
@@ -1816,8 +1816,8 @@ table {
         var el2 = document.getElementById('s_val_m10_sub');
         if (el1) el1.innerText = dayStr;
         if (el2) el2.innerText = dayStr;
-        // B3 (Daniel, Oct 23 2026): 90 days maximum. PASS at or under 90 days (as displayed); anything over 90 is FAIL.
-        var statHtml = statusSpan(Math.round(days) <= 90 ? 'PASS' : 'FAIL');
+        // Daniel, Nov 20 2026: set per dealer, with 90 days or less as the HEDS starting point. PASS at or under 90 days (as displayed); over 90 is WARN.
+        var statHtml = statusSpan(Math.round(days) <= 90 ? 'PASS' : 'WARN');
         var s1 = document.getElementById('s_stat_m10');
         var s2 = document.getElementById('s_stat_m10_sub');
         if (s1) s1.innerHTML = statHtml;
@@ -2071,12 +2071,12 @@ table {
     "id": "q06",
     "module": "Module 1: Financials",
     "type": "calc",
-    "question": "Your parts gross profit is $150,000 and your total store fixed plus variable operating expenses are $250,000. What is your Parts Absorption Rate?",
+    "question": "Your parts gross profit is $150,000 and your total store fixed plus variable operating expenses are $400,000. What is your Parts Absorption Rate?",
     "options": [
-      "150%",
+      "266.7%",
+      "37.5%",
       "62.5%",
-      "60%",
-      "40%"
+      "25%"
     ]
   
 },
@@ -2805,7 +2805,7 @@ table {
     var el = document.getElementById('result_relay_status');
     if (!el) return;
     el.textContent = HEDS_RELAY_MSG[state] || HEDS_RELAY_MSG.fail;
-    el.style.color = state === 'ok' ? '#10b981' : (state === 'pending' ? '#94a3b8' : '#ef4444');
+    el.style.color = state === 'ok' ? '#10b981' : (state === 'pending' ? '#94a3b8' : '#f87171');
     var wrap = document.getElementById('result_mailto_wrap');
     if (wrap) wrap.style.display = state === 'ok' ? 'none' : 'block';
   }

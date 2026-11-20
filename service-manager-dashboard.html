@@ -18,7 +18,7 @@
     --muted: #94a3b8;
     --success: #22c55e;
     --warning: #e5ae25;
-    --danger: #ef4444;
+    --danger: #f87171;
     --radius: 8px;
     --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   }
@@ -267,9 +267,9 @@
     font-weight: 700;
     text-transform: uppercase;
   }
-  .status-pass { background: rgba(34, 197, 94, 0.2); color: var(--success); border: 1px solid var(--success); }
-  .status-warn { background: rgba(245, 158, 11, 0.2); color: var(--warning); border: 1px solid var(--warning); }
-  .status-fail { background: rgba(239, 68, 68, 0.2); color: var(--danger); border: 1px solid var(--danger); }
+  .status-pass { background: rgba(34, 197, 94, 0.2); color: #4ade80; border: 1px solid var(--success); }
+  .status-warn { background: rgba(245, 158, 11, 0.2); color: #fbbf24; border: 1px solid var(--warning); }
+  .status-fail { background: rgba(239, 68, 68, 0.2); color: #fca5a5; border: 1px solid var(--danger); }
 
   .btn {
     background: var(--accent-color);
@@ -1195,11 +1195,7 @@ table {
 
       <div class="curr-section">
         <div class="curr-section-h3">Accountability Cascade</div>
-        <ul style="padding-left: 20px;">
-          <li><strong>Branch Manager:</strong> Reviews absorption monthly; approves branch overhead expense allocations.</li>
-          <li><strong>Service Manager:</strong> Owns daily labor gross margin; reconciles unapplied time daily.</li>
-          <li><strong>Shop Supervisor:</strong> Manages daily job assignments to eliminate unbilled overtime.</li>
-        </ul>
+        <div class="dash-table" style="margin:10px 0; font-size:0.85rem; overflow-x:auto;"><table style="width:100%; border-collapse:collapse; font-size:0.8rem; text-align:left;"><thead><tr style="border-bottom:2px solid var(--accent-color); color:var(--accent-color);"><th style="padding:8px;">Item</th><th style="padding:8px;">Detail</th></tr></thead><tbody><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Branch Manager</td><td style="padding:8px;">Reviews absorption monthly; approves branch overhead expense allocations.</td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Service Manager</td><td style="padding:8px;">Owns daily labor gross margin; reconciles unapplied time daily.</td></tr><tr><td style="padding:8px; font-weight:600; width:30%;">Shop Supervisor</td><td style="padding:8px;">Manages daily job assignments to eliminate unbilled overtime.</td></tr></tbody></table></div>
       </div>
     </div>
   </div>
@@ -1220,9 +1216,7 @@ table {
       <div class="formula-card">
         <div class="example-badge">Industry Standard Worked Example (10 Technician Shop)</div>
         <div class="formula-title">CALCULATION WALKTHROUGH</div>
-        <ol class="formula-steps">
-          <li style="margin-bottom:16px;">
-            <strong>Step 1 (Total Paid Payroll):</strong> 10 Techs @ 40 hrs/wk = <strong>400 Clocked Payroll Hours</strong>.
+        <div class="dash-table" style="margin:10px 0; font-size:0.85rem; overflow-x:auto;"><table style="width:100%; border-collapse:collapse; font-size:0.8rem; text-align:left;"><thead><tr style="border-bottom:2px solid var(--accent-color); color:var(--accent-color);"><th style="padding:8px;">Step</th><th style="padding:8px;">Formula step</th></tr></thead><tbody><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Step 1 (Total Paid Payroll)</td><td style="padding:8px;">10 Techs @ 40 hrs/wk = <strong>400 Clocked Payroll Hours</strong>.
             <div style="margin-top:10px; margin-bottom:10px; padding:14px; background:rgba(0,0,0,0.25); border-radius:var(--radius); border:1px solid var(--border-color);">
               <div class="grid-2" style="margin-bottom:10px;">
                 <div class="spec-box" style="background:rgba(34, 197, 94, 0.08); border-left-color:var(--success); margin:0;">
@@ -1238,11 +1232,7 @@ table {
                 <div class="floor-rule-title" style="color:var(--accent-color);">Manager's Insight</div>
                 Treat these 400 hours exactly like a fresh shipment of 400 expensive parts with an expiration date of Friday at 5:00 PM. If you do not sell them by the time the shop closes, they go in the dumpster. You can never get them back.
               </div>
-            </div>
-          </li>
-
-          <li style="margin-bottom:16px;">
-            <strong>Step 2 (Closed RO Billed Hours):</strong> Total hours billed on invoiced Work Orders = <strong>290 Billed Hours</strong>.
+            </div></td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Step 2 (Closed RO Billed Hours)</td><td style="padding:8px;">Total hours billed on invoiced Work Orders = <strong>290 Billed Hours</strong>.
             <div style="margin-top:10px; margin-bottom:10px; padding:14px; background:rgba(0,0,0,0.25); border-radius:var(--radius); border:1px solid var(--border-color);">
               <div class="grid-2" style="margin-bottom:10px;">
                 <div class="spec-box" style="background:rgba(34, 197, 94, 0.08); border-left-color:var(--success); margin:0;">
@@ -1258,11 +1248,7 @@ table {
                 <div class="floor-rule-title" style="color:var(--accent-color);">Manager's Insight</div>
                 This is the only number that actually pays the bills. A technician sweating for 8 straight hours doesn't matter to the financial statement unless those hours land here on a closed, paid invoice. Your primary daily objective is moving hours from the shop floor onto closed tickets.
               </div>
-            </div>
-          </li>
-
-          <li style="margin-bottom:16px;">
-            <strong>Step 3 (Open WIP Added Hours):</strong> Total hours logged to active open Work Orders = <strong>70 WIP Hours</strong>.
+            </div></td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Step 3 (Open WIP Added Hours)</td><td style="padding:8px;">Total hours logged to active open Work Orders = <strong>70 WIP Hours</strong>.
             <div style="margin-top:10px; margin-bottom:10px; padding:14px; background:rgba(0,0,0,0.25); border-radius:var(--radius); border:1px solid var(--border-color);">
               <div class="grid-2" style="margin-bottom:10px;">
                 <div class="spec-box" style="background:rgba(34, 197, 94, 0.08); border-left-color:var(--success); margin:0;">
@@ -1278,11 +1264,7 @@ table {
                 <div class="floor-rule-title" style="color:var(--accent-color);">Manager's Insight</div>
                 WIP is a necessary evil for major repairs, but it is also the easiest hiding place for stalled, problematic jobs. As a manager, you must aggressively police WIP to ensure jobs are waiting on parts, not waiting on someone to make a decision or call the customer for authorization.
               </div>
-            </div>
-          </li>
-
-          <li style="margin-bottom:16px;">
-            <strong>Step 4 (Unapplied Lost Gap):</strong> 400 - (290 + 70) = <strong style="color:var(--danger);">40 Unapplied Lost Hours / Week</strong> (10% unapplied leakage).
+            </div></td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Step 4 (Unapplied Lost Gap)</td><td style="padding:8px;">400 - (290 + 70) = <strong style="color:var(--danger);">40 Unapplied Lost Hours / Week</strong> (10% unapplied leakage).
             <div style="margin-top:10px; margin-bottom:10px; padding:14px; background:rgba(0,0,0,0.25); border-radius:var(--radius); border:1px solid var(--border-color);">
               <div class="grid-2" style="margin-bottom:10px;">
                 <div class="spec-box" style="background:rgba(34, 197, 94, 0.08); border-left-color:var(--success); margin:0;">
@@ -1298,11 +1280,7 @@ table {
                 <div class="floor-rule-title" style="color:var(--accent-color);">Manager's Insight</div>
                 This is where your profit margin bleeds out. A 10% leakage rate might sound "acceptable" on paper, but if you ran a parts department and 10% of your inventory fell off the delivery truck every single week, you would be fired. Find the leak and plug it.
               </div>
-            </div>
-          </li>
-
-          <li style="margin-bottom:16px;">
-            <strong>Step 5 (Weekly Cash Revenue Loss):</strong> 40 hrs × $185 Posted Matrix Rate = <strong style="color:var(--danger);">$7,400 Direct Weekly Loss</strong>.
+            </div></td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Step 5 (Weekly Cash Revenue Loss)</td><td style="padding:8px;">40 hrs × $185 Posted Matrix Rate = <strong style="color:var(--danger);">$7,400 Direct Weekly Loss</strong>.
             <div style="margin-top:10px; margin-bottom:10px; padding:14px; background:rgba(0,0,0,0.25); border-radius:var(--radius); border:1px solid var(--border-color);">
               <div class="grid-2" style="margin-bottom:10px;">
                 <div class="spec-box" style="background:rgba(34, 197, 94, 0.08); border-left-color:var(--success); margin:0;">
@@ -1318,11 +1296,7 @@ table {
                 <div class="floor-rule-title" style="color:var(--accent-color);">Manager's Insight</div>
                 Translating lost hours into lost dollars is how you get the dealer principal's attention. Telling upper management you have "40 unapplied hours" sounds like a minor scheduling quirk; telling them you lost "$7,400 in billable revenue this week" gets you the budget approval to fix the problem.
               </div>
-            </div>
-          </li>
-
-          <li style="margin-bottom:16px;">
-            <strong>Step 6 (Annualized Impact):</strong> $7,400 × 52 weeks = <strong style="color:var(--danger);">$384,800 Annual Profit Leakage</strong>.
+            </div></td></tr><tr><td style="padding:8px; font-weight:600; width:30%;">Step 6 (Annualized Impact)</td><td style="padding:8px;">$7,400 × 52 weeks = <strong style="color:var(--danger);">$384,800 Annual Profit Leakage</strong>.
             <div style="margin-top:10px; margin-bottom:10px; padding:14px; background:rgba(0,0,0,0.25); border-radius:var(--radius); border:1px solid var(--border-color);">
               <div class="grid-2" style="margin-bottom:10px;">
                 <div class="spec-box" style="background:rgba(34, 197, 94, 0.08); border-left-color:var(--success); margin:0;">
@@ -1338,9 +1312,7 @@ table {
                 <div class="floor-rule-title" style="color:var(--accent-color);">Manager's Insight</div>
                 When you are fighting for a $15,000 special tooling budget or requesting approval to hire a $40,000-a-year parts runner to keep your technicians in their bays, this $384,800 is your primary ammunition. You spend a little overhead intentionally to capture a massive amount of lost gross profit.
               </div>
-            </div>
-          </li>
-        </ol>
+            </div></td></tr></tbody></table></div>
       </div>
 
       <div class="spec-box">
@@ -1371,9 +1343,7 @@ table {
         <div class="formula-title">FORMULA &amp; WORKED CALCULATION</div>
         <div class="formula-expr">48-Hour Close Report = Count and $ of Work Orders Not Closed and Invoiced Within 48 Hours of Last Labor</div>
         
-        <ol class="formula-steps">
-          <li style="margin-bottom:16px;">
-            <strong>Total Open WIP Ledger Balance:</strong> Unbilled Labor + Parts + Sublet = <strong>$105,000 WIP Balance</strong>.
+        <div class="dash-table" style="margin:10px 0; font-size:0.85rem; overflow-x:auto;"><table style="width:100%; border-collapse:collapse; font-size:0.8rem; text-align:left;"><thead><tr style="border-bottom:2px solid var(--accent-color); color:var(--accent-color);"><th style="padding:8px;">Item</th><th style="padding:8px;">Detail</th></tr></thead><tbody><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Total Open WIP Ledger Balance</td><td style="padding:8px;">Unbilled Labor + Parts + Sublet = <strong>$105,000 WIP Balance</strong>.
             <div style="margin-top:10px; margin-bottom:10px; padding:14px; background:rgba(0,0,0,0.25); border-radius:var(--radius); border:1px solid var(--border-color);">
               <div class="grid-2" style="margin-bottom:10px;">
                 <div class="spec-box" style="background:rgba(34, 197, 94, 0.08); border-left-color:var(--success); margin:0;">
@@ -1389,11 +1359,7 @@ table {
                 <div class="floor-rule-title" style="color:var(--accent-color);">Manager's Insight</div>
                 Think of open WIP as cash taken out of the dealer's bank account and physically laid on the shop floor. Every day a job sits unbilled, that cash gathers dust and risks becoming uncollectible due to dispute or missing purchase orders.
               </div>
-            </div>
-          </li>
-
-          <li style="margin-bottom:16px;">
-            <strong>48-Hour Close Audit:</strong> Open ledger shows <strong>6 work orders ($14,500)</strong> not closed and invoiced within 48 hours of last labor (<span class="metric-status status-fail">FAIL (48-HOUR RULE)</span>).
+            </div></td></tr><tr><td style="padding:8px; font-weight:600; width:30%;">48-Hour Close Audit</td><td style="padding:8px;">Open ledger shows <strong>6 work orders ($14,500)</strong> not closed and invoiced within 48 hours of last labor (<span class="metric-status status-fail">FAIL (48-HOUR RULE)</span>).
             <div style="margin-top:10px; margin-bottom:10px; padding:14px; background:rgba(0,0,0,0.25); border-radius:var(--radius); border:1px solid var(--border-color);">
               <div class="grid-2" style="margin-bottom:10px;">
                 <div class="spec-box" style="background:rgba(34, 197, 94, 0.08); border-left-color:var(--success); margin:0;">
@@ -1432,9 +1398,7 @@ table {
                 </div>
                 <p style="font-size:0.8rem; color:var(--muted); line-height:1.5; margin:0;"><strong>Directional, based on commercial collection data (NACM, CCAA).</strong> Rates vary by industry, customer credit, invoice size, and how hard the account is worked. Equipment and construction receivables often drop off faster after 90 days (disputes, project closeouts, customer cash-flow stress). The loss shows up as write-offs, partial payments, and the allowance carried on older balances. This table is about invoices already sent; it is not a work order tier. Every work order is still closed and invoiced within 48 hours of last labor.</p>
               </div>
-            </div>
-          </li>
-        </ol>
+            </div></td></tr></tbody></table></div>
       </div>
 
       <div class="floor-rule">
@@ -1456,9 +1420,7 @@ table {
         <div class="example-badge">Industry Standard Worked Example</div>
         <div class="formula-title">BENCHMARK WORKED CALCULATION</div>
         
-        <ol class="formula-steps">
-          <li style="margin-bottom:16px;">
-            <strong>Shop Technicians:</strong> Job Flat Rate 340 hrs / Actual Job Time 380 hrs = <strong style="color:var(--danger);">89.5% Technician Efficiency, Shop</strong> (<span class="metric-status status-fail">FAIL: BELOW 100% (GOAL ≥ 110%)</span>).
+        <div class="dash-table" style="margin:10px 0; font-size:0.85rem; overflow-x:auto;"><table style="width:100%; border-collapse:collapse; font-size:0.8rem; text-align:left;"><thead><tr style="border-bottom:2px solid var(--accent-color); color:var(--accent-color);"><th style="padding:8px;">Item</th><th style="padding:8px;">Detail</th></tr></thead><tbody><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Shop Technicians</td><td style="padding:8px;">Job Flat Rate 340 hrs / Actual Job Time 380 hrs = <strong style="color:var(--danger);">89.5% Technician Efficiency, Shop</strong> (<span class="metric-status status-fail">FAIL: BELOW 100% (GOAL ≥ 110%)</span>).
             <div style="margin-top:10px; margin-bottom:10px; padding:14px; background:rgba(0,0,0,0.25); border-radius:var(--radius); border:1px solid var(--border-color);">
               <div class="grid-2" style="margin-bottom:10px;">
                 <div class="spec-box" style="background:rgba(34, 197, 94, 0.08); border-left-color:var(--success); margin:0;">
@@ -1474,11 +1436,7 @@ table {
                 <div class="floor-rule-title" style="color:var(--accent-color);">Manager's Insight</div>
                 The HEDS shop efficiency goal is 110%. When shop efficiency drops below 110%, the culprit is rarely slow technicians: it is usually waiting for parts, waiting for crane or wash bay availability, or poor diagnostic direction from supervisors.
               </div>
-            </div>
-          </li>
-
-          <li style="margin-bottom:16px;">
-            <strong>Field Technicians:</strong> Billed 150 hrs (incl. billed travel time) / Clocked 195 hrs (incl. drive time) = <strong style="color:var(--danger);">76.9% Technician Efficiency, Road</strong> (<span class="metric-status status-fail">BELOW 80%</span>; target is 80 to 110%).
+            </div></td></tr><tr><td style="padding:8px; font-weight:600; width:30%;">Field Technicians</td><td style="padding:8px;">Billed 150 hrs (incl. billed travel time) / Clocked 195 hrs (incl. drive time) = <strong style="color:var(--danger);">76.9% Technician Efficiency, Road</strong> (<span class="metric-status status-fail">BELOW 80%</span>; target is 80 to 110%).
             <div style="margin-top:10px; margin-bottom:10px; padding:14px; background:rgba(0,0,0,0.25); border-radius:var(--radius); border:1px solid var(--border-color);">
               <div class="grid-2" style="margin-bottom:10px;">
                 <div class="spec-box" style="background:rgba(34, 197, 94, 0.08); border-left-color:var(--success); margin:0;">
@@ -1494,17 +1452,15 @@ table {
                 <div class="floor-rule-title" style="color:var(--accent-color);">Manager's Insight</div>
                 The baseline field efficiency target for an experienced heavy equipment road tech is 80 to 110%. Top-tier master technicians regularly exceed 120 to 130%, so 110 to 130% is graded PASS (top performer). Above 130%, check the time coding before you celebrate. Because travel is billed on every trip, a low number means on-job time that was not billed. To protect field efficiency, ensure field trucks are pre-stocked with fast-moving PM parts and dispatch routes are optimized to avoid double-backing.
               </div>
-            </div>
-          </li>
-        </ol>
+            </div></td></tr></tbody></table></div>
       </div>
 
       <div class="floor-rule">
         <div class="floor-rule-title">HEDS Labor Measures (Same for Dealer and Rental)</div>
         <ul style="padding-left:20px; margin-top:6px; line-height:1.8;">
           <li id="kpi-technician-recovery"><strong>Labor Recovery %</strong> = Hours on Work Orders / Hours of Payroll (Paid Hours) &times; 100. Target 95% to 100%.</li>
-          <li id="kpi-labor-utilization"><strong>Labor Utilization %</strong> = Hours Invoiced on the Work Order / Hours on Work Orders &times; 100. Target 100% to 110%.</li>
-          <li><strong>Both:</strong> red flag at 85% or below (at that point the shop is not making money, it is losing money). Above the top of the band (100% for Recovery, 110% for Utilization): WARN, check the time coding.</li>
+          <li id="kpi-labor-utilization"><strong>Labor Utilization %</strong> = Hours Invoiced on the Work Order / Hours on Work Orders &times; 100. Target 100% to 110%. Above 110% passes. 85% or below is a red flag.</li>
+          <li><strong>Both:</strong> red flag at 85% or below (at that point the shop is not making money, it is losing money). Labor Utilization above 110% passes. Labor Recovery above 100%: WARN, check the time coding.</li>
         </ul>
         HEDS uses only these two labor measures and has no separate measure beyond them. Technician Efficiency (shop and road, above) is a job-time measure and stay as they are.
       </div>
@@ -1528,9 +1484,7 @@ table {
         <div class="example-badge">Industry Standard Worked Example</div>
         <div class="formula-title">EFFECTIVE LABOR RATE % CALCULATION</div>
         
-        <ol class="formula-steps">
-          <li style="margin-bottom:16px;">
-            <strong>Total Billed Labor Revenue:</strong> Collected labor sales = <strong>$62,900</strong>.
+        <div class="dash-table" style="margin:10px 0; font-size:0.85rem; overflow-x:auto;"><table style="width:100%; border-collapse:collapse; font-size:0.8rem; text-align:left;"><thead><tr style="border-bottom:2px solid var(--accent-color); color:var(--accent-color);"><th style="padding:8px;">Item</th><th style="padding:8px;">Detail</th></tr></thead><tbody><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Total Billed Labor Revenue</td><td style="padding:8px;">Collected labor sales = <strong>$62,900</strong>.
             <div style="margin-top:10px; margin-bottom:10px; padding:14px; background:rgba(0,0,0,0.25); border-radius:var(--radius); border:1px solid var(--border-color);">
               <div class="grid-2" style="margin-bottom:10px;">
                 <div class="spec-box" style="background:rgba(34, 197, 94, 0.08); border-left-color:var(--success); margin:0;">
@@ -1546,11 +1500,7 @@ table {
                 <div class="floor-rule-title" style="color:var(--accent-color);">Manager's Insight</div>
                 Labor revenue is pure service production output. If labor revenue drops while technician payroll stays constant, your labor gross margin immediately collapses.
               </div>
-            </div>
-          </li>
-
-          <li style="margin-bottom:16px;">
-            <strong>Total Billed Labor Hours:</strong> <strong>370 Billed Hours</strong>.
+            </div></td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Total Billed Labor Hours</td><td style="padding:8px;"><strong>370 Billed Hours</strong>.
             <div style="margin-top:10px; margin-bottom:10px; padding:14px; background:rgba(0,0,0,0.25); border-radius:var(--radius); border:1px solid var(--border-color);">
               <div class="grid-2" style="margin-bottom:10px;">
                 <div class="spec-box" style="background:rgba(34, 197, 94, 0.08); border-left-color:var(--success); margin:0;">
@@ -1566,11 +1516,7 @@ table {
                 <div class="floor-rule-title" style="color:var(--accent-color);">Manager's Insight</div>
                 Billed hours are the primary engine of dealer gross profit. Tracking billed hours daily, rather than waiting for end-of-month financial statements, allows you to correct weekly pacing before it's too late.
               </div>
-            </div>
-          </li>
-
-          <li style="margin-bottom:16px;">
-            <strong>Actual Realized ELR:</strong> $62,900 / 370 hrs = <strong>$170.00 / hr Actual Realized Rate</strong>.
+            </div></td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Actual Realized ELR</td><td style="padding:8px;">$62,900 / 370 hrs = <strong>$170.00 / hr Actual Realized Rate</strong>.
             <div style="margin-top:10px; margin-bottom:10px; padding:14px; background:rgba(0,0,0,0.25); border-radius:var(--radius); border:1px solid var(--border-color);">
               <div class="grid-2" style="margin-bottom:10px;">
                 <div class="spec-box" style="background:rgba(34, 197, 94, 0.08); border-left-color:var(--success); margin:0;">
@@ -1586,11 +1532,7 @@ table {
                 <div class="floor-rule-title" style="color:var(--accent-color);">Manager's Insight</div>
                 Realized ELR is the ultimate test of pricing discipline. If your posted rate is $185/hr but your realized ELR is $170/hr, you are losing $15 on every billed hour to unauthorized discounts, capped warranty rates, or unbilled diagnostic time.
               </div>
-            </div>
-          </li>
-
-          <li style="margin-bottom:16px;">
-            <strong>Effective Labor Rate %:</strong> ($170.00 / $185.00) × 100 = <strong style="color:var(--danger);">91.9% Effective Labor Rate</strong> (<span class="metric-status status-fail">FAIL (&lt; 92% TARGET)</span>).
+            </div></td></tr><tr><td style="padding:8px; font-weight:600; width:30%;">Effective Labor Rate %</td><td style="padding:8px;">($170.00 / $185.00) × 100 = <strong style="color:var(--danger);">91.9% Effective Labor Rate</strong> (<span class="metric-status status-fail">FAIL (&lt; 92% TARGET)</span>).
             <div style="margin-top:10px; margin-bottom:10px; padding:14px; background:rgba(0,0,0,0.25); border-radius:var(--radius); border:1px solid var(--border-color);">
               <div class="grid-2" style="margin-bottom:10px;">
                 <div class="spec-box" style="background:rgba(34, 197, 94, 0.08); border-left-color:var(--success); margin:0;">
@@ -1606,9 +1548,7 @@ table {
                 <div class="floor-rule-title" style="color:var(--accent-color);">Manager's Insight</div>
                 HEDS target is ≥ 92% Effective Labor Rate % (ELR as a percentage of posted rate). A drop below 92% indicates advisors are overriding matrix rates, giving away diagnostic time, or failing to bill national account matrix pricing properly.
               </div>
-            </div>
-          </li>
-        </ol>
+            </div></td></tr></tbody></table></div>
       </div>
 
       <div class="floor-rule">
@@ -1630,9 +1570,7 @@ table {
         <div class="example-badge">Industry Standard Worked Example</div>
         <div class="formula-title">FIRST-TIME FIX &amp; TRIAGE VELOCITY</div>
         
-        <ol class="formula-steps">
-          <li style="margin-bottom:16px;">
-            <strong>Total Completed ROs (Past 30 Days):</strong> 140 closed Work Orders.
+        <div class="dash-table" style="margin:10px 0; font-size:0.85rem; overflow-x:auto;"><table style="width:100%; border-collapse:collapse; font-size:0.8rem; text-align:left;"><thead><tr style="border-bottom:2px solid var(--accent-color); color:var(--accent-color);"><th style="padding:8px;">Item</th><th style="padding:8px;">Detail</th></tr></thead><tbody><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Total Completed ROs (Past 30 Days)</td><td style="padding:8px;">140 closed Work Orders.
             <div style="margin-top:10px; margin-bottom:10px; padding:14px; background:rgba(0,0,0,0.25); border-radius:var(--radius); border:1px solid var(--border-color);">
               <div class="grid-2" style="margin-bottom:10px;">
                 <div class="spec-box" style="background:rgba(34, 197, 94, 0.08); border-left-color:var(--success); margin:0;">
@@ -1648,11 +1586,7 @@ table {
                 <div class="floor-rule-title" style="color:var(--accent-color);">Manager's Insight</div>
                 Understanding total ticket volume establishes your shop's throughput baseline. It helps calculate administrative workload per service advisor and parts counter representative.
               </div>
-            </div>
-          </li>
-
-          <li style="margin-bottom:16px;">
-            <strong>Repeat Return Jobs (Past 30 Days):</strong> 9 jobs returned for repeat complaint.
+            </div></td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Repeat Return Jobs (Past 30 Days)</td><td style="padding:8px;">9 jobs returned for repeat complaint.
             <div style="margin-top:10px; margin-bottom:10px; padding:14px; background:rgba(0,0,0,0.25); border-radius:var(--radius); border:1px solid var(--border-color);">
               <div class="grid-2" style="margin-bottom:10px;">
                 <div class="spec-box" style="background:rgba(34, 197, 94, 0.08); border-left-color:var(--success); margin:0;">
@@ -1668,11 +1602,7 @@ table {
                 <div class="floor-rule-title" style="color:var(--accent-color);">Manager's Insight</div>
                 Repeat jobs are poison to service profitability. They create unpaid rework, tie up technician bays, destroy customer trust, and kill your labor gross margin because rework hours cannot be billed.
               </div>
-            </div>
-          </li>
-
-          <li style="margin-bottom:16px;">
-            <strong>First-Time Fix Rate (FTFR):</strong> [ 1 - (9 / 140) ] × 100 = <strong style="color:var(--success);">93.6% FTFR</strong> (<span class="metric-status status-pass">PASS 85% to 90%</span>).
+            </div></td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">First-Time Fix Rate (FTFR)</td><td style="padding:8px;">[ 1 - (9 / 140) ] × 100 = <strong style="color:var(--success);">93.6% FTFR</strong> (<span class="metric-status status-pass">PASS 85% to 90%</span>).
             <div style="margin-top:10px; margin-bottom:10px; padding:14px; background:rgba(0,0,0,0.25); border-radius:var(--radius); border:1px solid var(--border-color);">
               <div class="grid-2" style="margin-bottom:10px;">
                 <div class="spec-box" style="background:rgba(34, 197, 94, 0.08); border-left-color:var(--success); margin:0;">
@@ -1688,11 +1618,7 @@ table {
                 <div class="floor-rule-title" style="color:var(--accent-color);">Manager's Insight</div>
                 The HEDS First-Time Fix Rate target is 85% to 90%. Achieving 93.6% means your diagnostic procedures, technical skill levels, and parts quality control are performing at an elite level.
               </div>
-            </div>
-          </li>
-
-          <li style="margin-bottom:16px;">
-            <strong>Triage Start Velocity:</strong> Average <strong>1.5 Hours</strong> from wash-bay clearance to diagnostic hookup (<span class="metric-status status-pass">PASS ≤ 2.0 HRS</span>).
+            </div></td></tr><tr><td style="padding:8px; font-weight:600; width:30%;">Triage Start Velocity</td><td style="padding:8px;">Average <strong>1.5 Hours</strong> from wash-bay clearance to diagnostic hookup (<span class="metric-status status-pass">PASS ≤ 2.0 HRS</span>).
             <div style="margin-top:10px; margin-bottom:10px; padding:14px; background:rgba(0,0,0,0.25); border-radius:var(--radius); border:1px solid var(--border-color);">
               <div class="grid-2" style="margin-bottom:10px;">
                 <div class="spec-box" style="background:rgba(34, 197, 94, 0.08); border-left-color:var(--success); margin:0;">
@@ -1708,9 +1634,7 @@ table {
                 <div class="floor-rule-title" style="color:var(--accent-color);">Manager's Insight</div>
                 HEDS floor rule requires initial triage within 2 hours of wash-bay clearance. Rapid triage identifies required parts immediately, enabling same-day parts ordering and preventing machines from sitting idle in bays for days.
               </div>
-            </div>
-          </li>
-        </ol>
+            </div></td></tr></tbody></table></div>
       </div>
 
       <div class="floor-rule">
@@ -1732,9 +1656,7 @@ table {
         <div class="example-badge">Industry Standard Worked Example</div>
         <div class="formula-title">WARRANTY DENIAL &amp; FILING VELOCITY</div>
         
-        <ol class="formula-steps">
-          <li style="margin-bottom:16px;">
-            <strong>Total Claimed Warranty Dollars:</strong> $48,000 submitted to OEMs.
+        <div class="dash-table" style="margin:10px 0; font-size:0.85rem; overflow-x:auto;"><table style="width:100%; border-collapse:collapse; font-size:0.8rem; text-align:left;"><thead><tr style="border-bottom:2px solid var(--accent-color); color:var(--accent-color);"><th style="padding:8px;">Item</th><th style="padding:8px;">Detail</th></tr></thead><tbody><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Total Claimed Warranty Dollars</td><td style="padding:8px;">$48,000 submitted to OEMs.
             <div style="margin-top:10px; margin-bottom:10px; padding:14px; background:rgba(0,0,0,0.25); border-radius:var(--radius); border:1px solid var(--border-color);">
               <div class="grid-2" style="margin-bottom:10px;">
                 <div class="spec-box" style="background:rgba(34, 197, 94, 0.08); border-left-color:var(--success); margin:0;">
@@ -1750,11 +1672,7 @@ table {
                 <div class="floor-rule-title" style="color:var(--accent-color);">Manager's Insight</div>
                 Warranty revenue represents a vital portion of heavy equipment dealership gross profit, but OEM claims are subject to strict documentation guidelines and audit penalties.
               </div>
-            </div>
-          </li>
-
-          <li style="margin-bottom:16px;">
-            <strong>Denied / Written-Off Warranty Dollars:</strong> $480 denied claims.
+            </div></td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Denied / Written-Off Warranty Dollars</td><td style="padding:8px;">$480 denied claims.
             <div style="margin-top:10px; margin-bottom:10px; padding:14px; background:rgba(0,0,0,0.25); border-radius:var(--radius); border:1px solid var(--border-color);">
               <div class="grid-2" style="margin-bottom:10px;">
                 <div class="spec-box" style="background:rgba(34, 197, 94, 0.08); border-left-color:var(--success); margin:0;">
@@ -1770,11 +1688,7 @@ table {
                 <div class="floor-rule-title" style="color:var(--accent-color);">Manager's Insight</div>
                 Warranty write-offs are pure profit leaks. When a $480 warranty claim is denied, your dealership must bill an extra $3,200 in retail revenue (at a 15% net margin) just to recover that lost $480.
               </div>
-            </div>
-          </li>
-
-          <li style="margin-bottom:16px;">
-            <strong>Warranty Write-Off %:</strong> ($480 / $48,000) × 100 = <strong style="color:var(--success);">1.00% Write-Off</strong> (<span class="metric-status status-pass">PASS &lt; 1.5%</span>).
+            </div></td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Warranty Write-Off %</td><td style="padding:8px;">($480 / $48,000) × 100 = <strong style="color:var(--success);">1.00% Write-Off</strong> (<span class="metric-status status-pass">PASS &lt; 1.5%</span>).
             <div style="margin-top:10px; margin-bottom:10px; padding:14px; background:rgba(0,0,0,0.25); border-radius:var(--radius); border:1px solid var(--border-color);">
               <div class="grid-2" style="margin-bottom:10px;">
                 <div class="spec-box" style="background:rgba(34, 197, 94, 0.08); border-left-color:var(--success); margin:0;">
@@ -1790,11 +1704,7 @@ table {
                 <div class="floor-rule-title" style="color:var(--accent-color);">Manager's Insight</div>
                 HEDS benchmark requires warranty write-offs to remain below 1.5%. A write-off rate above 1.5% signals weak technician 4-C story documentation (Complaint, Cause, Correction, Coverage): The 4-C standard applies to both OEM warranty claims and retail customer intake. or poor failed-parts retention protocols.
               </div>
-            </div>
-          </li>
-
-          <li style="margin-bottom:16px;">
-            <strong>Claim Filing Velocity:</strong> Average <strong>36 Hours</strong> from labor completion &amp; part tagging to submission (<span class="metric-status status-pass">PASS ≤ 48 HRS</span>).
+            </div></td></tr><tr><td style="padding:8px; font-weight:600; width:30%;">Claim Filing Velocity</td><td style="padding:8px;">Average <strong>36 Hours</strong> from labor completion &amp; part tagging to submission (<span class="metric-status status-pass">PASS ≤ 48 HRS</span>).
             <div style="margin-top:10px; margin-bottom:10px; padding:14px; background:rgba(0,0,0,0.25); border-radius:var(--radius); border:1px solid var(--border-color);">
               <div class="grid-2" style="margin-bottom:10px;">
                 <div class="spec-box" style="background:rgba(34, 197, 94, 0.08); border-left-color:var(--success); margin:0;">
@@ -1810,9 +1720,7 @@ table {
                 <div class="floor-rule-title" style="color:var(--accent-color);">Manager's Insight</div>
                 Top-quartile claim filing velocity is ≤ 48 hours. The longer a closed job sits before warranty submission, the higher the risk of lost factory credit, misplaced failed parts, or expired filing windows.
               </div>
-            </div>
-          </li>
-        </ol>
+            </div></td></tr></tbody></table></div>
       </div>
 
       <div class="floor-rule">
@@ -2474,13 +2382,7 @@ table {
 
       <div class="curr-section">
         <h3>Capstone Deliverables</h3>
-        <ul style="margin:12px 0; padding-left:20px;">
-          <li><strong>90-Day Action Plan:</strong> Written, dated, with specific metrics and target dates for each phase.</li>
-          <li><strong>Personal Scorecard:</strong> Built using the participant's own dealership data, configured with the top 8-10 metrics from the training.</li>
-          <li><strong>Top 3 Leak Priorities:</strong> Identified from the leak diagnostic, with behavior change rated Simple/Moderate/Hard and target close dates.</li>
-          <li><strong>Accountability Commitment:</strong> Weekly check-in schedule with named coach or peer, using the 3 questions: What did you close? What is stuck? What do you need?</li>
-          <li><strong>Trailing 30-Day Baseline:</strong> Documented starting metrics for work orders past 48 hours of last labor (count and $), ELR, absorption, recovery, utilization, and efficiency so progress can be measured.</li>
-        </ul>
+        <div class="dash-table" style="margin:10px 0; font-size:0.85rem; overflow-x:auto;"><table style="width:100%; border-collapse:collapse; font-size:0.8rem; text-align:left;"><thead><tr style="border-bottom:2px solid var(--accent-color); color:var(--accent-color);"><th style="padding:8px;">Item</th><th style="padding:8px;">Detail</th></tr></thead><tbody><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">90-Day Action Plan</td><td style="padding:8px;">Written, dated, with specific metrics and target dates for each phase.</td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Personal Scorecard</td><td style="padding:8px;">Built using the participant's own dealership data, configured with the top 8-10 metrics from the training.</td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Top 3 Leak Priorities</td><td style="padding:8px;">Identified from the leak diagnostic, with behavior change rated Simple/Moderate/Hard and target close dates.</td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Accountability Commitment</td><td style="padding:8px;">Weekly check-in schedule with named coach or peer, using the 3 questions: What did you close? What is stuck? What do you need?</td></tr><tr><td style="padding:8px; font-weight:600; width:30%;">Trailing 30-Day Baseline</td><td style="padding:8px;">Documented starting metrics for work orders past 48 hours of last labor (count and $), ELR, absorption, recovery, utilization, and efficiency so progress can be measured.</td></tr></tbody></table></div>
       </div>
 
       <div class="floor-rule">
@@ -2720,7 +2622,7 @@ table {
             <div style="font-size:0.8rem; color:var(--muted); font-weight:700;">YOUR LABOR UTILIZATION %</div>
             <div class="metric-val" id="m3_res_util">107.3%</div>
             <div id="m3_status_util" class="metric-status status-pass">PASS</div>
-            <div style="font-size:0.75rem; color:var(--muted); margin-top:6px;">Target: 100% to 110%. Red flag at 85% or below. Above 110%: check the time coding.</div>
+            <div style="font-size:0.75rem; color:var(--muted); margin-top:6px;">Target 100% to 110%. Above 110% passes. 85% or below is a red flag.</div>
           </div>
         </div>
         <div class="card">
@@ -2933,7 +2835,7 @@ table {
             <tr style="border-bottom:1px solid var(--border-color);">
               <td style="padding:10px; font-weight:600;">Labor Utilization</td>
               <td style="padding:10px;" id="s_val_util">107.3%</td>
-              <td style="padding:10px;">100% to 110% (red flag at 85% or below)</td>
+              <td style="padding:10px;">100% to 110%. Above 110% passes. 85% or below is a red flag.</td>
               <td style="padding:10px;" id="s_stat_util"><span class="metric-status status-pass">PASS</span></td>
             </tr>
 <tr style="border-bottom:1px solid var(--border-color);">
@@ -3030,7 +2932,7 @@ table {
 
   <!-- Sign-in Screen -->
   <div id="test_signin" class="card">
-    <div class="card-title">Industry Knowledge Assessment: Service Manager Certification</div>
+    <div class="card-title">Industry Knowledge Assessment: HEDS Operating Discipline Academy Certification</div>
     <p style="color:var(--muted); margin-bottom:20px;">This assessment tests your industry knowledge for the Service Manager role. It is step one of the HEDS training cycle, and HEDS uses your result to decide where to focus with you. You have 90 minutes to answer all 50 questions. When you submit, your answers go to HEDS. HEDS grades the assessment and returns your result to you. The score is not shown on this page.</p>
     <div class="form-group" id="test_info_fields">
       <label for="test_name">Your Full Name</label>
@@ -3225,7 +3127,7 @@ function switchMainSection(secId, btnEl) {
     const paidH = parseFloat(document.getElementById('m3_paid_hours').value) || 0;
     const invH = parseFloat(document.getElementById('m3_inv_hours').value) || 0;
     function laborGrade(v, top) {
-      if (v > top) return ['WARN: CHECK TIME CODING', 'status-warn', 'WARN'];
+      if (v > top && top === 100) return ['WARN: CHECK TIME CODING', 'status-warn', 'WARN'];
       if (v >= (top === 100 ? 95 : 100)) return ['PASS', 'status-pass', 'PASS'];
       if (v > 85) return ['WARN', 'status-warn', 'WARN'];
       return ['FAIL: RED FLAG', 'status-fail', 'FAIL'];
@@ -4330,7 +4232,7 @@ function switchMainSection(secId, btnEl) {
     var el = document.getElementById('result_relay_status');
     if (!el) return;
     el.textContent = HEDS_RELAY_MSG[state] || HEDS_RELAY_MSG.fail;
-    el.style.color = state === 'ok' ? '#10b981' : (state === 'pending' ? '#94a3b8' : '#ef4444');
+    el.style.color = state === 'ok' ? '#10b981' : (state === 'pending' ? '#94a3b8' : '#f87171');
     var wrap = document.getElementById('result_mailto_wrap');
     if (wrap) wrap.style.display = state === 'ok' ? 'none' : 'block';
   }
