@@ -37,29 +37,30 @@
       deliver: 'Your current performance beside HEDS benchmarks, a projection of what closing each gap is worth in dollars calculated from your own numbers, and an account of where each department is struggling.',
       see: { links: [{ t: 'Dealer KPI Library', h: 'dealer-kpi-library.html' }], then: 'then book an Operational Health Check.' },
       price: [ { label: 'Report Review on its own', amount: '$1,600' } ],
-      note: 'If you paid $1,600 for the report review and book the onsite day within 30 days, you pay $600 more for the onsite day.',
+      note: 'The Operational Health Check adds a written report with recommendations for the branch.',
       extra: false, travel: false,
       cta: { label: 'Book a Discovery Call', href: BOOK }
     },
 
     ohc: {
       title: 'Operational Health Check',
-      lead: 'For dealer principals, general managers, and service and parts managers at small and mid size heavy equipment dealerships.',
+      lead: 'A remote review of one branch, for dealer principals, general managers, and service and parts managers at small and mid size heavy equipment dealerships. There is no onsite visit.',
       steps: [
-        { h: 'You send your numbers', t: 'You send your P&L and the standard service and parts reports from your dealer system.' },
-        { h: 'Daniel reviews them', t: 'Daniel Looper reviews the reports against HEDS benchmarks and delivers the review within 48 hours of receiving them.' },
-        { h: 'One day onsite', t: 'Daniel comes to your dealership for one day to see why the gaps are happening, which means looking at the process, whether it is followed, and whether following it would fix the problem.' }
+        { h: 'You send your numbers', t: 'You send your P&L and the standard service and parts reports for the branch from your dealer system.' },
+        { h: 'Daniel reviews them', t: 'Daniel Looper reviews the branch reports remotely against HEDS benchmarks.' },
+        { h: 'You get the report', t: 'HEDS delivers a written report on the branch with recommendations.' }
       ],
-      deliver: 'Your current performance beside HEDS benchmarks, a projection of what closing each gap is worth in dollars calculated from your own numbers, and an in depth account of where each department is struggling and whether the cause is people or process.',
+      deliver: 'A written report on the branch with your current performance beside HEDS benchmarks, a projection of what closing each gap is worth in dollars calculated from your own numbers, and recommendations for the branch.',
       see: { links: [{ t: 'Dealer KPI Library', h: 'dealer-kpi-library.html' }], then: 'then book your Operational Health Check.' },
-      price: [ { label: 'Operational Health Check, flat fee', amount: '$2,200' } ],
-      note: 'The price covers the report review and one day onsite. If you paid $1,600 for the report review first and book the onsite day within 30 days, you pay $600 more for the onsite day.',
-      extra: true, travel: true,
+      price: [ { label: 'Operational Health Check, one branch, remote', amount: '$2,200' } ],
+      note: 'The Operational Health Check is done remotely. If you want Daniel onsite, the Single Location Audit is the onsite option.',
+      extra: true, travel: false,
       cta: { label: 'Book a Discovery Call', href: BOOK }
     },
 
     audit: {
       title: 'Onsite Audit and Due Diligence',
+      lead: 'This is the onsite option. Daniel Looper comes to your location.',
       steps: [
         { h: 'Scope the audit', t: 'You book a 30 minute discovery call, and HEDS agrees the locations, the departments and the number of days with you.' },
         { h: 'Send your reports', t: 'You pull four standard ERP or DMS reports, and HEDS builds a baseline snapshot before arriving onsite.' },
@@ -150,6 +151,7 @@
         { label: 'Each manager when 5 or more sit the test', amount: '$250' },
         { label: 'Each manager when 10 or more sit the test', amount: '$200' }
       ],
+      note: 'The price is $300 per manager, $250 each for 5 or more managers and $200 each for 10 or more managers.',
       cta: { label: 'Request Assessment Details', href: FORM }
     }
   };
