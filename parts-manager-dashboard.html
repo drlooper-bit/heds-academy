@@ -1200,7 +1200,7 @@ table {
           <div class="curr-day-tag">Program Capstone</div>
           <div class="curr-module-title">Credential Spec: Diploma Credential</div>
         </div>
-        <button class="btn" onclick="hedsPrintPartsDiploma()">Print High-Res Certificate</button>
+        <span style="color:var(--muted); font-size:0.9rem;">HEDS issues your certificate after grading your assessment.</span>
       </div>
 
       <div class="diploma-frame" id="cert_doc">
@@ -1527,24 +1527,20 @@ table {
   <!-- Sign-in Screen -->
   <div id="test_signin" class="card">
     <div class="card-title">Industry Knowledge Assessment: Parts Manager Certification</div>
-    <p style="color:var(--muted); margin-bottom:20px;">This assessment tests your knowledge of the Parts Manager curriculum. You have 90 minutes. Enter the access code provided by your facilitator to begin.</p>
-    <div class="form-group">
-      <label for="test_access_code">Access Code</label>
-      <input type="password" id="test_access_code" placeholder="Enter access code" style="background:var(--bg); border:1px solid var(--border-color); border-radius:6px; padding:10px 12px; color:var(--fg); font-size:1rem; width:100%;">
-    </div>
-    <div class="form-group" style="display:none;" id="test_info_fields">
+    <p style="color:var(--muted); margin-bottom:20px;">This assessment tests your knowledge of the Parts Manager curriculum. You have 90 minutes to answer all 50 questions. When you submit, your answers go to HEDS Academy. HEDS grades the assessment and returns your result to you. The score is not shown on this page.</p>
+    <div class="form-group" id="test_info_fields">
       <label for="test_name">Your Full Name</label>
       <input type="text" id="test_name" style="background:var(--bg); border:1px solid var(--border-color); border-radius:6px; padding:10px 12px; color:var(--fg); font-size:1rem; width:100%;">
     </div>
-    <div class="form-group" style="display:none;" id="test_dealership_field">
+    <div class="form-group" id="test_dealership_field">
       <label for="test_dealership">Dealership / Company Name</label>
       <input type="text" id="test_dealership" style="background:var(--bg); border:1px solid var(--border-color); border-radius:6px; padding:10px 12px; color:var(--fg); font-size:1rem; width:100%;">
     </div>
-    <div class="form-group" style="display:none;" id="test_email_field">
+    <div class="form-group" id="test_email_field">
       <label for="test_email">Email Address</label>
       <input type="email" id="test_email" style="background:var(--bg); border:1px solid var(--border-color); border-radius:6px; padding:10px 12px; color:var(--fg); font-size:1rem; width:100%;">
     </div>
-    <button class="btn" style="margin-top:16px;" onclick="checkAccessCode()">Begin Assessment</button>
+    <button class="btn" style="margin-top:16px;" onclick="startTest()">Start Assessment</button>
     <p id="test_signin_error" style="color:var(--danger); margin-top:10px; display:none;"></p>
   </div>
 
@@ -1569,42 +1565,29 @@ table {
     <button class="btn" style="margin-top:20px; margin-bottom:40px;" onclick="submitTest()">Submit Assessment</button>
   </div>
 
-  <!-- Test Results Screen -->
+    <!-- Submission Confirmation Screen -->
   <div id="test_results" style="display:none;">
     <div class="card">
-      <div class="card-title">Assessment Results</div>
-      <div id="result_pass_status" style="font-weight:700; margin-bottom:8px;"></div>
+      <div class="card-title">Assessment Submitted</div>
+      <p style="margin-bottom:12px;">Your answers were submitted to HEDS Academy. HEDS grades the assessment and returns your result, and any certificate, to you. Your score is not shown on this page.</p>
       <div id="result_relay_status" style="font-size:0.9rem; color:var(--muted); margin-bottom:20px;"></div>
       <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px; margin-bottom:24px;">
         <div>
-          <div style="font-size:0.85rem; color:var(--muted); text-transform:uppercase; letter-spacing:1px;">Score</div>
-          <div style="font-size:2.5rem; font-weight:800; color:var(--accent-color);" id="result_score">-- / 50</div>
-          <div style="font-size:1.5rem; font-weight:700;" id="result_pct">--%</div>
+          <div style="font-size:0.85rem; color:var(--muted); text-transform:uppercase; letter-spacing:1px;">Questions Answered</div>
+          <div style="font-size:2rem; font-weight:800; color:var(--accent-color);" id="result_answered">--</div>
         </div>
         <div>
-          <div style="font-size:0.85rem; color:var(--muted); text-transform:uppercase; letter-spacing:1px;">Completed By</div>
+          <div style="font-size:0.85rem; color:var(--muted); text-transform:uppercase; letter-spacing:1px;">Submitted By</div>
           <div style="font-size:1.1rem; font-weight:600;" id="result_name">--</div>
           <div style="color:var(--muted);" id="result_dealership">--</div>
           <div style="color:var(--muted);" id="result_date">--</div>
         </div>
       </div>
-
-      <!-- Module Breakdown -->
-      <div style="margin-bottom:24px;">
-        <h3 style="color:var(--accent-color); margin-bottom:12px; font-size:1.1rem;">Module Breakdown</h3>
-        <div id="result_module_breakdown"></div>
+      <div id="result_mailto_wrap" style="display:none; margin-bottom:16px;">
+        <a class="btn" id="result_mailto" href="mailto:daniel@hedsconsulting.net">Email my answers to HEDS</a>
       </div>
-
-      <!-- Focus Area Recommendation -->
-      <div style="margin-bottom:24px;">
-        <h3 style="color:var(--accent-color); margin-bottom:12px; font-size:1.1rem;">Recommended Training Focus Areas</h3>
-        <div id="result_focus_areas"></div>
-      </div>
-
       <div style="display:flex; gap:12px; flex-wrap:wrap;">
-        <button class="btn" onclick="printResults()">Print Results</button>
-        <button class="btn btn-outline" id="btn_cert" style="display:none;" onclick="viewCertificateFromResults()">Print Certificate</button>
-        <button class="btn btn-outline" onclick="retakeTest()">Retake Assessment</button>
+        <button class="btn btn-outline" onclick="printResults()">Print Confirmation</button>
       </div>
     </div>
   </div>
@@ -2028,8 +2011,7 @@ table {
       "The pure profit percentage on parts sales after deducting the cost of goods sold",
       "The total cash collected from customers for parts purchases"
     ]
-  ,
-    "correct": 2
+  
 },
   {
     "id": "q02",
@@ -2042,8 +2024,7 @@ table {
       "15.0%",
       "35.7%"
     ]
-  ,
-    "correct": 3
+  
 },
   {
     "id": "q03",
@@ -2056,8 +2037,7 @@ table {
       "45-50%",
       "60-65%"
     ]
-  ,
-    "correct": 0
+  
 },
   {
     "id": "q04",
@@ -2070,8 +2050,7 @@ table {
       "28% of all parts in inventory have been sold this month.",
       "The parts department covers 28% of total dealership overhead."
     ]
-  ,
-    "correct": 0
+  
 },
   {
     "id": "q05",
@@ -2084,8 +2063,7 @@ table {
       "The percentage of parts requests filled from stock on the first request",
       "The ratio of parts sales to labor sales in the service department"
     ]
-  ,
-    "correct": 0
+  
 },
   {
     "id": "q06",
@@ -2098,8 +2076,7 @@ table {
       "60%",
       "40%"
     ]
-  ,
-    "correct": 2
+  
 },
   {
     "id": "q07",
@@ -2112,8 +2089,7 @@ table {
       "50%",
       "75%"
     ]
-  ,
-    "correct": 0
+  
 },
   {
     "id": "q08",
@@ -2126,8 +2102,7 @@ table {
       "The parts department fills 55% of all customer orders on the first request.",
       "Parts gross profit covers 55% of total store fixed and variable operating expenses; the remaining 45% must be covered by other departments."
     ]
-  ,
-    "correct": 3
+  
 },
   {
     "id": "q09",
@@ -2140,8 +2115,7 @@ table {
       "(Parts Inventory / Total Dealership Assets) × 100",
       "(Parts Cost / Parts Revenue) × 100"
     ]
-  ,
-    "correct": 1
+  
 },
   {
     "id": "q10",
@@ -2154,8 +2128,7 @@ table {
       "30.0%",
       "40.0%"
     ]
-  ,
-    "correct": 1
+  
 },
   {
     "id": "q11",
@@ -2168,8 +2141,7 @@ table {
       "Parts is 30% of total dealership gross margin, within the 25-30% target range. The department is performing well.",
       "Parts is 50% of total dealership gross margin, above target. The department is overperforming."
     ]
-  ,
-    "correct": 2
+  
 },
   {
     "id": "q12",
@@ -2182,8 +2154,7 @@ table {
       "37.5%",
       "42.0%"
     ]
-  ,
-    "correct": 1
+  
 },
   {
     "id": "q13",
@@ -2196,8 +2167,7 @@ table {
       "35.0%",
       "45.0%"
     ]
-  ,
-    "correct": 1
+  
 },
   {
     "id": "q14",
@@ -2210,8 +2180,7 @@ table {
       "The department has too much obsolete inventory tying up capital.",
       "The department is overstaffed relative to the gross profit it generates. For every dollar of GP, 34 cents goes to payroll, above the 30% HEDS target."
     ]
-  ,
-    "correct": 3
+  
 },
   {
     "id": "q15",
@@ -2224,8 +2193,7 @@ table {
       "To compare the department against other dealerships in the region",
       "To determine which employees should receive raises"
     ]
-  ,
-    "correct": 0
+  
 },
   {
     "id": "q16",
@@ -2238,8 +2206,7 @@ table {
       "8",
       "10"
     ]
-  ,
-    "correct": 3
+  
 },
   {
     "id": "q17",
@@ -2252,8 +2219,7 @@ table {
       "Try to fix all 7 KPIs in the first 30 days.",
       "Hide the results from the dealer principal and hope they improve."
     ]
-  ,
-    "correct": 1
+  
 },
   {
     "id": "q18",
@@ -2266,8 +2232,7 @@ table {
       "On-target, near-target, and below-target, each KPI gets one of these three statuses",
       "A/B/C/D grading, like a school report card"
     ]
-  ,
-    "correct": 2
+  
 },
   {
     "id": "q19",
@@ -2280,8 +2245,7 @@ table {
       "Replace the parts manager and start over.",
       "Accept that margin erosion is inevitable as the department grows."
     ]
-  ,
-    "correct": 0
+  
 },
   {
     "id": "q20",
@@ -2294,8 +2258,7 @@ table {
       "'Counter staff is discounting 15% of all retail tickets without manager approval, costing $3,200/month', that is the problem you can fix.",
       "'The market is too competitive', that is the problem."
     ]
-  ,
-    "correct": 2
+  
 },
   {
     "id": "q21",
@@ -2308,8 +2271,7 @@ table {
       "Financial impact and feasibility of the operational change",
       "Season and weather conditions"
     ]
-  ,
-    "correct": 2
+  
 },
   {
     "id": "q22",
@@ -2322,8 +2284,7 @@ table {
       "30 days",
       "90 days"
     ]
-  ,
-    "correct": 0
+  
 },
   {
     "id": "q23",
@@ -2336,8 +2297,7 @@ table {
       "A report is for management; a scorecard is for the front-line staff.",
       "There is no difference, they are interchangeable terms."
     ]
-  ,
-    "correct": 0
+  
 },
   {
     "id": "q24",
@@ -2350,8 +2310,7 @@ table {
       "Increase the emergency order budget for next month.",
       "Investigate why emergency orders are outpacing stock orders. Audit the purchasing process and tighten stock order participation."
     ]
-  ,
-    "correct": 3
+  
 },
   {
     "id": "q25",
@@ -2364,8 +2323,7 @@ table {
       "No one, it should be automated",
       "The counter staff, the people closest to the transactions"
     ]
-  ,
-    "correct": 3
+  
 },
   {
     "id": "q26",
@@ -2378,8 +2336,7 @@ table {
       "Monthly at the dealer principal meeting",
       "Only when there is a problem"
     ]
-  ,
-    "correct": 1
+  
 },
   {
     "id": "q27",
@@ -2392,8 +2349,7 @@ table {
       "(Annual Parts Cost of Sales / Average Monthly Inventory at Cost)",
       "(Total Inventory / Annual Parts Cost of Sales)"
     ]
-  ,
-    "correct": 2
+  
 },
   {
     "id": "q28",
@@ -2406,8 +2362,7 @@ table {
       "4.5x",
       "6.0x"
     ]
-  ,
-    "correct": 1
+  
 },
   {
     "id": "q29",
@@ -2420,8 +2375,7 @@ table {
       "6-8x",
       "10-12x"
     ]
-  ,
-    "correct": 0
+  
 },
   {
     "id": "q30",
@@ -2434,8 +2388,7 @@ table {
       "Stock order efficiency is 60%: below the 80% target. Your stocking plan is not matching actual demand, and you are over-relying on emergency orders.",
       "Stock order efficiency is 60%: this is above the 80% target and performing well."
     ]
-  ,
-    "correct": 2
+  
 },
   {
     "id": "q31",
@@ -2448,8 +2401,7 @@ table {
       "75.0%",
       "80.0%"
     ]
-  ,
-    "correct": 2
+  
 },
   {
     "id": "q32",
@@ -2462,8 +2414,7 @@ table {
       "The department has too much inventory and should reduce ordering.",
       "The vendor is offering too many discounts."
     ]
-  ,
-    "correct": 0
+  
 },
   {
     "id": "q33",
@@ -2476,8 +2427,7 @@ table {
       "Obsolescence is 10%: within tolerance. No action needed.",
       "Obsolescence is 5%: the department is managing inventory well."
     ]
-  ,
-    "correct": 1
+  
 },
   {
     "id": "q34",
@@ -2490,8 +2440,7 @@ table {
       "15.0%",
       "20.0%"
     ]
-  ,
-    "correct": 1
+  
 },
   {
     "id": "q35",
@@ -2504,8 +2453,7 @@ table {
       "<20%",
       "<30%"
     ]
-  ,
-    "correct": 1
+  
 },
   {
     "id": "q36",
@@ -2518,8 +2466,7 @@ table {
       "The ratio is $0.60:$1: close enough to the $1:$1 target. No action needed.",
       "The ratio is $1.67:$1: right on target. No action needed."
     ]
-  ,
-    "correct": 1
+  
 },
   {
     "id": "q37",
@@ -2532,8 +2479,7 @@ table {
       "$1.50 : $1",
       "$0.80 : $1"
     ]
-  ,
-    "correct": 3
+  
 },
   {
     "id": "q38",
@@ -2546,8 +2492,7 @@ table {
       "$1 : $1",
       "$5 : $1"
     ]
-  ,
-    "correct": 2
+  
 },
   {
     "id": "q39",
@@ -2560,8 +2505,7 @@ table {
       "This is a gross margin issue, you should increase the price to compensate for the lost sale.",
       "This is a fill rate miss, the percentage of parts requests filled from stock on the first request fell to zero for this SKU. You should adjust the min/max upward to stock this filter going forward."
     ]
-  ,
-    "correct": 3
+  
 },
   {
     "id": "q40",
@@ -2574,8 +2518,7 @@ table {
       "98.5%",
       "90.0%"
     ]
-  ,
-    "correct": 3
+  
 },
   {
     "id": "q41",
@@ -2588,8 +2531,7 @@ table {
       "Counter 90%, service 80%",
       "Counter 98%, service 98%"
     ]
-  ,
-    "correct": 0
+  
 },
   {
     "id": "q42",
@@ -2602,8 +2544,7 @@ table {
       "Fire the counter staff for poor inventory management.",
       "Reduce the total number of parts requests by turning away small orders."
     ]
-  ,
-    "correct": 0
+  
 },
   {
     "id": "q43",
@@ -2616,8 +2557,7 @@ table {
       "Leading indicators are updated daily; lagging indicators are updated monthly.",
       "Leading indicators are for parts; lagging indicators are for service."
     ]
-  ,
-    "correct": 1
+  
 },
   {
     "id": "q44",
@@ -2630,8 +2570,7 @@ table {
       "Equipment sales pipeline and scheduled machine deliveries",
       "Previous year's salary as a percentage of GP"
     ]
-  ,
-    "correct": 2
+  
 },
   {
     "id": "q45",
@@ -2644,8 +2583,7 @@ table {
       "Reduce inventory because new deliveries mean fewer repairs.",
       "Order parts only when a customer calls with a problem."
     ]
-  ,
-    "correct": 0
+  
 },
   {
     "id": "q46",
@@ -2658,8 +2596,7 @@ table {
       "A comparison to last year's numbers",
       "A specific KPI target, a named owner, a target date, and a status tracking method"
     ]
-  ,
-    "correct": 3
+  
 },
   {
     "id": "q47",
@@ -2672,8 +2609,7 @@ table {
       "Assess progress, reinforce the pricing discipline process, and continue. You are 50% of the way to target in 33% of the time.",
       "Fire the counter staff for not improving fast enough."
     ]
-  ,
-    "correct": 2
+  
 },
   {
     "id": "q48",
@@ -2686,8 +2622,7 @@ table {
       "60/120/365 days",
       "5/15/45 days"
     ]
-  ,
-    "correct": 0
+  
 },
   {
     "id": "q49",
@@ -2700,8 +2635,7 @@ table {
       "Stop ordering new parts until the obsolete stock is sold.",
       "Initiate a quarterly purge: return what you can to vendors, discount what you cannot, and scrap what is worthless. Set a target to bring obsolescence below 5% within 90 days."
     ]
-  ,
-    "correct": 3
+  
 },
   {
     "id": "q50",
@@ -2714,30 +2648,13 @@ table {
       "To determine which employees to terminate",
       "To convert forecasting into specific, owned, dated commitments that drive measurable KPI improvement"
     ]
-  ,
-    "correct": 3
+  
 }
 ];
     var testAnswers = {};
     var testTimerInterval = null;
     var testTimeRemaining = 90 * 60;
 
-    function checkAccessCode() {
-      var code = document.getElementById('test_access_code').value.trim();
-      if (code !== 'HEDSTRAINS') {
-        var errEl = document.getElementById('test_signin_error');
-        errEl.style.display = 'block';
-        errEl.innerText = 'Invalid access code.';
-        return;
-      }
-      document.getElementById('test_info_fields').style.display = 'block';
-      document.getElementById('test_dealership_field').style.display = 'block';
-      document.getElementById('test_email_field').style.display = 'block';
-      document.getElementById('test_signin_error').style.display = 'none';
-      var btn = document.querySelector('#test_signin .btn');
-      btn.innerText = 'Start Assessment';
-      btn.setAttribute('onclick', 'startTest()');
-    }
 
     function startTest() {
       var name = document.getElementById('test_name').value.trim();
@@ -2831,73 +2748,27 @@ table {
       }, 1000);
     }
 
-    function submitTest() {
+
+  function submitTest() {
     if (testTimerInterval) clearInterval(testTimerInterval);
-    
     var studentName = document.getElementById('test_name') ? document.getElementById('test_name').value : '';
     var dealership = document.getElementById('test_dealership') ? document.getElementById('test_dealership').value : '';
     var email = document.getElementById('test_email') ? document.getElementById('test_email').value : '';
-    
     var answers = {};
     for (var key in testAnswers) {
-        if (testAnswers.hasOwnProperty(key)) { answers[key] = testAnswers[key]; }
+      if (Object.prototype.hasOwnProperty.call(testAnswers, key)) { answers[key] = testAnswers[key]; }
     }
-    
     var answeredCount = Object.keys(answers).length;
-    
-    // Grade in-browser using correct answers embedded in testQuestions
-    var correctCount = 0;
-    var incorrectByModule = {};
-    var moduleBreakdownHtml = '';
-    var focusAreasHtml = '';
-    
-    testQuestions.forEach(function(q) {
-        var userAnswer = testAnswers[q.id];
-        var correctAnswer = q.correct;
-        if (userAnswer !== undefined && userAnswer === correctAnswer) {
-            correctCount++;
-        } else {
-            if (!incorrectByModule[q.module]) incorrectByModule[q.module] = 0;
-            incorrectByModule[q.module]++;
-        }
-    });
-    
-    var pct = Math.round((correctCount / testQuestions.length) * 100);
-    
+    var now = new Date();
     document.getElementById('test_running').style.display = 'none';
     document.getElementById('test_results').style.display = 'block';
-    document.getElementById('result_score').innerText = correctCount + ' / ' + testQuestions.length;
-    document.getElementById('result_pct').innerText = pct + '%';
+    document.getElementById('result_answered').innerText = answeredCount + ' of ' + testQuestions.length;
     document.getElementById('result_name').innerText = studentName;
     document.getElementById('result_dealership').innerText = dealership;
-    var now = new Date();
-    document.getElementById('result_date').innerText = (now.getMonth()+1) + '/' + now.getDate() + '/' + now.getFullYear();
-    hedsSaveLocalResult({ track: TRACK_NAME, correct: correctCount, total: testQuestions.length, scorePct: pct, passed: hedsIsPassed(pct), candidateName: studentName, dealership: dealership, email: email, timestamp: (now.getMonth()+1) + '/' + now.getDate() + '/' + now.getFullYear(), answers: answers, relayStatus: 'pending' });
-    hedsShowPassStatus(pct);
-    
-    // Build module breakdown
-    if (Object.keys(incorrectByModule).length > 0) {
-        moduleBreakdownHtml = '<div style="margin-bottom:20px;">';
-        for (var mod in incorrectByModule) {
-            var totalInModule = testQuestions.filter(function(q) { return q.module === mod; }).length;
-            var correctInModule = totalInModule - incorrectByModule[mod];
-            moduleBreakdownHtml += '<div style="display:flex; justify-content:space-between; padding:8px 0; border-bottom:1px solid var(--border-color);"><span style="color:var(--fg);">' + mod + '</span><span style="color:var(--muted);">' + correctInModule + '/' + totalInModule + ' correct</span></div>';
-        }
-        moduleBreakdownHtml += '</div>';
-        
-        // Build focus areas
-        var sortedAreas = Object.keys(incorrectByModule).sort(function(a,b) { return incorrectByModule[b] - incorrectByModule[a]; });
-        focusAreasHtml = '<div style="padding:16px; background:var(--bg); border-radius:8px; border:1px solid var(--border-color);"><div style="font-weight:700; color:var(--accent-color); margin-bottom:8px;">Recommended Focus Areas</div><div style="color:var(--muted); font-size:0.9rem;">' + sortedAreas.slice(0,3).map(function(m) { return m + ' (' + incorrectByModule[m] + ' missed)'; }).join(', ') + '</div></div>';
-    } else {
-        moduleBreakdownHtml = '<div style="text-align:center; padding:20px; color:var(--accent-color); font-weight:700;">All questions correct, no focus areas needed.</div>';
-        focusAreasHtml = '';
-    }
-    
-    document.getElementById('result_module_breakdown').innerHTML = moduleBreakdownHtml;
-    document.getElementById('result_focus_areas').innerHTML = focusAreasHtml || '<div style="color:var(--muted); font-size:0.9rem;">Review the module breakdown above for areas needing attention.</div>';
-    
-    var payload = { track: TRACK_NAME, name: studentName, dealership: dealership, email: email, answers: answers, correctCount: correctCount, totalQuestions: testQuestions.length, scorePercentage: pct, answeredCount: answeredCount };
-    
+    document.getElementById('result_date').innerText = (now.getMonth() + 1) + '/' + now.getDate() + '/' + now.getFullYear();
+    // The answer key never reaches the browser. HEDS grades the submission and returns the result.
+    var payload = { track: TRACK_NAME, name: studentName, dealership: dealership, email: email, answers: answers, answeredCount: answeredCount, totalQuestions: testQuestions.length, submittedAt: now.toISOString() };
+    hedsPrepareMailto(payload);
     hedsRelayResults(payload);
   }
 
@@ -2907,14 +2778,6 @@ table {
       }
     }
 
-    function retakeTest() {
-      document.getElementById('test_results').style.display = 'none';
-      document.getElementById('test_signin').style.display = 'block';
-      document.getElementById('test_running').style.display = 'none';
-      testAnswers = {};
-      if (testTimerInterval) clearInterval(testTimerInterval);
-      testTimeRemaining = 90 * 60;
-    }
 
     function printResults() {
       window.print();
@@ -2928,51 +2791,36 @@ table {
   </script>
 
 <script>
-  /* ===== HEDS assessment fixes (Oct 2026): pass mark, certificate gating, results relay, local results copy ===== */
-  var HEDS_PASS_MARK = 90; // percent required to pass and receive a certificate (Daniel, Oct 23 2026: 90% on all four dashboards)
-  var HEDS_RESULT_KEY = 'heds_parts_test_result'; // localStorage key for this device's copy of the latest result
+  /* ===== HEDS assessment submission: answers go to HEDS, which grades them ===== */
   function hedsEscape(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function(c) { return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
-  function hedsIsPassed(pct) { return Number(pct) >= HEDS_PASS_MARK; }
-  function hedsSaveLocalResult(rec) { try { localStorage.setItem(HEDS_RESULT_KEY, JSON.stringify(rec)); } catch (e) {} }
-  function hedsLoadLocalResult() { try { var r = localStorage.getItem(HEDS_RESULT_KEY); return r ? JSON.parse(r) : null; } catch (e) { return null; } }
+  // Submission only: answers go to HEDS, which grades them and returns the result.
   var HEDS_RELAY_MSG = {
-    pending: 'Sending your results to HEDS Academy\u2026',
-    ok: 'Results sent to HEDS Academy.',
-    fail: 'We could not confirm that your results reached HEDS Academy. Your results are saved in this browser. Please click "Print Results" (or take a screenshot) and send it to your facilitator.'
+    pending: 'Sending your answers to HEDS Academy\u2026',
+    ok: 'Your answers were sent to HEDS Academy. HEDS will grade them and return your result.',
+    fail: 'We could not confirm that your answers reached HEDS Academy. Use the email button below to send them, or print this page and give it to your facilitator.'
   };
   function hedsRenderRelayStatus(state) {
     var el = document.getElementById('result_relay_status');
     if (!el) return;
-    el.textContent = 'STATUS: ' + HEDS_RELAY_MSG[state] || HEDS_RELAY_MSG.fail;
+    el.textContent = HEDS_RELAY_MSG[state] || HEDS_RELAY_MSG.fail;
     el.style.color = state === 'ok' ? '#10b981' : (state === 'pending' ? '#94a3b8' : '#ef4444');
+    var wrap = document.getElementById('result_mailto_wrap');
+    if (wrap) wrap.style.display = state === 'ok' ? 'none' : 'block';
   }
-  function hedsSetRelayStatus(state) {
-    hedsRenderRelayStatus(state);
-    var r = hedsLoadLocalResult();
-    if (r) { r.relayStatus = state; hedsSaveLocalResult(r); }
-  }
-  function hedsShowPassStatus(pct) {
-    var passed = hedsIsPassed(pct);
-    var el = document.getElementById('result_pass_status');
-    if (el) {
-      el.textContent = passed
-        ? 'PASSED: ' + pct + '% (pass mark ' + HEDS_PASS_MARK + '%). Your certificate is available below.'
-        : 'NOT YET PASSED: ' + pct + '% (pass mark ' + HEDS_PASS_MARK + '%). Review the focus areas below and retake the assessment to earn your certificate.';
-      el.style.color = passed ? '#10b981' : '#ef4444';
+  function hedsSetRelayStatus(state) { hedsRenderRelayStatus(state); }
+  // Builds an email with the answers as plain letters, for use when the relay cannot be confirmed.
+  function hedsPrepareMailto(p) {
+    var letters = 'ABCDEFGH';
+    var lines = [];
+    for (var i = 0; i < testQuestions.length; i++) {
+      var id = testQuestions[i].id;
+      lines.push(id + ': ' + (p.answers[id] === undefined ? 'no answer' : letters.charAt(p.answers[id])));
     }
-    var btn = document.getElementById('btn_cert');
-    if (btn) btn.style.display = passed ? '' : 'none';
-    return passed;
+    var body = 'Track: ' + p.track + '\nName: ' + p.name + '\nCompany: ' + p.dealership + '\nEmail: ' + p.email + '\nSubmitted: ' + p.submittedAt + '\n\nAnswers\n' + lines.join('\n');
+    var a = document.getElementById('result_mailto');
+    if (a) a.href = 'mailto:daniel@hedsconsulting.net?subject=' + encodeURIComponent('HEDS assessment answers: ' + p.track + ': ' + p.name) + '&body=' + encodeURIComponent(body);
   }
-  function hedsCertificateRecord() {
-    var r = hedsLoadLocalResult();
-    if (!r || !hedsIsPassed(r.scorePct)) {
-      alert('A certificate is issued only after passing the assessment with a score of ' + HEDS_PASS_MARK + '% or higher.');
-      return null;
-    }
-    return r;
-  }
-  // Sends results as a CORS "simple request": text/plain body, no custom headers, so no preflight is needed.
+  // Sends the answers as a CORS "simple request": text/plain body, no custom headers, so no preflight is needed.
   // The Apps Script doPost reads the JSON from e.postData.contents.
   function hedsRelayResults(payload) {
     hedsSetRelayStatus('pending');
@@ -2991,29 +2839,8 @@ table {
       }
     } catch (e) { hedsSetRelayStatus('fail'); }
   }
-  function hedsFillPartsDiploma(r) {
-    var n = document.getElementById('cert_name'); if (n) n.textContent = r.candidateName || '[Participant Name]';
-    var d = document.getElementById('cert_date'); if (d) d.textContent = r.timestamp;
-    var s = document.getElementById('cert_score'); if (s) s.textContent = 'CERTIFIED: ' + r.scorePct + '%';
-  }
-  function viewCertificateFromResults() {
-    var r = hedsCertificateRecord();
-    if (!r) return;
-    hedsFillPartsDiploma(r);
-    switchMainSection('sec_curriculum', document.querySelectorAll('.main-nav-btn')[0]);
-    goModule('c_certificate');
-    window.scrollTo(0, 0);
-  }
-  function hedsPrintPartsDiploma() {
-    var r = hedsCertificateRecord();
-    if (!r) return;
-    hedsFillPartsDiploma(r);
-    window.print();
-  }
-  window.addEventListener('load', function() {
-    var r = hedsLoadLocalResult();
-    if (r && hedsIsPassed(r.scorePct)) hedsFillPartsDiploma(r);
-  });
+  // Sends results as a CORS "simple request": text/plain body, no custom headers, so no preflight is needed.
+  // The Apps Script doPost reads the JSON from e.postData.contents.
 </script>
 <script>
   /* ===== HEDS shared navigation (identical on all four dashboards) ===== */

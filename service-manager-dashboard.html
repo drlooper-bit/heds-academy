@@ -2435,13 +2435,12 @@ table {
 
       <div class="curr-section">
         <div class="curr-section-h3">Diagnose</div>
-        <p>Deferred maintenance on rental fleet erodes equipment resale value and drives up maintenance cost as a percentage of OEC (Original Equipment Cost). Tracking PM compliance prevents the maintenance debt from compounding.</p>
+        <p>Deferred maintenance on rental fleet erodes equipment resale value and drives up maintenance cost as a percentage of OEC (Original Equipment Cost). Tracking the PM status of every unit prevents the maintenance debt from compounding.</p>
       </div>
 
       <div class="curr-section">
         <div class="curr-section-h3">Key Metrics</div>
         <ul style="padding-left:20px;">
-          <li><strong>PM compliance %</strong> = Machines with PM current &divide; Total fleet</li>
           <li><strong>Maintenance Cost % of OEC</strong> = Total maintenance cost &divide; Total fleet OEC &times; 100</li>
           <li><strong>Turnaround velocity</strong> = Days from rental return to rent-ready status</li>
           <li><strong>Downtime value</strong> = Days off-rent &times; daily rental rate</li>
@@ -2455,7 +2454,7 @@ table {
 
       <div class="spec-box">
         <div class="spec-title">Deliverable: Rental Fleet Health Snapshot</div>
-        <p>PM compliance percentage, maintenance cost as % of OEC for the last quarter. Top 5 highest-cost units flagged for review.</p>
+        <p>PM status for each unit, and maintenance cost as % of OEC for the last quarter. Top 5 highest-cost units flagged for review.</p>
       </div>
     </div>
   </div>
@@ -3006,24 +3005,20 @@ table {
   <!-- Sign-in Screen -->
   <div id="test_signin" class="card">
     <div class="card-title">Industry Knowledge Assessment: Service Manager Certification</div>
-    <p style="color:var(--muted); margin-bottom:20px;">This assessment tests your knowledge of the Service Manager curriculum. You have 90 minutes. Enter the access code provided by your facilitator to begin.</p>
-    <div class="form-group">
-      <label for="test_access_code">Access Code</label>
-      <input type="password" id="test_access_code" placeholder="Enter access code" style="background:var(--bg); border:1px solid var(--border-color); border-radius:6px; padding:10px 12px; color:var(--fg); font-size:1rem; width:100%;">
-    </div>
-    <div class="form-group" style="display:none;" id="test_info_fields">
+    <p style="color:var(--muted); margin-bottom:20px;">This assessment tests your knowledge of the Service Manager curriculum. You have 90 minutes to answer all 50 questions. When you submit, your answers go to HEDS Academy. HEDS grades the assessment and returns your result to you. The score is not shown on this page.</p>
+    <div class="form-group" id="test_info_fields">
       <label for="test_name">Your Full Name</label>
       <input type="text" id="test_name" style="background:var(--bg); border:1px solid var(--border-color); border-radius:6px; padding:10px 12px; color:var(--fg); font-size:1rem; width:100%;">
     </div>
-    <div class="form-group" style="display:none;" id="test_dealership_field">
+    <div class="form-group" id="test_dealership_field">
       <label for="test_dealership">Dealership / Company Name</label>
       <input type="text" id="test_dealership" style="background:var(--bg); border:1px solid var(--border-color); border-radius:6px; padding:10px 12px; color:var(--fg); font-size:1rem; width:100%;">
     </div>
-    <div class="form-group" style="display:none;" id="test_email_field">
+    <div class="form-group" id="test_email_field">
       <label for="test_email">Email Address</label>
       <input type="email" id="test_email" style="background:var(--bg); border:1px solid var(--border-color); border-radius:6px; padding:10px 12px; color:var(--fg); font-size:1rem; width:100%;">
     </div>
-    <button class="btn" style="margin-top:16px;" onclick="checkAccessCode()">Begin Assessment</button>
+    <button class="btn" style="margin-top:16px;" onclick="startTest()">Start Assessment</button>
     <p id="test_signin_error" style="color:var(--danger); margin-top:10px; display:none;"></p>
   </div>
 
@@ -3048,42 +3043,29 @@ table {
     <button class="btn" style="margin-top:20px; margin-bottom:40px;" onclick="submitTest()">Submit Assessment</button>
   </div>
 
-  <!-- Test Results Screen -->
+    <!-- Submission Confirmation Screen -->
   <div id="test_results" style="display:none;">
     <div class="card">
-      <div class="card-title">Assessment Results</div>
-      <div id="result_pass_status" style="font-weight:700; margin-bottom:8px;"></div>
+      <div class="card-title">Assessment Submitted</div>
+      <p style="margin-bottom:12px;">Your answers were submitted to HEDS Academy. HEDS grades the assessment and returns your result, and any certificate, to you. Your score is not shown on this page.</p>
       <div id="result_relay_status" style="font-size:0.9rem; color:var(--muted); margin-bottom:20px;"></div>
       <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px; margin-bottom:24px;">
         <div>
-          <div style="font-size:0.85rem; color:var(--muted); text-transform:uppercase; letter-spacing:1px;">Score</div>
-          <div style="font-size:2.5rem; font-weight:800; color:var(--accent-color);" id="result_score">-- / 50</div>
-          <div style="font-size:1.5rem; font-weight:700;" id="result_pct">--%</div>
+          <div style="font-size:0.85rem; color:var(--muted); text-transform:uppercase; letter-spacing:1px;">Questions Answered</div>
+          <div style="font-size:2rem; font-weight:800; color:var(--accent-color);" id="result_answered">--</div>
         </div>
         <div>
-          <div style="font-size:0.85rem; color:var(--muted); text-transform:uppercase; letter-spacing:1px;">Completed By</div>
+          <div style="font-size:0.85rem; color:var(--muted); text-transform:uppercase; letter-spacing:1px;">Submitted By</div>
           <div style="font-size:1.1rem; font-weight:600;" id="result_name">--</div>
           <div style="color:var(--muted);" id="result_dealership">--</div>
           <div style="color:var(--muted);" id="result_date">--</div>
         </div>
       </div>
-
-      <!-- Module Breakdown -->
-      <div style="margin-bottom:24px;">
-        <h3 style="color:var(--accent-color); margin-bottom:12px; font-size:1.1rem;">Module Breakdown</h3>
-        <div id="result_module_breakdown"></div>
+      <div id="result_mailto_wrap" style="display:none; margin-bottom:16px;">
+        <a class="btn" id="result_mailto" href="mailto:daniel@hedsconsulting.net">Email my answers to HEDS</a>
       </div>
-
-      <!-- Focus Area Recommendation -->
-      <div style="margin-bottom:24px;">
-        <h3 style="color:var(--accent-color); margin-bottom:12px; font-size:1.1rem;">Recommended Training Focus Areas</h3>
-        <div id="result_focus_areas"></div>
-      </div>
-
       <div style="display:flex; gap:12px; flex-wrap:wrap;">
-        <button class="btn" onclick="printResults()">Print Results</button>
-        <button class="btn btn-outline" id="btn_cert" style="display:none;" onclick="printCertificate()">Print Certificate</button>
-        <button class="btn btn-outline" onclick="retakeTest()">Retake Assessment</button>
+        <button class="btn btn-outline" onclick="printResults()">Print Confirmation</button>
       </div>
     </div>
   </div>
@@ -3320,20 +3302,6 @@ function switchMainSection(secId, btnEl) {
       Object.keys(data).forEach(function(key) { var el = document.getElementById(key); if (el) el.value = data[key]; });
     }
   }
-  function printCertificate() {
-    var r = hedsCertificateRecord();
-    if (!r) return;
-    var cert = document.getElementById('cert_overlay');
-    if (cert) cert.parentNode.removeChild(cert);
-    var name = hedsEscape(r.candidateName);
-    var score = hedsEscape(r.correct + ' / ' + r.total + ' (' + r.scorePct + '%)');
-    var certDate = hedsEscape(r.timestamp);
-    cert = document.createElement('div');
-    cert.id = 'cert_overlay';
-    cert.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.8);z-index:9999;display:flex;align-items:center;justify-content:center;';
-    cert.innerHTML = '<div style="background:#0e1f38;border:2px solid #e5ae25;border-radius:12px;padding:48px 40px;max-width:680px;width:90%;text-align:center;font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,sans-serif;color:#f8fafc;position:relative;" id="cert_doc"><div style="font-size:0.7rem;color:#94a3b8;text-transform:uppercase;letter-spacing:2px;margin-bottom:6px;">Heavy Equipment Dealer Solutions LLC</div><div style="font-size:1.8rem;font-weight:800;color:#e5ae25;margin-bottom:4px;">Certificate of Completion</div><div style="font-size:0.85rem;color:#94a3b8;margin-bottom:32px;">HEDS Operating Discipline Academy</div><div style="font-size:0.75rem;color:#94a3b8;margin-bottom:4px;">This certifies that</div><div style="font-size:1.6rem;font-weight:700;color:#f8fafc;margin-bottom:24px;border-bottom:1px solid #203b60;padding-bottom:12px;">' + (name || 'Participant') + '</div><div style="font-size:0.85rem;color:#94a3b8;margin-bottom:6px;">has completed the</div><div style="font-size:1.1rem;font-weight:600;color:#e5ae25;margin-bottom:24px;">Service Manager Training Program</div><div style="font-size:0.8rem;color:#94a3b8;margin-bottom:20px;">20 Modules &middot; 50-Question Industry Knowledge Assessment &middot; 90-Day Action Plan</div>' + (score ? '<div style="font-size:0.8rem;color:#94a3b8;margin-bottom:24px;">Assessment Score: <strong style="color:#e5ae25;">' + score + '</strong></div>' : '') + '<div style="display:flex;justify-content:space-between;align-items:center;margin-top:32px;border-top:1px solid #203b60;padding-top:20px;"><div style="text-align:left;"><div style="font-size:0.7rem;color:#94a3b8;">Date</div><div style="font-size:0.9rem;color:#f8fafc;">' + certDate + '</div></div><div style="text-align:right;"><div style="font-size:0.7rem;color:#94a3b8;">HEDS Academy</div><div style="font-size:0.9rem;color:#e5ae25;font-weight:600;">Daniel Looper</div></div></div><div style="margin-top:28px;display:flex;gap:12px;justify-content:center;"><button onclick="window.print()" style="background:#e5ae25;color:#0e1f38;border:none;padding:10px 24px;border-radius:6px;font-weight:700;cursor:pointer;font-size:0.85rem;">Print Certificate</button><button onclick="document.getElementById(\'cert_overlay\').style.display=\'none\'" style="background:transparent;color:#94a3b8;border:1px solid #203b60;padding:10px 24px;border-radius:6px;cursor:pointer;font-size:0.85rem;">Close</button></div></div>';
-    document.body.appendChild(cert);
-  }
   
   
   function initCompletionTrackers() {
@@ -3458,8 +3426,7 @@ function switchMainSection(secId, btnEl) {
       "The total revenue generated by the service department before any deductions",
       "The amount of cash collected from customers for completed repairs"
     ]
-  ,
-    "correct": 1
+  
 },
   {
     "id": "q02",
@@ -3473,8 +3440,7 @@ function switchMainSection(secId, btnEl) {
       "85.0%",
       "72.3%"
     ]
-  ,
-    "correct": 0
+  
 },
   {
     "id": "q03",
@@ -3488,8 +3454,7 @@ function switchMainSection(secId, btnEl) {
       "77.3%",
       "29.4%"
     ]
-  ,
-    "correct": 2
+  
 },
   {
     "id": "q04",
@@ -3503,8 +3468,7 @@ function switchMainSection(secId, btnEl) {
       "The service department is operating at a 78% profit margin on all jobs.",
       "78% of all work orders were billed within the standard time frame this month."
     ]
-  ,
-    "correct": 1
+  
 },
   {
     "id": "q05",
@@ -3518,8 +3482,7 @@ function switchMainSection(secId, btnEl) {
       "0 hours",
       "40 hours"
     ]
-  ,
-    "correct": 3
+  
 },
   {
     "id": "q06",
@@ -3533,8 +3496,7 @@ function switchMainSection(secId, btnEl) {
       "We can recover those hours next month by scheduling overtime.",
       "Those hours were spent on mandatory training and shop maintenance."
     ]
-  ,
-    "correct": 1
+  
 },
   {
     "id": "q07",
@@ -3548,8 +3510,7 @@ function switchMainSection(secId, btnEl) {
       "They are the difference between estimated and actual repair time on flat-rate jobs.",
       "They are the hours technicians spend on breaks and lunch periods."
     ]
-  ,
-    "correct": 0
+  
 },
   {
     "id": "q08",
@@ -3563,8 +3524,7 @@ function switchMainSection(secId, btnEl) {
       "3 work orders and $8,500.",
       "3 work orders and $4,200, counting only the largest job."
     ]
-  ,
-    "correct": 2
+  
 },
   {
     "id": "q09",
@@ -3578,8 +3538,7 @@ function switchMainSection(secId, btnEl) {
       "Close it when the customer picks up the unit.",
       "Close and invoice it within 48 hours of the last labor posted, with no grace tiers after that."
     ]
-  ,
-    "correct": 3
+  
 },
   {
     "id": "q10",
@@ -3593,8 +3552,7 @@ function switchMainSection(secId, btnEl) {
       "Treat every one as late: assign a named owner today and close and invoice each work order, or record the specific hold reason and a close date.",
       "Bill the customers for storage fees and continue holding the units."
     ]
-  ,
-    "correct": 2
+  
 },
   {
     "id": "q11",
@@ -3608,8 +3566,7 @@ function switchMainSection(secId, btnEl) {
       "Quotes are valid for 30 days and do not need follow-up until expiration.",
       "Email the customer a reminder and wait for their response."
     ]
-  ,
-    "correct": 1
+  
 },
   {
     "id": "q12",
@@ -3623,8 +3580,7 @@ function switchMainSection(secId, btnEl) {
       "112.0%",
       "90.5%"
     ]
-  ,
-    "correct": 0
+  
 },
   {
     "id": "q13",
@@ -3638,8 +3594,7 @@ function switchMainSection(secId, btnEl) {
       "The shop needs to hire more experienced master technicians.",
       "Technicians are waiting for parts, waiting for crane or wash bay availability, or poor diagnostic direction from supervisors."
     ]
-  ,
-    "correct": 3
+  
 },
   {
     "id": "q14",
@@ -3653,8 +3608,7 @@ function switchMainSection(secId, btnEl) {
       "130.0%: PASS (exceeding target)",
       "76.9%: FAIL (the field target is 100% or higher)"
     ]
-  ,
-    "correct": 0
+  
 },
   {
     "id": "q15",
@@ -3668,8 +3622,7 @@ function switchMainSection(secId, btnEl) {
       "$170.00/hr",
       "$155.00/hr"
     ]
-  ,
-    "correct": 2
+  
 },
   {
     "id": "q16",
@@ -3683,8 +3636,7 @@ function switchMainSection(secId, btnEl) {
       "Your parts department is marking up internal sales too aggressively.",
       "You are losing $15 per billed hour to unauthorized discounts, unbilled diagnostic time, or rework not billed."
     ]
-  ,
-    "correct": 3
+  
 },
   {
     "id": "q17",
@@ -3698,8 +3650,7 @@ function switchMainSection(secId, btnEl) {
       "100% of posted rate with no exceptions",
       "≥ 75% of posted rate"
     ]
-  ,
-    "correct": 0
+  
 },
   {
     "id": "q18",
@@ -3713,8 +3664,7 @@ function switchMainSection(secId, btnEl) {
       "86.4%",
       "95.5%"
     ]
-  ,
-    "correct": 0
+  
 },
   {
     "id": "q19",
@@ -3728,8 +3678,7 @@ function switchMainSection(secId, btnEl) {
       "Within 24 hours of the customer dropping off the unit.",
       "Before the customer leaves the dealership."
     ]
-  ,
-    "correct": 0
+  
 },
   {
     "id": "q20",
@@ -3743,8 +3692,7 @@ function switchMainSection(secId, btnEl) {
       "Reassign the technician to oil changes and preventive maintenance only until diagnostic skill improves.",
       "Bill the customer for the rework and absorb the cost as a learning expense."
     ]
-  ,
-    "correct": 1
+  
 },
   {
     "id": "q21",
@@ -3758,8 +3706,7 @@ function switchMainSection(secId, btnEl) {
       "5.00%",
       "1.00%"
     ]
-  ,
-    "correct": 3
+  
 },
   {
     "id": "q22",
@@ -3773,8 +3720,7 @@ function switchMainSection(secId, btnEl) {
       "Every warranty claim must be Communicated, Confirmed, and Closed within 4 business days.",
       "The 4 C's stand for Claim, Credit, Close, and Confirm, the four steps for warranty reimbursement."
     ]
-  ,
-    "correct": 1
+  
 },
   {
     "id": "q23",
@@ -3788,8 +3734,7 @@ function switchMainSection(secId, btnEl) {
       "$480 loss, but the dealership must bill an extra $3,200 in retail revenue at 15% net margin just to recover that $480.",
       "The OEM will reverse the denial if the dealer principal calls the regional rep."
     ]
-  ,
-    "correct": 2
+  
 },
   {
     "id": "q24",
@@ -3803,8 +3748,7 @@ function switchMainSection(secId, btnEl) {
       "Parts inventory obsolescence and vendor freight costs.",
       "High utility costs and building lease escalation."
     ]
-  ,
-    "correct": 0
+  
 },
   {
     "id": "q25",
@@ -3818,8 +3762,7 @@ function switchMainSection(secId, btnEl) {
       "Address the unbilled labor leak first, it has the highest dollar impact and the most straightforward operational fix (requiring real-time time entry at the technician level).",
       "Fix the late work orders (past 48 hours of last labor) first because they involve the most work orders."
     ]
-  ,
-    "correct": 2
+  
 },
   {
     "id": "q26",
@@ -3833,8 +3776,7 @@ function switchMainSection(secId, btnEl) {
       "Easy, Difficult, or Impossible based on technician cooperation.",
       "Priority 1, Priority 2, Priority 3 based on the KPI it affects."
     ]
-  ,
-    "correct": 1
+  
 },
   {
     "id": "q27",
@@ -3848,8 +3790,7 @@ function switchMainSection(secId, btnEl) {
       "Data is entered by whichever technician is available at the end of the shift.",
       "The advisor or foreman enters the data, not the manager. The manager reads it and acts on it. The scorecard is updated at the same time every day. No exceptions."
     ]
-  ,
-    "correct": 3
+  
 },
   {
     "id": "q28",
@@ -3863,8 +3804,7 @@ function switchMainSection(secId, btnEl) {
       "Add color coding to the 3 metrics so they stand out more.",
       "Remove the 3 unused metrics. A scorecard that does not drive a decision is wallpaper."
     ]
-  ,
-    "correct": 3
+  
 },
   {
     "id": "q29",
@@ -3878,8 +3818,7 @@ function switchMainSection(secId, btnEl) {
       "A scorecard that does not drive a decision is useless. If the number does not make someone do something different today, it should not be on the scorecard.",
       "Scorecards should be digital only, paper scorecards are outdated."
     ]
-  ,
-    "correct": 2
+  
 },
   {
     "id": "q30",
@@ -3893,8 +3832,7 @@ function switchMainSection(secId, btnEl) {
       "10 minutes. Not 15. Not 30. Ten.",
       "5 minutes: just a quick check-in and then everyone goes to work."
     ]
-  ,
-    "correct": 2
+  
 },
   {
     "id": "q31",
@@ -3908,8 +3846,7 @@ function switchMainSection(secId, btnEl) {
       "Cancel the standup, it is wasting productive shop time.",
       "Move the standup to the afternoon when there is less pressure."
     ]
-  ,
-    "correct": 1
+  
 },
   {
     "id": "q32",
@@ -3923,8 +3860,7 @@ function switchMainSection(secId, btnEl) {
       "A flag that shows when the shop has too many technicians for the current workload.",
       "A flag that shows when customer satisfaction scores are trending downward."
     ]
-  ,
-    "correct": 1
+  
 },
   {
     "id": "q33",
@@ -3938,8 +3874,7 @@ function switchMainSection(secId, btnEl) {
       "Cancel the work order and refund the customer's deposit.",
       "Bill the customer for storage fees while waiting for parts."
     ]
-  ,
-    "correct": 1
+  
 },
   {
     "id": "q34",
@@ -3953,8 +3888,7 @@ function switchMainSection(secId, btnEl) {
       "Parts manager: verify all parts were received before invoicing.",
       "Service Manager: they own the work order and are accountable for it. Invoice it today; it is already past the 48-hour close standard."
     ]
-  ,
-    "correct": 3
+  
 },
   {
     "id": "q35",
@@ -3968,8 +3902,7 @@ function switchMainSection(secId, btnEl) {
       "Consult, Confirm, Correct, Close.",
       "Complaint, Charge, Correct, Cancel."
     ]
-  ,
-    "correct": 1
+  
 },
   {
     "id": "q36",
@@ -3983,8 +3916,7 @@ function switchMainSection(secId, btnEl) {
       "Send the technician home without pay until the parts arrive to avoid idle labor cost.",
       "Reassign the technician to another job and resolve the parts issue administratively. A standing technician is the most expensive person in the building. Best practice is to stage parts before teardown, but disassembly is often required to diagnose, manage the gap."
     ]
-  ,
-    "correct": 3
+  
 },
   {
     "id": "q37",
@@ -3998,8 +3930,7 @@ function switchMainSection(secId, btnEl) {
       "When the customer approves the final quote.",
       "When labor is complete, not when parts arrive."
     ]
-  ,
-    "correct": 3
+  
 },
   {
     "id": "q38",
@@ -4013,8 +3944,7 @@ function switchMainSection(secId, btnEl) {
       "Reduce the fee by 50% as a goodwill gesture.",
       "Ask the manager for approval before waiving any fee."
     ]
-  ,
-    "correct": 1
+  
 },
   {
     "id": "q39",
@@ -4028,8 +3958,7 @@ function switchMainSection(secId, btnEl) {
       "Calculate the dollar amount you gave away, identify who failed to charge, and enforce the standard on every invoice going forward.",
       "Adjust your pricing matrix to absorb the missing charges in future quotes."
     ]
-  ,
-    "correct": 2
+  
 },
   {
     "id": "q40",
@@ -4043,8 +3972,7 @@ function switchMainSection(secId, btnEl) {
       "What did you close this week? What is stuck? What do you need from me?",
       "What is your recovery? What is your utilization? What is your ELR?"
     ]
-  ,
-    "correct": 2
+  
 },
   {
     "id": "q41",
@@ -4058,8 +3986,7 @@ function switchMainSection(secId, btnEl) {
       "Avoiding the conversation is worse than having it. Show them the number, ask what is causing the gap, agree on one change, and review next week.",
       "Reassign them to PM work only until their recovery improves."
     ]
-  ,
-    "correct": 2
+  
 },
   {
     "id": "q42",
@@ -4073,8 +4000,7 @@ function switchMainSection(secId, btnEl) {
       "As long as needed, do not rush a coaching conversation.",
       "Under 10 minutes per person."
     ]
-  ,
-    "correct": 3
+  
 },
   {
     "id": "q43",
@@ -4088,8 +4014,7 @@ function switchMainSection(secId, btnEl) {
       "Leading indicators are updated daily; lagging indicators are updated monthly.",
       "Leading indicators measure revenue; lagging indicators measure expenses."
     ]
-  ,
-    "correct": 0
+  
 },
   {
     "id": "q44",
@@ -4103,8 +4028,7 @@ function switchMainSection(secId, btnEl) {
       "120.0%",
       "92.5%"
     ]
-  ,
-    "correct": 1
+  
 },
   {
     "id": "q45",
@@ -4118,8 +4042,7 @@ function switchMainSection(secId, btnEl) {
       "Bring in field technicians or loaners from other branches.",
       "Accept all incoming work and hope the team can catch up over the weekend."
     ]
-  ,
-    "correct": 3
+  
 },
   {
     "id": "q46",
@@ -4133,8 +4056,7 @@ function switchMainSection(secId, btnEl) {
       "They should be disabled until the shop has enough staff to review them daily.",
       "They should be forwarded to the OEM for remote diagnostic support."
     ]
-  ,
-    "correct": 0
+  
 },
   {
     "id": "q47",
@@ -4148,8 +4070,7 @@ function switchMainSection(secId, btnEl) {
       "Ignore it: PM triggers can wait until the next scheduled service interval.",
       "Call the customer and tell them to stop operating the machine immediately."
     ]
-  ,
-    "correct": 0
+  
 },
   {
     "id": "q48",
@@ -4163,8 +4084,7 @@ function switchMainSection(secId, btnEl) {
       "The customer's last visit exceeds 2x their normal interval between service visits.",
       "The customer's total spend has decreased by more than 25% year over year."
     ]
-  ,
-    "correct": 2
+  
 },
   {
     "id": "q49",
@@ -4178,8 +4098,7 @@ function switchMainSection(secId, btnEl) {
       "Send them an email newsletter and wait for them to call.",
       "Drop them from the active customer list, they have clearly moved to a competitor."
     ]
-  ,
-    "correct": 0
+  
 },
   {
     "id": "q50",
@@ -4193,8 +4112,7 @@ function switchMainSection(secId, btnEl) {
       "The depreciation rate of rental equipment over its service life.",
       "The ratio of maintenance labor costs to parts costs for the rental fleet."
     ]
-  ,
-    "correct": 0
+  
 }
 ];
   var testAnswers = {};
@@ -4202,24 +4120,6 @@ function switchMainSection(secId, btnEl) {
   var testStartTime = null;
   var testTimeRemaining = 90 * 60; // 90 minutes in seconds
 
-  function checkAccessCode() {
-    var code = document.getElementById('test_access_code').value.trim();
-    if (code !== 'HEDSTRAINS') {
-      var errEl = document.getElementById('test_signin_error');
-      errEl.style.display = 'block';
-      errEl.innerText = 'Invalid access code.';
-      return;
-    }
-    // Show the info fields
-    document.getElementById('test_info_fields').style.display = 'block';
-    document.getElementById('test_dealership_field').style.display = 'block';
-    document.getElementById('test_email_field').style.display = 'block';
-    document.getElementById('test_signin_error').style.display = 'none';
-    // Change button to start the actual test
-    var btn = document.querySelector('#test_signin .btn');
-    btn.innerText = 'Start Assessment';
-    btn.setAttribute('onclick', 'startTest()');
-  }
 
   function startTest() {
     var name = document.getElementById('test_name').value.trim();
@@ -4327,73 +4227,27 @@ function switchMainSection(secId, btnEl) {
     }, 1000);
   }
 
+
   function submitTest() {
     if (testTimerInterval) clearInterval(testTimerInterval);
-    
     var studentName = document.getElementById('test_name') ? document.getElementById('test_name').value : '';
     var dealership = document.getElementById('test_dealership') ? document.getElementById('test_dealership').value : '';
     var email = document.getElementById('test_email') ? document.getElementById('test_email').value : '';
-    
     var answers = {};
     for (var key in testAnswers) {
-        if (testAnswers.hasOwnProperty(key)) { answers[key] = testAnswers[key]; }
+      if (Object.prototype.hasOwnProperty.call(testAnswers, key)) { answers[key] = testAnswers[key]; }
     }
-    
     var answeredCount = Object.keys(answers).length;
-    
-    // Grade in-browser using correct answers embedded in testQuestions
-    var correctCount = 0;
-    var incorrectByModule = {};
-    var moduleBreakdownHtml = '';
-    var focusAreasHtml = '';
-    
-    testQuestions.forEach(function(q) {
-        var userAnswer = testAnswers[q.id];
-        var correctAnswer = q.correct;
-        if (userAnswer !== undefined && userAnswer === correctAnswer) {
-            correctCount++;
-        } else {
-            if (!incorrectByModule[q.module]) incorrectByModule[q.module] = 0;
-            incorrectByModule[q.module]++;
-        }
-    });
-    
-    var pct = Math.round((correctCount / testQuestions.length) * 100);
-    
+    var now = new Date();
     document.getElementById('test_running').style.display = 'none';
     document.getElementById('test_results').style.display = 'block';
-    document.getElementById('result_score').innerText = correctCount + ' / ' + testQuestions.length;
-    document.getElementById('result_pct').innerText = pct + '%';
+    document.getElementById('result_answered').innerText = answeredCount + ' of ' + testQuestions.length;
     document.getElementById('result_name').innerText = studentName;
     document.getElementById('result_dealership').innerText = dealership;
-    var now = new Date();
-    document.getElementById('result_date').innerText = (now.getMonth()+1) + '/' + now.getDate() + '/' + now.getFullYear();
-    hedsSaveLocalResult({ track: TRACK_NAME, correct: correctCount, total: testQuestions.length, scorePct: pct, passed: hedsIsPassed(pct), candidateName: studentName, dealership: dealership, email: email, timestamp: (now.getMonth()+1) + '/' + now.getDate() + '/' + now.getFullYear(), answers: answers, relayStatus: 'pending' });
-    hedsShowPassStatus(pct);
-    
-    // Build module breakdown
-    if (Object.keys(incorrectByModule).length > 0) {
-        moduleBreakdownHtml = '<div style="margin-bottom:20px;">';
-        for (var mod in incorrectByModule) {
-            var totalInModule = testQuestions.filter(function(q) { return q.module === mod; }).length;
-            var correctInModule = totalInModule - incorrectByModule[mod];
-            moduleBreakdownHtml += '<div style="display:flex; justify-content:space-between; padding:8px 0; border-bottom:1px solid var(--border-color);"><span style="color:var(--fg);">' + mod + '</span><span style="color:var(--muted);">' + correctInModule + '/' + totalInModule + ' correct</span></div>';
-        }
-        moduleBreakdownHtml += '</div>';
-        
-        // Build focus areas
-        var sortedAreas = Object.keys(incorrectByModule).sort(function(a,b) { return incorrectByModule[b] - incorrectByModule[a]; });
-        focusAreasHtml = '<div style="padding:16px; background:var(--bg); border-radius:8px; border:1px solid var(--border-color);"><div style="font-weight:700; color:var(--accent-color); margin-bottom:8px;">Recommended Focus Areas</div><div style="color:var(--muted); font-size:0.9rem;">' + sortedAreas.slice(0,3).map(function(m) { return m + ' (' + incorrectByModule[m] + ' missed)'; }).join(', ') + '</div></div>';
-    } else {
-        moduleBreakdownHtml = '<div style="text-align:center; padding:20px; color:var(--accent-color); font-weight:700;">All questions correct, no focus areas needed.</div>';
-        focusAreasHtml = '';
-    }
-    
-    document.getElementById('result_module_breakdown').innerHTML = moduleBreakdownHtml;
-    document.getElementById('result_focus_areas').innerHTML = focusAreasHtml || '<div style="color:var(--muted); font-size:0.9rem;">Review the module breakdown above for areas needing attention.</div>';
-    
-    var payload = { track: TRACK_NAME, name: studentName, dealership: dealership, email: email, answers: answers, correctCount: correctCount, totalQuestions: testQuestions.length, scorePercentage: pct, answeredCount: answeredCount };
-    
+    document.getElementById('result_date').innerText = (now.getMonth() + 1) + '/' + now.getDate() + '/' + now.getFullYear();
+    // The answer key never reaches the browser. HEDS grades the submission and returns the result.
+    var payload = { track: TRACK_NAME, name: studentName, dealership: dealership, email: email, answers: answers, answeredCount: answeredCount, totalQuestions: testQuestions.length, submittedAt: now.toISOString() };
+    hedsPrepareMailto(payload);
     hedsRelayResults(payload);
   }
 
@@ -4403,15 +4257,6 @@ function switchMainSection(secId, btnEl) {
     }
   }
 
-  function retakeTest() {
-    document.getElementById('test_results').style.display = 'none';
-    document.getElementById('test_signin').style.display = 'block';
-    document.getElementById('test_running').style.display = 'none';
-    testAnswers = {};
-    if (testTimerInterval) clearInterval(testTimerInterval);
-    testTimeRemaining = 90 * 60;
-    testAnswers = {};
-  }
 
   function printResults() {
     window.print();
@@ -4421,51 +4266,36 @@ function switchMainSection(secId, btnEl) {
 
 
 <script>
-  /* ===== HEDS assessment fixes (Oct 2026): pass mark, certificate gating, results relay, local results copy ===== */
-  var HEDS_PASS_MARK = 90; // percent required to pass and receive a certificate (Daniel, Oct 23 2026: 90% on all four dashboards)
-  var HEDS_RESULT_KEY = 'heds_service_test_result'; // localStorage key for this device's copy of the latest result
+  /* ===== HEDS assessment submission: answers go to HEDS, which grades them ===== */
   function hedsEscape(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function(c) { return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
-  function hedsIsPassed(pct) { return Number(pct) >= HEDS_PASS_MARK; }
-  function hedsSaveLocalResult(rec) { try { localStorage.setItem(HEDS_RESULT_KEY, JSON.stringify(rec)); } catch (e) {} }
-  function hedsLoadLocalResult() { try { var r = localStorage.getItem(HEDS_RESULT_KEY); return r ? JSON.parse(r) : null; } catch (e) { return null; } }
+  // Submission only: answers go to HEDS, which grades them and returns the result.
   var HEDS_RELAY_MSG = {
-    pending: 'Sending your results to HEDS Academy\u2026',
-    ok: 'Results sent to HEDS Academy.',
-    fail: 'We could not confirm that your results reached HEDS Academy. Your results are saved in this browser. Please click "Print Results" (or take a screenshot) and send it to your facilitator.'
+    pending: 'Sending your answers to HEDS Academy\u2026',
+    ok: 'Your answers were sent to HEDS Academy. HEDS will grade them and return your result.',
+    fail: 'We could not confirm that your answers reached HEDS Academy. Use the email button below to send them, or print this page and give it to your facilitator.'
   };
   function hedsRenderRelayStatus(state) {
     var el = document.getElementById('result_relay_status');
     if (!el) return;
     el.textContent = HEDS_RELAY_MSG[state] || HEDS_RELAY_MSG.fail;
     el.style.color = state === 'ok' ? '#10b981' : (state === 'pending' ? '#94a3b8' : '#ef4444');
+    var wrap = document.getElementById('result_mailto_wrap');
+    if (wrap) wrap.style.display = state === 'ok' ? 'none' : 'block';
   }
-  function hedsSetRelayStatus(state) {
-    hedsRenderRelayStatus(state);
-    var r = hedsLoadLocalResult();
-    if (r) { r.relayStatus = state; hedsSaveLocalResult(r); }
-  }
-  function hedsShowPassStatus(pct) {
-    var passed = hedsIsPassed(pct);
-    var el = document.getElementById('result_pass_status');
-    if (el) {
-      el.textContent = passed
-        ? 'PASSED: ' + pct + '% (pass mark ' + HEDS_PASS_MARK + '%). Your certificate is available below.'
-        : 'NOT YET PASSED: ' + pct + '% (pass mark ' + HEDS_PASS_MARK + '%). Review the focus areas below and retake the assessment to earn your certificate.';
-      el.style.color = passed ? '#10b981' : '#ef4444';
+  function hedsSetRelayStatus(state) { hedsRenderRelayStatus(state); }
+  // Builds an email with the answers as plain letters, for use when the relay cannot be confirmed.
+  function hedsPrepareMailto(p) {
+    var letters = 'ABCDEFGH';
+    var lines = [];
+    for (var i = 0; i < testQuestions.length; i++) {
+      var id = testQuestions[i].id;
+      lines.push(id + ': ' + (p.answers[id] === undefined ? 'no answer' : letters.charAt(p.answers[id])));
     }
-    var btn = document.getElementById('btn_cert');
-    if (btn) btn.style.display = passed ? '' : 'none';
-    return passed;
+    var body = 'Track: ' + p.track + '\nName: ' + p.name + '\nCompany: ' + p.dealership + '\nEmail: ' + p.email + '\nSubmitted: ' + p.submittedAt + '\n\nAnswers\n' + lines.join('\n');
+    var a = document.getElementById('result_mailto');
+    if (a) a.href = 'mailto:daniel@hedsconsulting.net?subject=' + encodeURIComponent('HEDS assessment answers: ' + p.track + ': ' + p.name) + '&body=' + encodeURIComponent(body);
   }
-  function hedsCertificateRecord() {
-    var r = hedsLoadLocalResult();
-    if (!r || !hedsIsPassed(r.scorePct)) {
-      alert('A certificate is issued only after passing the assessment with a score of ' + HEDS_PASS_MARK + '% or higher.');
-      return null;
-    }
-    return r;
-  }
-  // Sends results as a CORS "simple request": text/plain body, no custom headers, so no preflight is needed.
+  // Sends the answers as a CORS "simple request": text/plain body, no custom headers, so no preflight is needed.
   // The Apps Script doPost reads the JSON from e.postData.contents.
   function hedsRelayResults(payload) {
     hedsSetRelayStatus('pending');
@@ -4484,6 +4314,8 @@ function switchMainSection(secId, btnEl) {
       }
     } catch (e) { hedsSetRelayStatus('fail'); }
   }
+  // Sends results as a CORS "simple request": text/plain body, no custom headers, so no preflight is needed.
+  // The Apps Script doPost reads the JSON from e.postData.contents.
 </script>
 <script>
   /* ===== HEDS shared navigation (identical on all four dashboards) ===== */

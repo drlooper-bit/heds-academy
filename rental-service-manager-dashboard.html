@@ -1133,12 +1133,6 @@ table {
             <li><strong>PM ROI Ratio:</strong> Every $1.00 spent on disciplined, on-time PM prevents $6.00 to $10.00 in reactive failure and lost rental revenue.</li>
           </ul>
         </div>
-
-        <div class="formula-card">
-          <div class="formula-title">PM COMPLIANCE RATE FORMULA</div>
-          <div class="formula-expr">PM Compliance Rate % = PMs Completed Within &plusmn;10% or 50 Hours of Due Meter / Total Scheduled PMs Due &times; 100</div>
-          <p style="font-size:0.85rem; margin-top:6px;"><strong>HEDS Target Benchmark:</strong> &ge; 90% PM Compliance Rate (Top Quartile: &ge; 95%)</p>
-        </div>
       </div>
 
       <div class="curr-section">
@@ -1712,20 +1706,17 @@ table {
         <div class="formula-card">
           <div class="example-badge">Industry Standard Worked Example</div>
           <div class="formula-title">WEEKLY VARIANCE &amp; KPI CADENCE FORMULAS</div>
-          <div class="formula-expr">PM Compliance Variance % = (On-Time PMs / Total PMs Due) &times; 100</div>
-          <div class="formula-expr" style="margin-top:6px;">Standup Attendance Rate % = (Days Standup Held / Total Business Days) &times; 100</div>
+          <div class="formula-expr">Standup Attendance Rate % = (Days Standup Held / Total Business Days) &times; 100</div>
           <div class="formula-expr" style="margin-top:6px;">Late-Close Count = Count of Work Orders Not Closed and Invoiced Within 48 Hours of Last Labor</div>
           <ol class="formula-steps">
-            <li><strong>Step 1:</strong> Enter total PMs due this week and how many were completed on time (within &plusmn;10% / 50 hrs). <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></li>
-            <li><strong>Step 2:</strong> Enter total business days and how many days the standup was actually held. <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></li>
-            <li><strong>Step 3:</strong> Pull the open work order report (last labor date). Count work orders past 48 hours of last labor. <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></li>
-            <li><strong>Step 4:</strong> Calculate PM Compliance Variance, Standup Attendance Rate, and Late-Close Count for your weekly variance review.</li>
+            <li><strong>Step 1:</strong> Enter total business days and how many days the standup was actually held. <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></li>
+            <li><strong>Step 2:</strong> Pull the open work order report (last labor date). Count work orders past 48 hours of last labor. <span style="color:var(--accent-color);">[YOUR NUMBER HERE]</span></li>
+            <li><strong>Step 3:</strong> Calculate Standup Attendance Rate and Late-Close Count for your weekly variance review.</li>
           </ol>
-          <p style="margin-top:10px; font-size:0.85rem;"><strong>Worked Example:</strong> 18 PMs due this week, 15 completed on time. PM Compliance: (15 / 18) &times; 100 = <strong style="color:var(--warning);">83.3% (WARN: Below 90% Target)</strong>. Standup held 4 of 5 business days = <strong style="color:var(--success);">80.0%</strong>. 3 work orders past 48 hours of last labor = <strong style="color:var(--danger);">3 Late-Close Violations (FAIL)</strong>.</p>
+          <p style="margin-top:10px; font-size:0.85rem;"><strong>Worked Example:</strong> Standup held 4 of 5 business days = <strong style="color:var(--success);">80.0%</strong>. 3 work orders past 48 hours of last labor = <strong style="color:var(--danger);">3 Late-Close Violations (FAIL)</strong>.</p>
           <div style="margin-top:8px; font-size:0.85rem;">
             <strong>HEDS Target Benchmarks:</strong>
             <ul style="padding-left:16px; margin-top:4px;">
-              <li><strong>PM Compliance Rate:</strong> &ge; 90% (Top: 95%+)</li>
               <li><strong>Standup Attendance Rate:</strong> 100% (5 of 5 business days)</li>
               <li><strong>Late-Close Violations:</strong> 0 work orders past 48 hours of last labor (no tiers)</li>
               <li><strong>Weekly Variance Review Duration:</strong> &le; 30 minutes with 4-point standing agenda</li>
@@ -1738,7 +1729,7 @@ table {
           <p style="margin-top:4px; font-size:0.82rem; color:var(--muted);">Participants: Rental Service Manager, Shop Foreman, Rental Operations Manager, Parts Expediter.</p>
           <p style="margin-top:6px; font-weight:700; font-size:0.85rem;">Standing 4-Point Agenda:</p>
           <ol style="padding-left:20px; margin-top:6px; line-height:1.8;">
-            <li><strong>PM Compliance Audit:</strong> Review trailing 7-day completed PMs vs. scheduled due dates. Flag any unit &gt;25 hours overdue.</li>
+            <li><strong>Overdue PM Review:</strong> Review the PM status of each unit against its due meter. Flag any unit &gt;25 hours overdue.</li>
             <li><strong>Weekly WIP Scrub:</strong> Review every work order past 48 hours of last labor, plus every stalled in-progress job. Close and invoice, or assign vendor escalation owners.</li>
             <li><strong>Rent-Ready Rule Performance:</strong> Review average hours from off rent into service to the rent-ready line vs. the 48-hour rule. Identify wash rack or staging bottlenecks.</li>
             <li><strong>First-Time Fix Post-Mortem:</strong> Audit any repeat breakdown on a machine within 30 days of release. Review root cause with signing technician.</li>
@@ -2265,7 +2256,7 @@ table {
           <li><input type="checkbox" id="g1_chk5" onchange="saveGateCheckboxes()"> <strong>Wash Rack Management:</strong> Active wash rack queue management and priority staging in place.</li>
           <li><input type="checkbox" id="g1_chk6" onchange="saveGateCheckboxes()"> <strong>Physical Yard Tagging:</strong> Weatherproof Red / Yellow / Green tag system operational across 100% of yard assets.</li>
           <li><input type="checkbox" id="g1_chk7" onchange="saveGateCheckboxes()"> <strong>Hour-Meter Verification:</strong> Hour meters physically audited and reconciled against ERP fleet list.</li>
-          <li><input type="checkbox" id="g1_chk8" onchange="saveGateCheckboxes()"> <strong>Initial PM Compliance Baseline:</strong> Trailing 30-day PM compliance baseline score calculated and recorded.</li>
+          <li><input type="checkbox" id="g1_chk8" onchange="saveGateCheckboxes()"> <strong>Initial PM Status Baseline:</strong> Hours to next PM or hours overdue listed and recorded for every unit.</li>
           <li><input type="checkbox" id="g1_chk9" onchange="saveGateCheckboxes()"> <strong>Parts Room Physical Audit:</strong> Physical inventory count of on-hand fast-moving PM maintenance items completed.</li>
           <li><input type="checkbox" id="g1_chk10" onchange="saveGateCheckboxes()"> <strong>Dead Stock Identification:</strong> Initial purge list drafted for obsolete parts sitting idle for &gt;365 days.</li>
         </ul>
@@ -2344,24 +2335,20 @@ table {
   <!-- Sign-in Screen -->
   <div id="test_signin" class="card">
     <div class="card-title">Industry Knowledge Assessment: Rental Service Manager Certification</div>
-    <p style="color:var(--muted); margin-bottom:20px;">This assessment tests your knowledge of the Rental Service Manager curriculum. You have 90 minutes. Enter the access code provided by your facilitator to begin.</p>
-    <div class="form-group">
-      <label for="test_access_code">Access Code</label>
-      <input type="password" id="test_access_code" placeholder="Enter access code" style="background:var(--bg); border:1px solid var(--border-color); border-radius:6px; padding:10px 12px; color:var(--fg); font-size:1rem; width:100%;">
-    </div>
-    <div class="form-group" style="display:none;" id="test_info_fields">
+    <p style="color:var(--muted); margin-bottom:20px;">This assessment tests your knowledge of the Rental Service Manager curriculum. You have 90 minutes to answer all 50 questions. When you submit, your answers go to HEDS Academy. HEDS grades the assessment and returns your result to you. The score is not shown on this page.</p>
+    <div class="form-group" id="test_info_fields">
       <label for="test_name">Your Full Name</label>
       <input type="text" id="test_name" style="background:var(--bg); border:1px solid var(--border-color); border-radius:6px; padding:10px 12px; color:var(--fg); font-size:1rem; width:100%;">
     </div>
-    <div class="form-group" style="display:none;" id="test_dealership_field">
+    <div class="form-group" id="test_dealership_field">
       <label for="test_dealership">Dealership / Company Name</label>
       <input type="text" id="test_dealership" style="background:var(--bg); border:1px solid var(--border-color); border-radius:6px; padding:10px 12px; color:var(--fg); font-size:1rem; width:100%;">
     </div>
-    <div class="form-group" style="display:none;" id="test_email_field">
+    <div class="form-group" id="test_email_field">
       <label for="test_email">Email Address</label>
       <input type="email" id="test_email" style="background:var(--bg); border:1px solid var(--border-color); border-radius:6px; padding:10px 12px; color:var(--fg); font-size:1rem; width:100%;">
     </div>
-    <button class="btn" style="margin-top:16px;" onclick="checkAccessCode()">Begin Assessment</button>
+    <button class="btn" style="margin-top:16px;" onclick="startTest()">Start Assessment</button>
     <p id="test_signin_error" style="color:var(--danger); margin-top:10px; display:none;"></p>
   </div>
 
@@ -2386,42 +2373,29 @@ table {
     <button class="btn" style="margin-top:20px; margin-bottom:40px;" onclick="submitTest()">Submit Assessment</button>
   </div>
 
-  <!-- Test Results Screen -->
+    <!-- Submission Confirmation Screen -->
   <div id="test_results" style="display:none;">
     <div class="card">
-      <div class="card-title">Assessment Results</div>
-      <div id="result_pass_status" style="font-weight:700; margin-bottom:8px;"></div>
+      <div class="card-title">Assessment Submitted</div>
+      <p style="margin-bottom:12px;">Your answers were submitted to HEDS Academy. HEDS grades the assessment and returns your result, and any certificate, to you. Your score is not shown on this page.</p>
       <div id="result_relay_status" style="font-size:0.9rem; color:var(--muted); margin-bottom:20px;"></div>
       <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px; margin-bottom:24px;">
         <div>
-          <div style="font-size:0.85rem; color:var(--muted); text-transform:uppercase; letter-spacing:1px;">Score</div>
-          <div style="font-size:2.5rem; font-weight:800; color:var(--accent-color);" id="result_score">-- / 50</div>
-          <div style="font-size:1.5rem; font-weight:700;" id="result_pct">--%</div>
+          <div style="font-size:0.85rem; color:var(--muted); text-transform:uppercase; letter-spacing:1px;">Questions Answered</div>
+          <div style="font-size:2rem; font-weight:800; color:var(--accent-color);" id="result_answered">--</div>
         </div>
         <div>
-          <div style="font-size:0.85rem; color:var(--muted); text-transform:uppercase; letter-spacing:1px;">Completed By</div>
+          <div style="font-size:0.85rem; color:var(--muted); text-transform:uppercase; letter-spacing:1px;">Submitted By</div>
           <div style="font-size:1.1rem; font-weight:600;" id="result_name">--</div>
           <div style="color:var(--muted);" id="result_dealership">--</div>
           <div style="color:var(--muted);" id="result_date">--</div>
         </div>
       </div>
-
-      <!-- Module Breakdown -->
-      <div style="margin-bottom:24px;">
-        <h3 style="color:var(--accent-color); margin-bottom:12px; font-size:1.1rem;">Module Breakdown</h3>
-        <div id="result_module_breakdown"></div>
+      <div id="result_mailto_wrap" style="display:none; margin-bottom:16px;">
+        <a class="btn" id="result_mailto" href="mailto:daniel@hedsconsulting.net">Email my answers to HEDS</a>
       </div>
-
-      <!-- Focus Area Recommendation -->
-      <div style="margin-bottom:24px;">
-        <h3 style="color:var(--accent-color); margin-bottom:12px; font-size:1.1rem;">Recommended Training Focus Areas</h3>
-        <div id="result_focus_areas"></div>
-      </div>
-
       <div style="display:flex; gap:12px; flex-wrap:wrap;">
-        <button class="btn" onclick="printResults()">Print Results</button>
-        <button class="btn btn-outline" id="btn_cert" style="display:none;" onclick="printCertificateRSM()">Print Certificate</button>
-        <button class="btn btn-outline" onclick="retakeTest()">Retake Assessment</button>
+        <button class="btn btn-outline" onclick="printResults()">Print Confirmation</button>
       </div>
     </div>
   </div>
@@ -2431,21 +2405,6 @@ table {
 <script>
     var ASSESSMENT_RELAY_URL = 'https://script.google.com/macros/s/AKfycbymws_e31nyHrB6ge_U9NnVIdRFy-zNXKfGsVbWpm6OYz9_6lkpGL2RpFJebhxowwXn/exec';
   var TRACK_NAME = 'Rental Service Manager Training';
-function printCertificateRSM() {
-    var r = hedsCertificateRecord();
-    if (!r) return;
-    var cert = document.getElementById('cert_overlay');
-    if (cert) cert.parentNode.removeChild(cert);
-    var name = hedsEscape(r.candidateName);
-    var score = hedsEscape(r.correct + ' / ' + r.total);
-    var pct = hedsEscape(r.scorePct + '%');
-    var certDate = hedsEscape(r.timestamp);
-    cert = document.createElement('div');
-    cert.id = 'cert_overlay';
-    cert.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.8);z-index:9999;display:flex;align-items:center;justify-content:center;';
-    cert.innerHTML = '<div style="background:#0e1f38;border:2px solid #e5ae25;border-radius:12px;padding:48px 40px;max-width:680px;width:90%;text-align:center;font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,sans-serif;color:#f8fafc;position:relative;"><div style="font-size:0.7rem;color:#94a3b8;text-transform:uppercase;letter-spacing:2px;margin-bottom:6px;">Heavy Equipment Dealer Solutions LLC</div><div style="font-size:1.8rem;font-weight:800;color:#e5ae25;margin-bottom:4px;">Certificate of Completion</div><div style="font-size:0.85rem;color:#94a3b8;margin-bottom:32px;">HEDS Operating Discipline Academy</div><div style="font-size:0.75rem;color:#94a3b8;margin-bottom:4px;">This certifies that</div><div style="font-size:1.6rem;font-weight:700;color:#f8fafc;margin-bottom:24px;border-bottom:1px solid #203b60;padding-bottom:12px;">' + (name || 'Participant') + '</div><div style="font-size:0.85rem;color:#94a3b8;margin-bottom:6px;">has completed the</div><div style="font-size:1.1rem;font-weight:600;color:#e5ae25;margin-bottom:24px;">Rental Service Manager Training Program</div><div style="font-size:0.8rem;color:#94a3b8;margin-bottom:20px;">7 Modules &middot; 50-Question Industry Knowledge Assessment &middot; 90-Day Action Plan</div>' + (score ? '<div style="font-size:0.8rem;color:#94a3b8;margin-bottom:24px;">Assessment Score: <strong style="color:#e5ae25;">' + score + ' (' + pct + ')</strong></div>' : '') + '<div style="display:flex;justify-content:space-between;align-items:center;margin-top:32px;border-top:1px solid #203b60;padding-top:20px;"><div style="text-align:left;"><div style="font-size:0.7rem;color:#94a3b8;">Date</div><div style="font-size:0.9rem;color:#f8fafc;">' + certDate + '</div></div><div style="text-align:right;"><div style="font-size:0.7rem;color:#94a3b8;">HEDS Academy</div><div style="font-size:0.9rem;color:#e5ae25;font-weight:600;">Daniel Looper</div></div></div><div style="margin-top:28px;display:flex;gap:12px;justify-content:center;"><button onclick="window.print()" style="background:#e5ae25;color:#0e1f38;border:none;padding:10px 24px;border-radius:6px;font-weight:700;cursor:pointer;font-size:0.85rem;">Print Certificate</button><button onclick="document.getElementById(\'cert_overlay\').style.display=\'none\'" style="background:transparent;color:#94a3b8;border:1px solid #203b60;padding:10px 24px;border-radius:6px;cursor:pointer;font-size:0.85rem;">Close</button></div></div>';
-    document.body.appendChild(cert);
-  }
 
   function switchMainSection(secId, btnEl) {
     document.querySelectorAll('.section-container').forEach(function(el) { el.classList.remove('active'); });
@@ -2877,8 +2836,7 @@ function printCertificateRSM() {
       "To maximize billable hours per technician regardless of machine demand",
       "To absorb the fixed dealership overhead through retail work orders"
     ]
-  ,
-    "correct": 0
+  
 },
   {
     "id": "q02",
@@ -2892,8 +2850,7 @@ function printCertificateRSM() {
       "90.0%",
       "96.0%"
     ]
-  ,
-    "correct": 1
+  
 },
   {
     "id": "q03",
@@ -2907,8 +2864,7 @@ function printCertificateRSM() {
       "Within 4 hours",
       "At the end of the business week"
     ]
-  ,
-    "correct": 2
+  
 },
   {
     "id": "q04",
@@ -2922,8 +2878,7 @@ function printCertificateRSM() {
       "Push all three directly into the heavy overhaul bay behind an ongoing engine overhaul",
       "Wash the damaged excavator first and park it on the ready line with a handwritten warning note"
     ]
-  ,
-    "correct": 1
+  
 },
   {
     "id": "q05",
@@ -2937,8 +2892,7 @@ function printCertificateRSM() {
       "The machine is sold and awaiting customer pickup",
       "The machine is scheduled for a 500-hour preventive maintenance service tomorrow"
     ]
-  ,
-    "correct": 1
+  
 },
   {
     "id": "q06",
@@ -2952,8 +2906,7 @@ function printCertificateRSM() {
       "Wait until tomorrow morning's shift to begin checking in the returned units",
       "Direct the wash rack and Fast-Track technicians to prioritize the three returned boom lifts ahead of low-demand machines"
     ]
-  ,
-    "correct": 3
+  
 },
   {
     "id": "q07",
@@ -2967,8 +2920,7 @@ function printCertificateRSM() {
       "30 days",
       "48 hours"
     ]
-  ,
-    "correct": 3
+  
 },
   {
     "id": "q08",
@@ -2982,8 +2934,7 @@ function printCertificateRSM() {
       "The total accumulated maintenance dollars spent on a unit over its lifetime",
       "The annual rental revenue generated by the machine"
     ]
-  ,
-    "correct": 1
+  
 },
   {
     "id": "q09",
@@ -2997,8 +2948,7 @@ function printCertificateRSM() {
       "2.7%",
       "11.25%"
     ]
-  ,
-    "correct": 2
+  
 },
   {
     "id": "q10",
@@ -3012,8 +2962,7 @@ function printCertificateRSM() {
       "12.0% to 18.0%",
       "25.0% to 35.0%"
     ]
-  ,
-    "correct": 1
+  
 },
   {
     "id": "q11",
@@ -3027,23 +2976,21 @@ function printCertificateRSM() {
       "Increase the daily rental rate on this specific unit to recover the repair cost",
       "Flag the unit for capital disposition/auction review, presenting repair costs vs. residual value to the Branch Manager and Fleet Director"
     ]
-  ,
-    "correct": 3
+  
 },
   {
     "id": "q12",
     "module": "Module 2: Fleet Economics & OEC",
     "module_id": "c_m2",
     "type": "calc",
-    "question": "A rental branch had 50 scheduled preventive maintenance (PM) services due last month. Technicians completed 46 of these services within the designated hour/mile interval window. What was the PM Compliance Rate?",
+    "question": "A rental branch had 50 scheduled preventive maintenance (PM) services due last month. Technicians completed 46 of these services within the designated hour/mile interval window. What percentage of the scheduled services were completed within the window?",
     "options": [
       "84.0%",
       "92.0%",
       "88.5%",
       "96.0%"
     ]
-  ,
-    "correct": 1
+  
 },
   {
     "id": "q13",
@@ -3057,8 +3004,7 @@ function printCertificateRSM() {
       "Over 100% of OEC",
       "35% to 40% of OEC"
     ]
-  ,
-    "correct": 3
+  
 },
   {
     "id": "q14",
@@ -3072,8 +3018,7 @@ function printCertificateRSM() {
       "Assign your top apprentice to rebuild all 5 machines in-house during slow periods",
       "Move the 5 machines to long-term rent at discounted rates to avoid seeing them in the shop"
     ]
-  ,
-    "correct": 0
+  
 },
   {
     "id": "q15",
@@ -3087,8 +3032,7 @@ function printCertificateRSM() {
       "20% Planned / 80% Reactive",
       "100% Reactive Maintenance"
     ]
-  ,
-    "correct": 0
+  
 },
   {
     "id": "q16",
@@ -3102,8 +3046,7 @@ function printCertificateRSM() {
       "Reducing technician pay rates for minor repairs",
       "Preventing high-velocity, quick-turn PMs and safety checks from getting blocked behind long-dwell major overhauls"
     ]
-  ,
-    "correct": 3
+  
 },
   {
     "id": "q17",
@@ -3117,8 +3060,7 @@ function printCertificateRSM() {
       "80.0%",
       "92.5%"
     ]
-  ,
-    "correct": 0
+  
 },
   {
     "id": "q18",
@@ -3132,8 +3074,7 @@ function printCertificateRSM() {
       "Close it within 45 days, with a warning at 30 days",
       "Close it at the end of the month with the rest of the open work orders"
     ]
-  ,
-    "correct": 1
+  
 },
   {
     "id": "q19",
@@ -3147,8 +3088,7 @@ function printCertificateRSM() {
       "Close the work order administratively and open a new one next week",
       "Push the disassembled excavator out into the yard to clear the bay"
     ]
-  ,
-    "correct": 0
+  
 },
   {
     "id": "q20",
@@ -3162,8 +3102,7 @@ function printCertificateRSM() {
       "Total parts expense divided by total labor hours",
       "Total hands-on mechanical repair hours divided by total completed repair jobs"
     ]
-  ,
-    "correct": 3
+  
 },
   {
     "id": "q21",
@@ -3177,8 +3116,7 @@ function printCertificateRSM() {
       "Assigning a dedicated yard porter/hostler to stage machines and pre-stage parts totes at technician bays",
       "Allowing technicians to leave machines parked wherever they finish working"
     ]
-  ,
-    "correct": 2
+  
 },
   {
     "id": "q22",
@@ -3192,8 +3130,7 @@ function printCertificateRSM() {
       "A repair that was physically completed days ago with the machine back in the yard, but the work order was never closed in the ERP",
       "A work order with unbilled customer damage"
     ]
-  ,
-    "correct": 2
+  
 },
   {
     "id": "q23",
@@ -3207,8 +3144,7 @@ function printCertificateRSM() {
       "Whenever maintenance or repair is performed on equipment where unexpected energization, startup, or release of stored energy could cause injury",
       "Whenever a machine is parked in the wash bay"
     ]
-  ,
-    "correct": 2
+  
 },
   {
     "id": "q24",
@@ -3222,8 +3158,7 @@ function printCertificateRSM() {
       "Mandate that the boom be mechanically locked with certified steel blocking or lowered fully to the ground before loosening hydraulic fittings",
       "Place a yellow warning cone next to the track"
     ]
-  ,
-    "correct": 2
+  
 },
   {
     "id": "q25",
@@ -3237,8 +3172,7 @@ function printCertificateRSM() {
       "An inspection completed only when the vehicle has a mechanical breakdown",
       "An annual inspection sticker on the windshield with no daily records required"
     ]
-  ,
-    "correct": 1
+  
 },
   {
     "id": "q26",
@@ -3252,8 +3186,7 @@ function printCertificateRSM() {
       "Log the overload on the monthly P&L and continue operating",
       "Remove excess tooling, spare parts inventory, or auxiliary fluid weight immediately to bring the vehicle within certified GVWR limits before dispatch"
     ]
-  ,
-    "correct": 3
+  
 },
   {
     "id": "q27",
@@ -3267,8 +3200,7 @@ function printCertificateRSM() {
       "Containment basins must hold at least 110% of the capacity of the largest enclosed tank to prevent spills from reaching soil or waterways",
       "Containment is only required for gasoline, not diesel or hydraulic fluid"
     ]
-  ,
-    "correct": 2
+  
 },
   {
     "id": "q28",
@@ -3282,8 +3214,7 @@ function printCertificateRSM() {
       "Only when the city water authority issues a warning citation",
       "Never, because separators are self-cleaning"
     ]
-  ,
-    "correct": 1
+  
 },
   {
     "id": "q29",
@@ -3297,8 +3228,7 @@ function printCertificateRSM() {
       "Hot-drain the filters for at least 12 to 24 hours, mechanically crush them to recover residual oil, and store in a designated recycling drum",
       "Bury them in the gravel retention yard"
     ]
-  ,
-    "correct": 2
+  
 },
   {
     "id": "q30",
@@ -3312,8 +3242,7 @@ function printCertificateRSM() {
       "Equipment dealers offer 100% free same-day courier service for all parts",
       "Rental shops maintain a known, fixed fleet of assets with predictable PM intervals, making slow-moving parts an unnecessary drain on working capital"
     ]
-  ,
-    "correct": 3
+  
 },
   {
     "id": "q31",
@@ -3327,8 +3256,7 @@ function printCertificateRSM() {
       "24 filters",
       "72 filters"
     ]
-  ,
-    "correct": 0
+  
 },
   {
     "id": "q32",
@@ -3342,8 +3270,7 @@ function printCertificateRSM() {
       "75% to 80%",
       "100% ordered on-demand after machine returns"
     ]
-  ,
-    "correct": 1
+  
 },
   {
     "id": "q33",
@@ -3357,8 +3284,7 @@ function printCertificateRSM() {
       "60 Days",
       "120 Days"
     ]
-  ,
-    "correct": 0
+  
 },
   {
     "id": "q34",
@@ -3372,8 +3298,7 @@ function printCertificateRSM() {
       "Cancel the work order and sell the excavator",
       "Tell the customer to rent an excavator from a competitor"
     ]
-  ,
-    "correct": 0
+  
 },
   {
     "id": "q35",
@@ -3387,8 +3312,7 @@ function printCertificateRSM() {
       "40.0%: fails the standard",
       "0.4%: meets the standard"
     ]
-  ,
-    "correct": 0
+  
 },
   {
     "id": "q36",
@@ -3402,8 +3326,7 @@ function printCertificateRSM() {
       "30% to 40% of total inventory value",
       "Obsolete inventory does not affect cash flow"
     ]
-  ,
-    "correct": 0
+  
 },
   {
     "id": "q37",
@@ -3417,8 +3340,7 @@ function printCertificateRSM() {
       "As a percentage of OEC: 15% to 25%, technician labor included",
       "As the average cost per work order"
     ]
-  ,
-    "correct": 1
+  
 },
   {
     "id": "q38",
@@ -3432,8 +3354,7 @@ function printCertificateRSM() {
       "Unit A (SPI 400), then Unit B (SPI 240), then Unit C (SPI 20)",
       "Sequence chronologically by which unit arrived in the yard first"
     ]
-  ,
-    "correct": 2
+  
 },
   {
     "id": "q39",
@@ -3447,8 +3368,7 @@ function printCertificateRSM() {
       "Over 40.0%",
       "Under 8.0% of total fleet days"
     ]
-  ,
-    "correct": 3
+  
 },
   {
     "id": "q40",
@@ -3462,8 +3382,7 @@ function printCertificateRSM() {
       "8.0%",
       "18.5%"
     ]
-  ,
-    "correct": 0
+  
 },
   {
     "id": "q41",
@@ -3477,8 +3396,7 @@ function printCertificateRSM() {
       "Clear the code remotely in the software portal and ignore it",
       "Send an email to the OEM warranty department"
     ]
-  ,
-    "correct": 1
+  
 },
   {
     "id": "q42",
@@ -3492,8 +3410,7 @@ function printCertificateRSM() {
       "To qualify for annual manufacturer sales rebates",
       "To determine if the machine needs a wash"
     ]
-  ,
-    "correct": 1
+  
 },
   {
     "id": "q43",
@@ -3507,8 +3424,7 @@ function printCertificateRSM() {
       "95.0%",
       "85.0%"
     ]
-  ,
-    "correct": 3
+  
 },
   {
     "id": "q44",
@@ -3522,8 +3438,7 @@ function printCertificateRSM() {
       "Missed Rental In-Service Stock-Out loss caused by unmanaged yard turnaround delay",
       "A fleet disposition trigger"
     ]
-  ,
-    "correct": 2
+  
 },
   {
     "id": "q45",
@@ -3537,8 +3452,7 @@ function printCertificateRSM() {
       "A weekly email memo sent on Friday afternoons",
       "A strict 15-minute standing huddle at 7:00 AM at the visual board covering counter demands, red telematics alerts, stuck bays, and tech assignments"
     ]
-  ,
-    "correct": 3
+  
 },
   {
     "id": "q46",
@@ -3552,8 +3466,7 @@ function printCertificateRSM() {
       "Tell the technician to wait by the bay until tomorrow's freight arrives",
       "Disassemble another customer machine to take its alternator"
     ]
-  ,
-    "correct": 0
+  
 },
   {
     "id": "q47",
@@ -3567,8 +3480,7 @@ function printCertificateRSM() {
       "Renegotiating regional equipment vendor discounts",
       "Ground-level triage, WIP scrub, yard flow stabilization, and establishing initial PM/hour-meter baselines"
     ]
-  ,
-    "correct": 3
+  
 },
   {
     "id": "q48",
@@ -3582,8 +3494,7 @@ function printCertificateRSM() {
       "Replacing all shop technicians with contractors",
       "Discontinuing the 15-minute morning standup"
     ]
-  ,
-    "correct": 0
+  
 },
   {
     "id": "q49",
@@ -3597,8 +3508,7 @@ function printCertificateRSM() {
       "A full operational executive scorecard detailing Maintenance % of OEC, Fleet Downtime %, Damage Recovery %, and net fleet readiness",
       "A dealership retail labor price matrix"
     ]
-  ,
-    "correct": 2
+  
 },
   {
     "id": "q50",
@@ -3612,30 +3522,13 @@ function printCertificateRSM() {
       "A personalized operational action plan featuring baseline KPIs, top 3 revenue leak corrections, an at-risk fleet review, and a signed leadership accountability commitment",
       "A receipt for a new pressure washer"
     ]
-  ,
-    "correct": 2
+  
 }
 ];
   var testAnswers = {};
   var testTimerInterval = null;
   var testTimeRemaining = 90 * 60;
 
-  function checkAccessCode() {
-    var code = document.getElementById('test_access_code').value.trim();
-    if (code !== 'HEDSTRAINS') {
-      var errEl = document.getElementById('test_signin_error');
-      errEl.style.display = 'block';
-      errEl.innerText = 'Invalid access code.';
-      return;
-    }
-    document.getElementById('test_info_fields').style.display = 'block';
-    document.getElementById('test_dealership_field').style.display = 'block';
-    document.getElementById('test_email_field').style.display = 'block';
-    document.getElementById('test_signin_error').style.display = 'none';
-    var btn = document.querySelector('#test_signin .btn');
-    btn.innerText = 'Start Assessment';
-    btn.setAttribute('onclick', 'startTest()');
-  }
 
   function startTest() {
     var name = document.getElementById('test_name').value.trim();
@@ -3722,73 +3615,27 @@ function printCertificateRSM() {
     }, 1000);
   }
 
+
   function submitTest() {
     if (testTimerInterval) clearInterval(testTimerInterval);
-    
     var studentName = document.getElementById('test_name') ? document.getElementById('test_name').value : '';
     var dealership = document.getElementById('test_dealership') ? document.getElementById('test_dealership').value : '';
     var email = document.getElementById('test_email') ? document.getElementById('test_email').value : '';
-    
     var answers = {};
     for (var key in testAnswers) {
-        if (testAnswers.hasOwnProperty(key)) { answers[key] = testAnswers[key]; }
+      if (Object.prototype.hasOwnProperty.call(testAnswers, key)) { answers[key] = testAnswers[key]; }
     }
-    
     var answeredCount = Object.keys(answers).length;
-    
-    // Grade in-browser using correct answers embedded in testQuestions
-    var correctCount = 0;
-    var incorrectByModule = {};
-    var moduleBreakdownHtml = '';
-    var focusAreasHtml = '';
-    
-    testQuestions.forEach(function(q) {
-        var userAnswer = testAnswers[q.id];
-        var correctAnswer = q.correct;
-        if (userAnswer !== undefined && userAnswer === correctAnswer) {
-            correctCount++;
-        } else {
-            if (!incorrectByModule[q.module]) incorrectByModule[q.module] = 0;
-            incorrectByModule[q.module]++;
-        }
-    });
-    
-    var pct = Math.round((correctCount / testQuestions.length) * 100);
-    
+    var now = new Date();
     document.getElementById('test_running').style.display = 'none';
     document.getElementById('test_results').style.display = 'block';
-    document.getElementById('result_score').innerText = correctCount + ' / ' + testQuestions.length;
-    document.getElementById('result_pct').innerText = pct + '%';
+    document.getElementById('result_answered').innerText = answeredCount + ' of ' + testQuestions.length;
     document.getElementById('result_name').innerText = studentName;
     document.getElementById('result_dealership').innerText = dealership;
-    var now = new Date();
-    document.getElementById('result_date').innerText = (now.getMonth()+1) + '/' + now.getDate() + '/' + now.getFullYear();
-    hedsSaveLocalResult({ track: TRACK_NAME, correct: correctCount, total: testQuestions.length, scorePct: pct, passed: hedsIsPassed(pct), candidateName: studentName, dealership: dealership, email: email, timestamp: (now.getMonth()+1) + '/' + now.getDate() + '/' + now.getFullYear(), answers: answers, relayStatus: 'pending' });
-    hedsShowPassStatus(pct);
-    
-    // Build module breakdown
-    if (Object.keys(incorrectByModule).length > 0) {
-        moduleBreakdownHtml = '<div style="margin-bottom:20px;">';
-        for (var mod in incorrectByModule) {
-            var totalInModule = testQuestions.filter(function(q) { return q.module === mod; }).length;
-            var correctInModule = totalInModule - incorrectByModule[mod];
-            moduleBreakdownHtml += '<div style="display:flex; justify-content:space-between; padding:8px 0; border-bottom:1px solid var(--border-color);"><span style="color:var(--fg);">' + mod + '</span><span style="color:var(--muted);">' + correctInModule + '/' + totalInModule + ' correct</span></div>';
-        }
-        moduleBreakdownHtml += '</div>';
-        
-        // Build focus areas
-        var sortedAreas = Object.keys(incorrectByModule).sort(function(a,b) { return incorrectByModule[b] - incorrectByModule[a]; });
-        focusAreasHtml = '<div style="padding:16px; background:var(--bg); border-radius:8px; border:1px solid var(--border-color);"><div style="font-weight:700; color:var(--accent-color); margin-bottom:8px;">Recommended Focus Areas</div><div style="color:var(--muted); font-size:0.9rem;">' + sortedAreas.slice(0,3).map(function(m) { return m + ' (' + incorrectByModule[m] + ' missed)'; }).join(', ') + '</div></div>';
-    } else {
-        moduleBreakdownHtml = '<div style="text-align:center; padding:20px; color:var(--accent-color); font-weight:700;">All questions correct, no focus areas needed.</div>';
-        focusAreasHtml = '';
-    }
-    
-    document.getElementById('result_module_breakdown').innerHTML = moduleBreakdownHtml;
-    document.getElementById('result_focus_areas').innerHTML = focusAreasHtml || '<div style="color:var(--muted); font-size:0.9rem;">Review the module breakdown above for areas needing attention.</div>';
-    
-    var payload = { track: TRACK_NAME, name: studentName, dealership: dealership, email: email, answers: answers, correctCount: correctCount, totalQuestions: testQuestions.length, scorePercentage: pct, answeredCount: answeredCount };
-    
+    document.getElementById('result_date').innerText = (now.getMonth() + 1) + '/' + now.getDate() + '/' + now.getFullYear();
+    // The answer key never reaches the browser. HEDS grades the submission and returns the result.
+    var payload = { track: TRACK_NAME, name: studentName, dealership: dealership, email: email, answers: answers, answeredCount: answeredCount, totalQuestions: testQuestions.length, submittedAt: now.toISOString() };
+    hedsPrepareMailto(payload);
     hedsRelayResults(payload);
   }
 
@@ -3796,21 +3643,6 @@ function printCertificateRSM() {
     if (confirm('Submit your test now? You cannot change your answers after submitting.')) submitTest();
   }
 
-  function retakeTest() {
-    try { localStorage.removeItem('heds_rental_test_result'); } catch(e) {}
-    document.getElementById('test_results').style.display = 'none';
-    document.getElementById('test_signin').style.display = 'block';
-    document.getElementById('test_running').style.display = 'none';
-    testAnswers = {};
-    if (testTimerInterval) clearInterval(testTimerInterval);
-    testTimeRemaining = 90 * 60;
-    var btn = document.querySelector('#test_signin .btn');
-    if (btn) { btn.innerText = 'Begin Assessment'; btn.setAttribute('onclick', 'checkAccessCode()'); }
-    document.getElementById('test_access_code').value = '';
-    document.getElementById('test_info_fields').style.display = 'none';
-    document.getElementById('test_dealership_field').style.display = 'none';
-    document.getElementById('test_email_field').style.display = 'none';
-  }
 
   function printResults() { window.print(); }
 
@@ -3827,70 +3659,40 @@ function printCertificateRSM() {
     calcAll();
     initCompletionTrackers();
     loadGateCheckboxes();
-    try {
-      var cached = localStorage.getItem('heds_rental_test_result');
-      if (cached) {
-        var r = JSON.parse(cached);
-        document.getElementById('test_signin').style.display = 'none';
-        document.getElementById('test_results').style.display = 'block';
-        document.getElementById('result_score').innerText = r.correct + ' / ' + r.total;
-        document.getElementById('result_pct').innerText = r.scorePct + '%';
-        document.getElementById('result_name').innerText = r.candidateName;
-        document.getElementById('result_dealership').innerText = r.dealership;
-        document.getElementById('result_date').innerText = r.timestamp;
-        hedsShowPassStatus(r.scorePct);
-        hedsRenderRelayStatus(r.relayStatus === 'ok' ? 'ok' : 'fail');
-      }
-    } catch(e) {}
   };
 </script>
 
 <script>
-  /* ===== HEDS assessment fixes (Oct 2026): pass mark, certificate gating, results relay, local results copy ===== */
-  var HEDS_PASS_MARK = 90; // percent required to pass and receive a certificate (Daniel, Oct 23 2026: 90% on all four dashboards)
-  var HEDS_RESULT_KEY = 'heds_rental_test_result'; // localStorage key for this device's copy of the latest result
+  /* ===== HEDS assessment submission: answers go to HEDS, which grades them ===== */
   function hedsEscape(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function(c) { return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
-  function hedsIsPassed(pct) { return Number(pct) >= HEDS_PASS_MARK; }
-  function hedsSaveLocalResult(rec) { try { localStorage.setItem(HEDS_RESULT_KEY, JSON.stringify(rec)); } catch (e) {} }
-  function hedsLoadLocalResult() { try { var r = localStorage.getItem(HEDS_RESULT_KEY); return r ? JSON.parse(r) : null; } catch (e) { return null; } }
+  // Submission only: answers go to HEDS, which grades them and returns the result.
   var HEDS_RELAY_MSG = {
-    pending: 'Sending your results to HEDS Academy\u2026',
-    ok: 'Results sent to HEDS Academy.',
-    fail: 'We could not confirm that your results reached HEDS Academy. Your results are saved in this browser. Please click "Print Results" (or take a screenshot) and send it to your facilitator.'
+    pending: 'Sending your answers to HEDS Academy\u2026',
+    ok: 'Your answers were sent to HEDS Academy. HEDS will grade them and return your result.',
+    fail: 'We could not confirm that your answers reached HEDS Academy. Use the email button below to send them, or print this page and give it to your facilitator.'
   };
   function hedsRenderRelayStatus(state) {
     var el = document.getElementById('result_relay_status');
     if (!el) return;
     el.textContent = HEDS_RELAY_MSG[state] || HEDS_RELAY_MSG.fail;
     el.style.color = state === 'ok' ? '#10b981' : (state === 'pending' ? '#94a3b8' : '#ef4444');
+    var wrap = document.getElementById('result_mailto_wrap');
+    if (wrap) wrap.style.display = state === 'ok' ? 'none' : 'block';
   }
-  function hedsSetRelayStatus(state) {
-    hedsRenderRelayStatus(state);
-    var r = hedsLoadLocalResult();
-    if (r) { r.relayStatus = state; hedsSaveLocalResult(r); }
-  }
-  function hedsShowPassStatus(pct) {
-    var passed = hedsIsPassed(pct);
-    var el = document.getElementById('result_pass_status');
-    if (el) {
-      el.textContent = passed
-        ? 'PASSED: ' + pct + '% (pass mark ' + HEDS_PASS_MARK + '%). Your certificate is available below.'
-        : 'NOT YET PASSED: ' + pct + '% (pass mark ' + HEDS_PASS_MARK + '%). Review the focus areas below and retake the assessment to earn your certificate.';
-      el.style.color = passed ? '#10b981' : '#ef4444';
+  function hedsSetRelayStatus(state) { hedsRenderRelayStatus(state); }
+  // Builds an email with the answers as plain letters, for use when the relay cannot be confirmed.
+  function hedsPrepareMailto(p) {
+    var letters = 'ABCDEFGH';
+    var lines = [];
+    for (var i = 0; i < testQuestions.length; i++) {
+      var id = testQuestions[i].id;
+      lines.push(id + ': ' + (p.answers[id] === undefined ? 'no answer' : letters.charAt(p.answers[id])));
     }
-    var btn = document.getElementById('btn_cert');
-    if (btn) btn.style.display = passed ? '' : 'none';
-    return passed;
+    var body = 'Track: ' + p.track + '\nName: ' + p.name + '\nCompany: ' + p.dealership + '\nEmail: ' + p.email + '\nSubmitted: ' + p.submittedAt + '\n\nAnswers\n' + lines.join('\n');
+    var a = document.getElementById('result_mailto');
+    if (a) a.href = 'mailto:daniel@hedsconsulting.net?subject=' + encodeURIComponent('HEDS assessment answers: ' + p.track + ': ' + p.name) + '&body=' + encodeURIComponent(body);
   }
-  function hedsCertificateRecord() {
-    var r = hedsLoadLocalResult();
-    if (!r || !hedsIsPassed(r.scorePct)) {
-      alert('A certificate is issued only after passing the assessment with a score of ' + HEDS_PASS_MARK + '% or higher.');
-      return null;
-    }
-    return r;
-  }
-  // Sends results as a CORS "simple request": text/plain body, no custom headers, so no preflight is needed.
+  // Sends the answers as a CORS "simple request": text/plain body, no custom headers, so no preflight is needed.
   // The Apps Script doPost reads the JSON from e.postData.contents.
   function hedsRelayResults(payload) {
     hedsSetRelayStatus('pending');
@@ -3909,6 +3711,8 @@ function printCertificateRSM() {
       }
     } catch (e) { hedsSetRelayStatus('fail'); }
   }
+  // Sends results as a CORS "simple request": text/plain body, no custom headers, so no preflight is needed.
+  // The Apps Script doPost reads the JSON from e.postData.contents.
 </script>
 <script>
   /* ===== HEDS shared navigation (identical on all four dashboards) ===== */
