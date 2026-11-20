@@ -52,7 +52,7 @@
         { h: 'Daniel audits onsite', t: 'Daniel Looper is the auditor. He walks the shop floor, reviews the parts counter and the rental yard, verifies the ERP reports and interviews your managers.' },
         { h: 'You get the findings report', t: 'HEDS delivers the findings report within 5 business days, and the report is included with every audit.' }
       ],
-      deliver: 'A findings report with dollar quantified leaks, a department by department scorecard against industry benchmarks, and a prioritized fix list ranked by dollar impact and ease of implementation. On the Single Location, Full Branch and Multi Branch audits, the managers on site sit the 50 question Industry Knowledge Assessment during the visit and get a score report.',
+      deliver: 'A findings report with dollar quantified leaks, a department by department scorecard against industry benchmarks, and a prioritized fix list ranked by dollar impact and ease of implementation.',
       see: { links: [{ t: 'Due Diligence Scorecard', h: 'due-diligence-scorecard.html' }], then: 'then book the ', next: { t: 'Operational Health Analysis', h: 'index.html#health-analysis' } },
       price: [
         { label: 'Single Location Audit, 1 day', amount: '$3,200' },
@@ -70,6 +70,7 @@
       title: 'Onsite Training Course, 5 Days',
       lead: 'Each course is five days onsite for one manager, one on one with a HEDS Qualified Instructor, built on your real data.',
       steps: [
+        { h: 'Take the assessment', t: 'Step one: the Industry Knowledge Assessment shows where to focus with each manager. Each manager sits the proctored 50 question assessment and gets a score report.' },
         { h: 'Scope the course', t: 'You book a discovery call, and HEDS recommends the right track and agrees the dates for the manager or managers who will attend.' },
         { h: 'Send the pre-work', t: 'Three to five days before the course, you send four standard reports, and HEDS returns a one page Current State Scorecard.' },
         { h: 'Five days onsite', t: 'The manager spends five days at your location with classroom work, floor time and live process redesign using your real data.' },
