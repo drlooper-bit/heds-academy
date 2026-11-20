@@ -39,7 +39,7 @@
       deliver: 'Your branch performance against HEDS benchmarks, a projection of what closing each gap is worth in dollars calculated from your own numbers, and a written report with recommendations for the branch.',
       see: { links: [{ t: 'Dealer KPI Library', h: 'dealer-kpi-library.html' }], then: 'then book the ', next: { t: 'Operational Health Analysis', h: 'index.html#health-analysis' } },
       price: [ { label: 'Operational Health Analysis, one branch, remote', amount: '$1,600' } ],
-      note: 'The Operational Health Analysis is done remotely. If you want Daniel onsite, the Single Location Audit is the onsite option.',
+      note: 'The Operational Health Analysis is done remotely. If you want Daniel onsite, the Single Location Audit is the onsite option. If you book the $3,200 Single Location Audit within 30 days, your $1,600 is credited toward it, so you pay $1,600 more. The credit applies once.',
       extra: true, travel: false,
       cta: { label: 'Book a Discovery Call', href: BOOK }
     },
