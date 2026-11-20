@@ -24,6 +24,7 @@
         { h: 'You get the snapshot', t: 'HEDS returns a short snapshot of where your location stands and calls out your biggest dollar leak.' }
       ],
       deliver: 'A short written snapshot that shows where your location stands on a handful of KPIs, with your biggest dollar leak called out so you know where to start.',
+      see: { links: [{ t: 'Dealer KPI Library', h: 'dealer-kpi-library.html' }], then: 'then book an Operational Health Check.' },
       price: [ { label: 'Initial Snapshot', amount: null } ] // PRICE-TBC
     },
 
@@ -35,6 +36,7 @@
         { h: 'You get the review', t: 'HEDS delivers the review within 48 hours of receiving your reports.' }
       ],
       deliver: 'Your current performance beside HEDS benchmarks, a projection of what closing each gap is worth in dollars calculated from your own numbers, and an account of where each department is struggling.',
+      see: { links: [{ t: 'Dealer KPI Library', h: 'dealer-kpi-library.html' }], then: 'then book an Operational Health Check.' },
       price: [ { label: 'Report Review on its own', amount: '$1,600' } ],
       note: 'If you book the onsite day of the Operational Health Check within 30 days, the full $1,600 is credited toward the $2,200 Operational Health Check, so you pay $600 more at that point.',
       extra: false, travel: false,
@@ -50,6 +52,7 @@
         { h: 'One day onsite', t: 'Daniel comes to your dealership for one day to see why the gaps are happening, which means looking at the process, whether it is followed, and whether following it would fix the problem.' }
       ],
       deliver: 'Your current performance beside HEDS benchmarks, a projection of what closing each gap is worth in dollars calculated from your own numbers, and an in depth account of where each department is struggling and whether the cause is people or process.',
+      see: { links: [{ t: 'Dealer KPI Library', h: 'dealer-kpi-library.html' }], then: 'then book your Operational Health Check.' },
       price: [ { label: 'Operational Health Check, flat fee', amount: '$2,200' } ],
       note: 'The price covers the report review and one day onsite. If you bought the Report Review first and book the onsite day within 30 days, the $1,600 review fee is credited in full.',
       extra: true, travel: true,
@@ -65,6 +68,7 @@
         { h: 'You get the findings report', t: 'HEDS delivers the findings report within 5 business days, and the report is included with every audit.' }
       ],
       deliver: 'A findings report with dollar quantified leaks, a department by department scorecard against industry benchmarks, and a prioritized fix list ranked by dollar impact and ease of implementation.',
+      see: { links: [{ t: 'Due Diligence Scorecard', h: 'due-diligence-scorecard.html' }], then: 'then book an Operational Health Check.' },
       price: [
         { label: 'Single Location Audit, 1 day', amount: null },        // PRICE-TBC
         { label: 'Full Branch Audit, 2 days', amount: null },           // PRICE-TBC
@@ -85,6 +89,7 @@
         { h: 'Leave with a plan', t: 'By the end of the week the manager has built a personal scorecard and a written 90 day action plan from your own numbers.' }
       ],
       deliver: 'A personal scorecard, a signed and dated 90 day action plan, an interactive dashboard you keep, the 50 question Industry Knowledge Assessment with a score report, implementation templates and a certificate of completion.',
+      see: { links: [{ t: 'Service Manager', h: 'service-manager-dashboard.html' }, { t: 'Parts Manager', h: 'parts-manager-dashboard.html' }, { t: 'Rental Manager', h: 'rental-manager-dashboard.html' }, { t: 'Rental Service Manager', h: 'rental-service-manager-dashboard.html' }], then: 'then take the $300 Industry Knowledge Assessment.' },
       price: [
         { label: 'Service Manager course', amount: null },        // PRICE-TBC
         { label: 'Parts Manager course', amount: null },         // PRICE-TBC
@@ -120,6 +125,7 @@
       ],
       // DELIVERABLE-TBC: Daniel to confirm the package name, scope and report format for fleet owners.
       deliver: 'A written read of each vendor\u2019s service and parts performance against the HEDS KPI targets, with the maintenance cost and downtime history for each machine you want to judge.',
+      see: { links: [{ t: 'fleet KPI table', h: 'fleet-owners.html#fleet-kpis' }], then: 'then book a discovery call to talk about your fleet.' },
       price: [ { label: 'Fleet owner package', amount: null } ], // PRICE-TBC
       extra: true, travel: true,
       cta: { label: 'Book a Discovery Call', href: BOOK }
@@ -168,6 +174,15 @@
     if (o.extra) fine.push(EXTRA);
     if (o.travel) fine.push(TRAVEL);
 
+    var see = '';
+    if (o.see) {
+      var ls = o.see.links.map(function (l) { return '<a href="' + l.h + '">' + esc(l.t) + '</a>'; });
+      var names = ls.length > 1 ? ls.slice(0, -1).join(', ') + ' or ' + ls[ls.length - 1] : ls[0];
+      var noun = (id === 'training') ? ' dashboard' : '';
+      var lead = (id === 'snapshot' || id === 'review' || id === 'ohc') ? 'on the ' : (id === 'audit' ? 'on the ' : 'on the ');
+      see = '<p class="ho-see">See where your shop stands ' + lead + names + noun + ', ' + esc(o.see.then) + '</p>';
+    }
+
     var cta = o.cta ? '<p class="ho-cta"><a class="cta-btn" href="' + o.cta.href + '" target="_blank" rel="noopener">' +
       esc(o.cta.label) + '<span class="sr-only"> (opens in a new tab)</span></a></p>' : '';
 
@@ -182,7 +197,7 @@
           '<div class="ho-box ho-price' + (anyTbc ? ' ho-price-tbc' : '') + '"><h4>Price</h4>' + rows +
             (o.note ? '<p class="ho-note">' + esc(o.note) + '</p>' : '') + '</div>' +
         '</div>' +
-        (fine.length ? '<p class="ho-fine">' + esc(fine.join(' ')) + '</p>' : '') +
+        (fine.length ? '<p class="ho-fine">' + esc(fine.join(' ')) + '</p>' : '') + see +
         cta +
       '</section>';
     return { html: html, tbc: anyTbc };
