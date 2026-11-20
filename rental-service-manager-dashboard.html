@@ -1559,7 +1559,7 @@ table {
           <div style="margin-top:10px; font-size:0.85rem;">
             <strong>HEDS Target Benchmarks:</strong>
             <ul style="padding-left:16px; margin-top:4px;">
-              <li><strong>Fleet Downtime %:</strong> &lt; 8% of total fleet days (Critical alert: &gt;12%)</li>
+              <li><strong>Fleet Downtime %:</strong> down days divided by available days, times 100. Under 8% (Critical alert: &gt;12%)</li>
               <li><strong>Maintenance Cost:</strong> measured as % of OEC, not % of revenue: 8% of OEC or less, tech labor excluded (Module 2)</li>
               <li><strong>Damage Recovery Rate:</strong> &ge; 85% of customer abuse recovered</li>
               <li><strong>Lost Revenue from In-Service Stock-Outs:</strong> $0 / Month</li>
@@ -1898,8 +1898,8 @@ table {
       <div class="card">
         <div class="card-title">Enter Your Branch Numbers: Fleet Downtime</div>
         <div class="form-group">
-          <label for="dm4_total_days">Your Total Fleet Days (units &times; days in period)</label>
-          <input type="number" id="dm4_total_days" value="4500" placeholder="Enter total fleet days" oninput="calcMod4()">
+          <label for="dm4_total_days">Your Available Days (units &times; days in period)</label>
+          <input type="number" id="dm4_total_days" value="4500" placeholder="Enter available days" oninput="calcMod4()">
         </div>
         <div class="form-group">
           <label for="dm4_down_days">Your Days Down in Shop</label>
@@ -3402,12 +3402,12 @@ table {
     "module": "Module 6: Economic Downtime",
     "module_id": "c_m6",
     "type": "mc",
-    "question": "What is the benchmark target for Fleet Downtime % (days units spend in maintenance vs total fleet days) across a healthy equipment rental branch?",
+    "question": "What is the benchmark target for Fleet Downtime % (down days divided by available days) across a healthy equipment rental branch?",
     "options": [
       "15.0% to 20.0%",
       "25.0% to 35.0%",
       "Over 40.0%",
-      "Under 8.0% of total fleet days"
+      "Under 8.0% of available days"
     ]
   
 },

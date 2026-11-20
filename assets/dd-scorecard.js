@@ -52,7 +52,7 @@
       { inputs: [F('mc', 'Annual maintenance cost, no technician labor', '$'), F('oec2', 'Fleet original equipment cost', '$')], need: ['mc', 'oec2'],
         outputs: [{ id: 'maintenance_cost_oec', f: function (v) { return pct(v.mc, v.oec2); },
           why: 'A very low maintenance cost can mean deferred maintenance, which flatters earnings today and leaves a repair bill for the buyer.' }] },
-      { inputs: [F('dd', 'Down days', 'days'), F('fd', 'Total fleet days', 'days')], need: ['dd', 'fd'],
+      { inputs: [F('dd', 'Down days', 'days'), F('fd', 'Available days', 'days')], need: ['dd', 'fd'],
         outputs: [{ id: 'fleet_downtime', f: function (v) { return pct(v.dd, v.fd); },
           why: 'Down days cut revenue and often point to maintenance problems that the earnings do not yet show.' }] }
     ] },
