@@ -1,0 +1,89 @@
+.worked-calc {
+  margin: 14px 0 8px;
+  padding: 14px 16px;
+  background: rgba(0,0,0,0.25);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius, 8px);
+}
+.worked-calc .wc-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+.worked-calc .wc-title {
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent-color, #e5ae25);
+}
+.worked-calc .wc-load {
+  background: transparent;
+  color: var(--accent-color, #e5ae25);
+  border: 1px solid var(--accent-color, #e5ae25);
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+.worked-calc .wc-load:hover { background: rgba(229, 174, 37, 0.12); }
+.worked-calc .wc-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px 16px;
+}
+.worked-calc .wc-grid.cols-3 { grid-template-columns: 1fr 1fr 1fr; }
+.worked-calc .form-group { margin: 0; }
+.worked-calc .form-group label {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--muted, #94a3b8);
+  margin-bottom: 4px;
+}
+.worked-calc .form-group input,
+.worked-calc input[type="number"] {
+  width: 100%;
+  padding: 8px 10px;
+  font-size: 0.95rem;
+  color: var(--fg, #fff);
+  background: var(--bg, #0e1f38);
+  border: 1px solid var(--border-color, #334155);
+  border-radius: 6px;
+  box-sizing: border-box;
+}
+.worked-calc .wc-results {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 10px;
+  margin-top: 12px;
+}
+.worked-calc .metric-box { margin: 0; }
+.worked-calc .wc-rows { width: 100%; overflow-x: auto; margin-top: 4px; }
+.worked-calc .wc-rows table { width: 100%; border-collapse: collapse; font-size: 0.8rem; }
+.worked-calc .wc-rows th {
+  text-align: left;
+  padding: 6px 8px;
+  color: var(--accent-color, #e5ae25);
+  border-bottom: 2px solid var(--accent-color, #e5ae25);
+}
+.worked-calc .wc-rows td { padding: 6px 8px; border-bottom: 1px solid var(--border-color, #334155); }
+.worked-calc .wc-rows input[type="number"],
+.worked-calc .wc-rows input[type="text"] {
+  width: 100%;
+  min-width: 72px;
+  padding: 6px 8px;
+  font-size: 0.85rem;
+  color: var(--fg, #fff);
+  background: var(--bg, #0e1f38);
+  border: 1px solid var(--border-color, #334155);
+  border-radius: 6px;
+  box-sizing: border-box;
+}
+@media (max-width: 700px) {
+  .worked-calc .wc-grid,
+  .worked-calc .wc-grid.cols-3 { grid-template-columns: 1fr; }
+}

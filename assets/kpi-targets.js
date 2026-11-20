@@ -145,7 +145,43 @@
       rules: [{ op: 'gte', v: 85, grade: 'PASS' }, { op: 'gte', v: 70, grade: 'WARN' }], otherwise: { grade: 'FAIL' } },
     telematics_triage: { name: 'Telematics Triage', unit: '%',
       text: 'Rental targets are covered in training. The Rental Service dashboard grades 90% or more as a pass.',
-      rules: [{ op: 'gte', v: 90, grade: 'PASS' }, { op: 'gte', v: 75, grade: 'WARN' }], otherwise: { grade: 'FAIL' } }
+      rules: [{ op: 'gte', v: 90, grade: 'PASS' }, { op: 'gte', v: 75, grade: 'WARN' }], otherwise: { grade: 'FAIL' } },
+    turned_away_revenue: { name: 'Turned-Away Revenue', unit: '$',
+      text: 'Rental targets are covered in training. $0/mo in turned-away revenue (every request filled).',
+      rules: [{ op: 'lte', v: 0, grade: 'PASS' }, { op: 'lte', v: 15000, grade: 'WARN' }], otherwise: { grade: 'FAIL' } },
+    idle_fleet: { name: 'Idle Fleet', unit: '%',
+      text: 'Rental targets are covered in training. Under 25% idle fleet (75% or more are on rent or in active shop work).',
+      rules: [{ op: 'lt', v: 25, grade: 'PASS' }, { op: 'lte', v: 35, grade: 'WARN' }], otherwise: { grade: 'FAIL' } },
+    net_contribution_per_unit: { name: 'Net Contribution per Unit', unit: '$',
+      text: 'Rental targets are covered in training. Positive net contribution per unit (class is profitable).',
+      rules: [{ op: 'gt', v: 5000, grade: 'PASS' }, { op: 'gte', v: 0, grade: 'WARN' }], otherwise: { grade: 'FAIL' } },
+    quote_to_conversion: { name: 'Quote to Conversion', unit: '%',
+      text: 'Rental targets are covered in training. 60% or more quote-to-conversion rate.',
+      rules: [{ op: 'gte', v: 60, grade: 'PASS' }, { op: 'gte', v: 45, grade: 'WARN' }], otherwise: { grade: 'FAIL' } },
+    freight_recovery: { name: 'Freight Recovery', unit: '%',
+      text: 'Rental targets are covered in training. 80% or more of total freight cost recovered.',
+      rules: [{ op: 'gte', v: 80, grade: 'PASS' }, { op: 'gte', v: 60, grade: 'WARN' }], otherwise: { grade: 'FAIL' } },
+    debt_to_asset: { name: 'Debt-to-Asset Ratio', unit: '%',
+      text: 'Rental targets are covered in training. Under 30% (healthy leverage, majority equity).',
+      rules: [{ op: 'lte', v: 30, grade: 'PASS' }, { op: 'lte', v: 45, grade: 'WARN' }], otherwise: { grade: 'FAIL' } },
+    collection_rate: { name: 'Collection Rate', unit: '%',
+      text: 'Rental targets are covered in training. 95% or more of invoiced rental revenue.',
+      rules: [{ op: 'gte', v: 95, grade: 'PASS' }], otherwise: { grade: 'FAIL' } },
+    billing_reconciliation: { name: 'Billing Reconciliation Rate', unit: '%',
+      text: 'Rental targets are covered in training. 90% or more of active contracts reconciled monthly.',
+      rules: [{ op: 'gte', v: 90, grade: 'PASS' }], otherwise: { grade: 'FAIL' } },
+    personnel_expense: { name: 'Personnel Expense', unit: '%',
+      text: 'Rental targets are covered in training. Under 35% of revenue (independent target: 15% to 30%).',
+      rules: [{ op: 'lt', v: 35, grade: 'PASS' }], otherwise: { grade: 'FAIL' } },
+    revenue_growth: { name: 'Revenue Growth', unit: '%',
+      text: 'Rental targets are covered in training. 10% or more year-over-year.',
+      rules: [{ op: 'gte', v: 10, grade: 'PASS' }], otherwise: { grade: 'FAIL' } },
+    compliance_audit: { name: 'Branch Compliance Audit Score', unit: '%',
+      text: 'Rental targets are covered in training. 95% or more on all 20-point facility and mobile audits.',
+      rules: [{ op: 'gte', v: 95, grade: 'PASS' }, { op: 'gte', v: 90, grade: 'WARN' }], otherwise: { grade: 'FAIL' } },
+    standup_attendance: { name: 'Standup Attendance Rate', unit: '%',
+      text: 'Rental targets are covered in training. 100% (5 of 5 business days).',
+      rules: [{ op: 'gte', v: 100, grade: 'PASS' }], otherwise: { grade: 'FAIL' } },
   };
 
   function grade(id, value) {
@@ -161,6 +197,7 @@
     }
     return { grade: t.otherwise.grade, label: t.otherwise.label || '' };
   }
+
 
   /*
     Core KPIs per section. Each department scorecard shows these (8 at most) as core.
