@@ -2228,9 +2228,9 @@ table {
               <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600;">Revenue Per Unit (by class)</td><td style="padding:8px;">Class revenue &divide; unit count</td><td style="padding:8px;">Positive net contribution</td><td style="padding:8px;">PASS/WARN/FAIL</td></tr>
               <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600;">Rate Realization</td><td style="padding:8px;">Actual rate &divide; rack rate</td><td style="padding:8px;">&ge; 90%</td><td style="padding:8px;">PASS/WARN/FAIL</td></tr>
               <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600;">Damage Recovery Rate</td><td style="padding:8px;">Collected &divide; repair cost</td><td style="padding:8px;">&ge; 85%</td><td style="padding:8px;">PASS/WARN/FAIL</td></tr>
-              <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600;">Equipment Downtime %</td><td style="padding:8px;">Down days &divide; available days</td><td style="padding:8px;">&lt; 8%</td><td style="padding:8px;">PASS/WARN/FAIL</td></tr>
+              <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600;">Fleet Downtime %</td><td style="padding:8px;">Down days &divide; available days</td><td style="padding:8px;">&lt; 8%</td><td style="padding:8px;">PASS/WARN/FAIL</td></tr>
               <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600;">Maintenance Cost % of OEC</td><td style="padding:8px;">Maint cost (tech labor excluded) &divide; fleet OEC</td><td style="padding:8px;">&le; 8%</td><td style="padding:8px;">PASS/WARN/FAIL</td></tr>
-              <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600;">EBITDA Margin</td><td style="padding:8px;">EBITDA &divide; rental revenue</td><td style="padding:8px;">&gt; 30%</td><td style="padding:8px;">PASS/WARN/FAIL</td></tr>
+              <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600;">EBITDA Margin</td><td style="padding:8px;">EBITDA &divide; rental revenue</td><td style="padding:8px;">30% to 46%</td><td style="padding:8px;">PASS or red flag below 30%</td></tr>
               <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600;">Personnel Expense %</td><td style="padding:8px;">Wages+benefits &divide; revenue</td><td style="padding:8px;">&lt; 35%</td><td style="padding:8px;">PASS/WARN/FAIL</td></tr>
               <tr><td style="padding:8px; font-weight:600;">Debt-to-Asset Ratio</td><td style="padding:8px;">Long-term debt &divide; total OEC</td><td style="padding:8px;">&lt; 30%</td><td style="padding:8px;">PASS/WARN/FAIL</td></tr>
             </tbody>
@@ -2272,7 +2272,7 @@ table {
         <div style="margin-top:8px; font-size:0.85rem;">
           <strong>HEDS Target Benchmarks:</strong>
           <ul style="padding-left:16px; margin-top:4px;">
-            <li><strong>EBITDA Margin:</strong> &gt; 30% of rental revenue (top quartile: &gt; 35%)</li>
+            <li><strong>EBITDA Margin:</strong> 30% to 46% of rental revenue. Below 30% is a red flag.</li>
             <li><strong>Personnel Expense:</strong> &lt; 35% of revenue (independent target: 15% to 30%)</li>
             <li><strong>Revenue Growth:</strong> &ge; 10% year-over-year</li>
           </ul>
@@ -2307,7 +2307,7 @@ table {
     <button class="tab-btn active" onclick="switchDashTab('dash_m1', this)">M1: Time Utilization</button>
     <button class="tab-btn" onclick="switchDashTab('dash_m2', this)">M2: Dollar Utilization</button>
     <button class="tab-btn" onclick="switchDashTab('dash_m3', this)">M3: Revenue &amp; Cost/Class</button>
-        <button class="tab-btn" onclick="switchDashTab('dash_m5', this)">M4: Equipment Downtime</button>
+        <button class="tab-btn" onclick="switchDashTab('dash_m5', this)">M4: Fleet Downtime</button>
     <button class="tab-btn" onclick="switchDashTab('dash_m6', this)">M5: Rate Realization</button>
     <button class="tab-btn" onclick="switchDashTab('dash_m7', this)">M6: Damage Recovery</button>
     <button class="tab-btn" onclick="switchDashTab('dash_m8', this)">M7: Equip-to-Orders</button>
@@ -2348,7 +2348,7 @@ table {
             <div id="dm1_status" class="metric-status status-pass">PASS</div>
           </div>
           <div class="metric-box">
-            <div style="font-size:0.8rem; color:var(--muted); font-weight:700;">IDLE FLEET %</div>
+            <div style="font-size:0.8rem; color:var(--muted); font-weight:700;">IDLE FLEET % (INVERSE VIEW OF TIME UTILIZATION)</div>
             <div class="metric-val" id="dm1_res_idle">23.3%</div>
             <div id="dm1_idle_status" class="metric-status status-pass">PASS</div>
           </div>
@@ -2405,6 +2405,7 @@ table {
 
   <!-- DASH M3: Revenue & Cost Per Class -->
   <div id="dash_m3" class="tab-content">
+    <p style="color:var(--muted); font-size:0.85rem; margin-bottom:10px;">Net Contribution per Unit is a secondary measure.</p>
     <div class="card">
       <div class="card-title">Revenue &amp; Cost Per Class: Net Contribution Model</div>
       <p style="color:var(--muted); font-size:0.9rem; margin-bottom:16px;">Enter each equipment class with its unit count, annual rental revenue, and annual ownership cost (maintenance + depreciation + insurance + interest). The table calculates Revenue/Unit, Cost/Unit, and Net Contribution/Unit per class.</p>
@@ -2433,7 +2434,7 @@ table {
     <div class="card">
       <div class="card-title">Class Performance Summary</div>
       <div class="metric-box">
-        <div style="font-size:0.8rem; color:var(--muted); font-weight:700;">FLEET AVG NET CONTRIBUTION / UNIT</div>
+        <div style="font-size:0.8rem; color:var(--muted); font-weight:700;">SECONDARY: FLEET AVG NET CONTRIBUTION / UNIT</div>
         <div class="metric-val" id="dm3_avg" style="color:var(--accent-color);">$--</div>
       </div>
       <div class="metric-box">
@@ -2449,11 +2450,11 @@ table {
     </div>
   </div>
 
-  <!-- DASH M5: Equipment Downtime -->
+  <!-- DASH M5: Fleet Downtime -->
   <div id="dash_m5" class="tab-content">
     <div id="kpi-equipment-downtime" class="grid-2">
       <div class="card">
-        <div class="card-title">Enter Your Branch Numbers: Equipment Downtime</div>
+        <div class="card-title">Enter Your Branch Numbers: Fleet Downtime</div>
         <div class="form-group">
           <label for="dm5_total_avail_days">Total Fleet Available Days (units &times; days in period)</label>
           <input type="number" id="dm5_total_avail_days" value="4380" placeholder="Enter total fleet available days" oninput="calcMod5()">
@@ -2465,7 +2466,7 @@ table {
       </div>
       <div>
         <div class="card">
-          <div class="card-title">Equipment Downtime Diagnostic</div>
+          <div class="card-title">Fleet Downtime Diagnostic</div>
           <div class="metric-box">
             <div style="font-size:0.8rem; color:var(--muted); font-weight:700;">EQUIPMENT DOWNTIME %</div>
             <div class="metric-val" id="dm5_res">7.2%</div>
@@ -2580,6 +2581,7 @@ table {
 
   <!-- DASH M8: Equipment-to-Orders Ratio -->
   <div id="dash_m8" class="tab-content">
+    <p style="color:var(--muted); font-size:0.85rem; margin-bottom:10px;">Quote to Conversion, Transport Cost per Move and Freight Recovery are secondary measures. The Rental Leak diagnostic turns gaps on the core KPIs into dollars. It is a calculation, not a KPI.</p>
     <div id="kpi-equipment-to-orders" class="grid-2">
       <div class="card">
         <div class="card-title">Enter Your Branch Numbers: Equipment-to-Orders Ratio</div>
@@ -2637,16 +2639,16 @@ table {
             <div class="metric-val" id="dm8_stockout" style="color:var(--danger);">$23,800</div>
           </div>
           <div class="metric-box">
-            <div style="font-size:0.8rem; color:var(--muted); font-weight:700;">QUOTE-TO-CONVERSION %</div>
+            <div style="font-size:0.8rem; color:var(--muted); font-weight:700;">SECONDARY: QUOTE-TO-CONVERSION %</div>
             <div class="metric-val" id="dm8_quote_conv">61.2%</div>
             <div id="dm8_quote_status" class="metric-status status-pass">PASS</div>
           </div>
           <div class="metric-box">
-            <div style="font-size:0.8rem; color:var(--muted); font-weight:700;">TRANSPORT COST / MOVE</div>
+            <div style="font-size:0.8rem; color:var(--muted); font-weight:700;">SECONDARY: TRANSPORT COST / MOVE</div>
             <div class="metric-val" id="dm8_transport_cost">$320</div>
           </div>
           <div class="metric-box">
-            <div style="font-size:0.8rem; color:var(--muted); font-weight:700;">FREIGHT RECOVERY %</div>
+            <div style="font-size:0.8rem; color:var(--muted); font-weight:700;">SECONDARY: FREIGHT RECOVERY %</div>
             <div class="metric-val" id="dm8_freight_recov">82.5%</div>
             <div id="dm8_freight_status" class="metric-status status-pass">PASS</div>
           </div>
@@ -2766,6 +2768,7 @@ table {
             </tr>
           </thead>
           <tbody>
+            <tr><td colspan="4" style="padding:12px 10px 6px 10px; font-weight:800; font-size:0.8rem; letter-spacing:1px; text-transform:uppercase; color:var(--accent-color); border-bottom:2px solid var(--border-color);">Core KPIs (8)</td></tr>
             <tr style="border-bottom:1px solid var(--border-color);">
               <td style="padding:10px; font-weight:600;">Time Utilization</td>
               <td style="padding:10px;" id="s_val_time">--</td>
@@ -2779,16 +2782,16 @@ table {
               <td style="padding:10px;" id="s_stat_dollar">--</td>
             </tr>
             <tr style="border-bottom:1px solid var(--border-color);">
-              <td style="padding:10px; font-weight:600;">Revenue Per Unit (by class avg)</td>
-              <td style="padding:10px;" id="s_val_rpu">--</td>
-              <td style="padding:10px;">Positive net contribution</td>
-              <td style="padding:10px;" id="s_stat_rpu">--</td>
+              <td style="padding:10px; font-weight:600;">Maintenance Cost as a Percent of OEC</td>
+              <td style="padding:10px;" id="s_val_maint">--</td>
+              <td style="padding:10px;">&le; 8% (WARN 8.1 to 10%)</td>
+              <td style="padding:10px;" id="s_stat_maint">--</td>
             </tr>
             <tr style="border-bottom:1px solid var(--border-color);">
-              <td style="padding:10px; font-weight:600;">Equipment Downtime %</td>
-              <td style="padding:10px;" id="s_val_down">--</td>
-              <td style="padding:10px;">&lt; 8%</td>
-              <td style="padding:10px;" id="s_stat_down">--</td>
+              <td style="padding:10px; font-weight:600;">EBITDA Margin</td>
+              <td style="padding:10px;" id="s_val_ebitda">--</td>
+              <td style="padding:10px;">30% to 46% (below 30% red flag)</td>
+              <td style="padding:10px;" id="s_stat_ebitda">--</td>
             </tr>
             <tr style="border-bottom:1px solid var(--border-color);">
               <td style="padding:10px; font-weight:600;">Rate Realization</td>
@@ -2797,40 +2800,41 @@ table {
               <td style="padding:10px;" id="s_stat_rate">--</td>
             </tr>
             <tr style="border-bottom:1px solid var(--border-color);">
+              <td style="padding:10px; font-weight:600;">Equipment to Orders Ratio</td>
+              <td style="padding:10px;" id="s_val_eo">--</td>
+              <td style="padding:10px;">0.9 to 1.2</td>
+              <td style="padding:10px;" id="s_stat_eo">--</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border-color);">
+              <td style="padding:10px; font-weight:600;">Fleet Downtime %</td>
+              <td style="padding:10px;" id="s_val_down">--</td>
+              <td style="padding:10px;">&lt; 8%</td>
+              <td style="padding:10px;" id="s_stat_down">--</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border-color);">
               <td style="padding:10px; font-weight:600;">Damage Recovery Rate</td>
               <td style="padding:10px;" id="s_val_dmg">--</td>
               <td style="padding:10px;">&ge; 85%</td>
               <td style="padding:10px;" id="s_stat_dmg">--</td>
             </tr>
+            <tr><td colspan="4" style="padding:12px 10px 6px 10px; font-weight:800; font-size:0.8rem; letter-spacing:1px; text-transform:uppercase; color:var(--muted); border-bottom:2px solid var(--border-color);">Secondary measures and leak calculations</td></tr>
             <tr style="border-bottom:1px solid var(--border-color);">
-              <td style="padding:10px; font-weight:600;">Equipment-to-Orders Ratio</td>
-              <td style="padding:10px;" id="s_val_eo">--</td>
-              <td style="padding:10px;">0.9 to 1.2</td>
-              <td style="padding:10px;" id="s_stat_eo">--</td>
+              <td style="padding:10px; font-weight:600;">Net Contribution per Unit (revenue per unit by class average)</td>
+              <td style="padding:10px;" id="s_val_rpu">--</td>
+              <td style="padding:10px;">Positive net contribution</td>
+              <td style="padding:10px;" id="s_stat_rpu">--</td>
+            </tr>
+            <tr>
+              <td style="padding:10px; font-weight:600;">Customer Churn (quarterly)</td>
+              <td style="padding:10px;" id="s_val_churn">--</td>
+              <td style="padding:10px;">&lt; 10%</td>
+              <td style="padding:10px;" id="s_stat_churn">--</td>
             </tr>
             <tr style="border-bottom:1px solid var(--border-color);">
               <td style="padding:10px; font-weight:600;">Rental Leak Diagnostic</td>
               <td style="padding:10px;" id="s_val_leak">--</td>
               <td style="padding:10px;">$0 / mo</td>
               <td style="padding:10px;" id="s_stat_leak">--</td>
-            </tr>
-            <tr style="border-bottom:1px solid var(--border-color);">
-              <td style="padding:10px; font-weight:600;">Maintenance Cost % of OEC</td>
-              <td style="padding:10px;" id="s_val_maint">--</td>
-              <td style="padding:10px;">&le; 8% (WARN 8.1 to 10%)</td>
-              <td style="padding:10px;" id="s_stat_maint">--</td>
-            </tr>
-            <tr style="border-bottom:1px solid var(--border-color);">
-              <td style="padding:10px; font-weight:600;">EBITDA Margin</td>
-              <td style="padding:10px;" id="s_val_ebitda">--</td>
-              <td style="padding:10px;">&gt; 30%</td>
-              <td style="padding:10px;" id="s_stat_ebitda">--</td>
-            </tr>
-            <tr>
-              <td style="padding:10px; font-weight:600;">Customer Churn Score (quarterly)</td>
-              <td style="padding:10px;" id="s_val_churn">--</td>
-              <td style="padding:10px;">&lt; 10%</td>
-              <td style="padding:10px;" id="s_stat_churn">--</td>
             </tr>
           </tbody>
         </table>
@@ -2952,7 +2956,7 @@ table {
           Deploying full financial metrics, executing disposition decisions, and presenting the executive scorecard.
         </div>
         <ul class="checklist">
-          <li><input type="checkbox" id="g3_chk1" onchange="saveGateCheckboxes()"> <strong>EBITDA Margin Calculated:</strong> Trailing 90-day EBITDA margin calculated and benchmarked against &gt; 30% target.</li>
+          <li><input type="checkbox" id="g3_chk1" onchange="saveGateCheckboxes()"> <strong>EBITDA Margin Calculated:</strong> Trailing 90-day EBITDA margin calculated and benchmarked against the 30% to 46% band.</li>
           <li><input type="checkbox" id="g3_chk2" onchange="saveGateCheckboxes()"> <strong>Personnel Expense % Calculated:</strong> Wages + benefits &divide; revenue benchmarked against &lt; 35% target.</li>
           <li><input type="checkbox" id="g3_chk3" onchange="saveGateCheckboxes()"> <strong>Revenue Growth Calculated:</strong> YoY revenue growth benchmarked against &ge; 10% target.</li>
           <li><input type="checkbox" id="g3_chk4" onchange="saveGateCheckboxes()"> <strong>Debt-to-Asset Ratio Reviewed:</strong> Long-term fleet debt &divide; total OEC benchmarked against &lt; 30% target.</li>
@@ -3426,7 +3430,6 @@ function switchMainSection(secId, btnEl) {
       var statEl = document.getElementById('s_stat_ebitda');
       if (statEl) {
         if (margin >= 30) statEl.innerHTML = '<span class="metric-status status-pass">PASS</span>';
-        else if (margin >= 20) statEl.innerHTML = '<span class="metric-status status-warn">WARN</span>';
         else statEl.innerHTML = '<span class="metric-status status-fail">FAIL</span>';
       }
     }

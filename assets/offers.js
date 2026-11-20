@@ -18,7 +18,7 @@
       steps: [
         { h: 'Book a short call', t: 'You book a discovery call with HEDS to confirm which location the snapshot covers and which reports you can send.' },
         { h: 'Send a few reports', t: 'You send a small set of reports you already run, such as the Departmental P&L Summary, the Open Work Order Report and the Shop Labor Tracking Report.' },
-        { h: 'HEDS reads them', t: 'HEDS reads those reports against a handful of KPIs from the HEDS KPI Library, such as location absorption, effective labor rate, labor recovery, parts gross margin and WIP aging.' },
+        { h: 'HEDS reads them', t: 'HEDS reads those reports against a handful of KPIs from the HEDS KPI Library, such as location absorption, effective labor rate, labor recovery, parts gross margin and Last Labor to Invoice.' },
         { h: 'You get the snapshot', t: 'HEDS returns a short snapshot of where your location stands and calls out your biggest dollar leak.' }
       ],
       deliver: 'A short written snapshot that shows where your location stands on a handful of KPIs, with your biggest dollar leak called out so you know where to start.',

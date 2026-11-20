@@ -31,7 +31,7 @@
           inputs: [I('wo', 'Hours on work orders', 820, 10, 2200, 10, 'hours'), I('paid', 'Paid payroll hours', 1000, 100, 2000, 10, 'hours')], outputs: ratio('technician_recovery', 'wo', 'paid') },
         { title: 'Labor Utilization', def: 'Hours invoiced on work orders divided by hours on work orders, times 100.',
           inputs: [I('inv', 'Hours invoiced on work orders', 680, 0, 2200, 10, 'hours'), I('wo', 'Hours on work orders', 820, 10, 2200, 10, 'hours')], outputs: ratio('labor_utilization', 'inv', 'wo') },
-        { title: 'Shop Efficiency', def: 'Flat rate or estimated time divided by actual job time, times 100.',
+        { title: 'Technician Efficiency', def: 'Shop: flat rate or estimated time divided by actual job time, times 100. This calculator grades the shop number. The road target is 80% to 110%.',
           inputs: [I('est', 'Flat rate or estimated time', 9, 1, 30, 0.1, 'hours'), I('act', 'Actual job time', 10, 1, 30, 0.1, 'hours')], outputs: ratio('shop_efficiency', 'est', 'act') },
         { title: 'Last Labor to Invoice', def: 'Count of work orders still open and not invoiced more than 48 hours after the last labor was posted.',
           inputs: [I('late', 'Work orders past 48 hours', 12, 0, 60, 1, 'orders'), I('lateD', 'Value of those work orders', 42000, 0, 200000, 500, '$')],
@@ -78,7 +78,7 @@
           inputs: [I('eb', 'EBITDA', 700000, -500000, 4000000, 10000, '$'), I('rr', 'Total rental revenue', 2700000, 10000, 10000000, 50000, '$')], outputs: ratio('ebitda_margin', 'eb', 'rr') },
         { title: 'Customer Churn (quarterly)', def: 'Customers lost this quarter divided by active customers last quarter, times 100.',
           inputs: [I('lost', 'Customers lost this quarter', 6, 0, 100, 1, 'customers'), I('act', 'Active customers last quarter', 80, 1, 400, 1, 'customers')], outputs: ratio('customer_churn', 'lost', 'act') },
-        { title: 'Equipment Downtime', def: 'Down days divided by available days, times 100. Downtime lost revenue is downtime revenue times the cat class time utilization.',
+        { title: 'Fleet Downtime', def: 'Down days divided by available days, times 100. Downtime lost revenue is downtime revenue times the cat class time utilization.',
           inputs: [I('dd', 'Days down in shop', 240, 0, 5000, 5, 'days'), I('av2', 'Available rentable days', 4000, 100, 15000, 100, 'days')], outputs: ratio('equipment_downtime', 'dd', 'av2') },
         { title: 'Rate Realization', def: 'Actual invoiced rate divided by rack rate, times 100.',
           inputs: [I('ar', 'Actual average invoiced daily rate', 290, 1, 2000, 1, '$'), I('rk', 'Rack daily rate', 321, 1, 2000, 1, '$')], outputs: ratio('rate_realization', 'ar', 'rk') },
@@ -148,7 +148,12 @@
 
     function draw() {
       panel.textContent = '';
-      group.tiles.forEach(function (tile) {
+      var ordered = group.tiles.filter(function (t) { return T[t.outputs[0].kpi].tier !== 'secondary'; })
+        .concat(group.tiles.filter(function (t) { return T[t.outputs[0].kpi].tier === 'secondary'; }));
+      var firstSecondary = group.tiles.filter(function (t) { return T[t.outputs[0].kpi].tier === 'secondary'; })[0];
+      if (firstSecondary) panel.appendChild(el('h4', 'tier-title', 'Core KPIs'));
+      ordered.forEach(function (tile) {
+        if (tile === firstSecondary) panel.appendChild(el('h4', 'tier-title tier-sec', 'Secondary measures'));
         var card = el('div', 'tile');
         card.appendChild(el('h4', '', tile.title));
         card.appendChild(el('p', 'def', tile.def));

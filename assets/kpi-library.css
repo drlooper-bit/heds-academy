@@ -41,6 +41,11 @@
     .open { display:block; text-align:center; }
   }
 
+/* ===== Core and secondary groups ===== */
+.tier-h { color:var(--fg); font-size:0.95rem; letter-spacing:0.5px; margin:16px 0 8px 0; padding-left:10px; border-left:4px solid var(--accent-color); }
+.tier-h.tier-sec { border-left-color:var(--muted); color:#cbd5e1; margin-top:22px; }
+table.kpi[data-tier="secondary"] td.kn a { color:#cbd5e1; }
+
 /* ===== Calculator ===== */
 .calc-tabs { display:flex; flex-wrap:wrap; gap:8px; margin:12px 0; }
 .calc-tabs button, .calc-reset { min-height:44px; padding:8px 16px; border-radius:var(--radius); border:1px solid var(--border-color); background:#0b182c; color:var(--accent-color); font-weight:700; font-size:0.9rem; cursor:pointer; font-family:var(--font-main); }
@@ -72,3 +77,6 @@
 .calc-block h4 { color:var(--accent-color); font-size:1.05rem; margin-bottom:4px; }
 .calc-block .note { margin-bottom:6px; }
 @media (max-width:640px) { .calc-block { padding:12px; } }
+
+.calc-grid .tier-title { grid-column:1 / -1; color:var(--fg); font-size:0.95rem; margin:8px 0 0 0; padding-left:10px; border-left:4px solid var(--accent-color); }
+.calc-grid .tier-title.tier-sec { border-left-color:var(--muted); color:#cbd5e1; }

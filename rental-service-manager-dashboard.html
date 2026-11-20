@@ -1767,7 +1767,7 @@ table {
     <button class="tab-btn" onclick="switchDashTab('dash_m2', this)">M2: Maint % of OEC</button>
     <button class="tab-btn" onclick="switchDashTab('dash_m3', this)">M3: Turnaround DTI</button>
     <button class="tab-btn" onclick="switchDashTab('dash_m4', this)">M4: Fleet Downtime</button>
-    <button class="tab-btn" onclick="switchDashTab('dash_m5', this)">M5: Labor Recovery</button>
+    <button class="tab-btn" onclick="switchDashTab('dash_m5', this)">M5: Labor &amp; 48-Hr Close</button>
     <button class="tab-btn" onclick="switchDashTab('dash_m6', this)">M6: 90-Day Parts</button>
     <button class="tab-btn" onclick="switchDashTab('dash_m7', this)">M7: Damage Recovery</button>
     <button class="tab-btn" onclick="switchDashTab('dash_m8', this)">M8: Telematics SLA</button>
@@ -1956,6 +1956,15 @@ table {
           <label for="dm5_payroll_hours">Your Hours of Payroll (Paid Hours)</label>
           <input type="number" id="dm5_payroll_hours" value="200" placeholder="Enter paid payroll hours" oninput="calcMod5()">
         </div>
+        <div class="card-title" style="margin-top:18px;">Enter Your Branch Numbers: Labor Utilization and the 48-Hour Close</div>
+        <div class="form-group">
+          <label for="dm5_inv_hours">Your Hours Invoiced on the Work Orders</label>
+          <input type="number" id="dm5_inv_hours" value="190" placeholder="Enter hours invoiced" oninput="calcMod5()">
+        </div>
+        <div class="form-group">
+          <label for="dm5_late_count">Your Work Orders Not Closed and Invoiced Within 48 Hours of Last Labor (#)</label>
+          <input type="number" id="dm5_late_count" value="3" placeholder="Enter late close work orders" oninput="calcMod5()">
+        </div>
       </div>
       <div>
         <div class="card">
@@ -1964,6 +1973,18 @@ table {
             <div style="font-size:0.8rem; color:var(--muted); font-weight:700;">LABOR RECOVERY %</div>
             <div class="metric-val" id="dm5_res_prod">87.0%</div>
             <div id="dm5_status" class="metric-status status-warn">WARN</div>
+          </div>
+          <div class="metric-box">
+            <div style="font-size:0.8rem; color:var(--muted); font-weight:700;">LABOR UTILIZATION %</div>
+            <div class="metric-val" id="dm5_res_util">109.2%</div>
+            <div id="dm5_status_util" class="metric-status status-pass">PASS</div>
+            <div style="font-size:0.75rem; color:var(--muted); margin-top:6px;">Target: 100% to 110%. Red flag at 85% or below. Above 110%: check the time coding.</div>
+          </div>
+          <div class="metric-box">
+            <div style="font-size:0.8rem; color:var(--muted); font-weight:700;">LATE CLOSE WORK ORDERS</div>
+            <div class="metric-val" id="dm5_res_late">3</div>
+            <div id="dm5_status_late" class="metric-status status-fail">48-HOUR FAIL</div>
+            <div style="font-size:0.75rem; color:var(--muted); margin-top:6px;">Target: none past 48 hours of last labor.</div>
           </div>
         </div>
         <div class="card">
@@ -1981,6 +2002,7 @@ table {
 
   <!-- DASH M6: 90-Day Parts Buffer -->
   <div id="dash_m6" class="tab-content">
+    <p style="color:var(--muted); font-size:0.85rem; margin-bottom:10px;">Parts Buffer (Months of Supply) is a secondary measure.</p>
     <div id="kpi-parts-buffer" class="grid-2">
       <div class="card">
         <div class="card-title">Enter Your Branch Numbers: 90-Day Parts Buffer</div>
@@ -2053,6 +2075,7 @@ table {
 
   <!-- DASH M8: Telematics SLA -->
   <div id="dash_m8" class="tab-content">
+    <p style="color:var(--muted); font-size:0.85rem; margin-bottom:10px;">Telematics Triage is a secondary measure.</p>
     <div id="kpi-telematics-triage" class="grid-2">
       <div class="card">
         <div class="card-title">Enter Your Branch Numbers: Telematics SLA</div>
@@ -2089,6 +2112,7 @@ table {
 
   <!-- DASH M9: Rental Leak Diagnostic -->
   <div id="dash_m9" class="tab-content">
+    <p style="color:var(--muted); font-size:0.85rem; margin-bottom:10px;">The Rental Leak diagnostic turns gaps on the core KPIs into dollars. It is a calculation, not a KPI.</p>
     <div class="grid-2">
       <div class="card">
         <div class="card-title">Rental Leak Diagnostic Matrix</div>
@@ -2145,29 +2169,12 @@ table {
             </tr>
           </thead>
           <tbody>
+            <tr><td colspan="4" style="padding:12px 10px 6px 10px; font-weight:800; font-size:0.8rem; letter-spacing:1px; text-transform:uppercase; color:var(--accent-color); border-bottom:2px solid var(--border-color);">Core KPIs (8)</td></tr>
             <tr style="border-bottom:1px solid var(--border-color);">
-              <td style="padding:10px; font-weight:600;">Fleet Physical Availability</td>
-              <td style="padding:10px;" id="s_val_avail">--</td>
-              <td style="padding:10px;">&ge; 92%</td>
-              <td style="padding:10px;" id="s_stat_avail">--</td>
-            </tr>
-            <tr style="border-bottom:1px solid var(--border-color);">
-              <td style="padding:10px; font-weight:600;">Maintenance Cost as % of OEC</td>
-              <td style="padding:10px;" id="s_val_oec">--</td>
-              <td style="padding:10px;">&le; 8% (WARN 8.1 to 10%)</td>
-              <td style="padding:10px;" id="s_stat_oec">--</td>
-            </tr>
-            <tr style="border-bottom:1px solid var(--border-color);">
-              <td style="padding:10px; font-weight:600;">Avg Off-Rent to Rent-Ready Hours</td>
+              <td style="padding:10px; font-weight:600;">Off Rent to Rent-Ready (hours)</td>
               <td style="padding:10px;" id="s_val_dti">--</td>
               <td style="padding:10px;">&le; 48h (off rent into service to rent-ready line, or to the failed inspection)</td>
               <td style="padding:10px;" id="s_stat_dti">--</td>
-            </tr>
-            <tr style="border-bottom:1px solid var(--border-color);">
-              <td style="padding:10px; font-weight:600;">Fleet Downtime %</td>
-              <td style="padding:10px;" id="s_val_down">--</td>
-              <td style="padding:10px;">&lt; 8%</td>
-              <td style="padding:10px;" id="s_stat_down">--</td>
             </tr>
             <tr style="border-bottom:1px solid var(--border-color);">
               <td style="padding:10px; font-weight:600;">Labor Recovery</td>
@@ -2176,10 +2183,34 @@ table {
               <td style="padding:10px;" id="s_stat_prod">--</td>
             </tr>
             <tr style="border-bottom:1px solid var(--border-color);">
-              <td style="padding:10px; font-weight:600;">90-Day Parts Buffer (Months of Supply)</td>
-              <td style="padding:10px;" id="s_val_parts">--</td>
-              <td style="padding:10px;">3.0 months (90 days)</td>
-              <td style="padding:10px;" id="s_stat_parts">--</td>
+              <td style="padding:10px; font-weight:600;">Labor Utilization</td>
+              <td style="padding:10px;" id="s_val_util">--</td>
+              <td style="padding:10px;">100% to 110% (red flag at 85% or below)</td>
+              <td style="padding:10px;" id="s_stat_util">--</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border-color);">
+              <td style="padding:10px; font-weight:600;">Maintenance Cost as a Percent of OEC</td>
+              <td style="padding:10px;" id="s_val_oec">--</td>
+              <td style="padding:10px;">&le; 8% (WARN 8.1 to 10%)</td>
+              <td style="padding:10px;" id="s_stat_oec">--</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border-color);">
+              <td style="padding:10px; font-weight:600;">Late Close Work Orders</td>
+              <td style="padding:10px;" id="s_val_late">--</td>
+              <td style="padding:10px;">None past 48 hours of last labor</td>
+              <td style="padding:10px;" id="s_stat_late">--</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border-color);">
+              <td style="padding:10px; font-weight:600;">Fleet Downtime %</td>
+              <td style="padding:10px;" id="s_val_down">--</td>
+              <td style="padding:10px;">&lt; 8%</td>
+              <td style="padding:10px;" id="s_stat_down">--</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border-color);">
+              <td style="padding:10px; font-weight:600;">Fleet Physical Availability</td>
+              <td style="padding:10px;" id="s_val_avail">--</td>
+              <td style="padding:10px;">&ge; 92%</td>
+              <td style="padding:10px;" id="s_stat_avail">--</td>
             </tr>
             <tr style="border-bottom:1px solid var(--border-color);">
               <td style="padding:10px; font-weight:600;">Damage Recovery Rate</td>
@@ -2187,8 +2218,15 @@ table {
               <td style="padding:10px;">&ge; 85%</td>
               <td style="padding:10px;" id="s_stat_dmg">--</td>
             </tr>
+            <tr><td colspan="4" style="padding:12px 10px 6px 10px; font-weight:800; font-size:0.8rem; letter-spacing:1px; text-transform:uppercase; color:var(--muted); border-bottom:2px solid var(--border-color);">Secondary measures and leak calculations</td></tr>
             <tr style="border-bottom:1px solid var(--border-color);">
-              <td style="padding:10px; font-weight:600;">Telematics Triage SLA</td>
+              <td style="padding:10px; font-weight:600;">Parts Buffer (Months of Supply)</td>
+              <td style="padding:10px;" id="s_val_parts">--</td>
+              <td style="padding:10px;">3.0 months (90 days)</td>
+              <td style="padding:10px;" id="s_stat_parts">--</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border-color);">
+              <td style="padding:10px; font-weight:600;">Telematics Triage</td>
               <td style="padding:10px;" id="s_val_tel">--</td>
               <td style="padding:10px;">&ge; 90%</td>
               <td style="padding:10px;" id="s_stat_tel">--</td>
@@ -2542,6 +2580,25 @@ table {
       document.getElementById('s_val_prod').innerText = '--';
       setStatus('dm5_status', '--', 'status-warn');
     }
+    var invHrs = parseFloat(document.getElementById('dm5_inv_hours') ? document.getElementById('dm5_inv_hours').value : 0) || 0;
+    if (woHrs > 0) {
+      var ut = (invHrs / woHrs) * 100;
+      document.getElementById('dm5_res_util').innerText = ut.toFixed(1) + '%';
+      document.getElementById('s_val_util').innerText = ut.toFixed(1) + '%';
+      if (ut > 110) { setStatus('dm5_status_util', 'WARN: CHECK TIME CODING', 'status-warn'); setScoreStatus('s_stat_util', '', '<span class="metric-status status-warn">WARN</span>', '', 'warn'); }
+      else if (ut >= 100) { setStatus('dm5_status_util', 'PASS', 'status-pass'); setScoreStatus('s_stat_util', '<span class="metric-status status-pass">PASS</span>', '', '', 'pass'); }
+      else if (ut > 85) { setStatus('dm5_status_util', 'WARN', 'status-warn'); setScoreStatus('s_stat_util', '', '<span class="metric-status status-warn">WARN</span>', '', 'warn'); }
+      else { setStatus('dm5_status_util', 'FAIL: RED FLAG', 'status-fail'); setScoreStatus('s_stat_util', '', '', '<span class="metric-status status-fail">FAIL</span>', 'fail'); }
+    } else {
+      document.getElementById('dm5_res_util').innerText = '--';
+      document.getElementById('s_val_util').innerText = '--';
+      setStatus('dm5_status_util', '--', 'status-warn');
+    }
+    var late = parseFloat(document.getElementById('dm5_late_count') ? document.getElementById('dm5_late_count').value : 0) || 0;
+    document.getElementById('dm5_res_late').innerText = late.toLocaleString();
+    document.getElementById('s_val_late').innerText = late.toLocaleString() + (late === 1 ? ' WO' : ' WOs');
+    if (late === 0) { setStatus('dm5_status_late', '48-HOUR PASS', 'status-pass'); setScoreStatus('s_stat_late', '<span class="metric-status status-pass">PASS</span>', '', '', 'pass'); }
+    else { setStatus('dm5_status_late', '48-HOUR FAIL', 'status-fail'); setScoreStatus('s_stat_late', '', '', '<span class="metric-status status-fail">FAIL</span>', 'fail'); }
     saveData();
   }
 

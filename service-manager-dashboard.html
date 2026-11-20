@@ -1458,7 +1458,7 @@ table {
         
         <ol class="formula-steps">
           <li style="margin-bottom:16px;">
-            <strong>Shop Technicians:</strong> Job Flat Rate 340 hrs / Actual Job Time 380 hrs = <strong style="color:var(--danger);">89.5% Shop Efficiency</strong> (<span class="metric-status status-fail">FAIL: BELOW 100% (GOAL ≥ 110%)</span>).
+            <strong>Shop Technicians:</strong> Job Flat Rate 340 hrs / Actual Job Time 380 hrs = <strong style="color:var(--danger);">89.5% Technician Efficiency, Shop</strong> (<span class="metric-status status-fail">FAIL: BELOW 100% (GOAL ≥ 110%)</span>).
             <div style="margin-top:10px; margin-bottom:10px; padding:14px; background:rgba(0,0,0,0.25); border-radius:var(--radius); border:1px solid var(--border-color);">
               <div class="grid-2" style="margin-bottom:10px;">
                 <div class="spec-box" style="background:rgba(34, 197, 94, 0.08); border-left-color:var(--success); margin:0;">
@@ -1478,7 +1478,7 @@ table {
           </li>
 
           <li style="margin-bottom:16px;">
-            <strong>Field Technicians:</strong> Billed 150 hrs (incl. billed travel time) / Clocked 195 hrs (incl. drive time) = <strong style="color:var(--danger);">76.9% Field Efficiency</strong> (<span class="metric-status status-fail">BELOW 80%</span>; target is 80 to 110%).
+            <strong>Field Technicians:</strong> Billed 150 hrs (incl. billed travel time) / Clocked 195 hrs (incl. drive time) = <strong style="color:var(--danger);">76.9% Technician Efficiency, Road</strong> (<span class="metric-status status-fail">BELOW 80%</span>; target is 80 to 110%).
             <div style="margin-top:10px; margin-bottom:10px; padding:14px; background:rgba(0,0,0,0.25); border-radius:var(--radius); border:1px solid var(--border-color);">
               <div class="grid-2" style="margin-bottom:10px;">
                 <div class="spec-box" style="background:rgba(34, 197, 94, 0.08); border-left-color:var(--success); margin:0;">
@@ -1506,7 +1506,7 @@ table {
           <li id="kpi-labor-utilization"><strong>Labor Utilization %</strong> = Hours Invoiced on the Work Order / Hours on Work Orders &times; 100. Target 100% to 110%.</li>
           <li><strong>Both:</strong> red flag at 85% or below (at that point the shop is not making money, it is losing money). Above the top of the band (100% for Recovery, 110% for Utilization): WARN, check the time coding.</li>
         </ul>
-        HEDS uses only these two labor measures and has no separate measure beyond them. Shop Efficiency and road tech Field Efficiency (above) are job-time measures and stay as they are.
+        HEDS uses only these two labor measures and has no separate measure beyond them. Technician Efficiency (shop and road, above) is a job-time measure and stay as they are.
       </div>
 
       <div class="floor-rule">
@@ -1672,7 +1672,7 @@ table {
           </li>
 
           <li style="margin-bottom:16px;">
-            <strong>First-Time Fix Rate (FTFR):</strong> [ 1 - (9 / 140) ] × 100 = <strong style="color:var(--success);">93.6% FTFR</strong> (<span class="metric-status status-pass">PASS ≥ 88%</span>).
+            <strong>First-Time Fix Rate (FTFR):</strong> [ 1 - (9 / 140) ] × 100 = <strong style="color:var(--success);">93.6% FTFR</strong> (<span class="metric-status status-pass">PASS 85% to 90%</span>).
             <div style="margin-top:10px; margin-bottom:10px; padding:14px; background:rgba(0,0,0,0.25); border-radius:var(--radius); border:1px solid var(--border-color);">
               <div class="grid-2" style="margin-bottom:10px;">
                 <div class="spec-box" style="background:rgba(34, 197, 94, 0.08); border-left-color:var(--success); margin:0;">
@@ -1686,7 +1686,7 @@ table {
               </div>
               <div class="floor-rule" style="background:rgba(59, 130, 246, 0.1); border-color:var(--accent-color); margin:0;">
                 <div class="floor-rule-title" style="color:var(--accent-color);">Manager's Insight</div>
-                Top-quartile FTFR target is ≥ 88%. Achieving 93.6% means your diagnostic procedures, technical skill levels, and parts quality control are performing at an elite level.
+                The HEDS First-Time Fix Rate target is 85% to 90%. Achieving 93.6% means your diagnostic procedures, technical skill levels, and parts quality control are performing at an elite level.
               </div>
             </div>
           </li>
@@ -2522,7 +2522,7 @@ table {
     <button class="tab-btn active" onclick="switchDashTab('dash_m1', this)">M1: Absorption</button>
     <button class="tab-btn" onclick="switchDashTab('dash_ex', this)">Midday Gap</button>
     <button class="tab-btn" onclick="switchDashTab('dash_m2', this)">M2: WIP</button>
-    <button class="tab-btn" onclick="switchDashTab('dash_m3', this)">M3: Tech Eff</button>
+    <button class="tab-btn" onclick="switchDashTab('dash_m3', this)">M3: Labor &amp; Tech Eff</button>
     <button class="tab-btn" onclick="switchDashTab('dash_m4', this)">M4: ELR</button>
     <button class="tab-btn" onclick="switchDashTab('dash_m5', this)">M5: Triage</button>
     <button class="tab-btn" onclick="switchDashTab('dash_m6', this)">M6: Warranty</button>
@@ -2692,18 +2692,46 @@ table {
           <label for="m3_field_clocked">Your Field Tech Clocked On-Job Hours</label>
           <input type="number" id="m3_field_clocked" value="195" placeholder="Enter field clocked hrs" oninput="calcMod3()">
         </div>
+        <div class="card-title" style="margin-top:18px;">Enter Your Branch Numbers: Labor Recovery and Labor Utilization</div>
+        <div class="form-group">
+          <label for="m3_wo_hours">Your Hours on Work Orders</label>
+          <input type="number" id="m3_wo_hours" value="960" placeholder="Enter hours on work orders" oninput="calcMod3()">
+        </div>
+        <div class="form-group">
+          <label for="m3_paid_hours">Your Hours of Payroll (Paid Hours)</label>
+          <input type="number" id="m3_paid_hours" value="1000" placeholder="Enter paid payroll hours" oninput="calcMod3()">
+        </div>
+        <div class="form-group">
+          <label for="m3_inv_hours">Your Hours Invoiced on the Work Orders</label>
+          <input type="number" id="m3_inv_hours" value="1030" placeholder="Enter hours invoiced" oninput="calcMod3()">
+        </div>
       </div>
 
       <div>
         <div class="card">
-          <div class="card-title">Your Efficiency Benchmarks</div>
+          <div class="card-title">Your Labor Benchmarks</div>
+          <div class="metric-box">
+            <div style="font-size:0.8rem; color:var(--muted); font-weight:700;">YOUR LABOR RECOVERY %</div>
+            <div class="metric-val" id="m3_res_rec">96.0%</div>
+            <div id="m3_status_rec" class="metric-status status-pass">PASS</div>
+            <div style="font-size:0.75rem; color:var(--muted); margin-top:6px;">Target: 95% to 100%. Red flag at 85% or below. Above 100%: check the time coding.</div>
+          </div>
+          <div class="metric-box">
+            <div style="font-size:0.8rem; color:var(--muted); font-weight:700;">YOUR LABOR UTILIZATION %</div>
+            <div class="metric-val" id="m3_res_util">107.3%</div>
+            <div id="m3_status_util" class="metric-status status-pass">PASS</div>
+            <div style="font-size:0.75rem; color:var(--muted); margin-top:6px;">Target: 100% to 110%. Red flag at 85% or below. Above 110%: check the time coding.</div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-title">Your Technician Efficiency Benchmarks</div>
           <div id="kpi-shop-efficiency" class="metric-box">
-            <div style="font-size:0.8rem; color:var(--muted); font-weight:700;">YOUR SHOP TECH EFFICIENCY</div>
+            <div style="font-size:0.8rem; color:var(--muted); font-weight:700;">YOUR TECHNICIAN EFFICIENCY, SHOP (TARGET 110%)</div>
             <div class="metric-val" id="m3_res_shop">89.5%</div>
             <div id="m3_status_shop" class="metric-status status-fail">FAIL: BELOW 100%</div>
           </div>
           <div class="metric-box">
-            <div style="font-size:0.8rem; color:var(--muted); font-weight:700;">YOUR FIELD TECH EFFICIENCY</div>
+            <div style="font-size:0.8rem; color:var(--muted); font-weight:700;">YOUR TECHNICIAN EFFICIENCY, ROAD (TARGET 80% TO 110%)</div>
             <div class="metric-val" id="m3_res_field">76.9%</div>
             <div id="m3_status_field" class="metric-status status-fail">BELOW 80%</div>
             <div style="font-size:0.75rem; color:var(--muted); margin-top:6px;">Target: 80 to 110% for an experienced road tech. 110 to 130% is PASS (top performer; top master techs regularly reach 120 to 130%). Above 130% is WARN: check the time coding. Travel time is billed on every trip and counts as billed hours.</div>
@@ -2751,6 +2779,7 @@ table {
 
   <!-- DASHBOARD MODULE 5 -->
   <div id="dash_m5" class="tab-content">
+    <p style="color:var(--muted); font-size:0.85rem; margin-bottom:10px;">First-Time Fix Rate is a core KPI. Triage Start Velocity is a secondary measure (target 2.0 hours or less).</p>
     <div class="grid-2">
       <div class="card">
         <div class="card-title">Enter Your Branch Numbers: Triage &amp; Quality</div>
@@ -2788,6 +2817,7 @@ table {
 
   <!-- DASHBOARD MODULE 6 -->
   <div id="dash_m6" class="tab-content">
+    <p style="color:var(--muted); font-size:0.85rem; margin-bottom:10px;">Warranty Write-Off Percent and Claim Filing Velocity are secondary measures.</p>
     <div class="grid-2">
       <div class="card">
         <div class="card-title">Enter Your Branch Numbers: Warranty Control</div>
@@ -2825,6 +2855,7 @@ table {
 
   <!-- DASHBOARD: LEAK DIAGNOSTIC -->
   <div id="dash_leak" class="tab-content">
+    <p style="color:var(--muted); font-size:0.85rem; margin-bottom:10px;">The Leak Diagnostic turns the gaps on the core KPIs into dollars. It is a calculation, not a KPI.</p>
     <div class="grid-2">
       <div class="card">
         <div class="card-title">Shop Profit Leak Diagnostic Matrix</div>
@@ -2892,67 +2923,88 @@ table {
             </tr>
           </thead>
           <tbody>
+            <tr><td colspan="4" style="padding:12px 10px 6px 10px; font-weight:800; font-size:0.8rem; letter-spacing:1px; text-transform:uppercase; color:var(--accent-color); border-bottom:2px solid var(--border-color);">Core KPIs (8)</td></tr>
             <tr style="border-bottom:1px solid var(--border-color);">
-              <td style="padding:10px; font-weight:600;">Location Absorption Rate (Service + Parts)</td>
-              <td style="padding:10px;" id="s_val_abs">106.1%</td>
-              <td style="padding:10px;">100% to 110% of total operating expenses</td>
-              <td style="padding:10px;" id="s_stat_abs"><span class="metric-status status-pass">PASS</span></td>
+              <td style="padding:10px; font-weight:600;">Labor Recovery</td>
+              <td style="padding:10px;" id="s_val_rec">96.0%</td>
+              <td style="padding:10px;">95% to 100% (red flag at 85% or below)</td>
+              <td style="padding:10px;" id="s_stat_rec"><span class="metric-status status-pass">PASS</span></td>
             </tr>
             <tr style="border-bottom:1px solid var(--border-color);">
-              <td style="padding:10px; font-weight:600;">Service Contribution to Location Absorption</td>
-              <td style="padding:10px;" id="s_val_serv_abs">74.2%</td>
-              <td style="padding:10px;">70% to 75% (below 70% red flag)</td>
-              <td style="padding:10px;" id="s_stat_serv_abs"><span class="metric-status status-pass">PASS</span></td>
+              <td style="padding:10px; font-weight:600;">Labor Utilization</td>
+              <td style="padding:10px;" id="s_val_util">107.3%</td>
+              <td style="padding:10px;">100% to 110% (red flag at 85% or below)</td>
+              <td style="padding:10px;" id="s_stat_util"><span class="metric-status status-pass">PASS</span></td>
             </tr>
-            <tr style="border-bottom:1px solid var(--border-color);">
-              <td style="padding:10px; font-weight:600;">Parts Contribution to Location Absorption</td>
-              <td style="padding:10px;" id="s_val_parts_abs">31.8%</td>
-              <td style="padding:10px;">30% to 40% (below 30% red flag)</td>
-              <td style="padding:10px;" id="s_stat_parts_abs"><span class="metric-status status-pass">PASS</span></td>
-            </tr>
-            <tr style="border-bottom:1px solid var(--border-color);">
-              <td style="padding:10px; font-weight:600;">Unapplied Labor Cash Loss</td>
-              <td style="padding:10px;" id="s_val_unapp">$7,400 / wk</td>
-              <td style="padding:10px;">$0 Leakage</td>
-              <td style="padding:10px;" id="s_stat_unapp"><span class="metric-status status-fail">FAIL</span></td>
-            </tr>
-            <tr style="border-bottom:1px solid var(--border-color);">
-              <td style="padding:10px; font-weight:600;">WOs Not Invoiced Within 48 Hrs of Last Labor</td>
-              <td style="padding:10px;" id="s_val_wip48">6 WOs / $14,500</td>
-              <td style="padding:10px;">0 WOs / $0</td>
-              <td style="padding:10px;" id="s_stat_wip48"><span class="metric-status status-fail">FAIL</span></td>
-            </tr>
-            <tr style="border-bottom:1px solid var(--border-color);">
-              <td style="padding:10px; font-weight:600;">Shop Tech Efficiency</td>
+<tr style="border-bottom:1px solid var(--border-color);">
+              <td style="padding:10px; font-weight:600;">Technician Efficiency, Shop</td>
               <td style="padding:10px;" id="s_val_shop">89.5%</td>
-              <td style="padding:10px;">≥ 110% (WARN 100 to 109.9%)</td>
+              <td style="padding:10px;">110% (WARN 100 to 109.9%)</td>
               <td style="padding:10px;" id="s_stat_shop"><span class="metric-status status-fail">FAIL</span></td>
             </tr>
-            <tr style="border-bottom:1px solid var(--border-color);">
-              <td style="padding:10px; font-weight:600;">Field Tech Efficiency</td>
+<tr style="border-bottom:1px solid var(--border-color);">
+              <td style="padding:10px; font-weight:600;">Technician Efficiency, Road</td>
               <td style="padding:10px;" id="s_val_field">76.9%</td>
               <td style="padding:10px;">80 to 110% (110 to 130% top performer; over 130% WARN)</td>
               <td style="padding:10px;" id="s_stat_field"><span class="metric-status status-fail">FAIL</span></td>
             </tr>
-            <tr style="border-bottom:1px solid var(--border-color);">
+<tr style="border-bottom:1px solid var(--border-color);">
               <td style="padding:10px; font-weight:600;">Effective Labor Rate %</td>
               <td style="padding:10px;" id="s_val_elr">91.9% ($170.00)</td>
               <td style="padding:10px;">≥ 92%</td>
               <td style="padding:10px;" id="s_stat_elr"><span class="metric-status status-fail">FAIL</span></td>
             </tr>
-            <tr style="border-bottom:1px solid var(--border-color);">
+<tr style="border-bottom:1px solid var(--border-color);">
+              <td style="padding:10px; font-weight:600;">Last Labor to Invoice: Work Orders Not Invoiced Within 48 Hours of Last Labor</td>
+              <td style="padding:10px;" id="s_val_wip48">6 WOs / $14,500</td>
+              <td style="padding:10px;">0 WOs / $0</td>
+              <td style="padding:10px;" id="s_stat_wip48"><span class="metric-status status-fail">FAIL</span></td>
+            </tr>
+<tr style="border-bottom:1px solid var(--border-color);">
+              <td style="padding:10px; font-weight:600;">Service Absorption (Service Contribution to Location Absorption)</td>
+              <td style="padding:10px;" id="s_val_serv_abs">74.2%</td>
+              <td style="padding:10px;">70% to 75% (below 70% red flag)</td>
+              <td style="padding:10px;" id="s_stat_serv_abs"><span class="metric-status status-pass">PASS</span></td>
+            </tr>
+<tr style="border-bottom:1px solid var(--border-color);">
               <td style="padding:10px; font-weight:600;">First-Time Fix Rate</td>
               <td style="padding:10px;" id="s_val_ftfr">93.6%</td>
-              <td style="padding:10px;">≥ 88%</td>
+              <td style="padding:10px;">85% to 90%</td>
               <td style="padding:10px;" id="s_stat_ftfr"><span class="metric-status status-pass">PASS</span></td>
             </tr>
-            <tr>
+            <tr style="border-bottom:1px solid var(--border-color);">
+              <td style="padding:10px; font-weight:600;">Service Labor Gross Margin</td>
+              <td style="padding:10px;" id="s_val_gm">77.3%</td>
+              <td style="padding:10px;">75% to 80%</td>
+              <td style="padding:10px;" id="s_stat_gm"><span class="metric-status status-pass">PASS</span></td>
+            </tr>
+            <tr><td colspan="4" style="padding:12px 10px 6px 10px; font-weight:800; font-size:0.8rem; letter-spacing:1px; text-transform:uppercase; color:var(--muted); border-bottom:2px solid var(--border-color);">Location Absorption (counted on the Location Absorption set)</td></tr>
+<tr style="border-bottom:1px solid var(--border-color);">
+              <td style="padding:10px; font-weight:600;">Location Absorption Rate (Service + Parts)</td>
+              <td style="padding:10px;" id="s_val_abs">106.1%</td>
+              <td style="padding:10px;">100% to 110% of total operating expenses</td>
+              <td style="padding:10px;" id="s_stat_abs"><span class="metric-status status-pass">PASS</span></td>
+            </tr>
+<tr style="border-bottom:1px solid var(--border-color);">
+              <td style="padding:10px; font-weight:600;">Parts Contribution to Location Absorption</td>
+              <td style="padding:10px;" id="s_val_parts_abs">31.8%</td>
+              <td style="padding:10px;">30% to 40% (below 30% red flag)</td>
+              <td style="padding:10px;" id="s_stat_parts_abs"><span class="metric-status status-pass">PASS</span></td>
+            </tr>
+            <tr><td colspan="4" style="padding:12px 10px 6px 10px; font-weight:800; font-size:0.8rem; letter-spacing:1px; text-transform:uppercase; color:var(--muted); border-bottom:2px solid var(--border-color);">Secondary measures and leak calculations</td></tr>
+<tr>
               <td style="padding:10px; font-weight:600;">Warranty Write-Off %</td>
               <td style="padding:10px;" id="s_val_warr">1.00%</td>
               <td style="padding:10px;">&lt; 1.5%</td>
               <td style="padding:10px;" id="s_stat_warr"><span class="metric-status status-pass">PASS</span></td>
             </tr>
-            <tr>
+<tr style="border-bottom:1px solid var(--border-color);">
+              <td style="padding:10px; font-weight:600;">Unapplied Labor Cash Loss (leak calculation)</td>
+              <td style="padding:10px;" id="s_val_unapp">$7,400 / wk</td>
+              <td style="padding:10px;">$0 Leakage</td>
+              <td style="padding:10px;" id="s_stat_unapp"><span class="metric-status status-fail">FAIL</span></td>
+            </tr>
+<tr>
               <td style="padding:10px; font-weight:600;">Total Monthly Leak $</td>
               <td style="padding:10px;" id="s_val_leak">--</td>
               <td style="padding:10px;">$0</td>
@@ -3126,8 +3178,9 @@ function switchMainSection(secId, btnEl) {
     if (rev > 0) {
       const gm = ((rev - cogs) / rev) * 100;
       document.getElementById('m1_res_gm').innerText = gm.toFixed(1) + '%';
-      if (parseFloat(gm.toFixed(1)) >= 75) setStatus('m1_status_gm', 'PASS', 'status-pass');
-      else setStatus('m1_status_gm', 'FAIL: BELOW 75%', 'status-fail');
+      document.getElementById('s_val_gm').innerText = gm.toFixed(1) + '%';
+      if (parseFloat(gm.toFixed(1)) >= 75) { setStatus('m1_status_gm', 'PASS', 'status-pass'); document.getElementById('s_stat_gm').innerHTML = '<span class="metric-status status-pass">PASS</span>'; }
+      else { setStatus('m1_status_gm', 'FAIL: BELOW 75%', 'status-fail'); document.getElementById('s_stat_gm').innerHTML = '<span class="metric-status status-fail">FAIL</span>'; }
     }
   }
 
@@ -3168,6 +3221,31 @@ function switchMainSection(secId, btnEl) {
     const sc = parseFloat(document.getElementById('m3_shop_clocked').value) || 0;
     const fb = parseFloat(document.getElementById('m3_field_billed').value) || 0;
     const fc = parseFloat(document.getElementById('m3_field_clocked').value) || 0;
+    const woH = parseFloat(document.getElementById('m3_wo_hours').value) || 0;
+    const paidH = parseFloat(document.getElementById('m3_paid_hours').value) || 0;
+    const invH = parseFloat(document.getElementById('m3_inv_hours').value) || 0;
+    function laborGrade(v, top) {
+      if (v > top) return ['WARN: CHECK TIME CODING', 'status-warn', 'WARN'];
+      if (v >= (top === 100 ? 95 : 100)) return ['PASS', 'status-pass', 'PASS'];
+      if (v > 85) return ['WARN', 'status-warn', 'WARN'];
+      return ['FAIL: RED FLAG', 'status-fail', 'FAIL'];
+    }
+    if (paidH > 0) {
+      const rec = Math.round((woH / paidH) * 1000) / 10;
+      const g = laborGrade(rec, 100);
+      document.getElementById('m3_res_rec').innerText = rec.toFixed(1) + '%';
+      document.getElementById('s_val_rec').innerText = rec.toFixed(1) + '%';
+      setStatus('m3_status_rec', g[0], g[1]);
+      document.getElementById('s_stat_rec').innerHTML = '<span class="metric-status ' + g[1] + '">' + g[2] + '</span>';
+    }
+    if (woH > 0) {
+      const ut = Math.round((invH / woH) * 1000) / 10;
+      const g = laborGrade(ut, 110);
+      document.getElementById('m3_res_util').innerText = ut.toFixed(1) + '%';
+      document.getElementById('s_val_util').innerText = ut.toFixed(1) + '%';
+      setStatus('m3_status_util', g[0], g[1]);
+      document.getElementById('s_stat_util').innerHTML = '<span class="metric-status ' + g[1] + '">' + g[2] + '</span>';
+    }
     if (sc > 0) {
       const se = (sb / sc) * 100;
       document.getElementById('m3_res_shop').innerText = se.toFixed(1) + '%';
@@ -3215,7 +3293,7 @@ function switchMainSection(secId, btnEl) {
       const ftfr = (1 - (rep / tot)) * 100;
       document.getElementById('m5_res_ftfr').innerText = ftfr.toFixed(1) + '%';
       document.getElementById('s_val_ftfr').innerText = ftfr.toFixed(1) + '%';
-      if (ftfr >= 88) { setStatus('m5_status_ftfr', 'PASS', 'status-pass'); document.getElementById('s_stat_ftfr').innerHTML = '<span class="metric-status status-pass">PASS</span>'; }
+      if (ftfr >= 85) { setStatus('m5_status_ftfr', 'PASS', 'status-pass'); document.getElementById('s_stat_ftfr').innerHTML = '<span class="metric-status status-pass">PASS</span>'; }
       else { setStatus('m5_status_ftfr', 'REWORK HIGH', 'status-fail'); document.getElementById('s_stat_ftfr').innerHTML = '<span class="metric-status status-fail">FAIL</span>'; }
     }
     document.getElementById('m5_res_triage').innerText = hrs.toFixed(1) + ' hrs';

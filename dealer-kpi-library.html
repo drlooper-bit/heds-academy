@@ -53,17 +53,29 @@
 
 <section class="dept" id="service-kpis">
   <h3>Service Manager</h3>
-  <p class="note">The Service dashboard is where a shop manager works absorption, recovery, utilization, efficiency, first-time fix, and the 48-hour close against the HEDS dealer standards. Labor figures come from the time clock and the work orders for the same period.</p>
-  <div class="tbl-wrap"><table class="kpi">
+  <p class="note">The Service scorecard has eight core KPIs: Labor Recovery, Labor Utilization, Technician Efficiency, Effective Labor Rate, Last Labor to Invoice, Service Absorption, First-Time Fix Rate, and Service Labor Gross Margin. Labor figures come from the time clock and the work orders for the same period. Last Labor to Invoice is the 48-hour close rule: a work order is open past 48 hours after its last labor.</p>
+  <h4 class="tier-h">Core KPIs (8)</h4>
+  <div class="tbl-wrap"><table class="kpi" data-tier="core">
     <thead><tr><th>KPI</th><th>Formula</th><th>HEDS Target</th></tr></thead>
     <tbody>
       <tr><td class="kn"><a href="service-manager-dashboard.html#kpi-technician-recovery">Labor Recovery</a></td><td>Hours on work orders divided by paid payroll hours, times 100</td><td>95% to 100%</td></tr>
       <tr><td class="kn"><a href="service-manager-dashboard.html#kpi-labor-utilization">Labor Utilization</a></td><td>Hours invoiced on work orders divided by hours on work orders, times 100</td><td>100% to 110%. At 85% or below, the shop is losing money.</td></tr>
-      <tr><td class="kn"><a href="service-manager-dashboard.html#kpi-shop-efficiency">Shop Efficiency</a></td><td>Flat rate or estimated time divided by actual job time, times 100</td><td>110%</td></tr>
-      <tr><td class="kn"><a href="service-manager-dashboard.html#kpi-last-labor-to-invoice">Last Labor to Invoice</a></td><td>Hours from the last labor posted on a work order to the invoice</td><td>48 hours</td></tr>
-      <tr><td class="kn"><a href="service-manager-dashboard.html#kpi-service-labor-gross-margin">Service Labor Gross Margin</a></td><td>(Labor sales minus direct technician cost) divided by labor sales, times 100</td><td>75% to 80%</td></tr>
+      <tr><td class="kn"><a href="service-manager-dashboard.html#kpi-shop-efficiency">Technician Efficiency</a></td><td>Shop: flat rate or estimated time divided by actual job time, times 100. Road: billed hours divided by clocked on-job hours, times 100.</td><td>Shop 110%. Road 80% to 110%.</td></tr>
       <tr><td class="kn"><a href="service-manager-dashboard.html#kpi-effective-labor-rate">Effective Labor Rate</a></td><td>Effective labor rate on customer-billed work divided by posted labor rate, times 100</td><td>92% of posted labor rate. Below 92% is a red flag.</td></tr>
+      <tr><td class="kn"><a href="service-manager-dashboard.html#kpi-last-labor-to-invoice">Last Labor to Invoice</a></td><td>Count of work orders not invoiced within 48 hours of the last labor posted on the work order</td><td>48 hours</td></tr>
+      <tr><td class="kn"><a href="service-manager-dashboard.html#kpi-service-absorption">Service Absorption</a></td><td>Service department gross profit divided by the location's total operating expenses, times 100. This is service's contribution to the location's absorption.</td><td>Service carries 70% to 75% of the location's absorption. Below 70% is a red flag.</td></tr>
       <tr><td class="kn"><a href="service-manager-dashboard.html#kpi-first-time-fix-rate">First-Time Fix Rate</a></td><td>Repairs fixed on the first attempt divided by completed repairs, times 100</td><td>85% to 90%</td></tr>
+      <tr><td class="kn"><a href="service-manager-dashboard.html#kpi-service-labor-gross-margin">Service Labor Gross Margin</a></td><td>(Labor sales minus direct technician cost) divided by labor sales, times 100</td><td>75% to 80%</td></tr>
+    </tbody>
+  </table></div>
+  <h4 class="tier-h tier-sec">Secondary measures (3)</h4>
+  <p class="note">These stay in the library with their definitions. They are read as needed and are not on the core scorecard.</p>
+  <div class="tbl-wrap"><table class="kpi" data-tier="secondary">
+    <thead><tr><th>KPI</th><th>Formula</th><th>HEDS Target</th></tr></thead>
+    <tbody>
+      <tr><td class="kn"><a href="service-manager-dashboard.html#sec_dashboard">Triage Start Velocity</a></td><td>Average hours from wash clear to triage start</td><td>2.0 hours or less</td></tr>
+      <tr><td class="kn"><a href="service-manager-dashboard.html#sec_dashboard">Warranty Write-Off Percent</a></td><td>Denied or written-off warranty dollars divided by total claimed warranty dollars, times 100</td><td>Under 1.5%</td></tr>
+      <tr><td class="kn"><a href="service-manager-dashboard.html#sec_dashboard">Claim Filing Velocity</a></td><td>Average hours from labor completion and part tagging to claim submission</td><td>48 hours or less</td></tr>
     </tbody>
   </table></div>
   <a class="open" href="service-manager-dashboard.html#sec_dashboard">Open the Service Dashboard</a>
@@ -77,19 +89,28 @@
 
 <section class="dept" id="parts-kpis">
   <h3>Parts Manager</h3>
-  <p class="note">The Parts dashboard covers margin, absorption, turns, fill rate, obsolescence, and the other dealer parts measures. Turns are reported overall and by ABC class, since a single part can run from about one turn to thousands.</p>
-  <div class="tbl-wrap"><table class="kpi">
+  <p class="note">The Parts scorecard has eight core KPIs. Turns are reported overall and by ABC class, since a single part can run from about one turn to thousands. Parts Aging (slow moving at 6 to 8 months, obsolete at 12 months with no movement) sits inside Obsolete and Excess Stock, and Days of Supply is read alongside it.</p>
+  <h4 class="tier-h">Core KPIs (8)</h4>
+  <div class="tbl-wrap"><table class="kpi" data-tier="core">
     <thead><tr><th>KPI</th><th>Formula</th><th>HEDS Target</th></tr></thead>
     <tbody>
       <tr><td class="kn"><a href="parts-manager-dashboard.html#kpi-parts-gross-margin">Parts Gross Margin</a></td><td>(Parts sales minus parts cost of sales) divided by parts sales, times 100</td><td>33% to 37%</td></tr>
-      <tr><td class="kn"><a href="parts-manager-dashboard.html#kpi-parts-share-of-gross-margin">Parts Share of Dealership Gross Margin</a></td><td>Parts gross profit divided by total dealership gross profit, times 100</td><td>25% to 30% of total dealership gross margin, not percent of sales</td></tr>
-      <tr><td class="kn"><a href="parts-manager-dashboard.html#kpi-parts-salaries">Parts Salaries as a Percent of Parts Gross Profit</a></td><td>Parts salaries divided by parts gross profit, times 100</td><td>30% or less</td></tr>
+      <tr><td class="kn"><a href="parts-manager-dashboard.html#kpi-parts-absorption">Parts Absorption</a></td><td>Parts department gross profit divided by the location's total operating expenses, times 100. This is parts' contribution to the location's absorption.</td><td>Parts carries 30% to 40% of the location's absorption. Below 30% is a red flag.</td></tr>
       <tr><td class="kn"><a href="parts-manager-dashboard.html#kpi-gross-parts-turns">Gross Parts Turns</a></td><td>Annual parts cost of sales divided by average parts inventory at cost</td><td>3 to 4 turns a year, reported overall and by ABC class</td></tr>
       <tr><td class="kn"><a href="parts-manager-dashboard.html#kpi-stock-order">Stock Order Percent</a></td><td>Parts purchases on stock orders divided by total parts purchases, times 100</td><td>80%</td></tr>
       <tr><td class="kn"><a href="parts-manager-dashboard.html#kpi-obsolete-excess">Obsolete and Excess Stock</a></td><td>Obsolete and excess inventory divided by total parts inventory, times 100</td><td>Under 5% of parts inventory</td></tr>
-      <tr><td class="kn"><a href="parts-manager-dashboard.html#kpi-obsolete-excess">Parts Aging</a></td><td>Months since a part last sold</td><td>Slow moving at 6 to 8 months, when the chance of a full credit return drops. Obsolete at 12 months with no movement. Write off or purge at 18 to 24 months.</td></tr>
       <tr><td class="kn"><a href="parts-manager-dashboard.html#kpi-counter-fill-rate">Counter Fill Rate</a></td><td>Counter line items filled from stock divided by counter line items requested, times 100</td><td>85%, the sweet spot</td></tr>
       <tr><td class="kn"><a href="parts-manager-dashboard.html#kpi-service-fill-rate">Service Fill Rate</a></td><td>Service line items filled from stock divided by service line items requested, times 100</td><td>90% to 95%</td></tr>
+      <tr><td class="kn"><a href="parts-manager-dashboard.html#kpi-parts-salaries">Parts Salaries as a Percent of Parts Gross Profit</a></td><td>Parts salaries divided by parts gross profit, times 100</td><td>30% or less</td></tr>
+    </tbody>
+  </table></div>
+  <h4 class="tier-h tier-sec">Secondary measures (4)</h4>
+  <p class="note">These stay in the library with their definitions. They are read as needed and are not on the core scorecard.</p>
+  <div class="tbl-wrap"><table class="kpi" data-tier="secondary">
+    <thead><tr><th>KPI</th><th>Formula</th><th>HEDS Target</th></tr></thead>
+    <tbody>
+      <tr><td class="kn"><a href="parts-manager-dashboard.html#kpi-parts-share-of-gross-margin">Parts Share of Dealership Gross Margin</a></td><td>Parts gross profit divided by total dealership gross profit, times 100</td><td>25% to 30% of total dealership gross margin, not percent of sales</td></tr>
+      <tr><td class="kn"><a href="parts-manager-dashboard.html#kpi-obsolete-excess">Parts Aging</a></td><td>Months since a part last sold</td><td>Slow moving at 6 to 8 months, when the chance of a full credit return drops. Obsolete at 12 months with no movement. Write off or purge at 18 to 24 months.</td></tr>
       <tr><td class="kn"><a href="parts-manager-dashboard.html#kpi-months-of-supply">Months of Supply</a></td><td>Stock on hand divided by average monthly usage</td><td>Set per dealer. Three months is an average starting point, adjusted for how fast stock orders are filled and for turns.</td></tr>
       <tr><td class="kn"><a href="parts-manager-dashboard.html#kpi-parts-to-labor">Parts to Labor Ratio</a></td><td>Parts billed on work orders divided by labor on work orders</td><td>No single dealer-wide target. Measured by CAT class. Per-class numbers are covered in training.</td></tr>
     </tbody>
@@ -105,8 +126,9 @@
 
 <section class="dept" id="absorption-kpis">
   <h3>Location Absorption</h3>
-  <p class="note">Absorption uses the total operating expenses of the whole location. Service and parts each show their share of the same result. These measures are worked on the Service and Parts dashboards.</p>
-  <div class="tbl-wrap"><table class="kpi">
+  <p class="note">Absorption uses the total operating expenses of the whole location. Service and parts each show their share of the same result. These measures are worked on the Service and Parts dashboards. Service Absorption is counted in the Service eight and Parts Absorption in the Parts eight, so the three are shown here once as a set.</p>
+  <h4 class="tier-h">Core KPIs (3)</h4>
+  <div class="tbl-wrap"><table class="kpi" data-tier="core">
     <thead><tr><th>KPI</th><th>Formula</th><th>HEDS Target</th></tr></thead>
     <tbody>
       <tr><td class="kn"><a href="service-manager-dashboard.html#kpi-service-absorption">Location Absorption</a></td><td>Service gross profit plus parts gross profit, divided by the location's total operating expenses, times 100</td><td>The location target is 100% to 110%.</td></tr>

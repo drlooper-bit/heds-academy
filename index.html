@@ -908,7 +908,7 @@ input, select, textarea {
     <h2>Start With an Initial Snapshot</h2>
     <p style="color:var(--accent);font-weight:600;font-size:1.05rem;">We show you the biggest dollar leak in your location before you commit to anything else.</p>
     <p>You send a small set of reports you already run, such as the Departmental P&amp;L Summary, the Open Work Order Report and the Shop Labor Tracking Report. If your system names them differently, the Service Manager and Parts Manager dashboards list what each report is called in IntelliDealer / e-Emphasys, Epicor and Texada.</p>
-    <p>HEDS returns a short snapshot of where your location stands on a handful of KPIs from the HEDS KPI Library, such as location absorption, effective labor rate against 92% of posted rate, labor recovery, parts gross margin and WIP aging. The snapshot calls out your biggest dollar leak, so you know exactly where to start.</p>
+    <p>HEDS returns a short snapshot of where your location stands on a handful of KPIs from the HEDS KPI Library, such as location absorption, effective labor rate against 92% of posted rate, labor recovery, parts gross margin and Last Labor to Invoice. The snapshot calls out your biggest dollar leak, so you know exactly where to start.</p>
     <p>Rental locations can also include fleet measures from the KPI Library, such as time utilization, dollar utilization and maintenance cost as a percent of OEC.</p>
     <!-- DANIEL: turnaround -->
     <div data-offer="snapshot"><noscript><p>This section needs JavaScript to show the steps and prices. Call (352) 724-5603 for details.</p></noscript></div>
@@ -979,7 +979,7 @@ input, select, textarea {
     <div class="service-grid">
       <div class="service-card" style="text-align:left;" data-shared="audit-service">
         <h3 style="color:var(--accent);">Service Department</h3>
-        <p style="font-size:0.9rem;">HEDS reviews WIP aging and days-to-invoice, labor recovery and unbilled hours, effective labor rate against posted rate, quote follow-up and close rate, warranty recovery rate, first-time fix rate, and absorption contribution.</p>
+        <p style="font-size:0.9rem;">HEDS reviews Last Labor to Invoice (work orders still open more than 48 hours after the last labor), labor recovery and unbilled hours, effective labor rate against posted rate, quote follow-up and close rate, warranty recovery rate, first-time fix rate, and absorption contribution.</p>
       </div>
       <div class="service-card" style="text-align:left;" data-shared="audit-parts">
         <h3 style="color:var(--accent);">Parts Department</h3>
@@ -1001,7 +1001,7 @@ input, select, textarea {
   <div class="card">
     <h2>What You Get</h2>
     <p>The audit delivers an operational findings report with dollar-quantified revenue leaks, a department-by-department scorecard showing current state against industry benchmarks, and a prioritized fix list ranked by dollar impact and ease of implementation.</p>
-    <p>It also delivers a WIP aging analysis with specific hold reasons and dollar exposure, a labor reconciliation showing unbilled hours and dollar exposure, a parts inventory health snapshot covering fill rate, dead stock and aging, and a rental fleet utilization and downtime analysis. If behavioral gaps are driving the leaks, it includes a recommendation for a training engagement.</p>
+    <p>It also delivers a Last Labor to Invoice analysis of work orders open past 48 hours after the last labor, with specific hold reasons and dollar exposure, a labor reconciliation showing unbilled hours and dollar exposure, a parts inventory health snapshot covering fill rate, dead stock and aging, and a rental fleet utilization and downtime analysis. If behavioral gaps are driving the leaks, it includes a recommendation for a training engagement.</p>
   </div>
 
   <div class="card">
@@ -1390,7 +1390,7 @@ input, select, textarea {
 
     <h3 style="color:var(--accent);margin-top:16px;">Why industry knowledge matters</h3>
     <p>A manager who does not know how <a href="service-manager-dashboard.html#kpi-technician-recovery" style="color:var(--accent);">Labor Recovery</a> and <a href="service-manager-dashboard.html#kpi-labor-utilization" style="color:var(--accent);">Labor Utilization</a> work cannot see paid technician hours that never reach a work order, or hours worked that never reach an invoice. Those hours are paid for every week whether anyone sees them or not.</p>
-    <p>A manager who does not know why work orders must close within 48 hours of the last labor lets finished jobs sit open. That is <a href="service-manager-dashboard.html#kpi-last-labor-to-invoice" style="color:var(--accent);">WIP aging</a>, and it holds revenue and cash in jobs that are already done.</p>
+    <p>A manager who does not know why work orders must close within 48 hours of the last labor lets finished jobs sit open. That is a miss on <a href="service-manager-dashboard.html#kpi-last-labor-to-invoice" style="color:var(--accent);">Last Labor to Invoice</a>, and it holds revenue and cash in jobs that are already done.</p>
     <p>A manager who cannot explain <a href="dealer-kpi-library.html#absorption-kpis" style="color:var(--accent);">absorption</a> cannot tell whether the department's gross profit covers the location's operating expenses. Each of these gaps costs money for as long as it goes unseen.</p>
 
     <h3 style="color:var(--accent);margin-top:16px;">The score report shapes the five days</h3>

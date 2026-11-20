@@ -997,7 +997,7 @@ table {
           </thead>
           <tbody>
             <tr><td>KPI 1: Gross Margin</td><td>33%-37%</td><td>35.7%</td><td><span class="metric-status status-pass">PASS</span></td></tr>
-            <tr><td>KPI 2: Absorption Rate</td><td>30% to 40% of the location's absorption</td><td>60.0%</td><td><span class="metric-status status-pass">PASS</span></td></tr>
+            <tr><td>KPI 2: Absorption Rate</td><td>30% to 40% of the location's absorption</td><td>35.0%</td><td><span class="metric-status status-pass">PASS</span></td></tr>
             <tr><td>KPI 3: Parts Share of Dealership Gross Margin</td><td>25%-30%</td><td>25.0%</td><td><span class="metric-status status-pass">PASS</span></td></tr>
             <tr><td>KPI 4: Salary % of GP</td><td>&le; 30%</td><td>26.7%</td><td><span class="metric-status status-pass">PASS</span></td></tr>
             <tr><td>KPI 5: Gross Turns</td><td>3-4x</td><td>3.6x</td><td><span class="metric-status status-pass">PASS</span></td></tr>
@@ -1237,7 +1237,7 @@ table {
       <span>Interactive Operating Cockpit</span>
       <span class="curr-day-tag">Command Radar</span>
     </div>
-    <p style="color:var(--muted); font-size:0.92rem;">Real-time mathematical simulator. Enter your dealership figures below to recalculate all 10 KPIs and immediately dollarize profit leakage.</p>
+    <p style="color:var(--muted); font-size:0.92rem;">Real-time mathematical simulator. Enter your dealership figures below to recalculate the 8 core KPIs and the 3 secondary measures and immediately dollarize profit leakage.</p>
     <div class="grid-2">
       <div class="metric-box">
         <div style="font-size:0.8rem; color:var(--muted); font-weight:700;">MONTHLY CASH DRAG</div>
@@ -1253,13 +1253,13 @@ table {
   <!-- 10-KPI MASTER TELEMETRY BANK -->
   <div class="kpi-grid kpi-grid-5" style="margin-bottom:24px;">
     <div class="metric-box kpi-tile"><div class="kpi-label">01 Gross Margin</div><div class="metric-val" id="m1_res">35.7%</div><div id="m1_status" class="metric-status status-pass">PASS</div><div class="kpi-desc">Target: 33%-37%</div></div>
-    <div class="metric-box kpi-tile"><div class="kpi-label">02 Absorption</div><div class="metric-val" id="m2_res">60.0%</div><div id="m2_status" class="metric-status status-pass">PASS</div><div class="kpi-desc">Target: 30% to 40% of the location's absorption</div></div>
-    <div class="metric-box kpi-tile"><div class="kpi-label">03 Parts Share of GM</div><div class="metric-val" id="m3_res">25.0%</div><div id="m3_status" class="metric-status status-pass">PASS</div><div class="kpi-desc">Target: 25%-30% of dealership gross margin</div></div>
+    <div class="metric-box kpi-tile"><div class="kpi-label">02 Absorption</div><div class="metric-val" id="m2_res">35.0%</div><div id="m2_status" class="metric-status status-pass">PASS</div><div class="kpi-desc">Target: 30% to 40% of the location's absorption</div></div>
+    <div class="metric-box kpi-tile"><div class="kpi-label">03 Parts Share of GM (secondary)</div><div class="metric-val" id="m3_res">25.0%</div><div id="m3_status" class="metric-status status-pass">PASS</div><div class="kpi-desc">Target: 25%-30% of dealership gross margin</div></div>
     <div class="metric-box kpi-tile"><div class="kpi-label">04 Salary / GP</div><div class="metric-val" id="m4_res">26.7%</div><div id="m4_status" class="metric-status status-pass">PASS</div><div class="kpi-desc">Target: &le; 30%</div></div>
     <div class="metric-box kpi-tile"><div class="kpi-label">05 Gross Turns</div><div class="metric-val" id="m5_res">3.6x</div><div id="m5_status" class="metric-status status-pass">PASS</div><div class="kpi-desc">Target: 3.0x to 4.0x</div><div class="kpi-desc" id="m5_note" style="color:var(--warning);"></div></div>
     <div class="metric-box kpi-tile"><div class="kpi-label">06 Stock Order</div><div class="metric-val" id="m6_res">75.0%</div><div id="m6_status" class="metric-status status-warn">WARN</div><div class="kpi-desc">Target: &ge; 80%</div></div>
     <div class="metric-box kpi-tile"><div class="kpi-label">07 Obsolescence</div><div class="metric-val" id="m7_res">9.0%</div><div id="m7_status" class="metric-status status-warn">WARN</div><div class="kpi-desc">Target: &lt; 5% (WARN 5 to 10%, FAIL over 10%)</div></div>
-    <div class="metric-box kpi-tile"><div class="kpi-label">08 Parts/Labor</div><div class="metric-val" id="m8_res">$1.20 : $1</div><div id="m8_status" class="metric-status status-pass">PASS</div><div class="kpi-desc">Target: $1:$1 (PASS $1.00 to $1.50)</div></div>
+    <div class="metric-box kpi-tile"><div class="kpi-label">08 Parts/Labor (secondary)</div><div class="metric-val" id="m8_res">$1.20 : $1</div><div id="m8_status" class="metric-status status-pass">PASS</div><div class="kpi-desc">Target: $1:$1 (PASS $1.00 to $1.50)</div></div>
     <div class="metric-box kpi-tile"><div class="kpi-label">09 Fill Rate</div><div class="metric-val" id="m9_res">90.0% / 94.7%</div><div id="m9_status" class="metric-status status-pass">PASS</div><div class="kpi-desc">Counter / Service. Targets: counter &ge; 85%, service &ge; 90% (by line item, then averaged)</div></div>
     <div class="metric-box kpi-tile"><div class="kpi-label">10 Supply Days</div><div class="metric-val" id="s_val_m10">101 days</div><div id="s_stat_m10"><span class="metric-status status-fail">FAIL</span></div><div class="kpi-desc">Target: &le; 90 days</div></div>
   </div>
@@ -1302,14 +1302,14 @@ table {
     <div id="kpi-parts-absorption" class="grid-2">
       <div class="card">
         <div class="card-title">Enter Your Numbers: Parts Contribution to Location Absorption</div>
-        <div class="form-group"><label for="m2_parts_gp">Parts Gross Profit ($)</label><input type="number" id="m2_parts_gp" value="150000" oninput="calcAll()"></div>
+        <div class="form-group"><label for="m2_parts_gp">Parts Gross Profit ($)</label><input type="number" id="m2_parts_gp" value="87500" oninput="calcAll()"></div>
         <div class="form-group"><label for="m2_total_exp">Total Store Fixed + Variable Operating Expenses ($)</label><input type="number" id="m2_total_exp" value="250000" oninput="calcAll()"></div>
       </div>
       <div class="card">
         <div class="card-title">Live Calculation</div>
         <div class="metric-box">
           <div style="font-size:0.8rem; color:var(--muted); font-weight:700;">PARTS CONTRIBUTION TO LOCATION ABSORPTION</div>
-          <div class="metric-val" id="dash_m2_hero">60.0%</div>
+          <div class="metric-val" id="dash_m2_hero">35.0%</div>
           <div id="dash_m2_status" class="metric-status status-pass">PASS</div>
           <div class="kpi-desc">Target: 30% to 40% of the location's absorption. Below 30% is a red flag.</div>
         </div>
@@ -1471,7 +1471,7 @@ table {
   <div id="dash_m10" class="tab-content">
     <div class="card">
       <div class="card-title">
-        <span>Executive Scorecard Summary (10 KPIs)</span>
+        <span>Executive Scorecard Summary (8 core KPIs)</span>
         <span style="display:flex; gap:8px; flex-wrap:wrap;">
           <button class="btn" onclick="printScorecard()">Print Scorecard</button>
           <button class="btn btn-outline" onclick="resetData()">Reset Defaults</button>
@@ -1483,17 +1483,19 @@ table {
             <tr><th>KPI Metric</th><th>Your Value</th><th>Target Benchmark</th><th>Status</th></tr>
           </thead>
           <tbody>
-            <tr><td>KPI 1: Parts Gross Margin</td><td id="s_val_m1">35.7%</td><td>33%-37%</td><td id="s_stat_m1"><span class="metric-status status-pass">PASS</span></td></tr>
-            <tr><td>KPI 2: Parts Absorption Rate</td><td id="s_val_m2">60.0%</td><td>30% to 40% of the location's absorption</td><td id="s_stat_m2"><span class="metric-status status-pass">PASS</span></td></tr>
-            <tr><td>KPI 3: Parts Share of Dealership Gross Margin</td><td id="s_val_m3">25.0%</td><td>25%-30%</td><td id="s_stat_m3"><span class="metric-status status-pass">PASS</span></td></tr>
-            <tr><td>KPI 4: Parts Salary % of GP</td><td id="s_val_m4">26.7%</td><td>&le; 30%</td><td id="s_stat_m4"><span class="metric-status status-pass">PASS</span></td></tr>
-            <tr><td>KPI 5: Gross Parts Turns</td><td id="s_val_m5">3.6x</td><td>3-4x</td><td id="s_stat_m5"><span class="metric-status status-pass">PASS</span></td></tr>
-            <tr><td>KPI 6: Stock Order Efficiency</td><td id="s_val_m6">75.0%</td><td>&ge; 80%</td><td id="s_stat_m6"><span class="metric-status status-warn">WARN</span></td></tr>
-            <tr><td>KPI 7: Obsolescence &amp; Excess</td><td id="s_val_m7">9.0%</td><td>&lt; 5%</td><td id="s_stat_m7"><span class="metric-status status-warn">WARN</span></td></tr>
-            <tr><td>KPI 8: Parts-to-Labor Ratio</td><td id="s_val_m8">$1.20 : $1</td><td>$1 : $1</td><td id="s_stat_m8"><span class="metric-status status-pass">PASS</span></td></tr>
-            <tr><td>KPI 9a: Counter Fill Rate</td><td id="s_val_m9c">90.0%</td><td>&ge; 85%</td><td id="s_stat_m9c"><span class="metric-status status-pass">PASS</span></td></tr>
-            <tr><td>KPI 9b: Service Fill Rate</td><td id="s_val_m9">94.7%</td><td>&ge; 90%</td><td id="s_stat_m9"><span class="metric-status status-pass">PASS</span></td></tr>
-            <tr id="kpi-months-of-supply"><td>KPI 10: Days of Supply</td><td id="s_val_m10_sub">101 days</td><td>&le; 90 days</td><td id="s_stat_m10_sub"><span class="metric-status status-fail">FAIL</span></td></tr>
+            <tr><td colspan="4" style="padding:12px 10px 6px 10px; font-weight:800; font-size:0.8rem; letter-spacing:1px; text-transform:uppercase; color:var(--accent-color);">Core KPIs (8)</td></tr>
+            <tr><td>Parts Gross Margin</td><td id="s_val_m1">35.7%</td><td>33%-37%</td><td id="s_stat_m1"><span class="metric-status status-pass">PASS</span></td></tr>
+            <tr><td>Parts Absorption</td><td id="s_val_m2">35.0%</td><td>30% to 40% of the location's absorption</td><td id="s_stat_m2"><span class="metric-status status-pass">PASS</span></td></tr>
+            <tr><td>Gross Parts Turns</td><td id="s_val_m5">3.6x</td><td>3-4x</td><td id="s_stat_m5"><span class="metric-status status-pass">PASS</span></td></tr>
+            <tr><td>Stock Order Percent</td><td id="s_val_m6">75.0%</td><td>&ge; 80%</td><td id="s_stat_m6"><span class="metric-status status-warn">WARN</span></td></tr>
+            <tr><td>Obsolete and Excess Stock</td><td id="s_val_m7">9.0%</td><td>&lt; 5%</td><td id="s_stat_m7"><span class="metric-status status-warn">WARN</span></td></tr>
+            <tr><td>Counter Fill Rate</td><td id="s_val_m9c">90.0%</td><td>&ge; 85%</td><td id="s_stat_m9c"><span class="metric-status status-pass">PASS</span></td></tr>
+            <tr><td>Service Fill Rate</td><td id="s_val_m9">94.7%</td><td>&ge; 90%</td><td id="s_stat_m9"><span class="metric-status status-pass">PASS</span></td></tr>
+            <tr><td>Parts Salaries as a Percent of Parts Gross Profit</td><td id="s_val_m4">26.7%</td><td>&le; 30%</td><td id="s_stat_m4"><span class="metric-status status-pass">PASS</span></td></tr>
+            <tr><td colspan="4" style="padding:12px 10px 6px 10px; font-weight:800; font-size:0.8rem; letter-spacing:1px; text-transform:uppercase; color:var(--muted);">Secondary measures (3)</td></tr>
+            <tr><td>Parts Share of Dealership Gross Margin</td><td id="s_val_m3">25.0%</td><td>25%-30%</td><td id="s_stat_m3"><span class="metric-status status-pass">PASS</span></td></tr>
+            <tr><td>Parts to Labor Ratio</td><td id="s_val_m8">$1.20 : $1</td><td>$1 : $1</td><td id="s_stat_m8"><span class="metric-status status-pass">PASS</span></td></tr>
+            <tr id="kpi-months-of-supply"><td>Days of Supply</td><td id="s_val_m10_sub">101 days</td><td>&le; 90 days</td><td id="s_stat_m10_sub"><span class="metric-status status-fail">FAIL</span></td></tr>
           </tbody>
         </table>
       </div>
@@ -1847,7 +1849,7 @@ table {
       if (confirm('Reset all manager inputs to default values?')) {
         var defaults = {
           'm1_parts_rev': '420000', 'm1_parts_cost': '270000',
-          'm2_parts_gp': '150000', 'm2_total_exp': '250000',
+          'm2_parts_gp': '87500', 'm2_total_exp': '250000',
           'm3_parts_gm': '150000', 'm3_total_gm': '600000',
           'm4_salary': '40000', 'm4_gp': '150000',
           'm5_annual_cos': '1800000', 'm5_avg_inv': '500000',

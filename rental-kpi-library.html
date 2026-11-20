@@ -51,19 +51,31 @@
 
 <section class="dept" id="rental-kpis">
   <h3>Rental Manager</h3>
-  <p class="note">The Rental dashboard is the commercial view of the fleet: time and dollar utilization, rate realization, downtime, damage recovery, and maintenance cost as a percent of original equipment cost. Rental books labor, parts, and maintenance differently than a dealership, so dealer targets are not applied here. The measures below are taught on the dashboard, and the HEDS targets are covered in training.</p>
-  <div class="tbl-wrap"><table class="kpi">
+  <p class="note">The Rental dashboard is the commercial view of the fleet: time and dollar utilization, rate realization, downtime, damage recovery, and maintenance cost as a percent of original equipment cost. Rental books labor, parts, and maintenance differently than a dealership, so dealer targets are not applied here. The Rental scorecard has eight core KPIs, and the HEDS targets are covered in training, except EBITDA Margin, which has a set band. The other measures are secondary and stay in the library with their definitions.</p>
+  <h4 class="tier-h">Core KPIs (8)</h4>
+  <div class="tbl-wrap"><table class="kpi" data-tier="core">
     <thead><tr><th>KPI</th><th>Formula</th><th>HEDS Target</th></tr></thead>
     <tbody>
       <tr><td class="kn"><a href="rental-manager-dashboard.html#kpi-time-utilization">Time Utilization</a></td><td>Days on rent divided by available rentable days, times 100</td><td>Covered in training</td></tr>
       <tr><td class="kn"><a href="rental-manager-dashboard.html#kpi-dollar-utilization">Dollar Utilization</a></td><td>Annual rental revenue divided by total original equipment cost (OEC), times 100</td><td>Covered in training</td></tr>
       <tr><td class="kn"><a href="rental-manager-dashboard.html#kpi-maintenance-cost-oec">Maintenance Cost as a Percent of OEC</a></td><td>Annual maintenance cost, with technician labor left out, divided by fleet OEC, times 100</td><td>Covered in training</td></tr>
-      <tr><td class="kn"><a href="rental-manager-dashboard.html#kpi-equipment-downtime">Equipment Downtime</a></td><td>Down days divided by available days, times 100. Downtime lost revenue is downtime revenue times the cat class time utilization.</td><td>Covered in training</td></tr>
+      <tr><td class="kn"><a href="rental-manager-dashboard.html#kpi-ebitda-margin">EBITDA Margin</a></td><td>EBITDA divided by total rental revenue, times 100</td><td>30% to 46%. Below 30% is a red flag.</td></tr>
       <tr><td class="kn"><a href="rental-manager-dashboard.html#kpi-rate-realization">Rate Realization</a></td><td>Actual invoiced rate divided by rack rate, times 100</td><td>Covered in training</td></tr>
-      <tr><td class="kn"><a href="rental-manager-dashboard.html#kpi-damage-recovery">Damage Recovery Rate</a></td><td>Customer damage collected divided by total cost of customer damage repairs, times 100</td><td>Covered in training</td></tr>
       <tr><td class="kn"><a href="rental-manager-dashboard.html#kpi-equipment-to-orders">Equipment to Orders Ratio</a></td><td>Available units in a class divided by active rental requests for that class</td><td>Covered in training</td></tr>
-      <tr><td class="kn"><a href="rental-manager-dashboard.html#kpi-ebitda-margin">EBITDA Margin</a></td><td>EBITDA divided by total rental revenue, times 100</td><td>Covered in training</td></tr>
+      <tr><td class="kn"><a href="rental-manager-dashboard.html#kpi-equipment-downtime">Fleet Downtime</a></td><td>Down days divided by available days, times 100. Downtime lost revenue is downtime revenue times the cat class time utilization.</td><td>Covered in training</td></tr>
+      <tr><td class="kn"><a href="rental-manager-dashboard.html#kpi-damage-recovery">Damage Recovery Rate</a></td><td>Customer damage collected divided by total cost of customer damage repairs, times 100</td><td>Covered in training</td></tr>
+    </tbody>
+  </table></div>
+  <h4 class="tier-h tier-sec">Secondary measures (5)</h4>
+  <p class="note">These stay in the library with their definitions. They are read as needed and are not on the core scorecard.</p>
+  <div class="tbl-wrap"><table class="kpi" data-tier="secondary">
+    <thead><tr><th>KPI</th><th>Formula</th><th>HEDS Target</th></tr></thead>
+    <tbody>
       <tr><td class="kn"><a href="rental-manager-dashboard.html#kpi-customer-churn">Customer Churn (quarterly)</a></td><td>Customers lost this quarter divided by active customers last quarter, times 100</td><td>Covered in training</td></tr>
+      <tr><td class="kn"><a href="rental-manager-dashboard.html#sec_dashboard">Quote to Conversion</a></td><td>Quotes won divided by total quotes sent, times 100</td><td>Covered in training</td></tr>
+      <tr><td class="kn"><a href="rental-manager-dashboard.html#sec_dashboard">Freight Recovery</a></td><td>Freight charged to the customer divided by total freight cost, times 100</td><td>Covered in training</td></tr>
+      <tr><td class="kn"><a href="rental-manager-dashboard.html#sec_dashboard">Transport Cost per Move</a></td><td>Total freight cost divided by the number of moves</td><td>Covered in training</td></tr>
+      <tr><td class="kn"><a href="rental-manager-dashboard.html#sec_dashboard">Net Contribution per Unit</a></td><td>Revenue per unit minus cost per unit, by class</td><td>Covered in training</td></tr>
     </tbody>
   </table></div>
   <a class="open" href="rental-manager-dashboard.html#sec_dashboard">Open the Rental Dashboard</a>
@@ -77,19 +89,27 @@
 
 <section class="dept" id="rental-service-kpis">
   <h3>Rental Service Manager</h3>
-  <p class="note">The Rental Service dashboard is the shop that keeps the fleet rent-ready: off-rent turnaround, availability, downtime, damage recovery, and the 48-hour close on rental work orders. Those measures are taught on the dashboard, and the HEDS targets are covered in training.</p>
-  <div class="tbl-wrap"><table class="kpi">
+  <p class="note">The Rental Service dashboard is the shop that keeps the fleet rent-ready: off-rent turnaround, availability, downtime, damage recovery, and the 48-hour close on rental work orders. The Rental Service scorecard has eight core KPIs, and the HEDS targets are covered in training. The other measures are secondary and stay in the library with their definitions.</p>
+  <h4 class="tier-h">Core KPIs (8)</h4>
+  <div class="tbl-wrap"><table class="kpi" data-tier="core">
     <thead><tr><th>KPI</th><th>Formula</th><th>HEDS Target</th></tr></thead>
     <tbody>
       <tr><td class="kn"><a href="rental-service-manager-dashboard.html#kpi-off-rent-to-rent-ready">Off Rent to Rent-Ready</a></td><td>Hours from off rent into service to the rent-ready line, or to a failed inspection</td><td>Covered in training</td></tr>
       <tr><td class="kn"><a href="rental-service-manager-dashboard.html#kpi-technician-recovery">Labor Recovery</a></td><td>Hours on work orders divided by paid payroll hours, times 100</td><td>Covered in training</td></tr>
       <tr><td class="kn"><a href="rental-service-manager-dashboard.html#kpi-labor-utilization">Labor Utilization</a></td><td>Hours invoiced on work orders divided by hours on work orders, times 100</td><td>Covered in training</td></tr>
       <tr><td class="kn"><a href="rental-service-manager-dashboard.html#kpi-maintenance-cost-oec">Maintenance Cost as a Percent of OEC</a></td><td>Annual maintenance cost, with technician labor left out, divided by fleet OEC, times 100</td><td>Covered in training</td></tr>
-      <tr><td class="kn"><a href="rental-service-manager-dashboard.html#kpi-fleet-availability">Fleet Physical Availability</a></td><td>(Rent-ready units plus on-rent units) divided by total fleet units, times 100</td><td>Covered in training</td></tr>
-      <tr><td class="kn"><a href="rental-service-manager-dashboard.html#kpi-fleet-downtime">Fleet Downtime</a></td><td>Down days divided by total fleet days, times 100. Downtime lost revenue is downtime revenue times the cat class time utilization.</td><td>Covered in training</td></tr>
       <tr><td class="kn"><a href="rental-service-manager-dashboard.html#kpi-late-close-work-orders">Late Close Work Orders</a></td><td>Count of work orders not closed and invoiced within 48 hours of last labor</td><td>Covered in training</td></tr>
-      <tr><td class="kn"><a href="rental-service-manager-dashboard.html#kpi-parts-buffer">Parts Buffer (Months of Supply)</a></td><td>Parts on hand divided by average monthly usage over the last six months</td><td>Covered in training</td></tr>
+      <tr><td class="kn"><a href="rental-service-manager-dashboard.html#kpi-fleet-downtime">Fleet Downtime</a></td><td>Down days divided by total fleet days, times 100. Downtime lost revenue is downtime revenue times the cat class time utilization.</td><td>Covered in training</td></tr>
+      <tr><td class="kn"><a href="rental-service-manager-dashboard.html#kpi-fleet-availability">Fleet Physical Availability</a></td><td>(Rent-ready units plus on-rent units) divided by total fleet units, times 100</td><td>Covered in training</td></tr>
       <tr><td class="kn"><a href="rental-service-manager-dashboard.html#kpi-damage-recovery">Damage Recovery Rate</a></td><td>Customer damage collected divided by total cost of customer damage repairs, times 100</td><td>Covered in training</td></tr>
+    </tbody>
+  </table></div>
+  <h4 class="tier-h tier-sec">Secondary measures (2)</h4>
+  <p class="note">These stay in the library with their definitions. They are read as needed and are not on the core scorecard.</p>
+  <div class="tbl-wrap"><table class="kpi" data-tier="secondary">
+    <thead><tr><th>KPI</th><th>Formula</th><th>HEDS Target</th></tr></thead>
+    <tbody>
+      <tr><td class="kn"><a href="rental-service-manager-dashboard.html#kpi-parts-buffer">Parts Buffer (Months of Supply)</a></td><td>Parts on hand divided by average monthly usage over the last six months</td><td>Covered in training</td></tr>
       <tr><td class="kn"><a href="rental-service-manager-dashboard.html#kpi-telematics-triage">Telematics Triage</a></td><td>Critical alerts triaged within 2 hours divided by total critical alerts, times 100</td><td>Covered in training</td></tr>
     </tbody>
   </table></div>

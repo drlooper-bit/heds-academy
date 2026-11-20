@@ -29,11 +29,10 @@
       rules: [{ op: 'gt', v: 110, grade: 'WARN', label: LAB_TXT }, { op: 'gte', v: 100, grade: 'PASS' }, { op: 'gt', v: 85, grade: 'WARN' }],
       otherwise: { grade: 'FAIL', label: 'Red flag' },
       pending: 'Target set to 100% to 110% by Daniel on November 20. Above-band grading and the 85% red flag still need his answer. The live dashboards warn above 110%.' },
-    shop_efficiency: { name: 'Shop Efficiency', unit: '%',
-      text: '110%',
+    shop_efficiency: { name: 'Technician Efficiency', unit: '%',
+      text: 'Shop 110%. Road 80% to 110%.',
       rules: [{ op: 'gte', v: 110, grade: 'PASS' }, { op: 'gte', v: 100, grade: 'WARN', label: 'Below 110%' }],
-      otherwise: { grade: 'FAIL', label: 'Below 100%' },
-      pending: 'Target value. The canvas simulation says 100% or better. The live site says 110%.' },
+      otherwise: { grade: 'FAIL', label: 'Below 100%' } },
     last_labor_to_invoice: { name: 'Last Labor to Invoice', unit: 'orders',
       text: '48 hours',
       rules: [{ op: 'gt', v: 0, grade: 'FAIL', label: 'Past 48 hours' }], otherwise: { grade: 'PASS' } },
@@ -45,8 +44,7 @@
       rules: [{ op: 'gte', v: 92, grade: 'PASS' }], otherwise: { grade: 'FAIL', label: 'Red flag' } },
     first_time_fix_rate: { name: 'First-Time Fix Rate', unit: '%',
       text: '85% to 90%',
-      rules: [{ op: 'gte', v: 85, grade: 'PASS' }], otherwise: { grade: 'FAIL' },
-      pending: 'The library says 85% to 90%. The Service dashboard passes at 88% or more. The calculator passes at 85% or more.' },
+      rules: [{ op: 'gte', v: 85, grade: 'PASS' }], otherwise: { grade: 'FAIL' } },
     /* ---- Dealer: Parts ---- */
     parts_gross_margin: { name: 'Parts Gross Margin', unit: '%',
       text: '33% to 37%',
@@ -94,10 +92,9 @@
       rules: [{ op: 'lte', v: 8, grade: 'PASS' }, { op: 'lte', v: 10, grade: 'WARN' }], otherwise: { grade: 'FAIL' },
       pending: 'Red line. The canvas simulation turns red above 8%. The Rental Service dashboard warns from 8.1% to 10%.' },
     ebitda_margin: { name: 'EBITDA Margin', unit: '%',
-      text: 'Rental targets are covered in training. The Rental dashboard grades 30% or more as a pass.',
-      rules: [{ op: 'gte', v: 30, grade: 'PASS' }, { op: 'gte', v: 20, grade: 'WARN' }], otherwise: { grade: 'FAIL' },
-      pending: 'Whether rental targets show in the calculator and library. The settled band is 30% to 46%.' },
-    equipment_downtime: { name: 'Equipment Downtime', unit: '%',
+      text: '30% to 46%. Below 30% is a red flag.',
+      rules: [{ op: 'gte', v: 30, grade: 'PASS' }], otherwise: { grade: 'FAIL', label: 'Red flag' } },
+    equipment_downtime: { name: 'Fleet Downtime', unit: '%',
       short: 'Under 8% passes, per the Rental dashboard',
       text: 'Rental targets are covered in training. The Rental dashboard grades under 8% as a pass. Downtime lost revenue is downtime revenue times the cat class time utilization.',
       rules: [{ op: 'lt', v: 8, grade: 'PASS' }, { op: 'lte', v: 12, grade: 'WARN' }], otherwise: { grade: 'FAIL' } },
@@ -164,6 +161,24 @@
     return { grade: t.otherwise.grade, label: t.otherwise.label || '' };
   }
 
+  /*
+    Core KPIs per section. Each department scorecard shows these (8 at most) as core.
+    Every other entry is a secondary measure: it stays in the library with its definition, but it is not on the core scorecard.
+    Daniel approved 8 core KPIs per department on November 20, 2026.
+  */
+  var CORE = {
+    service: ['technician_recovery', 'labor_utilization', 'shop_efficiency', 'effective_labor_rate', 'last_labor_to_invoice', 'service_absorption', 'first_time_fix_rate', 'service_labor_gross_margin'],
+    parts: ['parts_gross_margin', 'parts_absorption', 'gross_parts_turns', 'stock_order_percent', 'obsolete_excess_stock', 'counter_fill_rate', 'service_fill_rate', 'parts_salaries_pct_gp'],
+    location: ['location_absorption', 'service_absorption', 'parts_absorption'],
+    rental: ['time_utilization', 'dollar_utilization', 'maintenance_cost_oec', 'ebitda_margin', 'rate_realization', 'equipment_to_orders', 'equipment_downtime', 'damage_recovery_rate'],
+    rentalService: ['rent_ready_turnaround', 'rs_technician_recovery', 'rs_labor_utilization', 'maintenance_cost_oec', 'late_close_work_orders', 'fleet_downtime', 'fleet_availability', 'damage_recovery_rate']
+  };
+  Object.keys(T).forEach(function (k) {
+    var core = Object.keys(CORE).some(function (sec) { return CORE[sec].indexOf(k) !== -1; });
+    T[k].tier = core ? 'core' : 'secondary';
+  });
+
+  root.HEDS_KPI_CORE = CORE;
   root.HEDS_KPI_TARGETS = T;
   root.hedsGrade = grade;
 })(window);
