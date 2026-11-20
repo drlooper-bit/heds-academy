@@ -23,37 +23,23 @@
         { h: 'You get the snapshot', t: 'HEDS returns a short snapshot of where your location stands and calls out your biggest dollar leak.' }
       ],
       deliver: 'A short written snapshot that shows where your location stands on a handful of KPIs, with your biggest dollar leak called out so you know where to start.',
-      see: { links: [{ t: 'Dealer KPI Library', h: 'dealer-kpi-library.html' }], then: 'then book an Operational Health Check.' },
+      see: { links: [{ t: 'Dealer KPI Library', h: 'dealer-kpi-library.html' }], then: 'then book the ', next: { t: 'Operational Health Analysis', h: 'index.html#health-analysis' } },
       price: [ { label: 'Initial Snapshot, one page on three KPIs', amount: 'Free' } ]
     },
 
-    review: {
-      title: 'Report Review',
-      steps: [
-        { h: 'You send your numbers', t: 'You send your P&L and the standard service and parts reports from your dealer system.' },
-        { h: 'Daniel reviews them', t: 'Daniel Looper reviews the reports against HEDS benchmarks and works out where performance is falling short.' },
-        { h: 'You get the review', t: 'HEDS delivers the review within 48 hours of receiving your reports.' }
-      ],
-      deliver: 'Your current performance beside HEDS benchmarks, a projection of what closing each gap is worth in dollars calculated from your own numbers, and an account of where each department is struggling.',
-      see: { links: [{ t: 'Dealer KPI Library', h: 'dealer-kpi-library.html' }], then: 'then book an Operational Health Check.' },
-      price: [ { label: 'Report Review on its own', amount: '$1,600' } ],
-      note: 'The Operational Health Check adds a written report with recommendations for the branch.',
-      extra: false, travel: false,
-      cta: { label: 'Book a Discovery Call', href: BOOK }
-    },
-
-    ohc: {
-      title: 'Operational Health Check',
-      lead: 'A remote review of one branch, for dealer principals, general managers, and service and parts managers at small and mid size heavy equipment dealerships. There is no onsite visit.',
+    analysis: {
+      title: 'Operational Health Analysis',
+      lead: 'A remote analysis of one branch, for dealer principals, general managers, and service and parts managers at small and mid size heavy equipment dealerships. There is no onsite visit.',
+      // NAME-PLACEHOLDER: "Operational Health Analysis" is a placeholder name until Daniel confirms it.
       steps: [
         { h: 'You send your numbers', t: 'You send your P&L and the standard service and parts reports for the branch from your dealer system.' },
-        { h: 'Daniel reviews them', t: 'Daniel Looper reviews the branch reports remotely against HEDS benchmarks.' },
+        { h: 'Daniel analyzes them', t: 'Daniel Looper analyzes the branch reports remotely against HEDS benchmarks and works out where performance is falling short.' },
         { h: 'You get the report', t: 'HEDS delivers a written report on the branch with recommendations.' }
       ],
-      deliver: 'A written report on the branch with your current performance beside HEDS benchmarks, a projection of what closing each gap is worth in dollars calculated from your own numbers, and recommendations for the branch.',
-      see: { links: [{ t: 'Dealer KPI Library', h: 'dealer-kpi-library.html' }], then: 'then book your Operational Health Check.' },
-      price: [ { label: 'Operational Health Check, one branch, remote', amount: '$2,200' } ],
-      note: 'The Operational Health Check is done remotely. If you want Daniel onsite, the Single Location Audit is the onsite option.',
+      deliver: 'Your branch performance against HEDS benchmarks, a projection of what closing each gap is worth in dollars calculated from your own numbers, and a written report with recommendations for the branch.',
+      see: { links: [{ t: 'Dealer KPI Library', h: 'dealer-kpi-library.html' }], then: 'then book the ', next: { t: 'Operational Health Analysis', h: 'index.html#health-analysis' } },
+      price: [ { label: 'Operational Health Analysis, one branch, remote', amount: '$1,600' } ],
+      note: 'The Operational Health Analysis is done remotely. If you want Daniel onsite, the Single Location Audit is the onsite option.',
       extra: true, travel: false,
       cta: { label: 'Book a Discovery Call', href: BOOK }
     },
@@ -68,7 +54,7 @@
         { h: 'You get the findings report', t: 'HEDS delivers the findings report within 5 business days, and the report is included with every audit.' }
       ],
       deliver: 'A findings report with dollar quantified leaks, a department by department scorecard against industry benchmarks, and a prioritized fix list ranked by dollar impact and ease of implementation.',
-      see: { links: [{ t: 'Due Diligence Scorecard', h: 'due-diligence-scorecard.html' }], then: 'then book an Operational Health Check.' },
+      see: { links: [{ t: 'Due Diligence Scorecard', h: 'due-diligence-scorecard.html' }], then: 'then book the ', next: { t: 'Operational Health Analysis', h: 'index.html#health-analysis' } },
       price: [
         { label: 'Single Location Audit, 1 day', amount: '$3,200' },
         { label: 'Full Branch Audit, 2 days', amount: '$5,600' },
@@ -156,6 +142,10 @@
     }
   };
 
+  // Old offer ids still resolve to the merged offer.
+  OFFERS.ohc = OFFERS.analysis;
+  OFFERS.review = OFFERS.analysis;
+
   function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
 
   function build(id, o) {
@@ -177,8 +167,9 @@
       var ls = o.see.links.map(function (l) { return '<a href="' + l.h + '">' + esc(l.t) + '</a>'; });
       var names = ls.length > 1 ? ls.slice(0, -1).join(', ') + ' or ' + ls[ls.length - 1] : ls[0];
       var noun = (id === 'training') ? ' dashboard' : '';
-      var lead = (id === 'snapshot' || id === 'review' || id === 'ohc') ? 'on the ' : (id === 'audit' ? 'on the ' : 'on the ');
-      see = '<p class="ho-see">See where your shop stands ' + lead + names + noun + ', ' + esc(o.see.then) + '</p>';
+      var lead = 'on the ';
+      see = '<p class="ho-see">See where your shop stands ' + lead + names + noun + ', ' + esc(o.see.then) +
+        (o.see.next ? '<a href="' + o.see.next.h + '">' + esc(o.see.next.t) + '</a>.' : '') + '</p>';
     }
 
     var cta = o.cta ? '<p class="ho-cta"><a class="cta-btn" href="' + o.cta.href + '" target="_blank" rel="noopener">' +
