@@ -884,17 +884,8 @@ table {
 
       <div class="curr-section">
         <div class="curr-section-h3">Diagnose</div>
-        <ul style="padding-left: 20px;">
-          <li>Audit your branch's current Fleet Status Report: calculate how many total machines are owned vs. how many are actively on-rent or sitting on the green line ready for dispatch.</li>
-          <li>Review trailing 30 days of off-rent returns: identify units that sat in the yard for &gt;4 hours (Gate 1) before an initial check-in inspection or work order was created.</li>
-          <li>Ask the core operational diagnostic questions:
-            <ol style="padding-left: 20px; margin-top:6px;">
-              <li>"When a machine returns off-rent, what is the exact elapsed time before it is checked in, washed, serviced, and moved to the ready-line?"</li>
-              <li>"Who physically owns the machine at each stage between the return gate and the green line?"</li>
-              <li>"Does the rental counter ever turn away a customer reservation while a unit of that exact class sits dirty or uninspected in the back yard?"</li>
-            </ol>
-          </li>
-        </ul>
+        <p style="font-size:0.9rem;">Audit your branch's current Fleet Status Report: calculate how many total machines are owned vs. how many are actively on-rent or sitting on the green line ready for dispatch. Review trailing 30 days of off-rent returns and identify units that sat in the yard for &gt;4 hours (Gate 1) before an initial check-in inspection or work order was created.</p>
+        <p style="font-size:0.9rem; margin-top:8px;">Then ask the core operational diagnostic questions. &quot;When a machine returns off-rent, what is the exact elapsed time before it is checked in, washed, serviced, and moved to the ready-line?&quot; &quot;Who physically owns the machine at each stage between the return gate and the green line?&quot; &quot;Does the rental counter ever turn away a customer reservation while a unit of that exact class sits dirty or uninspected in the back yard?&quot;</p>
       </div>
 
       <div class="curr-section">
@@ -1026,14 +1017,7 @@ table {
 
       <div class="curr-section">
         <div class="curr-section-h3">Live Fix / Hands-On Exercise</div>
-        <ol style="padding-left:20px; font-size:0.88rem; line-height:1.8;">
-          <li>Pull your branch's ERP Off-Rent Log for the trailing 14 days.</li>
-          <li>Select 5 recent off-rent machine returns (e.g., 2 excavators, 2 aerial lifts, 1 wheel loader).</li>
-          <li>Extract the exact timestamps: Physical Return Time, Work Order Open Time, Work Order Close Time, Ready-Line Release Time.</li>
-          <li>Calculate the total turnaround hours for each unit.</li>
-          <li>Identify the bottleneck stage responsible for &gt;50% of the elapsed downtime for each machine.</li>
-          <li>Re-engineer the staging flow to cut at least 24 hours of dwell time out of that stage.</li>
-        </ol>
+        <p style="font-size:0.88rem; line-height:1.8;">Pull your branch's ERP Off-Rent Log for the trailing 14 days. Select 5 recent off-rent machine returns (e.g., 2 excavators, 2 aerial lifts, 1 wheel loader), and extract the exact timestamps: Physical Return Time, Work Order Open Time, Work Order Close Time, Ready-Line Release Time. Calculate the total turnaround hours for each unit. Identify the bottleneck stage responsible for &gt;50% of the elapsed downtime for each machine, and re-engineer the staging flow to cut at least 24 hours of dwell time out of that stage.</p>
       </div>
 
       <div class="curr-section">
