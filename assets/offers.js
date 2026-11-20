@@ -78,12 +78,8 @@
       ],
       deliver: 'A personal scorecard, a signed and dated 90 day action plan, an interactive dashboard you keep, the 50 question Industry Knowledge Assessment with a score report, implementation templates and a certificate of completion.',
       see: { links: [{ t: 'Service Manager', h: 'service-manager-dashboard.html' }, { t: 'Parts Manager', h: 'parts-manager-dashboard.html' }, { t: 'Rental Manager', h: 'rental-manager-dashboard.html' }, { t: 'Rental Service Manager', h: 'rental-service-manager-dashboard.html' }], then: 'then book a discovery call to choose your course.' },
-      price: [
-        { label: 'Service Manager course', amount: '$8,000 per manager' },
-        { label: 'Parts Manager course', amount: '$8,000 per manager' },
-        { label: 'Rental Manager course', amount: '$8,000 per manager' },
-        { label: 'Rental Service Manager course', amount: '$8,000 per manager' }
-      ],
+      price: [ { label: 'Any one of the four courses', amount: '$8,000 per manager' } ],
+      priceList: ['Service Manager', 'Parts Manager', 'Rental Manager', 'Rental Service Manager'],
       note: 'Location packages for several managers are scoped on a discovery call. Branch Manager and Regional and Executive Leadership courses are in development.',
       extra: true, travel: true,
       cta: { label: 'Book a Discovery Call', href: BOOK }
@@ -140,6 +136,8 @@
       return '<div class="ho-row"><span class="ho-label">' + esc(r.label) + '</span><span class="ho-amount">' + esc(r.amount) + '</span></div>';
     }).join('');
 
+    var list = o.priceList ? '<ul class="ho-list">' + o.priceList.map(function (n) { return '<li>' + esc(n) + '</li>'; }).join('') + '</ul>' : '';
+
     var fine = [];
     if (o.extra) fine.push(EXTRA);
     if (o.travel) fine.push(TRAVEL);
@@ -165,7 +163,7 @@
         '<ol class="ho-steps">' + steps + '</ol>' +
         '<div class="ho-foot">' +
           '<div class="ho-box"><h4>What you receive</h4><p>' + esc(o.deliver) + '</p></div>' +
-          '<div class="ho-box ho-price"><h4>Price</h4>' + rows +
+          '<div class="ho-box ho-price"><h4>Price</h4>' + rows + list +
             (o.note ? '<p class="ho-note">' + esc(o.note) + '</p>' : '') + '</div>' +
         '</div>' +
         (fine.length ? '<p class="ho-fine">' + esc(fine.join(' ')) + '</p>' : '') + see +
