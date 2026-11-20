@@ -1158,8 +1158,8 @@ table {
 
         <div id="kpi-labor-utilization" class="formula-card">
           <div class="formula-title">LABOR RECOVERY &amp; UTILIZATION FORMULAS</div>
-          <div class="formula-expr">Labor Recovery % = Hours on Work Orders / Hours of Payroll (Paid Hours) &times; 100</div>
-          <div class="formula-expr" style="margin-top:6px;">Technician Utilization % = Hours Invoiced on the Work Order / Hours on Work Orders &times; 100</div>
+          <div class="formula-expr">Labor Recovery % = hours on work orders divided by paid payroll hours, times 100</div>
+          <div class="formula-expr" style="margin-top:6px;">Labor Utilization % = hours invoiced on work orders divided by hours on work orders, times 100</div>
         <div class="worked-calc" data-calc="labor_rs"></div>
           <p style="font-size:0.85rem; margin-top:6px;"><strong>Worked Example:</strong> Shop has 5 technicians working 40 hours = 200 Total Paid Payroll Hours. Total hours booked to open fleet work orders = 174 hours. Unapplied hours = 26 hours. Recovery: (174 / 200) &times; 100 = <strong style="color:var(--warning);">87.0% (WARN: below the 95 to 100% target, above the 85% red flag)</strong></p>
           <p style="font-size:0.85rem; margin-top:4px;"><strong>HEDS Target Benchmarks (same as dealer):</strong> Recovery 95% to 100% and Utilization 100% to 110%, red flag at 85% or below on either. Labor Utilization above 110% passes. Labor Recovery above 100%: WARN, check the time coding. HEDS has no separate measure beyond these two.</p>
@@ -1512,11 +1512,11 @@ table {
 
       <div class="floor-rule">
         <div class="floor-rule-title">PRO TIP</div>
-        The 15-minute morning standup is non-negotiable. If you don't set the battle plan at 7:00 AM, the shop will run you instead of you running the shop.
+        The 10 to 15 minute morning standup is non-negotiable. If you don't set the battle plan at 7:00 AM, the shop will run you instead of you running the shop.
 </div>
 
       <div class="curr-section">
-        <div class="curr-section-h3">Part 1: The 15-Minute Daily Rental Shop Standup</div>
+        <div class="curr-section-h3">Part 1: The 10 to 15 Minute Daily Rental Shop Standup</div>
 
         <div class="grid-2" style="margin: 12px 0;">
           <div class="spec-box" style="background:rgba(34, 197, 94, 0.08); border-left-color:var(--success); margin:0;">
@@ -1531,14 +1531,14 @@ table {
 
         <div class="spec-box" style="background:rgba(59, 130, 246, 0.1); border-color:var(--accent-color);">
           <div class="spec-title">Manager's Insight</div>
-          <p style="font-size:0.88rem;">The standup is the single most important management tool in the rental shop. In 15 minutes, you align the shop's daily output with the rental counter's demand pipeline, triage telematics alerts before they become breakdowns, clear parts blockers before they stall bays, and lock in technician assignments with target out-times. Skip the standup once and you'll spend the rest of the day reacting to problems that 15 minutes of prevention would have eliminated.</p>
+          <p style="font-size:0.88rem;">The standup is the single most important management tool in the rental shop. In 10 to 15 minutes, you align the shop's daily output with the rental counter's demand pipeline, triage telematics alerts before they become breakdowns, clear parts blockers before they stall bays, and lock in technician assignments with target out-times. Skip the standup once and you'll spend the rest of the day reacting to problems that 15 minutes of prevention would have eliminated.</p>
 </div>
 
-        <p style="font-size:0.9rem; margin-bottom:8px;"><strong>Standup Protocol:</strong> Standing Up, No Chairs, Strict 15-Minute Timebox.</p>
+        <p style="font-size:0.9rem; margin-bottom:8px;"><strong>Standup Protocol:</strong> Standing Up, No Chairs, 10 to 15 Minute Timebox.</p>
         <div class="dash-table" style="margin:10px 0; font-size:0.85rem; overflow-x:auto;"><table style="width:100%; border-collapse:collapse; font-size:0.8rem; text-align:left;"><thead><tr style="border-bottom:2px solid var(--accent-color); color:var(--accent-color);"><th style="padding:8px;">Item</th><th style="padding:8px;">Detail</th></tr></thead><tbody><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Time</td><td style="padding:8px;">7:00 AM to 7:15 AM Sharp.</td></tr><tr><td style="padding:8px; font-weight:600; width:30%;">Attendees</td><td style="padding:8px;">Rental Service Manager, Shop Foreman, Lead Yard Specialist, Parts Expediter, Rental Counter Supervisor.</td></tr></tbody></table></div>
 
         <div style="padding:14px; background:rgba(0,0,0,0.25); border-radius:8px; border:1px solid var(--border-color); margin:10px 0; font-size:0.82rem; overflow-x:auto;">
-          <p style="color:var(--accent-color); font-weight:700; margin-bottom:8px;">THE 15-MINUTE DAILY STANDUP BATTLE PLAN:</p>
+          <p style="color:var(--accent-color); font-weight:700; margin-bottom:8px;">THE 10 TO 15 MINUTE DAILY STANDUP BATTLE PLAN:</p>
           <table style="width:100%; border-collapse:collapse; font-size:0.8rem; text-align:left;">
             <thead>
               <tr style="border-bottom:2px solid var(--accent-color); color:var(--accent-color);">
@@ -1820,12 +1820,12 @@ table {
           <input type="number" id="dm5_wo_hours" value="174" placeholder="Enter WO hours" oninput="calcMod5()">
 </div>
         <div class="form-group">
-          <label for="dm5_payroll_hours">Your Hours of Payroll (Paid Hours)</label>
+          <label for="dm5_payroll_hours">Your Paid Payroll Hours</label>
           <input type="number" id="dm5_payroll_hours" value="200" placeholder="Enter paid payroll hours" oninput="calcMod5()">
 </div>
         <div class="card-title" style="margin-top:18px;">Enter Your Branch Numbers: Labor Utilization and the 48-Hour Close</div>
         <div class="form-group">
-          <label for="dm5_inv_hours">Your Hours Invoiced on the Work Orders</label>
+          <label for="dm5_inv_hours">Your Hours Invoiced on Work Orders</label>
           <input type="number" id="dm5_inv_hours" value="190" placeholder="Enter hours invoiced" oninput="calcMod5()">
 </div>
         <div class="form-group">
@@ -2046,7 +2046,7 @@ table {
             <tr style="border-bottom:1px solid var(--border-color);">
               <td style="padding:10px; font-weight:600;">Labor Recovery</td>
               <td style="padding:10px;" id="s_val_prod">--</td>
-              <td style="padding:10px;">95 to 100% (red flag &le; 85%)</td>
+              <td style="padding:10px;">95% to 100%</td>
               <td style="padding:10px;" id="s_stat_prod">--</td>
             </tr>
             <tr style="border-bottom:1px solid var(--border-color);">
@@ -2178,7 +2178,7 @@ table {
           <li><input type="checkbox" id="g2_chk7" onchange="saveGateCheckboxes()"> <strong>90-Day Run-Rate Parts Buffer:</strong> Parts stocking buffers set to strict 90-day supply of filters, fluids, teeth, and wear items based on trailing run rates.</li>
           <li><input type="checkbox" id="g2_chk8" onchange="saveGateCheckboxes()"> <strong>PO Direct-Link Discipline:</strong> Purchase orders for non-stock items linked directly to active work orders rather than shop overhead.</li>
           <li><input type="checkbox" id="g2_chk9" onchange="saveGateCheckboxes()"> <strong>Stockroom Fill Rate:</strong> Stockroom off-the-shelf fill rate for scheduled PM kits tracking at &ge; 95% (counted by line item, then averaged).</li>
-          <li><input type="checkbox" id="g2_chk10" onchange="saveGateCheckboxes()"> <strong>Daily Standup Discipline:</strong> 15-minute morning huddle conducted consistently at 7:00 AM every business day.</li>
+          <li><input type="checkbox" id="g2_chk10" onchange="saveGateCheckboxes()"> <strong>Daily Standup Discipline:</strong> 10 to 15 minute morning huddle conducted consistently at 7:00 AM every business day.</li>
           <li><input type="checkbox" id="g2_chk11" onchange="saveGateCheckboxes()"> <strong>Ready-Line Counter Visibility:</strong> Rental counter has live, verified visibility into the daily ready-line status board.</li>
         </ul>
 </div>
@@ -3357,7 +3357,7 @@ table {
       "A 60-minute seated conference room meeting reviewing monthly financial reports",
       "An informal coffee chat in the break room",
       "A weekly email memo sent on Friday afternoons",
-      "A strict 15-minute standing huddle at 7:00 AM at the visual board covering counter demands, red telematics alerts, stuck bays, and tech assignments"
+      "A 10 to 15 minute standing huddle at 7:00 AM at the visual board covering counter demands, red telematics alerts, stuck bays, and tech assignments"
     ]
   
 },
@@ -3399,7 +3399,7 @@ table {
       "Verifying lean parts stocking buffers, Maintenance % of OEC tracking, and Fast-Track PM bay operations",
       "Submitting the annual branch capital budget",
       "Replacing all shop technicians with contractors",
-      "Discontinuing the 15-minute morning standup"
+      "Discontinuing the 10 to 15 minute morning standup"
     ]
   
 },

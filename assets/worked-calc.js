@@ -309,8 +309,8 @@
     labor_rs: {
       inputs: [
         { id: 'wo', label: 'Hours on work orders', value: 174 },
-        { id: 'paid', label: 'Hours of payroll (paid hours)', value: 200 },
-        { id: 'inv', label: 'Hours invoiced on the work orders', value: '' }
+        { id: 'paid', label: 'Paid payroll hours', value: 200 },
+        { id: 'inv', label: 'Hours invoiced on work orders', value: '' }
       ],
       results: function (v) {
         var out = [{ label: 'Labor Recovery', value: v.paid ? (v.wo / v.paid) * 100 : null, format: 'pct', kpi: 'rs_technician_recovery' }];

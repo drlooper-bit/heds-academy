@@ -1458,8 +1458,8 @@ table {
       <div class="floor-rule">
         <div class="floor-rule-title">HEDS Labor Measures (Same for Dealer and Rental)</div>
         <ul style="padding-left:20px; margin-top:6px; line-height:1.8;">
-          <li id="kpi-technician-recovery"><strong>Labor Recovery %</strong> = Hours on Work Orders / Hours of Payroll (Paid Hours) &times; 100. Target 95% to 100%.</li>
-          <li id="kpi-labor-utilization"><strong>Labor Utilization %</strong> = Hours Invoiced on the Work Order / Hours on Work Orders &times; 100. Target 100% to 110%. Above 110% passes. 85% or below is a red flag.</li>
+          <li id="kpi-technician-recovery"><strong>Labor Recovery %</strong> = hours on work orders divided by paid payroll hours, times 100. Target 95% to 100%.</li>
+          <li id="kpi-labor-utilization"><strong>Labor Utilization %</strong> = hours invoiced on work orders divided by hours on work orders, times 100. Target 100% to 110%. Above 110% passes. 85% or below is a red flag.</li>
           <li><strong>Both:</strong> red flag at 85% or below (at that point the shop is not making money, it is losing money). Labor Utilization above 110% passes. Labor Recovery above 100%: WARN, check the time coding.</li>
         </ul>
         HEDS uses only these two labor measures and has no separate measure beyond them. Technician Efficiency (shop and road, above) is a job-time measure and stay as they are.
@@ -1836,7 +1836,7 @@ table {
               <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px;">Unassigned technician hours for today</td><td style="padding:8px;">Dispatch board</td><td style="padding:8px;">Foreman</td><td style="padding:8px;">Before 8:00 AM</td></tr>
               <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px;">Work orders closed and moved to billing</td><td style="padding:8px;">DMS closed WO report</td><td style="padding:8px;">Advisor</td><td style="padding:8px;">End of shift</td></tr>
               <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px;">New jobs received vs. jobs dispatched</td><td style="padding:8px;">DMS open WO report</td><td style="padding:8px;">Advisor</td><td style="padding:8px;">End of shift</td></tr>
-              <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px;">Quotes outstanding over 24 hours</td><td style="padding:8px;">Open quote report</td><td style="padding:8px;">Advisor</td><td style="padding:8px;">End of shift</td></tr>
+              <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px;">Quotes outstanding over 48 hours</td><td style="padding:8px;">Open quote report</td><td style="padding:8px;">Advisor</td><td style="padding:8px;">End of shift</td></tr>
               <tr><td style="padding:8px;">ELR for the day (if available)</td><td style="padding:8px;">Service revenue report</td><td style="padding:8px;">Manager</td><td style="padding:8px;">End of shift</td></tr>
             </tbody>
           </table>
@@ -1886,12 +1886,12 @@ table {
     <div class="card">
       <div class="curr-module-header">
         <div class="curr-day-tag">Day 3 Slot 11: Management Systems</div>
-        <div class="curr-module-title">Module 11: The 10-Minute Morning Standup</div>
+        <div class="curr-module-title">Module 11: The 10 to 15 Minute Morning Standup</div>
       </div>
 
       <div class="curr-section">
         <div class="curr-section-h3">Diagnose</div>
-        <p>Most service department meetings take 30 minutes and produce zero decisions. The standup fixes this by being short, structured, and mandatory. It is a daily meeting, same time, same agenda, same attendees, that lasts 10 minutes and produces one decision minimum.</p>
+        <p>Most service department meetings take 30 minutes and produce zero decisions. The standup fixes this by being short, structured, and mandatory. It is a daily meeting, same time, same agenda, same attendees, that lasts 10 to 15 minutes and produces one decision minimum.</p>
       </div>
 
       <div class="curr-section">
@@ -1901,7 +1901,7 @@ table {
 
       <div class="formula-card">
         <div class="example-badge">Daily Rhythm</div>
-        <div class="formula-title">10-MINUTE STANDUP AGENDA</div>
+        <div class="formula-title">10 TO 15 MINUTE STANDUP AGENDA</div>
         <ol class="formula-steps">
           <li style="margin-bottom:12px;">
             <strong>How many technicians are available today?</strong> <span style="color:var(--muted);">(2 minutes)</span>
@@ -1927,7 +1927,7 @@ table {
       <div class="curr-section">
         <div class="curr-section-h3">Rules</div>
         <ul style="padding-left:20px;">
-          <li><strong>10 minutes.</strong> Not 15. Not 30. Ten.</li>
+          <li><strong>10 to 15 minutes.</strong></li>
           <li><strong>Everyone stands.</strong> No sitting.</li>
           <li><strong>The manager asks the questions.</strong> The advisor and foreman answer.</li>
           <li><strong>One decision minimum.</strong> If no decision is needed, the standup is 3 minutes and everyone goes to work. The purpose is rhythm, not duration.</li>
@@ -1936,7 +1936,7 @@ table {
 
       <div class="floor-rule">
         <div class="floor-rule-title">PRO TIP</div>
-        If your standup takes 30 minutes, you are having a meeting, not a standup. Cut it to 10. If there is nothing to discuss, the standup is 3 minutes and everyone goes to work. The purpose is rhythm, not duration.
+        If your standup takes 30 minutes, you are having a meeting, not a standup. Cut it to 10 to 15 minutes. If there is nothing to discuss, the standup is 3 minutes and everyone goes to work. The purpose is rhythm, not duration.
       </div>
 
       <div class="spec-box">
@@ -2600,11 +2600,11 @@ table {
           <input type="number" id="m3_wo_hours" value="960" placeholder="Enter hours on work orders" oninput="calcMod3()">
         </div>
         <div class="form-group">
-          <label for="m3_paid_hours">Your Hours of Payroll (Paid Hours)</label>
+          <label for="m3_paid_hours">Your Paid Payroll Hours</label>
           <input type="number" id="m3_paid_hours" value="1000" placeholder="Enter paid payroll hours" oninput="calcMod3()">
         </div>
         <div class="form-group">
-          <label for="m3_inv_hours">Your Hours Invoiced on the Work Orders</label>
+          <label for="m3_inv_hours">Your Hours Invoiced on Work Orders</label>
           <input type="number" id="m3_inv_hours" value="1030" placeholder="Enter hours invoiced" oninput="calcMod3()">
         </div>
       </div>
@@ -3781,9 +3781,9 @@ function switchMainSection(secId, btnEl) {
     "type": "mc",
     "question": "How long should a morning standup meeting (the daily shop huddle where the team reviews the day's priorities) last?",
     "options": [
-      "15 minutes: long enough to cover all open issues.",
+      "As long as it takes to go through every open work order.",
       "30 minutes: it needs to cover capacity, quotes, and late work orders.",
-      "10 minutes. Not 15. Not 30. Ten.",
+      "10 to 15 minutes.",
       "5 minutes: just a quick check-in and then everyone goes to work."
     ]
   
@@ -3796,7 +3796,7 @@ function switchMainSection(secId, btnEl) {
     "question": "Your morning standup meeting has been taking 25-30 minutes. People are sitting down, going through every open work order, and debating solutions. What do you do?",
     "options": [
       "Allow more time, the team needs to discuss these issues.",
-      "Cut it to 10 minutes. If there is nothing to discuss, the standup is 3 minutes and everyone goes to work. The purpose is daily rhythm, not meeting length.",
+      "Cut it to 10 to 15 minutes. If there is nothing to discuss, the standup is 3 minutes and everyone goes to work. The purpose is daily rhythm, not meeting length.",
       "Cancel the standup, it is wasting productive shop time.",
       "Move the standup to the afternoon when there is less pressure."
     ]
@@ -3933,7 +3933,7 @@ function switchMainSection(secId, btnEl) {
     "module": "Module 15: Accountability & Leadership",
     "module_id": "c_accountability",
     "type": "scenario",
-    "question": "A technician has been at 65% recovery (hours on work orders divided by hours paid) for 3 weeks. You have not had a conversation with them. What is the correct management practice?",
+    "question": "A technician has been at 65% recovery (hours on work orders divided by paid payroll hours) for 3 weeks. You have not had a conversation with them. What is the correct management practice?",
     "options": [
       "Wait until the monthly review to address it: weekly conversations are too frequent.",
       "Write them up immediately: 65% is below the 95% recovery target and requires formal discipline.",
