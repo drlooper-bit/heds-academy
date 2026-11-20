@@ -7,7 +7,6 @@
   'use strict';
 
   var BOOK = 'https://calendar.app.google/8R2rX7THVQffsytT8';
-  var FORM = 'https://docs.google.com/forms/d/e/1FAIpQLScPCb8GgApY22VvkqBPgJkSG4VDWZYXaAfI-SuHNkSpPyMV6A/viewform';
   var EXTRA = 'Additional work you ask for beyond the package is billed at $200 an hour.';
   var TRAVEL = 'Travel time, mileage, lodging and meals are invoiced at actual cost and are not built into the price.';
 
@@ -53,7 +52,7 @@
         { h: 'Daniel audits onsite', t: 'Daniel Looper is the auditor. He walks the shop floor, reviews the parts counter and the rental yard, verifies the ERP reports and interviews your managers.' },
         { h: 'You get the findings report', t: 'HEDS delivers the findings report within 5 business days, and the report is included with every audit.' }
       ],
-      deliver: 'A findings report with dollar quantified leaks, a department by department scorecard against industry benchmarks, and a prioritized fix list ranked by dollar impact and ease of implementation.',
+      deliver: 'A findings report with dollar quantified leaks, a department by department scorecard against industry benchmarks, and a prioritized fix list ranked by dollar impact and ease of implementation. On the Single Location, Full Branch and Multi Branch audits, the managers on site sit the 50 question Industry Knowledge Assessment during the visit and get a score report.',
       see: { links: [{ t: 'Due Diligence Scorecard', h: 'due-diligence-scorecard.html' }], then: 'then book the ', next: { t: 'Operational Health Analysis', h: 'index.html#health-analysis' } },
       price: [
         { label: 'Single Location Audit, 1 day', amount: '$3,200' },
@@ -77,7 +76,7 @@
         { h: 'Leave with a plan', t: 'By the end of the week the manager has built a personal scorecard and a written 90 day action plan from your own numbers.' }
       ],
       deliver: 'A personal scorecard, a signed and dated 90 day action plan, an interactive dashboard you keep, the 50 question Industry Knowledge Assessment with a score report, implementation templates and a certificate of completion.',
-      see: { links: [{ t: 'Service Manager', h: 'service-manager-dashboard.html' }, { t: 'Parts Manager', h: 'parts-manager-dashboard.html' }, { t: 'Rental Manager', h: 'rental-manager-dashboard.html' }, { t: 'Rental Service Manager', h: 'rental-service-manager-dashboard.html' }], then: 'then take the $300 Industry Knowledge Assessment.' },
+      see: { links: [{ t: 'Service Manager', h: 'service-manager-dashboard.html' }, { t: 'Parts Manager', h: 'parts-manager-dashboard.html' }, { t: 'Rental Manager', h: 'rental-manager-dashboard.html' }, { t: 'Rental Service Manager', h: 'rental-service-manager-dashboard.html' }], then: 'then book a discovery call to choose your course.' },
       price: [
         { label: 'Service Manager course', amount: '$8,000 per manager' },
         { label: 'Parts Manager course', amount: '$8,000 per manager' },
@@ -120,26 +119,8 @@
       price: [ { label: 'Fleet owner package, up to 25 machines', amount: '$3,200' } ],
       extra: true, travel: true,
       cta: { label: 'Book a Discovery Call', href: BOOK }
-    },
-
-    assessment: {
-      title: 'Industry Knowledge Assessment',
-      lead: 'The assessment is standalone. If it reveals gaps, the training tracks are there, and if it does not, you keep the report.',
-      steps: [
-        { h: 'Request the assessment', t: 'You send the request form for your team.' },
-        { h: 'Pick the date', t: 'HEDS follows up within one business day with available dates, proctoring options and the assessment brief.' },
-        { h: 'Managers sit the test', t: 'Each manager takes the 50 question proctored assessment in 90 minutes, either in person or in a monitored remote session, with no open books and no AI assistants.' },
-        { h: 'You get the scores', t: 'HEDS returns a score report for each manager.' }
-      ],
-      deliver: 'A score report for each manager with an overall score from 0 to 100 and a percentile ranking against industry benchmarks, a breakdown by module, three focus areas to close first, and a side by side comparison when several managers sit the test.',
-      price: [
-        { label: 'Per manager', amount: '$300' },
-        { label: 'Each manager when 5 or more sit the test', amount: '$250' },
-        { label: 'Each manager when 10 or more sit the test', amount: '$200' }
-      ],
-      note: 'The price is $300 per manager, $250 each for 5 or more managers and $200 each for 10 or more managers.',
-      cta: { label: 'Request Assessment Details', href: FORM }
     }
+
   };
 
   // Old offer ids still resolve to the merged offer.

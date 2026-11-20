@@ -27,20 +27,14 @@
   "@context": "https://schema.org",
   "@type": "EducationalOccupationalProgram",
   "name": "HEDS Industry Knowledge Assessment",
-  "description": "A 50-question proctored assessment measuring operating discipline for heavy equipment dealer and rental company managers. Covers WIP management, labor recovery, parts operations, fleet utilization, and leading indicators. 90 minutes, in person or monitored remote.",
+  "description": "A 50-question proctored assessment measuring operating discipline for heavy equipment dealer and rental company managers. Covers WIP management, labor recovery, parts operations, fleet utilization, and leading indicators. 90 minutes, in person or monitored remote. Included with HEDS onsite audits and 5-day courses.",
   "provider": {
     "@type": "Organization",
     "name": "Heavy Equipment Dealer Solutions LLC",
     "url": "https://hedsconsulting.net/"
   },
   "timeToComplete": "PT90M",
-  "occupationalCategory": "Heavy Equipment Dealer Management",
-  "offers": {
-    "@type": "Offer",
-    "price": "300",
-    "priceCurrency": "USD",
-    "description": "The price is $300 per manager, $250 each for 5 or more managers and $200 each for 10 or more managers."
-  }
+  "occupationalCategory": "Heavy Equipment Dealer Management"
 }
 </script>
 <script type="application/ld+json">
@@ -125,7 +119,7 @@
       "name": "What is the HEDS Industry Knowledge Assessment?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A 50-question proctored assessment that measures operating discipline for heavy equipment dealer and rental company managers. 90 minutes, administered in person or via monitored remote session. No open books, no AI assistants. The score reflects what your manager actually knows. The price is $300 per manager, $250 each for 5 or more managers and $200 each for 10 or more managers."
+        "text": "A 50-question proctored assessment that measures operating discipline for heavy equipment dealer and rental company managers. 90 minutes, administered in person or via monitored remote session. No open books, no AI assistants. The score reflects what your manager actually knows. The assessment is part of the onsite audit packages and the 5-day courses, and it is not sold on its own."
       }
     },
     {
@@ -1098,6 +1092,7 @@ input, select, textarea {
       <tr><td>Multi-Branch Audit (3+ locations)</td><td>1-2 days/site</td><td>Multi-location consistency audit</td></tr>
       <tr><td>Acquisition Due Diligence (EBITDA quality)</td><td>3-5 days</td><td>Full operational risk assessment</td></tr>
       <tr><td>Findings Report (always included)</td><td>-</td><td>Included</td></tr>
+      <tr><td>Industry Knowledge Assessment (Single Location, Full Branch and Multi-Branch audits)</td><td>During the visit</td><td>The managers on site sit the 50-question assessment and get a score report</td></tr>
       <tr><td>Travel time and mileage (TT&amp;M), lodging and meals</td><td>-</td><td>Billed at actual cost</td></tr>
     </table></div>
     <p style="font-size:0.85rem;color:var(--muted);margin-top:12px;">Custom scopes available. Book a 30-minute discovery call to scope your audit. Deep historical audits (6+ months of trend data) available.</p>
@@ -1494,16 +1489,32 @@ input, select, textarea {
   <span id="assessment"></span>
   <div class="hero">
     <h2>The HEDS Industry Knowledge Assessment</h2>
-    <p>50 questions. 90 minutes. Proctored. Your score report is the evidence.</p>
+    <p>50 questions. 90 minutes. Proctored. Know the numbers that run the shop before they cost you money.</p>
   </div>
 
   <div class="card">
-    <h2>What It Is</h2>
-    <p>A 50-question assessment that measures operating discipline across the areas that matter most to a heavy equipment dealer or rental company: WIP management, labor recovery, parts operations, fleet utilization, and branch-level leading indicators.</p>
-    <p>Each question maps to a specific KPI used across the heavy equipment industry, so the assessment tests industry knowledge, not the HEDS curriculum. Your score report breaks down performance by category and identifies the three highest-leverage focus areas for your team.</p>
+    <h2>Why Industry Knowledge Matters</h2>
+    <p>A manager who does not know how <a href="service-manager-dashboard.html#kpi-technician-recovery" style="color:var(--accent);">Labor Recovery</a> and <a href="service-manager-dashboard.html#kpi-labor-utilization" style="color:var(--accent);">Labor Utilization</a> work cannot see paid technician hours that never reach a work order, or hours worked that never reach an invoice. Those hours are paid for every week whether anyone sees them or not.</p>
+    <p>A manager who does not know why work orders must close within 48 hours of the last labor lets finished jobs sit open. That is <a href="service-manager-dashboard.html#kpi-last-labor-to-invoice" style="color:var(--accent);">WIP aging</a>, and it holds revenue and cash in jobs that are already done.</p>
+    <p>A manager who cannot explain <a href="dealer-kpi-library.html#absorption-kpis" style="color:var(--accent);">absorption</a> cannot tell whether the department's gross profit covers the location's operating expenses. The numbers can look fine on the floor while the location falls short. Each of these gaps costs money for as long as it goes unseen.</p>
   </div>
 
-  <div data-offer="assessment"><noscript><p>The assessment is $300 per manager, $250 each for 5 or more managers and $200 each for 10 or more. Call (352) 724-5603 to schedule it.</p></noscript></div>
+  <div class="card">
+    <h2>The Assessment Is the Starting Point</h2>
+    <p>The assessment is 50 questions in 90 minutes, proctored, with no open books and no AI assistants. Each question maps to a KPI used across the heavy equipment industry, so it tests industry knowledge and not the HEDS curriculum. It shows where each manager's knowledge is strong and where it is thin.</p>
+    <p>It comes with an <a href="#diligence" onclick="showSection('diligence'); return false;" style="color:var(--accent);">onsite audit</a>: on the Single Location, Full Branch and Multi Branch audits, the managers on site sit it during the visit and get a score report.</p>
+    <p>It also comes with a <a href="#training" onclick="showSection('training'); return false;" style="color:var(--accent);">5-day onsite course</a>: each manager sits it as part of the course and gets a score report.</p>
+  </div>
+
+  <div class="card">
+    <h2>What You Get</h2>
+    <ul>
+      <li>Scores by category against the HEDS targets for WIP, Labor Recovery, Parts, Fleet Utilization and Leading Indicators.</li>
+      <li>An overall score from 0 to 100.</li>
+      <li>Three focus areas, the highest leverage gaps to close first, with recommended track modules.</li>
+      <li>A side by side comparison when several managers sit the assessment.</li>
+    </ul>
+  </div>
 
   <div class="card">
     <h2>Why Proctored</h2>
@@ -1511,25 +1522,10 @@ input, select, textarea {
     <p>The whole point is to find the gaps before they cost you money. If the assessment is gamed, the gaps stay hidden. Proctored means the score is real.</p>
   </div>
 
-  <div class="card">
-    <h2>What You Get</h2>
-    <ul>
-      <li><strong>Category scores</strong> - WIP, Labor Recovery, Parts, Fleet Utilization, Leading Indicators</li>
-      <li><strong>Overall score</strong>: 0-100 with percentile ranking against industry benchmarks</li>
-      <li><strong>Three focus areas</strong>: the highest-leverage gaps to close first, with recommended track modules</li>
-      <li><strong>Manager comparison</strong>: assess multiple managers and compare scores side by side</li>
-    </ul>
-  </div>
-
-  <div class="card">
-    <h2>Who Should Take It</h2>
-    <p>Service Managers, Rental Managers, Parts Managers, Branch Managers, Fixed Operations Directors, and anyone responsible for the operating numbers on the floor. If you are not sure which track fits, the assessment maps the answer.</p>
-  </div>
-
-
-  <div class="card">
-    <h2>Prefer email or a call?</h2>
-    <p>You can also email <a href="mailto:daniel@hedsconsulting.net" style="color:var(--accent);">daniel@hedsconsulting.net</a> or call <a href="tel:3527245603" style="color:var(--accent);">(352) 724-5603</a>, and Daniel will send available dates, proctoring options and the assessment brief.</p>
+  <div class="card" style="text-align:center;">
+    <h2>Start With a Discovery Call</h2>
+    <p>Book a 30-minute discovery call and we will talk through which audit or course fits your team. You can also email <a href="mailto:daniel@hedsconsulting.net" style="color:var(--accent);">daniel@hedsconsulting.net</a> or call <a href="tel:3527245603" style="color:var(--accent);">(352) 724-5603</a>.</p>
+    <a class="cta-btn" href="https://calendar.app.google/8R2rX7THVQffsytT8" target="_blank" rel="noopener">Book a Discovery Call<span class="sr-only"> (opens in a new tab)</span></a>
   </div>
 </div>
 
