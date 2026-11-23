@@ -130,10 +130,9 @@
       deliver: 'Daniel leads the operational turnaround for a fixed 90-day term and coaches the service and parts managers through that term.',
       see: { links: [{ t: 'Operational Health Analysis', h: 'index.html#health-analysis' }], then: 'then, after findings are presented, you can also talk about a ', next: { t: 'fractional or interim operating seat', h: 'index.html#operating-seats' } },
       price: [
-        { label: '90-day pilot, 4 days a month', amount: 'From $8,000 a month' },
-        { label: '90-day pilot, 8 days a month', amount: 'From $12,000 a month' }
+        { label: '90-day pilot implementation retainer', amount: '$200 an hour' }
       ],
-      note: 'This retainer is offered after the $1,600 Operational Health Analysis or an audit findings presentation, and it is priced at the same rates as the fractional operating retainer, for a 90-day term, billed monthly in advance. The 4 day rate is in the $8,000 to $15,000 band. The 8 day rate is in the $12,000 to $22,000 band.',
+      note: 'The rate is $200 an hour, quoted individually from the realistic hours the work involves. Each quote lists the estimated hours and the total before work starts, and ongoing work is billed monthly in advance. Travel time, mileage, lodging and meals are invoiced at actual cost. There is no set package or project price. This is an example of the math, not a package: 16 hours a month at $200 an hour is $3,200 a month.',
       travel: true,
       cta: { label: 'Book a Discovery Call', href: BOOK }
     },
@@ -149,11 +148,9 @@
       ],
       deliver: 'Daniel fills one named operating seat for a fixed term, leads the function, and coaches the managers who report in it.',
       price: [
-        { label: 'Fractional retainer, 4 days a month', amount: 'From $8,000 a month' },
-        { label: 'Fractional retainer, 8 days a month', amount: 'From $12,000 a month' },
-        { label: 'Interim operating assignment', amount: 'From $1,500 a day' }
+        { label: 'Fractional or interim operating seat', amount: '$200 an hour' }
       ],
-      note: 'The fractional retainer applies to VP of Product Support, Director of Service, Parts and Aftermarket, and Fixed Operations leadership where those seats are fractional. It has a three-month initial term and is billed monthly in advance. The 4 day retainer is in the $8,000 to $15,000 band. The 8 day retainer is in the $12,000 to $22,000 band. Interim operating assignments run from $1,500 a day, in the $1,500 to $3,500 band.',
+      note: 'The rate is $200 an hour, quoted individually from the realistic hours the work involves. This applies to Interim or Fractional VP of Product Support; Director of Service, Parts and Aftermarket; and Fixed Operations leadership. Each quote lists the estimated hours and the total before work starts. Ongoing seats are billed monthly in advance. Travel time, mileage, lodging and meals are invoiced at actual cost. There is no set package or project price. This is an example of the math, not a package: 16 hours a month at $200 an hour is $3,200 a month.',
       travel: true,
       cta: { label: 'Book a Discovery Call', href: BOOK }
     }
