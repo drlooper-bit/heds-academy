@@ -46,17 +46,6 @@
 .heds-offer .ho-label { font-size: 0.9rem; color: #e2e8f0; }
 .heds-offer .ho-list { margin: 8px 0 0; padding-left: 20px; font-size: 0.9rem; color: #e2e8f0; line-height: 1.7; }
 .heds-offer .ho-amount { font-size: 1.25rem; font-weight: 800; color: var(--accent, var(--accent-color, #f2a900)); }
-
-.heds-offer .ho-amount.ho-pending {
-  display: inline-block;
-  font-size: 1.05rem;
-  font-weight: 800;
-  letter-spacing: 0.03em;
-  color: #061529;
-  background: var(--accent, var(--accent-color, #f2a900));
-  padding: 6px 10px;
-  border: 2px solid #061529;
-}
 .heds-offer .ho-note { margin-top: 10px !important; font-size: 0.82rem !important; color: var(--muted, #94a3b8) !important; }
 .heds-offer .ho-fine { margin: 12px 0 0; font-size: 0.82rem; color: var(--muted, #94a3b8); }
 .heds-offer .ho-cta { margin: 14px 0 0; text-align: center; }
