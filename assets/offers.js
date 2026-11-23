@@ -36,7 +36,7 @@
         { h: 'You get the report', t: 'HEDS delivers a written report on the branch with recommendations.' }
       ],
       deliver: 'Your branch performance against HEDS benchmarks, a projection of what closing each gap is worth in dollars calculated from your own numbers, and a written report with recommendations for the branch.',
-      see: { links: [{ t: 'Dealer KPI Library', h: 'dealer-kpi-library.html' }], then: 'then, when findings are presented, talk about the ', next: { t: '90-day pilot implementation retainer', h: 'index.html#pilot' } },
+      see: { links: [{ t: 'Dealer KPI Library', h: 'dealer-kpi-library.html' }], then: 'then, when findings are presented, talk about the ', next: { t: '90-day pilot implementation', h: 'index.html#pilot' } },
       price: [ { label: 'Operational Health Analysis, one branch, remote', amount: '$1,600' } ],
       note: 'The Operational Health Analysis is done remotely. If you want Daniel onsite, the Single Location Audit is the onsite option. If you book the $3,200 Single Location Audit within 30 days, your $1,600 is credited toward it, so you pay $1,600 more. The credit applies once.',
       extra: true, travel: false,
@@ -119,20 +119,20 @@
     },
 
     pilot: {
-      title: '90-Day Pilot Implementation Retainer',
+      title: '90-Day Pilot Implementation',
       lead: 'When findings from the Operational Health Analysis or an onsite audit are presented, the next step is a 90-day pilot in which Daniel Looper leads the turnaround and coaches the service and parts managers for a fixed term.',
       steps: [
         { h: 'Findings are presented', t: 'Daniel presents the findings from the Operational Health Analysis or from an onsite audit, and you agree which leaks the 90-day term will address first.' },
         { h: 'Agree the term', t: 'You and HEDS agree the 90-day scope, the managers Daniel will coach, the onsite days, and the weekly operating rhythm for the term.' },
         { h: 'Daniel leads the work', t: 'Daniel leads the turnaround for the fixed 90-day term and coaches the service and parts managers as the work proceeds.' },
-        { h: 'Review the term', t: 'At the end of the 90 days you review the work against the plan and decide whether to continue with a retainer or an operating seat.' }
+        { h: 'Review the term', t: 'At the end of the 90 days you review the work against the plan and decide whether to continue with further implementation work or an operating seat.' }
       ],
       deliver: 'Daniel leads the operational turnaround for a fixed 90-day term and coaches the service and parts managers through that term.',
       see: { links: [{ t: 'Operational Health Analysis', h: 'index.html#health-analysis' }], then: 'then, after findings are presented, you can also talk about a ', next: { t: 'fractional or interim operating seat', h: 'index.html#operating-seats' } },
       price: [
-        { label: '90-day pilot implementation retainer', amount: '$200 an hour' }
+        { label: '90-day pilot implementation', amount: '$200 an hour' }
       ],
-      note: 'The rate is $200 an hour, quoted individually from the realistic hours the work involves. Each quote lists the estimated hours and the total before work starts, and ongoing work is billed monthly in advance. Travel time, mileage, lodging and meals are invoiced at actual cost. There is no set package or project price. This is an example of the math, not a package: 16 hours a month at $200 an hour is $3,200 a month.',
+      note: 'Each service is priced from the hours required to perform it at $200 an hour, and the quote lists the hours and the total before work starts. Travel time, mileage, lodging and meals are invoiced at actual cost. There is no set package or project price. This is an example of the math, not a package: 16 hours at $200 an hour is $3,200.',
       travel: true,
       cta: { label: 'Book a Discovery Call', href: BOOK }
     },
@@ -150,7 +150,7 @@
       price: [
         { label: 'Fractional or interim operating seat', amount: '$200 an hour' }
       ],
-      note: 'The rate is $200 an hour, quoted individually from the realistic hours the work involves. This applies to Interim or Fractional VP of Product Support; Director of Service, Parts and Aftermarket; and Fixed Operations leadership. Each quote lists the estimated hours and the total before work starts. Ongoing seats are billed monthly in advance. Travel time, mileage, lodging and meals are invoiced at actual cost. There is no set package or project price. This is an example of the math, not a package: 16 hours a month at $200 an hour is $3,200 a month.',
+      note: 'Each service is priced from the hours required to perform it at $200 an hour, and the quote lists the hours and the total before work starts. This applies to Interim or Fractional VP of Product Support; Director of Service, Parts and Aftermarket; and Fixed Operations leadership. Travel time, mileage, lodging and meals are invoiced at actual cost. There is no set package or project price. This is an example of the math, not a package: 16 hours at $200 an hour is $3,200.',
       travel: true,
       cta: { label: 'Book a Discovery Call', href: BOOK }
     }
