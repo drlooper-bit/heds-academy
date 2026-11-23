@@ -1489,7 +1489,7 @@ table {
               <div class="grid-2" style="margin-bottom:10px;">
                 <div class="spec-box" style="background:rgba(34, 197, 94, 0.08); border-left-color:var(--success); margin:0;">
                   <div class="spec-title" style="color:var(--success);">What it Measures</div>
-                  <p style="font-size:0.85rem; line-height:1.5;">The net dollar volume collected strictly from technician labor billing across customer, warranty, and internal work order segments.</p>
+                  <p style="font-size:0.85rem; line-height:1.5;">The net dollar volume collected from customer-billed technician labor. Internal and warranty labor have their own rates and are not counted as discounts from the posted rate.</p>
                 </div>
                 <div class="spec-box" style="background:rgba(239, 68, 68, 0.08); border-left-color:var(--danger); margin:0;">
                   <div class="spec-title" style="color:var(--danger);">What it Does NOT Measure</div>
@@ -1530,7 +1530,7 @@ table {
               </div>
               <div class="floor-rule" style="background:rgba(59, 130, 246, 0.1); border-color:var(--accent-color); margin:0;">
                 <div class="floor-rule-title" style="color:var(--accent-color);">Manager's Insight</div>
-                Realized ELR is the ultimate test of pricing discipline. If your posted rate is $185/hr but your realized ELR is $170/hr, you are losing $15 on every billed hour to unauthorized discounts, capped warranty rates, or unbilled diagnostic time.
+                Realized ELR is the test of pricing discipline on customer-billed work. If your posted rate is $185/hr but your realized ELR is $170/hr, you are losing $15 on every customer-billed hour to labor discounts or unbilled diagnostic time. Only the service manager approves labor discounts. Internal and warranty labor have their own rates and are not counted as discounts from the posted rate.
               </div>
             </div></td></tr><tr><td style="padding:8px; font-weight:600; width:30%;">Effective Labor Rate %</td><td style="padding:8px;">($170.00 / $185.00) × 100 = <strong style="color:var(--danger);">91.9% Effective Labor Rate</strong> (<span class="metric-status status-fail">FAIL (&lt; 95% TARGET)</span>).
             <div style="margin-top:10px; margin-bottom:10px; padding:14px; background:rgba(0,0,0,0.25); border-radius:var(--radius); border:1px solid var(--border-color);">
@@ -1546,7 +1546,7 @@ table {
               </div>
               <div class="floor-rule" style="background:rgba(59, 130, 246, 0.1); border-color:var(--accent-color); margin:0;">
                 <div class="floor-rule-title" style="color:var(--accent-color);">Manager's Insight</div>
-                HEDS target is ≥ 95% Effective Labor Rate % (ELR as a percentage of posted rate). A drop below 95% indicates advisors are overriding matrix rates, giving away diagnostic time, or failing to bill national account matrix pricing properly.
+                HEDS target is ≥ 95% Effective Labor Rate % (ELR as a percentage of posted rate). Only the service manager approves labor discounts. Internal and warranty labor have their own rates and are not counted as discounts from the posted rate. A drop below 95% indicates labor was discounted, diagnostic time was given away, or national account matrix pricing was not billed properly.
               </div>
             </div></td></tr></tbody></table></div>
       </div>
@@ -2648,6 +2648,7 @@ table {
     <div class="grid-2">
       <div class="card" id="kpi-effective-labor-rate">
         <div class="card-title">Enter Your Branch Numbers: Effective Labor Rate (ELR)</div>
+        <p style="font-size:0.85rem; line-height:1.5; margin:0 0 12px;">Use customer-billed labor sales and customer-billed hours. The HEDS target is 95% of the posted labor rate, and below 95% is a red flag. Only the service manager approves labor discounts. Internal and warranty labor have their own rates and are not counted as discounts from the posted rate.</p>
         <div class="form-group">
           <label for="m4_billed_rev">Your Total Billed Labor Revenue ($)</label>
           <input type="number" id="m4_billed_rev" value="62900" placeholder="Enter labor revenue $" oninput="calcMod4()">

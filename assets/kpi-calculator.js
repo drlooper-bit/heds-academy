@@ -39,7 +39,7 @@
         { title: 'Service Labor Gross Margin', def: '(Labor sales minus direct technician cost) divided by labor sales, times 100.',
           inputs: [I('ls', 'Labor sales', 120000, 10000, 400000, 1000, '$'), I('tc', 'Direct technician cost', 36000, 0, 120000, 500, '$')],
           outputs: [{ kpi: 'service_labor_gross_margin', f: function (v) { return pct(v.ls - v.tc, v.ls); } }] },
-        { title: 'Effective Labor Rate', def: 'Effective labor rate on customer-billed work divided by posted labor rate, times 100. Effective labor rate is customer-billed labor sales divided by customer-billed hours.',
+        { title: 'Effective Labor Rate', def: 'Effective labor rate on customer-billed work divided by posted labor rate, times 100. Effective labor rate is customer-billed labor sales divided by customer-billed hours. Only the service manager approves labor discounts. Internal and warranty labor have their own rates and are not counted as discounts from the posted rate.',
           inputs: [I('cbs', 'Customer-billed labor sales', 100000, 1000, 400000, 1000, '$'), I('cbh', 'Customer-billed hours', 680, 10, 2200, 10, 'hours'), I('posted', 'Posted labor rate', 160, 25, 300, 1, '$/hour')],
           outputs: [{ kpi: 'effective_labor_rate', f: function (v) { return pct(v.cbs / Math.max(v.cbh, 1), v.posted); } }] },
         { title: 'First-Time Fix Rate', def: 'Repairs fixed on the first attempt divided by completed repairs, times 100.',

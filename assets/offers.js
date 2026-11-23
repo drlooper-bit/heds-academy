@@ -28,7 +28,7 @@
 
     analysis: {
       title: 'Operational Health Analysis',
-      lead: 'A remote analysis of one branch, for dealer principals, general managers, and service and parts managers at small and mid size heavy equipment dealerships. There is no onsite visit.',
+      lead: 'This is the entry offer. It is a remote analysis of one branch, and there is no onsite visit. It is for principals, general managers, and service and parts managers at construction, agricultural, truck, forklift and crane rental dealerships, and it is also used by municipal and utility fleets and by private equity and search fund buyers of those businesses.',
       // NAME-PLACEHOLDER: "Operational Health Analysis" is a placeholder name until Daniel confirms it.
       steps: [
         { h: 'You send your numbers', t: 'You send your P&L and the standard service and parts reports for the branch from your dealer system.' },
@@ -36,7 +36,7 @@
         { h: 'You get the report', t: 'HEDS delivers a written report on the branch with recommendations.' }
       ],
       deliver: 'Your branch performance against HEDS benchmarks, a projection of what closing each gap is worth in dollars calculated from your own numbers, and a written report with recommendations for the branch.',
-      see: { links: [{ t: 'Dealer KPI Library', h: 'dealer-kpi-library.html' }], then: 'then book the ', next: { t: 'Operational Health Analysis', h: 'index.html#health-analysis' } },
+      see: { links: [{ t: 'Dealer KPI Library', h: 'dealer-kpi-library.html' }], then: 'then, when findings are presented, talk about the ', next: { t: '90-day pilot implementation retainer', h: 'index.html#pilot' } },
       price: [ { label: 'Operational Health Analysis, one branch, remote', amount: '$1,600' } ],
       note: 'The Operational Health Analysis is done remotely. If you want Daniel onsite, the Single Location Audit is the onsite option. If you book the $3,200 Single Location Audit within 30 days, your $1,600 is credited toward it, so you pay $1,600 more. The credit applies once.',
       extra: true, travel: false,
@@ -68,7 +68,7 @@
 
     training: {
       title: 'Onsite Training Course, 5 Days',
-      lead: 'Each course is five days onsite for one manager, one on one with a HEDS Qualified Instructor, built on your real data.',
+      lead: 'Training is a supporting offer, not the first ask. Each course is five days onsite for one manager, one on one with a HEDS Qualified Instructor, built on your real data.',
       steps: [
         { h: 'Take the assessment', t: 'Step one: the Industry Knowledge Assessment shows where to focus with each manager. Each manager sits the proctored 50 question assessment and gets a score report.' },
         { h: 'Scope the course', t: 'You book a discovery call, and HEDS recommends the right track and agrees the dates for the manager or managers who will attend.' },
@@ -87,7 +87,7 @@
 
     followup: {
       title: 'Follow-Up Coaching',
-      lead: 'Purchased separately after a course. It is never bundled into a package you may not need.',
+      lead: 'Purchased separately after a course or after a 90-day pilot. It is never bundled into a package you may not need.',
       steps: [
         { h: 'A metric stalls', t: 'After your course, you or HEDS see that a metric is not moving as planned.' },
         { h: 'Agree the focus', t: 'You and HEDS agree which stalled metric the coaching will target.' },
@@ -103,7 +103,7 @@
 
     fleet: {
       title: 'HEDS for Fleet Owners',
-      lead: 'For large construction companies that own heavy equipment and depend on dealers and rental companies for parts and service.',
+      lead: 'For construction companies, municipal fleets and utility fleets that own heavy equipment and depend on dealers and rental companies for parts and service.',
       steps: [
         { h: 'Talk with HEDS', t: 'You book a discovery call to agree which dealers, rental companies and machines you want reviewed.' },
         { h: 'Send the history', t: 'You send each machine\u2019s service work orders, parts purchases, down days and total maintenance cost for the period you want to judge.' },
@@ -115,6 +115,43 @@
       see: { links: [{ t: 'fleet KPI table', h: 'fleet-owners.html#fleet-kpis' }], then: 'then book a discovery call to talk about your fleet.' },
       price: [ { label: 'Fleet owner package, up to 25 machines', amount: '$3,200' } ],
       extra: true, travel: true,
+      cta: { label: 'Book a Discovery Call', href: BOOK }
+    },
+
+    pilot: {
+      title: '90-Day Pilot Implementation Retainer',
+      lead: 'When findings from the Operational Health Analysis or an onsite audit are presented, the next step is a 90-day pilot in which Daniel Looper leads the turnaround and coaches the service and parts managers for a fixed term.',
+      steps: [
+        { h: 'Findings are presented', t: 'Daniel presents the findings from the Operational Health Analysis or from an onsite audit, and you agree which leaks the 90-day term will address first.' },
+        { h: 'Agree the term', t: 'You and HEDS agree the 90-day scope, the managers Daniel will coach, the onsite days, and the weekly operating rhythm for the term.' },
+        { h: 'Daniel leads the work', t: 'Daniel leads the turnaround for the fixed 90-day term and coaches the service and parts managers as the work proceeds.' },
+        { h: 'Review the term', t: 'At the end of the 90 days you review the work against the plan and decide whether to continue with a retainer or an operating seat.' }
+      ],
+      deliver: 'Daniel leads the operational turnaround for a fixed 90-day term and coaches the service and parts managers through that term.',
+      see: { links: [{ t: 'Operational Health Analysis', h: 'index.html#health-analysis' }], then: 'then, after findings are presented, you can also talk about a ', next: { t: 'fractional or interim operating seat', h: 'index.html#operating-seats' } },
+      price: [ { label: '90-day pilot implementation retainer', amount: 'PRICE PENDING DANIEL' } ],
+      note: 'The price for this retainer has not been approved yet. Travel time, mileage, lodging and meals are invoiced at actual cost once the engagement is priced.',
+      travel: true,
+      cta: { label: 'Book a Discovery Call', href: BOOK }
+    },
+
+    seats: {
+      title: 'Fractional and Interim Operating Seats',
+      lead: 'Daniel Looper can fill a named operating seat for a fixed term at construction, agricultural, truck, forklift and crane rental dealerships, at municipal and utility fleets, and for private equity and search fund buyers of those businesses.',
+      steps: [
+        { h: 'Name the seat', t: 'You and HEDS agree which seat Daniel will fill, for how long, and which managers he will lead and coach.' },
+        { h: 'Set the rhythm', t: 'You agree the onsite days, the weekly cadence, and the reports that will be sent so Daniel can run the function with a clear mandate.' },
+        { h: 'Daniel holds the seat', t: 'Daniel leads the function for the agreed term and coaches the managers who report in it.' },
+        { h: 'Close or extend the term', t: 'At the end of the term you decide whether the seat ends, is extended, or is handed to a permanent leader.' }
+      ],
+      deliver: 'Daniel fills one named operating seat for a fixed term, leads the function, and coaches the managers who report in it.',
+      price: [
+        { label: 'Interim or Fractional VP of Product Support', amount: 'PRICE PENDING DANIEL' },
+        { label: 'Director of Service, Parts and Aftermarket', amount: 'PRICE PENDING DANIEL' },
+        { label: 'Fixed Operations leadership', amount: 'PRICE PENDING DANIEL' }
+      ],
+      note: 'Day rates and monthly retainers for these seats have not been approved yet. Travel time, mileage, lodging and meals are invoiced at actual cost once the engagement is priced.',
+      travel: true,
       cta: { label: 'Book a Discovery Call', href: BOOK }
     }
 
@@ -133,7 +170,9 @@
     }).join('');
 
     var rows = o.price.map(function (r) {
-      return '<div class="ho-row"><span class="ho-label">' + esc(r.label) + '</span><span class="ho-amount">' + esc(r.amount) + '</span></div>';
+      var pending = r.amount === 'PRICE PENDING DANIEL';
+      var amtClass = pending ? 'ho-amount ho-pending' : 'ho-amount';
+      return '<div class="ho-row"><span class="ho-label">' + esc(r.label) + '</span><span class="' + amtClass + '">' + esc(r.amount) + '</span></div>';
     }).join('');
 
     var list = o.priceList ? '<ul class="ho-list">' + o.priceList.map(function (n) { return '<li>' + esc(n) + '</li>'; }).join('') + '</ul>' : '';
