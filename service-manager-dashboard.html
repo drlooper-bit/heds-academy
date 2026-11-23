@@ -1532,7 +1532,7 @@ table {
                 <div class="floor-rule-title" style="color:var(--accent-color);">Manager's Insight</div>
                 Realized ELR is the ultimate test of pricing discipline. If your posted rate is $185/hr but your realized ELR is $170/hr, you are losing $15 on every billed hour to unauthorized discounts, capped warranty rates, or unbilled diagnostic time.
               </div>
-            </div></td></tr><tr><td style="padding:8px; font-weight:600; width:30%;">Effective Labor Rate %</td><td style="padding:8px;">($170.00 / $185.00) × 100 = <strong style="color:var(--danger);">91.9% Effective Labor Rate</strong> (<span class="metric-status status-fail">FAIL (&lt; 92% TARGET)</span>).
+            </div></td></tr><tr><td style="padding:8px; font-weight:600; width:30%;">Effective Labor Rate %</td><td style="padding:8px;">($170.00 / $185.00) × 100 = <strong style="color:var(--danger);">91.9% Effective Labor Rate</strong> (<span class="metric-status status-fail">FAIL (&lt; 95% TARGET)</span>).
             <div style="margin-top:10px; margin-bottom:10px; padding:14px; background:rgba(0,0,0,0.25); border-radius:var(--radius); border:1px solid var(--border-color);">
               <div class="grid-2" style="margin-bottom:10px;">
                 <div class="spec-box" style="background:rgba(34, 197, 94, 0.08); border-left-color:var(--success); margin:0;">
@@ -1546,7 +1546,7 @@ table {
               </div>
               <div class="floor-rule" style="background:rgba(59, 130, 246, 0.1); border-color:var(--accent-color); margin:0;">
                 <div class="floor-rule-title" style="color:var(--accent-color);">Manager's Insight</div>
-                HEDS target is ≥ 92% Effective Labor Rate % (ELR as a percentage of posted rate). A drop below 92% indicates advisors are overriding matrix rates, giving away diagnostic time, or failing to bill national account matrix pricing properly.
+                HEDS target is ≥ 95% Effective Labor Rate % (ELR as a percentage of posted rate). A drop below 95% indicates advisors are overriding matrix rates, giving away diagnostic time, or failing to bill national account matrix pricing properly.
               </div>
             </div></td></tr></tbody></table></div>
       </div>
@@ -1768,7 +1768,7 @@ table {
               <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600;">Location absorption below 100%</td><td style="padding:8px;">Low service + parts GP combined against total operating expenses</td><td style="padding:8px;">Fix margin leaks in service and parts, and check that service is carrying 70% to 75% and parts 30% to 40%</td><td style="padding:8px; color:var(--danger);">$[Your number]</td></tr>
               <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600;">Recovery &le; 85% (red flag)</td><td style="padding:8px;">Technicians idle, no dispatch, waiting on parts</td><td style="padding:8px;">Multi-job queue rule, parts staging before teardown, dispatch matching</td><td style="padding:8px; color:var(--danger);">$[Your number]</td></tr>
               <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600;">Efficiency &lt; 110%</td><td style="padding:8px;">Wrong technician on complex job, bad flat-rate quote</td><td style="padding:8px;">Skill-to-job matching, quote review before dispatch</td><td style="padding:8px; color:var(--danger);">$[Your number]</td></tr>
-              <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600;">ELR &gt; 8% below posted (Effective Labor Rate % below 92%)</td><td style="padding:8px;">Unauthorized discounts, rework not billed</td><td style="padding:8px;">Stop unauthorized discounting, bill all rework, bill diagnostic time</td><td style="padding:8px; color:var(--danger);">$[Your number]</td></tr>
+              <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600;">ELR &gt; 5% below posted (Effective Labor Rate % below 95%)</td><td style="padding:8px;">Unauthorized discounts, rework not billed</td><td style="padding:8px;">Stop unauthorized discounting, bill all rework, bill diagnostic time</td><td style="padding:8px; color:var(--danger);">$[Your number]</td></tr>
               <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600;">WOs not invoiced within 48 hrs of last labor</td><td style="padding:8px;">Completed WOs sitting with no owner, no invoice</td><td style="padding:8px;">Daily WIP standup, weekly WIP review, close and invoice every WO within 48 hours of last labor</td><td style="padding:8px; color:var(--danger);">$[Your number]</td></tr>
               <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600;">WO not closed and invoiced within 48 hours of last labor</td><td style="padding:8px;">Invoice not submitted within 48 hours of the last labor posted</td><td style="padding:8px;">48-hour close standard, advisor-to-billing handoff protocol</td><td style="padding:8px; color:var(--danger);">$[Your number]</td></tr>
               <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600;">Unbilled Labor &gt; $0</td><td style="padding:8px;">Time not entered, or entered late</td><td style="padding:8px;">Real-time time entry, end-of-shift reconciliation</td><td style="padding:8px; color:var(--danger);">$[Your number]</td></tr>
@@ -2370,7 +2370,7 @@ table {
           <tr>
             <td style="padding:8px 10px; border:1px solid var(--border-color);">Days 31-60</td>
             <td style="padding:8px 10px; border:1px solid var(--border-color);">Fix top 3 leaks</td>
-            <td style="padding:8px 10px; border:1px solid var(--border-color);">Leak diagnostic completed, top 3 leaks addressed, ELR within 8% of posted rate (92% Effective Labor Rate % minimum)</td>
+            <td style="padding:8px 10px; border:1px solid var(--border-color);">Leak diagnostic completed, top 3 leaks addressed, ELR within 5% of posted rate (95% Effective Labor Rate % minimum)</td>
           </tr>
           <tr>
             <td style="padding:8px 10px; border:1px solid var(--border-color);">Days 61-90</td>
@@ -2853,7 +2853,7 @@ table {
 <tr style="border-bottom:1px solid var(--border-color);">
               <td style="padding:10px; font-weight:600;">Effective Labor Rate %</td>
               <td style="padding:10px;" id="s_val_elr">91.9% ($170.00)</td>
-              <td style="padding:10px;">≥ 92%</td>
+              <td style="padding:10px;">≥ 95%</td>
               <td style="padding:10px;" id="s_stat_elr"><span class="metric-status status-fail">FAIL</span></td>
             </tr>
 <tr style="border-bottom:1px solid var(--border-color);">
@@ -3181,7 +3181,7 @@ function switchMainSection(secId, btnEl) {
         const rec = (elr / rate) * 100;
         document.getElementById('m4_res_rec').innerText = rec.toFixed(1) + '%';
         document.getElementById('s_val_elr').innerText = rec.toFixed(1) + '% ($' + elr.toFixed(2) + ')';
-        if (rec >= 92) { setStatus('m4_status_rec', 'PASS', 'status-pass'); document.getElementById('s_stat_elr').innerHTML = '<span class="metric-status status-pass">PASS</span>'; }
+        if (rec >= 95) { setStatus('m4_status_rec', 'PASS', 'status-pass'); document.getElementById('s_stat_elr').innerHTML = '<span class="metric-status status-pass">PASS</span>'; }
         else { setStatus('m4_status_rec', 'DISCOUNT LEAKAGE', 'status-fail'); document.getElementById('s_stat_elr').innerHTML = '<span class="metric-status status-fail">FAIL</span>'; }
       }
     }
@@ -3599,7 +3599,7 @@ function switchMainSection(secId, btnEl) {
     "type": "mc",
     "question": "What is the industry target for Effective Labor Rate % (ELR as a percentage of posted rate)?",
     "options": [
-      "≥ 92% of posted rate",
+      "≥ 95% of posted rate",
       "≥ 85% of posted rate",
       "100% of posted rate with no exceptions",
       "≥ 75% of posted rate"
