@@ -585,6 +585,10 @@ html, body {
 }
 
 .sr-only { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; }
+
+.site-mini-nav { display:flex; flex-wrap:wrap; gap:10px 16px; padding:10px 20px; background: var(--bg, #0a1f44); border-bottom: 1px solid var(--border, #203b60); font-weight:600; font-size:0.85rem; }
+.site-mini-nav a { color: var(--accent, #f2a900); text-decoration:none; }
+.site-mini-nav a:hover { color: var(--fg, #f8fafc); }
 </style>
 </head>
 <body>
@@ -603,6 +607,12 @@ html, body {
 </div>
 
 <!-- ===== BREADCRUMB ===== -->
+<nav class="site-mini-nav" aria-label="Site">
+  <a href="../fractional-executive.html">Fractional Executive</a>
+  <a href="../index.html">Home</a>
+  <a href="index.html">Blog</a>
+  <a href="../contact.html">Contact</a>
+</nav>
 <nav class="breadcrumb">
   <a href="../index.html">Home</a>
   <span>›</span>

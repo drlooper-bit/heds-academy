@@ -3,8 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+(function () {
+  var h = (location.hash || '').replace(/^#/, '').replace(/^sec-/, '');
+  if (h === 'operating-seats' || h === 'seats') {
+    location.replace('fractional-executive.html#operating-seats');
+  }
+})();
+</script>
 <title>HEDS | Heavy Equipment Dealer Solutions: An Operating Practice Led by Daniel Looper</title>
-<meta name="description" content="An operating practice led by Daniel Looper for construction, agricultural, truck, forklift and crane rental dealers, municipal and utility fleets, and private equity and search fund buyers of those businesses. The entry offer is the $1,600 Operational Health Analysis.">
+<meta name="description" content="An operating practice led by Daniel Looper. The Fractional Executive service covers Interim and Fractional VP of Product Support, and Director of Service, Parts and Aftermarket Operations, for equipment dealers and rental companies, plus Fixed Operations leadership. The $1,600 Operational Health Analysis, a 90-day pilot implementation, audits, diligence, and training follow.">
 <meta name="google-site-verification" content="juXi8AiDSJ-9oK6rN8mlBASv7m_epb6sMyjfsM-3wls">
 <link rel="icon" type="image/png" href="LOGO_HEDS_small.png">
 <link rel="icon" type="image/x-icon" href="favicon.ico">
@@ -12,13 +20,13 @@
 <script src="assets/offers.js"></script>
 <link rel="canonical" href="https://hedsconsulting.net/">
 <meta property="og:title" content="HEDS | Heavy Equipment Dealer Solutions: An Operating Practice Led by Daniel Looper">
-<meta property="og:description" content="An operating practice led by Daniel Looper. The entry offer is the $1,600 Operational Health Analysis, with a 90-day pilot and fractional or interim operating seats as the next step.">
+<meta property="og:description" content="An operating practice led by Daniel Looper. Fractional Executive seats, the $1,600 Operational Health Analysis, a 90-day pilot implementation, audits, diligence, and training.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://hedsconsulting.net/">
 <meta property="og:image" content="https://hedsconsulting.net/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="HEDS | Heavy Equipment Dealer Solutions: An Operating Practice Led by Daniel Looper">
-<meta name="twitter:description" content="An operating practice led by Daniel Looper. The entry offer is the $1,600 Operational Health Analysis, with a 90-day pilot and fractional or interim operating seats as the next step.">
+<meta name="twitter:description" content="An operating practice led by Daniel Looper. Fractional Executive seats, the $1,600 Operational Health Analysis, a 90-day pilot implementation, audits, diligence, and training.">
 <meta name="twitter:image" content="https://hedsconsulting.net/og-image.png">
 
 <!-- ===== SCHEMA MARKUP (JSON-LD) ===== -->
@@ -43,7 +51,7 @@
   "@type": "LocalBusiness",
   "name": "Heavy Equipment Dealer Solutions LLC",
   "alternateName": "HEDS",
-  "description": "An operating practice led by Daniel Looper for construction, agricultural, truck, forklift and crane rental dealers, municipal and utility fleets, and private equity and search fund buyers of those businesses. The entry offer is the $1,600 Operational Health Analysis.",
+  "description": "An operating practice led by Daniel Looper for construction, agricultural, truck, forklift and crane rental dealers, municipal and utility fleets, and private equity and search fund buyers of those businesses. Fractional Executive seats, the $1,600 Operational Health Analysis, a 90-day pilot implementation, audits, diligence, and training are part of the practice.",
   "url": "https://hedsconsulting.net/",
   "logo": "https://hedsconsulting.net/LOGO_HEDS_small.png",
   "image": "https://hedsconsulting.net/LOGO_HEDS_small.png",
@@ -871,6 +879,7 @@ input, select, textarea {
 </header>
 
 <nav class="tab-nav" role="tablist" aria-label="Main sections">
+  <a class="tab-btn" href="fractional-executive.html">Fractional Executive</a>
   <button class="tab-btn active" role="tab" aria-selected="true" data-sec="overview" onclick="showSection('overview', this)">Overview</button>
   <button class="tab-btn" role="tab" aria-selected="false" aria-expanded="false" aria-controls="sub-nav" id="services-parent" data-parent="services" onclick="showServices()">Services We Offer</button>
   <button class="tab-btn" role="tab" aria-selected="false" data-sec="blog" onclick="showSection('blog', this)">Blog</button>
@@ -897,15 +906,17 @@ input, select, textarea {
     <button type="button" class="area-btn" onclick="showSection('training')">Training</button>
   </nav>
   <div class="hero">
-    <h2>HEDS is an operating practice led by Daniel Looper. We find the money your operation is losing or overlooking, and we install the discipline to keep the bottlenecks from coming back.</h2>
-    <p>Heavy Equipment Dealer Solutions LLC serves construction, agricultural, truck, forklift and crane rental dealers, municipal and utility fleets, and private equity and search fund buyers of those businesses, across the United States. The work starts on the shop floor with a clear read of service, parts and rental operations. Training remains available as a supporting offer, and it is not the first thing a new visitor is asked to buy.</p>
+    <h2>Fractional Executive</h2>
+    <p>Daniel Looper fills named fractional and interim operating seats for equipment dealers and rental companies. The seats are Interim and Fractional VP of Product Support, and Director of Service, Parts and Aftermarket Operations, plus Fixed Operations leadership.</p>
+    <p>Each service is priced from the realistic hours required to perform it at $200 an hour, and the quote lists the hours and the total before work starts. Travel time, mileage, lodging and meals are invoiced at actual cost. There is no set package or project price.</p>
+    <p>The full service, what the client gets, and the price are on the <a href="fractional-executive.html" style="color:var(--accent);">Fractional Executive page</a>.</p>
     <p class="hero-cta"><a class="cta-btn" href="https://calendar.app.google/8R2rX7THVQffsytT8" target="_blank" rel="noopener">Book a Discovery Call<span class="sr-only"> (opens in a new tab)</span></a></p>
   </div>
 
   <!-- ===== ENTRY: OPERATIONAL HEALTH ANALYSIS ===== -->
   <span id="health-analysis"></span>
   <div class="card" style="border-color:var(--accent);">
-    <h2>Start with the Operational Health Analysis</h2>
+    <h2>The $1,600 Operational Health Analysis</h2>
     <p style="color:var(--accent);font-weight:600;font-size:1.05rem;">The Operational Health Analysis is the entry offer at $1,600. That fee is credited in full toward the $3,200 Single Location Audit if you book the audit within 30 days.</p>
     <p>When the findings are presented, the next step is a 90-day pilot implementation in which Daniel leads the turnaround and coaches the service and parts managers for a fixed term.</p>
     <div data-offer="analysis"><noscript><p>The Operational Health Analysis is a remote analysis of one branch with a written report and recommendations. There is no onsite visit. The price is $1,600, and it is credited toward a $3,200 Single Location Audit booked within 30 days. Call (352) 724-5603 to book it.</p></noscript></div>
@@ -918,12 +929,24 @@ input, select, textarea {
     <div data-offer="pilot"><noscript><p>The 90-day pilot implementation is offered after the $1,600 Operational Health Analysis or an audit findings presentation. Daniel leads the turnaround and coaches the service and parts managers for a 90-day term. Each service is priced from the hours required to perform it at $200 an hour, and the quote lists the hours and the total before work starts. Travel time, mileage, lodging and meals are invoiced at actual cost. Call (352) 724-5603 to talk about it.</p></noscript></div>
   </div>
 
-  <span id="operating-seats"></span>
   <div class="card">
-    <h2>Fractional and Interim Operating Seats</h2>
-    <p>Daniel can fill a named operating seat for a fixed term. The seats are Interim or Fractional VP of Product Support; Director of Service, Parts and Aftermarket; and Fixed Operations leadership. Each service is priced from the hours required to perform it at $200 an hour, and the quote lists the hours and the total before work starts. Travel time, mileage, lodging and meals are invoiced at actual cost. There is no set package or project price.</p>
-    <div data-offer="seats"><noscript><p>Fractional and interim operating seats include Interim or Fractional VP of Product Support; Director of Service, Parts and Aftermarket; and Fixed Operations leadership. Each service is priced from the hours required to perform it at $200 an hour, and the quote lists the hours and the total before work starts. Travel time, mileage, lodging and meals are invoiced at actual cost. Call (352) 724-5603 to talk about a seat.</p></noscript></div>
-    <p>Each quote shows the hours and the cost up front. The Operational Health Analysis findings put a dollar figure on the leaks, so the owner can weigh the cost of the work against what it recovers.</p>
+    <h2>Onsite Audits</h2>
+    <p>When you want Daniel on the floor, the onsite option is the Single Location Audit at $3,200 for one day. A Full Branch Audit is $5,600 for two days. Multi branch audits are $2,800 for one day per site or $4,800 for two days per site. If you book the $3,200 Single Location Audit within 30 days of the Operational Health Analysis, your $1,600 is credited toward it, so you pay $1,600 more. Travel time, mileage, lodging and meals are invoiced at actual cost.</p>
+    <p>The Due Diligence tab has the full audit offer, including the findings report and the scorecard.</p>
+    <p><a class="cta-secondary" href="#diligence" onclick="showSection('diligence'); return false;">Open the Due Diligence tab</a></p>
+  </div>
+
+  <div class="card">
+    <h2>Buy-Side Diligence</h2>
+    <p>For private equity and search fund buyers of equipment dealerships, rental companies and similar fleets, and for dealers preparing for sale, buy-side operational diligence is $8,000 for 3 days or $12,000 for 5 days, plus travel at actual cost.</p>
+    <p>The Due Diligence tab has the full diligence offer, including the EBITDA quality assessment and the Due Diligence Scorecard.</p>
+    <p><a class="cta-secondary" href="#diligence" onclick="showSection('diligence'); return false;">Open the Due Diligence tab</a></p>
+  </div>
+
+  <div class="card">
+    <h2>Training as a Supporting Offer</h2>
+    <p>Five-day onsite courses for service, parts, rental and rental service managers stay available as a supporting offer after the operating work is scoped, and training is not the first ask. Any one of the four live courses is $8,000 per manager, plus travel at actual cost.</p>
+    <p><a class="cta-secondary" href="#training" onclick="showSection('training'); return false;">Open the Training tab</a></p>
   </div>
 
   <!-- ===== INITIAL SNAPSHOT (free look; shared on Overview, Dealership and Rental) ===== -->
@@ -942,32 +965,12 @@ input, select, textarea {
     </div>
   </div>
 
-  <div class="service-grid">
-    <div class="service-card">
-      <div class="service-icon">🔍</div>
-      <h3>Operational Health Analysis</h3>
-      <p>The entry offer is a remote analysis of one branch at $1,600, credited in full toward the $3,200 Single Location Audit if you book that audit within 30 days. Onsite audits and buy-side diligence remain available when you want Daniel on the floor.</p>
-      <a class="cta-secondary" href="#health-analysis" onclick="showSection('overview'); return false;">Learn More →</a>
-    </div>
-    <div class="service-card">
-      <div class="service-icon">🛠️</div>
-      <h3>Implementation and Operating Seats</h3>
-      <p>When findings are presented, the next step is a 90-day pilot in which Daniel leads the turnaround and coaches the service and parts managers. He can also fill a fractional or interim operating seat for a fixed term.</p>
-      <a class="cta-secondary" href="#pilot" onclick="showSection('overview'); return false;">Learn More →</a>
-    </div>
-    <div class="service-card">
-      <div class="service-icon">🎓</div>
-      <h3>Training as a Supporting Offer</h3>
-      <p>Five-day onsite courses for service, parts, rental and rental service managers stay on the site, built on your real data. Training is a later offer after the operating work is scoped, and it is not the first ask.</p>
-      <a class="cta-secondary" href="#sec-training" onclick="showSection('training'); return false;">Learn More →</a>
-    </div>
-  </div>
 
   <div class="card">
     <h2>What Makes HEDS Different</h2>
     <p>HEDS is an operating practice led by Daniel Looper, not a course-first academy and not a generic consulting firm. Daniel works from your real numbers, on your shop floor when the work is onsite, and through a standing report rhythm when he leads the work or holds a seat.</p>
-    <p>The entry is a clear read of one location, then a fixed-term implementation in which Daniel leads the turnaround and coaches the service and parts managers. Fractional and interim operating seats are part of the same practice. Training stays available as a supporting offer after that work is scoped.</p>
-    <p>The work is industry specific. It is built from multi-location product support leadership across equipment dealerships and rental operations. There are no hidden fees and no bundled services you do not need. The 90-day pilot implementation, the fractional seats, and interim assignments are each priced from the hours required to perform them at $200 an hour, and the quote lists the hours and the total before work starts. Each other offer's price is shown with the offer, and larger or multi-location work is scoped on a discovery call.</p>
+    <p>The practice also includes a clear read of one location, then a 90-day pilot implementation in which Daniel leads the turnaround and coaches the service and parts managers. The Fractional Executive seats are part of the same practice. Training stays available as a supporting offer after that work is scoped.</p>
+    <p>The work is industry specific. It is built from multi-location product support leadership across equipment dealerships and rental operations. There are no hidden fees and no bundled services you do not need. The 90-day pilot implementation and the Fractional Executive seats are each priced from the hours required to perform them at $200 an hour, and the quote lists the hours and the total before work starts. Each other offer's price is shown with the offer, and larger or multi-location work is scoped on a discovery call.</p>
   </div>
 
   <div class="stats">
@@ -979,7 +982,7 @@ input, select, textarea {
 
   <div class="card">
     <h2>Who HEDS Serves</h2>
-    <p>HEDS serves construction, agricultural, truck, forklift and crane rental dealers, municipal and utility fleets, and private equity and search fund buyers of those businesses. The same analysis, audit, 90-day pilot, fractional or interim seat, and diligence offer is taken to each of those buyers.</p>
+    <p>HEDS serves construction, agricultural, truck, forklift and crane rental dealers, municipal and utility fleets, and private equity and search fund buyers of those businesses. The same analysis, audit, 90-day pilot, Fractional Executive seat, and diligence offer is taken to each of those buyers.</p>
     <p>The practice is for operations that are dealing with aged WIP draining cash flow, labor recovery gaps where technicians are paid for hours that are not billed, parts fill rate problems and dead stock, rental fleet downtime eating into utilization targets, inconsistent branch practices across multiple locations, and managers who know the numbers but struggle to turn them into daily action.</p>
   </div>
 
@@ -1474,7 +1477,7 @@ input, select, textarea {
   <div class="card">
     <h2>What Happens on the Discovery Call</h2>
     <p>On the discovery call we discuss your operation, including service, parts, rental and branch structure, and we identify the top 2 or 3 areas where margin may be leaking. The usual recommendation starts with the Operational Health Analysis at $1,600, which is credited in full toward the $3,200 Single Location Audit if that audit is booked within 30 days.</p>
-    <p>When findings are ready, the next step is often a 90-day pilot implementation or a conversation about a fractional or interim operating seat. Training is a supporting offer for later, not the first ask. There is no obligation and no pressure, only a clear recommendation.</p>
+    <p>When findings are ready, the next step is often a 90-day pilot implementation or a conversation about a Fractional Executive seat. Training is a supporting offer for later, not the first ask. There is no obligation and no pressure, only a clear recommendation.</p>
   </div>
 
   <div class="card">
@@ -1483,7 +1486,7 @@ input, select, textarea {
       <tr><th>Service</th><th>What It Does</th><th>Price or Next Step</th></tr>
       <tr><td><strong>Operational Health Analysis</strong></td><td>Remote entry analysis of one branch, credited toward the Single Location Audit within 30 days</td><td>$1,600</td></tr>
       <tr><td><strong>90-Day Pilot Implementation</strong></td><td>Daniel leads the turnaround and coaches service and parts managers after the analysis or audit findings, for a 90-day term</td><td>$200 an hour, priced from the hours required to perform the service</td></tr>
-      <tr><td><strong>Fractional and Interim Operating Seats</strong></td><td>VP of Product Support, Director of Service, Parts and Aftermarket, and Fixed Operations leadership</td><td>$200 an hour, priced from the hours required to perform the service</td></tr>
+      <tr><td><strong>Fractional Executive</strong></td><td>Interim and Fractional VP of Product Support, and Director of Service, Parts and Aftermarket Operations, for equipment dealers and rental companies, plus Fixed Operations leadership</td><td>$200 an hour, priced from the realistic hours required to perform the service</td></tr>
       <tr><td><strong>Onsite Audit and Due Diligence</strong></td><td>Buy-side operational diligence is $8,000 for 3 days or $12,000 for 5 days, plus travel at actual cost</td><td>Book a discovery call</td></tr>
       <tr><td><strong>Dealership and Rental Training</strong></td><td>Supporting 5-day onsite courses for managers, after the operating work is scoped</td><td>Book a discovery call</td></tr>
       <tr><td><strong>Follow-Up Coaching</strong></td><td>Virtual sessions targeting specific stalled metrics</td><td>Book a discovery call</td></tr>

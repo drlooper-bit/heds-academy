@@ -128,7 +128,7 @@
         { h: 'Review the term', t: 'At the end of the 90 days you review the work against the plan and decide whether to continue with further implementation work or an operating seat.' }
       ],
       deliver: 'Daniel leads the operational turnaround for a fixed 90-day term and coaches the service and parts managers through that term.',
-      see: { links: [{ t: 'Operational Health Analysis', h: 'index.html#health-analysis' }], then: 'then, after findings are presented, you can also talk about a ', next: { t: 'fractional or interim operating seat', h: 'index.html#operating-seats' } },
+      see: { links: [{ t: 'Operational Health Analysis', h: 'index.html#health-analysis' }], then: 'then, after findings are presented, you can also talk about a ', next: { t: 'Fractional Executive seat', h: 'fractional-executive.html' } },
       price: [
         { label: '90-day pilot implementation', amount: '$200 an hour' }
       ],
@@ -138,8 +138,8 @@
     },
 
     seats: {
-      title: 'Fractional and Interim Operating Seats',
-      lead: 'Daniel Looper can fill a named operating seat for a fixed term at construction, agricultural, truck, forklift and crane rental dealerships, at municipal and utility fleets, and for private equity and search fund buyers of those businesses.',
+      title: 'Fractional Executive',
+      lead: 'Daniel Looper fills Interim and Fractional VP of Product Support, and Director of Service, Parts and Aftermarket Operations, for equipment dealers and rental companies, plus Fixed Operations leadership.',
       steps: [
         { h: 'Name the seat', t: 'You and HEDS agree which seat Daniel will fill, for how long, and which managers he will lead and coach.' },
         { h: 'Set the rhythm', t: 'You agree the onsite days, the weekly cadence, and the reports that will be sent so Daniel can run the function with a clear mandate.' },
@@ -148,9 +148,9 @@
       ],
       deliver: 'Daniel fills one named operating seat for a fixed term, leads the function, and coaches the managers who report in it.',
       price: [
-        { label: 'Fractional or interim operating seat', amount: '$200 an hour' }
+        { label: 'Fractional Executive seat', amount: '$200 an hour' }
       ],
-      note: 'Each service is priced from the hours required to perform it at $200 an hour, and the quote lists the hours and the total before work starts. This applies to Interim or Fractional VP of Product Support; Director of Service, Parts and Aftermarket; and Fixed Operations leadership. Travel time, mileage, lodging and meals are invoiced at actual cost. There is no set package or project price. This is an example of the math, not a package: 16 hours at $200 an hour is $3,200.',
+      note: 'Each service is priced from the realistic hours required to perform it at $200 an hour, and the quote lists the hours and the total before work starts. This applies to Interim and Fractional VP of Product Support, and Director of Service, Parts and Aftermarket Operations, for equipment dealers and rental companies, plus Fixed Operations leadership. Travel time, mileage, lodging and meals are invoiced at actual cost. There is no set package or project price. This is an example of the math, not a package: 16 hours at $200 an hour is $3,200.',
       travel: true,
       cta: { label: 'Book a Discovery Call', href: BOOK }
     }
