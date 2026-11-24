@@ -28,29 +28,29 @@
 
     analysis: {
       title: 'Operational Health Analysis',
-      lead: 'This is the entry offer. It is a remote analysis of one branch, and there is no onsite visit. It is for principals, general managers, and service and parts managers at construction, agricultural, truck, forklift and crane rental dealerships, and it is also used by municipal and utility fleets and by private equity and search fund buyers of those businesses.',
+      lead: 'The Operational Health Analysis is a remote review of one branch, with no onsite visit. We built it for principals, general managers, and service and parts managers at construction, agricultural, truck, forklift and crane rental dealerships, as well as for municipal and utility fleets and for private equity and search fund buyers of those businesses.',
       // NAME-PLACEHOLDER: "Operational Health Analysis" is a placeholder name until Daniel confirms it.
       steps: [
-        { h: 'You send your numbers', t: 'You send your P&L and the standard service and parts reports for the branch from your dealer system.' },
-        { h: 'Daniel analyzes them', t: 'Daniel Looper analyzes the branch reports remotely against HEDS benchmarks and works out where performance is falling short.' },
-        { h: 'You get the report', t: 'HEDS delivers a written report on the branch with recommendations.' }
+        { h: 'Send your reports', t: 'You send your P&L and the standard service and parts reports for the branch from your dealer system.' },
+        { h: 'We review the numbers', t: 'HEDS reviews the branch reports remotely against our benchmarks and identifies where performance is falling short.' },
+        { h: 'Receive your report', t: 'You receive a written report on the branch with recommendations.' }
       ],
       deliver: 'Your branch performance against HEDS benchmarks, a projection of what closing each gap is worth in dollars calculated from your own numbers, and a written report with recommendations for the branch.',
       see: { links: [{ t: 'Dealer KPI Library', h: 'dealer-kpi-library.html' }], then: 'then, when findings are presented, talk about the ', next: { t: '90-day pilot implementation', h: 'index.html#pilot' } },
       price: [ { label: 'Operational Health Analysis, one branch, remote', amount: '$1,600' } ],
-      note: 'The Operational Health Analysis is done remotely. If you want Daniel onsite, the Single Location Audit is the onsite option. If you book the $3,200 Single Location Audit within 30 days, your $1,600 is credited toward it, so you pay $1,600 more. The credit applies once.',
+      note: 'The Operational Health Analysis is done remotely. If you want an onsite review, the Single Location Audit is the onsite option. If you book the $3,200 Single Location Audit within 30 days, your $1,600 is credited toward it, so you pay $1,600 more. The credit applies once.',
       extra: true, travel: false,
       cta: { label: 'Book a Discovery Call', href: BOOK }
     },
 
     audit: {
       title: 'Onsite Audit and Due Diligence',
-      lead: 'This is the onsite option. Daniel Looper comes to your location.',
+      lead: 'The onsite audit is done at your location.',
       steps: [
         { h: 'Scope the audit', t: 'You book a 30 minute discovery call, and HEDS agrees the locations, the departments and the number of days with you.' },
         { h: 'Send your reports', t: 'You pull four standard ERP or DMS reports, and HEDS builds a baseline snapshot before arriving onsite.' },
-        { h: 'Daniel audits onsite', t: 'Daniel Looper is the auditor. He walks the shop floor, reviews the parts counter and the rental yard, verifies the ERP reports and interviews your managers.' },
-        { h: 'You get the findings report', t: 'HEDS delivers the findings report within 5 business days, and the report is included with every audit.' }
+        { h: 'We audit onsite', t: 'Our team walks the shop floor, reviews the parts counter and the rental yard, verifies the ERP reports and interviews your managers.' },
+        { h: 'Receive your findings report', t: 'HEDS delivers the findings report within 5 business days, and the report is included with every audit.' }
       ],
       deliver: 'A findings report with dollar quantified leaks, a department by department scorecard against industry benchmarks, and a prioritized fix list ranked by dollar impact and ease of implementation.',
       see: { links: [{ t: 'Due Diligence Scorecard', h: 'due-diligence-scorecard.html' }], then: 'then book the ', next: { t: 'Operational Health Analysis', h: 'index.html#health-analysis' } },
@@ -120,14 +120,14 @@
 
     pilot: {
       title: '90-Day Pilot Implementation',
-      lead: 'When findings from the Operational Health Analysis or an onsite audit are presented, the next step is a 90-day pilot in which Daniel Looper leads the turnaround and coaches the service and parts managers for a fixed term.',
+      lead: 'When findings from the Operational Health Analysis or an onsite audit are presented, the next step is a 90-day pilot in which HEDS leads the turnaround and coaches the service and parts managers for a fixed term.',
       steps: [
-        { h: 'Findings are presented', t: 'Daniel presents the findings from the Operational Health Analysis or from an onsite audit, and you agree which leaks the 90-day term will address first.' },
-        { h: 'Agree the term', t: 'You and HEDS agree the 90-day scope, the managers Daniel will coach, the onsite days, and the weekly operating rhythm for the term.' },
-        { h: 'Daniel leads the work', t: 'Daniel leads the turnaround for the fixed 90-day term and coaches the service and parts managers as the work proceeds.' },
+        { h: 'Findings are presented', t: 'HEDS presents the findings from the Operational Health Analysis or from an onsite audit, and you agree which leaks the 90-day term will address first.' },
+        { h: 'Agree the term', t: 'You and HEDS agree the 90-day scope, the managers we will coach, the onsite days, and the weekly operating rhythm for the term.' },
+        { h: 'We lead the work', t: 'HEDS leads the turnaround for the fixed 90-day term and coaches the service and parts managers as the work proceeds.' },
         { h: 'Review the term', t: 'At the end of the 90 days you review the work against the plan and decide whether to continue with further implementation work or an operating seat.' }
       ],
-      deliver: 'Daniel leads the operational turnaround for a fixed 90-day term and coaches the service and parts managers through that term.',
+      deliver: 'HEDS leads the operational turnaround for a fixed 90-day term and coaches the service and parts managers through that term.',
       see: { links: [{ t: 'Operational Health Analysis', h: 'index.html#health-analysis' }], then: 'then, after findings are presented, you can also talk about a ', next: { t: 'Fractional Executive seat', h: 'fractional-executive.html' } },
       price: [
         { label: '90-day pilot implementation', amount: '$200 an hour' }
@@ -139,14 +139,14 @@
 
     seats: {
       title: 'Fractional Executive',
-      lead: 'Daniel Looper fills Interim and Fractional VP of Product Support, and Director of Service, Parts and Aftermarket Operations, for equipment dealers and rental companies, plus Fixed Operations leadership.',
+      lead: 'HEDS fills Interim and Fractional VP of Product Support, and Director of Service, Parts and Aftermarket Operations, for equipment dealers and rental companies, plus Fixed Operations leadership.',
       steps: [
-        { h: 'Name the seat', t: 'You and HEDS agree which seat Daniel will fill, for how long, and which managers he will lead and coach.' },
-        { h: 'Set the rhythm', t: 'You agree the onsite days, the weekly cadence, and the reports that will be sent so Daniel can run the function with a clear mandate.' },
-        { h: 'Daniel holds the seat', t: 'Daniel leads the function for the agreed term and coaches the managers who report in it.' },
+        { h: 'Name the seat', t: 'You and HEDS agree which seat we will fill, for how long, and which managers we will lead and coach.' },
+        { h: 'Set the rhythm', t: 'You agree the onsite days, the weekly cadence, and the reports that will be sent so our team can run the function with a clear mandate.' },
+        { h: 'We hold the seat', t: 'HEDS leads the function for the agreed term and coaches the managers who report in it.' },
         { h: 'Close or extend the term', t: 'At the end of the term you decide whether the seat ends, is extended, or is handed to a permanent leader.' }
       ],
-      deliver: 'Daniel fills one named operating seat for a fixed term, leads the function, and coaches the managers who report in it.',
+      deliver: 'HEDS fills one named operating seat for a fixed term, leads the function, and coaches the managers who report in it.',
       price: [
         { label: 'Fractional Executive seat', amount: '$200 an hour' }
       ],
