@@ -340,6 +340,7 @@ a.tab-btn:hover { color: var(--fg); }
   max-width: 600px;
   margin: 0 auto 20px;
 }
+.hero .price-note, .price-note { color: var(--muted); font-size: 0.9rem; }
 
 /* ===== STAT ROW ===== */
 .stats {
@@ -907,9 +908,10 @@ input, select, textarea {
   </nav>
   <div class="hero">
     <h2>Fractional Executive</h2>
-    <p>HEDS fills named fractional and interim operating seats for equipment dealers and rental companies. The seats are Interim and Fractional VP of Product Support, and Director of Service, Parts and Aftermarket Operations, plus Fixed Operations leadership.</p>
-    <p>Each service is priced from the realistic hours required to perform it at $200 an hour, and the quote lists the hours and the total before work starts. Travel time, mileage, lodging and meals are invoiced at actual cost. There is no set package or project price.</p>
-    <p>The full service, what the client gets, and the price are on the <a href="fractional-executive.html" style="color:var(--accent);">Fractional Executive page</a>.</p>
+    <p>Aged WIP sits in the shop and ties up cash. Technicians get paid for hours that never hit an invoice. Parts stock-outs and dead stock slow the work, rental units sit down, and branches run on different habits.</p>
+    <p>HEDS steps into a named operating seat and installs a daily rhythm so those leaks get closed and the numbers start moving.</p>
+    <p>The seats include Interim and Fractional VP of Product Support, and Director of Service, Parts and Aftermarket Operations, for equipment dealers and rental companies, plus Fixed Operations leadership. The full service is on the <a href="fractional-executive.html" style="color:var(--accent);">Fractional Executive page</a>.</p>
+    <p class="price-note">The work is priced at $200 an hour from the realistic hours required to perform it. Each quote lists the hours and the total before work starts. Travel time, mileage, lodging and meals are invoiced at actual cost. There is no set package or project price. This is an example of the math, not a package: 16 hours at $200 an hour is $3,200.</p>
     <p class="hero-cta"><a class="cta-btn" href="https://calendar.app.google/8R2rX7THVQffsytT8" target="_blank" rel="noopener">Book a Discovery Call<span class="sr-only"> (opens in a new tab)</span></a></p>
   </div>
 
@@ -917,16 +919,17 @@ input, select, textarea {
   <span id="health-analysis"></span>
   <div class="card" style="border-color:var(--accent);">
     <h2>Operational Health Analysis</h2>
-    <p style="color:var(--accent);font-weight:600;font-size:1.05rem;">The fee is $1,600. If you book the $3,200 Single Location Audit within 30 days, that $1,600 is credited in full toward the audit.</p>
-    <p>When the findings are ready, the next step is often a 90-day pilot implementation, in which HEDS leads the turnaround and coaches the service and parts managers for a fixed term.</p>
-    <div data-offer="analysis"><noscript><p>The Operational Health Analysis is a remote review of one branch, with no onsite visit. You send your P&amp;L and the standard service and parts reports from your dealer system, and HEDS reviews them against our benchmarks. You receive a written report with recommendations. The fee is $1,600, and it is credited toward the $3,200 Single Location Audit if you book the audit within 30 days. Call (352) 724-5603 to book it.</p></noscript></div>
+    <p>Money leaves the branch in ways the month-end P&amp;L does not show clearly. Aged WIP, unbilled technician hours, parts stock-outs and dead stock, and work orders that linger after last labor all add up.</p>
+    <p>HEDS puts a dollar figure on those leaks, using your own numbers, and recommends where to start.</p>
+    <div data-offer="analysis"><noscript><p>The Operational Health Analysis is a remote review of one branch, with no onsite visit. The fee is $1,600. If you book the $3,200 Single Location Audit within 30 days, that $1,600 is credited in full toward the audit. Call (352) 724-5603 to book it.</p></noscript></div>
   </div>
 
   <span id="pilot"></span>
   <div class="card">
     <h2>90-Day Pilot Implementation</h2>
-    <p>A 90-day pilot implementation can follow the Operational Health Analysis or an audit findings presentation. HEDS leads the turnaround and coaches the service and parts managers for a 90-day term. Each service is priced from the hours required to perform it at $200 an hour, and the quote lists the hours and the total before work starts. Travel time, mileage, lodging and meals are invoiced at actual cost. There is no set package or project price.</p>
-    <div data-offer="pilot"><noscript><p>A 90-day pilot implementation can follow the Operational Health Analysis or an audit findings presentation. HEDS leads the turnaround and coaches the service and parts managers for a 90-day term. Each service is priced from the hours required to perform it at $200 an hour, and the quote lists the hours and the total before work starts. Travel time, mileage, lodging and meals are invoiced at actual cost. Call (352) 724-5603 to talk about it.</p></noscript></div>
+    <p>Findings only matter if the floor changes. After the Operational Health Analysis or an audit, HEDS stays with your service and parts managers for 90 days and leads the turnaround.</p>
+    <p>We coach the work against the plan, so the leaks get closed and the new rhythm holds.</p>
+    <div data-offer="pilot"><noscript><p>The 90-day pilot is priced at $200 an hour from the hours required to perform the work. Each quote lists the hours and the total before work starts. Travel time, mileage, lodging and meals are invoiced at actual cost. Call (352) 724-5603 to talk about it.</p></noscript></div>
   </div>
 
   <div class="card">
@@ -983,7 +986,15 @@ input, select, textarea {
   <div class="card">
     <h2>Who HEDS Serves</h2>
     <p>HEDS serves construction, agricultural, truck, forklift and crane rental dealers, municipal and utility fleets, and private equity and search fund buyers of those businesses. The same analysis, audit, 90-day pilot, Fractional Executive seat, and diligence offer is taken to each of those buyers.</p>
-    <p>The practice is for operations that are dealing with aged WIP draining cash flow, labor recovery gaps where technicians are paid for hours that are not billed, parts fill rate problems and dead stock, rental fleet downtime eating into utilization targets, inconsistent branch practices across multiple locations, and managers who know the numbers but struggle to turn them into daily action.</p>
+    <div class="table-container"><table class="table">
+      <tr><th>Pressure</th><th>What it does to the business</th></tr>
+      <tr><td>Aged WIP</td><td>Cash stays trapped in jobs that should already be invoiced.</td></tr>
+      <tr><td>Unbilled technician hours</td><td>Labor is paid out, but the hours never become revenue.</td></tr>
+      <tr><td>Parts stock-outs and dead stock</td><td>The shop waits on parts, while capital sits in inventory that does not move.</td></tr>
+      <tr><td>Rental downtime</td><td>Machines that should be on rent are in the yard or the shop, and utilization falls.</td></tr>
+      <tr><td>Branch inconsistency</td><td>Locations run on different habits, so leaks repeat from one branch to the next.</td></tr>
+      <tr><td>Managers who know the numbers but do not act</td><td>The reports are available, yet daily practice on the floor does not change.</td></tr>
+    </table></div>
   </div>
 
   <div class="card" style="text-align:center;">
@@ -1049,7 +1060,7 @@ input, select, textarea {
     </div>
   </div>
 
-  <div data-offer="analysis"><noscript><p>The Operational Health Analysis is a remote review of one branch, with no onsite visit. You send your P&amp;L and the standard service and parts reports from your dealer system, and HEDS reviews them against our benchmarks. You receive a written report with recommendations. The fee is $1,600, and it is credited toward the $3,200 Single Location Audit if you book the audit within 30 days. Call (352) 724-5603 to book it.</p></noscript></div>
+  <div data-offer="analysis"><noscript><p>The Operational Health Analysis is a remote review of one branch, with no onsite visit. The fee is $1,600. If you book the $3,200 Single Location Audit within 30 days, that $1,600 is credited in full toward the audit. Call (352) 724-5603 to book it.</p></noscript></div>
 
   <div class="card">
     <h2>Service Menu</h2>
@@ -1081,7 +1092,7 @@ input, select, textarea {
     <p>HEDS leads operating work in service, parts and aftermarket at equipment dealerships. The Operational Health Analysis is a practical place to start. Training remains available as a supporting offer after the operating work is scoped, using your real data, on your floor, with your numbers.</p>
   </div>
 
-  <div data-offer="analysis"><noscript><p>The Operational Health Analysis is a remote review of one branch, with no onsite visit. You send your P&amp;L and the standard service and parts reports from your dealer system, and HEDS reviews them against our benchmarks. You receive a written report with recommendations. The fee is $1,600, and it is credited toward the $3,200 Single Location Audit if you book the audit within 30 days. Call (352) 724-5603 to book it.</p></noscript></div>
+  <div data-offer="analysis"><noscript><p>The Operational Health Analysis is a remote review of one branch, with no onsite visit. The fee is $1,600. If you book the $3,200 Single Location Audit within 30 days, that $1,600 is credited in full toward the audit. Call (352) 724-5603 to book it.</p></noscript></div>
 
   <!-- ===== WHAT THE ACADEMY DOES ===== -->
   <div class="card">

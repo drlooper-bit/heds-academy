@@ -28,7 +28,7 @@
 
     analysis: {
       title: 'Operational Health Analysis',
-      lead: 'The Operational Health Analysis is a remote review of one branch, with no onsite visit. We built it for principals, general managers, and service and parts managers at construction, agricultural, truck, forklift and crane rental dealerships, as well as for municipal and utility fleets and for private equity and search fund buyers of those businesses.',
+      lead: 'This is a remote review of one branch. There is no onsite visit.',
       // NAME-PLACEHOLDER: "Operational Health Analysis" is a placeholder name until Daniel confirms it.
       steps: [
         { h: 'Send your reports', t: 'You send your P&L and the standard service and parts reports for the branch from your dealer system.' },
@@ -38,7 +38,7 @@
       deliver: 'Your branch performance against HEDS benchmarks, a projection of what closing each gap is worth in dollars calculated from your own numbers, and a written report with recommendations for the branch.',
       see: { links: [{ t: 'Dealer KPI Library', h: 'dealer-kpi-library.html' }], then: 'then, when findings are presented, talk about the ', next: { t: '90-day pilot implementation', h: 'index.html#pilot' } },
       price: [ { label: 'Operational Health Analysis, one branch, remote', amount: '$1,600' } ],
-      note: 'The Operational Health Analysis is done remotely. If you want an onsite review, the Single Location Audit is the onsite option. If you book the $3,200 Single Location Audit within 30 days, your $1,600 is credited toward it, so you pay $1,600 more. The credit applies once.',
+      note: 'If you want an onsite review, the Single Location Audit is the onsite option. If you book the $3,200 Single Location Audit within 30 days, your $1,600 is credited toward it, so you pay $1,600 more. The credit applies once.',
       extra: true, travel: false,
       cta: { label: 'Book a Discovery Call', href: BOOK }
     },
@@ -120,7 +120,7 @@
 
     pilot: {
       title: '90-Day Pilot Implementation',
-      lead: 'When findings from the Operational Health Analysis or an onsite audit are presented, the next step is a 90-day pilot in which HEDS leads the turnaround and coaches the service and parts managers for a fixed term.',
+      lead: 'The 90-day term starts after the findings from the Operational Health Analysis or an onsite audit are presented.',
       steps: [
         { h: 'Findings are presented', t: 'HEDS presents the findings from the Operational Health Analysis or from an onsite audit, and you agree which leaks the 90-day term will address first.' },
         { h: 'Agree the term', t: 'You and HEDS agree the 90-day scope, the managers we will coach, the onsite days, and the weekly operating rhythm for the term.' },
@@ -132,14 +132,14 @@
       price: [
         { label: '90-day pilot implementation', amount: '$200 an hour' }
       ],
-      note: 'Each service is priced from the hours required to perform it at $200 an hour, and the quote lists the hours and the total before work starts. Travel time, mileage, lodging and meals are invoiced at actual cost. There is no set package or project price. This is an example of the math, not a package: 16 hours at $200 an hour is $3,200.',
+      note: 'The work is priced at $200 an hour from the realistic hours required to perform it. Each quote lists the hours and the total before work starts. There is no set package or project price. This is an example of the math, not a package: 16 hours at $200 an hour is $3,200.',
       travel: true,
       cta: { label: 'Book a Discovery Call', href: BOOK }
     },
 
     seats: {
       title: 'Fractional Executive',
-      lead: 'HEDS fills Interim and Fractional VP of Product Support, and Director of Service, Parts and Aftermarket Operations, for equipment dealers and rental companies, plus Fixed Operations leadership.',
+      lead: 'Aged WIP, unbilled technician hours, parts stock-outs and dead stock, and inconsistent branch habits drain the operation. HEDS fills a named operating seat for a fixed term and coaches the managers who report in it.',
       steps: [
         { h: 'Name the seat', t: 'You and HEDS agree which seat we will fill, for how long, and which managers we will lead and coach.' },
         { h: 'Set the rhythm', t: 'You agree the onsite days, the weekly cadence, and the reports that will be sent so our team can run the function with a clear mandate.' },
@@ -150,7 +150,7 @@
       price: [
         { label: 'Fractional Executive seat', amount: '$200 an hour' }
       ],
-      note: 'Each service is priced from the realistic hours required to perform it at $200 an hour, and the quote lists the hours and the total before work starts. This applies to Interim and Fractional VP of Product Support, and Director of Service, Parts and Aftermarket Operations, for equipment dealers and rental companies, plus Fixed Operations leadership. Travel time, mileage, lodging and meals are invoiced at actual cost. There is no set package or project price. This is an example of the math, not a package: 16 hours at $200 an hour is $3,200.',
+      note: 'Each service is priced from the realistic hours required to perform it at $200 an hour, and the quote lists the hours and the total before work starts. This applies to Interim and Fractional VP of Product Support, and Director of Service, Parts and Aftermarket Operations, for equipment dealers and rental companies, plus Fixed Operations leadership. There is no set package or project price. This is an example of the math, not a package: 16 hours at $200 an hour is $3,200.',
       travel: true,
       cta: { label: 'Book a Discovery Call', href: BOOK }
     }
