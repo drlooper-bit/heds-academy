@@ -104,9 +104,17 @@ body {
   font-family: var(--font);
 }
 a.tab-btn:hover { color: var(--fg); }
-a.tab-btn.active {
+a.tab-btn.active, .tab-btn.active {
   color: var(--accent);
   border-bottom-color: var(--accent);
+}
+.sub-nav { display: none; background: var(--card-bg); justify-content: center; border-bottom: 1px solid var(--border); }
+.sub-nav.open { display: flex; }
+.sub-nav .tab-btn { font-size: 0.84rem; padding: 12px 20px; }
+@media (max-width: 767px) {
+  .sub-nav.open { display: grid !important; grid-template-columns: repeat(6, 1fr) !important; }
+  .sub-nav:not(.open) { display: none !important; }
+  .sub-nav .tab-btn { font-size: 0.72rem !important; padding: 6px 2px !important; }
 }
 .page {
   padding: 24px 20px;
@@ -195,11 +203,18 @@ a.in-copy { color: var(--accent); }
   </div>
 </header>
 <nav class="tab-nav" aria-label="Main sections">
-  <a class="tab-btn active" href="fractional-executive.html" aria-current="page">Fractional Executive</a>
   <a class="tab-btn" href="index.html#overview">Overview</a>
-  <a class="tab-btn" href="index.html#diligence">Services We Offer</a>
+  <a class="tab-btn active" href="index.html#diligence" aria-current="page">Services We Offer</a>
   <a class="tab-btn" href="index.html#blog">Blog</a>
   <a class="tab-btn" href="index.html#contact">Contact</a>
+</nav>
+<nav class="tab-nav sub-nav open" aria-label="Services We Offer">
+  <a class="tab-btn active" href="fractional-executive.html" aria-current="page">Fractional Executive</a>
+  <a class="tab-btn" href="index.html#diligence">Due Diligence</a>
+  <a class="tab-btn" href="index.html#dealership">Dealership</a>
+  <a class="tab-btn" href="index.html#rental">Rental</a>
+  <a class="tab-btn" href="index.html#fleet">Fleet</a>
+  <a class="tab-btn" href="index.html#training">Training</a>
 </nav>
 </div>
 

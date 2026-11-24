@@ -841,7 +841,7 @@ input, select, textarea {
 .sub-nav.open { display: flex; }
 .sub-nav .tab-btn { font-size: 0.84rem; padding: 12px 20px; }
 @media (max-width: 767px) {
-  .sub-nav.open { display: grid !important; grid-template-columns: repeat(5, 1fr) !important; }
+  .sub-nav.open { display: grid !important; grid-template-columns: repeat(6, 1fr) !important; }
   .sub-nav:not(.open) { display: none !important; }
   .sub-nav .tab-btn { font-size: 0.72rem !important; padding: 6px 2px !important; }
 }
@@ -879,13 +879,13 @@ input, select, textarea {
 </header>
 
 <nav class="tab-nav" role="tablist" aria-label="Main sections">
-  <a class="tab-btn" href="fractional-executive.html">Fractional Executive</a>
   <button class="tab-btn active" role="tab" aria-selected="true" data-sec="overview" onclick="showSection('overview', this)">Overview</button>
   <button class="tab-btn" role="tab" aria-selected="false" aria-expanded="false" aria-controls="sub-nav" id="services-parent" data-parent="services" onclick="showServices()">Services We Offer</button>
   <button class="tab-btn" role="tab" aria-selected="false" data-sec="blog" onclick="showSection('blog', this)">Blog</button>
   <button class="tab-btn" role="tab" aria-selected="false" data-sec="contact" onclick="showSection('contact', this)">Contact</button>
 </nav>
 <nav class="tab-nav sub-nav" id="sub-nav" role="tablist" aria-label="Services We Offer">
+  <a class="tab-btn" href="fractional-executive.html">Fractional Executive</a>
   <button class="tab-btn" role="tab" aria-selected="false" data-sec="diligence" onclick="showSection('diligence', this)">Due Diligence</button>
   <button class="tab-btn" role="tab" aria-selected="false" data-sec="dealership" onclick="showSection('dealership', this)">Dealership</button>
   <button class="tab-btn" role="tab" aria-selected="false" data-sec="rental" onclick="showSection('rental', this)">Rental</button>
