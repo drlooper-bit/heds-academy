@@ -849,12 +849,12 @@ input, select, textarea {
 
 /* ===== OVERVIEW AREAS ROW (same look as the Services sub-tab bar, no active state) ===== */
 .areas-bar { display: flex; justify-content: center; background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius); margin-bottom: 24px; overflow-x: auto; }
-.areas-bar .area-btn { background: transparent; border: none; border-bottom: 3px solid transparent; color: var(--muted); cursor: pointer; font-family: var(--font); font-size: 0.84rem; font-weight: 600; padding: 12px 20px; white-space: nowrap; min-height: 44px; min-width: 48px; transition: all 0.2s; }
-.areas-bar .area-btn:hover { color: var(--fg); border-bottom-color: var(--border); }
-.areas-bar .area-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+.areas-bar .area-btn, .areas-bar a.area-btn { background: transparent; border: none; border-bottom: 3px solid transparent; color: var(--muted); cursor: pointer; font-family: var(--font); font-size: 0.84rem; font-weight: 600; padding: 12px 20px; white-space: nowrap; min-height: 44px; min-width: 48px; transition: all 0.2s; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; box-sizing: border-box; }
+.areas-bar .area-btn:hover, .areas-bar a.area-btn:hover { color: var(--fg); border-bottom-color: var(--border); }
+.areas-bar .area-btn:focus-visible, .areas-bar a.area-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
 @media (max-width: 767px) {
-  .areas-bar { display: grid; grid-template-columns: repeat(5, 1fr); gap: 4px; padding: 4px; overflow-x: visible; }
-  .areas-bar .area-btn { width: 100%; font-size: 0.72rem; padding: 6px 2px; white-space: normal; line-height: 1.15; text-align: center; border: 1px solid rgba(32, 59, 96, 0.7); border-radius: 6px; background: rgba(14, 31, 56, 0.75); }
+  .areas-bar { display: grid; grid-template-columns: repeat(6, 1fr); gap: 4px; padding: 4px; overflow-x: visible; }
+  .areas-bar .area-btn, .areas-bar a.area-btn { width: 100%; font-size: 0.72rem; padding: 6px 2px; white-space: normal; line-height: 1.15; text-align: center; border: 1px solid rgba(32, 59, 96, 0.7); border-radius: 6px; background: rgba(14, 31, 56, 0.75); }
 }
 </style>
 <noscript>
@@ -900,6 +900,7 @@ input, select, textarea {
   <span id="overview"></span>
   <img src="heds-hero-banner.jpg" alt="Heavy equipment lineup, excavators and wheel loaders" class="hero-banner" width="1328" height="332" onerror="this.style.display='none'">
   <nav class="areas-bar" aria-label="Areas we cover">
+    <a class="area-btn" href="fractional-executive.html">Fractional Executive</a>
     <button type="button" class="area-btn" onclick="showSection('diligence')">Due Diligence</button>
     <button type="button" class="area-btn" onclick="showSection('dealership')">Dealership</button>
     <button type="button" class="area-btn" onclick="showSection('rental')">Rental</button>
@@ -1495,9 +1496,9 @@ input, select, textarea {
     <h2>Service Lines</h2>
     <div class="table-container"><table class="table">
       <tr><th>Service</th><th>What It Does</th><th>Price or Next Step</th></tr>
+      <tr><td><strong>Fractional Executive</strong></td><td>Interim and Fractional VP of Product Support, and Director of Service, Parts and Aftermarket Operations, for equipment dealers and rental companies, plus Fixed Operations leadership</td><td>$200 an hour, priced from the realistic hours required to perform the service</td></tr>
       <tr><td><strong>Operational Health Analysis</strong></td><td>Remote entry analysis of one branch, credited toward the Single Location Audit within 30 days</td><td>$1,600</td></tr>
       <tr><td><strong>90-Day Pilot Implementation</strong></td><td>HEDS leads the turnaround and coaches service and parts managers after the analysis or audit findings, for a 90-day term</td><td>$200 an hour, priced from the hours required to perform the service</td></tr>
-      <tr><td><strong>Fractional Executive</strong></td><td>Interim and Fractional VP of Product Support, and Director of Service, Parts and Aftermarket Operations, for equipment dealers and rental companies, plus Fixed Operations leadership</td><td>$200 an hour, priced from the realistic hours required to perform the service</td></tr>
       <tr><td><strong>Onsite Audit and Due Diligence</strong></td><td>Buy-side operational diligence is $8,000 for 3 days or $12,000 for 5 days, plus travel at actual cost</td><td>Book a discovery call</td></tr>
       <tr><td><strong>Dealership and Rental Training</strong></td><td>Supporting 5-day onsite courses for managers, after the operating work is scoped</td><td>Book a discovery call</td></tr>
       <tr><td><strong>Follow-Up Coaching</strong></td><td>Virtual sessions targeting specific stalled metrics</td><td>Book a discovery call</td></tr>
@@ -1569,7 +1570,7 @@ var SEC_ALIASES = {
   snapshot: 'overview', 'initial-snapshot': 'overview',
   assessment: 'training', 'industry-knowledge-assessment': 'training',
   'health-analysis': 'overview', 'operational-health-analysis': 'overview', 'health-check': 'overview', 'operational-health-check': 'overview', 'report-review': 'overview', ohc: 'overview',
-  pilot: 'overview', 'operating-seats': 'overview', seats: 'overview',
+  pilot: 'overview',
   'dd-scorecard': 'diligence', 'due-diligence-scorecard': 'diligence',
   'fleet-owners': 'fleet', 'fleet-owner': 'fleet'
 };
@@ -1587,11 +1588,21 @@ function resolveSec(hash) {
   return SEC_ALIASES[h] || h;
 }
 
+function redirectSeats(hash) {
+  var h = (hash || '').replace(/^#/, '').replace(/^sec-/, '');
+  if (h === 'operating-seats' || h === 'seats') {
+    location.replace('fractional-executive.html#operating-seats');
+    return true;
+  }
+  return false;
+}
+
 function showServices() {
   showSection(lastService);
 }
 
 function showSection(secId, btn) {
+  if (redirectSeats(secId)) return;
   secId = resolveSec(secId);
   var targetSection = document.getElementById('sec-' + secId);
   if (!targetSection) return;
@@ -1640,6 +1651,7 @@ function fillSharedBlocks() {
 // Support direct link to tabs on page load
 window.addEventListener('DOMContentLoaded', function() {
   fillSharedBlocks();
+  if (redirectSeats(window.location.hash)) return;
   var hash = resolveSec(window.location.hash);
   if (hash && document.getElementById('sec-' + hash)) {
     showSection(hash);
@@ -1662,10 +1674,14 @@ window.addEventListener('DOMContentLoaded', function() {
 
 // Support browser back/forward buttons
 window.addEventListener('popstate', function() {
+  if (redirectSeats(window.location.hash)) return;
   var hash = resolveSec(window.location.hash) || 'overview';
   if (document.getElementById('sec-' + hash)) {
     showSection(hash);
   }
+});
+window.addEventListener('hashchange', function() {
+  if (redirectSeats(window.location.hash)) return;
 });
 </script>
 
