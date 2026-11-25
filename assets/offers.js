@@ -139,14 +139,14 @@
 
     seats: {
       title: 'Fractional Executive',
-      lead: 'Aged WIP, unbilled technician hours, parts stock-outs and dead stock, and inconsistent branch habits drain the operation. HEDS fills a named operating seat for a fixed term and coaches the managers who report in it.',
+      lead: 'HEDS holds one named seat for an agreed term, runs the daily and weekly rhythm with your managers, and reports the numbers to you every week.',
       steps: [
-        { h: 'Name the seat', t: 'You and HEDS agree which seat we will fill, for how long, and which managers we will lead and coach.' },
-        { h: 'Set the rhythm', t: 'You agree the onsite days, the weekly cadence, and the reports that will be sent so our team can run the function with a clear mandate.' },
-        { h: 'We hold the seat', t: 'HEDS leads the function for the agreed term and coaches the managers who report in it.' },
-        { h: 'Close or extend the term', t: 'At the end of the term you decide whether the seat ends, is extended, or is handed to a permanent leader.' }
+        { h: 'Name the seat', t: 'You and HEDS agree which seat we will fill, for how long, which managers we will lead and coach, and the onsite days.' },
+        { h: 'Set the baseline', t: 'In the first 30 days we pull your reports, start the daily WIP stand-up and the weekly meetings, and give you a written baseline against the HEDS targets.' },
+        { h: 'Run the rhythm', t: 'We close the first leaks with your managers, put the standards in writing, and send you the scorecard every week.' },
+        { h: 'Review and hand over', t: 'At the end of the term you decide whether the seat ends, is extended, or is handed to a permanent leader, and we hand over the standards and the scorecard.' }
       ],
-      deliver: 'HEDS fills one named operating seat for a fixed term, leads the function, and coaches the managers who report in it.',
+      deliver: 'A named leader in the seat, a written baseline, an action plan with an owner and a target for each leak, a weekly scorecard, a monthly review with you, and written standards your managers keep after the term.',
       price: [
         { label: 'Fractional Executive seat', amount: '$200 an hour' }
       ],
