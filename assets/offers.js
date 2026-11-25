@@ -163,7 +163,7 @@
 
   function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
 
-  function build(id, o) {
+  function build(id, o, noCta) {
     var steps = o.steps.map(function (s, i) {
       return '<li class="ho-step"><span class="ho-num" aria-hidden="true">' + (i + 1) + '</span>' +
         '<h4>' + esc(s.h) + '</h4><p>' + esc(s.t) + '</p></li>';
@@ -189,7 +189,7 @@
         (o.see.next ? '<a href="' + o.see.next.h + '">' + esc(o.see.next.t) + '</a>.' : '') + '</p>';
     }
 
-    var cta = o.cta ? '<p class="ho-cta"><a class="cta-btn" href="' + o.cta.href + '" target="_blank" rel="noopener">' +
+    var cta = (o.cta && !noCta) ? '<p class="ho-cta"><a class="cta-btn" href="' + o.cta.href + '" target="_blank" rel="noopener">' +
       esc(o.cta.label) + '<span class="sr-only"> (opens in a new tab)</span></a></p>' : '';
 
     var html =
@@ -216,7 +216,7 @@
       var id = m.getAttribute('data-offer');
       var o = OFFERS[id];
       if (!o) continue;
-      var b = build(id, o);
+      var b = build(id, o, m.hasAttribute('data-offer-nocta'));
       m.innerHTML = b.html;
       m.setAttribute('data-offer-done', '1');
     }
