@@ -2016,9 +2016,9 @@ table {
               <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600;">Revenue Per Unit (by class)</td><td style="padding:8px;">Class revenue &divide; unit count</td><td style="padding:8px;">Positive net contribution</td><td style="padding:8px;">PASS/WARN/FAIL</td></tr>
               <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600;">Rate Realization</td><td style="padding:8px;">Actual rate &divide; rack rate</td><td style="padding:8px;">&ge; 90%</td><td style="padding:8px;">PASS/WARN/FAIL</td></tr>
               <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600;">Damage Recovery Rate</td><td style="padding:8px;">Collected &divide; repair cost</td><td style="padding:8px;">&ge; 85%</td><td style="padding:8px;">PASS/WARN/FAIL</td></tr>
-              <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600;">Fleet Downtime %</td><td style="padding:8px;">Down days &divide; available days</td><td style="padding:8px;">&lt; 8%</td><td style="padding:8px;">PASS/WARN/FAIL</td></tr>
-              <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600;">Maintenance Cost % of OEC</td><td style="padding:8px;">Maint cost (tech labor excluded) &divide; fleet OEC</td><td style="padding:8px;">&le; 8%</td><td style="padding:8px;">PASS/WARN/FAIL</td></tr>
-              <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600;">EBITDA Margin</td><td style="padding:8px;">EBITDA &divide; rental revenue</td><td style="padding:8px;">30% to 46%</td><td style="padding:8px;">PASS or red flag below 30%</td></tr>
+              <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600;">Fleet Downtime %</td><td style="padding:8px;">Down days &divide; days available for rent</td><td style="padding:8px;">&lt; 8%</td><td style="padding:8px;">PASS/WARN/FAIL</td></tr>
+              <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600;">Maintenance Cost % of OEC</td><td style="padding:8px;">Maint cost (tech labor excluded) &divide; fleet OEC</td><td style="padding:8px;">8% to 10%</td><td style="padding:8px;">PASS, WARN above 10%</td></tr>
+              <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600;">EBITDA Margin</td><td style="padding:8px;">EBITDA &divide; rental revenue</td><td style="padding:8px;">National chains 41% to 48%</td><td style="padding:8px;">PASS for national chains. No grade for other tiers</td></tr>
               <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600;">Personnel Expense %</td><td style="padding:8px;">Wages+benefits &divide; revenue</td><td style="padding:8px;">&lt; 35%</td><td style="padding:8px;">PASS/WARN/FAIL</td></tr>
               <tr><td style="padding:8px; font-weight:600;">Debt-to-Asset Ratio</td><td style="padding:8px;">Long-term debt &divide; total OEC</td><td style="padding:8px;">&lt; 30%</td><td style="padding:8px;">PASS/WARN/FAIL</td></tr>
             </tbody>
@@ -2052,10 +2052,10 @@ table {
         <div class="formula-expr" style="margin-top:6px;">Revenue Growth % = ((Current Period Revenue &minus; Prior Period Revenue) / Prior Period Revenue ) &times; 100</div>
         <div class="worked-calc" data-calc="ebitda_block"></div>
         <div class="dash-table" style="margin:10px 0; font-size:0.85rem; overflow-x:auto;"><table style="width:100%; border-collapse:collapse; font-size:0.8rem; text-align:left;"><thead><tr style="border-bottom:2px solid var(--accent-color); color:var(--accent-color);"><th style="padding:8px;">Step</th><th style="padding:8px;">Formula step</th></tr></thead><tbody><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Step 1</td><td style="padding:8px;">Pull the trailing 12-month rental P&amp;L from accounting. Calculate EBITDA (net income + interest + taxes + D&amp;A).</td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Step 2</td><td style="padding:8px;">Divide EBITDA by total rental revenue and multiply by 100.</td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Step 3</td><td style="padding:8px;">Pull total wages + benefits + payroll taxes for the rental department. Divide by total rental revenue.</td></tr><tr><td style="padding:8px; font-weight:600; width:30%;">Step 4</td><td style="padding:8px;">Compare current period revenue to prior period revenue. Divide the difference by prior period revenue.</td></tr></tbody></table></div>
-        <p style="margin-top:10px; font-size:0.88rem;"><strong>Worked Example:</strong> Annual Rental Revenue: $2,400,000. EBITDA: $720,000. EBITDA Margin = ($720,000 / $2,400,000) &times; 100 = <strong style="color:var(--warning);">30.0% (PASS: At target)</strong>. Personnel Wages + Benefits: $624,000. Personnel Expense = ($624,000 / $2,400,000) &times; 100 = <strong style="color:var(--success);">26.0% (PASS: Below 35% target)</strong>. Prior Year Revenue: $2,180,000. Revenue Growth = (($2,400,000 &minus; $2,180,000) / $2,180,000) &times; 100 = <strong style="color:var(--success);">10.1% (PASS: Above 10% target)</strong></p>
+        <p style="margin-top:10px; font-size:0.88rem;"><strong>Worked Example:</strong> Annual Rental Revenue: $2,400,000. EBITDA: $720,000. EBITDA Margin = ($720,000 / $2,400,000) &times; 100 = <strong style="color:var(--warning);">30.0% (no grade, below the national chain range)</strong>. Personnel Wages + Benefits: $624,000. Personnel Expense = ($624,000 / $2,400,000) &times; 100 = <strong style="color:var(--success);">26.0% (PASS: Below 35% target)</strong>. Prior Year Revenue: $2,180,000. Revenue Growth = (($2,400,000 &minus; $2,180,000) / $2,180,000) &times; 100 = <strong style="color:var(--success);">10.1% (PASS: Above 10% target)</strong></p>
         <div style="margin-top:8px; font-size:0.85rem;">
           <strong>HEDS Target Benchmarks:</strong>
-          <div class="dash-table" style="margin:10px 0; font-size:0.85rem; overflow-x:auto;"><table style="width:100%; border-collapse:collapse; font-size:0.8rem; text-align:left;"><thead><tr style="border-bottom:2px solid var(--accent-color); color:var(--accent-color);"><th style="padding:8px;">Measure</th><th style="padding:8px;">Target</th></tr></thead><tbody><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">EBITDA Margin</td><td style="padding:8px;">30% to 46% of rental revenue. Below 30% is a red flag.</td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Personnel Expense</td><td style="padding:8px;">&lt; 35% of revenue (independent target: 15% to 30%)</td></tr><tr><td style="padding:8px; font-weight:600; width:30%;">Revenue Growth</td><td style="padding:8px;">&ge; 10% year-over-year</td></tr></tbody></table></div>
+          <div class="dash-table" style="margin:10px 0; font-size:0.85rem; overflow-x:auto;"><table style="width:100%; border-collapse:collapse; font-size:0.8rem; text-align:left;"><thead><tr style="border-bottom:2px solid var(--accent-color); color:var(--accent-color);"><th style="padding:8px;">Measure</th><th style="padding:8px;">Target</th></tr></thead><tbody><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">EBITDA Margin</td><td style="padding:8px;">National chains pass at 41% to 48% of revenue: United Rentals 47.6% (Q3 2026), Herc 44.2% (Q3 2026), Sunbelt 41.9% (fiscal year ended April 2026).</td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Regional chains</td><td style="padding:8px;">Below the national chains. No pass or fail grade.</td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Smaller independents</td><td style="padding:8px;">Below the regional chains. No pass or fail grade.</td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Single location</td><td style="padding:8px;">Below the smaller independents. No pass or fail grade.</td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Personnel Expense</td><td style="padding:8px;">&lt; 35% of revenue (independent target: 15% to 30%)</td></tr><tr><td style="padding:8px; font-weight:600; width:30%;">Revenue Growth</td><td style="padding:8px;">&ge; 10% year-over-year</td></tr></tbody></table></div>
 </div>
 </div>
 
@@ -2132,7 +2132,7 @@ table {
           <ul class="checklist">
             <li><input type="checkbox" id="dm1_chk1"> Verified Rental Contract Detail Extract (trailing 12 months)</li>
             <li><input type="checkbox" id="dm1_chk2"> Verified Fleet Availability Calendar (trailing 365 days by unit)</li>
-            <li><input type="checkbox" id="dm1_chk3"> Verified major overhaul/off-fleet days excluded</li>
+            <li><input type="checkbox" id="dm1_chk3"> Verified major overhaul days excluded</li>
             <li><input type="checkbox" id="dm1_chk4"> Verified Total Available Days = units &times; 365 &minus; overhaul days</li>
             <li><input type="checkbox" id="dm1_chk5"> Verified yard inventory count for idle fleet %</li>
           </ul>
@@ -2230,7 +2230,7 @@ table {
       <div class="card">
         <div class="card-title">Enter Your Branch Numbers: Fleet Downtime</div>
         <div class="form-group">
-          <label for="dm5_total_avail_days">Available Days (units &times; days in period)</label>
+          <label for="dm5_total_avail_days">Days Available for Rent (units &times; days in period)</label>
           <input type="number" id="dm5_total_avail_days" value="4380" placeholder="Enter available days" oninput="calcMod5()">
 </div>
         <div class="form-group">
@@ -2518,10 +2518,10 @@ table {
             <li><input type="checkbox" id="dm10_chk1"> Verified total maintenance cost (parts + sublet, tech labor excluded)</li>
             <li><input type="checkbox" id="dm10_chk2"> Verified total fleet OEC (original equipment cost of the rental fleet)</li>
             <li><input type="checkbox" id="dm10_chk3"> Confirmed maintenance cost excludes damage repairs (those are recovery)</li>
-            <li><input type="checkbox" id="dm10_chk4"> Benchmarked against the 8% of OEC target</li>
+            <li><input type="checkbox" id="dm10_chk4"> Benchmarked against the 8% to 10% of OEC target</li>
           </ul>
           <p style="font-size:0.85rem; margin-top:8px;">Accounting note: rental books technician labor as an operating expense, while dealers book labor as a revenue line, which is why United Rentals excludes tech labor from R&amp;M.</p>
-          <p style="font-size:0.85rem; margin-top:6px;">HEDS target: 8% of OEC (fleet cost) or less per year, tech labor excluded. It varies by type of fleet: a small fleet runs a lower percentage, a large fleet runs a higher percentage, and a mixed fleet lands somewhere in that range.</p>
+          <p style="font-size:0.85rem; margin-top:6px;">HEDS target: 8% to 10% of OEC (fleet cost) per year, WARN above 10%, tech labor excluded. It varies by type of fleet: a small fleet runs a lower percentage, a large fleet runs a higher percentage, and a mixed fleet lands somewhere in that range.</p>
 </div>
 </div>
 </div>
@@ -2558,13 +2558,13 @@ table {
             <tr style="border-bottom:1px solid var(--border-color);">
               <td style="padding:10px; font-weight:600;">Maintenance Cost as a Percent of OEC</td>
               <td style="padding:10px;" id="s_val_maint">--</td>
-              <td style="padding:10px;">&le; 8% (WARN 8.1 to 10%)</td>
+              <td style="padding:10px;">8% to 10% (WARN above 10%)</td>
               <td style="padding:10px;" id="s_stat_maint">--</td>
             </tr>
             <tr style="border-bottom:1px solid var(--border-color);">
               <td style="padding:10px; font-weight:600;">EBITDA Margin</td>
               <td style="padding:10px;" id="s_val_ebitda">--</td>
-              <td style="padding:10px;">30% to 46% (below 30% red flag)</td>
+              <td style="padding:10px;">National chains 41% to 48% (PASS). No grade for other tiers</td>
               <td style="padding:10px;" id="s_stat_ebitda">--</td>
             </tr>
             <tr style="border-bottom:1px solid var(--border-color);">
@@ -2730,13 +2730,13 @@ table {
           Deploying full financial metrics, executing disposition decisions, and presenting the executive scorecard.
 </div>
         <ul class="checklist">
-          <li><input type="checkbox" id="g3_chk1" onchange="saveGateCheckboxes()"> <strong>EBITDA Margin Calculated:</strong> Trailing 90-day EBITDA margin calculated and benchmarked against the 30% to 46% band.</li>
+          <li><input type="checkbox" id="g3_chk1" onchange="saveGateCheckboxes()"> <strong>EBITDA Margin Calculated:</strong> Trailing 90-day EBITDA margin calculated and benchmarked against the national chain band of 41% to 48% (United Rentals 47.6% Q3 2026, Herc 44.2% Q3 2026, Sunbelt 41.9% FY April 2026).</li>
           <li><input type="checkbox" id="g3_chk2" onchange="saveGateCheckboxes()"> <strong>Personnel Expense % Calculated:</strong> Wages + benefits &divide; revenue benchmarked against &lt; 35% target.</li>
           <li><input type="checkbox" id="g3_chk3" onchange="saveGateCheckboxes()"> <strong>Revenue Growth Calculated:</strong> YoY revenue growth benchmarked against &ge; 10% target.</li>
           <li><input type="checkbox" id="g3_chk4" onchange="saveGateCheckboxes()"> <strong>Debt-to-Asset Ratio Reviewed:</strong> Long-term fleet debt &divide; total OEC benchmarked against &lt; 30% target.</li>
           <li><input type="checkbox" id="g3_chk5" onchange="saveGateCheckboxes()"> <strong>5% At-Risk Fleet Disposition Package:</strong> Bottom 5% of units by net contribution audited. Repair-vs-sell recommendations prepared for GM.</li>
           <li><input type="checkbox" id="g3_chk6" onchange="saveGateCheckboxes()"> <strong>Fleet Mix Recommendations Finalized:</strong> Acquisition and disposition plan by class presented to GM and Regional Director.</li>
-          <li><input type="checkbox" id="g3_chk7" onchange="saveGateCheckboxes()"> <strong>Maintenance Cost % of OEC Audited:</strong> Total maintenance cost (tech labor excluded) &divide; fleet OEC benchmarked against the 8% of OEC target.</li>
+          <li><input type="checkbox" id="g3_chk7" onchange="saveGateCheckboxes()"> <strong>Maintenance Cost % of OEC Audited:</strong> Total maintenance cost (tech labor excluded) &divide; fleet OEC benchmarked against the 8% to 10% of OEC target.</li>
           <li><input type="checkbox" id="g3_chk8" onchange="saveGateCheckboxes()"> <strong>Collection Rate Audited:</strong> Trailing 90-day collection rate benchmarked against &ge; 95% target. Past-due &gt; 90 days &lt; 2%.</li>
           <li><input type="checkbox" id="g3_chk9" onchange="saveGateCheckboxes()"> <strong>Executive Scorecard Presentation:</strong> Rental Manager presents full 90-day scorecard (the 8 core KPIs with PASS/WARN/FAIL) to Branch GM and Regional Fleet Director.</li>
           <li><input type="checkbox" id="g3_chk10" onchange="saveGateCheckboxes()"> <strong>90-Day Rental Manager Action Plan Submitted:</strong> Baseline scorecard, top 3 revenue leaks, fleet disposition package, and accountability contract delivered.</li>
@@ -3187,9 +3187,8 @@ function switchMainSection(secId, btnEl) {
       var pct = parseFloat(((maintCost / rentalRev) * 100).toFixed(1)); // dm10_rental_revenue now holds fleet OEC; grade the shown value
       document.getElementById('dm10_res').innerText = pct.toFixed(1) + '%';
       document.getElementById('s_val_maint').innerText = pct.toFixed(1) + '%';
-      if (pct <= 8) { setStatus('dm10_status', 'PASS', 'status-pass'); setScoreStatus('s_stat_maint', '<span class="metric-status status-pass">PASS</span>', '', '', 'pass'); }
-      else if (pct <= 10) { setStatus('dm10_status', 'WARN: OVER 8%', 'status-warn'); setScoreStatus('s_stat_maint', '', '<span class="metric-status status-warn">WARN</span>', '', 'warn'); }
-      else { setStatus('dm10_status', 'FAIL: OVER 10%', 'status-fail'); setScoreStatus('s_stat_maint', '', '', '<span class="metric-status status-fail">FAIL</span>', 'fail'); }
+      if (pct <= 10) { setStatus('dm10_status', 'PASS', 'status-pass'); setScoreStatus('s_stat_maint', '<span class="metric-status status-pass">PASS</span>', '', '', 'pass'); }
+      else { setStatus('dm10_status', 'WARN: OVER 10%', 'status-warn'); setScoreStatus('s_stat_maint', '', '<span class="metric-status status-warn">WARN</span>', '', 'warn'); }
     }
     saveData();
   }
@@ -3203,8 +3202,8 @@ function switchMainSection(secId, btnEl) {
       if (valEl) valEl.innerText = margin.toFixed(1) + '%';
       var statEl = document.getElementById('s_stat_ebitda');
       if (statEl) {
-        if (margin >= 30) statEl.innerHTML = '<span class="metric-status status-pass">PASS</span>';
-        else statEl.innerHTML = '<span class="metric-status status-fail">FAIL</span>';
+        if (margin >= 41 && margin <= 48) statEl.innerHTML = '<span class="metric-status status-pass">PASS</span>';
+        else statEl.innerHTML = '<span class="metric-status">No grade</span>';
       }
     }
     saveData();
@@ -3525,7 +3524,7 @@ function switchMainSection(secId, btnEl) {
       "Days on rent divided by available rentable days, times 100",
       "Annual rental revenue divided by total OEC, times 100",
       "Actual invoiced rate divided by rack rate, times 100",
-      "Down days divided by available days, times 100"
+      "Down days divided by days available for rent, times 100"
     ]
   
 },
@@ -4080,9 +4079,9 @@ function switchMainSection(secId, btnEl) {
     "module": "Module 8: Cadence & P&L",
     "module_id": "c_m8",
     "type": "mc",
-    "question": "What is the target EBITDA margin for a rental department under standard practice?",
+    "question": "What EBITDA margin passes for a national rental chain under standard practice?",
     "options": [
-      "> 30%",
+      "41% to 48% for national chains, with no grade for smaller tiers",
       "> 15%",
       "> 20%",
       "> 50%"

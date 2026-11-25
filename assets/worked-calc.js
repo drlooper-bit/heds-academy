@@ -342,8 +342,7 @@
           { label: 'Monthly Run Rate', value: monthly, format: 'num', suffix: ' units/month' },
           { label: '90-Day Target Inventory', value: target, format: 'num', suffix: ' units' }
         ];
-      },
-      sync: function (res, v) { setDash('dm6_consumption', v.cons); if (v.onhand != null) setDash('dm6_on_hand', v.onhand); }
+      }
     },
     spi: {
       type: 'rows', format: 'num', resultLabel: 'Highest SPI (repair first)',

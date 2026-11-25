@@ -1005,7 +1005,7 @@ table {
             <tr><td>KPI 7: Obsolescence &amp; Excess</td><td>&lt; 5%</td><td>9.0%</td><td><span class="metric-status status-warn">WARN</span></td></tr>
             <tr><td>KPI 8: Parts-to-Labor Ratio</td><td>$1 : $1</td><td>$1.20 : $1</td><td><span class="metric-status status-pass">PASS</span></td></tr>
             <tr><td>KPI 9: First-Time Fill Rate</td><td>Counter &ge; 85% / Service &ge; 90%</td><td>90.0% / 94.7%</td><td><span class="metric-status status-pass">PASS</span></td></tr>
-            <tr><td>KPI 10: Days of Supply</td><td>Set per dealer, with 90 days or less as the HEDS starting point.</td><td>101 days</td><td><span class="metric-status status-warn">WARN</span></td></tr>
+            <tr><td>KPI 10: Days of Supply</td><td>Two measures. The blended average days of supply for the whole inventory, with 90 days or less as the HEDS starting point, and each part&#39;s own days of supply, judged by how fast that part moves.</td><td>101 days</td><td><span class="metric-status status-warn">WARN</span></td></tr>
           </tbody>
         </table>
       </div>
@@ -1143,9 +1143,10 @@ table {
         </div>
         <div class="formula-card">
           <div class="example-badge">KPI 10: Days of Supply</div>
-          <div class="formula-expr">Inventory Value / Daily Usage</div>
-          <div class="formula-result">Set per dealer, with 90 days or less as the HEDS starting point. Over 90 days grades WARN.</div>
-          <p class="formula-note">Velocity tiering is a general rule of thumb, not a standard: about 30 days on fast-movers (A), 90 days medium (B), 180 days slow (C). The parts manager still has to research days of supply part by part, because not everything fits a bucket. A part you know you will need that the manufacturer cannot supply stays on hand whatever its tier. Each dealer sets its own figure, with 90 days or less as the HEDS starting point.</p>
+          <div class="formula-expr">Blended average for the whole inventory = Total Inventory Value / Total Daily Usage</div>
+          <div class="formula-expr">Each part = Part On Hand Value / Part Daily Usage, judged by how fast the part moves</div>
+          <div class="formula-result">Two measures. The blended average days of supply for the whole inventory, with 90 days or less as the HEDS starting point, and each part&#39;s own days of supply, judged by how fast that part moves. A blended average over 90 days grades WARN.</div>
+          <p class="formula-note">Velocity tiering is a general rule of thumb, not a standard: about 30 days on fast-movers (A), 90 days medium (B), 180 days slow (C). The parts manager still has to research days of supply part by part, because not everything fits a bucket. A part you know you will need that the manufacturer cannot supply stays on hand whatever its tier. The blended average covers the whole inventory. Each part&#39;s own days are judged by its movement, so a fast mover and a slow mover are not held to the same number.</p>
         </div>
       </div>
 
@@ -1268,7 +1269,7 @@ table {
     <div class="metric-box kpi-tile"><div class="kpi-label">07 Obsolescence</div><div class="metric-val" id="m7_res">9.0%</div><div id="m7_status" class="metric-status status-warn">WARN</div><div class="kpi-desc">Target: &lt; 5% (WARN 5 to 10%, FAIL over 10%)</div></div>
     <div class="metric-box kpi-tile"><div class="kpi-label">08 Parts/Labor (secondary)</div><div class="metric-val" id="m8_res">$1.20 : $1</div><div id="m8_status" class="metric-status status-pass">PASS</div><div class="kpi-desc">Target: $1:$1 (PASS $1.00 to $1.50)</div></div>
     <div class="metric-box kpi-tile"><div class="kpi-label">09 Fill Rate</div><div class="metric-val" id="m9_res">90.0% / 94.7%</div><div id="m9_status" class="metric-status status-pass">PASS</div><div class="kpi-desc">Counter / Service. Targets: counter &ge; 85%, service &ge; 90% (by line item, then averaged)</div></div>
-    <div class="metric-box kpi-tile"><div class="kpi-label">10 Supply Days</div><div class="metric-val" id="s_val_m10">101 days</div><div id="s_stat_m10"><span class="metric-status status-warn">WARN</span></div><div class="kpi-desc">Set per dealer, 90 days or less as the HEDS starting point</div></div>
+    <div class="metric-box kpi-tile"><div class="kpi-label">10 Days of Supply (blended)</div><div class="metric-val" id="s_val_m10">101 days</div><div id="s_stat_m10"><span class="metric-status status-warn">WARN</span></div><div class="kpi-desc">Blended average for the whole inventory, plus each part&#39;s own days judged by its movement. 90 days or less blended is the HEDS starting point</div></div>
   </div>
 
   <nav class="nav-tabs">
@@ -1502,7 +1503,7 @@ table {
             <tr><td colspan="4" style="padding:12px 10px 6px 10px; font-weight:800; font-size:0.8rem; letter-spacing:1px; text-transform:uppercase; color:var(--muted);">Secondary measures (3)</td></tr>
             <tr><td>Parts Share of Dealership Gross Margin</td><td id="s_val_m3">25.0%</td><td>25%-30%</td><td id="s_stat_m3"><span class="metric-status status-pass">PASS</span></td></tr>
             <tr><td>Parts to Labor Ratio</td><td id="s_val_m8">$1.20 : $1</td><td>$1 : $1</td><td id="s_stat_m8"><span class="metric-status status-pass">PASS</span></td></tr>
-            <tr id="kpi-days-of-supply"><td>Days of Supply</td><td id="s_val_m10_sub">101 days</td><td>Set per dealer, with 90 days or less as the HEDS starting point.</td><td id="s_stat_m10_sub"><span class="metric-status status-warn">WARN</span></td></tr>
+            <tr id="kpi-days-of-supply"><td>Days of Supply</td><td id="s_val_m10_sub">101 days</td><td>Two measures. The blended average days of supply for the whole inventory, with 90 days or less as the HEDS starting point, and each part&#39;s own days of supply, judged by how fast that part moves.</td><td id="s_stat_m10_sub"><span class="metric-status status-warn">WARN</span></td></tr>
           </tbody>
         </table>
       </div>
@@ -1823,7 +1824,7 @@ table {
         var el2 = document.getElementById('s_val_m10_sub');
         if (el1) el1.innerText = dayStr;
         if (el2) el2.innerText = dayStr;
-        // Daniel, Nov 20 2026: set per dealer, with 90 days or less as the HEDS starting point. PASS at or under 90 days (as displayed); over 90 is WARN.
+        // Daniel, Nov 24 2026: this is the blended average for the whole inventory. Each part's own days are judged by its movement. Blended: PASS at or under 90 days (as displayed); over 90 is WARN.
         var statHtml = statusSpan(Math.round(days) <= 90 ? 'PASS' : 'WARN');
         var s1 = document.getElementById('s_stat_m10');
         var s2 = document.getElementById('s_stat_m10_sub');

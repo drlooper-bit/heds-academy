@@ -78,8 +78,8 @@
           inputs: [I('eb', 'EBITDA', 700000, -500000, 4000000, 10000, '$'), I('rr', 'Total rental revenue', 2700000, 10000, 10000000, 50000, '$')], outputs: ratio('ebitda_margin', 'eb', 'rr') },
         { title: 'Customer Churn (quarterly)', def: 'Customers lost this quarter divided by active customers last quarter, times 100.',
           inputs: [I('lost', 'Customers lost this quarter', 6, 0, 100, 1, 'customers'), I('act', 'Active customers last quarter', 80, 1, 400, 1, 'customers')], outputs: ratio('customer_churn', 'lost', 'act') },
-        { title: 'Fleet Downtime', def: 'Down days divided by available days, times 100. Downtime lost revenue is downtime revenue times the cat class time utilization.',
-          inputs: [I('dd', 'Days down in shop', 240, 0, 5000, 5, 'days'), I('av2', 'Available rentable days', 4000, 100, 15000, 100, 'days')], outputs: ratio('equipment_downtime', 'dd', 'av2') },
+        { title: 'Fleet Downtime', def: 'Down days divided by days available for rent, times 100. Downtime lost revenue is downtime revenue times the cat class time utilization.',
+          inputs: [I('dd', 'Days down in shop', 240, 0, 5000, 5, 'days'), I('av2', 'Days available for rent', 4000, 100, 15000, 100, 'days')], outputs: ratio('equipment_downtime', 'dd', 'av2') },
         { title: 'Rate Realization', def: 'Actual invoiced rate divided by rack rate, times 100.',
           inputs: [I('ar', 'Actual average invoiced daily rate', 290, 1, 2000, 1, '$'), I('rk', 'Rack daily rate', 321, 1, 2000, 1, '$')], outputs: ratio('rate_realization', 'ar', 'rk') },
         { title: 'Damage Recovery Rate', def: 'Customer damage collected divided by total cost of customer damage repairs, times 100.',
@@ -99,13 +99,10 @@
         { title: 'Fleet Physical Availability', def: '(Rent-ready units plus on-rent units) divided by total fleet units, times 100.',
           inputs: [I('rr', 'Rent-ready units', 35, 0, 500, 1, 'units'), I('or', 'On-rent units', 105, 0, 500, 1, 'units'), I('tf', 'Total fleet units', 150, 1, 500, 1, 'units')],
           outputs: [{ kpi: 'fleet_availability', f: function (v) { return pct(v.rr + v.or, v.tf); } }] },
-        { title: 'Fleet Downtime', def: 'Down days divided by available days, times 100. Downtime lost revenue is downtime revenue times the cat class time utilization.',
-          inputs: [I('dd', 'Down days', 315, 0, 5000, 5, 'days'), I('fd', 'Available days', 4500, 100, 15000, 100, 'days')], outputs: ratio('fleet_downtime', 'dd', 'fd') },
+        { title: 'Fleet Downtime', def: 'Down days divided by days available for rent, times 100. Downtime lost revenue is downtime revenue times the cat class time utilization.',
+          inputs: [I('dd', 'Down days', 315, 0, 5000, 5, 'days'), I('fd', 'Days available for rent', 4500, 100, 15000, 100, 'days')], outputs: ratio('fleet_downtime', 'dd', 'fd') },
         { title: 'Late Close Work Orders', def: 'Count of work orders not closed and invoiced within 48 hours of last labor.',
           inputs: [I('lc', 'Work orders past 48 hours', 3, 0, 60, 1, 'orders')], outputs: [{ kpi: 'late_close_work_orders', f: function (v) { return v.lc; } }] },
-        { title: 'Parts Buffer (Months of Supply)', def: 'Parts on hand divided by average monthly usage over the last six months.',
-          inputs: [I('oh', 'Parts on hand at cost', 90000, 0, 500000, 1000, '$'), I('mu', 'Average monthly usage at cost', 30000, 1000, 200000, 1000, '$')],
-          outputs: [{ kpi: 'parts_buffer', f: function (v) { return v.oh / Math.max(v.mu, 1); } }] },
         { title: 'Damage Recovery Rate', def: 'Customer damage collected divided by total cost of customer damage repairs, times 100.',
           inputs: [I('dc', 'Customer damage collected', 15000, 0, 200000, 500, '$'), I('dr', 'Total cost of customer damage repairs', 20000, 500, 200000, 500, '$')], outputs: ratio('damage_recovery_rate', 'dc', 'dr') },
         { title: 'Telematics Triage', def: 'Critical alerts triaged within 2 hours divided by total critical alerts, times 100.',
@@ -172,7 +169,7 @@
             var row = el('div', 'out');
             row.appendChild(el('span', 'nm', t.name));
             row.appendChild(el('span', 'val', nf(val, t.unit === 'ratio' ? 2 : 1) + (UNIT_SUFFIX[t.unit] || '')));
-            row.appendChild(el('span', 'pill ' + g.grade.toLowerCase(), g.grade + (g.label ? ': ' + g.label : '')));
+            row.appendChild(el('span', 'pill ' + g.grade.toLowerCase(), (g.grade === 'INFO' ? g.label : g.grade + (g.label ? ': ' + g.label : ''))));
             row.appendChild(el('span', 'tg', 'Target: ' + t.text));
             outBox.appendChild(row);
           });

@@ -52,7 +52,7 @@
       { inputs: [F('mc', 'Annual maintenance cost, no technician labor', '$'), F('oec2', 'Fleet original equipment cost', '$')], need: ['mc', 'oec2'],
         outputs: [{ id: 'maintenance_cost_oec', f: function (v) { return pct(v.mc, v.oec2); },
           why: 'A very low maintenance cost can mean deferred maintenance, which flatters earnings today and leaves a repair bill for the buyer.' }] },
-      { inputs: [F('dd', 'Down days', 'days'), F('fd', 'Available days', 'days')], need: ['dd', 'fd'],
+      { inputs: [F('dd', 'Down days', 'days'), F('fd', 'Days available for rent', 'days')], need: ['dd', 'fd'],
         outputs: [{ id: 'fleet_downtime', f: function (v) { return pct(v.dd, v.fd); },
           why: 'Down days cut revenue and often point to maintenance problems that the earnings do not yet show.' }] }
     ] },
@@ -142,7 +142,7 @@
               var g = grade(res.o.id, value);
               res.g = g; res.v = value;
               res.val.textContent = nf(value) + (UNIT[T[res.o.id].unit] || '');
-              res.pill.textContent = g.grade + (g.label ? ': ' + g.label : '');
+              res.pill.textContent = g.grade === 'INFO' ? g.label : g.grade + (g.label ? ': ' + g.label : '');
               res.pill.className = 'pill ' + g.grade.toLowerCase();
             }
           });
@@ -157,7 +157,7 @@
       var lines = el('div', 'dd-sum-lines'), flagged = [];
       DEPTS.forEach(function (d) {
         var rs = results.filter(function (r) { return r.dept === d.name; });
-        var graded = rs.filter(function (r) { return r.g; });
+        var graded = rs.filter(function (r) { return r.g && r.g.grade !== 'INFO'; });
         var warn = graded.filter(function (r) { return r.g.grade === 'WARN'; }).length;
         var fail = graded.filter(function (r) { return r.g.grade === 'FAIL'; }).length;
         var text;

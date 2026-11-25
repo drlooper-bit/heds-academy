@@ -1017,7 +1017,7 @@ table {
 
       <div class="floor-rule">
         <div class="floor-rule-title">PRO TIP</div>
-        Any machine whose trailing 12-month maintenance cost (tech labor excluded) exceeds the 8% of OEC target requires mandatory GM and Fleet Manager review before another dollar of labor or parts is authorized.
+        Any machine whose trailing 12-month maintenance cost (tech labor excluded) exceeds 10% of OEC (the WARN line) requires mandatory GM and Fleet Manager review before another dollar of labor or parts is authorized.
 </div>
 
       <div class="curr-section">
@@ -1028,7 +1028,7 @@ table {
             <div class="spec-title" style="color:var(--success);">What It Measures</div>
             <p style="font-size:0.88rem;">Evaluates total annual maintenance expense (replacement parts, lubricants, outside sublet repairs, and towing; technician labor excluded) relative to the original capital acquisition cost of the machine.</p>
             <p style="font-size:0.88rem; margin-top:6px;">Accounting note: rental books technician labor as an operating expense, while dealers book labor as a revenue line, which is why United Rentals excludes tech labor from R&amp;M.</p>
-            <p style="font-size:0.88rem; margin-top:6px;">HEDS target: 8% of OEC (fleet cost) or less per year, tech labor excluded. It varies by type of fleet: a small fleet runs a lower percentage, a large fleet runs a higher percentage, and a mixed fleet lands somewhere in that range.</p>
+            <p style="font-size:0.88rem; margin-top:6px;">HEDS target: 8% to 10% of OEC (fleet cost) per year, WARN above 10%, tech labor excluded. It varies by type of fleet: a small fleet runs a lower percentage, a large fleet runs a higher percentage, and a mixed fleet lands somewhere in that range.</p>
 </div>
           <div class="spec-box" style="background:rgba(239, 68, 68, 0.08); border-left-color:var(--danger); margin:0;">
             <div class="spec-title" style="color:var(--danger);">What It Does NOT Measure</div>
@@ -1049,12 +1049,12 @@ table {
           <div class="dash-table" style="margin:10px 0; font-size:0.85rem; overflow-x:auto;"><table style="width:100%; border-collapse:collapse; font-size:0.8rem; text-align:left;"><thead><tr style="border-bottom:2px solid var(--accent-color); color:var(--accent-color);"><th style="padding:8px;">Step</th><th style="padding:8px;">Formula step</th></tr></thead><tbody><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Step 1</td><td style="padding:8px;">Leave out internal technician labor: rental books it as an operating expense, not as maintenance cost.</td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Step 2</td><td style="padding:8px;">Enter total parts and filter costs charged to the unit.</td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Step 3</td><td style="padding:8px;">Enter all sublet repair, glass, tire, and outside vendor costs.</td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Step 4</td><td style="padding:8px;">Sum parts and sublet (no tech labor) to find Total 12-Month Maintenance Spend.</td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Step 5</td><td style="padding:8px;">Divide by the machine's capitalized OEC.</td></tr><tr><td style="padding:8px; font-weight:600; width:30%;">Step 6</td><td style="padding:8px;">Multiply by 100 to get the annual maintenance percentage.</td></tr></tbody></table></div>
           <div style="margin-top:12px; font-size:0.85rem;">
             <p><strong>Worked Examples (Industry Standard Benchmarks):</strong></p>
-            <p style="margin-top:6px;"><strong>Machine A (20-Ton Excavator):</strong> OEC: $240,000. 12-Mo Maint Spend (excl. tech labor): $10,800. Calculation: ($10,800 / $240,000) &times; 100 = <strong style="color:var(--success);">4.5% &rarr; PASS (at or below the 8% of OEC target)</strong></p>
-            <p><strong>Machine B (Compact Track Loader - 5 Years Old):</strong> OEC: $68,000. 12-Mo Maint Spend (excl. tech labor): $7,480. Calculation: ($7,480 / $68,000) &times; 100 = <strong style="color:var(--danger);">11.0% &rarr; FAIL (over 10%, Disposition Alert)</strong></p>
+            <p style="margin-top:6px;"><strong>Machine A (20-Ton Excavator):</strong> OEC: $240,000. 12-Mo Maint Spend (excl. tech labor): $10,800. Calculation: ($10,800 / $240,000) &times; 100 = <strong style="color:var(--success);">4.5% &rarr; PASS (within the 8% to 10% of OEC target)</strong></p>
+            <p><strong>Machine B (Compact Track Loader - 5 Years Old):</strong> OEC: $68,000. 12-Mo Maint Spend (excl. tech labor): $7,480. Calculation: ($7,480 / $68,000) &times; 100 = <strong style="color:var(--warning);">11.0% &rarr; WARN (over 10%, Disposition Alert)</strong></p>
 </div>
           <div style="margin-top:8px; font-size:0.85rem;">
             <strong>HEDS Target Benchmark:</strong>
-            <div class="dash-table" style="margin:10px 0; font-size:0.85rem; overflow-x:auto;"><table style="width:100%; border-collapse:collapse; font-size:0.8rem; text-align:left;"><thead><tr style="border-bottom:2px solid var(--accent-color); color:var(--accent-color);"><th style="padding:8px;">Measure</th><th style="padding:8px;">Target</th></tr></thead><tbody><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Target</td><td style="padding:8px;">8% of OEC / Year or less (fleet cost, tech labor excluded)</td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Warning Band</td><td style="padding:8px;">8.1% to 10.0%</td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Fail / Disposition Flag</td><td style="padding:8px;">&gt; 10.0% of OEC</td></tr><tr><td style="padding:8px; font-weight:600; width:30%;">Fleet type</td><td style="padding:8px;">a small fleet runs a lower percentage, a large fleet a higher one, and a mixed fleet lands somewhere in that range.</td></tr></tbody></table></div>
+            <div class="dash-table" style="margin:10px 0; font-size:0.85rem; overflow-x:auto;"><table style="width:100%; border-collapse:collapse; font-size:0.8rem; text-align:left;"><thead><tr style="border-bottom:2px solid var(--accent-color); color:var(--accent-color);"><th style="padding:8px;">Measure</th><th style="padding:8px;">Target</th></tr></thead><tbody><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Target</td><td style="padding:8px;">8% to 10% of OEC / Year (fleet cost, tech labor excluded)</td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Warning / Disposition Flag</td><td style="padding:8px;">WARN above 10.0% of OEC</td></tr><tr><td style="padding:8px; font-weight:600; width:30%;">Fleet type</td><td style="padding:8px;">a small fleet runs a lower percentage, a large fleet a higher one, and a mixed fleet lands somewhere in that range.</td></tr></tbody></table></div>
 </div>
 </div>
 </div>
@@ -1086,7 +1086,7 @@ table {
 </div>
         <div class="spec-box" style="margin-top:12px;">
           <div class="spec-title">Deliverable: 5% At-Risk Fleet Review Sheet</div>
-          <p>Complete audit of branch assets exceeding the 8% Maint/OEC target with clear repair-vs-auction recommendations for executive leadership.</p>
+          <p>Complete audit of branch assets above the 10% Maint/OEC WARN line with clear repair-vs-auction recommendations for executive leadership.</p>
 </div>
 </div>
 </div>
@@ -1336,13 +1336,12 @@ table {
           <div class="formula-title">90-DAY RUN-RATE MODEL FORMULAS</div>
           <div class="formula-expr">Monthly Run Rate = Trailing 6-Mo Parts Consumption / 6</div>
           <div class="formula-expr" style="margin-top:6px;">90-Day Target Inventory = Monthly Run Rate &times; 3</div>
-          <div class="formula-expr" style="margin-top:6px;">Days of Supply = Current Inventory $ / Average Daily Parts Usage $</div>
-        <div class="worked-calc" data-calc="run_rate"></div>
+                  <div class="worked-calc" data-calc="run_rate"></div>
           <div class="dash-table" style="margin:10px 0; font-size:0.85rem; overflow-x:auto;"><table style="width:100%; border-collapse:collapse; font-size:0.8rem; text-align:left;"><thead><tr style="border-bottom:2px solid var(--accent-color); color:var(--accent-color);"><th style="padding:8px;">Step</th><th style="padding:8px;">Formula step</th></tr></thead><tbody><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Step 1</td><td style="padding:8px;">Enter trailing 6-month parts consumption for the SKU.</td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Step 2</td><td style="padding:8px;">Divide by 6 to get Monthly Run Rate.</td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Step 3</td><td style="padding:8px;">Multiply by 3 to get the 90-Day Target Stock Level.</td></tr><tr><td style="padding:8px; font-weight:600; width:30%;">Step 4</td><td style="padding:8px;">Set Reorder Point (Min) = 1 month of supply. Maximum Stock Level (Max) = 3 months of supply.</td></tr></tbody></table></div>
           <p style="margin-top:10px; font-size:0.85rem;"><strong>Worked Example (Filter Inventory Run Rate):</strong> Part: Engine Oil Filter (P/N HF6510) used across 25 skid steers. Trailing 6-Month Consumption: 48 filters. Monthly Run Rate: 48 / 6 = 8 filters/month. Target 90-Day Stock Level: 8 &times; 3 = 24 filters. Reorder Point (Min): 8 filters (30-day buffer). Maximum Stock Level (Max): 24 filters (90-day buffer).</p>
           <div style="margin-top:8px; font-size:0.85rem;">
             <strong>HEDS Target Benchmarks:</strong>
-            <div class="dash-table" style="margin:10px 0; font-size:0.85rem; overflow-x:auto;"><table style="width:100%; border-collapse:collapse; font-size:0.8rem; text-align:left;"><thead><tr style="border-bottom:2px solid var(--accent-color); color:var(--accent-color);"><th style="padding:8px;">Item</th><th style="padding:8px;">Detail</th></tr></thead><tbody><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Run-Rate Stocking Window</td><td style="padding:8px;">Strict 90-Day (3-Month) Buffer on high-velocity PM and wear items.</td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Maintenance Parts Fill Rate</td><td style="padding:8px;">&ge; 95% for all scheduled PM kits, counted by line item, then averaged.</td></tr><tr><td style="padding:8px; font-weight:600; width:30%;">Dead Stock / Obsolescence</td><td style="padding:8px;">&lt; 3% of total inventory value with zero movement in &gt;180 days (&lt; 5% over 365 days).</td></tr></tbody></table></div>
+            <div class="dash-table" style="margin:10px 0; font-size:0.85rem; overflow-x:auto;"><table style="width:100%; border-collapse:collapse; font-size:0.8rem; text-align:left;"><thead><tr style="border-bottom:2px solid var(--accent-color); color:var(--accent-color);"><th style="padding:8px;">Item</th><th style="padding:8px;">Detail</th></tr></thead><tbody><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Run-Rate Stocking Window</td><td style="padding:8px;">Strict 90-Day (3-Month) Buffer on high-velocity PM and wear items.</td></tr><tr><td style="padding:8px; font-weight:600; width:30%;">Maintenance Parts Fill Rate</td><td style="padding:8px;">&ge; 95% for all scheduled PM kits, counted by line item, then averaged.</td></tr></tbody></table></div>
 </div>
 </div>
 </div>
@@ -1376,8 +1375,8 @@ table {
 </div>
 
       <div class="spec-box">
-        <div class="spec-title">Deliverable: 90-Day PM Reorder Schedule &amp; Dead Stock Purge List</div>
-        <p>Audit your parts room. Calculate total inventory valuation vs. daily usage to get Days of Supply. Flag all part numbers with zero movement in 180+ days.</p>
+        <div class="spec-title">Deliverable: 90-Day PM Reorder Schedule</div>
+        <p>Audit your parts room. Set the min and max for each PM and wear item from its trailing run rate.</p>
 </div>
 </div>
 </div>
@@ -1452,7 +1451,7 @@ table {
           <div class="dash-table" style="margin:10px 0; font-size:0.85rem; overflow-x:auto;"><table style="width:100%; border-collapse:collapse; font-size:0.8rem; text-align:left;"><thead><tr style="border-bottom:2px solid var(--accent-color); color:var(--accent-color);"><th style="padding:8px;">Step</th><th style="padding:8px;">Formula step</th></tr></thead><tbody><tr><td style="padding:8px; font-weight:600; width:30%;">Step 1</td><td style="padding:8px;">Enter customer abuse invoiced &amp; collected vs. total damage repair cost to calculate Damage Recovery %.</td></tr></tbody></table></div>
           <div style="margin-top:10px; font-size:0.85rem;">
             <strong>HEDS Target Benchmarks:</strong>
-            <div class="dash-table" style="margin:10px 0; font-size:0.85rem; overflow-x:auto;"><table style="width:100%; border-collapse:collapse; font-size:0.8rem; text-align:left;"><thead><tr style="border-bottom:2px solid var(--accent-color); color:var(--accent-color);"><th style="padding:8px;">Measure</th><th style="padding:8px;">Target</th></tr></thead><tbody><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Fleet Downtime %</td><td style="padding:8px;">down days divided by available days, times 100. Under 8% (Critical alert: &gt;12%)</td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Maintenance Cost</td><td style="padding:8px;">measured as % of OEC, not % of revenue: 8% of OEC or less, tech labor excluded (Module 2)</td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Damage Recovery Rate</td><td style="padding:8px;">&ge; 85% of customer abuse recovered</td></tr><tr><td style="padding:8px; font-weight:600; width:30%;">Lost Revenue from In-Service Stock-Outs</td><td style="padding:8px;">$0 / Month</td></tr></tbody></table></div>
+            <div class="dash-table" style="margin:10px 0; font-size:0.85rem; overflow-x:auto;"><table style="width:100%; border-collapse:collapse; font-size:0.8rem; text-align:left;"><thead><tr style="border-bottom:2px solid var(--accent-color); color:var(--accent-color);"><th style="padding:8px;">Measure</th><th style="padding:8px;">Target</th></tr></thead><tbody><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Fleet Downtime %</td><td style="padding:8px;">down days divided by days available for rent, times 100. Under 8% (Critical alert: &gt;12%)</td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Maintenance Cost</td><td style="padding:8px;">measured as % of OEC, not % of revenue: 8% to 10% of OEC, WARN above 10%, tech labor excluded (Module 2)</td></tr><tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px; font-weight:600; width:30%;">Damage Recovery Rate</td><td style="padding:8px;">&ge; 85% of customer abuse recovered</td></tr><tr><td style="padding:8px; font-weight:600; width:30%;">Lost Revenue from In-Service Stock-Outs</td><td style="padding:8px;">$0 / Month</td></tr></tbody></table></div>
 </div>
 </div>
 
@@ -1477,7 +1476,7 @@ table {
             </thead>
             <tbody>
               <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px;">&lt; 6.0% (Optimal)</td><td style="padding:8px;">&lt; $450,000</td><td style="padding:8px;">World-Class</td><td style="padding:8px;">Maintain Fast-Track discipline</td></tr>
-              <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px;">6.0% to 8.0%</td><td style="padding:8px;">$450K to $600K</td><td style="padding:8px;">Healthy Standard</td><td style="padding:8px;">Monitor 90-day parts buffers</td></tr>
+              <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px;">6.0% to 8.0%</td><td style="padding:8px;">$450K to $600K</td><td style="padding:8px;">Healthy Standard</td><td style="padding:8px;">Monitor 90-day parts stocking</td></tr>
               <tr style="border-bottom:1px solid var(--border-color);"><td style="padding:8px;">8.1% to 12.0%</td><td style="padding:8px;">$600K to $900K</td><td style="padding:8px;">Drag Warning</td><td style="padding:8px;">Execute daily 5-day WIP scrub</td></tr>
               <tr><td style="padding:8px;">&gt; 12.0% (Critical)</td><td style="padding:8px;">&gt; $900K+</td><td style="padding:8px;">Severe Cash Bleed</td><td style="padding:8px;">Mandatory GM bay intervention</td></tr>
             </tbody>
@@ -1612,7 +1611,7 @@ table {
               <li>SOP #3: 90-Day Lean PM Run-Rate Parts Reorder Discipline.</li>
             </ul>
           </li>
-          <li><strong>5% At-Risk Fleet Disposition Package:</strong> Complete audit of branch assets exceeding the 8% Maint/OEC target with clear repair-vs-auction recommendations.</li>
+          <li><strong>5% At-Risk Fleet Disposition Package:</strong> Complete audit of branch assets above the 10% Maint/OEC WARN line with clear repair-vs-auction recommendations.</li>
           <li><strong>Signed Leadership Accountability Contract:</strong> Named weekly review rhythms, standing agendas, and milestone sign-offs between the Service Manager and Branch General Manager.</li>
         </ol>
 </div>
@@ -1635,7 +1634,6 @@ table {
     <button class="tab-btn" onclick="switchDashTab('dash_m3', this)">M3: Turnaround DTI</button>
     <button class="tab-btn" onclick="switchDashTab('dash_m4', this)">M4: Fleet Downtime</button>
     <button class="tab-btn" onclick="switchDashTab('dash_m5', this)">M5: Labor &amp; 48-Hr Close</button>
-    <button class="tab-btn" onclick="switchDashTab('dash_m6', this)">M6: 90-Day Parts</button>
     <button class="tab-btn" onclick="switchDashTab('dash_m7', this)">M7: Damage Recovery</button>
     <button class="tab-btn" onclick="switchDashTab('dash_m8', this)">M8: Telematics SLA</button>
     <button class="tab-btn" onclick="switchDashTab('dash_m9', this)">M9: Rental Leak</button>
@@ -1765,7 +1763,7 @@ table {
       <div class="card">
         <div class="card-title">Enter Your Branch Numbers: Fleet Downtime</div>
         <div class="form-group">
-          <label for="dm4_total_days">Your Available Days (units &times; days in period)</label>
+          <label for="dm4_total_days">Your Days Available for Rent (units &times; days in period)</label>
           <input type="number" id="dm4_total_days" value="4500" placeholder="Enter available days" oninput="calcMod4()">
 </div>
         <div class="form-group">
@@ -1867,44 +1865,7 @@ table {
 </div>
 </div>
 
-  <!-- DASH M6: 90-Day Parts Buffer -->
-  <div id="dash_m6" class="tab-content">
-    <p style="color:var(--muted); font-size:0.85rem; margin-bottom:10px;">Parts Buffer (Months of Supply) is a secondary measure.</p>
-    <div id="kpi-parts-buffer" class="grid-2">
-      <div class="card">
-        <div class="card-title">Enter Your Branch Numbers: 90-Day Parts Buffer</div>
-        <div class="form-group">
-          <label for="dm6_consumption">Your Trailing 6-Month Parts Consumption (units)</label>
-          <input type="number" id="dm6_consumption" value="48" placeholder="Enter 6-mo consumption" oninput="calcMod6()">
-</div>
-        <div class="form-group">
-          <label for="dm6_on_hand">Your Current On-Hand Inventory (units)</label>
-          <input type="number" id="dm6_on_hand" value="24" placeholder="Enter current on-hand" oninput="calcMod6()">
-</div>
-</div>
-      <div>
-        <div class="card">
-          <div class="card-title">Parts Buffer Diagnostic</div>
-          <div class="metric-box">
-            <div style="font-size:0.8rem; color:var(--muted); font-weight:700;">MONTHS OF SUPPLY</div>
-            <div class="metric-val" id="dm6_res_months">3.0 months</div>
-            <div id="dm6_status" class="metric-status status-pass">PASS (90-Day Target)</div>
-</div>
-</div>
-        <div class="card">
-          <div class="card-title">Required ERP Report Verification Checklist</div>
-          <ul class="checklist">
-            <li><input type="checkbox" id="dm6_chk1"> Verified Inventory Valuation &amp; Movement Report</li>
-            <li><input type="checkbox" id="dm6_chk2"> Verified 6-Month Fleet Maintenance Parts Consumption</li>
-            <li><input type="checkbox" id="dm6_chk3"> Calculated Monthly Run Rate (consumption / 6)</li>
-            <li><input type="checkbox" id="dm6_chk4"> Flagged dead stock (&gt;180 days zero movement)</li>
-          </ul>
-</div>
-</div>
-</div>
-</div>
 
-  <!-- DASH M7: Damage Recovery -->
   <div id="dash_m7" class="tab-content">
     <div id="kpi-damage-recovery" class="grid-2">
       <div class="card">
@@ -2058,7 +2019,7 @@ table {
             <tr style="border-bottom:1px solid var(--border-color);">
               <td style="padding:10px; font-weight:600;">Maintenance Cost as a Percent of OEC</td>
               <td style="padding:10px;" id="s_val_oec">--</td>
-              <td style="padding:10px;">&le; 8% (WARN 8.1 to 10%)</td>
+              <td style="padding:10px;">8% to 10% (WARN above 10%)</td>
               <td style="padding:10px;" id="s_stat_oec">--</td>
             </tr>
             <tr style="border-bottom:1px solid var(--border-color);">
@@ -2086,12 +2047,6 @@ table {
               <td style="padding:10px;" id="s_stat_dmg">--</td>
             </tr>
             <tr><td colspan="4" style="padding:12px 10px 6px 10px; font-weight:800; font-size:0.8rem; letter-spacing:1px; text-transform:uppercase; color:var(--muted); border-bottom:2px solid var(--border-color);">Secondary measures and leak calculations</td></tr>
-            <tr style="border-bottom:1px solid var(--border-color);">
-              <td style="padding:10px; font-weight:600;">Parts Buffer (Months of Supply)</td>
-              <td style="padding:10px;" id="s_val_parts">--</td>
-              <td style="padding:10px;">3.0 months (90 days)</td>
-              <td style="padding:10px;" id="s_stat_parts">--</td>
-            </tr>
             <tr style="border-bottom:1px solid var(--border-color);">
               <td style="padding:10px; font-weight:600;">Telematics Triage</td>
               <td style="padding:10px;" id="s_val_tel">--</td>
@@ -2147,7 +2102,6 @@ table {
           <li><input type="checkbox" id="g1_chk7" onchange="saveGateCheckboxes()"> <strong>Hour-Meter Verification:</strong> Hour meters physically audited and reconciled against ERP fleet list.</li>
           <li><input type="checkbox" id="g1_chk8" onchange="saveGateCheckboxes()"> <strong>Initial PM Status Baseline:</strong> Hours to next PM or hours overdue listed and recorded for every unit.</li>
           <li><input type="checkbox" id="g1_chk9" onchange="saveGateCheckboxes()"> <strong>Parts Room Physical Audit:</strong> Physical inventory count of on-hand fast-moving PM maintenance items completed.</li>
-          <li><input type="checkbox" id="g1_chk10" onchange="saveGateCheckboxes()"> <strong>Dead Stock Identification:</strong> Initial purge list drafted for obsolete parts sitting idle for &gt;365 days.</li>
         </ul>
 </div>
 </div>
@@ -2175,7 +2129,6 @@ table {
           <li><input type="checkbox" id="g2_chk4" onchange="saveGateCheckboxes()"> <strong>Maintenance % of OEC Baseline:</strong> Cost report detailing Maintenance Cost as % of OEC generated across all asset categories.</li>
           <li><input type="checkbox" id="g2_chk5" onchange="saveGateCheckboxes()"> <strong>Work Order Cost Categorization:</strong> Work orders cleanly distinguishing between routine PM, major repair, damage rebill, and transport prep.</li>
           <li><input type="checkbox" id="g2_chk6" onchange="saveGateCheckboxes()"> <strong>Top 10 High-Maintenance Asset Review:</strong> Equipment audit completed on top 10 highest-maintenance units to determine disposition viability.</li>
-          <li><input type="checkbox" id="g2_chk7" onchange="saveGateCheckboxes()"> <strong>90-Day Run-Rate Parts Buffer:</strong> Parts stocking buffers set to strict 90-day supply of filters, fluids, teeth, and wear items based on trailing run rates.</li>
           <li><input type="checkbox" id="g2_chk8" onchange="saveGateCheckboxes()"> <strong>PO Direct-Link Discipline:</strong> Purchase orders for non-stock items linked directly to active work orders rather than shop overhead.</li>
           <li><input type="checkbox" id="g2_chk9" onchange="saveGateCheckboxes()"> <strong>Stockroom Fill Rate:</strong> Stockroom off-the-shelf fill rate for scheduled PM kits tracking at &ge; 95% (counted by line item, then averaged).</li>
           <li><input type="checkbox" id="g2_chk10" onchange="saveGateCheckboxes()"> <strong>Daily Standup Discipline:</strong> 10 to 15 minute morning huddle conducted consistently at 7:00 AM every business day.</li>
@@ -2380,9 +2333,8 @@ table {
       var pct = parseFloat(((spend / oec) * 100).toFixed(1)); // grade on the displayed (1-decimal) value
       document.getElementById('dm2_res_pct').innerText = pct.toFixed(1) + '%';
       document.getElementById('s_val_oec').innerText = pct.toFixed(1) + '%';
-      if (pct <= 8) { setStatus('dm2_status', 'PASS', 'status-pass'); setScoreStatus('s_stat_oec', '<span class="metric-status status-pass">PASS</span>', '', '', 'pass'); }
-      else if (pct <= 10) { setStatus('dm2_status', 'WARN: OVER 8%', 'status-warn'); setScoreStatus('s_stat_oec', '', '<span class="metric-status status-warn">WARN</span>', '', 'warn'); }
-      else { setStatus('dm2_status', 'FAIL: OVER 10%', 'status-fail'); setScoreStatus('s_stat_oec', '', '', '<span class="metric-status status-fail">FAIL</span>', 'fail'); }
+      if (pct <= 10) { setStatus('dm2_status', 'PASS', 'status-pass'); setScoreStatus('s_stat_oec', '<span class="metric-status status-pass">PASS</span>', '', '', 'pass'); }
+      else { setStatus('dm2_status', 'WARN: OVER 10%', 'status-warn'); setScoreStatus('s_stat_oec', '', '<span class="metric-status status-warn">WARN</span>', '', 'warn'); }
     } else {
       document.getElementById('dm2_res_pct').innerText = '--';
       document.getElementById('s_val_oec').innerText = '--';
@@ -2468,27 +2420,6 @@ table {
     saveData();
   }
 
-  function calcMod6() {
-    var consumption = parseFloat(document.getElementById('dm6_consumption') ? document.getElementById('dm6_consumption').value : 0) || 0;
-    var onHand = parseFloat(document.getElementById('dm6_on_hand') ? document.getElementById('dm6_on_hand').value : 0) || 0;
-    if (consumption > 0) {
-      var monthlyRate = consumption / 6;
-      if (monthlyRate > 0) {
-        var monthsSupply = onHand / monthlyRate;
-        document.getElementById('dm6_res_months').innerText = monthsSupply.toFixed(1) + ' months';
-        document.getElementById('s_val_parts').innerText = monthsSupply.toFixed(1) + ' months';
-        if (monthsSupply >= 2.5 && monthsSupply <= 3.5) { setStatus('dm6_status', 'PASS (90-Day Target)', 'status-pass'); setScoreStatus('s_stat_parts', '<span class="metric-status status-pass">PASS</span>', '', '', 'pass'); }
-        else if (monthsSupply >= 1.5 && monthsSupply <= 4.5) { setStatus('dm6_status', 'WARN', 'status-warn'); setScoreStatus('s_stat_parts', '', '<span class="metric-status status-warn">WARN</span>', '', 'warn'); }
-        else { setStatus('dm6_status', monthsSupply < 1.5 ? 'FAIL (STOCKOUT RISK)' : 'FAIL (EXCESS STOCK)', 'status-fail'); setScoreStatus('s_stat_parts', '', '', '<span class="metric-status status-fail">FAIL</span>', 'fail'); }
-      }
-    } else {
-      document.getElementById('dm6_res_months').innerText = '--';
-      document.getElementById('s_val_parts').innerText = '--';
-      setStatus('dm6_status', '--', 'status-warn');
-    }
-    saveData();
-  }
-
   function calcMod7() {
     var invoiced = parseFloat(document.getElementById('dm7_invoiced') ? document.getElementById('dm7_invoiced').value : 0) || 0;
     var totalDmg = parseFloat(document.getElementById('dm7_total_damage') ? document.getElementById('dm7_total_damage').value : 0) || 0;
@@ -2544,7 +2475,7 @@ table {
   }
 
   function calcAll() {
-    calcMod1(); calcMod2(); calcMod3(); calcMod4(); calcMod5(); calcMod6(); calcMod7(); calcMod8();
+    calcMod1(); calcMod2(); calcMod3(); calcMod4(); calcMod5(); calcMod7(); calcMod8();
     calcLeak();
     saveData();
   }
@@ -2865,7 +2796,7 @@ table {
     "question": "What is the HEDS annual target for Maintenance Cost as a % of OEC across a rental fleet (tech labor excluded)?",
     "options": [
       "0.5% to 1.5%",
-      "8% of OEC or less",
+      "8% to 10% of OEC, WARN above 10%",
       "12.0% to 18.0%",
       "25.0% to 35.0%"
     ]
@@ -2876,7 +2807,7 @@ table {
     "module": "Module 2: Fleet Economics & OEC",
     "module_id": "c_m2",
     "type": "scenario",
-    "question": "A 6-year-old compact track loader with an OEC of $60,000 has accumulated $7,800 in maintenance spend, excluding tech labor, over the last 12 months (13.0% of OEC, well over the 8% target) and now needs a $6,000 hydraulic drive motor replacement. What should the Rental Service Manager recommend?",
+    "question": "A 6-year-old compact track loader with an OEC of $60,000 has accumulated $7,800 in maintenance spend, excluding tech labor, over the last 12 months (13.0% of OEC, well over the 10% WARN line) and now needs a $6,000 hydraulic drive motor replacement. What should the Rental Service Manager recommend?",
     "options": [
       "Immediately authorize the repair without consulting branch leadership",
       "Charge the repair cost directly to the rental counter overhead",
@@ -3243,7 +3174,7 @@ table {
     "question": "Under the HEDS standard, how is rental fleet maintenance cost measured?",
     "options": [
       "As a percentage of rental revenue, including technician labor",
-      "As a percentage of OEC (fleet cost): 8% of OEC or less, technician labor excluded",
+      "As a percentage of OEC (fleet cost): 8% to 10% of OEC with a WARN above 10%, technician labor excluded",
       "As a percentage of OEC: 15% to 25%, technician labor included",
       "As the average cost per work order"
     ]
@@ -3268,12 +3199,12 @@ table {
     "module": "Module 6: Economic Downtime",
     "module_id": "c_m6",
     "type": "mc",
-    "question": "What is the benchmark target for Fleet Downtime % (down days divided by available days) across a healthy equipment rental branch?",
+    "question": "What is the benchmark target for Fleet Downtime % (down days divided by days available for rent) across a healthy equipment rental branch?",
     "options": [
       "15.0% to 20.0%",
       "25.0% to 35.0%",
       "Over 40.0%",
-      "Under 8.0% of available days"
+      "Under 8.0% of days available for rent"
     ]
   
 },
