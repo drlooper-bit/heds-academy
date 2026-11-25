@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>HEDS Operating Discipline Academy: Parts Manager Training &amp; Operating Platform</title>
-<meta name="description" content="Heavy Equipment Dealer Solutions LLC: Parts Manager Training Program with interactive KPI dashboard, curriculum, and the HEDS Operating Discipline Academy Certification assessment.">
+<meta name="description" content="Heavy Equipment Dealer Solutions LLC: Parts Manager Training Program with interactive KPI dashboard, curriculum, and a Management Readiness Score.">
 <link rel="canonical" href="https://hedsconsulting.net/parts-manager-dashboard.html">
 <link rel="icon" type="image/png" href="LOGO_HEDS_small.png">
 <style>
@@ -493,7 +493,7 @@
   .completion-btn.completed-btn:hover { background: rgba(239, 68, 68, 0.1); }
 
 
-  /* Shared component additions (trajectory bar, KPI grids, data tables, pager, diploma) */
+  /* Shared component additions (trajectory bar, KPI grids, data tables, pager, score summary) */
   .trajectory-bar {
     background: var(--card-bg);
     border: 1px solid var(--border-color);
@@ -876,7 +876,7 @@ table {
       <button class="dropdown-item" onclick="switchCurrTab('c_m5', this)">Day 3: Module 5: Floor Execution: Inventory Discipline</button>
       <button class="dropdown-item" onclick="switchCurrTab('c_m6', this)">Day 3: Module 6: Forecasting with Leading Indicators</button>
       <div class="dropdown-group-label">Capstone</div>
-      <button class="dropdown-item" onclick="switchCurrTab('c_certificate', this)">Capstone: Diploma Credential</button>
+      <button class="dropdown-item" onclick="switchCurrTab('c_certificate', this)">Capstone: Management Readiness Score</button>
     </div>
   </div>
 
@@ -1193,30 +1193,30 @@ table {
     </div>
   </div>
 
-  <!-- CAPSTONE: CERTIFICATE OF COMPLETION -->
+  <!-- CAPSTONE: MANAGEMENT READINESS SCORE -->
   <div id="c_certificate" class="tab-content">
     <div class="card">
       <div class="curr-module-header" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;">
         <div>
           <div class="curr-day-tag">Program Capstone</div>
-          <div class="curr-module-title">Credential Spec: Diploma Credential</div>
+          <div class="curr-module-title">Management Readiness Score</div>
         </div>
-        <span style="color:var(--muted); font-size:0.9rem;">HEDS issues your certificate after grading the Industry Knowledge Assessment and receiving a signed 90-day action plan.</span>
+        <span style="color:var(--muted); font-size:0.9rem;">HEDS issues your Management Readiness Score after grading the Industry Knowledge Assessment and receiving a signed 90-day action plan.</span>
       </div>
 
-      <p style="font-size:0.9rem; margin:16px 0 10px;">To achieve the HEDS Operating Discipline Academy Certification, the Parts Manager must complete the 50-question timed Industry Knowledge Assessment and submit a signed 90-day action plan. HEDS grades the assessment and issues the certificate only after both are complete.</p>
+      <p style="font-size:0.9rem; margin:16px 0 10px;">To receive a Management Readiness Score, the Parts Manager must complete the 50-question timed Industry Knowledge Assessment and submit a signed 90-day action plan. HEDS grades the assessment and issues the Management Readiness Score only after both are complete.</p>
 
       <div class="floor-rule">
         <div class="floor-rule-title">PRO TIP</div>
-        The plan is not a suggestion. The Parts Manager signs it, dates it, and commits to a 30-day review with their facilitator. No plan, no certificate.
+        The plan is not a suggestion. The Parts Manager signs it, dates it, and commits to a 30-day review with their facilitator. No plan, no Management Readiness Score.
       </div>
 
       <div class="diploma-frame" id="cert_doc">
         <img src="LOGO_HEDS.png" alt="HEDS Logo" style="max-height:90px; width:auto; margin-bottom:12px;">
         <div style="font-size:0.75rem; color:var(--muted); text-transform:uppercase; letter-spacing:2px;">Heavy Equipment Dealer Solutions LLC</div>
         <div style="font-size:0.85rem; color:var(--muted); margin-bottom:18px;">HEDS Operating Discipline Academy</div>
-        <div style="font-size:1.8rem; font-weight:800; color:var(--accent-color); margin-bottom:18px;">Certificate of Completion</div>
-        <div style="font-size:0.8rem; color:var(--muted); margin-bottom:6px;">This officially certifies that</div>
+        <div style="font-size:1.8rem; font-weight:800; color:var(--accent-color); margin-bottom:18px;">Management Readiness Score</div>
+        <div style="font-size:0.8rem; color:var(--muted); margin-bottom:6px;">This Management Readiness Score summary is issued for</div>
         <div id="cert_name" style="font-size:1.6rem; font-weight:700; color:var(--fg); margin:0 auto 18px; border-bottom:1px solid var(--border-color); padding-bottom:10px; max-width:480px;">[Participant Name]</div>
         <p style="font-size:0.9rem; color:var(--muted); max-width:560px; margin:0 auto 24px;">has successfully completed the intensive Parts Manager Training &amp; Operating Platform covering the 8 core KPIs across 6 modules in rigorous operating discipline.</p>
         <div style="display:flex; justify-content:space-between; align-items:center; gap:16px; border-top:1px solid var(--border-color); padding-top:18px; flex-wrap:wrap;">
@@ -1224,10 +1224,10 @@ table {
             <div style="font-size:0.7rem; color:var(--muted); text-transform:uppercase; letter-spacing:1px;">Issue Date</div>
             <strong id="cert_date">[Issue Date]</strong>
           </div>
-          <div class="diploma-seal">OFFICIAL<br>ACADEMY<br>SEAL</div>
+          <div class="diploma-seal">HEDS<br>SCORE<br>SUMMARY</div>
           <div style="text-align:right;">
-            <div style="font-size:0.7rem; color:var(--muted); text-transform:uppercase; letter-spacing:1px;">Score &amp; Status</div>
-            <strong id="cert_score" style="color:var(--accent-color);">[Certified]</strong>
+            <div style="font-size:0.7rem; color:var(--muted); text-transform:uppercase; letter-spacing:1px;">Management Readiness Score</div>
+            <strong id="cert_score" style="color:var(--accent-color);">[Score]</strong>
           </div>
         </div>
       </div>
@@ -1536,7 +1536,7 @@ table {
 
   <!-- Sign-in Screen -->
   <div id="test_signin" class="card">
-    <div class="card-title">Industry Knowledge Assessment: HEDS Operating Discipline Academy Certification</div>
+    <div class="card-title">Industry Knowledge Assessment: Management Readiness Score</div>
     <p style="color:var(--muted); margin-bottom:20px;">This assessment tests your industry knowledge for the Parts Manager role. It is step one of the HEDS training cycle, and HEDS uses your result to decide where to focus with you. You have 90 minutes to answer all 50 questions. When you submit, your answers go to HEDS. HEDS grades the assessment and returns your result to you. The score is not shown on this page.</p>
     <div class="form-group" id="test_info_fields">
       <label for="test_name">Your Full Name</label>
@@ -1579,7 +1579,7 @@ table {
   <div id="test_results" style="display:none;">
     <div class="card">
       <div class="card-title">Assessment Submitted</div>
-      <p style="margin-bottom:12px;">Your answers were submitted to HEDS. HEDS grades the assessment and returns your result, and any certificate, to you. Your score is not shown on this page.</p>
+      <p style="margin-bottom:12px;">Your answers were submitted to HEDS. HEDS grades the assessment and returns your result, including your Management Readiness Score, to you. Your score is not shown on this page.</p>
       <div id="result_relay_status" style="font-size:0.9rem; color:var(--muted); margin-bottom:20px;"></div>
       <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px; margin-bottom:24px;">
         <div>

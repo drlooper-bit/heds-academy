@@ -68,7 +68,7 @@
 
     training: {
       title: 'Onsite Training Course, 5 Days',
-      lead: 'Training is a supporting offer, not the first ask. Each course is five days onsite for one manager, one on one with a HEDS Qualified Instructor, built on your real data.',
+      lead: 'Training is a supporting offer, not the first ask. Each course is five days onsite for one manager, one on one with HEDS, built on your real data.',
       steps: [
         { h: 'Take the assessment', t: 'Step one: the Industry Knowledge Assessment shows where to focus with each manager. Each manager sits the proctored 50 question assessment and gets a score report.' },
         { h: 'Scope the course', t: 'You book a discovery call, and HEDS recommends the right track and agrees the dates for the manager or managers who will attend.' },
@@ -76,7 +76,7 @@
         { h: 'Five days onsite', t: 'The manager spends five days at your location with classroom work, floor time and live process redesign using your real data.' },
         { h: 'Leave with a plan', t: 'By the end of the week the manager has built a personal scorecard and a written 90 day action plan from your own numbers.' }
       ],
-      deliver: 'A personal scorecard, a signed and dated 90 day action plan, an interactive dashboard you keep, the 50 question Industry Knowledge Assessment with a score report, implementation templates and a certificate of completion.',
+      deliver: 'A personal scorecard, a signed and dated 90 day action plan, an interactive dashboard you keep, the 50 question Industry Knowledge Assessment with a score report, implementation templates and a Management Readiness Score.',
       see: { links: [{ t: 'Service Manager', h: 'service-manager-dashboard.html' }, { t: 'Parts Manager', h: 'parts-manager-dashboard.html' }, { t: 'Rental Manager', h: 'rental-manager-dashboard.html' }, { t: 'Rental Service Manager', h: 'rental-service-manager-dashboard.html' }], then: 'then book a discovery call to choose your course.' },
       price: [ { label: 'Any one of the four courses', amount: '$8,000 per manager' } ],
       priceList: ['Service Manager', 'Parts Manager', 'Rental Manager', 'Rental Service Manager'],

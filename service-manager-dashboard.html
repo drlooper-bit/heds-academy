@@ -493,7 +493,7 @@
   .completion-btn.completed-btn:hover { background: rgba(239, 68, 68, 0.1); }
 
 
-  /* Shared component additions (trajectory bar, KPI grids, data tables, pager, diploma) */
+  /* Shared component additions (trajectory bar, KPI grids, data tables, pager, score summary) */
   .trajectory-bar {
     background: var(--card-bg);
     border: 1px solid var(--border-color);
@@ -2386,7 +2386,7 @@ table {
       </div>
 
       <div class="floor-rule">
-        <strong>PRO TIP.</strong> The plan is not a suggestion. The participant signs it, dates it, and commits to a 30-day review with their facilitator. No plan, no certificate.
+        <strong>PRO TIP.</strong> The plan is not a suggestion. The participant signs it, dates it, and commits to a 30-day review with their facilitator. No plan, no Management Readiness Score.
       </div>
 
       <div class="spec-box">
@@ -2394,8 +2394,8 @@ table {
       </div>
 
       <div class="curr-section">
-        <h3>Certificate of Completion</h3>
-        <p>Issued upon: (1) completion of all 20 curriculum modules, (2) completion of the capstone 90-day action plan, and (3) assessment test completion. The certificate is a one-time completion credential. Follow-up coaching is available as a separate engagement.</p>
+        <h3>Management Readiness Score</h3>
+        <p>HEDS issues a Management Readiness Score after the manager completes all 20 curriculum modules, the capstone 90-day action plan, and the assessment. Follow-up coaching is available as a separate engagement.</p>
       </div>
 
       <!-- Completion Tracker -->
@@ -2933,7 +2933,7 @@ table {
 
   <!-- Sign-in Screen -->
   <div id="test_signin" class="card">
-    <div class="card-title">Industry Knowledge Assessment: HEDS Operating Discipline Academy Certification</div>
+    <div class="card-title">Industry Knowledge Assessment: Management Readiness Score</div>
     <p style="color:var(--muted); margin-bottom:20px;">This assessment tests your industry knowledge for the Service Manager role. It is step one of the HEDS training cycle, and HEDS uses your result to decide where to focus with you. You have 90 minutes to answer all 50 questions. When you submit, your answers go to HEDS. HEDS grades the assessment and returns your result to you. The score is not shown on this page.</p>
     <div class="form-group" id="test_info_fields">
       <label for="test_name">Your Full Name</label>
@@ -2976,7 +2976,7 @@ table {
   <div id="test_results" style="display:none;">
     <div class="card">
       <div class="card-title">Assessment Submitted</div>
-      <p style="margin-bottom:12px;">Your answers were submitted to HEDS. HEDS grades the assessment and returns your result, and any certificate, to you. Your score is not shown on this page.</p>
+      <p style="margin-bottom:12px;">Your answers were submitted to HEDS. HEDS grades the assessment and returns your result, including your Management Readiness Score, to you. Your score is not shown on this page.</p>
       <div id="result_relay_status" style="font-size:0.9rem; color:var(--muted); margin-bottom:20px;"></div>
       <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px; margin-bottom:24px;">
         <div>
