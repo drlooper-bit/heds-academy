@@ -3,14 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<script>
-(function () {
-  var h = (location.hash || '').replace(/^#/, '').replace(/^sec-/, '');
-  if (h === 'operating-seats' || h === 'seats') {
-    location.replace('fractional-executive.html#operating-seats');
-  }
-})();
-</script>
 <title>HEDS | Heavy Equipment Dealer Solutions</title>
 <meta name="description" content="HEDS is an operating practice for construction, agricultural, truck, forklift and crane rental dealers, municipal and utility fleets, and private equity and search fund buyers of those businesses. Fractional Executive seats, the $1,600 Operational Health Analysis, a 90-day pilot implementation, audits, diligence, and training.">
 <meta name="google-site-verification" content="juXi8AiDSJ-9oK6rN8mlBASv7m_epb6sMyjfsM-3wls">
@@ -872,7 +864,7 @@ input, select, textarea {
   <button class="tab-btn" role="tab" aria-selected="false" data-sec="contact" onclick="showSection('contact', this)">Contact</button>
 </nav>
 <nav class="tab-nav sub-nav" id="sub-nav" role="tablist" aria-label="Services We Offer">
-  <a class="tab-btn" href="fractional-executive.html">Fractional Executive</a>
+  <button class="tab-btn" role="tab" aria-selected="false" data-sec="fractional" onclick="showSection('fractional', this)">Fractional Executive</button>
   <button class="tab-btn" role="tab" aria-selected="false" data-sec="diligence" onclick="showSection('diligence', this)">Due Diligence</button>
   <button class="tab-btn" role="tab" aria-selected="false" data-sec="dealership" onclick="showSection('dealership', this)">Dealership</button>
   <button class="tab-btn" role="tab" aria-selected="false" data-sec="rental" onclick="showSection('rental', this)">Rental</button>
@@ -886,7 +878,7 @@ input, select, textarea {
   <span id="overview"></span>
   <img src="heds-hero-banner.jpg" alt="Heavy equipment lineup, excavators and wheel loaders" class="hero-banner" width="1328" height="332" onerror="this.style.display='none'">
   <nav class="areas-bar" aria-label="Areas we cover">
-    <a class="area-btn" href="fractional-executive.html">Fractional Executive</a>
+    <button type="button" class="area-btn" onclick="showSection('fractional')">Fractional Executive</button>
     <button type="button" class="area-btn" onclick="showSection('diligence')">Due Diligence</button>
     <button type="button" class="area-btn" onclick="showSection('dealership')">Dealership</button>
     <button type="button" class="area-btn" onclick="showSection('rental')">Rental</button>
@@ -894,12 +886,17 @@ input, select, textarea {
     <button type="button" class="area-btn" onclick="showSection('training')">Training</button>
   </nav>
   <div class="hero">
+    <h2>HEDS Operating Practice</h2>
+    <p>HEDS finds the money your operation is losing or overlooking, and installs the discipline to keep the bottlenecks from coming back.</p>
+    <p>Heavy Equipment Dealer Solutions LLC serves construction, agricultural, truck, forklift and crane rental dealers, municipal and utility fleets, and private equity and search fund buyers of those businesses, across the United States. The work starts with Fractional Executive leadership, an Operational Health Analysis, a 90-day pilot implementation, or an onsite audit. Training remains available as a supporting offer, and it is not the first thing a new visitor is asked to buy.</p>
+    <p class="hero-cta"><a class="cta-btn" href="https://calendar.app.google/8R2rX7THVQffsytT8" target="_blank" rel="noopener">Book a Discovery Call<span class="sr-only"> (opens in a new tab)</span></a></p>
+  </div>
+
+  <div class="card" style="border-color:var(--accent);">
     <h2>Fractional Executive</h2>
     <p>Aged WIP sits in the shop and ties up cash. Technicians get paid for hours that never hit an invoice. Parts stock-outs and dead stock slow the work, rental units sit down, and branches run on different habits.</p>
-    <p>HEDS steps into a named operating seat and installs a daily rhythm so those leaks get closed and the numbers start moving.</p>
-    <p>The seats include Interim and Fractional VP of Product Support, and Director of Service, Parts and Aftermarket Operations, for equipment dealers and rental companies, plus Fixed Operations leadership. The full service is on the <a href="fractional-executive.html" style="color:var(--accent);">Fractional Executive page</a>.</p>
-    <p class="price-note">The work is priced at $200 an hour from the realistic hours required to perform it. Each quote lists the hours and the total before work starts. Travel time, mileage, lodging and meals are invoiced at actual cost. There is no set package or project price. This is an example of the math, not a package: 16 hours at $200 an hour is $3,200.</p>
-    <p class="hero-cta"><a class="cta-btn" href="https://calendar.app.google/8R2rX7THVQffsytT8" target="_blank" rel="noopener">Book a Discovery Call<span class="sr-only"> (opens in a new tab)</span></a></p>
+    <p>HEDS steps into a named operating seat and installs a daily rhythm so those leaks get closed and the numbers start moving. The seats include Interim and Fractional VP of Product Support, and Director of Service, Parts and Aftermarket Operations, for equipment dealers and rental companies, plus Fixed Operations leadership. Priced at $200 an hour from the realistic hours required, with travel at actual cost and no set package or project price.</p>
+    <p><a class="cta-secondary" href="#fractional" onclick="showSection('fractional'); return false;">Open the Fractional Executive tab</a></p>
   </div>
 
   <!-- ===== ENTRY: OPERATIONAL HEALTH ANALYSIS ===== -->
@@ -989,6 +986,36 @@ input, select, textarea {
     <p>Book a 30-minute discovery call. We'll review what's happening and recommend where to start.</p>
     <a class="cta-btn" href="https://calendar.app.google/8R2rX7THVQffsytT8" target="_blank" rel="noopener">Book a Discovery Call<span class="sr-only"> (opens in a new tab)</span></a>
   </div>
+</div>
+
+<!-- ===== FRACTIONAL EXECUTIVE SECTION (#fractional, #fractional-executive, #operating-seats, #seats resolve here) ===== -->
+<div class="section" id="sec-fractional" role="tabpanel">
+  <span id="fractional"></span>
+  <span id="fractional-executive"></span>
+  <span id="operating-seats"></span>
+  <span id="seats"></span>
+  <div class="hero">
+    <h2>Fractional Executive</h2>
+    <p>Aged WIP sits in the shop and ties up cash. Technicians get paid for hours that never hit an invoice. Parts stock-outs and dead stock slow the work, rental units sit down, and branches run on different habits.</p>
+    <p>HEDS steps into a named operating seat and installs a daily rhythm so those leaks get closed and the numbers start moving.</p>
+    <p class="hero-cta"><a class="cta-btn" href="https://calendar.app.google/8R2rX7THVQffsytT8" target="_blank" rel="noopener">Book a Discovery Call<span class="sr-only"> (opens in a new tab)</span></a></p>
+  </div>
+
+  <div class="card">
+    <h2>Who This Is For</h2>
+    <p>HEDS fills named fractional and interim operating seats for equipment dealers and rental companies, including construction, agricultural, truck, forklift and crane rental dealers, municipal and utility fleets, and private equity and search fund buyers of those businesses.</p>
+    <p>The seats include Interim and Fractional VP of Product Support, and Director of Service, Parts and Aftermarket Operations, for equipment dealers and rental companies, plus Fixed Operations leadership.</p>
+  </div>
+
+  <div class="card">
+    <h2>What the Client Gets</h2>
+    <p>The operation gets a named leader for a fixed term, a clear mandate, and coaching for the managers who report in the seat. Each quote shows the hours and the cost up front. The Operational Health Analysis findings put a dollar figure on the leaks, so the owner can weigh the cost of the work against what it recovers.</p>
+    <p>Book a 30-minute discovery call, or call <a href="tel:3527245603" style="color:var(--accent);">(352) 724-5603</a>.</p>
+  </div>
+
+  <div data-offer="seats" data-offer-nocta><noscript><p>HEDS fills one named operating seat for a fixed term, leads the function, and coaches the managers who report in it. The price is $200 an hour. Each service is priced from the realistic hours required to perform it, and the quote lists the hours and the total before work starts. Travel time, mileage, lodging and meals are invoiced at actual cost. There is no set package or project price. This is an example of the math, not a package: 16 hours at $200 an hour is $3,200. Call (352) 724-5603 to talk about a seat.</p></noscript></div>
+
+  <p style="font-size:0.85rem;margin-top:12px;text-align:center;"><a href="fractional-executive.html" style="color:var(--muted);">Open this page on its own</a> | <a href="#health-analysis" onclick="applyHash('#health-analysis'); return false;" style="color:var(--muted);">Operational Health Analysis</a></p>
 </div>
 
 <!-- ===== DUE DILIGENCE SECTION ===== -->
@@ -1481,12 +1508,12 @@ input, select, textarea {
     <h2>Service Lines</h2>
     <div class="table-container"><table class="table">
       <tr><th>Service</th><th>What It Does</th><th>Price or Next Step</th></tr>
-      <tr><td><strong>Fractional Executive</strong></td><td>Interim and Fractional VP of Product Support, and Director of Service, Parts and Aftermarket Operations, for equipment dealers and rental companies, plus Fixed Operations leadership</td><td>$200 an hour, priced from the realistic hours required to perform the service</td></tr>
-      <tr><td><strong>Operational Health Analysis</strong></td><td>Remote entry analysis of one branch, credited toward the Single Location Audit within 30 days</td><td>$1,600</td></tr>
-      <tr><td><strong>90-Day Pilot Implementation</strong></td><td>HEDS leads the turnaround and coaches service and parts managers after the analysis or audit findings, for a 90-day term</td><td>$200 an hour, priced from the hours required to perform the service</td></tr>
-      <tr><td><strong>Onsite Audit and Due Diligence</strong></td><td>Buy-side operational diligence is $8,000 for 3 days or $12,000 for 5 days, plus travel at actual cost</td><td>Book a discovery call</td></tr>
-      <tr><td><strong>Dealership and Rental Training</strong></td><td>Supporting 5-day onsite courses for managers, after the operating work is scoped</td><td>Book a discovery call</td></tr>
-      <tr><td><strong>Follow-Up Coaching</strong></td><td>Virtual sessions targeting specific stalled metrics</td><td>Book a discovery call</td></tr>
+      <tr><td><strong><a href="#fractional" onclick="showSection('fractional'); return false;" style="color:var(--accent);text-decoration:none;">Fractional Executive</a></strong></td><td>Interim and Fractional VP of Product Support, and Director of Service, Parts and Aftermarket Operations, for equipment dealers and rental companies, plus Fixed Operations leadership</td><td>$200 an hour, priced from the realistic hours required to perform the service</td></tr>
+      <tr><td><strong><a href="#health-analysis" onclick="applyHash('#health-analysis'); return false;" style="color:var(--accent);text-decoration:none;">Operational Health Analysis</a></strong></td><td>Remote entry analysis of one branch, credited toward the Single Location Audit within 30 days</td><td>$1,600</td></tr>
+      <tr><td><strong><a href="#pilot" onclick="applyHash('#pilot'); return false;" style="color:var(--accent);text-decoration:none;">90-Day Pilot Implementation</a></strong></td><td>HEDS leads the turnaround and coaches service and parts managers after the analysis or audit findings, for a 90-day term</td><td>$200 an hour, priced from the hours required to perform the service</td></tr>
+      <tr><td><strong><a href="#diligence" onclick="showSection('diligence'); return false;" style="color:var(--accent);text-decoration:none;">Onsite Audit and Due Diligence</a></strong></td><td>Buy-side operational diligence is $8,000 for 3 days or $12,000 for 5 days, plus travel at actual cost</td><td>Book a discovery call</td></tr>
+      <tr><td><strong><a href="#training" onclick="showSection('training'); return false;" style="color:var(--accent);text-decoration:none;">Dealership and Rental Training</a></strong></td><td>Supporting 5-day onsite courses for managers, after the operating work is scoped</td><td>Book a discovery call</td></tr>
+      <tr><td><strong><a href="#training" onclick="showSection('training'); return false;" style="color:var(--accent);text-decoration:none;">Follow-Up Coaching</a></strong></td><td>Virtual sessions targeting specific stalled metrics</td><td>Book a discovery call</td></tr>
     </table></div>
     <p style="font-size:0.85rem;color:var(--muted);margin-top:12px;">All services are scoped to your operation. Book a 30-minute discovery call to discuss scope and timeline.</p>
   </div>
@@ -1550,8 +1577,10 @@ input, select, textarea {
 <script>
 // Old and shortcut anchors that now resolve to a renamed or moved tab.
 var SEC_ALIASES = {
+  'fractional-executive': 'fractional', 'operating-seats': 'fractional', seats: 'fractional',
+  services: 'fractional',
   tracks: 'training', academy: 'training', sm: 'dealership', pm: 'dealership',
-  services: 'diligence', rsm: 'rental', rm: 'rental',
+  rsm: 'rental', rm: 'rental',
   snapshot: 'overview', 'initial-snapshot': 'overview',
   assessment: 'training', 'industry-knowledge-assessment': 'training',
   'health-analysis': 'overview', 'operational-health-analysis': 'overview', 'health-check': 'overview', 'operational-health-check': 'overview', 'report-review': 'overview', ohc: 'overview',
@@ -1559,35 +1588,24 @@ var SEC_ALIASES = {
   'dd-scorecard': 'diligence', 'due-diligence-scorecard': 'diligence',
   'fleet-owners': 'fleet', 'fleet-owner': 'fleet'
 };
-var SERVICE_SECS = ['diligence', 'dealership', 'rental', 'fleet', 'training'];
-var lastService = 'diligence';
-var SCROLL_ANCHORS = { assessment: 'assessment', 'industry-knowledge-assessment': 'assessment', snapshot: 'snapshot', 'initial-snapshot': 'snapshot', 'health-analysis': 'health-analysis', 'operational-health-analysis': 'health-analysis', 'health-check': 'health-analysis', 'operational-health-check': 'health-analysis', 'report-review': 'health-analysis', ohc: 'health-analysis', pilot: 'pilot', 'operating-seats': 'operating-seats', seats: 'operating-seats', 'dd-scorecard': 'dd-scorecard', 'due-diligence-scorecard': 'dd-scorecard' };
+var SERVICE_SECS = ['fractional', 'diligence', 'dealership', 'rental', 'fleet', 'training'];
+var lastService = 'fractional';
+var SCROLL_ANCHORS = { assessment: 'assessment', 'industry-knowledge-assessment': 'assessment', snapshot: 'snapshot', 'initial-snapshot': 'snapshot', 'health-analysis': 'health-analysis', 'operational-health-analysis': 'health-analysis', 'health-check': 'health-analysis', 'operational-health-check': 'health-analysis', 'report-review': 'health-analysis', ohc: 'health-analysis', pilot: 'pilot', 'dd-scorecard': 'dd-scorecard', 'due-diligence-scorecard': 'dd-scorecard' };
 function scrollAnchorFor(hash) {
   var h = (hash || '').replace(/^#/, '').replace(/^sec-/, '');
   return SCROLL_ANCHORS[h] || null;
 }
-var scrollAnchorRequested = scrollAnchorFor(window.location.hash);
 
 function resolveSec(hash) {
   var h = (hash || '').replace(/^#/, '').replace(/^sec-/, '');
   return SEC_ALIASES[h] || h;
 }
 
-function redirectSeats(hash) {
-  var h = (hash || '').replace(/^#/, '').replace(/^sec-/, '');
-  if (h === 'operating-seats' || h === 'seats') {
-    location.replace('fractional-executive.html#operating-seats');
-    return true;
-  }
-  return false;
-}
-
 function showServices() {
   showSection(lastService);
 }
 
-function showSection(secId, btn) {
-  if (redirectSeats(secId)) return;
+function showSection(secId, btn, skipReplace) {
   secId = resolveSec(secId);
   var targetSection = document.getElementById('sec-' + secId);
   if (!targetSection) return;
@@ -1613,10 +1631,35 @@ function showSection(secId, btn) {
   });
 
   // Sync URL hash for deep linking and back/forward
-  if (history.replaceState) {
+  if (!skipReplace && history.replaceState) {
     history.replaceState(null, '', '#' + secId);
   }
   window.scrollTo(0, 0);
+}
+
+function applyHash(rawHash) {
+  var h = rawHash || window.location.hash || '#overview';
+  var hash = resolveSec(h) || 'overview';
+  if (document.getElementById('sec-' + hash)) {
+    var scrollId = scrollAnchorFor(h);
+    showSection(hash, null, Boolean(scrollId));
+    if (scrollId) {
+      if (history.replaceState && h && window.location.hash !== h) {
+        history.replaceState(null, '', h);
+      }
+      setTimeout(function() {
+        var snap = document.getElementById(scrollId);
+        var hdr = document.querySelector('.site-header-group');
+        if (snap && snap.nextElementSibling) {
+          var y = snap.nextElementSibling.getBoundingClientRect().top + window.pageYOffset - (hdr ? hdr.offsetHeight : 0) - 12;
+          window.scrollTo({ top: y, behavior: 'instant' });
+        }
+      }, 300);
+    } else if (rawHash || window.location.hash) {
+      // Undo the browser's native jump to the hidden anchor span so the tab starts at its top.
+      setTimeout(function() { window.scrollTo({ top: 0, behavior: 'instant' }); }, 300);
+    }
+  }
 }
 
 // Shared blocks: one source in the page, reused wherever a data-clone placeholder names it.
@@ -1636,37 +1679,17 @@ function fillSharedBlocks() {
 // Support direct link to tabs on page load
 window.addEventListener('DOMContentLoaded', function() {
   fillSharedBlocks();
-  if (redirectSeats(window.location.hash)) return;
-  var hash = resolveSec(window.location.hash);
-  if (hash && document.getElementById('sec-' + hash)) {
-    showSection(hash);
-    var scrollId = scrollAnchorFor(window.location.hash) || scrollAnchorRequested;
-    if (scrollId) {
-      setTimeout(function() {
-        var snap = document.getElementById(scrollId);
-        var hdr = document.querySelector('.site-header-group');
-        if (snap && snap.nextElementSibling) {
-          var y = snap.nextElementSibling.getBoundingClientRect().top + window.pageYOffset - (hdr ? hdr.offsetHeight : 0) - 12;
-          window.scrollTo({ top: y, behavior: 'instant' });
-        }
-      }, 300);
-    } else if (window.location.hash) {
-      // Undo the browser's native jump to the hidden anchor span so the tab starts at its top.
-      setTimeout(function() { window.scrollTo({ top: 0, behavior: 'instant' }); }, 300);
-    }
+  if (window.location.hash) {
+    applyHash(window.location.hash);
   }
 });
 
-// Support browser back/forward buttons
+// Support browser back/forward buttons and same-document hash changes
 window.addEventListener('popstate', function() {
-  if (redirectSeats(window.location.hash)) return;
-  var hash = resolveSec(window.location.hash) || 'overview';
-  if (document.getElementById('sec-' + hash)) {
-    showSection(hash);
-  }
+  applyHash(window.location.hash || '#overview');
 });
 window.addEventListener('hashchange', function() {
-  if (redirectSeats(window.location.hash)) return;
+  applyHash(window.location.hash || '#overview');
 });
 </script>
 

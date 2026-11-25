@@ -128,7 +128,7 @@
         { h: 'Review the term', t: 'At the end of the 90 days you review the work against the plan and decide whether to continue with further implementation work or an operating seat.' }
       ],
       deliver: 'HEDS leads the operational turnaround for a fixed 90-day term and coaches the service and parts managers through that term.',
-      see: { links: [{ t: 'Operational Health Analysis', h: 'index.html#health-analysis' }], then: 'then, after findings are presented, you can also talk about a ', next: { t: 'Fractional Executive seat', h: 'fractional-executive.html' } },
+      see: { links: [{ t: 'Operational Health Analysis', h: 'index.html#health-analysis' }], then: 'then, after findings are presented, you can also talk about a ', next: { t: 'Fractional Executive seat', h: 'index.html#fractional' } },
       price: [
         { label: '90-day pilot implementation', amount: '$200 an hour' }
       ],
