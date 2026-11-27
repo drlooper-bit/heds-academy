@@ -68,7 +68,7 @@
 
     training: {
       title: 'Onsite Training Course, 5 Days',
-      lead: 'Training is a supporting offer, not the first ask. Each course is five days onsite for one manager, one on one with HEDS, built on your real data.',
+      lead: 'Training is a supporting offer, not the first ask. Each course is five days onsite for one manager, one on one with a HEDS Qualified Instructor, built on your real data.',
       steps: [
         { h: 'Take the assessment', t: 'Step one: the Industry Knowledge Assessment shows where to focus with each manager. Each manager sits the proctored 50 question assessment and gets a score report.' },
         { h: 'Scope the course', t: 'You book a discovery call, and HEDS recommends the right track and agrees the dates for the manager or managers who will attend.' },
