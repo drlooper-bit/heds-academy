@@ -161,9 +161,23 @@
   OFFERS.ohc = OFFERS.analysis;
   OFFERS.review = OFFERS.analysis;
 
+  // Short CTA used under dashboard results and library calculators.
+  // Wording, price and deliverable stay in step with the Operational Health Analysis offer.
+  OFFERS['analysis-cta'] = {
+    title: OFFERS.analysis.title,
+    compact: true,
+    lead: 'When a KPI on this page is falling short, the Operational Health Analysis is a practical place to start. This is a remote review of one branch. There is no onsite visit.',
+    deliver: OFFERS.analysis.deliver,
+    price: OFFERS.analysis.price,
+    note: OFFERS.analysis.note,
+    cta: OFFERS.analysis.cta
+  };
+
   function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
 
-  function build(id, o, noCta) {
+  function build(id, o, noCta, mount) {
+    if (o.compact) return buildCompact(id, o, noCta, mount);
+
     var steps = o.steps.map(function (s, i) {
       return '<li class="ho-step"><span class="ho-num" aria-hidden="true">' + (i + 1) + '</span>' +
         '<h4>' + esc(s.h) + '</h4><p>' + esc(s.t) + '</p></li>';
@@ -209,6 +223,128 @@
     return { html: html };
   }
 
+  function nearbyBooking(mount) {
+    if (!mount) return false;
+    var view = mount.closest('.calc-block') || mount.closest('#sec_dashboard') || mount.parentNode;
+    if (!view) return false;
+    var links = view.querySelectorAll('a[href="https://calendar.app.google/8R2rX7THVQffsytT8"]');
+    for (var i = 0; i < links.length; i++) {
+      if (!links[i].closest('[data-offer], .heds-offer')) return true;
+    }
+    return false;
+  }
+
+  function buildCompact(id, o, noCta, mount) {
+    var rows = o.price.map(function (r) {
+      return '<div class="ho-row"><span class="ho-label">' + esc(r.label) + '</span><span class="ho-amount">' + esc(r.amount) + '</span></div>';
+    }).join('');
+
+    var hideCta = noCta || nearbyBooking(mount);
+    var cta = (o.cta && !hideCta) ? '<p class="ho-cta"><a class="cta-btn" href="' + o.cta.href + '" target="_blank" rel="noopener">' +
+      esc(o.cta.label) + '<span class="sr-only"> (opens in a new tab)</span></a></p>' : '';
+
+    var html =
+      '<section class="heds-offer heds-offer-cta" data-offer-id="' + id + '" aria-label="' + esc(o.title) + '">' +
+        '<h3 class="ho-title">' + esc(o.title) + '</h3>' +
+        (o.lead ? '<p class="ho-lead" data-oha-hook>' + esc(o.lead) + '</p>' : '') +
+        '<div class="ho-foot">' +
+          '<div class="ho-box"><h4>What you receive</h4><p>' + esc(o.deliver) + '</p></div>' +
+          '<div class="ho-box ho-price"><h4>Price</h4>' + rows +
+            (o.note ? '<p class="ho-note">' + esc(o.note) + '</p>' : '') + '</div>' +
+        '</div>' +
+        cta +
+      '</section>';
+    return { html: html };
+  }
+
+  function hookScope(hook) {
+    var mount = hook.closest('[data-offer]');
+    if (!mount) return document;
+    return mount.closest('.calc-block') || mount.closest('#sec_dashboard') || document;
+  }
+
+  function cleanKpiName(raw) {
+    var t = String(raw || '').replace(/\s+/g, ' ').trim();
+    if (!t) return '';
+    t = t.replace(/^YOUR\s+/i, '');
+    t = t.replace(/\s*\([^)]*\)\s*$/, '');
+    t = t.replace(/\s*%\s*$/, '');
+    if (t.indexOf(':') !== -1) t = t.split(':')[0].trim();
+    if (t === t.toUpperCase() && /[A-Z]/.test(t)) {
+      t = t.toLowerCase().replace(/\b[a-z]/g, function (c) { return c.toUpperCase(); });
+    }
+    if (!t || /^(status|fail|warn|pass|info)$/i.test(t)) return '';
+    return t;
+  }
+
+  function kpiNameFrom(el) {
+    var row = el.closest('tr');
+    if (row) {
+      var td = row.querySelector('td');
+      if (td) return cleanKpiName(td.textContent);
+    }
+    var tile = el.closest('.tile');
+    if (tile) {
+      var nm = tile.querySelector('.out .nm');
+      if (nm) return cleanKpiName(nm.textContent);
+      var h = tile.querySelector('h4');
+      if (h) return cleanKpiName(h.textContent);
+    }
+    var box = el.closest('.metric-box');
+    if (box) {
+      var lab = box.querySelector('div');
+      if (lab) return cleanKpiName(lab.textContent);
+    }
+    return '';
+  }
+
+  function firstNamedFlag(root, selector) {
+    var nodes = root.querySelectorAll(selector);
+    for (var i = 0; i < nodes.length; i++) {
+      var name = kpiNameFrom(nodes[i]);
+      if (name) return name;
+    }
+    return '';
+  }
+
+  function weakestKpiName(root) {
+    var score = root.querySelector('#dash_summary, #dash_m10') || null;
+    var failSel = '.status-fail, .pill.fail';
+    var warnSel = '.status-warn, .pill.warn';
+    return (score && firstNamedFlag(score, failSel)) ||
+      firstNamedFlag(root, failSel) ||
+      (score && firstNamedFlag(score, warnSel)) ||
+      firstNamedFlag(root, warnSel) ||
+      '';
+  }
+
+  var GENERIC_LEAD = 'When a KPI on this page is falling short, the Operational Health Analysis is a practical place to start. This is a remote review of one branch. There is no onsite visit.';
+
+  function updateOhaHooks() {
+    var hooks = document.querySelectorAll('[data-oha-hook]');
+    for (var i = 0; i < hooks.length; i++) {
+      var hook = hooks[i];
+      var name = weakestKpiName(hookScope(hook));
+      var next = name
+        ? ('Your numbers flag ' + name + ' as a weak KPI. The Operational Health Analysis is a practical place to start. This is a remote review of one branch. There is no onsite visit.')
+        : GENERIC_LEAD;
+      if (hook.textContent !== next) hook.textContent = next;
+    }
+  }
+
+  function watchOhaHooks() {
+    updateOhaHooks();
+    document.addEventListener('input', updateOhaHooks);
+    document.addEventListener('change', updateOhaHooks);
+    if (typeof MutationObserver === 'undefined') return;
+    var obs = new MutationObserver(function () { updateOhaHooks(); });
+    var roots = document.querySelectorAll('#sec_dashboard, .calc-block');
+    if (!roots.length) roots = [document.body];
+    for (var i = 0; i < roots.length; i++) {
+      if (roots[i]) obs.observe(roots[i], { subtree: true, childList: true, characterData: true, attributes: true, attributeFilter: ['class'] });
+    }
+  }
+
   function render() {
     var mounts = document.querySelectorAll('[data-offer]:not([data-offer-done])');
     for (var i = 0; i < mounts.length; i++) {
@@ -216,14 +352,20 @@
       var id = m.getAttribute('data-offer');
       var o = OFFERS[id];
       if (!o) continue;
-      var b = build(id, o, m.hasAttribute('data-offer-nocta'));
+      var b = build(id, o, m.hasAttribute('data-offer-nocta'), m);
       m.innerHTML = b.html;
       m.setAttribute('data-offer-done', '1');
     }
+    updateOhaHooks();
   }
 
   w.hedsRenderOffers = render;
+  w.hedsUpdateOhaHooks = updateOhaHooks;
   w.HEDS_OFFERS = OFFERS;
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', render);
-  else render();
+  function start() {
+    render();
+    watchOhaHooks();
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start);
+  else start();
 })(window);

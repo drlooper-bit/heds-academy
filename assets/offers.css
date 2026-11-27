@@ -63,3 +63,8 @@
 @media print { .heds-offer .ho-cta { display: none; } }
 .heds-offer .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 .card .heds-offer { margin: 18px 0 4px; border-color: var(--border, var(--border-color, #203b60)); background: rgba(6, 21, 41, 0.35); }
+
+/* Compact Operational Health Analysis CTA under dashboard results and library calculators. */
+.heds-offer-cta { margin-top: 20px; }
+.calc-block .heds-offer-cta { margin: 18px 0 0; }
+@media print { .heds-offer-cta { display: none !important; } }
